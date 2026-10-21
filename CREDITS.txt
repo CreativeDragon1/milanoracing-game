@@ -1,0 +1,52 @@
+MILANO RACING - WORLD TOUR
+
+CAR AND TEAM ARTWORK
+Actual Fusion STEM Racing mesh from the user's existing
+Fusion_Reference_Render_Pack.zip / Fusion_Reference_Baked.blend.
+Source mesh and sponsor UVs retained; uniformly enlarged to 5.7 m for the game.
+Original CAD length approximately 0.230 m. 17,071 triangles.
+Four wheel assemblies separated for animation. Milano decals projected onto body.
+User-supplied Milano team logo retained. Brand marks belong to their owners.
+
+SKY / LIGHTING
+Kloppenheim 06 (Pure Sky), Greg Zaal and Jarod Guest, Poly Haven, CC0.
+https://polyhaven.com/a/kloppenheim_06_puresky
+4K HDR sky and prefiltered environment reflections. Mild display colour grading.
+
+ROAD MATERIAL
+Asphalt 02, Rob Tuytel, Poly Haven, CC0.
+https://polyhaven.com/a/asphalt_02
+1K diffuse, OpenGL normal and roughness textures.
+https://polyhaven.com/license
+
+CIRCUIT COORDINATES
+f1-circuits, Tomislav Bacinger, MIT license.
+https://github.com/bacinger/f1-circuits
+Seven mapped layouts were resampled, smoothed and scaled for this game.
+Unofficial recreations, not FIA-certified or surveyed venue models.
+No affiliation with Formula 1, the FIA, venue operators or STEM Racing is implied.
+Full license: LICENSE - Circuit Data.txt
+
+RENDERING
+Three.js r128 and matching example loaders, decal geometry and postprocessing.
+https://github.com/mrdoob/three.js/tree/r128
+MIT license: LICENSE - Three.js.txt
+
+TYPE
+Rajdhani Bold, Indian Type Foundry, SIL Open Font License.
+Full license: LICENSE - Rajdhani.txt
+
+ENGINEERING
+Guide paths use periodic B-spline lateral offsets with track-bound constraints,
+a minimum-curvature seed and numerical lap-time minimization. Speed envelopes
+use the same mass, tyre grip, drag, power, steering and axle brake-force limits
+as the browser model. Forward acceleration and backward braking passes are
+iterated around the closed loop. Suggested driving speeds have a 10% reserve.
+This is local optimization of a simplified model, not proof of the globally
+fastest physical lap. Track elevations and real F1 vehicle parameters are absent.
+
+MULTIPLAYER
+Python standard-library HTTP/HTTPS server. Cryptography generates a fresh
+per-host certificate. No shared private key is distributed. Server-owned
+timing and checkpoints; client-side vehicle simulation. Casual private-network
+ghost racing, not cheat-proof public hosting.

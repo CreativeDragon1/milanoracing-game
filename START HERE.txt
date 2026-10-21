@@ -1,0 +1,86 @@
+MILANO RACING - WORLD TOUR
+
+SOLO PLAY
+Open Milano Racing - Team Edition.html in Edge or Chrome. The car, textures,
+lighting and all eight circuits are embedded. No internet connection is needed.
+Use Change circuit to select Bahrain, Singapore, Monza, Monaco, Austria,
+Silverstone, Abu Dhabi or the original Milano Autodromo.
+
+SAME-NETWORK MULTIPLAYER
+1. Extract the complete ZIP on the host's Windows computer.
+2. Double-click Start Multiplayer.bat and keep its window open.
+3. Everyone opens the HTTPS network address printed in that window. The host
+   page opens automatically. Other computers must use the network address,
+   not localhost. Connect everyone to the same Wi-Fi or wired network.
+4. The browser may show a local certificate warning. Check the address against
+   the one on the host, then continue. No trusted certificate is installed.
+   If Windows asks, allow the host on private networks.
+5. The host selects a circuit, opens Multiplayer, enters a name and creates
+   a room. Use Copy invite, or share the server address and room code.
+6. Everyone presses Ready, then the host presses Start race.
+
+Two to eight drivers; one, three or five laps; equal car setup. Opponents are
+ghosts and pass through each other. Pause stops your car but not the race clock.
+Reset adds five seconds. Leaving the track adds five seconds to that lap.
+An eight-second connection loss marks a driver DNF. Remaining drivers have two
+minutes after the first finisher. Reloading the same tab can resume the session
+if it has not timed out. A new session cannot join an already-started race.
+
+The host needs Python 3.10+ and cryptography. These are installed on this PC.
+On a different host, install Python, then run: py -m pip install cryptography
+Other players only need a browser. Close the server window to stop hosting.
+If connecting fails, check the host is running and the private-network firewall
+permission. Guest Wi-Fi can block communication between devices. If several
+network addresses are printed, choose the one matching your Wi-Fi network.
+No router port forwarding is needed.
+
+CONTROLS
+Pair the controller in Windows Bluetooth settings, or connect by USB. Click
+the game, press a controller button, then check the meters in Controller setup.
+The browser reads an already-connected standard-layout controller; it cannot
+pair Bluetooth devices itself. Remote controller players need the HTTPS page.
+
+Steer: left stick / A-D / arrows
+Accelerate: RT or R2 / W / up
+Brake: LT or L2 / S / down / Space
+Camera: Y or Triangle / C
+Reset: X or Square / R
+Pause: Menu or Options / Escape
+Racing line: L, or the pause-menu control
+Fullscreen: F, or the on-screen button
+
+Green guidance means accelerate; amber means lift; red means brake. The guide
+never steers or brakes for you. Stability assistance and speed-sensitive
+steering remain enabled. Time Trial has three timed laps; Practice is unlimited.
+
+GRAPHICS AND ACCURACY
+The car uses your actual Fusion STEM Racing mesh, with original proportions,
+halo, wings, wheels and sponsor artwork. Your Milano logo follows the nose and
+both sides of the body. The car is uniformly enlarged for full-size circuits;
+its driving model remains an assisted racing car, not a small CO2-powered car.
+
+Graphics include a 4K photographed sunset sky, HDR reflections, clearcoat paint,
+photographed asphalt with normal and roughness maps, moving shadows, contact
+shading, antialiasing, catch fencing, grandstands and themed scenery. Singapore
+is a night race. Performance mode in Car Setup lowers resolution and disables
+realtime shadows and contact shading. First load may take several seconds.
+
+The seven Grand Prix layouts are unofficial mapped recreations. Widths,
+runoffs, scenery and landmarks are adapted for play. Elevations and every
+real-world building are not reproduced. Racing lines are numerical local
+optima of the simplified vehicle model; they are not globally optimal F1 laps.
+
+CHECKS
+All eight circuits completed two automated simulated laps with no barrier
+contacts or track-limit violations at the default assisted setup. The offline
+and browser speed solvers agree. Seventeen simulated-controller and keyboard
+checks passed. Server checks cover readiness, checkpoints, timing, penalties,
+results, rematches and host authority. Two browser sessions passed joining,
+track synchronization, countdown, live opponent movement, pause, reset,
+reload and leaving. HTTPS and browser gamepad API availability were checked
+with an explicitly accepted test certificate.
+
+Physical Bluetooth controllers, separate computers over Wi-Fi and eight
+simultaneous human players have not been tested. Try a short practice race
+on the event devices before the event. Details: World Tour Validation.json.
+Asset sources and licenses: CREDITS.txt and the LICENSE files.
