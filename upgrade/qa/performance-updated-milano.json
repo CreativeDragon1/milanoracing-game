@@ -1,30 +1,31 @@
 {
-  "medianMs": 7,
-  "p95Ms": 14,
+  "medianMs": 13.899999999999636,
+  "p95Ms": 20.80000000000109,
+  "opponents": 0,
   "diagnostics": {
     "circuit": "milano",
     "webgl2": true,
-    "drawCalls": 739,
-    "triangles": 2223309,
-    "textures": 67,
+    "drawCalls": 243,
+    "triangles": 6380419,
+    "textures": 59,
     "quality": "ultra",
-    "guide": 62.02057593566936
+    "guide": 85.1229867339966
   },
   "trees": {
     "source": "Poly Haven Tree Small 02 / CC0",
     "nearTriangles": 38154,
     "middleTriangles": 9415,
     "active": {
-      "near": 9,
-      "middle": 26,
-      "far": 465
+      "near": 32,
+      "middle": 128,
+      "far": 653
     }
   },
   "batches": {
-    "bounded": 183,
-    "tiles": 47,
-    "instances": 17566,
-    "mergedDrawBatches": -95,
+    "bounded": 285,
+    "tiles": 57,
+    "instances": 44444,
+    "mergedDrawBatches": -142,
     "sharedDetailDrawsSaved": 0
   },
   "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",

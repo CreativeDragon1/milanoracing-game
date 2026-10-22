@@ -14,7 +14,7 @@ function step(dt){
  if(typeof GP!=='undefined'&&GP.weekend&&gpStepBefore(dt))return;
  const pr=prog(c.x,c.z,c.idx);c.idx=pr.i;c.d=pr.d;const ad=Math.abs(c.d),edge=trackHalf(c.idx,c.d>=0?1:-1);let mu=1,dr=0,kerb=0;
  // Going off track still costs time, but no longer causes a sudden loss of control.
- if(ad>edge+.8){mu=.72;dr=1;invalid('TRACK LIMITS · LAP INVALID')}else if(ad>edge){mu=.98;kerb=1}
+ if(ad>edge+1.1){const blend=clamp((ad-edge-1.1)/1.8,0,1);mu=.98-.26*blend;dr=blend}else if(ad>edge){mu=.98;kerb=1}
  if(typeof GP!=='undefined'&&GP.weekend)mu*=GP.weekend.grip(GP.weekend.player);
  const k=n=>keys.has(n),rp=(v,t,u,d)=>t>v?Math.min(t,v+u*dt):Math.max(t,v-d*dt);
  inp.t=rp(inp.t,Math.max((k('KeyW')||k('ArrowUp'))?1:0,padInput.t),5,12);
@@ -55,6 +55,8 @@ function step(dt){
  const q=prog(c.x,c.z,c.idx),barrierDistance=Math.abs(trackBarrier(q.i,q.d>=0?1:-1))-.6;if(Math.abs(q.d)>barrierDistance){const s=Math.sign(q.d),e=Math.abs(q.d)-barrierDistance;c.x-=nx[q.i]*s*e;c.z-=nz[q.i]*s*e;c.vx*=.55;c.vy=0;c.r*=.3;msg('BARRIER CONTACT',900);rumble(.5,.6,150)}
  const pi=c.idx,p2=prog(c.x,c.z,c.idx);c.idx=p2.i;c.d=p2.d;
  if(!isFinite(c.x+c.z+c.vx+c.vy+c.r+c.h)){placeCar(pi);invalid('SIM RESET')}
+ c.limitState=TrackLimits.update(c.limitState,c.d,trackHalf(c.idx,c.d>=0?1:-1),c.vx,dt);
+ if(c.limitState.violation&&!(typeof GP!=='undefined'&&GP.weekend)&&!(typeof MP!=='undefined'&&MP.active))invalid('TRACK LIMITS · LAP DELETED');
  // Cosmetic drivetrain hysteresis prevents repeated shifts around one speed threshold.
  let gI=clamp((c.gear||1)-1,0,5);while(gI<5&&c.vx>vmx[gI])gI++;while(gI>0&&c.vx<vmx[gI-1]*.87)gI--;c.gear=gI+1;c.rpm=clamp(12500*c.vx/vmx[gI],4000,12500);
  race.t+=dt;timing(pi);if(typeof GP!=='undefined'&&GP.weekend)gpStepAfter(dt);if(++stepN%6===0){gph.push(c.vx*3.6);if(gph.length>400)gph.shift()}

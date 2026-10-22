@@ -1,0 +1,86 @@
+[
+  {
+    "name": "STEM Racing",
+    "file": "stem.png",
+    "bounds": [
+      455,
+      455,
+      3640,
+      1758
+    ],
+    "sha256": "07266c8eea6640596f2da10dbaad03867bd34b2a5b9e7a026617682f97822f9c",
+    "sourcePage": "https://stemracing.com.sg/",
+    "sourceAsset": "https://stemracing.com.sg/wp-content/uploads/STEM-Racing-Logo1.svg",
+    "selection": "Verified matching online artwork"
+  },
+  {
+    "name": "Hustle Hive",
+    "file": "supplied-1.png",
+    "bounds": [
+      102,
+      117,
+      490,
+      281
+    ],
+    "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+    "sourcePage": "https://hustlehive.ai/",
+    "sourceAsset": "https://hustlehive.ai/logo.png",
+    "selection": "Original clean artwork retained after matching online branding"
+  },
+  {
+    "name": "Brinda's",
+    "file": "supplied-2.png",
+    "bounds": [
+      38,
+      92,
+      368,
+      200
+    ],
+    "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+    "sourcePage": "https://www.brindas.com.sg/",
+    "sourceAsset": "https://www.brindas.com.sg/assets/Uploads/pdf-files/Home-Delivery-Menu-v7-PDF.pdf",
+    "selection": "Original clean artwork retained after matching online branding"
+  },
+  {
+    "name": "Enermax Synergy",
+    "file": "supplied-3.png",
+    "bounds": [
+      44,
+      42,
+      367,
+      240
+    ],
+    "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+    "sourcePage": null,
+    "sourceAsset": null,
+    "selection": "Supplied artwork: no verified public replacement found"
+  },
+  {
+    "name": "NPE Print Communications",
+    "file": "npe.png",
+    "bounds": [
+      0,
+      0,
+      359,
+      113
+    ],
+    "sha256": "42662b6268ba9abce86d70e30c18575598f6689b76baf0d05eb52920f3516f48",
+    "sourcePage": "https://npeprint.com/about-our-printing-company",
+    "sourceAsset": "https://content.app-sources.com/s/8194654479215997/uploads/Images/NPE_logo_transparent-0544499.png",
+    "selection": "Verified matching online artwork"
+  },
+  {
+    "name": "Axis",
+    "file": "axis.webp",
+    "bounds": [
+      0,
+      15,
+      512,
+      496
+    ],
+    "sha256": "6b9bc890d5bccc4dc55d740faf837d18897f433585d1382e15e83928298a6ad1",
+    "sourcePage": "https://freightcue.com/companies/india/ludhiana-axis-container-lines-ludhiana-head-office-dc6a16",
+    "sourceAsset": "https://files.freightcue.com/company-logos/6947b87607383b54b8dc6a16/3f161331-9eb0-4550-85c0-d9e4d78f42ba.webp",
+    "selection": "Verified matching online artwork"
+  }
+]

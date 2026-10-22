@@ -1,0 +1,281 @@
+{
+  "reports": [
+    {
+      "id": "bahrain",
+      "samples": 252,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.009767,
+      "maxHeadingStep": 0.06913919999999996,
+      "surface": {
+        "trimmedMeshes": 12,
+        "removedTriangles": 16376,
+        "elapsedMs": 1115.5
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    },
+    {
+      "id": "singapore",
+      "samples": 264,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.004541,
+      "maxHeadingStep": 0.14366799999999996,
+      "surface": {
+        "trimmedMeshes": 15,
+        "removedTriangles": 14516,
+        "elapsedMs": 747.3000000007451
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    },
+    {
+      "id": "monza",
+      "samples": 240,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.006566,
+      "maxHeadingStep": 0.0121058,
+      "surface": {
+        "trimmedMeshes": 13,
+        "removedTriangles": 7123,
+        "elapsedMs": 463.69999999925494
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    },
+    {
+      "id": "monaco",
+      "samples": 198,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.087977,
+      "maxHeadingStep": 0.1366721999999999,
+      "surface": {
+        "trimmedMeshes": 17,
+        "removedTriangles": 5635,
+        "elapsedMs": 573.5999999977648
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    },
+    {
+      "id": "austria",
+      "samples": 315,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.113818,
+      "maxHeadingStep": 0.08482129999999999,
+      "surface": {
+        "trimmedMeshes": 8,
+        "removedTriangles": 13457,
+        "elapsedMs": 455.30000000074506
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    },
+    {
+      "id": "silverstone",
+      "samples": 351,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.039473,
+      "maxHeadingStep": 0.07044810000000001,
+      "surface": {
+        "trimmedMeshes": 12,
+        "removedTriangles": 8971,
+        "elapsedMs": 779.5
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    },
+    {
+      "id": "abu-dhabi",
+      "samples": 351,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.101665,
+      "maxHeadingStep": 0.10365290000000005,
+      "surface": {
+        "trimmedMeshes": 16,
+        "removedTriangles": 15541,
+        "elapsedMs": 550.5999999977648
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    },
+    {
+      "id": "milano",
+      "samples": 267,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.021306,
+      "maxHeadingStep": 0.09380280000000002,
+      "surface": {
+        "trimmedMeshes": 7,
+        "removedTriangles": 4515,
+        "elapsedMs": 373.5
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    },
+    {
+      "id": "spa",
+      "samples": 234,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.074544,
+      "maxHeadingStep": 0.10356690000000013,
+      "surface": {
+        "trimmedMeshes": 7,
+        "removedTriangles": 6746,
+        "elapsedMs": 520.1000000014901
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    },
+    {
+      "id": "suzuka",
+      "samples": 282,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.069169,
+      "maxHeadingStep": 0.03969420000000001,
+      "surface": {
+        "trimmedMeshes": 6,
+        "removedTriangles": 8281,
+        "elapsedMs": 382
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    },
+    {
+      "id": "interlagos",
+      "samples": 423,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.113047,
+      "maxHeadingStep": 0.0852854999999999,
+      "surface": {
+        "trimmedMeshes": 10,
+        "removedTriangles": 27626,
+        "elapsedMs": 502
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    },
+    {
+      "id": "zandvoort",
+      "samples": 246,
+      "overlaps": [],
+      "missing": [],
+      "maxGrade": 0.016723,
+      "maxHeadingStep": 0.06654499999999999,
+      "surface": {
+        "trimmedMeshes": 8,
+        "removedTriangles": 11817,
+        "elapsedMs": 441.8999999985099
+      },
+      "sponsors": [
+        "STEM Racing",
+        "Hustle Hive",
+        "Brinda's",
+        "Enermax Synergy",
+        "NPE Print Communications",
+        "Axis"
+      ],
+      "textureErrors": [],
+      "assets": []
+    }
+  ],
+  "passed": true
+}

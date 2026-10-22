@@ -8,11 +8,15 @@ leaves.visible=false;trunks.visible=false;
 const canopyTextures=[pbrTexture('__TREE_CANOPY_0__',true),pbrTexture('__TREE_CANOPY_1__',true)];
 const canopyGeometry=new T.PlaneGeometry(1,1);
 const canopyMaterial=new T.MeshStandardMaterial({map:canopyTextures[0],alphaTest:.42,side:T.DoubleSide,roughness:.92,color:0xc0c9b8});
-const farTree=new T.InstancedMesh(canopyGeometry,canopyMaterial,treePositions.length*2),farTrunks=new T.InstancedMesh(new T.CylinderGeometry(.22,.36,1,5),M(0x605142,0,1),0);farTree.frustumCulled=false;farTree.receiveShadow=true;scene.add(farTree);treeLOD.far=farTree;
+const farTree=new T.InstancedMesh(canopyGeometry,canopyMaterial,treePositions.length*2),farTrunks=new T.InstancedMesh(new T.CylinderGeometry(.22,.36,1,5),M(0x605142,0,1),0);farTree.frustumCulled=false;farTree.receiveShadow=false;scene.add(farTree);treeLOD.far=farTree;
 
 const trees=treePositions.map(([x,z,h],id)=>({x,z,h,y:groundHeight(x,z),id,angle:((id*129.32)%360)*Math.PI/180})),treeDummy=new T.Object3D();
 const treeFrustum=new T.Frustum(),treeProjection=new T.Matrix4(),treeSphere=new T.Sphere();
-function updateVegetation(now){if(now-treeLOD.last<180)return;treeLOD.last=now;cam.updateMatrixWorld();treeFrustum.setFromProjectionMatrix(treeProjection.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse));const close=[],distant=[];for(const t of trees){t.d=(t.x-cam.position.x)**2+(t.z-cam.position.z)**2;treeSphere.center.set(t.x,t.y+t.h*.5,t.z);treeSphere.radius=t.h*.9+30;if(t.d>150*150&&!treeFrustum.intersectsSphere(treeSphere))continue;(t.d<420*420?close:distant).push(t)}close.sort((a,b)=>a.d-b.d);const sorted=close.concat(distant);let near=0,middle=0,far=0;
+function updateVegetation(now){if(now-treeLOD.last<180)return;treeLOD.last=now;cam.updateMatrixWorld();treeFrustum.setFromProjectionMatrix(treeProjection.multiplyMatrices(cam.projectionMatrix,cam.matrixWorldInverse));const close=[],distant=[],cells=new Map();for(const t of trees){t.d=(t.x-cam.position.x)**2+(t.z-cam.position.z)**2;treeSphere.center.set(t.x,t.y+t.h*.5,t.z);treeSphere.radius=t.h*.9+30;if(t.d>150*150&&!treeFrustum.intersectsSphere(treeSphere))continue;
+ // Nearby trees retain their complete geometry. At long distance, overlapping
+ // canopy impostors share a stable world cell instead of shading the same pixels
+ // dozens of times. Keep the tallest silhouette at its genuine source position.
+ if(t.d<420*420)close.push(t);else{const size=t.d<1000*1000?12:t.d<2000*2000?18:24,key=size+':'+Math.floor(t.x/size)+':'+Math.floor(t.z/size),old=cells.get(key);if(!old||t.h+t.y>old.h+old.y)cells.set(key,t)}}distant.push(...cells.values());close.sort((a,b)=>a.d-b.d);const sorted=close.concat(distant);let near=0,middle=0,far=0;
  for(const t of sorted){treeSphere.center.set(t.x,t.y+t.h*.5,t.z);treeSphere.radius=t.h*.9+30;if(t.d>150*150&&!treeFrustum.intersectsSphere(treeSphere))continue;const level=t.d<150*150&&near<32?'near':t.d<420*420&&middle<128?'middle':null;
   if(level){const index=level==='near'?near++:middle++,scale=t.h/(modelMax-modelMin);treeDummy.position.set(t.x,t.y-modelMin*scale,t.z);treeDummy.scale.setScalar(scale);treeDummy.rotation.set(0,t.angle,0);treeDummy.updateMatrix();for(const mesh of treeLOD[level])mesh.setMatrixAt(index,treeDummy.matrix)}
   else{for(let j=0;j<2;j++){treeDummy.position.set(t.x,t.y+t.h*.5,t.z);treeDummy.scale.setScalar(t.h*(TREE_MODEL.canopyScale||1.5));treeDummy.rotation.set(0,t.angle+j*Math.PI/2,0);treeDummy.updateMatrix();farTree.setMatrixAt(far*2+j,treeDummy.matrix)}far++}

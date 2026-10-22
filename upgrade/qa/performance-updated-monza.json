@@ -1,12 +1,13 @@
 {
-  "medianMs": 13.899999999999636,
-  "p95Ms": 21,
+  "medianMs": 41.69999999999709,
+  "p95Ms": 48.5,
+  "opponents": 0,
   "diagnostics": {
     "circuit": "monza",
     "webgl2": true,
-    "drawCalls": 1616,
-    "triangles": 10156233,
-    "textures": 115,
+    "drawCalls": 2008,
+    "triangles": 10101707,
+    "textures": 135,
     "quality": "ultra",
     "guide": 85.29013672296118
   },
@@ -15,16 +16,16 @@
     "nearTriangles": 38154,
     "middleTriangles": 9415,
     "active": {
-      "near": 18,
-      "middle": 89,
-      "far": 1868
+      "near": 32,
+      "middle": 128,
+      "far": 6081
     }
   },
   "batches": {
-    "bounded": 493,
+    "bounded": 550,
     "tiles": 42,
-    "instances": 135601,
-    "mergedDrawBatches": 9,
+    "instances": 85141,
+    "mergedDrawBatches": 91,
     "sharedDetailDrawsSaved": 0
   },
   "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",

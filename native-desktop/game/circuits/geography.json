@@ -1,0 +1,607 @@
+{
+  "bahrain": {
+    "count": 161,
+    "bounds": [
+      [
+        -4531.015335,
+        -4120.388225
+      ],
+      [
+        4468.984665,
+        4879.611775
+      ]
+    ],
+    "nearBounds": [
+      [
+        -1380,
+        -720
+      ],
+      [
+        1320,
+        1500
+      ]
+    ],
+    "datumOffset": 8.03128783493042,
+    "transform": {
+      "origin": [
+        50.510539,
+        26.031766
+      ],
+      "unit": [
+        100026.29442623597,
+        -111320.0
+      ],
+      "rotation": [
+        [
+          0.03465173561073567,
+          0.9993994482783962
+        ],
+        [
+          -0.9993994482783962,
+          0.03465173561073565
+        ]
+      ],
+      "scale": 0.9976044789066951,
+      "translation": [
+        -1.7956313570266502e-05,
+        0.003476637226526691
+      ],
+      "rms": 0.00010752430000658556
+    },
+    "source": "Mapzen Terrain Tiles / OpenStreetMap",
+    "sourceZoom": 12,
+    "satellite": "res://assets/surfaces/bahrain-satellite.jpg",
+    "cover": "res://assets/surfaces/bahrain-cover.png",
+    "imageryVintage": "2016 / 2017"
+  },
+  "singapore": {
+    "count": 161,
+    "bounds": [
+      [
+        -4515.09634,
+        -5206.706465
+      ],
+      [
+        4484.90366,
+        3793.293535
+      ]
+    ],
+    "nearBounds": [
+      [
+        -1140,
+        -2160
+      ],
+      [
+        1080,
+        720
+      ]
+    ],
+    "datumOffset": 3.281561257400513,
+    "transform": {
+      "origin": [
+        103.864144,
+        1.291728
+      ],
+      "unit": [
+        111291.75644119624,
+        -111320.0
+      ],
+      "rotation": [
+        [
+          -0.14291724277424583,
+          0.9897346420722108
+        ],
+        [
+          -0.9897346420722107,
+          -0.14291724277424595
+        ]
+      ],
+      "scale": 0.9977203956615401,
+      "translation": [
+        -1.5408537763050845e-05,
+        0.004635064484091345
+      ],
+      "rms": 7.268091183927335e-05
+    },
+    "source": "Mapzen Terrain Tiles / OpenStreetMap",
+    "sourceZoom": 12,
+    "satellite": "res://assets/surfaces/singapore-satellite.jpg",
+    "cover": "res://assets/surfaces/singapore-cover.png",
+    "imageryVintage": "2016 / 2017"
+  },
+  "monza": {
+    "count": 161,
+    "bounds": [
+      [
+        -4135.848885,
+        -3974.8401750000003
+      ],
+      [
+        4864.151115,
+        5025.159825
+      ]
+    ],
+    "nearBounds": [
+      [
+        -1500,
+        -780
+      ],
+      [
+        2220,
+        1800
+      ]
+    ],
+    "datumOffset": 180.01250135498046,
+    "transform": {
+      "origin": [
+        9.281223,
+        45.618975
+      ],
+      "unit": [
+        77854.05456276677,
+        -111320.0
+      ],
+      "rotation": [
+        [
+          0.11742502358980941,
+          0.9930817508316887
+        ],
+        [
+          -0.9930817508316887,
+          0.11742502358980964
+        ]
+      ],
+      "scale": 1.000548957755081,
+      "translation": [
+        -1.2412806427164469e-05,
+        0.0033308382575683027
+      ],
+      "rms": 0.00014427019020944786
+    },
+    "source": "Mapzen Terrain Tiles / OpenStreetMap",
+    "sourceZoom": 12,
+    "satellite": "res://assets/surfaces/monza-satellite.jpg",
+    "cover": "res://assets/surfaces/monza-cover.png",
+    "imageryVintage": "2016 / 2017"
+  },
+  "monaco": {
+    "count": 161,
+    "bounds": [
+      [
+        -6310.58652,
+        -6073.1832699999995
+      ],
+      [
+        6689.41348,
+        6926.8167300000005
+      ]
+    ],
+    "nearBounds": [
+      [
+        -960,
+        -720
+      ],
+      [
+        1380,
+        1560
+      ]
+    ],
+    "datumOffset": 8.987894375457763,
+    "transform": {
+      "origin": [
+        7.427191,
+        43.739404
+      ],
+      "unit": [
+        80430.80866263293,
+        -111320.0
+      ],
+      "rotation": [
+        [
+          -0.19551896032076682,
+          0.9806999215637202
+        ],
+        [
+          -0.9806999215637199,
+          -0.1955189603207672
+        ]
+      ],
+      "scale": 1.0028778701065943,
+      "translation": [
+        459.6448427233344,
+        568.3610695788939
+      ],
+      "rms": 0.006720010318965248
+    },
+    "source": "Mapzen Terrain Tiles / OpenStreetMap",
+    "sourceZoom": 12,
+    "satellite": "res://assets/surfaces/monaco-satellite.jpg",
+    "cover": "res://assets/surfaces/monaco-cover.png",
+    "imageryVintage": "2016 / 2017"
+  },
+  "austria": {
+    "count": 161,
+    "bounds": [
+      [
+        -6404.392065,
+        -6058.85969
+      ],
+      [
+        6595.607935,
+        6941.14031
+      ]
+    ],
+    "nearBounds": [
+      [
+        -1200,
+        -720
+      ],
+      [
+        1380,
+        1620
+      ]
+    ],
+    "datumOffset": 675.8307416406251,
+    "transform": {
+      "origin": [
+        14.765119,
+        47.220023
+      ],
+      "unit": [
+        75602.08056842479,
+        -111320.0
+      ],
+      "rotation": [
+        [
+          -0.9675256063712132,
+          -0.25277302272199864
+        ],
+        [
+          0.2527730227219987,
+          -0.9675256063712132
+        ]
+      ],
+      "scale": 1.0017476774342797,
+      "translation": [
+        3.2675683598881733e-06,
+        0.00041248791421821807
+      ],
+      "rms": 3.382723572122225e-05
+    },
+    "source": "Mapzen Terrain Tiles / OpenStreetMap",
+    "sourceZoom": 12,
+    "satellite": "res://assets/surfaces/austria-satellite.jpg",
+    "cover": "res://assets/surfaces/austria-cover.png",
+    "imageryVintage": "2016 / 2017"
+  },
+  "silverstone": {
+    "count": 161,
+    "bounds": [
+      [
+        -4016.033705,
+        -4408.962025
+      ],
+      [
+        4983.966295,
+        4591.037975
+      ]
+    ],
+    "nearBounds": [
+      [
+        -1080,
+        -1200
+      ],
+      [
+        2040,
+        1380
+      ]
+    ],
+    "datumOffset": 144.33087161376955,
+    "transform": {
+      "origin": [
+        -1.015349,
+        52.07879
+      ],
+      "unit": [
+        68425.4169608075,
+        -111320.0
+      ],
+      "rotation": [
+        [
+          0.6263089544511697,
+          0.7795749441678347
+        ],
+        [
+          -0.7795749441678347,
+          0.6263089544511697
+        ]
+      ],
+      "scale": 1.000697515847923,
+      "translation": [
+        1127.9382046525564,
+        -293.30876933998667
+      ],
+      "rms": 0.019538860580385183
+    },
+    "source": "Mapzen Terrain Tiles / OpenStreetMap",
+    "sourceZoom": 12,
+    "satellite": "res://assets/surfaces/silverstone-satellite.jpg",
+    "cover": "res://assets/surfaces/silverstone-cover.png",
+    "imageryVintage": "2016 / 2017"
+  },
+  "abu-dhabi": {
+    "count": 161,
+    "bounds": [
+      [
+        -4542.63014,
+        -4581.21545
+      ],
+      [
+        4457.36986,
+        4418.78455
+      ]
+    ],
+    "nearBounds": [
+      [
+        -1140,
+        -1680
+      ],
+      [
+        1080,
+        1500
+      ]
+    ],
+    "datumOffset": -5.882855,
+    "transform": {
+      "origin": [
+        54.605463,
+        24.46997
+      ],
+      "unit": [
+        101321.56357195489,
+        -111320.0
+      ],
+      "rotation": [
+        [
+          0.9920218526551428,
+          0.12606602974099984
+        ],
+        [
+          -0.12606602974099987,
+          0.9920218526551424
+        ]
+      ],
+      "scale": 0.996784102520983,
+      "translation": [
+        1.4870681642520367e-05,
+        -0.0049810868295043775
+      ],
+      "rms": 8.2243815165633e-05
+    },
+    "source": "Mapzen Terrain Tiles / OpenStreetMap",
+    "sourceZoom": 12,
+    "satellite": "res://assets/surfaces/abu-dhabi-satellite.jpg",
+    "cover": "res://assets/surfaces/abu-dhabi-cover.png",
+    "imageryVintage": "2016 / 2017"
+  },
+  "spa": {
+    "count": 161,
+    "bounds": [
+      [
+        -7314.6176125,
+        -6965.681762
+      ],
+      [
+        5685.3823875,
+        6034.318238
+      ]
+    ],
+    "nearBounds": [
+      [
+        -2580,
+        -1920
+      ],
+      [
+        960,
+        960
+      ]
+    ],
+    "datumOffset": 367.21445761230467,
+    "transform": {
+      "origin": [
+        5.96502,
+        50.444251
+      ],
+      "unit": [
+        70906.05157812979,
+        -111320.0
+      ],
+      "rotation": [
+        [
+          -0.5399244344883104,
+          0.8417134934420847
+        ],
+        [
+          -0.8417134934420847,
+          -0.5399244344883103
+        ]
+      ],
+      "scale": 1.0022988792471081,
+      "translation": [
+        1.146542672358919e-06,
+        0.011503039939782411
+      ],
+      "rms": 4.0552015341711007e-07
+    },
+    "source": "Mapzen Terrain Tiles / OpenStreetMap",
+    "sourceZoom": 12,
+    "satellite": "res://assets/surfaces/spa-satellite.jpg",
+    "cover": "res://assets/surfaces/spa-cover.png",
+    "imageryVintage": "2016 / 2017"
+  },
+  "suzuka": {
+    "count": 161,
+    "bounds": [
+      [
+        -4966.6970135,
+        -3999.5155485
+      ],
+      [
+        4033.3029865,
+        5000.4844515
+      ]
+    ],
+    "nearBounds": [
+      [
+        -2220,
+        -720
+      ],
+      [
+        1260,
+        1740
+      ]
+    ],
+    "datumOffset": 14.999493035888673,
+    "transform": {
+      "origin": [
+        136.540283,
+        34.843344
+      ],
+      "unit": [
+        91360.8684094153,
+        -111320.0
+      ],
+      "rotation": [
+        [
+          0.6330083501792882,
+          -0.7741449661421922
+        ],
+        [
+          0.7741449661421921,
+          0.633008350179288
+        ]
+      ],
+      "scale": 0.9978108089132571,
+      "translation": [
+        -2.6888642423728015e-09,
+        0.0010912797239370775
+      ],
+      "rms": 4.135905304344008e-07
+    },
+    "source": "Mapzen Terrain Tiles / OpenStreetMap",
+    "sourceZoom": 12,
+    "satellite": "res://assets/surfaces/suzuka-satellite.jpg",
+    "cover": "res://assets/surfaces/suzuka-cover.png",
+    "imageryVintage": "2016 / 2017"
+  },
+  "interlagos": {
+    "count": 161,
+    "bounds": [
+      [
+        -4658.9160675,
+        -4844.937433
+      ],
+      [
+        4341.0839325,
+        4155.062567
+      ]
+    ],
+    "nearBounds": [
+      [
+        -1380,
+        -1440
+      ],
+      [
+        1080,
+        720
+      ]
+    ],
+    "datumOffset": 742.0289752539063,
+    "transform": {
+      "origin": [
+        -46.699905,
+        -23.703744
+      ],
+      "unit": [
+        101930.8155084292,
+        -111320.0
+      ],
+      "rotation": [
+        [
+          0.2500335043046423,
+          -0.9682371851592667
+        ],
+        [
+          0.9682371851592668,
+          0.25003350430464233
+        ]
+      ],
+      "scale": 1.001067430500401,
+      "translation": [
+        -2.940197418865864e-09,
+        0.0013084863545600456
+      ],
+      "rms": 4.0427256752806607e-07
+    },
+    "source": "Mapzen Terrain Tiles / OpenStreetMap",
+    "sourceZoom": 12,
+    "satellite": "res://assets/surfaces/interlagos-satellite.jpg",
+    "cover": "res://assets/surfaces/interlagos-cover.png",
+    "imageryVintage": "2016 / 2017"
+  },
+  "zandvoort": {
+    "count": 161,
+    "bounds": [
+      [
+        -4497.3611975,
+        -4098.9850955
+      ],
+      [
+        4502.6388025,
+        4901.0149045
+      ]
+    ],
+    "nearBounds": [
+      [
+        -1140,
+        -720
+      ],
+      [
+        1140,
+        1560
+      ]
+    ],
+    "datumOffset": 0.8731282315063478,
+    "transform": {
+      "origin": [
+        4.540491,
+        52.388408
+      ],
+      "unit": [
+        67940.31221563282,
+        -111320.0
+      ],
+      "rotation": [
+        [
+          0.39504437191718406,
+          0.9186620402610298
+        ],
+        [
+          -0.9186620402610297,
+          0.3950443719171839
+        ]
+      ],
+      "scale": 0.9977098375180325,
+      "translation": [
+        -1.4887496035953518e-07,
+        -0.0008454172818233019
+      ],
+      "rms": 4.1031801895996663e-07
+    },
+    "source": "Mapzen Terrain Tiles / OpenStreetMap",
+    "sourceZoom": 12,
+    "satellite": "res://assets/surfaces/zandvoort-satellite.jpg",
+    "cover": "res://assets/surfaces/zandvoort-cover.png",
+    "imageryVintage": "2016 / 2017"
+  }
+}

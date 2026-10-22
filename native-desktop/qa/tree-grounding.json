@@ -1,0 +1,89 @@
+{
+  "written": true,
+  "reports": [
+    {
+      "circuit": "bahrain",
+      "trees": 90,
+      "adjusted": 0,
+      "uncovered": 0,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "singapore",
+      "trees": 710,
+      "adjusted": 0,
+      "uncovered": 0,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "monza",
+      "trees": 18201,
+      "adjusted": 0,
+      "uncovered": 0,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "monaco",
+      "trees": 533,
+      "adjusted": 0,
+      "uncovered": 0,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "austria",
+      "trees": 7766,
+      "adjusted": 0,
+      "uncovered": 0,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "silverstone",
+      "trees": 7967,
+      "adjusted": 0,
+      "uncovered": 3442,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "abu-dhabi",
+      "trees": 17,
+      "adjusted": 0,
+      "uncovered": 0,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "milano",
+      "trees": 2819,
+      "adjusted": 0,
+      "uncovered": 242,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "spa",
+      "trees": 26774,
+      "adjusted": 0,
+      "uncovered": 10573,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "suzuka",
+      "trees": 7325,
+      "adjusted": 0,
+      "uncovered": 590,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "interlagos",
+      "trees": 911,
+      "adjusted": 0,
+      "uncovered": 0,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "zandvoort",
+      "trees": 1025,
+      "adjusted": 0,
+      "uncovered": 0,
+      "maxRootAdjustment": 0
+    }
+  ]
+}

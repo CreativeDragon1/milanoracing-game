@@ -61,7 +61,7 @@ assert a==b,'Extracted source build differs from release HTML'
 assert sha(U/'server/public/index.html')==sha(vroot/'upgrade/server/public/index.html')
 print('Extracted source build matches both release outputs byte-for-byte.',flush=True)
 standalone=out/'Milano Racing - Grand Prix.html';shutil.copy2(U/'qa/standalone.html',standalone)
-manifest={'build':'Milano Racing Grand Prix 2.0','date':'2026-10-22','privateDeploymentDefault':True,'published':False,'sourceRebuild':'Extracted ZIP produces byte-identical standalone HTML and hosted index','files':[]}
+manifest={'build':'Milano Racing Grand Prix 2.0','date':datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date().isoformat(),'privateDeploymentDefault':True,'published':False,'sourceRebuild':'Extracted ZIP produces byte-identical standalone HTML and hosted index','files':[]}
 for p in [windows,server,source,standalone]:
  dest=downloads/p.name
  if dest.exists() and sha(dest)!=sha(p):

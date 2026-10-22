@@ -1,0 +1,12 @@
+{
+	"circuit": "interlagos",
+	"device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+	"drawCalls": 942.0,
+	"frames": 925,
+	"instanceErrors": 0,
+	"medianMs": 8.973,
+	"p95Ms": 14.895,
+	"primitives": 1634197.0,
+	"renderer": "forward_plus",
+	"restoredInstances": 71613
+}

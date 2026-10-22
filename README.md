@@ -1,6 +1,10 @@
 # Milano Racing — Grand Prix
 
-The latest MR 26 game upgrade, added 22 October 2026. The older World Tour files remain in the repository for reference. Start with **Grand Prix**, not the old Team Edition HTML or LAN server.
+Milano Racing, featuring the MR 26. Start with **Grand Prix**; the older World Tour files remain in the repository for reference.
+
+The latest update adds terrain-fitted ground detail, supporting raceways, fuller planting and footprint-based spectator structures across the calendar. Milano Autodromo is now a 6.54 km, 17-corner ridge circuit. All six partners share balanced trackside wall allocations, rotating gantries and pit facades. Track limits allow kerb use and brief excursions, with gradual grip loss outside the kerbs and warnings before race penalties.
+
+Menus use Barlow headings, DM Sans controls and Milano’s colours, with visual race setup and tabbed settings. Embedded fonts also work offline. The environment guide lists references, inspection frames and the details that remain approximate; these are mapped game reconstructions, not survey-exact replicas.
 
 ## Play
 
@@ -95,3 +99,13 @@ The packaged release was checked across all 12 circuits, qualifying/race state t
 Circuit widths use historical satellite-derived boundaries and map estimates. Monaco, Singapore and some rebuilt sections remain estimates; this is not a survey-accurate reconstruction. Buildings and regional terrain are geographically based, with reconstructed detail where source data is absent. The dry race model implements selected sporting rules, not the full FIA rulebook. Milano Autodromo is original and is not FIA homologated.
 
 This commit uploads the game and source to GitHub. It does not deploy the website, enable GitHub Pages or change the server's private-access defaults. The repository itself is public.
+
+## Independent native desktop preview
+
+`native-desktop` is a new Godot 4.7.2 Forward+/Vulkan game runtime, without Electron or a browser. It reuses the researched circuit assets and MR 26 artwork, with native materials, shadows, post-processing, vegetation LODs, controls, cameras and pit service. All twelve circuits are included as prepared native scenes for reproducible builds.
+
+This is a **practice preview**, not the full desktop replacement. Native qualifying, AI races and multiplayer are not implemented yet. The compatibility game above retains those modes. The native preview also has not yet met the supplied commercial-game visual benchmark or survey-exact placement standard.
+
+See [native build and controls](native-desktop/README.md), [measured validation](native-desktop/docs/VALIDATION.md) and [accuracy limits](native-desktop/docs/ACCURACY.md). Prepared source assets are included; Godot's engine binaries and export templates are downloaded by the pinned, hash-checked bootstrap script. The local Windows download packages are separate from the source repository. Nothing in this update deploys the private game website.
+
+The accompanying compatibility update repairs pit transitions and overlapping surfaces across all twelve venues, adds textured gravel and mapped runoff treatment, and fits all six sponsor logos without stretching. [Validation and references](upgrade/docs/Validation.html) describe the checks and source selection.

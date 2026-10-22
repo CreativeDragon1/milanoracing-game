@@ -1,0 +1,12 @@
+{
+	"circuit": "austria",
+	"device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+	"drawCalls": 411.0,
+	"frames": 653,
+	"instanceErrors": 0,
+	"medianMs": 12.804,
+	"p95Ms": 21.376,
+	"primitives": 959444.0,
+	"renderer": "forward_plus",
+	"restoredInstances": 85926
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "bahrain",
+    "mappedSurfaceAreas": 142,
+    "surfaceTriangles": 11223,
+    "tiles": 90,
+    "mappedPlanting": 2074,
+    "boundaries": 0,
+    "bleachers": 0,
+    "roadOverlapArea": 0.0
+  },
+  {
+    "id": "singapore",
+    "mappedSurfaceAreas": 103,
+    "surfaceTriangles": 3771,
+    "tiles": 66,
+    "mappedPlanting": 475,
+    "boundaries": 2,
+    "bleachers": 0,
+    "roadOverlapArea": 0.0
+  },
+  {
+    "id": "monza",
+    "mappedSurfaceAreas": 101,
+    "surfaceTriangles": 6911,
+    "tiles": 123,
+    "mappedPlanting": 13381,
+    "boundaries": 14,
+    "bleachers": 1,
+    "roadOverlapArea": 0.0
+  },
+  {
+    "id": "monaco",
+    "mappedSurfaceAreas": 88,
+    "surfaceTriangles": 4675,
+    "tiles": 43,
+    "mappedPlanting": 287,
+    "boundaries": 0,
+    "bleachers": 0,
+    "roadOverlapArea": 0.0
+  },
+  {
+    "id": "austria",
+    "mappedSurfaceAreas": 149,
+    "surfaceTriangles": 21195,
+    "tiles": 128,
+    "mappedPlanting": 5096,
+    "boundaries": 0,
+    "bleachers": 0,
+    "roadOverlapArea": 0.0
+  },
+  {
+    "id": "silverstone",
+    "mappedSurfaceAreas": 399,
+    "surfaceTriangles": 27003,
+    "tiles": 184,
+    "mappedPlanting": 1780,
+    "boundaries": 98,
+    "bleachers": 4,
+    "roadOverlapArea": 0.0
+  },
+  {
+    "id": "abu-dhabi",
+    "mappedSurfaceAreas": 631,
+    "surfaceTriangles": 21191,
+    "tiles": 131,
+    "mappedPlanting": 1248,
+    "boundaries": 3,
+    "bleachers": 0,
+    "roadOverlapArea": 0.0
+  },
+  {
+    "id": "spa",
+    "mappedSurfaceAreas": 158,
+    "surfaceTriangles": 19808,
+    "tiles": 197,
+    "mappedPlanting": 20821,
+    "boundaries": 36,
+    "bleachers": 0,
+    "roadOverlapArea": 0.0
+  },
+  {
+    "id": "suzuka",
+    "mappedSurfaceAreas": 200,
+    "surfaceTriangles": 19238,
+    "tiles": 104,
+    "mappedPlanting": 2351,
+    "boundaries": 0,
+    "bleachers": 9,
+    "roadOverlapArea": 0.0
+  },
+  {
+    "id": "interlagos",
+    "mappedSurfaceAreas": 84,
+    "surfaceTriangles": 14958,
+    "tiles": 47,
+    "mappedPlanting": 739,
+    "boundaries": 0,
+    "bleachers": 2,
+    "roadOverlapArea": 0.0
+  },
+  {
+    "id": "zandvoort",
+    "mappedSurfaceAreas": 138,
+    "surfaceTriangles": 41565,
+    "tiles": 127,
+    "mappedPlanting": 1046,
+    "boundaries": 20,
+    "bleachers": 0,
+    "roadOverlapArea": 0.0
+  }
+]

@@ -13,9 +13,10 @@ for(let i=0;i<26&&!geography;i+=2){const off=trackBarrier(i,pitSide)+pitSide*17,
 }
 instanceBoxes(scene,M(0xc0c7ce,.18,.65),garages);instanceBoxes(scene,M(0x192e45,.6,.24),windows);instanceBoxes(scene,M(0x424e61,.4,.4),pitRoof);
 const glow=new T.MeshStandardMaterial({color:0xe7f5ff,emissive:night?0xc9e1ff:0xffd6a4,emissiveIntensity:night?2:.6});instanceBoxes(scene,glow,pitLamps,false);
-const fenceLines=[];for(let i=0;i<N;i+=4)for(const side of[-1,1]){if(pitOpening(i,side))continue;const o=trackBarrier(i,side)+side*.25,xx=cx[i]+nx[i]*o,zz=cz[i]+nz[i]*o;fenceLines.push([[xx,1.1,zz],[xx,urban?4.5:3.2,zz],.055]);}
+function tunnelStation(i){return CIRCUIT.features?.tunnel&&i>=CIRCUIT.features.tunnel[0]&&i<=CIRCUIT.features.tunnel[1]}
+const fenceLines=[];for(let i=0;i<N;i+=4)for(const side of[-1,1]){if(pitOpening(i,side)||tunnelStation(i))continue;const o=trackBarrier(i,side)+side*.25,xx=cx[i]+nx[i]*o,zz=cz[i]+nz[i]*o;fenceLines.push([[xx,1.1,zz],[xx,urban?4.5:3.2,zz],.055]);}
 beams(scene,fenceLines,M(0x737f8c,.5,.5));
-for(let i=0;i<N;i+=28){const side=i%56?1:-1,o=trackBarrier(i,side)+side*2,xx=cx[i]+nx[i]*o,zz=cz[i]+nz[i]*o;posts.push([[xx,0,zz],[xx,15,zz],.12],[[xx,15,zz],[xx-nx[i]*side*3,15,zz-nz[i]*side*3],.1]);pitLamps.push([xx-nx[i]*side*1.5,14.8,zz-nz[i]*side*1.5,3,.15,1,0,-Math.atan2(tz[i],tx[i])]);}
+for(let i=0;i<N;i+=28){if(tunnelStation(i))continue;const side=i%56?1:-1,o=trackBarrier(i,side)+side*2,xx=cx[i]+nx[i]*o,zz=cz[i]+nz[i]*o;posts.push([[xx,0,zz],[xx,15,zz],.12],[[xx,15,zz],[xx-nx[i]*side*3,15,zz-nz[i]*side*3],.1]);pitLamps.push([xx-nx[i]*side*1.5,14.8,zz-nz[i]*side*1.5,3,.15,1,0,-Math.atan2(tz[i],tx[i])]);}
 beams(scene,posts);instanceBoxes(scene,glow,pitLamps,false);
 // City windows are baked into a repeating texture; hundreds of towers cost one draw call.
 const windowTexture=canvasTex(512,1024,(a,w,h)=>{a.fillStyle=night?'#162130':THEME==='harbour'?'#b9aa94':'#959ba1';a.fillRect(0,0,w,h);for(let yy=24;yy<h;yy+=72)for(let xx=20;xx<w;xx+=64){a.fillStyle=night?(rand()>.65?'#c7b995':'#23354b'):'#34444b';a.fillRect(xx,yy,34,45);a.fillStyle=night?'#384656':'#78828a';a.fillRect(xx+2,yy+2,14,19);a.fillStyle='#b0afa755';a.fillRect(xx+18,yy+2,14,40);a.fillStyle='#252d36';a.fillRect(xx-2,yy+46,39,4);a.fillStyle='#b4b3b14a';a.fillRect(xx-2,yy+50,39,3)}for(let yy=0;yy<h;yy+=72){a.fillStyle='#13182155';a.fillRect(0,yy,w,3)}});
@@ -31,10 +32,6 @@ if(THEME==='city'&&!geography){
  const xx=trackBounds.x-155,zz=circuitCentre.z;
  const landmark=[];for(const d of [-48,0,48])landmark.push([xx+d,75,zz,24,150,32]);landmark.push([xx,155,zz,153,8,40]);instanceBoxes(scene,M(0x567590,.6,.3),landmark);
  const wheel=new T.Mesh(new T.TorusGeometry(57,1,8,96),glow);wheel.position.set(trackBounds.X+140,62+groundHeight(trackBounds.X+140,circuitCentre.z),circuitCentre.z);scene.add(wheel);const spokes=[];for(let a=0;a<16;a++){const t=a/16*Math.PI*2;spokes.push([[trackBounds.X+140,62,circuitCentre.z],[trackBounds.X+140+Math.cos(t)*57,62+Math.sin(t)*57,circuitCentre.z],.25]);}beams(scene,spokes);
-}
-if(THEME==='harbour'){
- // Tunnel shell: unobstructed centre, illuminated roof and side walls.
- const shell=[],strips=[];for(let i=(CIRCUIT.features?.tunnel?.[0]??490);i<(CIRCUIT.features?.tunnel?.[1]??570);i+=2){const a=-Math.atan2(tz[i],tx[i]),len=LEN/N*2.1;shell.push([cx[i],6+cy[i],cz[i],len,.65,W*2+2,0,a,Math.atan(CIRCUIT.elevation?.grade[i]||0)]);for(const side of[-1,1])shell.push([cx[i]+nx[i]*side*(W+1),3+cy[i],cz[i]+nz[i]*side*(W+1),len,6,.6,0,a]);strips.push([cx[i],5.64+cy[i],cz[i],len,.06,.35,0,a,Math.atan(CIRCUIT.elevation?.grade[i]||0)]);}instanceBoxes(scene,M(0x484e55,0,.9),shell,true,false);instanceBoxes(scene,glow,strips,false,false);
 }
 const treePositions=[],treeItems=[],crowns=[];
 const treeMax=urban?260:arid?90:THEME==='forest'?1800:1300;
@@ -75,4 +72,4 @@ const nightLight=new T.PointLight(0xcce5ff,night?1.8:0,75,1.1);nightLight.positi
 
 const fenceTex=canvasTex(64,64,(a,w,h)=>{a.strokeStyle='#9ba7ab';a.lineWidth=.65;for(let j=-64;j<128;j+=16){a.beginPath();a.moveTo(j,0);a.lineTo(j+64,64);a.stroke();a.beginPath();a.moveTo(j,0);a.lineTo(j-64,64);a.stroke()}});fenceTex.wrapS=fenceTex.wrapT=T.RepeatWrapping;fenceTex.repeat.set(4,4);fenceTex.anisotropy=8;
 const fenceMat=new T.MeshStandardMaterial({map:fenceTex,color:0x687783,alphaTest:.25,side:T.DoubleSide,roughness:.7,metalness:.25});
-for(const side of[-1,1]){const P=[],UV=[];for(let i=0;i<N;i++){if(pitOpening(i,side))continue;const j=(i+1)%N,o=trackBarrier(i,side)+side*.25,p=trackBarrier(j,side)+side*.25,A=[cx[i]+nx[i]*o,cz[i]+nz[i]*o],B=[cx[j]+nx[j]*p,cz[j]+nz[j]*p],h=urban?4.5:3.2,u=i*LEN/N/2,v=(i+1)*LEN/N/2;P.push(A[0],surfaceHeight(i,o)+1.2,A[1],B[0],surfaceHeight(j,p)+1.2,B[1],B[0],surfaceHeight(j,p)+h,B[1],A[0],surfaceHeight(i,o)+1.2,A[1],B[0],surfaceHeight(j,p)+h,B[1],A[0],surfaceHeight(i,o)+h,A[1]);UV.push(u,0,v,0,v,h-1.2,u,0,v,h-1.2,u,h-1.2)}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(P,3));g.setAttribute('uv',new T.Float32BufferAttribute(UV,2));g.computeVertexNormals();scene.add(new T.Mesh(g,fenceMat))}
+for(const side of[-1,1]){const P=[],UV=[];for(let i=0;i<N;i++){if(pitOpening(i,side)||tunnelStation(i))continue;const j=(i+1)%N,o=trackBarrier(i,side)+side*.25,p=trackBarrier(j,side)+side*.25,A=[cx[i]+nx[i]*o,cz[i]+nz[i]*o],B=[cx[j]+nx[j]*p,cz[j]+nz[j]*p],h=urban?4.5:3.2,u=i*LEN/N/2,v=(i+1)*LEN/N/2;P.push(A[0],surfaceHeight(i,o)+1.2,A[1],B[0],surfaceHeight(j,p)+1.2,B[1],B[0],surfaceHeight(j,p)+h,B[1],A[0],surfaceHeight(i,o)+1.2,A[1],B[0],surfaceHeight(j,p)+h,B[1],A[0],surfaceHeight(i,o)+h,A[1]);UV.push(u,0,v,0,v,h-1.2,u,0,v,h-1.2,u,h-1.2)}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(P,3));g.setAttribute('uv',new T.Float32BufferAttribute(UV,2));g.computeVertexNormals();scene.add(new T.Mesh(g,fenceMat))}

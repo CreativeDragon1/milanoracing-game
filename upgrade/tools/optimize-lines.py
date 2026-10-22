@@ -1,9 +1,9 @@
 """Bounded minimum-time line search, tyre friction circles, aero, grade and banking."""
 from pathlib import Path
-import json,time,numpy as np
+import sys,json,time,numpy as np
 from scipy.optimize import minimize
 from numba import njit
-ROOT=Path(__file__).resolve().parents[2];U=ROOT/'upgrade';tour=json.loads((U/'src/world-tour-data.json').read_text(encoding='utf-8'));p=json.loads((U/'src/vehicle-model.json').read_text(encoding='utf-8'));reports=[]
+ROOT=Path(__file__).resolve().parents[2];U=ROOT/'upgrade';tour=json.loads((U/'src/world-tour-data.json').read_text(encoding='utf-8'));p=json.loads((U/'src/vehicle-model.json').read_text(encoding='utf-8'));reports=[r for r in json.loads((U/'qa/line-optimization.json').read_text()) if r['id'] not in sys.argv[1:]] if len(sys.argv)>1 else []
 @njit(cache=True)
 def geometry(q):
  n=len(q);curv=np.zeros(n);ds=np.zeros(n)
@@ -43,7 +43,8 @@ def profile(k,ds,y,bank):
  for i in range(n):total+=2*ds[i]/max(.1,v[i]+v[(i+1)%n])
  return total,v
 for ident,d in tour.items():
- t=time.time();q=np.array([d['x'],d['z']]).T;normal=np.array([-np.array(d['tz']),d['tx']]).T;n=len(q);K=180;y=np.array(d['elevation']['height']);bank=np.array(d['bank']);left=np.array(d.get('widthLeft',[d['width']/2]*n));right=np.array(d.get('widthRight',[d['width']/2]*n));lower=-left+1.25;upper=right-1.25
+ if len(sys.argv)>1 and ident not in sys.argv[1:]:continue
+ t=time.time();q=np.array([d['x'],d['z']]).T;normal=np.array([-np.array(d['tz']),d['tx']]).T;n=len(q);K=180;y=np.array(d['elevation']['height']);bank=np.array(d['bank']);left=np.array(d.get('widthLeft',[d['width']/2]*n));right=np.array(d.get('widthRight',[d['width']/2]*n));margin=4.5 if ident=='milano' else 1.25;lower=-left+margin;upper=right-margin
  basis=np.zeros((n,K))
  for i in range(n):
   j=int(i/n*K);u=i/n*K-j

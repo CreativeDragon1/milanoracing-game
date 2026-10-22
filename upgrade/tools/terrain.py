@@ -5,16 +5,18 @@ from pathlib import Path
 import sys,json,base64
 import numpy as np
 ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(Path(__file__).parent/"deps"))
 from shapely import Polygon,box,union_all,constrained_delaunay_triangles
 from scipy.spatial import cKDTree
-path=ROOT/'upgrade/src/world-tour-data.json';tour=json.loads(path.read_text());reports=[]
+path=ROOT/'upgrade/src/world-tour-data.json';tour=json.loads(path.read_text());reports=[r for r in json.loads((ROOT/'upgrade/qa/terrain-validation.json').read_text()) if r['id'] not in sys.argv[1:]] if len(sys.argv)>1 else []
 for ident,d in tour.items():
+ if len(sys.argv)>1 and ident not in sys.argv[1:]:continue
  if ident not in ['milano','spa','suzuka','interlagos','zandvoort']:continue
  q=np.array([d['x'],d['z']]).T;norm=np.array([-np.array(d['tz']),d['tx']]).T;y=np.array(d['elevation']['height']);n=len(q)
- left=q-norm*(d['width']/2+np.array(d['runoffLeft']))[:,None];right=q+norm*(d['width']/2+np.array(d['runoffRight']))[:,None]
+ left=q-norm*(np.array(d.get('widthLeft',[d['width']/2]*n))+np.array(d['runoffLeft']))[:,None];right=q+norm*(np.array(d.get('widthRight',[d['width']/2]*n))+np.array(d['runoffRight']))[:,None]
  corridor=union_all([Polygon([left[i],right[i],right[(i+1)%n],left[(i+1)%n]]).buffer(0) for i in range(n)])
  sea=box(q[:,0].max()+35,(q[:,1].min()+q[:,1].max())/2-550,q[:,0].max()+385,(q[:,1].min()+q[:,1].max())/2+550) if d['theme'] in ('harbour','marina') else Polygon()
- excluded=union_all([corridor,sea]);boundary=np.vstack([left,right]);boundaryNext=np.vstack([np.roll(left,-1,axis=0),np.roll(right,-1,axis=0)]);bank=np.array(d.get('bank',[0]*n));boundaryY=np.r_[y+(d['width']/2+np.array(d['runoffLeft']))*np.tan(bank),y-(d['width']/2+np.array(d['runoffRight']))*np.tan(bank)];boundaryNextY=np.r_[np.roll(boundaryY[:n],-1),np.roll(boundaryY[n:],-1)];tree=cKDTree(boundary);vertices=[]
+ excluded=union_all([corridor,sea]);boundary=np.vstack([left,right]);boundaryNext=np.vstack([np.roll(left,-1,axis=0),np.roll(right,-1,axis=0)]);bank=np.array(d.get('bank',[0]*n));boundaryY=np.r_[y+(np.array(d.get('widthLeft',[d['width']/2]*n))+np.array(d['runoffLeft']))*np.tan(bank),y-(np.array(d.get('widthRight',[d['width']/2]*n))+np.array(d['runoffRight']))*np.tan(bank)];boundaryNextY=np.r_[np.roll(boundaryY[:n],-1),np.roll(boundaryY[n:],-1)];tree=cKDTree(boundary);vertices=[]
  # The far ground remains a simple plane; this mesh covers the entire dressed area.
  lo=np.floor((q.min(axis=0)-360)/60).astype(int);hi=np.ceil((q.max(axis=0)+360)/60).astype(int)
  def height(points):

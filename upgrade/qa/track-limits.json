@@ -1,0 +1,19 @@
+{
+  "circuitConfigurations": 288,
+  "scenarioChecks": 1728,
+  "serverBrowserParityTraces": 19,
+  "rules": {
+    "kerbAllowance": 1.1,
+    "halfTyreTrack": 0.9,
+    "edgeTolerance": 0.4,
+    "graceSeconds": 1,
+    "graceMetres": 70,
+    "deepExtra": 2.5,
+    "deepSeconds": 0.25,
+    "deepMetres": 18,
+    "recoverySeconds": 0.45,
+    "recoveryMargin": 0.85,
+    "warningsPerPenalty": 4,
+    "penaltySeconds": 5
+  }
+}

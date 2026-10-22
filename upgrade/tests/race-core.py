@@ -1,5 +1,6 @@
 import importlib.util,math,json,sys
 from pathlib import Path
+sys.path.insert(0,str(Path('upgrade/server').resolve()))
 spec=importlib.util.spec_from_file_location('lan',Path('upgrade/server/race_core.py'));lan=importlib.util.module_from_spec(spec);spec.loader.exec_module(lan)
 clock=[1000000.];lan.now=lambda:clock[0];checks=[]
 def check(name,condition):
@@ -55,3 +56,24 @@ for j in range(2000):
  assert len(lan.TOKENS)==1 and len(room['players'])==1
 checks.append('2000 expired guests removed without credential accumulation')
 Path('upgrade/qa/multiplayer-core.json').write_text(json.dumps({'checks':checks,'passed':len(checks)},indent=2));print('PASS',len(checks),'checks including expiration')
+
+# Server policy integration: kerbs are valid; only sustained separate excursions
+# progress the warning count. Holding one excursion must not stack penalties.
+for circuit in lan.TRACKS:
+ lan.ROOMS.clear();lan.TOKENS.clear()
+ a=lan.action(dict(action='create',name='Host',circuit=circuit,laps=3));ta=a['token']
+ b=lan.action(dict(action='join',code=a['room']['code'],name='Guest'));tb=b['token']
+ for token in [ta,tb]:lan.action(dict(action='ready',token=token,ready=True))
+ r=lan.action(dict(action='start',token=ta));clock[0]=r['room']['startAt']+100
+ track=lan.TRACKS[circuit];i=len(track['x'])-3;half=track['widthRight'][i]
+ def hold(excess,steps):
+  for tick in range(steps):
+   clock[0]+=100;offset=half+excess if excess is not None else 0
+   lan.action(dict(action='poll',token=tb))
+   lan.action(dict(action='poll',token=ta,car=dict(x=track['x'][i]-track['tz'][i]*offset,z=track['z'][i]+track['tx'][i]*offset,h=0,v=0)))
+  return lan.ROOMS[a['room']['code']]['players'][a['me']]
+ p=hold(2,20);check(circuit+' kerbs have no online penalty',p['penalty']==0 and not p.get('limitWarnings'))
+ for excursion in range(4):
+  hold(None,10);p=hold(3.2,20)
+  check(circuit+' one warning for excursion '+str(excursion+1),p.get('limitWarnings')==excursion+1 and p['penalty']==(5 if excursion==3 else 0))
+Path('upgrade/qa/multiplayer-core.json').write_text(json.dumps({'checks':checks,'passed':len(checks)},indent=2));print('PASS',len(checks),'checks including event track limits')

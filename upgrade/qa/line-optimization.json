@@ -98,20 +98,6 @@
     "elapsedSeconds": 53.83965229988098
   },
   {
-    "id": "milano",
-    "centrelineSeconds": 69.58094484565719,
-    "previousPathSeconds": 62.04236919812707,
-    "optimizedSeconds": 62.02057575636811,
-    "maxSpeedKmh": 318.90201283504706,
-    "minSpeedKmh": 191.5210747718811,
-    "maxOffsetMetres": 6.513703380506568,
-    "minimumCentreClearanceMetres": 1.486296619493432,
-    "iterations": 8,
-    "converged": true,
-    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
-    "elapsedSeconds": 28.709351301193237
-  },
-  {
     "id": "spa",
     "centrelineSeconds": 110.56961592854606,
     "previousPathSeconds": 107.41647082749243,
@@ -166,5 +152,19 @@
     "converged": false,
     "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
     "elapsedSeconds": 75.56902003288269
+  },
+  {
+    "id": "milano",
+    "centrelineSeconds": 89.01366802759337,
+    "previousPathSeconds": 85.90406277939974,
+    "optimizedSeconds": 85.12298295127509,
+    "maxSpeedKmh": 323.64559876299836,
+    "minSpeedKmh": 128.5043978691101,
+    "maxOffsetMetres": 4.500000000000001,
+    "minimumCentreClearanceMetres": 4.499999999999999,
+    "iterations": 35,
+    "converged": true,
+    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "elapsedSeconds": 86.67618083953857
   }
 ]

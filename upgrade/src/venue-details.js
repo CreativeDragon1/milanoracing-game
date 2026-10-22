@@ -1,6 +1,6 @@
 // Venue landmarks and furnishings, arranged by circuit sector from the research map index.
 const venuePlans={
- milano:{stands:[[.16,-1,105,14,'PRIMA'],[.42,-1,120,12,'BELVEDERE'],[.70,1,80,10,'PICCO']],bridge:.76,climate:'alpine'},
+ milano:{stands:[],bridge:.63,climate:'alpine'},
  bahrain:{stands:[[.12,-1,90,12,'TURN ONE'],[.33,1,100,10,'OASIS'],[.91,-1,70,9,'VICTORY']],bridge:.56,climate:'desert'},
  singapore:{stands:[[.10,-1,100,12,'TURN 1'],[.40,1,110,12,'PADANG'],[.85,-1,80,10,'BAY']],bridge:.64,climate:'urban'},
  monza:{stands:[[.10,-1,95,12,'RETTIFILO'],[.57,-1,85,10,'ASCARI'],[.91,-1,95,12,'PARABOLICA']],bridge:.70,climate:'forest'},
@@ -20,6 +20,8 @@ for(const [f,side,len,rows,label] of (geography?[]:venuePlan.stands)){const p=ve
 const photoGrass=pbrTexture('__GRASS_COLOR__',true),photoGrassNormal=pbrTexture('__GRASS_NORMAL__'),photoSand=pbrTexture('__SAND_COLOR__',true),photoSandNormal=pbrTexture('__SAND_NORMAL__');
 for(const texture of[photoGrass,photoGrassNormal,photoSand,photoSandNormal])texture.repeat.set(750,750);
 grassMaterial.map=arid||THEME==='dunes'?photoSand:photoGrass;grassMaterial.normalMap=arid||THEME==='dunes'?photoSandNormal:photoGrassNormal;grassMaterial.color.setHex(arid?0xffffff:0x879f78);grassMaterial.normalScale=new T.Vector2(.42,.42);grassMaterial.needsUpdate=true;
+// Grass verges share the terrain's metre scale and orientation, avoiding texture seams.
+scene.traverse(o=>{if(!o.userData.runoffGrass)return;const g=o.geometry,p=g.attributes.position,uv=g.attributes.uv;for(let i=0;i<p.count;i++)uv.setXY(i,p.getX(i)/6000+.5,-p.getZ(i)/6000+.5);uv.needsUpdate=true;o.material.map=photoGrass;o.material.normalMap=photoGrassNormal;o.material.normalScale.set(.3,.3);o.material.needsUpdate=true;});
 const venueMetal=M(0x52606a,.65,.35),venueWhite=M(0xd9dbd5,.25,.47),venueGlass=new T.MeshPhysicalMaterial({color:linear(0x7098a8),metalness:.75,roughness:.13,envMapIntensity:1.2});
 // Sculpted pit canopies, service lanes, garage aprons and pit-wall facilities.
 const pitIndex=PIT.box,pitH=Math.atan2(PIT.z[pitIndex+1]-PIT.z[pitIndex-1],PIT.x[pitIndex+1]-PIT.x[pitIndex-1]),pitAngle=-pitH+(pitSide<0?Math.PI:0);

@@ -1,0 +1,28 @@
+{
+  "station": 113,
+  "kerbValid": true,
+  "briefValid": true,
+  "cutDeleted": true,
+  "qualKerb": true,
+  "qualCut": true,
+  "warnings": [
+    {
+      "warnings": 1,
+      "penalty": 0
+    },
+    {
+      "warnings": 2,
+      "penalty": 0
+    },
+    {
+      "warnings": 3,
+      "penalty": 0
+    },
+    {
+      "warnings": 4,
+      "penalty": 5
+    }
+  ],
+  "continuousWarnings": 4,
+  "errors": []
+}

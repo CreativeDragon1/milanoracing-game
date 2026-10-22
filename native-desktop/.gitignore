@@ -1,0 +1,14 @@
+tools/*.exe
+tools/*.zip
+tools/*.tpz
+tools/*.bin
+tools/templates/
+game/.godot/
+build/
+qa/*.png
+game/circuits/*.bin
+tools/editor_data/
+tools/_sc_
+packages/
+qa/*.log
+**/__pycache__/

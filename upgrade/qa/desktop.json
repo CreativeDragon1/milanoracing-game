@@ -28,16 +28,16 @@
     "webgl2": true,
     "exposedRequire": "undefined",
     "nodeProcess": "undefined",
-    "origin": "http://127.0.0.1:59804",
-    "assetsLoaded": 17,
+    "origin": "http://127.0.0.1:57012",
+    "assetsLoaded": 50,
     "diagnostics": {
       "circuit": "milano",
       "webgl2": true,
-      "drawCalls": 442,
-      "triangles": 2879925,
-      "textures": 56,
+      "drawCalls": 543,
+      "triangles": 2574215,
+      "textures": 62,
       "quality": "ultra",
-      "guide": 62.02057593566936
+      "guide": 85.1229867339966
     }
   },
   "speedKmh": 36.307558721757204,

@@ -16,6 +16,13 @@
     "simulatedLaps": 2,
     "maxSpeedKmh": 315.2254679373243,
     "minBodyRoadClearance": 0.3065793870015363,
+    "clearanceAt": {
+      "station": 426,
+      "progress": 427,
+      "d": 3.4019206129984636,
+      "carD": 2.445099467448534,
+      "speed": 240.10903559858707
+    },
     "maxTrackingError": 2.797552067109839,
     "invalidations": 0,
     "barrierContacts": 0,
@@ -42,6 +49,13 @@
     "simulatedLaps": 2,
     "maxSpeedKmh": 311.6447430312349,
     "minBodyRoadClearance": -1.6494882161345217,
+    "clearanceAt": {
+      "station": 652,
+      "progress": 651,
+      "d": -6.669688216134522,
+      "carD": -5.466581685428622,
+      "speed": 74.74164570245371
+    },
     "maxTrackingError": 3.0705026170563787,
     "invalidations": 0,
     "barrierContacts": 0,
@@ -68,6 +82,13 @@
     "simulatedLaps": 2,
     "maxSpeedKmh": 316.4723939801132,
     "minBodyRoadClearance": -0.09894134323356951,
+    "clearanceAt": {
+      "station": 803,
+      "progress": 803,
+      "d": 5.432941343233569,
+      "carD": 4.559170045260747,
+      "speed": 224.96384824578925
+    },
     "maxTrackingError": 1.5659859155130698,
     "invalidations": 0,
     "barrierContacts": 0,
@@ -94,6 +115,13 @@
     "simulatedLaps": 2,
     "maxSpeedKmh": 304.4953815228761,
     "minBodyRoadClearance": -0.646020051165082,
+    "clearanceAt": {
+      "station": 369,
+      "progress": 370,
+      "d": -4.949220051165082,
+      "carD": -4.043170538147011,
+      "speed": 167.92482107220434
+    },
     "maxTrackingError": 2.092482974042958,
     "invalidations": 0,
     "barrierContacts": 0,
@@ -120,6 +148,13 @@
     "simulatedLaps": 2,
     "maxSpeedKmh": 313.0258013672121,
     "minBodyRoadClearance": -0.0571077768088184,
+    "clearanceAt": {
+      "station": 593,
+      "progress": 594,
+      "d": -4.070207776808818,
+      "carD": -3.179314967806392,
+      "speed": 164.9282835192173
+    },
     "maxTrackingError": 2.8867975113840205,
     "invalidations": 0,
     "barrierContacts": 0,
@@ -146,6 +181,13 @@
     "simulatedLaps": 2,
     "maxSpeedKmh": 314.2579182956452,
     "minBodyRoadClearance": -0.5075094004869842,
+    "clearanceAt": {
+      "station": 76,
+      "progress": 75,
+      "d": -4.218509400486984,
+      "carD": -3.6265413044915533,
+      "speed": 252.39883443969015
+    },
     "maxTrackingError": 2.7830091268362236,
     "invalidations": 0,
     "barrierContacts": 0,
@@ -172,6 +214,13 @@
     "simulatedLaps": 2,
     "maxSpeedKmh": 316.0262305449248,
     "minBodyRoadClearance": -1.3720002616253746,
+    "clearanceAt": {
+      "station": 967,
+      "progress": 968,
+      "d": -5.428000261625375,
+      "carD": -4.437895410224346,
+      "speed": 91.68976722868987
+    },
     "maxTrackingError": 1.8069542668244156,
     "invalidations": 0,
     "barrierContacts": 0,
@@ -184,28 +233,35 @@
   {
     "id": "milano",
     "worst": {
-      "i": 735,
-      "speed": 253.74776494811164,
-      "target": 258.5567355451397,
+      "i": 135,
+      "speed": 194.69895581492534,
+      "target": 197.75639690677136,
       "throttle": 1,
       "brake": 0,
       "steer": 1,
-      "feed": 5.485072746541805,
-      "a": 11.811117996319965
+      "feed": 11.260720488243896,
+      "a": 15.568941534648289
     },
-    "lapSeconds": 62.02057593566936,
-    "offlinePredictionSeconds": 62.02057575636811,
+    "lapSeconds": 85.1229867339966,
+    "offlinePredictionSeconds": 85.12298295127509,
     "simulatedLaps": 2,
-    "maxSpeedKmh": 317.1235626715077,
-    "minBodyRoadClearance": 0.4806164345231405,
-    "maxTrackingError": 3.044154740808226,
+    "maxSpeedKmh": 321.83327505415554,
+    "minBodyRoadClearance": -0.020996406060161732,
+    "clearanceAt": {
+      "station": 687,
+      "progress": 687,
+      "d": -7.914026406060162,
+      "carD": -6.892226510651574,
+      "speed": 189.4546384231595
+    },
+    "maxTrackingError": 6.012437750532718,
     "invalidations": 0,
     "barrierContacts": 0,
     "latResidual": 0,
     "accResidual": 0,
     "brakeResidual": 0,
-    "fullThrottleTicks": 14199,
-    "brakingTicks": 860
+    "fullThrottleTicks": 18017,
+    "brakingTicks": 1566
   },
   {
     "id": "spa",
@@ -224,6 +280,13 @@
     "simulatedLaps": 2,
     "maxSpeedKmh": 313.3972501920083,
     "minBodyRoadClearance": -0.453304592013283,
+    "clearanceAt": {
+      "station": 498,
+      "progress": 499,
+      "d": -4.710504592013283,
+      "carD": -3.7516495593756347,
+      "speed": 130.06943834524716
+    },
     "maxTrackingError": 3.9298793691810685,
     "invalidations": 0,
     "barrierContacts": 0,
@@ -250,6 +313,13 @@
     "simulatedLaps": 2,
     "maxSpeedKmh": 317.2386978804124,
     "minBodyRoadClearance": -0.020733949486102965,
+    "clearanceAt": {
+      "station": 756,
+      "progress": 755,
+      "d": 4.652133949486103,
+      "carD": 4.033578578274458,
+      "speed": 233.23752373868322
+    },
     "maxTrackingError": 3.696679409725405,
     "invalidations": 0,
     "barrierContacts": 0,
@@ -276,6 +346,13 @@
     "simulatedLaps": 2,
     "maxSpeedKmh": 315.76922471054854,
     "minBodyRoadClearance": -0.1837397242505192,
+    "clearanceAt": {
+      "station": 572,
+      "progress": 573,
+      "d": -3.672339724250519,
+      "carD": -2.729699906343197,
+      "speed": 220.49350647168538
+    },
     "maxTrackingError": 1.3978560838779963,
     "invalidations": 0,
     "barrierContacts": 0,
@@ -302,6 +379,13 @@
     "simulatedLaps": 2,
     "maxSpeedKmh": 314.54932973192126,
     "minBodyRoadClearance": -1.5337749579486628,
+    "clearanceAt": {
+      "station": 1028,
+      "progress": 1029,
+      "d": -4.997574957948663,
+      "carD": -3.9974409207210053,
+      "speed": 216.66186727823376
+    },
     "maxTrackingError": 3.8122628667261473,
     "invalidations": 0,
     "barrierContacts": 0,

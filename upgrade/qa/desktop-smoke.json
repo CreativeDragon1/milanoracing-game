@@ -1,0 +1,34 @@
+{
+  "checks": [
+    "Packaged executable launches",
+    "12 local circuits each loaded",
+    "MR 26 caption",
+    "WebGL2 available",
+    "Renderer has no Node integration",
+    "Practice accelerates"
+  ],
+  "loaded": [
+    "interlagos"
+  ],
+  "result": {
+    "title": "Milano Racing · Grand Prix",
+    "car": "MR 26",
+    "circuits": 12,
+    "webgl2": true,
+    "exposedRequire": "undefined",
+    "nodeProcess": "undefined",
+    "origin": "http://127.0.0.1:54801",
+    "assetsLoaded": 50,
+    "diagnostics": {
+      "circuit": "milano",
+      "webgl2": true,
+      "drawCalls": 547,
+      "triangles": 2817297,
+      "textures": 63,
+      "quality": "ultra",
+      "guide": 85.1229867339966
+    }
+  },
+  "speedKmh": 36.307558721757204,
+  "errors": []
+}

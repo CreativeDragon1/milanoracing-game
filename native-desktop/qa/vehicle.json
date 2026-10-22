@@ -1,0 +1,56 @@
+{
+	"checks": 77907,
+	"circuits": [
+		{
+			"id": "bahrain",
+			"pitSeconds": 46.375
+		},
+		{
+			"id": "singapore",
+			"pitSeconds": 51.8583333333333
+		},
+		{
+			"id": "monza",
+			"pitSeconds": 43.325
+		},
+		{
+			"id": "monaco",
+			"pitSeconds": 47.6583333333333
+		},
+		{
+			"id": "austria",
+			"pitSeconds": 57.35
+		},
+		{
+			"id": "silverstone",
+			"pitSeconds": 63.25
+		},
+		{
+			"id": "abu-dhabi",
+			"pitSeconds": 66.0083333333333
+		},
+		{
+			"id": "milano",
+			"pitSeconds": 50.8083333333333
+		},
+		{
+			"id": "spa",
+			"pitSeconds": 48.7083333333333
+		},
+		{
+			"id": "suzuka",
+			"pitSeconds": 50.1333333333333
+		},
+		{
+			"id": "interlagos",
+			"pitSeconds": 76.0833333333333
+		},
+		{
+			"id": "zandvoort",
+			"pitSeconds": 46.9666666666667
+		}
+	],
+	"failures": [],
+	"passed": true,
+	"scope": "Software-injected native keyboard input and complete assisted pit traversals; not hardware-controller or real-car validation"
+}

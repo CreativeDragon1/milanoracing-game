@@ -1,0 +1,227 @@
+extends Node3D
+# Fixed-step assisted two-axle bicycle model, SI units. No path-following for player input.
+var circuit: Dictionary
+var idx := 0
+var lateral := 0.0
+var speed := 0.0
+var side_speed := 0.0
+var yaw_rate := 0.0
+var heading := 0.0
+var steering := 0.0
+var throttle := 0.0
+var brake := 0.0
+var distance := 0.0
+var gear := 1
+var rpm := 4500.0
+var enabled := false
+var visual: Node3D
+var last_position := Vector3.ZERO
+var lap := 0
+var lap_clock := 0.0
+var last_lap := 0.0
+var best_lap := INF
+var lap_distance := 0.0
+var pit_active := false
+var pit_requested := false
+var pit_s := 0.0
+var pit_service := 0.0
+var pit: Dictionary
+var wheel_parts: Array[MeshInstance3D] = []
+var wheel_angle := 0.0
+var pit_entry_pose := Vector3.ZERO
+var pit_entry_heading := 0.0
+
+func configure(track: Dictionary, pit_data: Dictionary) -> void:
+	circuit = track
+	pit = pit_data
+	visual = load("res://assets/mr26.scn").instantiate()
+	add_child(visual)
+	# Keep every original decal; only the neutral resin pixels receive the native finish.
+	for part in visual.get_children():
+		if part is MeshInstance3D:
+			var base: Material = part.mesh.surface_get_material(0)
+			if base is StandardMaterial3D and base.clearcoat_enabled and base.metallic>.2 and base.albedo_texture:
+				var paint := ShaderMaterial.new()
+				paint.shader = load("res://scripts/car_paint.gdshader")
+				paint.set_shader_parameter("livery",base.albedo_texture)
+				part.material_override = paint
+			elif base is StandardMaterial3D and base.roughness>.8 and base.metallic<.03 and base.albedo_color.r<.4 and part.position.length()>1:
+				var rubber: StandardMaterial3D = base.duplicate()
+				rubber.albedo_color = Color(.08,.085,.09)
+				rubber.metallic_specular = .2
+				rubber.roughness = .95
+				part.material_override = rubber
+				wheel_parts.append(part)
+	reset_at(0)
+
+func reset_at(station: int) -> void:
+	idx = posmod(station,int(circuit.N))
+	position = Vector3(circuit.x[idx],circuit.elevation.height[idx]+.045,circuit.z[idx])
+	heading = atan2(circuit.tz[idx],circuit.tx[idx])
+	speed = 0
+	side_speed = 0
+	yaw_rate = 0
+	steering = 0
+	pit_active = false
+	pit_requested = false
+	pit_service = 0
+	update_pose()
+	reset_physics_interpolation()
+
+func project(point: Vector3, hint: int) -> Dictionary:
+	var count := int(circuit.N)
+	var best := INF
+	var result := {"i":hint,"offset":0.0,"fraction":0.0}
+	for k in range(-45,46):
+		var i := posmod(hint+k,count)
+		var j := (i+1)%count
+		var a := Vector2(circuit.x[i],circuit.z[i])
+		var delta := Vector2(circuit.x[j],circuit.z[j])-a
+		var t := clampf((Vector2(point.x,point.z)-a).dot(delta)/delta.length_squared(),0,1)
+		var diff := Vector2(point.x,point.z)-a-delta*t
+		if diff.length_squared()<best:
+			best = diff.length_squared()
+			result = {"i":i,"offset":(diff.y*delta.x-diff.x*delta.y)/delta.length(),"fraction":t}
+	return result
+
+func update_pose() -> void:
+	var q := project(position,idx)
+	idx = q.i
+	lateral = q.offset
+	var j := (idx+1)%int(circuit.N)
+	var bank := lerpf(circuit.bank[idx],circuit.bank[j],q.fraction)
+	var ground := lerpf(circuit.elevation.height[idx],circuit.elevation.height[j],q.fraction)-lateral*tan(bank)
+	position.y = ground+.045
+	var along := cos(heading)*float(circuit.tx[idx])+sin(heading)*float(circuit.tz[idx])
+	var grade := float(circuit.elevation.grade[idx])*along
+	rotation = Vector3(-bank*along,-heading,atan(grade))
+
+func _physics_process(dt: float) -> void:
+	if not enabled: return
+	if pit_active:
+		step_pit(dt)
+		return
+	var old_idx := idx
+	var pad := Input.get_connected_joypads()
+	var steer_target := float(Input.is_physical_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_RIGHT))-float(Input.is_physical_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_LEFT))
+	var gas_target := float(Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_UP))
+	var brake_target := float(Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_SPACE))
+	var keyboard := true
+	if pad.size():
+		var axis := Input.get_joy_axis(pad[0],JOY_AXIS_LEFT_X)
+		if absf(axis)>.12 and steer_target==0:
+			steer_target = signf(axis)*pow((absf(axis)-.12)/.88,1.4)
+			keyboard = false
+		gas_target = maxf(gas_target,Input.get_joy_axis(pad[0],JOY_AXIS_TRIGGER_RIGHT))
+		brake_target = maxf(brake_target,Input.get_joy_axis(pad[0],JOY_AXIS_TRIGGER_LEFT))
+	throttle = move_toward(throttle,gas_target,dt*(5 if gas_target>throttle else 12))
+	brake = move_toward(brake,brake_target,dt*14)
+	var rate := (13.0 if absf(steer_target)<.015 else 7.5-clampf(speed/90,0,1)*1.5) if keyboard else 16.0
+	steering = move_toward(steering,lerpf(steering,steer_target,1-exp(-rate*dt)),dt*(4.5 if keyboard else 8.0))
+	var edge: float = circuit.widthRight[idx] if lateral>=0 else circuit.widthLeft[idx]
+	var off := clampf((absf(lateral)-edge-1.1)/1.8,0,1)
+	var mass := 800.0
+	var mu := 2.0*(1-off*.27)
+	var downforce := 2.6*1.2*speed*speed
+	var load := mass*9.81+downforce
+	var max_lat := minf(60,mu*load/mass)
+	# Full low-speed steering, progressively limited at speed by the tyre envelope.
+	var lock := minf(.50,atan(max_lat*3.0/maxf(speed*speed,12.0)))*.92
+	var angle := steering*lock
+	var front_load := load*.46
+	var rear_load := load-front_load
+	var fy_front := -mu*front_load*tanh((atan2(side_speed+1.6*yaw_rate,maxf(speed,4))-angle)*14)
+	var fy_rear := -mu*rear_load*tanh(atan2(side_speed-1.4*yaw_rate,maxf(speed,4))*14.16)
+	var available_front := sqrt(maxf(0,pow(mu*front_load,2)-fy_front*fy_front))
+	var available_rear := sqrt(maxf(0,pow(mu*rear_load,2)-fy_rear*fy_rear))
+	var brake_force := brake*minf(47000,speed*mass/dt)
+	var drive := minf(19000,720000/maxf(speed,12))*clampf((105-speed)/5,0,1)
+	var fx_front := clampf(-brake_force*.58,-available_front,available_front)
+	var fx_rear := clampf(throttle*drive-brake_force*.42,-available_rear,available_rear)
+	var drag := minf(.6*1.7*speed*speed+mass*9.81*.015+off*(600+50*speed),speed*mass/dt)
+	var slope := float(circuit.elevation.grade[idx])*(cos(heading)*float(circuit.tx[idx])+sin(heading)*float(circuit.tz[idx]))
+	speed = maxf(0,speed+((fx_front*cos(angle)-fy_front*sin(angle)+fx_rear-drag)/mass-9.81*sin(atan(slope))+yaw_rate*side_speed)*dt)
+	side_speed += ((fy_front*cos(angle)+fx_front*sin(angle)+fy_rear)/mass-yaw_rate*speed)*dt
+	yaw_rate += (1.6*(fy_front*cos(angle)+fx_front*sin(angle))-1.4*fy_rear)/1100*dt
+	var target_yaw := clampf(speed/3*tan(angle),-max_lat/maxf(speed,4),max_lat/maxf(speed,4))
+	yaw_rate = lerpf(yaw_rate,target_yaw,1-exp(-6*dt))
+	yaw_rate = clampf(yaw_rate,-absf(target_yaw)-.1,absf(target_yaw)+.1)
+	side_speed *= exp(-5.8*dt)
+	side_speed = clampf(side_speed,-.35-speed*.1,.35+speed*.1)
+	if speed<.15:
+		side_speed = 0
+		yaw_rate = 0
+	heading += yaw_rate*dt
+	last_position = position
+	position.x += (speed*cos(heading)-side_speed*sin(heading))*dt
+	position.z += (speed*sin(heading)+side_speed*cos(heading))*dt
+	update_pose()
+	var runoff: float = circuit.runoffRight[idx] if lateral>=0 else circuit.runoffLeft[idx]
+	edge = circuit.widthRight[idx] if lateral>=0 else circuit.widthLeft[idx]
+	var barrier := edge+runoff-.75
+	if absf(lateral)>barrier:
+		var penetration := (absf(lateral)-barrier)*signf(lateral)
+		position.x += float(circuit.tz[idx])*penetration
+		position.z -= float(circuit.tx[idx])*penetration
+		speed *= .65
+		side_speed = 0
+		yaw_rate *= .3
+	distance += speed*dt
+	lap_distance += speed*dt
+	lap_clock += dt
+	if old_idx>int(circuit.N)*.9 and idx<int(circuit.N)*.1 and lap_distance>float(circuit.length)*.8:
+		last_lap = lap_clock
+		best_lap = minf(best_lap,last_lap)
+		lap += 1
+		lap_clock = 0
+		lap_distance = 0
+	var tops := [30.0,45.0,60.0,72.0,85.0,100.0]
+	while gear<6 and speed>tops[gear-1]: gear += 1
+	while gear>1 and speed<tops[gear-2]*.87: gear -= 1
+	rpm = clampf(18000*speed/tops[gear-1],4500,18000)
+	wheel_angle -= speed*dt/.373
+	for wheel in wheel_parts:
+		wheel.rotation = Vector3(0,-angle if wheel.position.x>0 else 0,wheel_angle)
+	if pit_requested and absi(idx-int(pit.entry))<3:
+		pit_active = true
+		pit_s = 0
+		pit_service = 0
+		pit_entry_pose = position
+		pit_entry_heading = heading
+	if not is_finite(position.x+position.z+speed+heading): reset_at(idx)
+
+func step_pit(dt: float) -> void:
+	var old_idx := idx
+	var k := 0
+	while k<pit.s.size()-2 and float(pit.s[k+1])<pit_s: k += 1
+	var target := minf(float(pit.speedLimitKmh)/3.6,float(pit.cornerSpeed[k]))
+	var box_s := float(pit.s[int(pit.box)])
+	if pit_s<box_s and pit_service==0: target = minf(target,sqrt(maxf(0,2*8*(box_s-pit_s))))
+	if absf(pit_s-box_s)<.4 and pit_service<2.8:
+		pit_s = box_s
+		speed = 0
+		pit_service += dt
+	else:
+		speed = move_toward(speed,target,dt*8)
+		pit_s += speed*dt
+	var t := clampf((pit_s-float(pit.s[k]))/maxf(.01,float(pit.s[k+1])-float(pit.s[k])),0,1)
+	position = Vector3(lerpf(pit.x[k],pit.x[k+1],t),lerpf(pit.y[k],pit.y[k+1],t)+.045,lerpf(pit.z[k],pit.z[k+1],t))
+	heading = lerp_angle(pit.heading[k],pit.heading[k+1],t)
+	if pit_s<18:
+		var blend := smoothstep(0,18,pit_s)
+		position = pit_entry_pose.lerp(position,blend)
+		heading = lerp_angle(pit_entry_heading,heading,blend)
+	rotation = Vector3(0,-heading,atan(lerpf(pit.grade[k],pit.grade[k+1],t)))
+	idx = posmod(roundi(lerpf(pit.station[k],pit.station[k+1],t)),int(circuit.N))
+	lap_clock += dt
+	lap_distance += speed*dt
+	distance += speed*dt
+	if old_idx>int(circuit.N)*.9 and idx<int(circuit.N)*.1 and lap_distance>float(circuit.length)*.8:
+		last_lap = lap_clock
+		best_lap = minf(best_lap,last_lap)
+		lap += 1
+		lap_clock = 0
+		lap_distance = 0
+	if pit_s>=float(pit.length):
+		pit_active = false
+		pit_requested = false

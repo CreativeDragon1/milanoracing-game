@@ -1,0 +1,23 @@
+MILANO RACING GRAND PRIX - THIRD-PARTY NOTICES
+
+Original Milano logo, sponsor artwork and Fusion MR 26 model supplied by the user. Artwork is preserved. Ownership remains with its owners.
+
+Three.js r128 and addons: MIT. See Three.js-MIT.txt.
+Circuit centreline source: https://github.com/bacinger/f1-circuits . MIT; see included license.
+Variable boundaries: TUM FTM / Alexander Heilmeier / Andressa de Paula Suiti, https://github.com/TUMFTM/racetrack-database . LGPL-3.0. Source CSVs, adapted arrays and the registration tool are included in the Source package. Adaptations register, interpolate and smooth the satellite boundaries; changed layouts and unmapped sections use labelled estimates. This is not a survey or homologation dataset.
+Mapped buildings, public roads, water, forests and pit paths: OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright . The derived databases and reconstruction tools are included in the Source package. Heights and architectural detail are estimated where tags are absent.
+Terrain: Mapzen Terrain Tiles on AWS, https://registry.opendata.aws/terrain-tiles/ . Full underlying provider notices: Mapzen-provider-attribution.md. DEM is adapted to the racing surface and resampled.
+Sentinel-2 cloudless - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016 & 2017). CC BY 4.0. Source: https://cloudless.eox.at . Older commercially reusable imagery is baked as background colour; mapped current land cover is overlaid. No newer noncommercial imagery is used.
+PBR materials, Kloppenheim 06 Pure Sky HDR and Tree Small 02: Poly Haven, CC0, https://polyhaven.com . Tree mesh is decimated and uses geometry LODs. Materials are resized and channel-packed.
+Barlow: The Barlow Project Authors, https://github.com/jpt/barlow . DM Sans: The DM Sans Project Authors. Michroma: The Michroma Project Authors. Oxanium: Florian Seitz. These embedded fonts use the SIL Open Font License 1.1; licenses accompany the build. Legacy Saira source assets retain their original included OFL.
+V10 recording: Edvvc / Ed Pond, Red Bull-Cosworth RB1 (2005), https://commons.wikimedia.org/wiki/File:Red_Bull-Cosworth_RB1_(2005).ogg . CC BY-SA 3.0. Edited, looped and mixed into a multi-RPM sample bank. Adapted audio retains CC BY-SA 3.0; the bank is included with source. The film soundtrack is NOT part of this game package.
+Native runtime: Godot 4.7.2, MIT. Godot-MIT.txt and Godot-Third-Party.txt contain the engine and dependency notices. The native executable does not contain Electron or Chromium.
+
+Sporting/circuit documents are research references, not included assets. No FIA/F1 certification or official affiliation is represented.
+
+SPONSOR ARTWORK UPDATE
+STEM Racing Singapore: https://stemracing.com.sg/ (official logo asset; embedded raster extracted without redesign).
+NPE Print: https://npeprint.com/about-our-printing-company (official transparent artwork).
+Axis Container Lines: matching supplied ship/globe/plane mark from https://freightcue.com/companies/india/ludhiana-axis-container-lines-ludhiana-head-office-dc6a16 . This is a directory source, not a claim of endorsement.
+Hustle Hive, Brinda's and Enermax Synergy SEA: supplied artwork retained. Matching online identity does not establish a licence for unrelated logos. Sponsor artwork remains its owners' property.
+Additional gravel PBR: https://polyhaven.com/a/gravel_floor , CC0; resized for real-time use.

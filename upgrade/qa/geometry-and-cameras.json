@@ -282,8 +282,8 @@
     "stats": {
       "circuit": "monza",
       "webgl2": true,
-      "drawCalls": 446,
-      "triangles": 4365939,
+      "drawCalls": 444,
+      "triangles": 4364175,
       "textures": 118,
       "quality": "ultra",
       "guide": 85.29013672296118
@@ -378,8 +378,8 @@
     "stats": {
       "circuit": "monaco",
       "webgl2": true,
-      "drawCalls": 785,
-      "triangles": 4062036,
+      "drawCalls": 806,
+      "triangles": 4071360,
       "textures": 134,
       "quality": "ultra",
       "guide": 82.77988064240566
@@ -414,7 +414,7 @@
         "active": {
           "near": 3,
           "middle": 69,
-          "far": 1229
+          "far": 1232
         }
       },
       "fonts": true,
@@ -512,7 +512,7 @@
         "active": {
           "near": 16,
           "middle": 5,
-          "far": 803
+          "far": 818
         }
       },
       "fonts": true,
@@ -800,7 +800,7 @@
         "active": {
           "near": 1,
           "middle": 54,
-          "far": 8355
+          "far": 8353
         }
       },
       "fonts": true,
@@ -960,8 +960,8 @@
     "stats": {
       "circuit": "suzuka",
       "webgl2": true,
-      "drawCalls": 1539,
-      "triangles": 3148080,
+      "drawCalls": 1555,
+      "triangles": 3209392,
       "textures": 112,
       "quality": "ultra",
       "guide": 94.56871547569249
@@ -1090,7 +1090,7 @@
         "active": {
           "near": 0,
           "middle": 1,
-          "far": 28
+          "far": 27
         }
       },
       "fonts": true,

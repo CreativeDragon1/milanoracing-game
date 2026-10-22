@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Milano Racing — Team Edition</title>
-<link rel="stylesheet" href="/assets/810110a370139dab199c.css"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#080c16"><meta name="robots" content="noindex,nofollow"></head><body data-screen="menu"><div id="scene-loading" role="status" aria-live="polite"><strong>MILANO RACING</strong><span id="load-progress">Preparing circuit</span><button id="load-retry" hidden onclick="location.reload()">Reload circuit</button></div>
+<link rel="stylesheet" href="/assets/0077fde35cb8ba91c7b5.css"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#080c16"><meta name="robots" content="noindex,nofollow"></head><body data-screen="menu"><div id="scene-loading" role="status" aria-live="polite"><strong>MILANO RACING</strong><span id="load-progress">Preparing circuit</span><button id="load-retry" hidden onclick="location.reload()">Reload circuit</button></div>
 <canvas id="c" aria-label="Milano Racing 3D game"></canvas><div id="vignette"></div>
 <button id="connection" title="Controller connection and Bluetooth instructions"><i class="status-dot"></i><span id="padbadge">Controller setup</span></button>
 <div id="hud" hidden>
  <div id="tl"><div id="session-type">TIME TRIAL</div><span id="lap">OUT-LAP</span><span id="val">CROSS THE LINE TO START TIMING</span></div>
  <div id="tc"><div class="hud-kicker">LAP TIME</div><div id="cur" class="num">0:00.000</div><div id="bst">BEST --:--.---</div><div id="dl">DELTA --</div><div id="sec"></div></div>
  <canvas id="map" width="170" height="170"></canvas><canvas id="gph" width="220" height="70"></canvas><div id="hud-label">TELEMETRY</div>
- <div id="bc"><div id="rev-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div><div id="spd">0</div><small>KM / H</small></div><div><div id="gr">N</div><div id="rpm">4000 RPM</div></div><div><small>THROTTLE</small><div class="bar"><i id="bt" style="background:var(--ok)"></i></div><small>BRAKE</small><div class="bar"><i id="bb" style="background:var(--acc)"></i></div><small>STEERING</small><div class="bar"><i id="bs" style="background:var(--tec)"></i></div></div></div>
+ <div id="bc"><div id="rev-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div><div id="spd">0</div><small>KMH</small></div><div><div id="gr">N</div><div id="rpm">4000 RPM</div></div><div><small>THROTTLE</small><div class="bar"><i id="bt" style="background:var(--ok)"></i></div><small>BRAKE</small><div class="bar"><i id="bb" style="background:var(--acc)"></i></div><small>STEERING</small><div class="bar"><i id="bs" style="background:var(--tec)"></i></div></div></div>
  <div id="gp-timing" hidden></div><div id="gp-race-strip" hidden><b id="gp-tyre"></b><button id="gp-pit-call">BOX</button><button id="gp-next-tyre">HARD</button><small id="gp-strategy-status"></small></div><div id="line-cue" hidden><strong id="line-action">ACCELERATE</strong><span id="line-speed"></span></div><div id="drivehelp"><div id="camera-label">CHASE CAMERA</div><span id="drivekeys">C · Camera &nbsp; R · Reset &nbsp; Esc · Pause</span></div><div id="msg" role="status"></div>
 </div>
 <div class="ov on" id="menu"><div class="menu-shell">
  <header class="brand"><img src="/assets/e61b5f25ad312c85305a.png" alt="Milano Racing"><div><strong>MILANO RACING</strong><span>ALWAYS THE FASTEST</span></div><button class="home-settings" data-ov="settings" aria-label="Open settings">SETTINGS</button></header>
- <div class="menu-main"><div class="eyebrow">MR 26 / GRAND PRIX</div><h1>MILANO<b>RACING</b></h1><p class="home-tagline">Your place on the grid.</p>
+ <div class="menu-main"><h1>MILANO<b>RACING</b></h1><p class="home-tagline">Your place on the grid.</p>
  <button class="home-drive p" data-ov="sessions"><span>DRIVE</span><span aria-hidden="true">↗</span></button>
  <button class="home-online" data-ov="network" id="multiplayer-menu"><span>MULTIPLAYER</span><small>CREATE OR JOIN A RACE</small></button>
  <button class="home-circuit" data-ov="circuits" id="circuit-menu"><span><small>SELECTED CIRCUIT</small><strong id="current-circuit">MILANO AUTODROMO</strong></span><span aria-hidden="true">›</span></button>
- </div><footer class="menu-foot"><span>12 CIRCUITS <i></i> ONE TEAM</span><span id="track-length">5.03 KM</span></footer>
+ </div><footer class="menu-foot"><span></span><span id="track-length">6.54 KM</span></footer>
  </div><div class="car-caption"><span>THE MILANO</span><h3>MR 26</h3></div></div>
 <div class="ov" id="sessions"><div class="pn"><div class="eyebrow">GET ON TRACK</div><h2>Choose your session</h2><div class="session-list">
  <button class="session-card p" data-weekend="qual"><span class="session-copy"><strong>RACE WEEKEND</strong><small>QUALIFY. TAKE YOUR PLACE. RACE.</small></span><span class="session-arrow">›</span></button>
@@ -24,23 +24,37 @@
  <button class="session-card" data-go="tt"><span class="session-copy"><strong>TIME TRIAL</strong><small>YOU AGAINST THE CLOCK</small></span><span class="session-arrow">›</span></button>
  <button class="session-card" data-go="pr"><span class="session-copy"><strong>PRACTICE</strong><small>LEARN THE CIRCUIT</small></span><span class="session-arrow">›</span></button>
  </div><button data-ov="menu">Back</button></div></div>
-<div class="ov" id="settings"><div class="pn"><div class="eyebrow">GARAGE</div><h2>Settings</h2><div id="graphics-settings"></div><button id="connect-menu">Controls &amp; controller</button><button data-ov="help">Driving guide</button><button id="fullscreen-menu">Fullscreen [F]</button><button data-ov="about">Credits &amp; game info</button><button class="p" data-ov="menu">Back</button></div></div>
-<div class="ov" id="setup"><div class="pn"><div class="eyebrow">GARAGE</div><h2>Car setup</h2><p class="small"><span class="assist-tag">ASSISTS ON</span> &nbsp; Steering and stability assistance enabled.</p><div id="sl"></div><label class="guide-setting">Racing line<select id="race-line"><option value="2">Full circuit</option><option value="1">Corners only</option><option value="0">Off</option></select><em>Green: accelerate · Amber: lift · Red: brake. L to change.</em></label><label><input type="checkbox" id="lowq"> Performance mode</label><button class="p" id="go">Start session</button><div class="button-row"><button id="rst">Reset setup</button><button data-ov="menu">Back</button></div></div></div>
+<div class="ov" id="settings"><div class="pn settings-shell">
+ <header class="screen-heading"><div><div class="eyebrow">MILANO RACING</div><h2>Garage</h2></div><button class="close-screen" data-ov="menu" aria-label="Back to home">×</button></header>
+ <div class="settings-layout"><nav class="settings-tabs" aria-label="Settings"><button data-settings-tab="driver" aria-pressed="true"><span>01</span>Controls</button><button data-settings-tab="display" aria-pressed="false"><span>02</span>Display</button><button data-settings-tab="audio" aria-pressed="false"><span>03</span>Audio</button></nav>
+ <div class="settings-content"><section data-settings-panel="driver"><div class="section-index">DRIVER</div><h3>Input control</h3><label class="control-row" for="menu-steering"><span>Steering response</span><output id="menu-steering-value">0.85</output><input id="menu-steering" type="range" min=".5" max="1.5" step=".05"></label><label class="control-row">Racing line<select id="menu-racing-line"><option value="2">Full circuit</option><option value="1">Corners only</option><option value="0">Off</option></select></label><div class="settings-links"><button id="connect-menu">Controller <span>↗</span></button><button data-ov="setup" data-setup-from="settings">Car setup <span>↗</span></button><button data-ov="help">Quick controls <span>↗</span></button></div><p class="settings-caption">Keyboard + PlayStation + Xbox</p></section>
+ <section data-settings-panel="display" hidden><div class="section-index">DISPLAY</div><h3>Graphics</h3><div id="graphics-settings"></div><div class="quality-specs" id="quality-specs"></div><button id="fullscreen-menu" class="outline-action">Fullscreen <span>F</span></button></section>
+ <section data-settings-panel="audio" hidden><div class="section-index">AUDIO</div><h3>Engine audio</h3><label class="control-row" for="menu-volume"><span>V10 engine</span><output id="menu-volume-value">70%</output><input id="menu-volume" type="range" min="0" max="1" step=".05"></label><button id="menu-mute" class="outline-action">Mute</button></section></div></div>
+ <footer class="screen-footer"><span>MR 26 · ALWAYS THE FASTEST</span><button class="text-action" data-ov="about">Credits &amp; info ↗</button><button class="p" data-ov="menu">Done ↗</button></footer>
+ </div></div>
+<div class="ov" id="setup"><div class="pn"><div class="eyebrow">CAR SETUP</div><h2>MR 26 setup</h2><div class="setup-status"><span class="assist-tag">STABILITY ASSIST</span><span>ACTIVE</span></div><div id="sl"></div><label class="guide-setting">Racing line<select id="race-line"><option value="2">Full circuit</option><option value="1">Corners only</option><option value="0">Off</option></select><div class="line-legend"><i></i> GO <i></i> LIFT <i></i> BRAKE</div></label><label><input type="checkbox" id="lowq"> Performance mode</label><button class="p" id="go">Start session</button><div class="button-row"><button id="rst">Reset setup</button><button id="setup-back" data-ov="menu">Back</button></div></div></div>
 <div class="ov" id="count"><div id="cdn">3</div></div>
 <div class="ov" id="pause"><div class="pn"><div class="eyebrow">SESSION MENU</div><h2>Paused</h2><p id="pause-note" class="small"></p><button class="p" id="resume">Resume</button><button id="line-pause">Racing line: Full</button><button id="pause-controller">Controller setup</button><button id="restart">Restart session</button><button id="endS">End session</button><button id="tomenu">Main menu</button></div></div>
 <div class="ov" id="results"><div class="pn" id="rb"></div></div>
-<div class="ov" id="controllers"><div class="pn"><div class="eyebrow">INPUT SETTINGS</div><h2>Controller</h2><p>Connect by USB or pair through your computer's Bluetooth settings. Then press any controller button.</p><button id="bluetooth-help" class="link-button">Bluetooth pairing</button><div id="pairing" hidden><ol class="small"><li>On Windows, open <b>Settings → Bluetooth & devices → Add device → Bluetooth</b>.</li><li><b>PS5:</b> hold Create + PS until the light blinks. <b>PS4:</b> hold Share + PS.</li><li><b>Bluetooth-capable Xbox:</b> turn it on, then hold the Pair button until the Xbox light flashes. Select the controller in Bluetooth settings.</li><li>Return to the game, click the page, and press a controller button. Older Xbox controllers may need USB or their wireless adapter.</li></ol></div><div class="controller-status"><div id="padname">No controller detected</div><p id="paddetail" class="small">Connect a controller and press any button.</p><select id="padselect" aria-label="Active controller" hidden></select><div class="meters"><div><span class="small">LT / L2 · BRAKE</span><div class="meter"><i id="test-brake"></i></div></div><div><span class="small">RT / R2 · THROTTLE</span><div class="meter"><i id="test-throttle"></i></div></div><div class="stick-meter"><span class="small">LEFT STICK · STEERING</span><div class="meter"><i id="test-steer"></i></div></div></div></div><div class="map-grid"><span><b>RT / R2</b>Accelerate</span><span><b>LT / L2</b>Brake</span><span><b>Y / △</b>Change camera</span><span><b>X / □</b>Reset to track</span><span><b>Menu / Options</b>Pause / resume</span><span><b>D-pad + A / ✕</b>Navigate + select</span></div><label>Stick deadzone <span id="dz-value">12%</span><input id="deadzone" type="range" min=".04" max=".3" step=".01"></label><label><input id="vibration" type="checkbox" checked> Vibration</label><button id="rumble-test">Test vibration</button><button class="p" id="controller-back">Done</button><p class="small" style="margin-top:14px">Not detected? Try USB or open the game in Edge or Chrome.</p></div></div>
-<div class="ov" id="help"><div class="pn"><div class="eyebrow">DRIVER BRIEFING</div><h2>Driving guide</h2><ul><li><b>W / ↑</b> throttle · <b>S / ↓ / Space</b> brake · <b>A / D / ← / →</b> steer.</li><li><b>C</b> cycles chase, nose, wide chase and aerial cameras. <b>R</b> resets the car. <b>Esc</b> pauses. <b>F</b> toggles fullscreen.</li><li>Controllers: left stick to steer, <b>RT / R2</b> to accelerate, <b>LT / L2</b> to brake.</li><li><b>Racing line:</b> green to accelerate, amber to lift, red to brake. Follow the arrows through the bends. Press <b>L</b> or use the pause menu to change Full / Corners / Off. Suggested speed is a guide, not automatic braking.</li><li>Assists are on. Steer smoothly and brake before tight corners.</li><li>Cross the start line to begin timing. Leaving the kerbs or resetting invalidates that lap.</li><li>Complete three timed laps in Time Trial. Practice stays open until you end the session.</li><li>A negative delta means you are ahead of your best valid lap this session. Your personal best saves on this browser.</li></ul><button class="p" data-ov="menu">Back</button></div></div>
-<div class="ov" id="about"><div class="pn"><div class="eyebrow">GAME INFO</div><p class="small">V10 recording: <a href="https://commons.wikimedia.org/wiki/File:Red_Bull-Cosworth_RB1_(2005).ogg" target="_blank" rel="noopener">Edvvc / Ed Pond</a>. Edited and looped under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</p><h2>Milano Racing</h2><p>MR 26 · World Tour</p><div class="map-grid"><span><b>Qualifying</b>Short or Q1 / Q2 / Q3</span><span><b>Race</b>22 cars · four difficulties</span><span><b>Pit strategy</b>Soft / Medium / Hard</span><span><b>Time Trial</b>Three timed laps</span><span><b>Practice</b>Unlimited laps</span><span><b>Transmission</b>Automatic</span><span><b>Driver assists</b>Enabled</span></div><p class="small">Solo sessions and online multiplayer. Personal bests are saved separately for each circuit.</p><p class="small">Venue map data: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors · ODbL 1.0</a>. Building heights and architectural details are estimated where not mapped.</p><p class="small">Terrain: <a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noopener">Mapzen Terrain Tiles</a>. Source-provider notices are included with the download. Terrain is adapted to the racing surface.</p><p class="small"><a href="https://s2maps.eu" target="_blank" rel="noopener">Sentinel-2 cloudless</a> by <a href="https://eox.at" target="_blank" rel="noopener">EOX IT Services GmbH</a> (Contains modified Copernicus Sentinel data 2016 &amp; 2017). Distant terrain colour · CC BY 4.0.</p><p class="small">PBR materials and tree model: <a href="https://polyhaven.com" target="_blank" rel="noopener">Poly Haven</a> · CC0.</p><p class="small">Variable track boundaries: TUM FTM racetrack-database (LGPL 3.0), satellite-derived and registered to the circuit. Monaco, Singapore and rebuilt sections use labelled estimates; a current survey is not available. Pit routes: OpenStreetMap. Sporting baseline: FIA 2026 Section B, issue 06; race lengths and tyre life can be compressed.</p><p class="small">Three.js · MIT License<br>Saira · Héctor Gatti / Omnibus-Type · SIL OFL<br>Oxanium · Florian Seitz · SIL OFL</p><button class="p" data-ov="menu">Back</button></div></div>
+<div class="ov" id="controllers"><div class="pn"><div class="eyebrow">INPUT SETTINGS</div><h2>Controller</h2><p>USB or Bluetooth. Press a button to connect.</p><button id="bluetooth-help" class="link-button">Bluetooth pairing</button><div id="pairing" hidden><ol class="small"><li>On Windows, open <b>Settings → Bluetooth & devices → Add device → Bluetooth</b>.</li><li><b>PS5:</b> hold Create + PS until the light blinks. <b>PS4:</b> hold Share + PS.</li><li><b>Bluetooth-capable Xbox:</b> turn it on, then hold the Pair button until the Xbox light flashes. Select the controller in Bluetooth settings.</li><li>Return to the game, click the page, and press a controller button. Older Xbox controllers may need USB or their wireless adapter.</li></ol></div><div class="controller-status"><div id="padname">No controller detected</div><p id="paddetail" class="small">Connect a controller and press any button.</p><select id="padselect" aria-label="Active controller" hidden></select><div class="meters"><div><span class="small">LT · L2 · BRAKE</span><div class="meter"><i id="test-brake"></i></div></div><div><span class="small">RT · R2 · THROTTLE</span><div class="meter"><i id="test-throttle"></i></div></div><div class="stick-meter"><span class="small">LEFT STICK · STEERING</span><div class="meter"><i id="test-steer"></i></div></div></div></div><div class="map-grid"><span><b>RT · R2</b>Accelerate</span><span><b>LT · L2</b>Brake</span><span><b>Y · △</b>Change camera</span><span><b>X · □</b>Reset to track</span><span><b>Menu · Options</b>Pause · resume</span><span><b>D-pad + A · ✕</b>Navigate + select</span></div><label>Stick deadzone <span id="dz-value">12%</span><input id="deadzone" type="range" min=".04" max=".3" step=".01"></label><label><input id="vibration" type="checkbox" checked> Vibration</label><button id="rumble-test">Test vibration</button><button class="p" id="controller-back">Done</button><p class="small" style="margin-top:14px">Not detected? Try USB, Edge or Chrome.</p></div></div>
+<div class="ov" id="help"><div class="pn"><div class="eyebrow">DRIVER CONTROLS</div><h2>Controls</h2><div class="quick-controls"><div><kbd>W · ↑</kbd><span>Throttle</span></div><div><kbd>S · ↓ · SPACE</kbd><span>Brake</span></div><div><kbd>A D · ← →</kbd><span>Steer</span></div><div><kbd>C</kbd><span>Camera</span></div><div><kbd>L</kbd><span>Racing line</span></div><div><kbd>P · T</kbd><span>Call pit · next tyre</span></div><div><kbd>R</kbd><span>Reset car</span></div><div><kbd>ESC</kbd><span>Pause</span></div></div><details class="race-details"><summary>Timing &amp; track limits</summary><p>Cross the line to start timing. Use the kerbs. Brief excursions get a recovery window; sustained cuts delete the lap. Races allow three warnings before a five-second penalty. Resetting carries a penalty. Time Trial runs for three timed laps; Practice stays open. Negative delta means you are ahead of your best lap.</p></details><button class="p" data-ov="settings">Back to settings</button></div></div>
+<div class="ov" id="about"><div class="pn"><div class="eyebrow">GAME INFO</div><p class="small">V10 recording: <a href="https://commons.wikimedia.org/wiki/File:Red_Bull-Cosworth_RB1_(2005).ogg" target="_blank" rel="noopener">Edvvc / Ed Pond</a>. Edited and looped under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</p><h2>Milano Racing</h2><p>MR 26 · World Tour</p><div class="map-grid"><span><b>Qualifying</b>Short or Q1 · Q2 · Q3</span><span><b>Race</b>22 cars · four difficulties</span><span><b>Pit strategy</b>Soft · Medium · Hard</span><span><b>Time Trial</b>Three timed laps</span><span><b>Practice</b>Unlimited laps</span><span><b>Transmission</b>Automatic</span><span><b>Driver assists</b>Enabled</span></div><p class="small">Solo sessions and online multiplayer. Personal bests are saved separately for each circuit.</p><p class="small">Venue map data: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors · ODbL 1.0</a>. Building heights and architectural details are estimated where not mapped.</p><p class="small">Terrain: <a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noopener">Mapzen Terrain Tiles</a>. Source-provider notices are included with the download. Terrain is adapted to the racing surface.</p><p class="small"><a href="https://s2maps.eu" target="_blank" rel="noopener">Sentinel-2 cloudless</a> by <a href="https://eox.at" target="_blank" rel="noopener">EOX IT Services GmbH</a> (Contains modified Copernicus Sentinel data 2016 &amp; 2017). Distant terrain colour · CC BY 4.0.</p><p class="small">PBR materials and tree model: <a href="https://polyhaven.com" target="_blank" rel="noopener">Poly Haven</a> · CC0.</p><p class="small">Variable track boundaries: TUM FTM racetrack-database (LGPL 3.0), satellite-derived and registered to the circuit. Monaco, Singapore and rebuilt sections use labelled estimates; a current survey is not available. Pit routes: OpenStreetMap. Sporting baseline: FIA 2026 Section B, issue 06; race lengths and tyre life can be compressed.</p><p class="small">Three.js · MIT License<br>Barlow · DM Sans · Michroma · SIL OFL<br>Saira · Héctor Gatti · Omnibus-Type · SIL OFL<br>Oxanium · Florian Seitz · SIL OFL</p><button class="p" data-ov="menu">Back</button></div></div>
 <div class="ov" id="err"><div class="pn"><h2>3D renderer unavailable</h2><p>This browser could not start WebGL. Try Edge or Chrome with hardware acceleration enabled.</p></div></div>
-<div class="ov" id="circuits"><div class="pn wide-panel"><div class="eyebrow">WORLD TOUR</div><h2>Select circuit</h2><p class="small">Twelve circuits. One grid.</p><div id="circuit-grid"></div><p class="small muted">Unofficial recreations. Track widths and scenery are adapted for this game.</p><button data-ov="menu">Back</button></div></div>
+<div class="ov" id="circuits"><div class="pn wide-panel"><div class="eyebrow">WORLD TOUR</div><h2>Select circuit</h2><div id="circuit-grid"></div><p class="small muted">Unofficial recreations. Track widths and scenery are adapted for this game.</p><button data-ov="menu">Back</button></div></div>
 <div class="ov" id="network"><div class="pn network-panel"><div class="eyebrow">ONLINE GRID</div><h2>Multiplayer</h2><p>Share a room link. Race together from anywhere.</p><div id="network-offline" hidden><p>Online races run at the Milano game server.</p><a class="p" href="https://game.milanoracing.team/?multiplayer=1" target="_blank" rel="noopener">Open online grid</a><p class="small">A test-access password is required while the grid is private.</p></div><div id="network-online" hidden><label for="driver-name">Driver name</label><input id="driver-name" maxlength="18" placeholder="Your name" autocomplete="off"><div class="network-options"><section><h3>Create a race</h3><p id="host-circuit" class="small"></p><label for="network-laps">Race distance</label><select id="network-laps"><option value="1">1 lap · Quick race</option><option value="3" selected>3 laps</option><option value="5">5 laps</option></select><button class="p" id="create-room">Create room</button></section><section><h3>Join a race</h3><label for="room-code">Room code</label><input id="room-code" maxlength="6" placeholder="6-character code" autocomplete="off" spellcheck="false"><button id="join-room">Join room</button></section></div><p class="small">2–16 players · Equal car setup · Ghost opponents</p><p class="small">Cars pass through each other. The race clock keeps running when you open the menu.</p></div><div id="network-browse"></div><p id="network-error" class="status-error" role="status"></p><button data-ov="menu">Back</button></div></div>
 <div class="ov" id="lobby"><div class="pn network-panel"><div class="eyebrow">RACE LOBBY</div><h2 id="lobby-title">Waiting for drivers</h2><div class="room-header"><div><small>ROOM CODE</small><strong id="lobby-code">------</strong></div><button id="copy-room">Copy invite</button></div><p id="lobby-track"></p><div id="lobby-players"></div><div class="button-row"><button class="p" id="ready-room">Ready</button><button id="start-room">Start race</button></div><p id="lobby-note" class="small" role="status"></p><button id="leave-room">Leave room</button></div></div>
 <div id="network-standings" hidden><div class="hud-kicker">LIVE CLASSIFICATION <span id="network-ping"></span></div><div id="network-order"></div></div>
 <div class="ov" id="network-results"><div class="pn network-panel"><div class="eyebrow">CHEQUERED FLAG</div><h2>Race results</h2><p id="network-results-track"></p><div id="network-result-list"></div><p id="network-results-note" class="small" role="status"></p><button class="p" id="network-rematch">Return to lobby</button><button id="network-exit">Leave race</button></div></div>
 
-<div class="ov" id="weekend"><div class="pn gp-setup"><div class="eyebrow">MR 26 · RACE CONTROL</div><h2 id="weekend-heading">RACE WEEKEND</h2><div class="gp-settings"><label>DIFFICULTY<select id="gp-difficulty"><option value="rookie" selected>Rookie · braking assistance</option><option value="club">Club · competitive, forgiving</option><option value="pro">Pro · fast and consistent</option><option value="elite">Elite · maximum pace</option></select></label><label>QUALIFYING<select id="gp-qualifying"><option value="short">Short · 5 minutes</option><option value="full">Full · Q1 / Q2 / Q3</option></select></label><label>RACE DISTANCE<select id="gp-length"><option value="5">5 laps</option><option value="10">10 laps</option><option value="25">25 laps</option><option value="full">Grand Prix distance</option></select></label><label>STARTING TYRES<select id="gp-start-tyre"><option value="soft">Soft</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select></label></div><label class="gp-strategy-toggle"><input type="checkbox" id="gp-strategy" checked> Two-compound rule · pit stop required</label><p class="small">22 cars. Qualify for your grid position or start a race from the back. Full qualifying: 18 / 15 / 13 minutes, with 6 cars eliminated in Q1 and Q2. Complete a lap started before the flag.</p><p class="small">P / RB calls the pit crew. T / LB changes the next tyre. Pit entry, speed limiter, stopping and release are assisted. Tyre wear is scaled to the race distance.</p><button class="p" id="gp-start">START SESSION</button><div class="button-row"><button data-ov="setup">Car setup</button><button data-ov="menu">Back</button></div></div></div>
-
+<div class="ov" id="weekend"><div class="pn gp-setup race-shell">
+ <header class="screen-heading"><div><div class="eyebrow">RACE CONTROL</div><h2 id="weekend-heading">RACE WEEKEND</h2></div><button class="close-screen" data-ov="sessions" aria-label="Back to sessions">×</button></header>
+ <div class="race-layout"><aside class="race-venue"><span class="section-index">SELECTED CIRCUIT</span><h3 id="race-venue-name"></h3><canvas id="race-venue-map" width="640" height="420" aria-label="Selected circuit layout"></canvas><div class="venue-stats"><div><strong id="race-venue-length"></strong><span>KILOMETRES</span></div><div><strong id="race-venue-turns"></strong><span>CORNERS</span></div><div><strong>22</strong><span>DRIVERS</span></div></div></aside>
+ <section class="race-config"><div class="section-index">RACE FORMAT</div><div class="gp-settings"><label>OPPONENTS<select id="gp-difficulty"><option value="rookie" selected>Rookie</option><option value="club">Club</option><option value="pro">Pro</option><option value="elite">Elite</option></select></label><label>QUALIFYING<select id="gp-qualifying"><option value="short">Short · 5 min</option><option value="full">Q1 · Q2 · Q3</option></select></label><label>DISTANCE<select id="gp-length"><option value="5">5 laps</option><option value="10">10 laps</option><option value="25">25 laps</option><option value="full">Full Grand Prix</option></select></label><label>STARTING TYRE<select id="gp-start-tyre"><option value="soft">Soft</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select></label></div>
+ <div class="difficulty-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></div><p id="difficulty-brief" class="settings-caption"></p>
+ <label class="gp-strategy-toggle"><span>Mandatory pit stop<small>Two dry compounds</small></span><input type="checkbox" id="gp-strategy" checked></label>
+ <details class="race-details"><summary>Session rules</summary><p>Qualifying sets the grid. A quick race starts from the back. Full qualifying runs 18 · 15 · 13 minutes, with six drivers eliminated in Q1 and Q2. Finish a timed lap after the flag.</p><p>P · RB calls the crew. T · LB selects the next tyre. Pit entry, limiter and release are assisted. Tyre life scales with race distance.</p></details></section></div>
+ <footer class="screen-footer"><button class="text-action" data-ov="setup" data-setup-from="weekend">Car setup ↗</button><span id="race-session-summary"></span><button class="p" id="gp-start">TO THE GRID ↗</button></footer>
+ </div></div>
 <!-- Asset credits and circuit data license
 MILANO RACING - WORLD TOUR
 
@@ -198,102 +212,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 -->
-<!-- Saira and Oxanium font licenses
-Copyright 2020 The Saira Project Authors (https://github.com/Omnibus-Type/Saira)
-
-
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is copied below, and is also available with a FAQ at:
-https://scripts.sil.org/OFL
-
-
-—————————————————————————————-
-SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
-—————————————————————————————-
-
-PREAMBLE
-The goals of the Open Font License (OFL) are to stimulate worldwide
-development of collaborative font projects, to support the font creation
-efforts of academic and linguistic communities, and to provide a free and
-open framework in which fonts may be shared and improved in partnership
-with others.
-
-The OFL allows the licensed fonts to be used, studied, modified and
-redistributed freely as long as they are not sold by themselves. The
-fonts, including any derivative works, can be bundled, embedded, 
-redistributed and/or sold with any software provided that any reserved
-names are not used by derivative works. The fonts and derivatives,
-however, cannot be released under any other type of license. The
-requirement for fonts to remain under this license does not apply
-to any document created using the fonts or their derivatives.
-
-DEFINITIONS
-"Font Software" refers to the set of files released by the Copyright
-Holder(s) under this license and clearly marked as such. This may
-include source files, build scripts and documentation.
-
-"Reserved Font Name" refers to any names specified as such after the
-copyright statement(s).
-
-"Original Version" refers to the collection of Font Software components as
-distributed by the Copyright Holder(s).
-
-"Modified Version" refers to any derivative made by adding to, deleting,
-or substituting — in part or in whole — any of the components of the
-Original Version, by changing formats or by porting the Font Software to a
-new environment.
-
-"Author" refers to any designer, engineer, programmer, technical
-writer or other person who contributed to the Font Software.
-
-PERMISSION & CONDITIONS
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of the Font Software, to use, study, copy, merge, embed, modify,
-redistribute, and sell modified and unmodified copies of the Font
-Software, subject to the following conditions:
-
-1) Neither the Font Software nor any of its individual components,
-in Original or Modified Versions, may be sold by itself.
-
-2) Original or Modified Versions of the Font Software may be bundled,
-redistributed and/or sold with any software, provided that each copy
-contains the above copyright notice and this license. These can be
-included either as stand-alone text files, human-readable headers or
-in the appropriate machine-readable metadata fields within text or
-binary files as long as those fields can be easily viewed by the user.
-
-3) No Modified Version of the Font Software may use the Reserved Font
-Name(s) unless explicit written permission is granted by the corresponding
-Copyright Holder. This restriction only applies to the primary font name as
-presented to the users.
-
-4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
-Software shall not be used to promote, endorse or advertise any
-Modified Version, except to acknowledge the contribution(s) of the
-Copyright Holder(s) and the Author(s) or with their explicit written
-permission.
-
-5) The Font Software, modified or unmodified, in part or in whole,
-must be distributed entirely under this license, and must not be
-distributed under any other license. The requirement for fonts to
-remain under this license does not apply to any document created
-using the Font Software.
-
-TERMINATION
-This license becomes null and void if any of the above conditions are
-not met.
-
-DISCLAIMER
-THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
-OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
-COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
-DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
-OTHER DEALINGS IN THE FONT SOFTWARE.
-
+<!-- Interface font licenses
 Copyright 2019 The Oxanium Project Authors (https://github.com/sevmeyer/oxanium)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
@@ -388,7 +307,289 @@ DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
+Copyright 2014 The DM Sans Project Authors (https://github.com/googlefonts/dm-fonts)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://scripts.sil.org/OFL
+
+
+—————————————————————————————-
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+—————————————————————————————-
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded, 
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting — in part or in whole — any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+
+Copyright 2011 The Michroma Project Authors (https://github.com/googlefonts/Michroma-font)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://scripts.sil.org/OFL
+
+
+—————————————————————————————-
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+—————————————————————————————-
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded, 
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting — in part or in whole — any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+
+Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+—————————————————————————————-
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+—————————————————————————————-
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded, 
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting — in part or in whole — any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+
 -->
 <script src="/assets/3c0a0964e1e43a8e4b36.js"></script>
-<script src="/assets/833cb3c4a58e131cea91.js"></script>
+<script src="/assets/9f84e49273ac65e6857b.js"></script>
 </body></html>

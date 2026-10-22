@@ -1,0 +1,223 @@
+{
+  "scope": "Exported Windows executable. Stationary driving view, 3 second warmup, 9 second sample, High preset, 1440x810 window, 144 FPS cap. Not a full-race benchmark.",
+  "exeSHA256": "9e238ce618e459c31ce5faa1b4a4874b7237e7260b5fd2a73a290f66efeabfa4",
+  "packSHA256": "6570269df34fe306a9f054b55800e147c5bb430f5422ec2da0a94d6d4657ff19",
+  "reports": [
+    {
+      "circuit": "bahrain",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 156.0,
+      "frames": 1076,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 8.448,
+      "p95Ms": 12.625,
+      "primitives": 370871.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 110468,
+      "startupAndRunSeconds": 22.48
+    },
+    {
+      "circuit": "singapore",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 923.0,
+      "frames": 695,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 11.228,
+      "p95Ms": 20.016,
+      "primitives": 2190167.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 134373,
+      "startupAndRunSeconds": 22.55
+    },
+    {
+      "circuit": "monza",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 836.0,
+      "frames": 500,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 18.24,
+      "p95Ms": 25.68,
+      "primitives": 1244498.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 85130,
+      "startupAndRunSeconds": 22.64
+    },
+    {
+      "circuit": "monaco",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 615.0,
+      "frames": 1245,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 6.976,
+      "p95Ms": 8.268,
+      "primitives": 2001006.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 122410,
+      "startupAndRunSeconds": 54.09
+    },
+    {
+      "circuit": "austria",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 411.0,
+      "frames": 643,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 13.476,
+      "p95Ms": 20.822,
+      "primitives": 959444.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 85926,
+      "startupAndRunSeconds": 24.11
+    },
+    {
+      "circuit": "silverstone",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 1089.0,
+      "frames": 1065,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 7.506,
+      "p95Ms": 11.471,
+      "primitives": 2225465.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 146828,
+      "startupAndRunSeconds": 26.99
+    },
+    {
+      "circuit": "abu-dhabi",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 302.0,
+      "frames": 1076,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 6.988,
+      "p95Ms": 11.247,
+      "primitives": 1055624.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 122454,
+      "startupAndRunSeconds": 25.36
+    },
+    {
+      "circuit": "milano",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 613.0,
+      "frames": 1093,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 7.63,
+      "p95Ms": 10.606,
+      "primitives": 799793.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 44339,
+      "startupAndRunSeconds": 21.48
+    },
+    {
+      "circuit": "spa",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 966.0,
+      "frames": 499,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 18.878,
+      "p95Ms": 24.858,
+      "primitives": 1044707.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 45634,
+      "startupAndRunSeconds": 22.9
+    },
+    {
+      "circuit": "suzuka",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 1506.0,
+      "frames": 881,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 10.284,
+      "p95Ms": 13.505,
+      "primitives": 1695040.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 56659,
+      "startupAndRunSeconds": 22.89
+    },
+    {
+      "circuit": "interlagos",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 942.0,
+      "frames": 1126,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 7.521,
+      "p95Ms": 10.82,
+      "primitives": 1634197.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 71613,
+      "startupAndRunSeconds": 21.77
+    },
+    {
+      "circuit": "zandvoort",
+      "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "drawCalls": 566.0,
+      "frames": 1159,
+      "inputSmoke": {
+        "enabled": false,
+        "finitePosition": true,
+        "peakKmh": 0.0
+      },
+      "instanceErrors": 0,
+      "medianMs": 7.084,
+      "p95Ms": 9.938,
+      "primitives": 760839.0,
+      "renderer": "forward_plus",
+      "restoredInstances": 15262,
+      "startupAndRunSeconds": 21.04
+    }
+  ]
+}

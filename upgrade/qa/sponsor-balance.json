@@ -1,0 +1,38 @@
+{
+  "STEM Racing": {
+    "gantryFaces": 8,
+    "barrierMetres": 2205,
+    "pitPanels": 10,
+    "standPanels": 66
+  },
+  "Hustle Hive": {
+    "gantryFaces": 8,
+    "barrierMetres": 2205,
+    "pitPanels": 10,
+    "standPanels": 65
+  },
+  "Brinda's": {
+    "gantryFaces": 8,
+    "barrierMetres": 2205,
+    "pitPanels": 10,
+    "standPanels": 66
+  },
+  "Enermax Synergy": {
+    "gantryFaces": 8,
+    "barrierMetres": 2205,
+    "pitPanels": 10,
+    "standPanels": 65
+  },
+  "NPE Print Communications": {
+    "gantryFaces": 8,
+    "barrierMetres": 2205,
+    "pitPanels": 10,
+    "standPanels": 66
+  },
+  "Axis": {
+    "gantryFaces": 8,
+    "barrierMetres": 2205,
+    "pitPanels": 10,
+    "standPanels": 65
+  }
+}

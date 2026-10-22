@@ -1,0 +1,13 @@
+{
+  "renderer": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "observationDuringCalendarBenchmark": {
+    "utilizationPercent": 100,
+    "memoryUsedMiB": 3651,
+    "memoryTotalMiB": 6144,
+    "temperatureC": 89,
+    "graphicsClockMHz": 1140,
+    "powerWatts": 31.55
+  },
+  "method": "nvidia-smi one live observation during the full-calendar benchmark",
+  "limits": "Thermal and concurrent desktop load vary. The individual short forest check is not equivalent to the longer complete calendar run."
+}

@@ -9,8 +9,15 @@ Mapped buildings, public roads, water, forests and pit paths: OpenStreetMap cont
 Terrain: Mapzen Terrain Tiles on AWS, https://registry.opendata.aws/terrain-tiles/ . Full underlying provider notices: Mapzen-provider-attribution.md. DEM is adapted to the racing surface and resampled.
 Sentinel-2 cloudless - https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2016 & 2017). CC BY 4.0. Source: https://cloudless.eox.at . Older commercially reusable imagery is baked as background colour; mapped current land cover is overlaid. No newer noncommercial imagery is used.
 PBR materials, Kloppenheim 06 Pure Sky HDR and Tree Small 02: Poly Haven, CC0, https://polyhaven.com . Tree mesh is decimated and uses geometry LODs. Materials are resized and channel-packed.
-Saira: Hector Gatti / Omnibus-Type, SIL Open Font License 1.1. Oxanium: Florian Seitz, SIL Open Font License 1.1. Included font licenses apply to the embedded font binaries.
+Barlow: The Barlow Project Authors, https://github.com/jpt/barlow . DM Sans: The DM Sans Project Authors. Michroma: The Michroma Project Authors. Oxanium: Florian Seitz. These embedded fonts use the SIL Open Font License 1.1; licenses accompany the build. Legacy Saira source assets retain their original included OFL.
 V10 recording: Edvvc / Ed Pond, Red Bull-Cosworth RB1 (2005), https://commons.wikimedia.org/wiki/File:Red_Bull-Cosworth_RB1_(2005).ogg . CC BY-SA 3.0. Edited, looped and mixed into a multi-RPM sample bank. Adapted audio retains CC BY-SA 3.0; the bank is included with source. The film soundtrack is NOT part of this game package.
 Electron and Chromium: distribution notices accompany the Windows executable.
 
 Sporting/circuit documents are research references, not included assets. No FIA/F1 certification or official affiliation is represented.
+
+SPONSOR ARTWORK UPDATE
+STEM Racing Singapore: https://stemracing.com.sg/ (official logo asset; embedded raster extracted without redesign).
+NPE Print: https://npeprint.com/about-our-printing-company (official transparent artwork).
+Axis Container Lines: matching supplied ship/globe/plane mark from https://freightcue.com/companies/india/ludhiana-axis-container-lines-ludhiana-head-office-dc6a16 . This is a directory source, not a claim of endorsement.
+Hustle Hive, Brinda's and Enermax Synergy SEA: supplied artwork retained. Matching online identity does not establish a licence for unrelated logos. Sponsor artwork remains its owners' property.
+Additional gravel PBR: https://polyhaven.com/a/gravel_floor , CC0; resized for real-time use.

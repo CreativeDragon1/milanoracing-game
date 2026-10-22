@@ -1,0 +1,485 @@
+{
+  "scenario": "Moving 21 AI opponents for ten seconds from grid; stationary player, 1440x900 Ultra, last eight seconds sampled. Not a full race or minimum FPS guarantee.",
+  "results": [
+    {
+      "id": "bahrain",
+      "medianMs": 14,
+      "p95Ms": 21,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "bahrain",
+        "webgl2": true,
+        "drawCalls": 2066,
+        "triangles": 6823093,
+        "textures": 133,
+        "quality": "ultra",
+        "guide": 91.68455005550688
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 1,
+          "middle": 4,
+          "far": 22
+        }
+      },
+      "batches": {
+        "bounded": 471,
+        "tiles": 118,
+        "instances": 110565,
+        "mergedDrawBatches": 33,
+        "sharedDetailDrawsSaved": 0
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    },
+    {
+      "id": "singapore",
+      "medianMs": 14,
+      "p95Ms": 21.19999999999709,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "singapore",
+        "webgl2": true,
+        "drawCalls": 1301,
+        "triangles": 2965960,
+        "textures": 70,
+        "quality": "ultra",
+        "guide": 94.51135951105339
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 5,
+          "middle": 29,
+          "far": 131
+        }
+      },
+      "batches": {
+        "bounded": 304,
+        "tiles": 0,
+        "instances": 134381,
+        "mergedDrawBatches": 120,
+        "sharedDetailDrawsSaved": 0
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    },
+    {
+      "id": "monza",
+      "medianMs": 27.80000000000291,
+      "p95Ms": 41.700000000004366,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "monza",
+        "webgl2": true,
+        "drawCalls": 2465,
+        "triangles": 10183583,
+        "textures": 160,
+        "quality": "ultra",
+        "guide": 85.29013672296118
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 32,
+          "middle": 128,
+          "far": 4602
+        }
+      },
+      "batches": {
+        "bounded": 550,
+        "tiles": 42,
+        "instances": 85141,
+        "mergedDrawBatches": 91,
+        "sharedDetailDrawsSaved": 0
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    },
+    {
+      "id": "monaco",
+      "medianMs": 27.69999999999709,
+      "p95Ms": 34.799999999995634,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "monaco",
+        "webgl2": true,
+        "drawCalls": 1521,
+        "triangles": 7665662,
+        "textures": 109,
+        "quality": "ultra",
+        "guide": 82.77988064240566
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 28,
+          "middle": 3,
+          "far": 115
+        }
+      },
+      "batches": {
+        "bounded": 260,
+        "tiles": 12,
+        "instances": 122427,
+        "mergedDrawBatches": 162,
+        "sharedDetailDrawsSaved": 116
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    },
+    {
+      "id": "austria",
+      "medianMs": 27.700000000000728,
+      "p95Ms": 34.69999999999709,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "austria",
+        "webgl2": true,
+        "drawCalls": 1743,
+        "triangles": 9410129,
+        "textures": 117,
+        "quality": "ultra",
+        "guide": 66.30611032607011
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 32,
+          "middle": 88,
+          "far": 1159
+        }
+      },
+      "batches": {
+        "bounded": 385,
+        "tiles": 28,
+        "instances": 86051,
+        "mergedDrawBatches": 79,
+        "sharedDetailDrawsSaved": 0
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    },
+    {
+      "id": "silverstone",
+      "medianMs": 20.80000000000291,
+      "p95Ms": 27.900000000001455,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "silverstone",
+        "webgl2": true,
+        "drawCalls": 3118,
+        "triangles": 11418170,
+        "textures": 206,
+        "quality": "ultra",
+        "guide": 89.8044216852141
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 32,
+          "middle": 73,
+          "far": 1547
+        }
+      },
+      "batches": {
+        "bounded": 824,
+        "tiles": 39,
+        "instances": 146774,
+        "mergedDrawBatches": 120,
+        "sharedDetailDrawsSaved": 0
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    },
+    {
+      "id": "abu-dhabi",
+      "medianMs": 20.69999999999709,
+      "p95Ms": 20.900000000001455,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "abu-dhabi",
+        "webgl2": true,
+        "drawCalls": 1407,
+        "triangles": 3170335,
+        "textures": 122,
+        "quality": "ultra",
+        "guide": 90.45558315459107
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 0,
+          "middle": 4,
+          "far": 5
+        }
+      },
+      "batches": {
+        "bounded": 454,
+        "tiles": 80,
+        "instances": 122450,
+        "mergedDrawBatches": 25,
+        "sharedDetailDrawsSaved": 0
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    },
+    {
+      "id": "milano",
+      "medianMs": 13.899999999997817,
+      "p95Ms": 14,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "milano",
+        "webgl2": true,
+        "drawCalls": 1167,
+        "triangles": 2623137,
+        "textures": 82,
+        "quality": "ultra",
+        "guide": 85.1229867339966
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 4,
+          "middle": 26,
+          "far": 588
+        }
+      },
+      "batches": {
+        "bounded": 285,
+        "tiles": 57,
+        "instances": 44444,
+        "mergedDrawBatches": -142,
+        "sharedDetailDrawsSaved": 0
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    },
+    {
+      "id": "spa",
+      "medianMs": 27.80000000000291,
+      "p95Ms": 34.80000000000291,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "spa",
+        "webgl2": true,
+        "drawCalls": 1306,
+        "triangles": 7165977,
+        "textures": 109,
+        "quality": "ultra",
+        "guide": 106.53754373799802
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 25,
+          "middle": 128,
+          "far": 2018
+        }
+      },
+      "batches": {
+        "bounded": 399,
+        "tiles": 48,
+        "instances": 45651,
+        "mergedDrawBatches": -62,
+        "sharedDetailDrawsSaved": 0
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    },
+    {
+      "id": "suzuka",
+      "medianMs": 27.700000000000728,
+      "p95Ms": 34.80000000000291,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "suzuka",
+        "webgl2": true,
+        "drawCalls": 1341,
+        "triangles": 5545202,
+        "textures": 168,
+        "quality": "ultra",
+        "guide": 94.56871547569249
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 27,
+          "middle": 41,
+          "far": 450
+        }
+      },
+      "batches": {
+        "bounded": 499,
+        "tiles": 34,
+        "instances": 56643,
+        "mergedDrawBatches": 118,
+        "sharedDetailDrawsSaved": 0
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    },
+    {
+      "id": "interlagos",
+      "medianMs": 20.80000000000291,
+      "p95Ms": 27.799999999999272,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "interlagos",
+        "webgl2": true,
+        "drawCalls": 1479,
+        "triangles": 5406846,
+        "textures": 74,
+        "quality": "ultra",
+        "guide": 71.86911924474043
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 13,
+          "middle": 41,
+          "far": 132
+        }
+      },
+      "batches": {
+        "bounded": 250,
+        "tiles": 0,
+        "instances": 71687,
+        "mergedDrawBatches": -76,
+        "sharedDetailDrawsSaved": 0
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    },
+    {
+      "id": "zandvoort",
+      "medianMs": 41.60000000000218,
+      "p95Ms": 48.69999999999709,
+      "opponents": 21,
+      "diagnostics": {
+        "circuit": "zandvoort",
+        "webgl2": true,
+        "drawCalls": 1343,
+        "triangles": 5491773,
+        "textures": 90,
+        "quality": "ultra",
+        "guide": 72.29558412280268
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 26,
+          "middle": 47,
+          "far": 352
+        }
+      },
+      "batches": {
+        "bounded": 127,
+        "tiles": 0,
+        "instances": 15287,
+        "mergedDrawBatches": -76,
+        "sharedDetailDrawsSaved": 0
+      },
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "atlas": {
+        "width": 2048,
+        "height": 2048,
+        "hasUV": true
+      },
+      "assetErrors": [],
+      "errors": []
+    }
+  ]
+}

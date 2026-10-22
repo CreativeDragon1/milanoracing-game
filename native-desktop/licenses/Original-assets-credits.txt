@@ -1,0 +1,134 @@
+MILANO RACING - WORLD TOUR
+
+CAR AND TEAM ARTWORK
+Actual Fusion STEM Racing mesh from the user's existing
+Fusion_Reference_Render_Pack.zip / Fusion_Reference_Baked.blend.
+Source mesh and sponsor UVs retained; uniformly enlarged to 5.7 m for the game.
+Original CAD length approximately 0.230 m. 17,071 triangles.
+Four wheel assemblies separated for animation. Milano decals projected onto body.
+User-supplied Milano team logo retained. Brand marks belong to their owners.
+
+SKY / LIGHTING
+Kloppenheim 06 (Pure Sky), Greg Zaal and Jarod Guest, Poly Haven, CC0.
+https://polyhaven.com/a/kloppenheim_06_puresky
+4K HDR sky and prefiltered environment reflections. Mild display colour grading.
+
+ROAD MATERIAL
+Asphalt Track, Dimitrios Savva, Poly Haven, CC0.
+https://polyhaven.com/a/asphalt_track
+1K diffuse, OpenGL normal and roughness textures.
+https://polyhaven.com/license
+
+CIRCUIT COORDINATES
+f1-circuits, Tomislav Bacinger, MIT license.
+https://github.com/bacinger/f1-circuits
+Seven mapped layouts were resampled, smoothed and scaled for this game.
+Unofficial recreations, not FIA-certified or surveyed venue models.
+No affiliation with Formula 1, the FIA, venue operators or STEM Racing is implied.
+Full license: LICENSE - Circuit Data.txt
+
+RENDERING
+Three.js r128 and matching example loaders, decal geometry and postprocessing.
+https://github.com/mrdoob/three.js/tree/r128
+MIT license: LICENSE - Three.js.txt
+
+TYPE
+Rajdhani Bold, Indian Type Foundry, SIL Open Font License.
+Full license: LICENSE - Rajdhani.txt
+
+ENGINEERING
+Guide paths use periodic B-spline lateral offsets with track-bound constraints,
+a minimum-curvature seed and numerical lap-time minimization. Speed envelopes
+use the same mass, tyre grip, drag, power, steering and axle brake-force limits
+as the browser model. Forward acceleration and backward braking passes are
+iterated around the closed loop. Suggested driving speeds have a 10% reserve.
+This is local optimization of a simplified model, not proof of the globally
+fastest physical lap. Real F1 vehicle calibration and suspension are not modeled.
+
+MULTIPLAYER
+Python standard-library HTTP/HTTPS server. Cryptography generates a fresh
+per-host certificate. No shared private key is distributed. Server-owned
+timing and checkpoints; client-side vehicle simulation. Casual private-network
+ghost racing, not cheat-proof public hosting.
+
+
+CIRCUIT AND SOUND REVISION - 21 OCTOBER 2026
+Singapore direction corrected; Monaco start on Boulevard Albert Ier; Silverstone
+start on Hamilton Straight. Start anchors are projected onto the mapped road;
+these remain approximate mapped game recreations, not surveyed replicas.
+Bahrain approach tangents constrained to remove spline overshoot before Turn 1.
+Lines use 180 periodic spline controls, two starting solutions, axle friction
+circles, downforce, speed-dependent steering and cyclic acceleration/braking.
+The displayed guide retains a 10 percent speed reserve. Local optimization is
+not a proof of a global optimum or a real F1 racing line.
+V10 audio now uses edited real RB1 recordings by Edvvc / Ed Pond, CC BY-SA 3.0.
+Three looping RPM layers, load filtering and gear-shift cuts replace the old
+procedural tone. See LICENSE - V10 Audio.txt for attribution and changes.
+The acoustic RPM mapping does not change the assisted driving physics.
+
+Reference sources:
+https://www.silverstone.co.uk/news/silverstone-renames-international-pits-straight
+https://www.formula1.com/en/latest/article/explained-how-every-silverstone-corner-got-its-name.idMlxFC2gfN2ApcPmifxN
+https://gems.co.uk/manuals/gdd/tools/track-database/index.html
+https://www.formula1.com/en/latest/article/circuit-guide-everything-you-need-to-know-about-the-circuit-de-monaco.vFsmfGHr6RWyLFtxi58wi
+https://www.formula1.com/en/racing/2025/singapore
+https://www.formula1.com/en/racing/2025/bahrain
+https://www.formula1.com/en/racing/2025/italy
+https://global.honda/en/POWEREDbyHONDA/2002_ra002e/
+
+22 OCTOBER 2026 UPDATE
+Luffield and Singapore apex constraints; full Abu Dhabi constrained line refinement.
+240 spline controls; finite-difference step 0.015 metres, physical speed envelopes.
+Expanded space-aware runoffs; Poly Haven asphalt_track color, normal and roughness
+maps (CC0), procedural aggregate, rubbered-in groove and painted runoff bands.
+https://polyhaven.com/a/asphalt_track
+Ubuntu server: Python 3.12 + aiohttp 3.14.5, single process, hashed cached assets,
+precompressed files, bounded request sizes/rates, periodic stale-session cleanup.
+Cloudflare terminates public HTTPS; origin remains on loopback. Client simulation
+means public multiplayer remains casual ghost racing, not strong anti-cheat.
+
+MILANO RACING V10 SAMPLE BANK
+
+Source: Red Bull-Cosworth RB1 (2005).ogg
+Author: Edvvc (Ed Pond)
+Recorded at Goodwood Festival of Speed, 3 July 2010.
+https://commons.wikimedia.org/wiki/File:Red_Bull-Cosworth_RB1_(2005).ogg
+
+Source licensed under Creative Commons Attribution-ShareAlike 3.0 Unported.
+https://creativecommons.org/licenses/by-sa/3.0/
+Legal code: https://creativecommons.org/licenses/by-sa/3.0/legalcode
+
+Changes: mono conversion, selected short excerpts, band-pass filtering,
+level normalization and circular crossfades to create three looping RPM layers.
+Playback changes pitch, mixes layers and filters sound according to load.
+The derived v10-bank.wav audio is also CC BY-SA 3.0.
+
+You may copy, redistribute and adapt this audio, including commercially,
+with appropriate attribution, a license link and an indication of changes.
+Distribute adaptations of the audio under the same or a compatible license.
+No endorsement by the recorder, team, driver or manufacturer is implied.
+This notice concerns the audio asset, not unrelated assets in the game package.
+
+ROAD ELEVATION - 22 OCTOBER 2026
+Historical F1 position traces accessed through OpenF1 (2024 qualifying,
+three laps per circuit). Source XYZ units documented by the FastF1 project:
+https://openf1.org/docs/#location
+https://github.com/theOehrly/Fast-F1/blob/master/fastf1/core.py
+Coordinates are decimetres. Heights were registered against each mapped layout,
+converted to metres, combined by median and spatially smoothed. Relative road
+height is preserved; absolute altitude is shifted for rendering. Source URLs,
+lap registration errors and processing results are in Elevation Validation.json.
+Road, kerbs, runoffs, walls, guide arrows, car pitch, cameras and opponent cars
+follow these heights. Gravity on grades and crest/compression tyre loads affect
+acceleration, braking and cyclic racing-line speed targets. Lateral guide paths
+retain the earlier local optimization; they are not a new full 3D optimum.
+Surrounding terrain is inferred from road heights, not a surveyed terrain model.
+Banking, crossfall, individual bumps, suspension travel and airborne dynamics
+are not reproduced. The original fictional Milano circuit remains flat.
+
+V10 INTEGRATION
+Wheel-speed/gear-coupled revs, clutch launch, throttle-dependent exhaust body,
+intake bite, ignition-cut upshifts, downshift blips and restrained lift-off pops.
+Wind, tyre-slip and kerb sound follow the car state. Camera-dependent filtering,
+equal-power RPM blending and compression keep the mix coherent. The recording
+is real; source RPM and the simulated drivetrain are approximations.

@@ -1,11 +1,5 @@
 [
   {
-    "id": "milano",
-    "terrainTriangles": 4910,
-    "bytes": 176760,
-    "roadCorridorArea": 372594.5887128122
-  },
-  {
     "id": "spa",
     "terrainTriangles": 6037,
     "bytes": 217332,
@@ -28,5 +22,11 @@
     "terrainTriangles": 3818,
     "bytes": 137448,
     "roadCorridorArea": 318390.5812322507
+  },
+  {
+    "id": "milano",
+    "terrainTriangles": 5583,
+    "bytes": 200988,
+    "roadCorridorArea": 455496.0061100575
   }
 ]

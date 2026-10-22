@@ -1,0 +1,12 @@
+{
+	"circuit": "silverstone",
+	"device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+	"drawCalls": 1359.0,
+	"frames": 1245,
+	"instanceErrors": 0,
+	"medianMs": 7.057,
+	"p95Ms": 8.417,
+	"primitives": 2230061.0,
+	"renderer": "forward_plus",
+	"restoredInstances": 146828
+}

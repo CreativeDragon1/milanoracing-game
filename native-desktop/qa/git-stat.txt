@@ -1,0 +1,874 @@
+ .gitattributes                                     |    6 +
+ Milano Racing - Grand Prix.html                    |  Bin 83950464 -> 101209219 bytes
+ README.md                                          |   16 +-
+ native-desktop/.gitignore                          |   14 +
+ native-desktop/README.md                           |   40 +
+ native-desktop/docs/ACCURACY.md                    |   21 +
+ native-desktop/docs/VALIDATION.md                  |   44 +
+ native-desktop/game/assets/Barlow-Bold.ttf         |  Bin 0 -> 108220 bytes
+ native-desktop/game/assets/Barlow-Bold.ttf.import  |   36 +
+ native-desktop/game/assets/audio/bank.json         |   33 +
+ native-desktop/game/assets/audio/high.wav          |  Bin 0 -> 69724 bytes
+ native-desktop/game/assets/audio/high.wav.import   |   24 +
+ native-desktop/game/assets/audio/idle.wav          |  Bin 0 -> 69722 bytes
+ native-desktop/game/assets/audio/idle.wav.import   |   24 +
+ native-desktop/game/assets/audio/mid.wav           |  Bin 0 -> 60902 bytes
+ native-desktop/game/assets/audio/mid.wav.import    |   24 +
+ native-desktop/game/assets/fonts/Barlow-Bold.ttf   |  Bin 0 -> 108220 bytes
+ .../game/assets/fonts/Barlow-Bold.ttf.import       |   36 +
+ .../game/assets/fonts/Barlow-ExtraBoldItalic.ttf   |  Bin 0 -> 113112 bytes
+ .../assets/fonts/Barlow-ExtraBoldItalic.ttf.import |   36 +
+ native-desktop/game/assets/fonts/DM-Sans.ttf       |  Bin 0 -> 240164 bytes
+ .../game/assets/fonts/DM-Sans.ttf.import           |   36 +
+ native-desktop/game/assets/fonts/Michroma.ttf      |  Bin 0 -> 64344 bytes
+ .../game/assets/fonts/Michroma.ttf.import          |   36 +
+ .../game/assets/generated/0096b56b807d15148bdb.png |  Bin 0 -> 20521 bytes
+ .../generated/0096b56b807d15148bdb.png.import      |   41 +
+ .../game/assets/generated/011ddc8a4346eca31781.png |  Bin 0 -> 72029 bytes
+ .../generated/011ddc8a4346eca31781.png.import      |   41 +
+ .../game/assets/generated/05ee19e48e7190f4c42c.png |  Bin 0 -> 47795 bytes
+ .../generated/05ee19e48e7190f4c42c.png.import      |   41 +
+ .../game/assets/generated/06945a1b3ede7af0ef95.png |  Bin 0 -> 13138 bytes
+ .../generated/06945a1b3ede7af0ef95.png.import      |   41 +
+ .../game/assets/generated/0788cb9914877d34d476.png |  Bin 0 -> 91524 bytes
+ .../generated/0788cb9914877d34d476.png.import      |   41 +
+ .../game/assets/generated/0886a2d459661f402a25.png |  Bin 0 -> 30567 bytes
+ .../generated/0886a2d459661f402a25.png.import      |   41 +
+ .../game/assets/generated/09bea8242167d56b62de.png |  Bin 0 -> 27880 bytes
+ .../generated/09bea8242167d56b62de.png.import      |   41 +
+ .../game/assets/generated/0ba807a04711183f7fa9.png |  Bin 0 -> 54937 bytes
+ .../generated/0ba807a04711183f7fa9.png.import      |   41 +
+ .../game/assets/generated/0bf1ad90f6b28bd9d110.png |  Bin 0 -> 386121 bytes
+ .../generated/0bf1ad90f6b28bd9d110.png.import      |   41 +
+ .../game/assets/generated/0df40608bf7a2ef7817e.png |  Bin 0 -> 19577 bytes
+ .../generated/0df40608bf7a2ef7817e.png.import      |   41 +
+ .../game/assets/generated/0fc21a6ca313fc898055.png |  Bin 0 -> 20030 bytes
+ .../generated/0fc21a6ca313fc898055.png.import      |   41 +
+ .../game/assets/generated/1070465b1dfdea5607eb.png |  Bin 0 -> 58906 bytes
+ .../generated/1070465b1dfdea5607eb.png.import      |   41 +
+ .../game/assets/generated/115500bc5028fcc11f93.png |  Bin 0 -> 205099 bytes
+ .../generated/115500bc5028fcc11f93.png.import      |   41 +
+ .../game/assets/generated/1186bc780721c2103c3a.png |  Bin 0 -> 495175 bytes
+ .../generated/1186bc780721c2103c3a.png.import      |   41 +
+ .../game/assets/generated/1233752b3323fc4b2b64.png |  Bin 0 -> 25681 bytes
+ .../generated/1233752b3323fc4b2b64.png.import      |   41 +
+ .../game/assets/generated/1361c6bac5957e95387a.png |  Bin 0 -> 12752 bytes
+ .../generated/1361c6bac5957e95387a.png.import      |   41 +
+ .../game/assets/generated/161da612191eb28b7a54.png |  Bin 0 -> 573739 bytes
+ .../generated/161da612191eb28b7a54.png.import      |   41 +
+ .../game/assets/generated/163b202e66744ef0afa9.png |  Bin 0 -> 22498 bytes
+ .../generated/163b202e66744ef0afa9.png.import      |   41 +
+ .../game/assets/generated/1663df9db4e4f0251082.png |  Bin 0 -> 104831 bytes
+ .../generated/1663df9db4e4f0251082.png.import      |   41 +
+ .../game/assets/generated/167ceb5a2f1ac09607e6.png |  Bin 0 -> 27133 bytes
+ .../generated/167ceb5a2f1ac09607e6.png.import      |   41 +
+ .../game/assets/generated/176efc07c75aea72cfc4.png |  Bin 0 -> 17550 bytes
+ .../generated/176efc07c75aea72cfc4.png.import      |   41 +
+ .../game/assets/generated/178a96fa79a66fb1e7fa.png |  Bin 0 -> 31596 bytes
+ .../generated/178a96fa79a66fb1e7fa.png.import      |   41 +
+ .../game/assets/generated/1867d968899960533a6c.png |  Bin 0 -> 30857 bytes
+ .../generated/1867d968899960533a6c.png.import      |   41 +
+ .../game/assets/generated/1a87c59e7427e01a2be3.png |  Bin 0 -> 41829 bytes
+ .../generated/1a87c59e7427e01a2be3.png.import      |   41 +
+ .../game/assets/generated/1c55920c72dd911402cf.png |  Bin 0 -> 79092 bytes
+ .../generated/1c55920c72dd911402cf.png.import      |   41 +
+ .../game/assets/generated/1d4c6da0429cfb555184.png |  Bin 0 -> 2716512 bytes
+ .../generated/1d4c6da0429cfb555184.png.import      |   41 +
+ .../game/assets/generated/1e88a9cb74d92dc5e9d6.png |  Bin 0 -> 148406 bytes
+ .../generated/1e88a9cb74d92dc5e9d6.png.import      |   41 +
+ .../game/assets/generated/20aa4d8eb7f2f0929bb1.png |  Bin 0 -> 19243 bytes
+ .../generated/20aa4d8eb7f2f0929bb1.png.import      |   41 +
+ .../game/assets/generated/225ae800aaabed06cdb5.png |  Bin 0 -> 15766 bytes
+ .../generated/225ae800aaabed06cdb5.png.import      |   41 +
+ .../game/assets/generated/22c29ce79469c7db781c.png |  Bin 0 -> 129261 bytes
+ .../generated/22c29ce79469c7db781c.png.import      |   41 +
+ .../game/assets/generated/235698fdffcac5026f09.png |  Bin 0 -> 18178 bytes
+ .../generated/235698fdffcac5026f09.png.import      |   41 +
+ .../game/assets/generated/25c2aa91747a8edea776.png |  Bin 0 -> 153108 bytes
+ .../generated/25c2aa91747a8edea776.png.import      |   41 +
+ .../game/assets/generated/26f9db7adda19a14d42e.png |  Bin 0 -> 23665 bytes
+ .../generated/26f9db7adda19a14d42e.png.import      |   41 +
+ .../game/assets/generated/2799b3b889026d334ae7.png |  Bin 0 -> 28802 bytes
+ .../generated/2799b3b889026d334ae7.png.import      |   41 +
+ .../game/assets/generated/2899546677900bc6670b.png |  Bin 0 -> 111159 bytes
+ .../generated/2899546677900bc6670b.png.import      |   41 +
+ .../game/assets/generated/28a5bdef4bacfa0bf752.png |  Bin 0 -> 20930 bytes
+ .../generated/28a5bdef4bacfa0bf752.png.import      |   41 +
+ .../game/assets/generated/28bb02fd4e10508054b2.png |  Bin 0 -> 24529 bytes
+ .../generated/28bb02fd4e10508054b2.png.import      |   41 +
+ .../game/assets/generated/29c57362c121637fd510.png |  Bin 0 -> 22288 bytes
+ .../generated/29c57362c121637fd510.png.import      |   41 +
+ .../game/assets/generated/2b2a0857e02f507821a6.png |  Bin 0 -> 62453 bytes
+ .../generated/2b2a0857e02f507821a6.png.import      |   41 +
+ .../game/assets/generated/2bf530d34b830cf601c4.png |  Bin 0 -> 26052 bytes
+ .../generated/2bf530d34b830cf601c4.png.import      |   41 +
+ .../game/assets/generated/2d71cff7f8bd5f02fa26.png |  Bin 0 -> 180833 bytes
+ .../generated/2d71cff7f8bd5f02fa26.png.import      |   41 +
+ .../game/assets/generated/2e02e0ebb3bcf9e8b22c.png |  Bin 0 -> 233176 bytes
+ .../generated/2e02e0ebb3bcf9e8b22c.png.import      |   41 +
+ .../game/assets/generated/2ff343bea76bc5dea362.png |  Bin 0 -> 2759677 bytes
+ .../generated/2ff343bea76bc5dea362.png.import      |   41 +
+ .../game/assets/generated/30ddc3d632098e19c2df.png |  Bin 0 -> 19187 bytes
+ .../generated/30ddc3d632098e19c2df.png.import      |   41 +
+ .../game/assets/generated/3291ad896d6474eedf57.png |  Bin 0 -> 89309 bytes
+ .../generated/3291ad896d6474eedf57.png.import      |   41 +
+ .../game/assets/generated/370e4a6c630077d6fedd.png |  Bin 0 -> 30292 bytes
+ .../generated/370e4a6c630077d6fedd.png.import      |   41 +
+ .../game/assets/generated/3a46a31c6842eda4a76e.png |  Bin 0 -> 29670 bytes
+ .../generated/3a46a31c6842eda4a76e.png.import      |   41 +
+ .../game/assets/generated/3a4a9e355ebe286325cc.png |  Bin 0 -> 19719 bytes
+ .../generated/3a4a9e355ebe286325cc.png.import      |   41 +
+ .../game/assets/generated/3aba6a5e192a4fd0576c.png |  Bin 0 -> 25063 bytes
+ .../generated/3aba6a5e192a4fd0576c.png.import      |   41 +
+ .../game/assets/generated/3af9824eee4104556842.png |  Bin 0 -> 19273 bytes
+ .../generated/3af9824eee4104556842.png.import      |   41 +
+ .../game/assets/generated/3b4eb29c2b268cd4f2c7.png |  Bin 0 -> 9983020 bytes
+ .../generated/3b4eb29c2b268cd4f2c7.png.import      |   41 +
+ .../game/assets/generated/3b73a3afec73192bea40.png |  Bin 0 -> 22704 bytes
+ .../generated/3b73a3afec73192bea40.png.import      |   41 +
+ .../game/assets/generated/3d11eadc0f61b3317c52.png |  Bin 0 -> 110410 bytes
+ .../generated/3d11eadc0f61b3317c52.png.import      |   41 +
+ .../game/assets/generated/3fa399f4dec02c6eef46.png |  Bin 0 -> 42125 bytes
+ .../generated/3fa399f4dec02c6eef46.png.import      |   41 +
+ .../game/assets/generated/400b3db7e6c8c63a6cb9.png |  Bin 0 -> 96094 bytes
+ .../generated/400b3db7e6c8c63a6cb9.png.import      |   41 +
+ .../game/assets/generated/416dd869bfb1311c3f2f.png |  Bin 0 -> 270936 bytes
+ .../generated/416dd869bfb1311c3f2f.png.import      |   41 +
+ .../game/assets/generated/42f62460c90b6920e0e4.png |  Bin 0 -> 13088 bytes
+ .../generated/42f62460c90b6920e0e4.png.import      |   41 +
+ .../game/assets/generated/47bd6f92a8ca18574360.png |  Bin 0 -> 21449 bytes
+ .../generated/47bd6f92a8ca18574360.png.import      |   41 +
+ .../game/assets/generated/481154f68d93ddba0aa4.png |  Bin 0 -> 33135 bytes
+ .../generated/481154f68d93ddba0aa4.png.import      |   41 +
+ .../game/assets/generated/48621b0e67078ed3bf77.png |  Bin 0 -> 19744 bytes
+ .../generated/48621b0e67078ed3bf77.png.import      |   41 +
+ .../game/assets/generated/4926eb8e1590692494a6.png |  Bin 0 -> 26911 bytes
+ .../generated/4926eb8e1590692494a6.png.import      |   41 +
+ .../game/assets/generated/4a93417c389dcbf5936e.png |  Bin 0 -> 143409 bytes
+ .../generated/4a93417c389dcbf5936e.png.import      |   41 +
+ .../game/assets/generated/4aa1e48c649afcf74cac.png |  Bin 0 -> 103803 bytes
+ .../generated/4aa1e48c649afcf74cac.png.import      |   41 +
+ .../game/assets/generated/4b5e9b6d4d36db230c33.png |  Bin 0 -> 27998 bytes
+ .../generated/4b5e9b6d4d36db230c33.png.import      |   41 +
+ .../game/assets/generated/4bbd8ed8ad20ead0e1fd.png |  Bin 0 -> 2692035 bytes
+ .../generated/4bbd8ed8ad20ead0e1fd.png.import      |   41 +
+ .../game/assets/generated/4ca514ee772f53bff66a.png |  Bin 0 -> 23308 bytes
+ .../generated/4ca514ee772f53bff66a.png.import      |   41 +
+ .../game/assets/generated/4e183d824b24b8ff22d8.png |  Bin 0 -> 17786 bytes
+ .../generated/4e183d824b24b8ff22d8.png.import      |   41 +
+ .../game/assets/generated/4f82996b9033f0a55842.png |  Bin 0 -> 24284 bytes
+ .../generated/4f82996b9033f0a55842.png.import      |   41 +
+ .../game/assets/generated/4f94434e961c7fe3c919.png |  Bin 0 -> 22488 bytes
+ .../generated/4f94434e961c7fe3c919.png.import      |   41 +
+ .../game/assets/generated/4fff393dc9cf16fe0019.png |  Bin 0 -> 183672 bytes
+ .../generated/4fff393dc9cf16fe0019.png.import      |   41 +
+ .../game/assets/generated/5057e3f8154e810ba35d.png |  Bin 0 -> 142353 bytes
+ .../generated/5057e3f8154e810ba35d.png.import      |   41 +
+ .../game/assets/generated/50b2c571abd7dc467bfe.png |  Bin 0 -> 16039 bytes
+ .../generated/50b2c571abd7dc467bfe.png.import      |   41 +
+ .../game/assets/generated/516746a43c6b42112e92.png |  Bin 0 -> 2343462 bytes
+ .../generated/516746a43c6b42112e92.png.import      |   41 +
+ .../game/assets/generated/528a7806ebd72dfec823.png |  Bin 0 -> 4752359 bytes
+ .../generated/528a7806ebd72dfec823.png.import      |   41 +
+ .../game/assets/generated/5661171235a606abff6f.png |  Bin 0 -> 22047 bytes
+ .../generated/5661171235a606abff6f.png.import      |   41 +
+ .../game/assets/generated/583800a473486df3c773.png |  Bin 0 -> 20555 bytes
+ .../generated/583800a473486df3c773.png.import      |   41 +
+ .../game/assets/generated/59f294006ca281401a4c.png |  Bin 0 -> 14858 bytes
+ .../generated/59f294006ca281401a4c.png.import      |   41 +
+ .../game/assets/generated/5ace64f139a425762ef5.png |  Bin 0 -> 89374 bytes
+ .../generated/5ace64f139a425762ef5.png.import      |   41 +
+ .../game/assets/generated/5e0adf6ae4ca40375d06.png |  Bin 0 -> 27296 bytes
+ .../generated/5e0adf6ae4ca40375d06.png.import      |   41 +
+ .../game/assets/generated/5e5c6c64030d2ae29bd4.png |  Bin 0 -> 2909535 bytes
+ .../generated/5e5c6c64030d2ae29bd4.png.import      |   41 +
+ .../game/assets/generated/5ea7dc49c0929e265c8e.png |  Bin 0 -> 12602 bytes
+ .../generated/5ea7dc49c0929e265c8e.png.import      |   41 +
+ .../game/assets/generated/5fddb3236fa14d91b155.png |  Bin 0 -> 19682 bytes
+ .../generated/5fddb3236fa14d91b155.png.import      |   41 +
+ .../game/assets/generated/6028704ca4c190387090.png |  Bin 0 -> 181524 bytes
+ .../generated/6028704ca4c190387090.png.import      |   41 +
+ .../game/assets/generated/607a50c421933ac94389.png |  Bin 0 -> 143378 bytes
+ .../generated/607a50c421933ac94389.png.import      |   41 +
+ .../game/assets/generated/60c7812f31463c1ac7d1.png |  Bin 0 -> 13110 bytes
+ .../generated/60c7812f31463c1ac7d1.png.import      |   41 +
+ .../game/assets/generated/63927c41dd7aa8e05fea.png |  Bin 0 -> 127849 bytes
+ .../generated/63927c41dd7aa8e05fea.png.import      |   41 +
+ .../game/assets/generated/6671527d4fd80585204a.png |  Bin 0 -> 61483 bytes
+ .../generated/6671527d4fd80585204a.png.import      |   41 +
+ .../game/assets/generated/66c768ad734e43032691.png |  Bin 0 -> 16365 bytes
+ .../generated/66c768ad734e43032691.png.import      |   41 +
+ .../game/assets/generated/68254f5c79056752dfcf.png |  Bin 0 -> 27081 bytes
+ .../generated/68254f5c79056752dfcf.png.import      |   41 +
+ .../game/assets/generated/6dec433d0da88c131fa4.png |  Bin 0 -> 22926 bytes
+ .../generated/6dec433d0da88c131fa4.png.import      |   41 +
+ .../game/assets/generated/6e762e6d8b43b5707467.png |  Bin 0 -> 21320 bytes
+ .../generated/6e762e6d8b43b5707467.png.import      |   41 +
+ .../game/assets/generated/70e22e2490725ad31ff8.png |  Bin 0 -> 571855 bytes
+ .../generated/70e22e2490725ad31ff8.png.import      |   41 +
+ .../game/assets/generated/7313e88386abbd92b359.png |  Bin 0 -> 18793 bytes
+ .../generated/7313e88386abbd92b359.png.import      |   41 +
+ .../game/assets/generated/7366eb64b35763ec6f0f.png |  Bin 0 -> 66595 bytes
+ .../generated/7366eb64b35763ec6f0f.png.import      |   41 +
+ .../game/assets/generated/73e57c66fb82f7c44ec0.png |  Bin 0 -> 28378 bytes
+ .../generated/73e57c66fb82f7c44ec0.png.import      |   41 +
+ .../game/assets/generated/760d2be36616dfe3919d.png |  Bin 0 -> 49167 bytes
+ .../generated/760d2be36616dfe3919d.png.import      |   41 +
+ .../game/assets/generated/78d413add18c110d8fe5.png |  Bin 0 -> 215553 bytes
+ .../generated/78d413add18c110d8fe5.png.import      |   41 +
+ .../game/assets/generated/7a33b72ae32695ea6255.png |  Bin 0 -> 181513 bytes
+ .../generated/7a33b72ae32695ea6255.png.import      |   41 +
+ .../game/assets/generated/7afca35144960de59026.png |  Bin 0 -> 10138771 bytes
+ .../generated/7afca35144960de59026.png.import      |   41 +
+ .../game/assets/generated/7dd0edf857cf5e4dac72.png |  Bin 0 -> 21367 bytes
+ .../generated/7dd0edf857cf5e4dac72.png.import      |   41 +
+ .../game/assets/generated/7dff7a6a5d5408ee11d4.png |  Bin 0 -> 21861 bytes
+ .../generated/7dff7a6a5d5408ee11d4.png.import      |   41 +
+ .../game/assets/generated/7f179ab003402c1b2d65.png |  Bin 0 -> 67113 bytes
+ .../generated/7f179ab003402c1b2d65.png.import      |   41 +
+ .../game/assets/generated/81f766b484e538ef68f7.png |  Bin 0 -> 11837 bytes
+ .../generated/81f766b484e538ef68f7.png.import      |   41 +
+ .../game/assets/generated/849ad590f1be0dab5090.png |  Bin 0 -> 16138 bytes
+ .../generated/849ad590f1be0dab5090.png.import      |   41 +
+ .../game/assets/generated/853443b0e67544400f36.png |  Bin 0 -> 26446 bytes
+ .../generated/853443b0e67544400f36.png.import      |   41 +
+ .../game/assets/generated/895125628acb8683c002.png |  Bin 0 -> 55157 bytes
+ .../generated/895125628acb8683c002.png.import      |   41 +
+ .../game/assets/generated/8ae9d61b7e580fb54921.png |  Bin 0 -> 21990 bytes
+ .../generated/8ae9d61b7e580fb54921.png.import      |   41 +
+ .../game/assets/generated/8c0305cbf9da1b3ece96.png |  Bin 0 -> 100713 bytes
+ .../generated/8c0305cbf9da1b3ece96.png.import      |   41 +
+ .../game/assets/generated/8d4f8b3c0e7d5fd438a3.png |  Bin 0 -> 19882 bytes
+ .../generated/8d4f8b3c0e7d5fd438a3.png.import      |   41 +
+ .../game/assets/generated/8f85393fa8cde221754d.png |  Bin 0 -> 108087 bytes
+ .../generated/8f85393fa8cde221754d.png.import      |   41 +
+ .../game/assets/generated/90240eaf4ac066396e15.png |  Bin 0 -> 20299 bytes
+ .../generated/90240eaf4ac066396e15.png.import      |   41 +
+ .../game/assets/generated/91916a9686132fd8e232.png |  Bin 0 -> 28103 bytes
+ .../generated/91916a9686132fd8e232.png.import      |   41 +
+ .../game/assets/generated/91e3dbbded5cd7eeb654.png |  Bin 0 -> 21003 bytes
+ .../generated/91e3dbbded5cd7eeb654.png.import      |   41 +
+ .../game/assets/generated/9262e2441aa6c2863609.png |  Bin 0 -> 32409 bytes
+ .../generated/9262e2441aa6c2863609.png.import      |   41 +
+ .../game/assets/generated/94a0552c709d42eec7ee.png |  Bin 0 -> 18975 bytes
+ .../generated/94a0552c709d42eec7ee.png.import      |   41 +
+ .../game/assets/generated/978e12a38cf175043363.png |  Bin 0 -> 293923 bytes
+ .../generated/978e12a38cf175043363.png.import      |   41 +
+ .../game/assets/generated/985c3a253926ac8c52c0.png |  Bin 0 -> 31818 bytes
+ .../generated/985c3a253926ac8c52c0.png.import      |   41 +
+ .../game/assets/generated/9992a3377ada4614d2b0.png |  Bin 0 -> 573186 bytes
+ .../generated/9992a3377ada4614d2b0.png.import      |   41 +
+ .../game/assets/generated/9a21add7ea0591c48dff.png |  Bin 0 -> 572838 bytes
+ .../generated/9a21add7ea0591c48dff.png.import      |   41 +
+ .../game/assets/generated/9af582a1401fa1e3f4b1.png |  Bin 0 -> 16584 bytes
+ .../generated/9af582a1401fa1e3f4b1.png.import      |   41 +
+ .../game/assets/generated/9d62e0cccbd3698f74c7.png |  Bin 0 -> 27033 bytes
+ .../generated/9d62e0cccbd3698f74c7.png.import      |   41 +
+ .../game/assets/generated/9d7a52b44dfa039b51d4.png |  Bin 0 -> 19128 bytes
+ .../generated/9d7a52b44dfa039b51d4.png.import      |   41 +
+ .../game/assets/generated/9e19c16f280ca80674a3.png |  Bin 0 -> 192720 bytes
+ .../generated/9e19c16f280ca80674a3.png.import      |   41 +
+ .../game/assets/generated/a1fbf9cdae5e650f722f.png |  Bin 0 -> 1131164 bytes
+ .../generated/a1fbf9cdae5e650f722f.png.import      |   41 +
+ .../game/assets/generated/a3bf50c1696fdbff1868.png |  Bin 0 -> 23404 bytes
+ .../generated/a3bf50c1696fdbff1868.png.import      |   41 +
+ .../game/assets/generated/a55e0648f11c3a70a147.png |  Bin 0 -> 156331 bytes
+ .../generated/a55e0648f11c3a70a147.png.import      |   41 +
+ .../game/assets/generated/a6a9b81bec45579f8cae.png |  Bin 0 -> 18978 bytes
+ .../generated/a6a9b81bec45579f8cae.png.import      |   41 +
+ .../game/assets/generated/a70daa534e24d59316b8.png |  Bin 0 -> 29651 bytes
+ .../generated/a70daa534e24d59316b8.png.import      |   41 +
+ .../game/assets/generated/a9c4ea7cdb24b218dc9a.png |  Bin 0 -> 25470 bytes
+ .../generated/a9c4ea7cdb24b218dc9a.png.import      |   41 +
+ .../game/assets/generated/ada73835ba57d087a1bc.png |  Bin 0 -> 100841 bytes
+ .../generated/ada73835ba57d087a1bc.png.import      |   41 +
+ .../game/assets/generated/ae5ba7d52ccc40ef27fe.png |  Bin 0 -> 27526 bytes
+ .../generated/ae5ba7d52ccc40ef27fe.png.import      |   41 +
+ .../game/assets/generated/b247a5d835cfe816396f.png |  Bin 0 -> 16265 bytes
+ .../generated/b247a5d835cfe816396f.png.import      |   41 +
+ .../game/assets/generated/b2ad69e705732506dec6.png |  Bin 0 -> 10960 bytes
+ .../generated/b2ad69e705732506dec6.png.import      |   41 +
+ .../game/assets/generated/b375c26c4ebd8309dd08.png |  Bin 0 -> 185341 bytes
+ .../generated/b375c26c4ebd8309dd08.png.import      |   41 +
+ .../game/assets/generated/b432bfac42d8f7170682.png |  Bin 0 -> 22953 bytes
+ .../generated/b432bfac42d8f7170682.png.import      |   41 +
+ .../game/assets/generated/b550f0ade5c144440928.png |  Bin 0 -> 571035 bytes
+ .../generated/b550f0ade5c144440928.png.import      |   41 +
+ .../game/assets/generated/b5a2569356f0cbfeda97.png |  Bin 0 -> 18569 bytes
+ .../generated/b5a2569356f0cbfeda97.png.import      |   41 +
+ .../game/assets/generated/b5ceb05b97e798f80059.png |  Bin 0 -> 20467 bytes
+ .../generated/b5ceb05b97e798f80059.png.import      |   41 +
+ .../game/assets/generated/b68d5f687961cb440425.png |  Bin 0 -> 1628839 bytes
+ .../generated/b68d5f687961cb440425.png.import      |   41 +
+ .../game/assets/generated/b9a4610add12aa5db31a.png |  Bin 0 -> 18207 bytes
+ .../generated/b9a4610add12aa5db31a.png.import      |   41 +
+ .../game/assets/generated/bafad85e7fe60cfd0052.png |  Bin 0 -> 268909 bytes
+ .../generated/bafad85e7fe60cfd0052.png.import      |   41 +
+ .../game/assets/generated/bbe3be32a2db61365b06.png |  Bin 0 -> 154113 bytes
+ .../generated/bbe3be32a2db61365b06.png.import      |   41 +
+ .../game/assets/generated/bc5dfff0f42ab91b9664.png |  Bin 0 -> 22991 bytes
+ .../generated/bc5dfff0f42ab91b9664.png.import      |   41 +
+ .../game/assets/generated/bc80dd1b5aea3989b22e.png |  Bin 0 -> 20488 bytes
+ .../generated/bc80dd1b5aea3989b22e.png.import      |   41 +
+ .../game/assets/generated/bcccffdac5fb387c2093.png |  Bin 0 -> 41123 bytes
+ .../generated/bcccffdac5fb387c2093.png.import      |   41 +
+ .../game/assets/generated/be60c91c337765a7a0d3.png |  Bin 0 -> 27331 bytes
+ .../generated/be60c91c337765a7a0d3.png.import      |   41 +
+ .../game/assets/generated/bf545bfab5ccef168e98.png |  Bin 0 -> 181354 bytes
+ .../generated/bf545bfab5ccef168e98.png.import      |   41 +
+ .../game/assets/generated/c0e1d245d3ddd0a4fff0.png |  Bin 0 -> 97817 bytes
+ .../generated/c0e1d245d3ddd0a4fff0.png.import      |   41 +
+ .../game/assets/generated/c1c7675a7f0ec4fdbbff.png |  Bin 0 -> 18954 bytes
+ .../generated/c1c7675a7f0ec4fdbbff.png.import      |   41 +
+ .../game/assets/generated/c25515465be63a304938.png |  Bin 0 -> 23770 bytes
+ .../generated/c25515465be63a304938.png.import      |   41 +
+ .../game/assets/generated/c29d493d81bfadeb0192.png |  Bin 0 -> 27458 bytes
+ .../generated/c29d493d81bfadeb0192.png.import      |   41 +
+ .../game/assets/generated/c39ed482bae375f00806.png |  Bin 0 -> 59789 bytes
+ .../generated/c39ed482bae375f00806.png.import      |   41 +
+ .../game/assets/generated/c5982e6dc0f450f94cef.png |  Bin 0 -> 24970 bytes
+ .../generated/c5982e6dc0f450f94cef.png.import      |   41 +
+ .../game/assets/generated/c5f0d66124db8ab6e64b.png |  Bin 0 -> 3061242 bytes
+ .../generated/c5f0d66124db8ab6e64b.png.import      |   41 +
+ .../game/assets/generated/c65bbec8ed7aec183791.png |  Bin 0 -> 19986 bytes
+ .../generated/c65bbec8ed7aec183791.png.import      |   41 +
+ .../game/assets/generated/c7b9bb52ca446fd610ba.png |  Bin 0 -> 98406 bytes
+ .../generated/c7b9bb52ca446fd610ba.png.import      |   41 +
+ .../game/assets/generated/c81f4a51d455ac078a1b.png |  Bin 0 -> 3395 bytes
+ .../generated/c81f4a51d455ac078a1b.png.import      |   41 +
+ .../game/assets/generated/ca69036f8fd5faef899a.png |  Bin 0 -> 12838 bytes
+ .../generated/ca69036f8fd5faef899a.png.import      |   41 +
+ .../game/assets/generated/ca6c8dd57c3e023f1aa2.png |  Bin 0 -> 63498 bytes
+ .../generated/ca6c8dd57c3e023f1aa2.png.import      |   41 +
+ .../game/assets/generated/ccb5ec8c0cc64a73e4fe.png |  Bin 0 -> 295938 bytes
+ .../generated/ccb5ec8c0cc64a73e4fe.png.import      |   41 +
+ .../game/assets/generated/ccc99054c6b6ead475a6.png |  Bin 0 -> 61602 bytes
+ .../generated/ccc99054c6b6ead475a6.png.import      |   41 +
+ .../game/assets/generated/ccedb91077ece0fe937c.png |  Bin 0 -> 22126 bytes
+ .../generated/ccedb91077ece0fe937c.png.import      |   41 +
+ .../game/assets/generated/cd3050e7d35c6c6c3e5f.png |  Bin 0 -> 109619 bytes
+ .../generated/cd3050e7d35c6c6c3e5f.png.import      |   41 +
+ .../game/assets/generated/cdd1cf9f9f5803f53599.png |  Bin 0 -> 22759 bytes
+ .../generated/cdd1cf9f9f5803f53599.png.import      |   41 +
+ .../game/assets/generated/ce59b469883233b74e04.png |  Bin 0 -> 25901 bytes
+ .../generated/ce59b469883233b74e04.png.import      |   41 +
+ .../game/assets/generated/d147705b5deceeca738a.png |  Bin 0 -> 22896 bytes
+ .../generated/d147705b5deceeca738a.png.import      |   41 +
+ .../game/assets/generated/d41eaf0c4e787cf77591.png |  Bin 0 -> 15829 bytes
+ .../generated/d41eaf0c4e787cf77591.png.import      |   41 +
+ .../game/assets/generated/d74e94d5ef83dc9bf8c4.png |  Bin 0 -> 16519 bytes
+ .../generated/d74e94d5ef83dc9bf8c4.png.import      |   41 +
+ .../game/assets/generated/dd2b30525b8fd7f2f7ce.png |  Bin 0 -> 21779 bytes
+ .../generated/dd2b30525b8fd7f2f7ce.png.import      |   41 +
+ .../game/assets/generated/de7e13362a2702d404d7.png |  Bin 0 -> 1292532 bytes
+ .../generated/de7e13362a2702d404d7.png.import      |   41 +
+ .../game/assets/generated/de82c9fa21bf84ec21cc.png |  Bin 0 -> 30815 bytes
+ .../generated/de82c9fa21bf84ec21cc.png.import      |   41 +
+ .../game/assets/generated/df6e16fd9a5fb40bb302.png |  Bin 0 -> 109265 bytes
+ .../generated/df6e16fd9a5fb40bb302.png.import      |   41 +
+ .../game/assets/generated/e1dcff20c5c2ea91478a.png |  Bin 0 -> 27328 bytes
+ .../generated/e1dcff20c5c2ea91478a.png.import      |   41 +
+ .../game/assets/generated/e1e08c758bc857ecba5c.png |  Bin 0 -> 216131 bytes
+ .../generated/e1e08c758bc857ecba5c.png.import      |   41 +
+ .../game/assets/generated/e255eecc3416e35e4fa2.png |  Bin 0 -> 26269 bytes
+ .../generated/e255eecc3416e35e4fa2.png.import      |   41 +
+ .../game/assets/generated/e25eba7077d7137b67bb.png |  Bin 0 -> 19950 bytes
+ .../generated/e25eba7077d7137b67bb.png.import      |   41 +
+ .../game/assets/generated/e4107f4c0a73a169abda.png |  Bin 0 -> 53089 bytes
+ .../generated/e4107f4c0a73a169abda.png.import      |   41 +
+ .../game/assets/generated/e545cceaf3e147ab94d0.png |  Bin 0 -> 21575 bytes
+ .../generated/e545cceaf3e147ab94d0.png.import      |   41 +
+ .../game/assets/generated/e69ef27f0a74f27a63dc.png |  Bin 0 -> 25126 bytes
+ .../generated/e69ef27f0a74f27a63dc.png.import      |   41 +
+ .../game/assets/generated/e7f55ccfdfce2a82ddaf.png |  Bin 0 -> 60546 bytes
+ .../generated/e7f55ccfdfce2a82ddaf.png.import      |   41 +
+ .../game/assets/generated/eb2e0d133e566746e3b8.png |  Bin 0 -> 22239 bytes
+ .../generated/eb2e0d133e566746e3b8.png.import      |   41 +
+ .../game/assets/generated/ec4c26810926f230ab32.png |  Bin 0 -> 571176 bytes
+ .../generated/ec4c26810926f230ab32.png.import      |   41 +
+ .../game/assets/generated/ec7eb742f13e6938c4de.png |  Bin 0 -> 1907 bytes
+ .../generated/ec7eb742f13e6938c4de.png.import      |   41 +
+ .../game/assets/generated/eeaf496d40464ce04901.png |  Bin 0 -> 71839 bytes
+ .../generated/eeaf496d40464ce04901.png.import      |   41 +
+ .../game/assets/generated/eeb285879e1aeeb70061.png |  Bin 0 -> 58648 bytes
+ .../generated/eeb285879e1aeeb70061.png.import      |   41 +
+ .../game/assets/generated/eebcdf892d951ecf19c9.png |  Bin 0 -> 39908 bytes
+ .../generated/eebcdf892d951ecf19c9.png.import      |   41 +
+ .../game/assets/generated/efa6564bcf0238d81af7.png |  Bin 0 -> 1669 bytes
+ .../generated/efa6564bcf0238d81af7.png.import      |   41 +
+ .../game/assets/generated/f1a837d9a5b4c12648d8.png |  Bin 0 -> 108646 bytes
+ .../generated/f1a837d9a5b4c12648d8.png.import      |   41 +
+ .../game/assets/generated/f2f30a62ffde437dcc88.png |  Bin 0 -> 213103 bytes
+ .../generated/f2f30a62ffde437dcc88.png.import      |   41 +
+ .../game/assets/generated/f3954ec116ff6ae1b723.png |  Bin 0 -> 19796 bytes
+ .../generated/f3954ec116ff6ae1b723.png.import      |   41 +
+ .../game/assets/generated/f4a342ccb2c05f51e702.png |  Bin 0 -> 108993 bytes
+ .../generated/f4a342ccb2c05f51e702.png.import      |   41 +
+ .../game/assets/generated/f4abc8acf8a1b22b1253.png |  Bin 0 -> 128435 bytes
+ .../generated/f4abc8acf8a1b22b1253.png.import      |   41 +
+ .../game/assets/generated/f54fe0be56cac62af0a9.png |  Bin 0 -> 3260806 bytes
+ .../generated/f54fe0be56cac62af0a9.png.import      |   41 +
+ .../game/assets/generated/f5988fb19ec22acb3616.png |  Bin 0 -> 20474 bytes
+ .../generated/f5988fb19ec22acb3616.png.import      |   41 +
+ .../game/assets/generated/f74449a9efdf0224cea7.png |  Bin 0 -> 12461 bytes
+ .../generated/f74449a9efdf0224cea7.png.import      |   41 +
+ .../game/assets/generated/fa365b58ac640bb8b5c4.png |  Bin 0 -> 61476 bytes
+ .../generated/fa365b58ac640bb8b5c4.png.import      |   41 +
+ .../game/assets/generated/fd56bbe1a74a4c3852e8.png |  Bin 0 -> 25585 bytes
+ .../generated/fd56bbe1a74a4c3852e8.png.import      |   41 +
+ .../game/assets/generated/fed410715f6c00ecec25.png |  Bin 0 -> 16295 bytes
+ .../generated/fed410715f6c00ecec25.png.import      |   41 +
+ .../game/assets/generated/ff05125c0284fc625bc2.png |  Bin 0 -> 116934 bytes
+ .../generated/ff05125c0284fc625bc2.png.import      |   41 +
+ .../game/assets/generated/ffb785404345a5429fba.png |  Bin 0 -> 24598 bytes
+ .../generated/ffb785404345a5429fba.png.import      |   41 +
+ native-desktop/game/assets/mr26.scn                |  Bin 0 -> 609754 bytes
+ native-desktop/game/assets/sky.hdr                 |  Bin 0 -> 17385661 bytes
+ native-desktop/game/assets/sky.hdr.import          |   40 +
+ .../game/assets/surfaces/abu-dhabi-cover.png       |  Bin 0 -> 157798 bytes
+ .../assets/surfaces/abu-dhabi-cover.png.import     |   41 +
+ .../game/assets/surfaces/abu-dhabi-satellite.jpg   |  Bin 0 -> 315183 bytes
+ .../assets/surfaces/abu-dhabi-satellite.jpg.import |   41 +
+ .../assets/surfaces/aerial_grass_rock-color.jpg    |  Bin 0 -> 666655 bytes
+ .../surfaces/aerial_grass_rock-color.jpg.import    |   41 +
+ .../assets/surfaces/aerial_grass_rock-normal.jpg   |  Bin 0 -> 904956 bytes
+ .../surfaces/aerial_grass_rock-normal.jpg.import   |   41 +
+ .../assets/surfaces/aerial_grass_rock-rough.jpg    |  Bin 0 -> 362214 bytes
+ .../surfaces/aerial_grass_rock-rough.jpg.import    |   41 +
+ .../game/assets/surfaces/asphalt-color.jpg         |  Bin 0 -> 3779263 bytes
+ .../game/assets/surfaces/asphalt-color.jpg.import  |   41 +
+ .../game/assets/surfaces/asphalt-normal.jpg        |  Bin 0 -> 3694762 bytes
+ .../game/assets/surfaces/asphalt-normal.jpg.import |   41 +
+ .../game/assets/surfaces/asphalt-rough.jpg         |  Bin 0 -> 2182047 bytes
+ .../game/assets/surfaces/asphalt-rough.jpg.import  |   41 +
+ .../game/assets/surfaces/austria-cover.png         |  Bin 0 -> 99768 bytes
+ .../game/assets/surfaces/austria-cover.png.import  |   41 +
+ .../game/assets/surfaces/austria-satellite.jpg     |  Bin 0 -> 378342 bytes
+ .../assets/surfaces/austria-satellite.jpg.import   |   41 +
+ .../game/assets/surfaces/bahrain-cover.png         |  Bin 0 -> 68548 bytes
+ .../game/assets/surfaces/bahrain-cover.png.import  |   41 +
+ .../game/assets/surfaces/bahrain-satellite.jpg     |  Bin 0 -> 207560 bytes
+ .../assets/surfaces/bahrain-satellite.jpg.import   |   41 +
+ .../game/assets/surfaces/concrete-color.jpg        |  Bin 0 -> 531968 bytes
+ .../game/assets/surfaces/concrete-color.jpg.import |   41 +
+ .../game/assets/surfaces/concrete-normal.jpg       |  Bin 0 -> 993350 bytes
+ .../assets/surfaces/concrete-normal.jpg.import     |   41 +
+ .../game/assets/surfaces/concrete-rough.jpg        |  Bin 0 -> 233170 bytes
+ .../game/assets/surfaces/concrete-rough.jpg.import |   41 +
+ .../game/assets/surfaces/grass-color.jpg           |  Bin 0 -> 716010 bytes
+ .../game/assets/surfaces/grass-color.jpg.import    |   41 +
+ .../game/assets/surfaces/grass-normal.jpg          |  Bin 0 -> 831959 bytes
+ .../game/assets/surfaces/grass-normal.jpg.import   |   41 +
+ .../game/assets/surfaces/grass-rough.jpg           |  Bin 0 -> 335245 bytes
+ .../game/assets/surfaces/grass-rough.jpg.import    |   41 +
+ .../game/assets/surfaces/gravel-color.jpg          |  Bin 0 -> 1327302 bytes
+ .../game/assets/surfaces/gravel-color.jpg.import   |   41 +
+ .../game/assets/surfaces/gravel-normal.jpg         |  Bin 0 -> 1538430 bytes
+ .../game/assets/surfaces/gravel-normal.jpg.import  |   41 +
+ .../game/assets/surfaces/gravel-rough.jpg          |  Bin 0 -> 697340 bytes
+ .../game/assets/surfaces/gravel-rough.jpg.import   |   41 +
+ .../game/assets/surfaces/interlagos-cover.png      |  Bin 0 -> 122224 bytes
+ .../assets/surfaces/interlagos-cover.png.import    |   41 +
+ .../game/assets/surfaces/interlagos-satellite.jpg  |  Bin 0 -> 322890 bytes
+ .../surfaces/interlagos-satellite.jpg.import       |   41 +
+ .../game/assets/surfaces/monaco-cover.png          |  Bin 0 -> 150779 bytes
+ .../game/assets/surfaces/monaco-cover.png.import   |   41 +
+ .../game/assets/surfaces/monaco-satellite.jpg      |  Bin 0 -> 307788 bytes
+ .../assets/surfaces/monaco-satellite.jpg.import    |   41 +
+ .../game/assets/surfaces/monza-cover.png           |  Bin 0 -> 102904 bytes
+ .../game/assets/surfaces/monza-cover.png.import    |   41 +
+ .../game/assets/surfaces/monza-satellite.jpg       |  Bin 0 -> 416683 bytes
+ .../assets/surfaces/monza-satellite.jpg.import     |   41 +
+ .../game/assets/surfaces/sandy_gravel-color.jpg    |  Bin 0 -> 795227 bytes
+ .../assets/surfaces/sandy_gravel-color.jpg.import  |   41 +
+ .../game/assets/surfaces/sandy_gravel-normal.jpg   |  Bin 0 -> 1159620 bytes
+ .../assets/surfaces/sandy_gravel-normal.jpg.import |   41 +
+ .../game/assets/surfaces/sandy_gravel-rough.jpg    |  Bin 0 -> 396818 bytes
+ .../assets/surfaces/sandy_gravel-rough.jpg.import  |   41 +
+ .../game/assets/surfaces/silverstone-cover.png     |  Bin 0 -> 167010 bytes
+ .../assets/surfaces/silverstone-cover.png.import   |   41 +
+ .../game/assets/surfaces/silverstone-satellite.jpg |  Bin 0 -> 289188 bytes
+ .../surfaces/silverstone-satellite.jpg.import      |   41 +
+ .../game/assets/surfaces/singapore-cover.png       |  Bin 0 -> 145714 bytes
+ .../assets/surfaces/singapore-cover.png.import     |   41 +
+ .../game/assets/surfaces/singapore-satellite.jpg   |  Bin 0 -> 343398 bytes
+ .../assets/surfaces/singapore-satellite.jpg.import |   41 +
+ native-desktop/game/assets/surfaces/spa-cover.png  |  Bin 0 -> 105363 bytes
+ .../game/assets/surfaces/spa-cover.png.import      |   41 +
+ .../game/assets/surfaces/spa-satellite.jpg         |  Bin 0 -> 343501 bytes
+ .../game/assets/surfaces/spa-satellite.jpg.import  |   41 +
+ .../game/assets/surfaces/suzuka-cover.png          |  Bin 0 -> 134306 bytes
+ .../game/assets/surfaces/suzuka-cover.png.import   |   41 +
+ .../game/assets/surfaces/suzuka-satellite.jpg      |  Bin 0 -> 409100 bytes
+ .../assets/surfaces/suzuka-satellite.jpg.import    |   41 +
+ .../game/assets/surfaces/zandvoort-cover.png       |  Bin 0 -> 113491 bytes
+ .../assets/surfaces/zandvoort-cover.png.import     |   41 +
+ .../game/assets/surfaces/zandvoort-satellite.jpg   |  Bin 0 -> 292946 bytes
+ .../assets/surfaces/zandvoort-satellite.jpg.import |   41 +
+ native-desktop/game/assets/team-logo.png           |  Bin 0 -> 843745 bytes
+ native-desktop/game/assets/team-logo.png.import    |   41 +
+ native-desktop/game/assets/vegetation/canopy-0.png |  Bin 0 -> 683803 bytes
+ .../game/assets/vegetation/canopy-0.png.import     |   41 +
+ native-desktop/game/assets/vegetation/canopy-1.png |  Bin 0 -> 518281 bytes
+ .../game/assets/vegetation/canopy-1.png.import     |   41 +
+ native-desktop/game/assets/vegetation/model.json   |    1 +
+ .../assets/vegetation/tree_small_02_arm_1k.jpg     |  Bin 0 -> 708242 bytes
+ .../vegetation/tree_small_02_arm_1k.jpg.import     |   41 +
+ .../vegetation/tree_small_02_branch_arm_1k.jpg     |  Bin 0 -> 375732 bytes
+ .../tree_small_02_branch_arm_1k.jpg.import         |   41 +
+ .../vegetation/tree_small_02_branch_diff_1k.jpg    |  Bin 0 -> 449977 bytes
+ .../tree_small_02_branch_diff_1k.jpg.import        |   41 +
+ .../vegetation/tree_small_02_branch_nor_gl_1k.jpg  |  Bin 0 -> 581596 bytes
+ .../tree_small_02_branch_nor_gl_1k.jpg.import      |   41 +
+ .../assets/vegetation/tree_small_02_diff_1k.jpg    |  Bin 0 -> 863246 bytes
+ .../vegetation/tree_small_02_diff_1k.jpg.import    |   41 +
+ .../vegetation/tree_small_02_leaves_arm_1k.jpg     |  Bin 0 -> 633698 bytes
+ .../tree_small_02_leaves_arm_1k.jpg.import         |   41 +
+ .../vegetation/tree_small_02_leaves_diff_1k.jpg    |  Bin 0 -> 340003 bytes
+ .../tree_small_02_leaves_diff_1k.jpg.import        |   41 +
+ .../vegetation/tree_small_02_leaves_nor_gl_1k.jpg  |  Bin 0 -> 681604 bytes
+ .../tree_small_02_leaves_nor_gl_1k.jpg.import      |   41 +
+ .../assets/vegetation/tree_small_02_nor_gl_1k.jpg  |  Bin 0 -> 1228646 bytes
+ .../vegetation/tree_small_02_nor_gl_1k.jpg.import  |   41 +
+ native-desktop/game/circuits/abu-dhabi-detail.dat  |  Bin 0 -> 1008644 bytes
+ native-desktop/game/circuits/abu-dhabi.json        |    1 +
+ native-desktop/game/circuits/abu-dhabi.scn         |  Bin 0 -> 12450914 bytes
+ native-desktop/game/circuits/austria-detail.dat    |  Bin 0 -> 2532348 bytes
+ native-desktop/game/circuits/austria.json          |    1 +
+ native-desktop/game/circuits/austria.scn           |  Bin 0 -> 7860024 bytes
+ native-desktop/game/circuits/bahrain-detail.dat    |  Bin 0 -> 517860 bytes
+ native-desktop/game/circuits/bahrain.json          |    1 +
+ native-desktop/game/circuits/bahrain.scn           |  Bin 0 -> 9192993 bytes
+ native-desktop/game/circuits/geography.json        |  607 ++
+ native-desktop/game/circuits/interlagos-detail.dat |  Bin 0 -> 1312920 bytes
+ native-desktop/game/circuits/interlagos.json       |    1 +
+ native-desktop/game/circuits/interlagos.scn        |  Bin 0 -> 14660838 bytes
+ native-desktop/game/circuits/milano-detail.dat     |  Bin 0 -> 1283744 bytes
+ native-desktop/game/circuits/milano.json           |    1 +
+ native-desktop/game/circuits/milano.scn            |  Bin 0 -> 4448394 bytes
+ native-desktop/game/circuits/monaco-detail.dat     |  Bin 0 -> 262724 bytes
+ native-desktop/game/circuits/monaco.json           |    1 +
+ native-desktop/game/circuits/monaco.scn            |  Bin 0 -> 18932713 bytes
+ native-desktop/game/circuits/monza-detail.dat      |  Bin 0 -> 1899100 bytes
+ native-desktop/game/circuits/monza.json            |    1 +
+ native-desktop/game/circuits/monza.scn             |  Bin 0 -> 8016489 bytes
+ native-desktop/game/circuits/physics.json          |    1 +
+ native-desktop/game/circuits/pits.json             |    1 +
+ .../game/circuits/silverstone-detail.dat           |  Bin 0 -> 2560068 bytes
+ native-desktop/game/circuits/silverstone.json      |    1 +
+ native-desktop/game/circuits/silverstone.scn       |  Bin 0 -> 11073517 bytes
+ native-desktop/game/circuits/singapore-detail.dat  |  Bin 0 -> 1219568 bytes
+ native-desktop/game/circuits/singapore.json        |    1 +
+ native-desktop/game/circuits/singapore.scn         |  Bin 0 -> 16363646 bytes
+ native-desktop/game/circuits/spa-detail.dat        |  Bin 0 -> 2491160 bytes
+ native-desktop/game/circuits/spa.json              |    1 +
+ native-desktop/game/circuits/spa.scn               |  Bin 0 -> 7067389 bytes
+ native-desktop/game/circuits/suzuka-detail.dat     |  Bin 0 -> 2352280 bytes
+ native-desktop/game/circuits/suzuka.json           |    1 +
+ native-desktop/game/circuits/suzuka.scn            |  Bin 0 -> 9546397 bytes
+ native-desktop/game/circuits/zandvoort-detail.dat  |  Bin 0 -> 1775984 bytes
+ native-desktop/game/circuits/zandvoort.json        |    1 +
+ native-desktop/game/circuits/zandvoort.scn         |  Bin 0 -> 7913681 bytes
+ native-desktop/game/export_presets.cfg             |   31 +
+ native-desktop/game/main.tscn                      |    4 +
+ native-desktop/game/project.godot                  |   30 +
+ native-desktop/game/scripts/car_paint.gdshader     |   21 +
+ native-desktop/game/scripts/car_paint.gdshader.uid |    1 +
+ native-desktop/game/scripts/engine_audio.gd        |   29 +
+ native-desktop/game/scripts/engine_audio.gd.uid    |    1 +
+ native-desktop/game/scripts/floodlights.gd         |   58 +
+ native-desktop/game/scripts/floodlights.gd.uid     |    1 +
+ native-desktop/game/scripts/grass.gdshader         |   13 +
+ native-desktop/game/scripts/grass.gdshader.uid     |    1 +
+ native-desktop/game/scripts/ground_detail.gd       |   53 +
+ native-desktop/game/scripts/ground_detail.gd.uid   |    1 +
+ native-desktop/game/scripts/import_world.gd        |  171 +
+ native-desktop/game/scripts/import_world.gd.uid    |    1 +
+ native-desktop/game/scripts/inspect_car.gd.uid     |    1 +
+ native-desktop/game/scripts/main.gd                |  424 ++
+ native-desktop/game/scripts/main.gd.uid            |    1 +
+ native-desktop/game/scripts/terrain.gdshader       |   24 +
+ native-desktop/game/scripts/terrain.gdshader.uid   |    1 +
+ native-desktop/game/scripts/test_vehicle.gd        |   68 +
+ native-desktop/game/scripts/test_vehicle.gd.uid    |    1 +
+ native-desktop/game/scripts/vegetation.gd          |  102 +
+ native-desktop/game/scripts/vegetation.gd.uid      |    1 +
+ native-desktop/game/scripts/vehicle.gd             |  227 +
+ native-desktop/game/scripts/vehicle.gd.uid         |    1 +
+ native-desktop/licenses/Barlow-OFL.txt             |   93 +
+ native-desktop/licenses/CC-BY-4.0.txt              |  156 +
+ native-desktop/licenses/CC-BY-SA-3.0.txt           |  359 +
+ native-desktop/licenses/CC0-1.0.txt                |  121 +
+ .../licenses/Circuit-centrelines-MIT.txt           |   19 +
+ native-desktop/licenses/DM-Sans-OFL.txt            |   93 +
+ native-desktop/licenses/GPL-3.0.txt                |  232 +
+ native-desktop/licenses/Godot-MIT.txt              |   20 +
+ native-desktop/licenses/Godot-Third-Party.txt      | 2379 +++++++
+ .../licenses/Mapzen-provider-attribution.md        |  202 +
+ native-desktop/licenses/Michroma-OFL.txt           |   93 +
+ native-desktop/licenses/NOTICE.txt                 |   23 +
+ native-desktop/licenses/ODbL-1.0.txt               |  540 ++
+ .../licenses/Original-assets-credits.txt           |  134 +
+ native-desktop/licenses/Oxanium-OFL.txt            |   93 +
+ native-desktop/licenses/Saira-OFL.txt              |   94 +
+ native-desktop/licenses/TUM-widths-LGPL-3.0.txt    |  165 +
+ native-desktop/licenses/Three.js-MIT.txt           |   21 +
+ native-desktop/qa/input-smoke/native-milano.json   |   17 +
+ native-desktop/qa/native-abu-dhabi.json            |   12 +
+ native-desktop/qa/native-austria.json              |   12 +
+ native-desktop/qa/native-bahrain.json              |   12 +
+ native-desktop/qa/native-interlagos.json           |   12 +
+ native-desktop/qa/native-milano.json               |   12 +
+ native-desktop/qa/native-monaco.json               |   17 +
+ native-desktop/qa/native-monza.json                |   17 +
+ native-desktop/qa/native-silverstone.json          |   12 +
+ native-desktop/qa/native-singapore.json            |   12 +
+ native-desktop/qa/native-spa.json                  |   12 +
+ native-desktop/qa/native-suzuka.json               |   12 +
+ native-desktop/qa/native-zandvoort.json            |   12 +
+ native-desktop/qa/packaged-input.json              |   17 +
+ native-desktop/qa/packaged-rendering.json          |  223 +
+ native-desktop/qa/rendering.json                   |   41 +
+ native-desktop/qa/tree-grounding.json              |   89 +
+ native-desktop/qa/vehicle.json                     |   56 +
+ native-desktop/tools/bootstrap.py                  |   45 +
+ native-desktop/tools/build.py                      |   22 +
+ native-desktop/tools/export-world.cjs              |   33 +
+ native-desktop/tools/ground-detail.py              |   31 +
+ native-desktop/tools/ground-trees.py               |   48 +
+ native-desktop/tools/package.py                    |   53 +
+ native-desktop/tools/prepare-assets.py             |   32 +
+ native-desktop/tools/release.json                  | 1267 ++++
+ native-desktop/tools/stage-github.py               |   31 +
+ native-desktop/tools/texture-imports.py            |   14 +
+ native-desktop/tools/validation-doc.py             |   43 +
+ native-desktop/tools/verify-input.py               |    7 +
+ native-desktop/tools/verify-packaged.py            |   23 +
+ native-desktop/tools/verify-rendering.py           |   11 +
+ upgrade/PROGRESS.txt                               |    4 +
+ upgrade/assets/fonts/Barlow-Bold.ttf               |  Bin 0 -> 108220 bytes
+ upgrade/assets/fonts/Barlow-ExtraBoldItalic.ttf    |  Bin 0 -> 113112 bytes
+ upgrade/assets/fonts/DM-Sans.ttf                   |  Bin 0 -> 240164 bytes
+ upgrade/assets/fonts/Michroma.ttf                  |  Bin 0 -> 64344 bytes
+ upgrade/assets/fonts/barlow-OFL.txt                |   93 +
+ upgrade/assets/fonts/dmsans-OFL.txt                |   93 +
+ upgrade/assets/fonts/michroma-OFL.txt              |   93 +
+ upgrade/assets/gravel-color.jpg                    |  Bin 0 -> 1327302 bytes
+ upgrade/assets/gravel-normal.jpg                   |  Bin 0 -> 1538430 bytes
+ upgrade/assets/gravel-rough.jpg                    |  Bin 0 -> 697340 bytes
+ upgrade/assets/sponsors/axis.png                   |  Bin 0 -> 181028 bytes
+ upgrade/assets/sponsors/axis.webp                  |  Bin 0 -> 7480 bytes
+ upgrade/assets/sponsors/hustle.png                 |  Bin 0 -> 2138773 bytes
+ upgrade/assets/sponsors/manifest.json              |   86 +
+ upgrade/assets/sponsors/npe.png                    |  Bin 0 -> 1475 bytes
+ upgrade/assets/sponsors/stem.png                   |  Bin 0 -> 631597 bytes
+ upgrade/assets/sponsors/stem.svg                   |    1 +
+ .../sponsors/supplied-0.png}                       |  Bin
+ upgrade/assets/sponsors/supplied-1.png             |  Bin 0 -> 57481 bytes
+ upgrade/assets/sponsors/supplied-2.png             |  Bin 0 -> 58229 bytes
+ upgrade/assets/sponsors/supplied-3.png             |  Bin 0 -> 71938 bytes
+ .../sponsors/supplied-4.png}                       |  Bin
+ .../sponsors/supplied-5.png}                       |  Bin
+ upgrade/build-base.py                              |   27 +-
+ upgrade/build-web.py                               |    1 +
+ upgrade/docs/Circuit Research.html                 |    2 +-
+ upgrade/docs/Race Weekend Guide.html               |    2 +-
+ upgrade/docs/Validation.html                       |    8 +-
+ upgrade/docs/Venue Environment Research.html       |    2 +-
+ upgrade/docs/inspection/abu-dhabi-circuit.png      |  Bin 1223697 -> 1226601 bytes
+ upgrade/docs/inspection/austria-circuit.png        |  Bin 1334618 -> 1335425 bytes
+ upgrade/docs/inspection/bahrain-circuit.png        |  Bin 1255011 -> 1253377 bytes
+ .../docs/inspection/calendar-abu-dhabi-0.16.png    |  Bin 0 -> 1381610 bytes
+ .../docs/inspection/calendar-abu-dhabi-0.48.png    |  Bin 0 -> 1167103 bytes
+ .../docs/inspection/calendar-abu-dhabi-0.85.png    |  Bin 0 -> 1091297 bytes
+ upgrade/docs/inspection/calendar-austria-0.16.png  |  Bin 0 -> 1391845 bytes
+ upgrade/docs/inspection/calendar-austria-0.48.png  |  Bin 0 -> 1407750 bytes
+ upgrade/docs/inspection/calendar-austria-0.85.png  |  Bin 0 -> 1385064 bytes
+ upgrade/docs/inspection/calendar-bahrain-0.16.png  |  Bin 0 -> 1279825 bytes
+ upgrade/docs/inspection/calendar-bahrain-0.48.png  |  Bin 0 -> 1161157 bytes
+ upgrade/docs/inspection/calendar-bahrain-0.85.png  |  Bin 0 -> 1135468 bytes
+ .../docs/inspection/calendar-interlagos-0.16.png   |  Bin 0 -> 1190457 bytes
+ .../docs/inspection/calendar-interlagos-0.48.png   |  Bin 0 -> 1219991 bytes
+ .../docs/inspection/calendar-interlagos-0.85.png   |  Bin 0 -> 1238107 bytes
+ upgrade/docs/inspection/calendar-milano-0.16.png   |  Bin 0 -> 1298806 bytes
+ upgrade/docs/inspection/calendar-milano-0.48.png   |  Bin 0 -> 1295660 bytes
+ upgrade/docs/inspection/calendar-milano-0.85.png   |  Bin 0 -> 1344669 bytes
+ upgrade/docs/inspection/calendar-monaco-0.16.png   |  Bin 0 -> 1445833 bytes
+ upgrade/docs/inspection/calendar-monaco-0.48.png   |  Bin 0 -> 1215953 bytes
+ upgrade/docs/inspection/calendar-monaco-0.85.png   |  Bin 0 -> 1517442 bytes
+ upgrade/docs/inspection/calendar-monza-0.16.png    |  Bin 0 -> 1484250 bytes
+ upgrade/docs/inspection/calendar-monza-0.48.png    |  Bin 0 -> 1539536 bytes
+ upgrade/docs/inspection/calendar-monza-0.85.png    |  Bin 0 -> 1461161 bytes
+ .../docs/inspection/calendar-silverstone-0.16.png  |  Bin 0 -> 1188925 bytes
+ .../docs/inspection/calendar-silverstone-0.48.png  |  Bin 0 -> 1216616 bytes
+ .../docs/inspection/calendar-silverstone-0.85.png  |  Bin 0 -> 1238046 bytes
+ .../docs/inspection/calendar-singapore-0.16.png    |  Bin 0 -> 1319284 bytes
+ .../docs/inspection/calendar-singapore-0.48.png    |  Bin 0 -> 1379745 bytes
+ .../docs/inspection/calendar-singapore-0.85.png    |  Bin 0 -> 1234572 bytes
+ upgrade/docs/inspection/calendar-spa-0.16.png      |  Bin 0 -> 1258655 bytes
+ upgrade/docs/inspection/calendar-spa-0.48.png      |  Bin 0 -> 1472575 bytes
+ upgrade/docs/inspection/calendar-spa-0.85.png      |  Bin 0 -> 1264950 bytes
+ upgrade/docs/inspection/calendar-suzuka-0.16.png   |  Bin 0 -> 1332182 bytes
+ upgrade/docs/inspection/calendar-suzuka-0.48.png   |  Bin 0 -> 1207225 bytes
+ upgrade/docs/inspection/calendar-suzuka-0.85.png   |  Bin 0 -> 1290102 bytes
+ .../docs/inspection/calendar-zandvoort-0.16.png    |  Bin 0 -> 1255714 bytes
+ .../docs/inspection/calendar-zandvoort-0.48.png    |  Bin 0 -> 1182344 bytes
+ .../docs/inspection/calendar-zandvoort-0.85.png    |  Bin 0 -> 1387619 bytes
+ upgrade/docs/inspection/interface-home-final.png   |  Bin 0 -> 1252942 bytes
+ .../docs/inspection/interface-settings-final.png   |  Bin 0 -> 253302 bytes
+ .../docs/inspection/interface-weekend-final.png    |  Bin 0 -> 381411 bytes
+ upgrade/docs/inspection/interlagos-circuit.png     |  Bin 1194356 -> 1194076 bytes
+ upgrade/docs/inspection/milano-circuit.png         |  Bin 1251392 -> 1250204 bytes
+ upgrade/docs/inspection/milano-design.png          |  Bin 0 -> 149436 bytes
+ upgrade/docs/inspection/refresh-monaco-0.55.png    |  Bin 0 -> 1176919 bytes
+ upgrade/docs/inspection/refresh-monza-0.92.png     |  Bin 0 -> 1248072 bytes
+ upgrade/docs/inspection/refresh-suzuka-park.png    |  Bin 0 -> 1995555 bytes
+ upgrade/docs/inspection/silverstone-circuit.png    |  Bin 1225296 -> 1223224 bytes
+ upgrade/docs/inspection/singapore-circuit.png      |  Bin 1247009 -> 1253493 bytes
+ upgrade/docs/inspection/spa-circuit.png            |  Bin 1230495 -> 1230263 bytes
+ upgrade/docs/inspection/zandvoort-circuit.png      |  Bin 1316528 -> 1310696 bytes
+ upgrade/licenses/Barlow-OFL.txt                    |   93 +
+ upgrade/licenses/DM-Sans-OFL.txt                   |   93 +
+ upgrade/licenses/Michroma-OFL.txt                  |   93 +
+ upgrade/licenses/NOTICE.txt                        |    9 +-
+ upgrade/qa/calendar-environments.json              |  112 +
+ upgrade/qa/calendar-views.json                     | 7502 ++++++++++++++++++++
+ upgrade/qa/circuit-design.json                     |   17 +-
+ upgrade/qa/desktop-smoke.json                      |   34 +
+ upgrade/qa/desktop.json                            |   12 +-
+ upgrade/qa/driving.json                            |  108 +-
+ upgrade/qa/final-menu-compact.png                  |  Bin 542039 -> 538284 bytes
+ upgrade/qa/final-menu.png                          |  Bin 1080195 -> 1072040 bytes
+ upgrade/qa/geometry-and-cameras.json               |   20 +-
+ upgrade/qa/grid-performance.json                   |  485 ++
+ upgrade/qa/hardware-context.json                   |   13 +
+ upgrade/qa/interface-refresh.json                  |   14 +
+ upgrade/qa/line-optimization.json                  |   28 +-
+ upgrade/qa/milano-design.png                       |  Bin 149161 -> 149436 bytes
+ upgrade/qa/monza-inspection.json                   |  120 +
+ upgrade/qa/moving-performance.json                 |  485 ++
+ upgrade/qa/multiplayer-browser.json                |    2 +-
+ upgrade/qa/multiplayer-core.json                   |   64 +-
+ upgrade/qa/network-win32.json                      |    6 +-
+ upgrade/qa/offline.json                            |    8 +-
+ upgrade/qa/performance-updated-abu-dhabi.json      |   17 +-
+ upgrade/qa/performance-updated-austria.json        |   21 +-
+ upgrade/qa/performance-updated-bahrain.json        |   17 +-
+ upgrade/qa/performance-updated-interlagos.json     |   23 +-
+ upgrade/qa/performance-updated-milano.json         |   27 +-
+ upgrade/qa/performance-updated-monaco.json         |   25 +-
+ upgrade/qa/performance-updated-monza.json          |   23 +-
+ upgrade/qa/performance-updated-silverstone.json    |   23 +-
+ upgrade/qa/performance-updated-singapore.json      |   21 +-
+ upgrade/qa/performance-updated-spa.json            |   23 +-
+ upgrade/qa/performance-updated-suzuka.json         |   23 +-
+ upgrade/qa/performance-updated-zandvoort.json      |   21 +-
+ upgrade/qa/pit-surfaces.json                       |  281 +
+ upgrade/qa/spa-circuit.png                         |  Bin 1230495 -> 1230263 bytes
+ upgrade/qa/sponsor-balance.json                    |   38 +
+ upgrade/qa/terrain-validation.json                 |   12 +-
+ upgrade/qa/track-limits-browser.json               |   28 +
+ upgrade/qa/track-limits.json                       |   19 +
+ upgrade/qa/traffic.json                            |    2 +-
+ upgrade/qa/tunnel-clearance.json                   |   79 +
+ upgrade/qa/venue-refresh.json                      |  790 +++
+ upgrade/qa/web-build.json                          |    6 +-
+ upgrade/qa/weekend-browser.json                    |   37 +-
+ upgrade/qa/weekend-core.json                       |   32 +-
+ upgrade/qa/windows-app.png                         |  Bin 1689842 -> 1710044 bytes
+ upgrade/research/gravel-floor.json                 |    1 +
+ upgrade/research/milano-before-ridge.json          |    1 +
+ upgrade/server/Multiplayer Circuits.json           |    2 +-
+ ...a370139dab199c.css => 0077fde35cb8ba91c7b5.css} |  Bin 29867 -> 44139 bytes
+ .../public/assets/0077fde35cb8ba91c7b5.css.gz      |  Bin 0 -> 10590 bytes
+ .../server/public/assets/07266c8eea6640596f2d.png  |  Bin 0 -> 631597 bytes
+ .../server/public/assets/42662b6268ba9abce86d.png  |  Bin 0 -> 1475 bytes
+ .../server/public/assets/4e6ff82988506676cfd8.jpg  |  Bin 0 -> 1327302 bytes
+ .../server/public/assets/5a78d6f6b7281ac38af2.ttf  |  Bin 0 -> 113112 bytes
+ .../public/assets/5a78d6f6b7281ac38af2.ttf.gz      |  Bin 0 -> 56027 bytes
+ .../public/assets/810110a370139dab199c.css.gz      |  Bin 7765 -> 0 bytes
+ .../public/assets/833cb3c4a58e131cea91.js.gz       |  Bin 6500030 -> 0 bytes
+ .../server/public/assets/84e6a4d61e7c3e21f3c5.ttf  |  Bin 0 -> 108220 bytes
+ .../public/assets/84e6a4d61e7c3e21f3c5.ttf.gz      |  Bin 0 -> 52288 bytes
+ .../server/public/assets/8cd08d97e89c24d0aa92.ttf  |  Bin 0 -> 240164 bytes
+ .../public/assets/8cd08d97e89c24d0aa92.ttf.gz      |  Bin 0 -> 109232 bytes
+ .../server/public/assets/965972c2543b72948aed.ttf  |  Bin 534712 -> 0 bytes
+ .../public/assets/965972c2543b72948aed.ttf.gz      |  Bin 260398 -> 0 bytes
+ .../server/public/assets/9d050fc5a01c85f74c42.ttf  |  Bin 483700 -> 0 bytes
+ .../public/assets/9d050fc5a01c85f74c42.ttf.gz      |  Bin 220626 -> 0 bytes
+ ...b3c4a58e131cea91.js => 9f84e49273ac65e6857b.js} |  Bin 21670883 -> 33040991 bytes
+ .../public/assets/9f84e49273ac65e6857b.js.gz       |  Bin 0 -> 9951343 bytes
+ .../server/public/assets/a3544e4aa7612a0bf0ea.jpg  |  Bin 0 -> 1538430 bytes
+ .../server/public/assets/acf3c8607bcf943ac9f9.jpg  |  Bin 0 -> 697340 bytes
+ .../server/public/assets/b62301163788bc5b7f8f.ttf  |  Bin 0 -> 64344 bytes
+ .../public/assets/b62301163788bc5b7f8f.ttf.gz      |  Bin 0 -> 33624 bytes
+ upgrade/server/public/index.html                   |  Bin 34469 -> 46060 bytes
+ upgrade/server/race_core.py                        |   31 +-
+ upgrade/server/track-limits.json                   |    1 +
+ upgrade/server/track_limits.py                     |   21 +
+ upgrade/src/calendar-environments-data.json        |    1 +
+ upgrade/src/calendar-landscape.js                  |   33 +
+ upgrade/src/circuit-scenery.js                     |   12 +-
+ upgrade/src/controller.js                          |    2 +-
+ upgrade/src/grand-prix.js                          |    2 +-
+ upgrade/src/handling.js                            |    4 +-
+ upgrade/src/interface-v2.css                       |   44 +
+ upgrade/src/interface-v2.js                        |   13 +
+ upgrade/src/interface.css                          |   10 +-
+ upgrade/src/landmark-architecture.js               |   25 +-
+ upgrade/src/loop.js                                |   16 +-
+ upgrade/src/milano-campus.js                       |   29 +
+ upgrade/src/pit-lanes.json                         |    2 +-
+ upgrade/src/pit-surface.js                         |   31 +
+ upgrade/src/pit-world.js                           |   10 +-
+ upgrade/src/race-weekend-core.js                   |    6 +-
+ upgrade/src/race-weekend.js                        |   14 +-
+ upgrade/src/sponsors.js                            |   57 +-
+ upgrade/src/tour-scenery.js                        |   11 +-
+ upgrade/src/tour-track.js                          |    2 +-
+ upgrade/src/tour-ui.html                           |    2 +-
+ upgrade/src/tour-ui.js                             |    4 +-
+ upgrade/src/track-limits.js                        |   18 +
+ upgrade/src/track-limits.json                      |    1 +
+ upgrade/src/ui.html                                |   23 +-
+ upgrade/src/vegetation.js                          |    8 +-
+ upgrade/src/venue-context-data.json                |    2 +-
+ upgrade/src/venue-context.js                       |   16 +-
+ upgrade/src/venue-details.js                       |    4 +-
+ upgrade/src/venue-finishing.js                     |   76 +
+ upgrade/src/weekend-ui.html                        |   10 +-
+ upgrade/src/world-tour-data.json                   |    2 +-
+ upgrade/src/world.js                               |   18 +-
+ upgrade/tests/README.txt                           |   14 +
+ upgrade/tests/calendar-benchmark.cjs               |    8 +
+ upgrade/tests/calendar-views.cjs                   |    6 +
+ upgrade/tests/desktop.cjs                          |    6 +-
+ upgrade/tests/geometry-and-cameras.cjs             |    4 +-
+ upgrade/tests/grid-performance.cjs                 |    2 +
+ upgrade/tests/interface-refresh.cjs                |    2 +
+ upgrade/tests/native-source-compare.cjs            |    2 +
+ upgrade/tests/offline.cjs                          |    2 +-
+ upgrade/tests/physics.cjs                          |   10 +-
+ upgrade/tests/pit-direct.cjs                       |    2 +
+ upgrade/tests/pit-inspect.cjs                      |    2 +
+ upgrade/tests/pit-probe.cjs                        |    2 +
+ upgrade/tests/pit-surfaces.cjs                     |   11 +
+ upgrade/tests/race-core.py                         |   22 +
+ upgrade/tests/track-limits-browser.cjs             |    9 +
+ upgrade/tests/track-limits.cjs                     |   18 +
+ upgrade/tests/tunnel-clearance.cjs                 |   13 +
+ upgrade/tests/venue-refresh.cjs                    |   10 +
+ upgrade/tests/weekend-browser.cjs                  |    2 +-
+ upgrade/tools/calendar-environments.py             |  105 +
+ upgrade/tools/calendar-release-docs.py             |   27 +
+ upgrade/tools/document-surface-update.py           |   21 +
+ upgrade/tools/inspect-monza.cjs                    |    2 +
+ upgrade/tools/optimize-lines.py                    |    7 +-
+ upgrade/tools/package-release.py                   |    2 +-
+ upgrade/tools/pit-lanes.py                         |   42 +-
+ upgrade/tools/redesign-milano.py                   |   60 +
+ upgrade/tools/terrain.py                           |    8 +-
+ upgrade/tools/update-release-docs.py               |   22 +-
+ upgrade/tools/venue-context.py                     |   67 +-
+ upgrade/tools/venue-research-doc.py                |   31 +-
+ 873 files changed, 31819 insertions(+), 386 deletions(-)

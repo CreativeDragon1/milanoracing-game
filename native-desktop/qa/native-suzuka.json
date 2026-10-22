@@ -1,0 +1,12 @@
+{
+	"circuit": "suzuka",
+	"device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+	"drawCalls": 1634.0,
+	"frames": 844,
+	"instanceErrors": 0,
+	"medianMs": 10.779,
+	"p95Ms": 15.771,
+	"primitives": 1697076.0,
+	"renderer": "forward_plus",
+	"restoredInstances": 56659
+}

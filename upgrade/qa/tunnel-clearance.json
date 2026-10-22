@@ -1,0 +1,79 @@
+{
+  "clearance": {
+    "samples": 345,
+    "minimum": 6.2325963668925,
+    "maximum": 6.700000433355057,
+    "misses": [],
+    "cliffs": [
+      {
+        "name": "Mapped Monaco limestone cliff 104864936",
+        "vertices": 1521,
+        "finite": true,
+        "highestBoundaryAboveTerrain": 0.035073572707672085
+      },
+      {
+        "name": "Mapped Monaco limestone cliff 177429340",
+        "vertices": 441,
+        "finite": true,
+        "highestBoundaryAboveTerrain": 0.03506211337081311
+      },
+      {
+        "name": "Mapped Monaco limestone cliff 177429342",
+        "vertices": 594,
+        "finite": true,
+        "highestBoundaryAboveTerrain": 0.03506264207414489
+      },
+      {
+        "name": "Mapped Monaco limestone cliff 688652250",
+        "vertices": 270,
+        "finite": true,
+        "highestBoundaryAboveTerrain": 0.0350487631221732
+      },
+      {
+        "name": "Mapped Monaco limestone cliff 690653924",
+        "vertices": 306,
+        "finite": true,
+        "highestBoundaryAboveTerrain": 0.035050548215828314
+      },
+      {
+        "name": "Mapped Monaco limestone cliff 690653926",
+        "vertices": 459,
+        "finite": true,
+        "highestBoundaryAboveTerrain": 0.03505515736542186
+      },
+      {
+        "name": "Mapped Monaco limestone cliff 943242433",
+        "vertices": 408,
+        "finite": true,
+        "highestBoundaryAboveTerrain": 0.03506824853829471
+      },
+      {
+        "name": "Mapped Monaco limestone cliff 943242435",
+        "vertices": 216,
+        "finite": true,
+        "highestBoundaryAboveTerrain": 0.03507047706904132
+      },
+      {
+        "name": "Mapped Monaco limestone cliff 1034414565",
+        "vertices": 498,
+        "finite": true,
+        "highestBoundaryAboveTerrain": 0.03508433148576273
+      },
+      {
+        "name": "Mapped Monaco limestone cliff 1034993369",
+        "vertices": 243,
+        "finite": true,
+        "highestBoundaryAboveTerrain": 0.03506059409119189
+      }
+    ]
+  },
+  "camera": {
+    "height": 4.4,
+    "position": [
+      325.2803528919922,
+      12.941608867894812,
+      722.0895327924401
+    ]
+  },
+  "errors": []
+}

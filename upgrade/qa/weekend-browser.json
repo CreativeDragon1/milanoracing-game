@@ -4,27 +4,36 @@
     "phase": "qualifying",
     "pit": true,
     "pose": [
-      -41.356080957366245,
-      6.027942741457821,
-      15.279487417659807
+      8.713124364565497,
+      4,
+      -21.712393638693545
     ],
-    "progress": -42.881629621374486
+    "progress": 10.899266888020065
   },
   "drive": {
     "pitExited": true,
     "after": {
-      "x": 193.0932,
-      "z": -8.03295,
-      "h": -0.08817629829375805,
+      "x": 359.69216,
+      "z": -4.5,
+      "h": -0.6981724251405678,
       "vx": 22.22222222222222,
       "vy": 0,
       "r": 0,
       "st": 0,
-      "idx": 40,
-      "d": -3.728531190493341,
+      "idx": 66,
+      "d": -4.5,
       "rpm": 3500,
       "gear": 1,
-      "odo": 0
+      "odo": 0,
+      "limitState": {
+        "outside": 0,
+        "distance": 0,
+        "deep": 0,
+        "deepDistance": 0,
+        "recovery": 0,
+        "violation": false,
+        "triggered": false
+      }
     },
     "best": 90,
     "phase": "qualifying-result",
@@ -57,7 +66,7 @@
     "state": "race",
     "phase": "race",
     "position": 1,
-    "speed": 59.70837878084377,
+    "speed": 59.825762027689315,
     "cars": 21
   },
   "pit": {
@@ -68,10 +77,10 @@
     ],
     "exited": true,
     "max": 80,
-    "ticks": 4720,
+    "ticks": 5189,
     "limit": 80,
-    "progress": 193.10000000000036,
-    "expected": 193.1
+    "progress": 359.6758073046449,
+    "expected": 359.67580730464533
   },
   "errors": []
 }

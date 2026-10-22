@@ -1,6 +1,6 @@
 // Authored venue forms registered to OSM footprints. Facade/roof dimensions are
 // reconstructions from the linked venue/architect references, not survey models.
-const landmarkAudit=[];
+const landmarkAudit=[],pitFascias=[];
 const landmarkStone=M(0xcfc9b9,.03,.82),landmarkTrim=M(0xe0dcd1,.12,.64),landmarkDark=M(0x283039,.45,.48),landmarkRoof=M(0x8d4634,.1,.87);
 if(isNight){landmarkStone.emissive.setHex(0x8c662d);landmarkStone.emissiveIntensity=.18;landmarkTrim.emissive.setHex(0xb18a4a);landmarkTrim.emissiveIntensity=.12}
 const architecturalModels={
@@ -38,7 +38,24 @@ function footprintRoof(a,y,material,rise=3){
 }
 function polygonStorey(parent,points,height,y,material,inset=0){const shape=new T.Shape(points.map(p=>new T.Vector2(p[0],-p[1])));if(inset>0){const c=points.reduce((a,p)=>[a[0]+p[0]/points.length,a[1]+p[1]/points.length],[0,0]),inner=points.map(p=>{const r=Math.hypot(p[0]-c[0],p[1]-c[1]),k=Math.max(.2,1-inset/r);return new T.Vector2(c[0]+(p[0]-c[0])*k,-c[1]-(p[1]-c[1])*k)});shape.holes.push(new T.Path(inner.reverse()))}const mesh=landmarkMesh(parent,new T.ExtrudeGeometry(shape,{depth:height,bevelEnabled:false}),material,0,y,0);mesh.rotation.x=-Math.PI/2;return mesh}
 function roofSurface(group,L,D,height,fn,material,steps=30){const P=[],I=[];for(let j=0;j<=8;j++)for(let i=0;i<=steps;i++){const x=(i/steps-.5)*L,z=(j/8-.5)*D;P.push(x,height+fn(x/L,z/D),z)}for(let j=0;j<8;j++)for(let i=0;i<steps;i++){const a=j*(steps+1)+i;I.push(a,a+1,a+steps+1,a+1,a+steps+2,a+steps+1)}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(P,3));g.setIndex(I);g.computeVertexNormals();const m=landmarkMesh(group,g,material);m.material.side=T.DoubleSide;return m}
-function mappedGrandstand(f,rows){const a=landmarkFrame(f);scene.remove(a.group);const q=prog(...a.centre,-1),height=f.height||10;rows=rows||Math.round(clamp(height/.55,10,22));let angle=-a.angle;const toRoad=[cx[q.i]-a.centre[0],cz[q.i]-a.centre[1]];if(-Math.sin(angle)*toRoad[0]-Math.cos(angle)*toRoad[1]<0)angle+=Math.PI;const depth=rows*1.25,back=[Math.sin(angle),Math.cos(angle)];const g=grandstand(a.centre[0]-back[0]*depth/2,a.centre[1]-back[1]*depth/2,angle,a.L,rows,f.name||CIRCUIT.name);g.userData.front=new T.Vector3(-back[0],0,-back[1]);g.userData.sourceFootprint=f.id;return g;}
+function mappedGrandstand(f,requestedRows){
+ const points=f.footprint,sign=T.ShapeUtils.area(points.map(p=>new T.Vector2(...p)))>0?1:-1,collection=new T.Group();collection.name=f.name||'Mapped spectator terraces';collection.userData.sourceFootprint=f.id;const centre=points.reduce((a,p)=>[a[0]+p[0]/points.length,a[1]+p[1]/points.length],[0,0]);collection.position.set(centre[0],groundHeight(...centre),centre[1]);scene.add(collection);let sections=0;
+ // Resolve each track-facing edge separately. U-shaped and bent stands must
+ // retain their open centre rather than acquiring a bounding-rectangle roof.
+ for(let i=0;i<points.length;i++){
+  const A=points[i],B=points[(i+1)%points.length],length=Math.hypot(B[0]-A[0],B[1]-A[1]);if(length<6)continue;const ux=(B[0]-A[0])/length,uz=(B[1]-A[1])/length,ox=uz*sign,oz=-ux*sign,parts=Math.ceil(length/48);
+  for(let part=0;part<parts;part++){
+   const len=length/parts,mid=(part+.5)*len,x=A[0]+ux*mid,z=A[1]+uz*mid,q=prog(x,z,-1),distance=Math.hypot(cx[q.i]-x,cz[q.i]-z);
+   if(distance>380||((cx[q.i]-x)*ox+(cz[q.i]-z)*oz)<distance*.35)continue;
+   if(distance<trackHalf(q.i,Math.sign(q.d))+6)continue;
+   let depth=0;for(let d=1;d<34;d+=1){if(![-.40,0,.40].every(t=>insideFootprint(x+ux*len*t-ox*d,z+uz*len*t-oz*d,points)))break;depth=d;}
+   const rows=Math.min(requestedRows||Math.round(clamp((f.height||10)/.6,8,22)),Math.floor((depth-2)/1.25));if(rows<3)continue;
+   const rotation=Math.atan2(-ox,-oz),covered=f.facade!=='bleachers'&&f.height!==5;
+   const g=grandstand(x-ox*1.2,z-oz*1.2,rotation,Math.max(4,len-.8),rows,f.name||CIRCUIT.name,{covered});g.position.sub(collection.position);collection.add(g);g.userData.sourceFootprint=f.id;sections++;
+  }
+ }
+ collection.userData.sections=sections;return collection;
+}
 function classicalLandmark(f,type){const a=landmarkFrame(f),g=a.group,pts=a.local,full=type==='fullerton',h=full?26:type==='casino'?22:18,solids=[],glass=[],columns=[];
  polygonStorey(g,pts,5,0,landmarkStone,8);polygonStorey(g,pts,h-5,5,landmarkStone,9);
  const sign=T.ShapeUtils.area(pts.map(p=>new T.Vector2(...p)))>0?1:-1;
@@ -72,7 +89,7 @@ function pitLandmark(f,type){const a=landmarkFrame(f),g=a.group,L=a.L,D=a.D,h=ty
  else if(type==='austria-pit'){instanceBoxes(g,venueMetal,[[0,h+1,0,L+8,.8,D+9],[0,7,-D/2-2,L,.35,5]]);}
  else if(type==='suzuka-pit'){instanceBoxes(g,venueWhite,[[0,h+1,0,L+6,.55,D+15,0,0,Math.atan(pitch)],[0,8.4,-D/2-3,L,.35,7,0,0,Math.atan(pitch)]]);}
  else{instanceBoxes(g,venueWhite,[[0,h+.6,0,L+4,.5,D+6],[0,7.5,-D/2-1.5,L,.25,4]]);if(type==='zandvoort-pit')landmarkMesh(g,new T.CylinderGeometry(7,7,6,32),venueGlass,L*.35,h+4,0);}
- beams(g,roofFrames,venueMetal);landmarkAudit.push({name:f.name||type,type,id:f.id,position:g.position.toArray()});
+ beams(g,roofFrames,venueMetal);const road=prog(...a.centre,-1),co=Math.cos(g.rotation.y),si=Math.sin(g.rotation.y),localRoadZ=(cx[road.i]-a.centre[0])*si+(cz[road.i]-a.centre[1])*co,side=Math.sign(localRoadZ)||-1;pitFascias.push({group:g,length:L,height:h,z:side*(D/2+.15),side,station:road.i,name:f.name||type});landmarkAudit.push({name:f.name||type,type,id:f.id,position:g.position.toArray()});
 }
 function shellLandmark(f,type){const a=landmarkFrame(f),g=a.group;
  if(type==='esplanade'){
@@ -80,7 +97,7 @@ function shellLandmark(f,type){const a=landmarkFrame(f),g=a.group;
   const spikes=[],P=[],I=[];for(let j=1;j<16;j++)for(let i=0;i<44;i++){const phi=j/16*Math.PI/2,theta=(i+(j%2)*.5)/44*Math.PI*2,x=Math.sin(phi)*Math.cos(theta)*a.L*.51,y=5+Math.cos(phi)*27.5,z=Math.sin(phi)*Math.sin(theta)*a.D*.51;const index=P.length/3;P.push(x-1.3,y,z-1.4,x+1.3,y,z-1.4,x,y+1.7,z+1.6);I.push(index,index+1,index+2)}const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(P,3));geo.setIndex(I);geo.computeVertexNormals();landmarkMesh(g,geo,venueWhite);
  }else if(type==='raidillon'){scene.remove(g);const stand=mappedGrandstand(f,24);stand.name='Raidillon permanent grandstand';instanceBoxes(stand,landmarkDark,[[0,21,14,a.L+12,1.1,37,-.055],[0,18,29,a.L,4,.5]]);}
  else if(type==='chalet'){polygonStorey(g,a.local,8,0,landmarkStone);roofSurface(g,a.L+4,a.D+4,8,(x,z)=>7*(1-Math.abs(z*2)),landmarkRoof,16);instanceBoxes(g,landmarkDark,[[0,5,-a.D/2-1,a.L,1.2,2]]);}
- else{const cols=[];for(let x=-a.L/2;x<a.L/2;x+=16){const canopy=new T.Group();canopy.position.x=x+8;g.add(canopy);roofSurface(canopy,17,a.D+6,16,(u,v)=>6*(u*u-v*v),venueWhite,12);cols.push([x+8,9,0,.5,18,.5]);}instanceBoxes(g,venueMetal,cols);polygonStorey(g,a.local,7,0,landmarkStone);}
+ else{scene.remove(g);mappedGrandstand(f,24);}
  landmarkAudit.push({name:f.name,type,id:f.id,position:g.position.toArray()});
 }
 function buildLandmarkArchitecture(){

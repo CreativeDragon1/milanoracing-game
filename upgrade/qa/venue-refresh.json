@@ -1,0 +1,790 @@
+[
+  {
+    "id": "monza",
+    "finish": {
+      "cliffs": [],
+      "tunnel": null,
+      "rides": [],
+      "wheel": null
+    },
+    "context": {
+      "structures": [
+        {
+          "id": 219396377,
+          "name": "Podio",
+          "type": "podium",
+          "position": [
+            -276.60173644546785,
+            4.82352001571478,
+            14.63120368432071
+          ],
+          "detail": "Monza podium overhang",
+          "source": "https://www.openstreetmap.org/way/219396377"
+        },
+        {
+          "id": 194458105,
+          "name": "Hospitality Building",
+          "type": "monza-hospitality",
+          "position": [
+            -12.4701159596009,
+            5.970201978857338,
+            34.100121606557686
+          ],
+          "detail": "Mapped hotel footprint, floor bands, glazing and terraces",
+          "source": "https://www.openstreetmap.org/way/194458105"
+        }
+      ],
+      "bridges": [
+        {
+          "id": 34404729,
+          "name": "Autodromo nazionale di Monza - anello alta velocità",
+          "segments": 4
+        },
+        {
+          "id": 48172473,
+          "name": "Via Francesco Baracca",
+          "segments": 4
+        },
+        {
+          "id": 51791412,
+          "name": "Mapped bridge",
+          "segments": 4
+        },
+        {
+          "id": 141681977,
+          "name": "Mapped bridge",
+          "segments": 4
+        },
+        {
+          "id": 194458112,
+          "name": "Mapped bridge",
+          "segments": 6
+        },
+        {
+          "id": 194458113,
+          "name": "Mapped bridge",
+          "segments": 6
+        },
+        {
+          "id": 231023271,
+          "name": "Mapped bridge",
+          "segments": 3
+        },
+        {
+          "id": 286930916,
+          "name": "Mapped bridge",
+          "segments": 2
+        }
+      ],
+      "pools": [
+        {
+          "id": 153772905,
+          "position": [
+            201.47750000000002,
+            -74.1975
+          ]
+        },
+        {
+          "id": 1244553703,
+          "position": [
+            1368.7575000000002,
+            203.6175
+          ]
+        }
+      ],
+      "piers": 0,
+      "boats": 0,
+      "roadSegments": 8061,
+      "banking": 10
+    },
+    "errors": [],
+    "bankingRoadIntersections": [],
+    "jsErrors": []
+  },
+  {
+    "id": "monaco",
+    "finish": {
+      "cliffs": [
+        {
+          "id": 104864936,
+          "vertices": 1521,
+          "maxRelief": 37.542699999999996,
+          "terrainJoined": true
+        },
+        {
+          "id": 177429340,
+          "vertices": 441,
+          "maxRelief": 19.301700000000004,
+          "terrainJoined": true
+        },
+        {
+          "id": 177429342,
+          "vertices": 594,
+          "maxRelief": 37.460499999999996,
+          "terrainJoined": true
+        },
+        {
+          "id": 688652250,
+          "vertices": 270,
+          "maxRelief": 11.189699999999998,
+          "terrainJoined": true
+        },
+        {
+          "id": 690653924,
+          "vertices": 306,
+          "maxRelief": 6.1396,
+          "terrainJoined": true
+        },
+        {
+          "id": 690653926,
+          "vertices": 459,
+          "maxRelief": 8.908999999999999,
+          "terrainJoined": true
+        },
+        {
+          "id": 943242433,
+          "vertices": 408,
+          "maxRelief": 50.607600000000005,
+          "terrainJoined": true
+        },
+        {
+          "id": 943242435,
+          "vertices": 216,
+          "maxRelief": 41.9153,
+          "terrainJoined": true
+        },
+        {
+          "id": 1034414565,
+          "vertices": 498,
+          "maxRelief": 42.95070000000001,
+          "terrainJoined": true
+        },
+        {
+          "id": 1034993369,
+          "vertices": 243,
+          "maxRelief": 20.014499999999998,
+          "terrainJoined": true
+        }
+      ],
+      "tunnel": {
+        "start": 627,
+        "end": 743,
+        "length": 323.3650103818861,
+        "seaSide": -1,
+        "bays": 40,
+        "minClearance": 5.6,
+        "continuous": true
+      },
+      "rides": [],
+      "wheel": null
+    },
+    "context": {
+      "structures": [
+        {
+          "id": 156242249,
+          "name": "Fairmont",
+          "type": "fairmont",
+          "position": [
+            425.3516592948991,
+            8.894008788834588,
+            784.0958981494132
+          ],
+          "detail": "Mapped hotel footprint, floor bands, glazing and terraces",
+          "source": "https://www.openstreetmap.org/way/156242249"
+        },
+        {
+          "id": 157719657,
+          "name": "Hôtel de Paris",
+          "type": "paris",
+          "position": [
+            394.06038714860495,
+            42.62377100063898,
+            552.3612161741407
+          ],
+          "detail": "Mapped footprint, articulated facade, cornices and venue roof profile",
+          "source": "https://www.openstreetmap.org/way/157719657"
+        },
+        {
+          "id": 94252402,
+          "name": "Hermitage",
+          "type": "hermitage",
+          "position": [
+            356.50623701941674,
+            39.064874191977204,
+            403.3550204745703
+          ],
+          "detail": "Mapped footprint, articulated facade, cornices and venue roof profile",
+          "source": "https://www.openstreetmap.org/way/94252402"
+        },
+        {
+          "id": 157719654,
+          "name": "Café de Paris",
+          "type": "cafe",
+          "position": [
+            497.7330494577062,
+            39.30663274062523,
+            647.0844527492014
+          ],
+          "detail": "Mapped footprint, articulated facade, cornices and venue roof profile",
+          "source": "https://www.openstreetmap.org/way/157719654"
+        },
+        {
+          "id": 112681614,
+          "name": "La Rascasse",
+          "type": "rascasse",
+          "position": [
+            -226.76998812786488,
+            3.496496400028903,
+            102.13532463693939
+          ],
+          "detail": "Mapped footprint, articulated facade, cornices and venue roof profile",
+          "source": "https://www.openstreetmap.org/way/112681614"
+        },
+        {
+          "id": 94399398,
+          "name": "Chapelle Sainte-Dévote",
+          "type": "chapel",
+          "position": [
+            354.4519067135831,
+            25.9725355287155,
+            30.514988404174503
+          ],
+          "detail": "Mapped footprint, articulated facade, cornices and venue roof profile",
+          "source": "https://www.openstreetmap.org/way/94399398"
+        },
+        {
+          "id": 304229766,
+          "name": "Yacht Club de Monaco",
+          "type": "yachtclub",
+          "position": [
+            237.95714005238096,
+            8.074522182550297,
+            584.3813544576134
+          ],
+          "detail": "Mapped hotel footprint, floor bands, glazing and terraces",
+          "source": "https://www.openstreetmap.org/way/304229766"
+        },
+        {
+          "id": 38545604,
+          "name": "Prince's Palace of Monaco",
+          "type": "palace",
+          "position": [
+            -312.9040657546132,
+            36.683547616854504,
+            -174.80233077122998
+          ],
+          "detail": "Mapped footprint, articulated facade, cornices and venue roof profile",
+          "source": "https://www.openstreetmap.org/way/38545604"
+        },
+        {
+          "id": 23715051,
+          "name": "Oceanographic Museum of Monaco",
+          "type": "oceanographic",
+          "position": [
+            -466.3139586901189,
+            28.000017591188215,
+            243.44142246704567
+          ],
+          "detail": "Mapped footprint, articulated facade, cornices and venue roof profile",
+          "source": "https://www.openstreetmap.org/way/23715051"
+        }
+      ],
+      "bridges": [
+        {
+          "id": 92627405,
+          "name": "Boulevard du Larvotto",
+          "segments": 45
+        },
+        {
+          "id": 92627431,
+          "name": "Boulevard du Larvotto",
+          "segments": 10
+        },
+        {
+          "id": 93137594,
+          "name": "Avenue de la Costa",
+          "segments": 5
+        },
+        {
+          "id": 93137606,
+          "name": "Boulevard du Larvotto",
+          "segments": 21
+        },
+        {
+          "id": 95449778,
+          "name": "Mapped bridge",
+          "segments": 5
+        },
+        {
+          "id": 95449780,
+          "name": "Mapped bridge",
+          "segments": 5
+        },
+        {
+          "id": 120113156,
+          "name": "Pont Sainte-Dévote",
+          "segments": 8
+        },
+        {
+          "id": 156242231,
+          "name": "Mapped bridge",
+          "segments": 6
+        },
+        {
+          "id": 156242241,
+          "name": "Mapped bridge",
+          "segments": 33
+        },
+        {
+          "id": 156251973,
+          "name": "Mapped bridge",
+          "segments": 5
+        },
+        {
+          "id": 156780352,
+          "name": "Mapped bridge",
+          "segments": 9
+        },
+        {
+          "id": 156782959,
+          "name": "Mapped bridge",
+          "segments": 9
+        },
+        {
+          "id": 157447730,
+          "name": "Mapped bridge",
+          "segments": 10
+        },
+        {
+          "id": 157447735,
+          "name": "Mapped bridge",
+          "segments": 2
+        },
+        {
+          "id": 167625745,
+          "name": "Mapped bridge",
+          "segments": 5
+        },
+        {
+          "id": 176684839,
+          "name": "Mapped bridge",
+          "segments": 3
+        },
+        {
+          "id": 338900300,
+          "name": "Mapped bridge",
+          "segments": 8
+        },
+        {
+          "id": 503783368,
+          "name": "Boulevard du Larvotto",
+          "segments": 19
+        },
+        {
+          "id": 686461268,
+          "name": "Mapped bridge",
+          "segments": 16
+        },
+        {
+          "id": 778494660,
+          "name": "Mapped bridge",
+          "segments": 6
+        },
+        {
+          "id": 1034816385,
+          "name": "Rue des Lucioles",
+          "segments": 2
+        },
+        {
+          "id": 1341964785,
+          "name": "Mapped bridge",
+          "segments": 2
+        },
+        {
+          "id": 1342546105,
+          "name": "Mapped bridge",
+          "segments": 46
+        },
+        {
+          "id": 1531374855,
+          "name": "Mapped bridge",
+          "segments": 4
+        }
+      ],
+      "pools": [
+        {
+          "id": 167625723,
+          "position": [
+            9.296,
+            56.080000000000005
+          ]
+        }
+      ],
+      "piers": 28,
+      "boats": 67,
+      "roadSegments": 14087,
+      "banking": 0
+    },
+    "errors": [],
+    "jsErrors": []
+  },
+  {
+    "id": "suzuka",
+    "finish": {
+      "cliffs": [],
+      "tunnel": null,
+      "rides": [
+        {
+          "name": "Rocky Coaster",
+          "type": "rocky",
+          "length": 461.5875000148881,
+          "samples": 185,
+          "alignment": "OpenStreetMap mapped alignment",
+          "verticalProfile": "Estimated from venue photographs"
+        },
+        {
+          "name": "Adventure Drive",
+          "type": "adventure",
+          "length": 450.4128126126585,
+          "samples": 181,
+          "alignment": "OpenStreetMap mapped alignment",
+          "verticalProfile": "Estimated from venue photographs"
+        },
+        {
+          "name": "プッチグランプリ",
+          "type": "park-road",
+          "segments": 71,
+          "alignment": "OpenStreetMap"
+        },
+        {
+          "name": "DREAM R",
+          "type": "park-road",
+          "segments": 156,
+          "alignment": "OpenStreetMap"
+        },
+        {
+          "name": "アクロエックス エボリューション",
+          "type": "park-road",
+          "segments": 145,
+          "alignment": "OpenStreetMap"
+        },
+        {
+          "name": "ene-1",
+          "type": "park-road",
+          "segments": 132,
+          "alignment": "OpenStreetMap"
+        },
+        {
+          "name": "ツーリングバイク コースマップ",
+          "type": "park-road",
+          "segments": 57,
+          "alignment": "OpenStreetMap"
+        },
+        {
+          "name": "チララのフラワーワゴン",
+          "type": "park-road",
+          "segments": 102,
+          "alignment": "OpenStreetMap"
+        },
+        {
+          "name": "GP Racers red",
+          "type": "gp",
+          "length": 314.91761279539384,
+          "samples": 126,
+          "alignment": "Official park map reconstruction",
+          "verticalProfile": "Estimated from venue photographs"
+        },
+        {
+          "name": "GP Racers blue",
+          "type": "gp",
+          "length": 314.9188516234094,
+          "samples": 126,
+          "alignment": "Official park map reconstruction",
+          "verticalProfile": "Estimated from venue photographs"
+        }
+      ],
+      "wheel": {
+        "overallHeight": 50,
+        "source": "https://www.suzukacircuit.jp/park/attraction/circuit-wheel/"
+      }
+    },
+    "context": {
+      "structures": [
+        {
+          "id": 184107083,
+          "name": "サーキットホイール",
+          "type": "wheel",
+          "position": [
+            -309.4491666666666,
+            25.877514421489504,
+            -86.19666666666666
+          ],
+          "detail": "Mapped Circuit Wheel, red A-frame, enclosed gondolas; venue specifies approximately 50 m overall height",
+          "source": "https://www.openstreetmap.org/way/184107083"
+        },
+        {
+          "id": 465595141,
+          "name": "Suzuka Circuit Hotel",
+          "type": "suzuka-hotel",
+          "position": [
+            -336.04052165491044,
+            24.837126740764703,
+            -542.1987341568578
+          ],
+          "detail": "Mapped hotel footprint, floor bands, glazing and terraces",
+          "source": "https://www.openstreetmap.org/way/465595141"
+        },
+        {
+          "id": 308666548,
+          "name": "RACING ZONE",
+          "type": "park-pavilion",
+          "position": [
+            -301.45559922316875,
+            29.16357153957583,
+            -309.2064589936432
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/308666548"
+        },
+        {
+          "id": 308666559,
+          "name": "Put's Mobile Park",
+          "type": "park-pavilion",
+          "position": [
+            -297.94395455175004,
+            25.56984577096388,
+            -241.0010910251434
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/308666559"
+        },
+        {
+          "id": 308666565,
+          "name": "CIRCUIT PLAZA",
+          "type": "park-pavilion",
+          "position": [
+            -338.97499999999997,
+            28.33633585135142,
+            -252.155
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/308666565"
+        },
+        {
+          "id": 308666577,
+          "name": "CIRCUIT PLAZA",
+          "type": "park-pavilion",
+          "position": [
+            -311.13,
+            28.438123714447016,
+            -280.79999999999995
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/308666577"
+        },
+        {
+          "id": 308691933,
+          "name": "ロッキーコースター",
+          "type": "park-pavilion",
+          "position": [
+            -137.37055079820558,
+            18.71842637235665,
+            -392.21099258885465
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/308691933"
+        },
+        {
+          "id": 308691935,
+          "name": "Putti Town Store",
+          "type": "park-pavilion",
+          "position": [
+            -368.1384375369651,
+            31.307566810663065,
+            -319.8665835994493
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/308691935"
+        },
+        {
+          "id": 308691944,
+          "name": "GARAGE R",
+          "type": "park-pavilion",
+          "position": [
+            -393.59022109116444,
+            31.595918907879927,
+            -305.9960415599103
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/308691944"
+        },
+        {
+          "id": 308691946,
+          "name": "アドベンボート フロンティア",
+          "type": "park-pavilion",
+          "position": [
+            -143.47987309289084,
+            18.36922857213088,
+            -272.21451540818606
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/308691946"
+        },
+        {
+          "id": 465655906,
+          "name": "プッチグランプリ",
+          "type": "park-pavilion",
+          "position": [
+            -428.5993625434989,
+            31.400923746027647,
+            -375.6644843403986
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/465655906"
+        },
+        {
+          "id": 466005784,
+          "name": "プッチタウンキッチン",
+          "type": "park-pavilion",
+          "position": [
+            -374.12253552820636,
+            31.306282518175333,
+            -391.4203520607711
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/466005784"
+        },
+        {
+          "id": 466026840,
+          "name": "Chillara Flower Wagon",
+          "type": "park-pavilion",
+          "position": [
+            -267.32199060703033,
+            27.266079373180233,
+            -370.52732724592636
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/466026840"
+        },
+        {
+          "id": 466355447,
+          "name": "アクアアドベンチャー(プール)事務所",
+          "type": "park-pavilion",
+          "position": [
+            -46.74601162468862,
+            10.212533156057813,
+            -387.0040119014669
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/466355447"
+        },
+        {
+          "id": 466596481,
+          "name": "アドベンチャードライブ",
+          "type": "park-pavilion",
+          "position": [
+            -138.45479941922258,
+            17.408907453372276,
+            -326.80471651698855
+          ],
+          "detail": "Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map",
+          "source": "https://www.openstreetmap.org/way/466596481"
+        }
+      ],
+      "bridges": [
+        {
+          "id": 175228460,
+          "name": "Chusei Bypass",
+          "segments": 22
+        },
+        {
+          "id": 175231434,
+          "name": "Mapped bridge",
+          "segments": 0
+        },
+        {
+          "id": 183393114,
+          "name": "Mapped bridge",
+          "segments": 6
+        },
+        {
+          "id": 184103165,
+          "name": "Mapped bridge",
+          "segments": 3
+        },
+        {
+          "id": 184103564,
+          "name": "Mapped bridge",
+          "segments": 2
+        },
+        {
+          "id": 184103565,
+          "name": "Mapped bridge",
+          "segments": 2
+        },
+        {
+          "id": 184103631,
+          "name": "Mapped bridge",
+          "segments": 13
+        },
+        {
+          "id": 465846733,
+          "name": "Mapped bridge",
+          "segments": 2
+        },
+        {
+          "id": 465870798,
+          "name": "Mapped bridge",
+          "segments": 2
+        },
+        {
+          "id": 466058471,
+          "name": "Mapped bridge",
+          "segments": 2
+        },
+        {
+          "id": 466435886,
+          "name": "Mapped bridge",
+          "segments": 3
+        },
+        {
+          "id": 467219905,
+          "name": "Mapped bridge",
+          "segments": 4
+        },
+        {
+          "id": 922759865,
+          "name": "Mapped bridge",
+          "segments": 2
+        },
+        {
+          "id": 933066185,
+          "name": "Mapped bridge",
+          "segments": 2
+        },
+        {
+          "id": 945719082,
+          "name": "Mapped bridge",
+          "segments": 2
+        },
+        {
+          "id": 1339015279,
+          "name": "アクロエックス エボリューション",
+          "segments": 7
+        },
+        {
+          "id": 1501167089,
+          "name": "Mapped bridge",
+          "segments": 25
+        }
+      ],
+      "pools": [],
+      "piers": 0,
+      "boats": 0,
+      "roadSegments": 7459,
+      "banking": 0
+    },
+    "errors": [],
+    "jsErrors": []
+  }
+]

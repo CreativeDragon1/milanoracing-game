@@ -83,10 +83,7 @@ function yasHotel(f){
  for(let i=0;i<10;i++){const x=-L*.43+i*L*.86/9;lines.push([[x,0,0],[x-3,12,-D*.42],.5],[[x,0,0],[x+3,12,D*.42],.5]);}
  beams(g,lines,venueWhite);recordContext(f,g,'217 m freeform grid shell, two lobes, saddle and V supports');
 }
-function contextStand(f){const a=landmarkFrame(f);scene.remove(a.group);const rows=f.type==='endurance'?24:f.type==='yas-stand'?20:18,g=mappedGrandstand({...f,height:rows*.64},rows);
- if(f.type==='bahrain-stand'||f.type==='yas-stand'){const roofs=[];for(let x=-a.L/2;x<a.L/2;x+=18){const local=new T.Group();local.position.set(x+9,0,rows*.6);g.add(local);roofSurface(local,19,rows*1.25+5,rows*.64+5,(u,v)=>3*(u*u-v*v),venueWhite,12);}}
- recordContext(f,g,'Mapped grandstand axis, track-facing seats, tiers and venue canopy');
-}
+function contextStand(f){const rows=f.type==='endurance'?24:f.type==='yas-stand'?20:18,g=mappedGrandstand({...f,height:rows*.64},rows);recordContext(f,g,'Mapped track-facing terrace sections, footprint-bounded seating and separate canopy bays');}
 function austriaWing(f){
  const a=landmarkFrame(f),g=a.group,q=prog(...a.centre,-1);if(-Math.sin(g.rotation.y)*(cx[q.i]-a.centre[0])-Math.cos(g.rotation.y)*(cz[q.i]-a.centre[1])<0)g.rotation.y+=Math.PI;
  // The promoter's plan places the 90 m Wing in the centre of Start/Ziel,
@@ -103,13 +100,14 @@ function austriaWing(f){
  recordContext({...f,name:'Red Bull Wing / Start-Ziel'},g,'Central 94 m airfoil media building, glazing, supports and flanking stands; promoter-plan placement');
 }
 function buildContextStructures(){for(const f of contextHere.structures){if(architecturalModels[CIRCUIT.id]?.[f.id])continue;
- if(['cityhall','supreme-court','paris','hermitage','cafe','rascasse','chapel','cricket','recreation','palace','oceanographic'].includes(f.type))contextClassic(f);
+ if(f.type==='park-pavilion'){const a=contextBuilding(f,4.3,1,{material:plaster,bay:5.5}),roof=landmarkRoof;footprintRoof(a,4.3,roof,2);recordContext(f,a.group,'Mapped park pavilion or ride station; single-storey facade and pitched canopy reconstructed from the park map');}
+ else if(['cityhall','supreme-court','paris','hermitage','cafe','rascasse','chapel','cricket','recreation','palace','oceanographic'].includes(f.type))contextClassic(f);
  else if(['swissotel','memorial','cathedral','merlion','lotus'].includes(f.type))contextTall(f);
  else if(f.type==='yas-hotel')yasHotel(f);
  else if(f.type==='austria-wing')austriaWing(f);
  else if(f.type.endsWith('-stand')||f.type==='endurance')contextStand(f);
  else if(f.type.endsWith('-pit')){pitLandmark(f,f.type);contextAudit.structures.push({id:f.id,name:f.name,type:f.type,source:f.source})}
- else if(f.type==='wheel'){const p=landmarkCentre({points:f.footprint.concat([f.footprint[0]])}),g=observedWheel(...p,25,30,.3);recordContext(f,g,'Mapped Circuit Wheel position and 60 m overall height');}
+ else if(f.type==='wheel'){const p=landmarkCentre({points:f.footprint.concat([f.footprint[0]])}),g=buildCircuitWheel(...p);recordContext(f,g,'Mapped Circuit Wheel, red A-frame, enclosed gondolas; venue specifies approximately 50 m overall height');}
  else if(f.type==='podium'){const a=landmarkFrame(f);polygonStorey(a.group,a.local,2,6,venueWhite);instanceBoxes(a.group,blueGlass,[[0,8,-a.D/2,a.L,2,.18]]);recordContext(f,a.group,'Monza podium overhang');}
  else contextHotel(f);
  }}
@@ -177,7 +175,11 @@ function contextBridge(f){
  // Absolute-height bridge members use a parent group to avoid terrain added twice.
  const group=new T.Group();scene.add(group);beams(group,arched,anderson?paleStone:venueMetal);contextAudit.bridges.push({id:f.id,name:f.tags['bridge:name']||f.name||'Mapped bridge',segments:deck.length});
 }
-function contextBanking(f){const P=[],I=[],uv=[],posts=[],p=f.points;for(let i=0;i<p.length;i++){const A=p[Math.max(0,i-1)],B=p[Math.min(p.length-1,i+1)],dx=B[0]-A[0],dz=B[1]-A[1],len=Math.hypot(dx,dz)||1;let nx=-dz/len,nz=dx/len;if((p[i][0]-circuitCentre.x)*nx+(p[i][1]-circuitCentre.z)*nz<0){nx=-nx;nz=-nz}const ground=groundHeight(...p[i]);for(let k=0;k<=6;k++){const lateral=(k/6-.5)*12;P.push(p[i][0]+nx*lateral,ground+Math.max(0,lateral+6)*.80+.15,p[i][1]+nz*lateral);uv.push(i*.25,k/6)}if(i<p.length-1)for(let k=0;k<6;k++){const v=i*7+k;I.push(v,v+7,v+1,v+1,v+7,v+8)}posts.push([p[i][0]+nx*6,ground+10.2,p[i][1]+nz*6,.1,1,.1]);}const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(P,3));geo.setAttribute('uv',new T.Float32BufferAttribute(uv,2));geo.setIndex(I);geo.computeVertexNormals();const m=new T.Mesh(geo,new T.MeshStandardMaterial({map:barrierColor,normalMap:barrierNormal,roughness:.96,side:T.DoubleSide}));m.name=f.name;m.receiveShadow=true;scene.add(m);instanceBoxes(scene,venueMetal,posts,true,false);contextAudit.banking++;}
+function contextBanking(f){
+ const P=[],U=[];for(const [x,z,rise]of f.safeMesh||[]){P.push(x,groundHeight(x,z)+rise,z);U.push(x/8,z/8)}
+ if(!P.length)return;const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(P,3));geo.setAttribute('uv',new T.Float32BufferAttribute(U,2));geo.computeVertexNormals();
+ const m=new T.Mesh(geo,new T.MeshStandardMaterial({map:barrierColor,normalMap:barrierNormal,roughness:.96,side:T.DoubleSide}));m.name=f.name;m.userData.historicBanking=true;m.receiveShadow=true;scene.add(m);contextAudit.banking++;
+}
 function buildContextInfrastructure(){
  const pierMaterial=M(0x858682,.08,.92),poolMaterial=new T.MeshPhysicalMaterial({color:linear(0x41a2b3),roughness:.16,metalness:.28,normalMap:waterNormals,normalScale:new T.Vector2(.08,.08),side:T.DoubleSide});
  for(const f of contextHere.infrastructure){

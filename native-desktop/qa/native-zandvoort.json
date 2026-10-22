@@ -1,0 +1,12 @@
+{
+	"circuit": "zandvoort",
+	"device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+	"drawCalls": 566.0,
+	"frames": 1121,
+	"instanceErrors": 0,
+	"medianMs": 6.987,
+	"p95Ms": 10.665,
+	"primitives": 760839.0,
+	"renderer": "forward_plus",
+	"restoredInstances": 15262
+}

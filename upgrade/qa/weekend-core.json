@@ -1,92 +1,93 @@
 {
-  "checks": 2799340,
+  "checks": 2887604,
   "reports": [
     {
       "id": "bahrain",
-      "raceSeconds": 579.150000000021,
+      "raceSeconds": 582.6000000000179,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "singapore",
-      "raceSeconds": 590.9000000000103,
+      "raceSeconds": 596.750000000005,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "monza",
-      "raceSeconds": 535.9000000000603,
+      "raceSeconds": 538.0000000000584,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "monaco",
-      "raceSeconds": 522.0500000000729,
+      "raceSeconds": 526.1500000000692,
       "services": 21,
       "maxPitKmh": 60.00000000000001,
       "classified": 21
     },
     {
       "id": "austria",
-      "raceSeconds": 430.70000000006365,
+      "raceSeconds": 435.8000000000648,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "silverstone",
-      "raceSeconds": 561.9500000000367,
+      "raceSeconds": 566.8500000000322,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "abu-dhabi",
-      "raceSeconds": 572.7000000000269,
+      "raceSeconds": 580.20000000002,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "milano",
-      "raceSeconds": 394.65000000005546,
+      "raceSeconds": 540.7500000000559,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "spa",
-      "raceSeconds": 643.4999999999625,
+      "raceSeconds": 650.8999999999558,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "suzuka",
-      "raceSeconds": 591.0000000000102,
+      "raceSeconds": 593.0000000000084,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "interlagos",
-      "raceSeconds": 478.4000000000745,
+      "raceSeconds": 485.25000000007606,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "zandvoort",
-      "raceSeconds": 461.10000000007057,
+      "raceSeconds": 466.35000000007176,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     }
   ],
   "qualifyingGrid": [
+    12,
     1,
     5,
     9,
@@ -100,12 +101,11 @@
     18,
     3,
     4,
-    7,
     8,
+    7,
     11,
-    12,
-    16,
     15,
+    16,
     19,
     20,
     0

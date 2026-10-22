@@ -3,7 +3,7 @@ const gpTools=document.createElement('div');gpTools.className='gp-tools';gpTools
 $('graphics-settings').append(gpTools);$('graphics-quality').value=graphicsPreset;$('graphics-quality').onchange=e=>applyGraphics(e.target.value);
 applyGraphics(graphicsPreset);
 const title=document.querySelector('#menu h1');if(title)title.innerHTML='MILANO<b>RACING</b>';
-const tourSubtitle=document.querySelector('#circuits .small');if(tourSubtitle)tourSubtitle.textContent='12 circuits. One grid.';
+
 document.title='Milano Racing · Grand Prix';
 const style=document.createElement('style');style.textContent='.gp-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px;padding-top:15px;border-top:1px solid #ffffff22}.gp-tools label{font:700 10px Arial;letter-spacing:.15em;color:#97a5b8}.gp-tools select{max-width:150px;background:#101828;color:#fff;padding:9px;border:1px solid #414c60}.gp-tools a{font-size:12px;color:#ff9c40}.circuit-card.selected{border-color:#ff7a00}#circuit-grid{max-height:55vh;overflow-y:auto}.status-error:empty{display:none}#network-browse{display:grid;gap:8px;margin-top:14px}#network-browse button{display:flex;justify-content:space-between;gap:16px}#network-ping{font-size:11px}';document.head.append(style);
 let installPrompt;addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;$('install-game').hidden=false});$('install-game').onclick=async()=>{if(installPrompt){await installPrompt.prompt();installPrompt=null;$('install-game').hidden=true}};

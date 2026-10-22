@@ -2,7 +2,8 @@
 const unitBox=new T.BoxGeometry(1,1,1),steel=M(0x57636d,.55,.42),concrete=M(0x989c9b,0,.94),seatMat=M(0xffffff,.08,.65),roofMat=M(0xc0c9cd,.45,.5);
 function instanceBoxes(parent,material,items,shadow=true,elevate=true){const mesh=new T.InstancedMesh(unitBox,material,items.length),o=new T.Object3D();items.forEach((p,i)=>{o.position.set(p[0],p[1]+(parent===scene&&elevate?groundHeight(p[0],p[2]):0),p[2]);o.scale.set(p[3],p[4],p[5]);o.rotation.set(p[6]||0,p[7]||0,p[8]||0,'YXZ');o.updateMatrix();mesh.setMatrixAt(i,o.matrix);if(p[9]!==undefined)mesh.setColorAt(i,linear(p[9]))});mesh.castShadow=shadow;mesh.receiveShadow=true;parent.add(mesh);return mesh}
 function beams(parent,items,material=steel){const mesh=new T.InstancedMesh(unitBox,material,items.length),o=new T.Object3D(),axis=new T.Vector3(0,1,0);items.forEach(([a,b,w],i)=>{const A=new T.Vector3(...a),B=new T.Vector3(...b);if(parent===scene){A.y+=groundHeight(A.x,A.z);B.y+=groundHeight(B.x,B.z)}const d=B.clone().sub(A);o.position.copy(A).add(B).multiplyScalar(.5);o.quaternion.setFromUnitVectors(axis,d.clone().normalize());o.scale.set(w,d.length(),w);o.updateMatrix();mesh.setMatrixAt(i,o.matrix)});mesh.castShadow=true;mesh.receiveShadow=true;parent.add(mesh);return mesh}
-function grandstand(x,z,rotation,length,rows,title){const group=new T.Group();group.position.set(x,groundHeight(x,z),z);group.rotation.y=rotation;scene.add(group);const steps=[],seats=[],crowd=[],framework=[],rails=[],canopy=[],heads=[];
+const standFascias=[];
+function grandstand(x,z,rotation,length,rows,title,options={}){const group=new T.Group();group.position.set(x,groundHeight(x,z),z);group.rotation.y=rotation;scene.add(group);const steps=[],seats=[],crowd=[],framework=[],rails=[],canopy=[],heads=[];
  const columns=Math.floor(length/.79),depth=rows*1.25,roofY=rows*.64+3.5;
  for(let row=0;row<rows;row++){const y=.8+row*.64,zz=row*1.25;steps.push([0,y-.3,zz,length,.24,1.27],[0,y-.56,zz-.57,length,.52,.12]);
  for(let col=0;col<columns;col++){const xx=-length/2+.5+col*.79;if(col%23>=20)continue;const color=(Math.floor(col/23)+Math.floor(row/3))%4===0?0xe57437:0x29467a;
@@ -12,13 +13,18 @@ function grandstand(x,z,rotation,length,rows,title){const group=new T.Group();gr
  for(let col=20;col<columns;col+=23){const xx=-length/2+col*.79+.75;for(let r=0;r<rows*2;r++)steps.push([xx,.30+r*.32,r*.625-1.1,2.1,.16,.63]);rails.push([[xx-1.1,1.7,-1],[xx-1.1,rows*.64+1.8,depth-1],.045]);}
  for(let xx=-length/2;xx<=length/2+.1;xx+=length/6){framework.push([[xx,0,depth-1],[xx,roofY+1,depth-1],.2],[[xx,roofY+1,depth-1],[xx,roofY,-3.2],.17],[[xx,roofY-1,depth-1],[xx,roofY,-3.2],.12],[[xx,0,depth-1],[xx,rows*.64+.4,depth*.5],.12]);for(let zz=0;zz<depth;zz+=2.5)framework.push([[xx,.1,zz],[xx,.64*zz/1.25+.6,zz],.1]);}
  for(let r=0;r<3;r++)framework.push([[-length/2,roofY+r*.1,-2+r*depth/2],[length/2,roofY+r*.1,-2+r*depth/2],.12]);
- canopy.push([0,roofY+.22,depth*.44-1,length+3,.18,depth+4,-.065]);
+ if(options.covered!==false){
+  if(['bahrain','abu-dhabi'].includes(CIRCUIT.id)){const canopyGroup=new T.Group();canopyGroup.position.z=depth*.44-1;group.add(canopyGroup);roofSurface(canopyGroup,length+3,depth+4,roofY+.2,(x,z)=>1.8*Math.cos((x+.5)*Math.PI*Math.max(2,Math.round(length/16)))-1.4*z*z,roofMat,Math.max(20,Math.ceil(length/2)));}
+  else if(CIRCUIT.id==='interlagos'){const canopyGroup=new T.Group();canopyGroup.position.z=depth*.44-1;group.add(canopyGroup);roofSurface(canopyGroup,length+3,depth+4,roofY+.1,(x,z)=>2*(1-4*z*z),roofMat,20);}
+  else canopy.push([0,roofY+.22,depth*.44-1,length+3,.18,depth+4,-.065]);
+ }
  for(let xx=-length/2;xx<=length/2;xx+=2.3){rails.push([[xx,.85,-1.1],[xx,1.95,-1.1],.045]);}
  rails.push([[-length/2,1.95,-1.1],[length/2,1.95,-1.1],.05]);
  instanceBoxes(group,concrete,steps);instanceBoxes(group,seatMat,seats);instanceBoxes(group,M(0xffffff,0,.96),crowd,false);beams(group,framework);beams(group,rails);instanceBoxes(group,roofMat,canopy);
  const headMesh=new T.InstancedMesh(new T.SphereGeometry(1,8,6),M(0xffffff,0,.95),heads.length),d=new T.Object3D();heads.forEach(([xx,y,zz,r,color],i)=>{d.position.set(xx,y,zz);d.scale.set(r,r*1.12,r);d.updateMatrix();headMesh.setMatrixAt(i,d.matrix);headMesh.setColorAt(i,linear(color))});group.add(headMesh);
  instanceBoxes(group,M(0x162a43,.2,.6),[[0,roofY-.12,-3.05,length+3,.6,.14]]);instanceBoxes(group,M(0xe77f41,.1,.65),[[0,roofY-.46,-3.07,length+3,.055,.16]]);
- const label=new T.Mesh(new T.PlaneGeometry(Math.min(28,length*.5),1.0),new T.MeshBasicMaterial({map:textTexture(title,'#14243c','#f6f0e6','MILANO CIRCUIT  /  TEAM EDITION'),side:T.DoubleSide}));label.position.set(0,roofY-.05,-3.16);label.rotation.y=Math.PI;group.add(label);
+ const label=new T.Mesh(new T.PlaneGeometry(Math.min(28,length*.5),1.0),new T.MeshBasicMaterial({map:textTexture(title,'#14243c','#f6f0e6','MILANO RACING'),side:T.DoubleSide}));label.position.set(0,roofY-.05,-3.16);label.rotation.y=Math.PI;group.add(label);
+ standFascias.push({group,length,y:roofY-.12,z:-3.18,covered:options.covered!==false});
  return group;
 }
 const mainGrandstand=grandstand(72,29,0,112,11,'MILANO GRANDSTAND');

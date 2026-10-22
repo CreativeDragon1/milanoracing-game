@@ -6,6 +6,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 import argparse,json,secrets,time,math,socket,ssl,threading,ipaddress,webbrowser,sys
 from datetime import datetime,timedelta,timezone
+import track_limits
 
 ROOT=Path(__file__).resolve().parent
 HTML=ROOT/'Milano Racing - Team Edition.html'
@@ -125,19 +126,23 @@ def action(data):
    if p['warning'] in ['POSITION REJECTED','CHECKPOINT REJECTED']:p['warning']=''
    old_index=p['index'];p.update(x=x,z=z,h=h,v=v,index=index,sampleAt=t)
    idx=int(index)%n;side=(z-track['z'][idx])*track['tx'][idx]-(x-track['x'][idx])*track['tz'][idx];widths=track.get('widthRight' if side>=0 else 'widthLeft');half=widths[idx] if widths else track['width']/2
-   if off>half+.8:
-    if not p['invalid']:p['penalty']+=5
-    p['invalid']=True;p['warning']='TRACK LIMITS +5 SEC'
-   else:
-    gate=int(index/n*16);oldgate=int(old_index/n*16)
-    if delta>0 and oldgate==15 and gate==0:
-     if not p['armed']:p['armed']=True;p['lastLapAt']=t;p['gate']=1
-     elif p['gate']==16:
-      lap=t-p['lastLapAt'];p['lap']+=1
-      if not p['invalid']:p['best']=min(p['best'] or lap,lap)
-      p['lastLapAt']=t;p['gate']=1;p['invalid']=False;p['warning']=''
-      if p['lap']>=r['laps']:p['finish']=t-r['startAt'];p['v']=0
-    if p['armed'] and delta>0 and gate==p['gate']:p['gate']+=1
+   p['limitState']=track_limits.update(p.get('limitState'),off,half,v,dt)
+   if p['limitState']['triggered']:
+    p['limitWarnings']=p.get('limitWarnings',0)+1;p['invalid']=True
+    if p['limitWarnings']%track_limits.RULES['warningsPerPenalty']==0:
+     p['penalty']+=track_limits.RULES['penaltySeconds'];p['warning']='TRACK LIMITS +5 SEC'
+    else:p['warning']='TRACK LIMITS WARNING '+str(p['limitWarnings']%track_limits.RULES['warningsPerPenalty'])
+   # Sequential checkpoint checks continue during an excursion; an invalid lap
+   # must not strand a beginner with a missing checkpoint after rejoining.
+   gate=int(index/n*16);oldgate=int(old_index/n*16)
+   if delta>0 and oldgate==15 and gate==0:
+    if not p['armed']:p['armed']=True;p['lastLapAt']=t;p['gate']=1
+    elif p['gate']==16:
+     lap=t-p['lastLapAt'];p['lap']+=1
+     if not p['invalid']:p['best']=min(p['best'] or lap,lap)
+     p['lastLapAt']=t;p['gate']=1;p['invalid']=p['limitState']['violation'];p['warning']=''
+     if p['lap']>=r['laps']:p['finish']=t-r['startAt'];p['v']=0
+   if p['armed'] and delta>0 and gate==p['gate']:p['gate']+=1
    p['progress']=p['lap']+(min(index/n,(p['gate'])/16) if p['armed'] else -.01)
   reap();return snapshot(r,pid)
 

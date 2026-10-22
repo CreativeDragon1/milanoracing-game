@@ -1,0 +1,14 @@
+{
+  "font": "Barlow",
+  "body": "DM Sans",
+  "brand": "Michroma",
+  "slashSeparators": 0,
+  "settingsRendersPerSecond": 4,
+  "homeRendersPerSecond": 29,
+  "reducedMotion": "none",
+  "viewports": [
+    "1440x900",
+    "390x844"
+  ],
+  "errors": []
+}

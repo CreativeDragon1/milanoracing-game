@@ -32,10 +32,10 @@
     "authenticated game is not publicly cached",
     "authenticated WebSocket opens"
   ],
-  "updates": 5136,
+  "updates": 3632,
   "durationSeconds": 20,
-  "medianResponseMs": 4.301050000321993,
-  "p95ResponseMs": 6.642700000156765,
+  "medianResponseMs": 10.889449999012868,
+  "p95ResponseMs": 43.348499999410706,
   "platform": "win32",
   "python": "3.13.3"
 }

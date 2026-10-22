@@ -12,3 +12,9 @@
 # Preserve the release HTML and content-hashed hosted assets byte for byte.
 "/Milano Racing - Grand Prix.html" binary
 upgrade/server/public/** binary
+# Preserve upstream licence text, including its original whitespace.
+upgrade/licenses/** -whitespace
+upgrade/assets/fonts/*.txt -whitespace
+native-desktop/licenses/** -whitespace
+*.scn binary
+*.dat binary
