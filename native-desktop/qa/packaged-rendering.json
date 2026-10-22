@@ -1,223 +1,463 @@
 {
-  "scope": "Exported Windows executable. Stationary driving view, 3 second warmup, 9 second sample, High preset, 1440x810 window, 144 FPS cap. Not a full-race benchmark.",
-  "exeSHA256": "9e238ce618e459c31ce5faa1b4a4874b7237e7260b5fd2a73a290f66efeabfa4",
-  "packSHA256": "6570269df34fe306a9f054b55800e147c5bb430f5422ec2da0a94d6d4657ff19",
+  "scope": "Exported Windows executable, 22-car moving grid with deterministic Elite QA driver. First 45 seconds per circuit, 3 second warmup, High preset, 1440x810 window, 144 FPS cap. Partial-lap samples, not minimum-FPS or other-hardware guarantees.",
+  "exeSHA256": "c872fb81c8737fe2bd3bfa9ed9d724a7508d4990abbd5fb734ab3f1fae83a16d",
+  "packSHA256": "67a4ec0577422ef062b47aa49081677b1430cd8e05b57f05a2c6517ce3f7999f",
   "reports": [
     {
       "circuit": "bahrain",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 156.0,
-      "frames": 1076,
+      "drawCalls": 277.0,
+      "frames": 5956,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 8.448,
-      "p95Ms": 12.625,
-      "primitives": 370871.0,
+      "medianMs": 6.961,
+      "p95Ms": 8.326,
+      "primitives": 693091.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.0055936666631,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.1234939168905
+      },
       "renderer": "forward_plus",
       "restoredInstances": 110468,
-      "startupAndRunSeconds": 22.48
+      "visuals": {
+        "facades": 40,
+        "roadMaterials": 141,
+        "water": 3,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 51.38
     },
     {
       "circuit": "singapore",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 923.0,
-      "frames": 695,
+      "drawCalls": 812.0,
+      "frames": 5392,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 11.228,
-      "p95Ms": 20.016,
-      "primitives": 2190167.0,
+      "medianMs": 7.182,
+      "p95Ms": 10.655,
+      "primitives": 3127344.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.0006640000011,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.13220113753878
+      },
       "renderer": "forward_plus",
       "restoredInstances": 134373,
-      "startupAndRunSeconds": 22.55
+      "visuals": {
+        "facades": 71,
+        "roadMaterials": 115,
+        "water": 11,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 52.2
     },
     {
       "circuit": "monza",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 836.0,
-      "frames": 500,
+      "drawCalls": 1070.0,
+      "frames": 3124,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 18.24,
-      "p95Ms": 25.68,
-      "primitives": 1244498.0,
+      "medianMs": 12.068,
+      "p95Ms": 22.992,
+      "primitives": 1890484.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.01119,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.23458804849885
+      },
       "renderer": "forward_plus",
       "restoredInstances": 85130,
-      "startupAndRunSeconds": 22.64
+      "visuals": {
+        "facades": 40,
+        "roadMaterials": 173,
+        "water": 1,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 52.37
     },
     {
       "circuit": "monaco",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 615.0,
-      "frames": 1245,
+      "drawCalls": 767.0,
+      "frames": 4235,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 6.976,
-      "p95Ms": 8.268,
-      "primitives": 2001006.0,
+      "medianMs": 9.828,
+      "p95Ms": 12.229,
+      "primitives": 4485512.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.0027060000005,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.28961406215561
+      },
       "renderer": "forward_plus",
       "restoredInstances": 122410,
-      "startupAndRunSeconds": 54.09
+      "visuals": {
+        "facades": 53,
+        "roadMaterials": 93,
+        "water": 11,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 51.89
     },
     {
       "circuit": "austria",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 411.0,
-      "frames": 643,
+      "drawCalls": 241.0,
+      "frames": 5328,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 13.476,
-      "p95Ms": 20.822,
-      "primitives": 959444.0,
+      "medianMs": 8.097,
+      "p95Ms": 9.125,
+      "primitives": 753159.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.004680666666,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.31830185022026
+      },
       "renderer": "forward_plus",
       "restoredInstances": 85926,
-      "startupAndRunSeconds": 24.11
+      "visuals": {
+        "facades": 26,
+        "roadMaterials": 102,
+        "water": 4,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 52.25
     },
     {
       "circuit": "silverstone",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 1089.0,
-      "frames": 1065,
+      "drawCalls": 1193.0,
+      "frames": 5180,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 7.506,
-      "p95Ms": 11.471,
-      "primitives": 2225465.0,
+      "medianMs": 7.659,
+      "p95Ms": 10.833,
+      "primitives": 2917668.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.0050369999998,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.36308397365532
+      },
       "renderer": "forward_plus",
       "restoredInstances": 146828,
-      "startupAndRunSeconds": 26.99
+      "visuals": {
+        "facades": 44,
+        "roadMaterials": 154,
+        "water": 12,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 52.56
     },
     {
       "circuit": "abu-dhabi",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 302.0,
-      "frames": 1076,
+      "drawCalls": 1296.0,
+      "frames": 5607,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 6.988,
-      "p95Ms": 11.247,
-      "primitives": 1055624.0,
+      "medianMs": 7.418,
+      "p95Ms": 9.234,
+      "primitives": 4180367.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.0056963333332,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.33500400333611
+      },
       "renderer": "forward_plus",
       "restoredInstances": 122454,
-      "startupAndRunSeconds": 25.36
+      "visuals": {
+        "facades": 67,
+        "roadMaterials": 168,
+        "water": 6,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 52.24
     },
     {
       "circuit": "milano",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 613.0,
-      "frames": 1093,
+      "drawCalls": 882.0,
+      "frames": 5608,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 7.63,
-      "p95Ms": 10.606,
-      "primitives": 799793.0,
+      "medianMs": 7.143,
+      "p95Ms": 9.58,
+      "primitives": 1822826.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.0020426666681,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.307716968589
+      },
       "renderer": "forward_plus",
       "restoredInstances": 44339,
-      "startupAndRunSeconds": 21.48
+      "visuals": {
+        "facades": 0,
+        "roadMaterials": 2,
+        "water": 0,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 51.44
     },
     {
       "circuit": "spa",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 966.0,
-      "frames": 499,
+      "drawCalls": 1233.0,
+      "frames": 4834,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 18.878,
-      "p95Ms": 24.858,
-      "primitives": 1044707.0,
+      "medianMs": 8.38,
+      "p95Ms": 11.773,
+      "primitives": 1036250.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.005976,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.38672326561902
+      },
       "renderer": "forward_plus",
       "restoredInstances": 45634,
-      "startupAndRunSeconds": 22.9
+      "visuals": {
+        "facades": 39,
+        "roadMaterials": 134,
+        "water": 1,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 52.59
     },
     {
       "circuit": "suzuka",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 1506.0,
-      "frames": 881,
+      "drawCalls": 1586.0,
+      "frames": 5221,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 10.284,
-      "p95Ms": 13.505,
-      "primitives": 1695040.0,
+      "medianMs": 7.997,
+      "p95Ms": 10.673,
+      "primitives": 2323417.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.0028813333329,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.29194888178914
+      },
       "renderer": "forward_plus",
       "restoredInstances": 56659,
-      "startupAndRunSeconds": 22.89
+      "visuals": {
+        "facades": 58,
+        "roadMaterials": 166,
+        "water": 10,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 52.51
     },
     {
       "circuit": "interlagos",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 942.0,
-      "frames": 1126,
+      "drawCalls": 896.0,
+      "frames": 5046,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 7.521,
-      "p95Ms": 10.82,
-      "primitives": 1634197.0,
+      "medianMs": 8.126,
+      "p95Ms": 10.684,
+      "primitives": 2223402.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.0018846666666,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.39295210692408
+      },
       "renderer": "forward_plus",
       "restoredInstances": 71613,
-      "startupAndRunSeconds": 21.77
+      "visuals": {
+        "facades": 58,
+        "roadMaterials": 118,
+        "water": 2,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 52.09
     },
     {
       "circuit": "zandvoort",
       "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-      "drawCalls": 566.0,
-      "frames": 1159,
+      "drawCalls": 493.0,
+      "frames": 5764,
+      "home": {
+        "enabled": false,
+        "playing": false,
+        "position": 0.0,
+        "render3DDisabled": false
+      },
       "inputSmoke": {
         "enabled": false,
         "finitePosition": true,
         "peakKmh": 0.0
       },
       "instanceErrors": 0,
-      "medianMs": 7.084,
-      "p95Ms": 9.938,
-      "primitives": 760839.0,
+      "medianMs": 7.177,
+      "p95Ms": 9.059,
+      "primitives": 1089166.0,
+      "race": {
+        "drivers": 22,
+        "elapsedSeconds": 45.0033176666649,
+        "enabled": true,
+        "finiteDrivers": true,
+        "phase": "race",
+        "physicsMeanMs": 1.41583858395583
+      },
       "renderer": "forward_plus",
       "restoredInstances": 15262,
-      "startupAndRunSeconds": 21.04
+      "visuals": {
+        "facades": 27,
+        "roadMaterials": 121,
+        "water": 25,
+        "wet": 0.0
+      },
+      "startupAndRunSeconds": 52.36
     }
   ]
 }

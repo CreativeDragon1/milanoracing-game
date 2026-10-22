@@ -41,6 +41,27 @@ var qa_output := "res://../qa"
 var qa_drive := false
 var qa_input_time := 0.0
 var qa_peak_speed := 0.0
+var ui: CanvasLayer
+var director: Node3D
+var network: Node
+var online_director: Node3D
+var online_mode := false
+var visual_upgrade: Node3D
+var racing_guide: Node3D
+var qa_race := false
+var qa_rain := false
+var shadow_clock := 0.0
+var last_heading := 0.0
+var garage_angle := 0.0
+var race_physics_samples: Array[float] = []
+var qa_menu := false
+var qa_seconds := 12.0
+var qa_quality := 1
+var cinematic_mode:=false
+var cinematic:Node
+var qa_home:=false
+var qa_complete_race:=false
+var pending_new_session:=false
 
 func _ready() -> void:
 	tracks = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/physics.json"))
@@ -50,11 +71,23 @@ func _ready() -> void:
 		if arg=="--qa": qa_mode = true
 		if arg.begins_with("--qa-output="): qa_output = arg.trim_prefix("--qa-output=")
 		if arg=="--qa-drive": qa_drive = true
+		if arg=="--qa-race": qa_race = true
+		if arg=="--qa-rain": qa_rain = true
+		if arg=="--qa-menu": qa_menu = true
+		if arg=="--qa-home": qa_home=true
+		if arg=="--qa-complete-race": qa_complete_race=true; qa_race=true; qa_seconds=200
+		if arg.begins_with("--qa-seconds="): qa_seconds=float(arg.trim_prefix("--qa-seconds="))
+		if arg.begins_with("--qa-quality="): qa_quality=clampi(int(arg.trim_prefix("--qa-quality=")),0,2)
+		if arg=="--capture": cinematic_mode=true; qa_mode=true
 		if arg.begins_with("--qa-camera="): camera_mode = int(arg.trim_prefix("--qa-camera="))%3
 	Engine.max_fps = 144
 	viewport = get_viewport()
 	build_environment()
+	network=load("res://scripts/online_client.gd").new()
+	add_child(network)
+	network.snapshot_received.connect(receive_online)
 	build_interface()
+	if qa_mode: apply_quality(qa_quality); quality_select.select(qa_quality)
 	engine_audio = EngineAudio.new()
 	add_child(engine_audio)
 	load_circuit(active_id)
@@ -128,105 +161,45 @@ func apply_quality(value: int) -> void:
 	environment.volumetric_fog_enabled = value>0
 	sun.directional_shadow_max_distance = [200,360,500][value]
 	environment.ssr_max_steps = [32,64,96][value]
+	environment.sdfgi_enabled=value==2
+	environment.sdfgi_cascades=4
+	environment.sdfgi_min_cell_size=.75
+	environment.sdfgi_energy=.7
+	environment.sdfgi_bounce_feedback=.35
+	viewport.mesh_lod_threshold=[2.5,1.5,1.0][value]
 	RenderingServer.directional_shadow_atlas_set_size(4096 if value<2 else 8192,true)
 
 func build_interface() -> void:
-	var layer := CanvasLayer.new()
-	add_child(layer)
-	var theme := Theme.new()
-	theme.default_font = load("res://assets/fonts/Barlow-Bold.ttf")
-	theme.default_font_size = 20
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color(.025,.035,.055,.94)
-	style.content_margin_left = 34
-	style.content_margin_right = 34
-	style.content_margin_top = 28
-	style.content_margin_bottom = 28
-	style.border_width_left = 4
-	style.border_color = Color("ff7a00")
-	menu = PanelContainer.new()
-	menu.theme = theme
-	menu.add_theme_stylebox_override("panel",style)
-	menu.position = Vector2(55,90)
-	menu.custom_minimum_size = Vector2(430,0)
-	layer.add_child(menu)
-	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation",18)
-	menu.add_child(box)
-	var brand := Label.new()
-	brand.text = "MILANO RACING"
-	brand.add_theme_font_override("font",load("res://assets/fonts/Michroma.ttf"))
-	brand.add_theme_font_size_override("font_size",25)
-	box.add_child(brand)
-	var sub := Label.new()
-	sub.text = "ALWAYS THE FASTEST"
-	sub.add_theme_color_override("font_color",Color("ff7a00"))
-	sub.add_theme_font_size_override("font_size",16)
-	box.add_child(sub)
-	circuit_select = OptionButton.new()
-	for id in tracks:
-		if FileAccess.file_exists("res://circuits/"+id+".scn"):
-			circuit_select.add_item(str(tracks[id].name).to_upper())
-			circuit_select.set_item_metadata(circuit_select.item_count-1,id)
-			if id==active_id: circuit_select.select(circuit_select.item_count-1)
-	circuit_select.item_selected.connect(func(i): load_circuit(circuit_select.get_item_metadata(i)))
-	box.add_child(circuit_select)
-	quality_select = OptionButton.new()
-	for s in ["PERFORMANCE","HIGH","ULTRA"]: quality_select.add_item(s)
-	quality_select.select(1)
-	quality_select.item_selected.connect(apply_quality)
-	box.add_child(quality_select)
-	lighting_select = OptionButton.new()
-	for s in ["CIRCUIT LIGHTING","DAYLIGHT","FLOODLIGHTS"]: lighting_select.add_item(s)
-	lighting_select.item_selected.connect(func(i): light_mode=i; apply_lighting())
-	box.add_child(lighting_select)
-	var drive := Button.new()
-	drive.text = "DRIVE"
-	drive.custom_minimum_size.y = 58
-	drive.pressed.connect(func(): if loaded: set_paused(false))
-	box.add_child(drive)
-	status = Label.new()
-	status.text = "Loading circuit…"
-	status.add_theme_font_size_override("font_size",16)
-	box.add_child(status)
-	var controls := Label.new()
-	controls.text = "WASD or arrows    Drive\nC    Camera      P    Request pit stop\nR    Recover     Esc    Garage\nController: left stick and triggers"
-	controls.add_theme_font_size_override("font_size",16)
-	controls.add_theme_color_override("font_color",Color(.65,.7,.78))
-	box.add_child(controls)
-	var logo := TextureRect.new()
-	logo.texture = load("res://assets/team-logo.png")
-	logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	logo.position = Vector2(get_viewport().get_visible_rect().size.x-250,28)
-	logo.size = Vector2(220,95)
-	layer.add_child(logo)
-	hud = Label.new()
-	hud.theme = theme
-	hud.position = Vector2(55,740)
-	hud.add_theme_font_override("font",load("res://assets/fonts/Barlow-ExtraBoldItalic.ttf"))
-	hud.add_theme_font_size_override("font_size",25)
-	hud.add_theme_color_override("font_shadow_color",Color.BLACK)
-	hud.add_theme_constant_override("shadow_offset_x",1)
-	hud.add_theme_constant_override("shadow_offset_y",1)
-	layer.add_child(hud)
+	ui=load("res://scripts/game_ui.gd").new()
+	add_child(ui)
+	ui.configure(self)
+	menu=ui.menu
 
 func set_paused(value: bool) -> void:
 	paused = value
-	Engine.max_fps = 45 if value and not qa_mode else 144
-	menu.visible = value
-	if vehicle: vehicle.enabled = not value
+	Engine.max_fps = 60 if value and not qa_mode else 144
+	ui.show_garage(value)
+	if director: director.paused=value
+	if online_director: online_director.paused=value
+	if vehicle: vehicle.enabled=not value and not director and not online_director
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if value else Input.MOUSE_MODE_HIDDEN
 
 func _notification(what: int) -> void:
 	if what==NOTIFICATION_APPLICATION_FOCUS_OUT and loaded and not qa_mode:
 		set_paused(true)
+		ui.home.video.paused=true
+	if what==NOTIFICATION_APPLICATION_FOCUS_IN and is_instance_valid(ui) and not qa_mode:
+		ui.home.video.paused=not ui.home.visible or not ui.home.motion
 
 func load_circuit(id: String) -> void:
 	if not FileAccess.file_exists("res://circuits/"+id+".scn"):
 		status.text = "Circuit asset build required"
 		return
 	set_paused(true)
+	if director: director.free(); director=null
+	if online_director: online_director.free(); online_director=null
+	if visual_upgrade: visual_upgrade.free(); visual_upgrade=null
+	if racing_guide: racing_guide.free(); racing_guide=null
 	loaded = false
 	active_id = id
 	load_path = "res://circuits/"+id+".scn"
@@ -255,8 +228,16 @@ func finish_load() -> void:
 	vehicle = Vehicle.new()
 	add_child(vehicle)
 	vehicle.configure(circuit,pits[active_id])
+	vehicle.steering_strength=ui.sensitivity.value
 	engine_audio.vehicle = vehicle
+	network.car=vehicle
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/"+active_id+".json"))
+	# Godot renames duplicate sibling names. Keep semantic source labels for every tile.
+	var source_index:=0
+	for object in source.objects:
+		if object.car: continue
+		world.get_child(source_index).set_meta("source_name",object.name)
+		source_index+=1
 	var geographic: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/geography.json"))
 	if geographic.has(active_id):
 		var geo: Dictionary = geographic[active_id]
@@ -307,15 +288,30 @@ func finish_load() -> void:
 					light.distance_fade_length = 60
 					world.add_child(light)
 					native_lights.append(light)
+	visual_upgrade=load("res://scripts/visual_upgrade.gd").new()
+	add_child(visual_upgrade)
+	visual_upgrade.configure(world,circuit,vehicle)
+	racing_guide=load("res://scripts/racing_guide.gd").new()
+	add_child(racing_guide); racing_guide.configure(circuit,vehicle)
+	racing_guide.visible=ui.guide.button_pressed
 	apply_lighting()
+	apply_weather(ui.weather.selected)
 	loaded = true
 	load_path = ""
 	camera_initialized = false
 	status.text = "MR 26   •   %.3f KM" % (float(circuit.length)/1000)
 	print("NATIVE_READY ",active_id," renderer=",RenderingServer.get_current_rendering_method())
+	if online_mode and not network.room.is_empty(): setup_online_director()
+	if cinematic_mode:
+		cinematic=load("res://scripts/cinematic_capture.gd").new(); add_child(cinematic); cinematic.configure(self)
 	if qa_mode:
+		if qa_rain: apply_weather(1)
 		vehicle.reset_at(int(circuit.N)*.21)
-		menu.hide()
+		if not qa_menu: menu.hide()
+		if qa_race:
+			ui.mode.select(1)
+			create_session(true)
+			set_paused(false)
 		if qa_drive:
 			vehicle.reset_at(0)
 			set_paused(false)
@@ -338,11 +334,20 @@ func apply_lighting() -> void:
 	environment.sky = sky
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR if night else Environment.AMBIENT_SOURCE_SKY
 	environment.ambient_light_color = Color(.17,.21,.29)
-	environment.ambient_light_energy = .6 if night else .35
+	environment.ambient_light_energy = .45 if night else .22
 	environment.fog_light_color = Color(.035,.05,.085) if night else Color(.56,.65,.76)
-	sun.light_energy = .04 if night else 1.2
+	sun.light_energy = .04 if night else 1.8
 	sun.shadow_enabled = not night
-	sun.light_color = Color(.55,.68,1) if night else Color(1,.91,.78)
+	sun.light_color = Color(.55,.68,1) if night else Color(1,.95,.87)
+	if light_mode==3:
+		sun.rotation_degrees=Vector3(-14,-45,0)
+		sun.light_color=Color(1,.69,.39)
+		environment.ambient_light_energy=.28
+		environment.fog_light_color=Color(.56,.43,.35)
+	elif loaded:
+		var source: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://circuits/"+active_id+".json"))
+		var direction:=Vector3(source.sun[0],source.sun[1],source.sun[2]).normalized()
+		sun.look_at_from_position(direction*100,Vector3.ZERO)
 	for light in native_lights: light.visible = night
 	if is_instance_valid(floodlights): floodlights.visible = night
 
@@ -356,7 +361,12 @@ func _process(dt: float) -> void:
 			load_path = ""
 		return
 	if not loaded: return
-	var forward := Vector3(cos(vehicle.heading),0,sin(vehicle.heading))
+	if cinematic:
+		cinematic.update(dt)
+		return
+	engine_audio.active=not paused
+	last_heading=lerp_angle(last_heading,vehicle.heading,1-exp(-16*dt)) if camera_initialized else vehicle.heading
+	var forward := Vector3(cos(last_heading),0,sin(last_heading))
 	var target: Vector3 = vehicle.get_global_transform_interpolated().origin
 	var camera_target := target-forward*8.5+Vector3.UP*3.1
 	var focus := target+forward*9+Vector3.UP*.75
@@ -366,13 +376,29 @@ func _process(dt: float) -> void:
 	elif camera_mode==2:
 		camera_target = target-forward*4.8+Vector3.UP*1.25+Vector3(-forward.z,0,forward.x)*2.2
 		focus = target+forward*6+Vector3.UP*.65
+	if paused and not qa_mode and not ui.reduced_motion.button_pressed:
+		garage_angle+=dt*.08
+		camera_target=target+Vector3(cos(garage_angle)*7,2.3,sin(garage_angle)*7)
+		focus=target+Vector3.UP*.6
 	camera.global_position = camera_target if not camera_initialized else camera.global_position.lerp(camera_target,1-exp(-10*dt))
 	camera.look_at(focus)
+	shadow_clock+=dt
+	if shadow_clock>.5:
+		shadow_clock=0
+		update_near_shadows()
 	camera_initialized = true
 	camera.fov = lerpf(camera.fov,65+clampf(vehicle.speed/100,0,1)*7,1-exp(-3*dt))
 	hud.text = "%03d  KM/H     %d\n%s    LAP %d    %02d:%05.2f" % [vehicle.speed*3.6,vehicle.gear,str(circuit.name).to_upper(),vehicle.lap+1,int(vehicle.lap_clock/60),fmod(vehicle.lap_clock,60)]
+	hud.visible=not menu.visible and not ui.home.visible
 	if vehicle.pit_active: hud.text += "    PIT LANE"
 	elif vehicle.pit_requested: hud.text += "    BOX THIS LAP"
+	ui.timing.text=director.timing_text() if director else online_director.timing_text() if online_director else ""
+	if director:
+		if qa_mode: race_physics_samples.append(director.physics_ms)
+		if director.model.phase.ends_with("result") and not paused and not qa_mode: set_paused(true)
+		if director.model.phase=="qualifying" and not director.model.drivers[0].active:
+			# Eliminated player can advance the remaining AI qualifying without waiting in real time.
+			for step in 12: director.model.update(1.0/30)
 	if qa_mode:
 		qa_clock += dt
 		if qa_drive:
@@ -387,7 +413,7 @@ func _process(dt: float) -> void:
 		var tick := Time.get_ticks_usec()
 		if qa_clock>3 and previous_tick>0: frames.append((tick-previous_tick)/1000.0)
 		previous_tick = tick
-		if qa_clock>12:
+		if qa_clock>qa_seconds or qa_complete_race and director and director.model.phase=="race_result":
 			qa_mode = false
 			await RenderingServer.frame_post_draw
 			for node in world.get_children():
@@ -402,7 +428,10 @@ func _process(dt: float) -> void:
 			image.save_png(qa_output+"/native-"+active_id+".png")
 			frames.sort()
 			var report := {"circuit":active_id,"renderer":RenderingServer.get_current_rendering_method(),"device":RenderingServer.get_video_adapter_name(),"frames":frames.size(),"medianMs":frames[frames.size()/2],"p95Ms":frames[int(frames.size()*.95)],"drawCalls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),"primitives":Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)}
+			report["race"]={"enabled":qa_race,"phase":director.model.phase if director else "practice","drivers":director.model.drivers.size() if director else 1,"physicsMeanMs":0.0 if race_physics_samples.is_empty() else race_physics_samples.reduce(func(a,b):return a+b,0.0)/race_physics_samples.size(),"elapsedSeconds":qa_clock,"finiteDrivers":director.model.drivers.all(func(d):return director.model.pose(d).position.is_finite()) if director else true}
+			report["visuals"]={"roadMaterials":visual_upgrade.road_count,"facades":visual_upgrade.facade_count,"water":visual_upgrade.waters,"wet":visual_upgrade.wetness}
 			report["restoredInstances"] = restored_instances
+			report["home"]={"enabled":qa_home,"playing":ui.home.video.is_playing(),"position":ui.home.video.stream_position,"render3DDisabled":viewport.disable_3d}
 			report["instanceErrors"] = instance_errors
 			report["inputSmoke"] = {"enabled":qa_drive,"peakKmh":qa_peak_speed*3.6,"finitePosition":vehicle.position.is_finite()}
 			var file := FileAccess.open(qa_output+"/native-"+active_id+".json",FileAccess.WRITE)
@@ -415,10 +444,108 @@ func _unhandled_input(event: InputEvent) -> void:
 		match event.physical_keycode:
 			KEY_ESCAPE: set_paused(not paused)
 			KEY_C: camera_mode = (camera_mode+1)%3
-			KEY_R: if vehicle: vehicle.reset_at(vehicle.idx)
-			KEY_P: if vehicle: vehicle.pit_requested = not vehicle.pit_requested
+			KEY_R: recover_vehicle()
+			KEY_P: request_pit()
+			KEY_T: cycle_tyre()
 			KEY_F11: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if DisplayServer.window_get_mode()!=DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_WINDOWED)
 	if event is InputEventJoypadButton and event.pressed:
 		if event.button_index==JOY_BUTTON_START: set_paused(not paused)
 		if event.button_index==JOY_BUTTON_Y: camera_mode = (camera_mode+1)%3
-		if event.button_index==JOY_BUTTON_BACK and vehicle: vehicle.reset_at(vehicle.idx)
+		if event.button_index==JOY_BUTTON_BACK: recover_vehicle()
+		if event.button_index==JOY_BUTTON_X: request_pit()
+		if event.button_index==JOY_BUTTON_RIGHT_SHOULDER: cycle_tyre()
+
+func create_session(autopilot: bool = false) -> void:
+	if director: director.free(); director=null
+	if ui.mode.selected==0: return
+	director=load("res://scripts/race_director.gd").new()
+	director.qa_autopilot=autopilot
+	add_child(director)
+	var options:Dictionary=ui.options()
+	if autopilot: options.difficulty=3; options.laps=1; options.two_compounds=false
+	director.configure(vehicle,circuit,pits[active_id],options,"weekend" if ui.mode.selected==2 else "race")
+	director.model.surface_grip=.74 if ui.weather.selected==1 else 1.0
+	camera_initialized=false
+
+func start_or_resume() -> void:
+	if not loaded: return
+	if pending_new_session: new_session(); return
+	if not online_mode:
+		if not director: create_session()
+		if director: director.resume()
+	set_paused(false)
+
+func new_session() -> void:
+	if not loaded: return
+	pending_new_session=false
+	leave_online()
+	if director: director.free(); director=null
+	vehicle.reset_at(0); vehicle.lap=0; vehicle.lap_clock=0; vehicle.lap_distance=0; vehicle.best_lap=INF
+	create_session()
+	if director: director.resume()
+	set_paused(false)
+
+func recover_vehicle() -> void:
+	if not loaded: return
+	if director: director.recover()
+	elif online_mode:
+		if network.room.get("phase","")=="race": network.command("reset"); vehicle.reset_at(vehicle.idx)
+	else: vehicle.reset_at(vehicle.idx)
+
+func request_pit() -> void:
+	if not loaded or paused: return
+	if director: director.request_pit()
+	elif not online_mode: vehicle.pit_requested=not vehicle.pit_requested
+
+func cycle_tyre() -> void:
+	if director:
+		var types: Array=["hard","medium","soft"]
+		director.next_tyre=types[(types.find(director.next_tyre)+1)%3]
+
+func apply_weather(value: int) -> void:
+	if online_mode: value=0
+	if visual_upgrade: visual_upgrade.set_weather(float(value))
+	if vehicle: vehicle.grip_multiplier=.74 if value==1 else 1.0
+	if director: director.model.surface_grip=.74 if value==1 else 1.0
+	environment.fog_density=.0006 if value==1 else .00016
+	environment.volumetric_fog_density=.0015 if value==1 else .0004
+
+func update_near_shadows() -> void:
+	if not floodlights or not floodlights.visible: return
+	var all_lights: Array=native_lights.duplicate()
+	all_lights.append_array(floodlights.lamps)
+	all_lights.sort_custom(func(a,b):return a.position.distance_squared_to(vehicle.position)<b.position.distance_squared_to(vehicle.position))
+	for i in all_lights.size():
+		all_lights[i].shadow_enabled=i<([1,2,4][quality])
+		all_lights[i].shadow_bias=.025
+
+func join_online() -> void:
+	if director: director.free(); director=null
+	online_mode=true
+	ui.weather.select(0); ui.weather.disabled=true
+	apply_weather(0)
+	circuit_select.disabled=true
+
+func leave_online() -> void:
+	network.disconnect_room()
+	online_mode=false
+	if online_director: online_director.free(); online_director=null
+	circuit_select.disabled=false; ui.weather.disabled=false
+
+func receive_online(data: Dictionary) -> void:
+	if not online_mode: return
+	var room: Dictionary=data.room
+	ui.code.text=room.code
+	if room.circuit!=active_id:
+		for i in circuit_select.item_count:
+			if circuit_select.get_item_metadata(i)==room.circuit: circuit_select.select(i)
+		load_circuit(room.circuit)
+	elif loaded and not online_director: setup_online_director()
+	if room.phase in ["count","race"] and loaded and paused: set_paused(false)
+	if room.phase=="results" and loaded and not paused: set_paused(true)
+
+func setup_online_director() -> void:
+	if online_director: online_director.free()
+	online_director=load("res://scripts/online_director.gd").new()
+	add_child(online_director)
+	online_director.configure(network,vehicle,circuit)

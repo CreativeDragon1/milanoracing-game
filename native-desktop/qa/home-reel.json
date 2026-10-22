@@ -1,0 +1,19 @@
+{
+  "source": "Recorded from the native Vulkan game at 60 FPS, scripted race-line cameras, original MR 26 model and V10 layers",
+  "circuits": [
+    "monza",
+    "singapore",
+    "spa",
+    "milano"
+  ],
+  "seconds": 17.4,
+  "fps": 30,
+  "resolution": [
+    1280,
+    720
+  ],
+  "transitions": "0.65 second cross dissolves, matching audio fades, seamless cyclic overlap",
+  "bytes": 37404257,
+  "sha256": "afa382aae4de5cafc101e0bf11ee0b8d4de35bcc613cc3db73881e9bfd7e207e",
+  "decodePassed": true
+}

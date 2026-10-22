@@ -26,7 +26,9 @@ assert (G / 'circuits/monaco.scn').is_file(), 'Use the complete prepared source 
 run('--editor', '--import', attempts=3)
 subprocess.run([sys.executable, str(N / 'tools/texture-imports.py')], check=True)
 run('--editor', '--import', attempts=3)
-if '--test' in sys.argv: run('--script', 'scripts/test_vehicle.gd')
+if '--test' in sys.argv:
+    run('--script', 'scripts/test_vehicle.gd')
+    run('--script', 'scripts/test_race.gd')
 run('--export-release', 'Windows Native')
 for name in ['Milano Racing Native.exe', 'Milano Racing Native.pck']:
     assert (N / 'build' / name).stat().st_size > 1_000_000, name

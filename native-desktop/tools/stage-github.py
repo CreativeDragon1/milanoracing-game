@@ -15,17 +15,27 @@ with zipfile.ZipFile(archive) as z:
         if item.is_dir():out.mkdir(parents=True,exist_ok=True);continue
         assert item.file_size<100*1024*1024,(rel,item.file_size)
         out.parent.mkdir(parents=True,exist_ok=True);out.write_bytes(z.read(item))
+# These previous practice-only reports are superseded by the versioned packaged
+# race suite. Keep evidence for this release together, without stale snapshots.
+obsolete=['native-'+ident+'.json' for ident in ['bahrain','singapore','monza','monaco','austria','silverstone','abu-dhabi','milano','spa','suzuka','interlagos','zandvoort']]+['rendering.json']
+for name in obsolete:
+    path=(target/'qa'/name).resolve()
+    assert path.is_relative_to(target/'qa')
+    path.unlink(missing_ok=True)
+attributes=repo/'.gitattributes'
+rules=attributes.read_text()
+if '*.ogv binary' not in rules:attributes.write_text(rules+'\n*.ogv binary\n',encoding='utf-8')
 readme=repo/'README.md';text=readme.read_text(encoding='utf-8')
-marker='\n## Independent native desktop preview\n'
-if marker in text:text=text.split(marker)[0]
-text+=marker+'''
-`native-desktop` is a new Godot 4.7.2 Forward+/Vulkan game runtime, without Electron or a browser. It reuses the researched circuit assets and MR 26 artwork, with native materials, shadows, post-processing, vegetation LODs, controls, cameras and pit service. All twelve circuits are included as prepared native scenes for reproducible builds.
+for marker in ['\n## Independent native desktop preview\n','\n## Native desktop\n']:
+    if marker in text:text=text.split(marker)[0]
+text+='\n## Native desktop\n'+'''
+`native-desktop` is the independent Godot 4.7.2 Forward+/Vulkan game. Version 0.2 adds 22-car races, staged qualifying, tyre strategy, assisted pit stops, private-server online rooms and a recorded cinematic home screen. It includes all twelve prepared circuits and the original MR 26 artwork. Native wet-road and facade shaders, rain, spray, local shadows and graphics presets extend the desktop renderer.
 
-This is a **practice preview**, not the full desktop replacement. Native qualifying, AI races and multiplayer are not implemented yet. The compatibility game above retains those modes. The native preview also has not yet met the supplied commercial-game visual benchmark or survey-exact placement standard.
+The home screen uses a four-shot sequence recorded inside the native game, with smooth transitions and Milano branding. Circuit rendering is suspended during menu playback to reduce GPU work. The new interface separates race selection, setup and online rooms.
 
-See [native build and controls](native-desktop/README.md), [measured validation](native-desktop/docs/VALIDATION.md) and [accuracy limits](native-desktop/docs/ACCURACY.md). Prepared source assets are included; Godot's engine binaries and export templates are downloaded by the pinned, hash-checked bootstrap script. The local Windows download packages are separate from the source repository. Nothing in this update deploys the private game website.
+See [build and controls](native-desktop/README.md), [measured validation](native-desktop/docs/VALIDATION.md) and [accuracy boundaries](native-desktop/docs/ACCURACY.md). The circuits remain researched reconstructions; the supplied commercial-game reference quality and exact surveyed placement have not been achieved. Native online was verified with two clients on a private local server, not across the public Internet.
 
-The accompanying compatibility update repairs pit transitions and overlapping surfaces across all twelve venues, adds textured gravel and mapped runoff treatment, and fits all six sponsor logos without stretching. [Validation and references](upgrade/docs/Validation.html) describe the checks and source selection.
+Prepared assets and menu footage are included. The pinned bootstrap downloads and verifies the official engine and export templates. Local Windows ZIPs are separate from this source repository. This update does not deploy the private game website or change its access controls.
 '''
 readme.write_text(text,encoding='utf-8')
 print('Staged verified native source snapshot in',target)

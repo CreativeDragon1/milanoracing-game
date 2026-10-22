@@ -100,12 +100,12 @@ Circuit widths use historical satellite-derived boundaries and map estimates. Mo
 
 This commit uploads the game and source to GitHub. It does not deploy the website, enable GitHub Pages or change the server's private-access defaults. The repository itself is public.
 
-## Independent native desktop preview
+## Native desktop
 
-`native-desktop` is a new Godot 4.7.2 Forward+/Vulkan game runtime, without Electron or a browser. It reuses the researched circuit assets and MR 26 artwork, with native materials, shadows, post-processing, vegetation LODs, controls, cameras and pit service. All twelve circuits are included as prepared native scenes for reproducible builds.
+`native-desktop` is the independent Godot 4.7.2 Forward+/Vulkan game. Version 0.2 adds 22-car races, staged qualifying, tyre strategy, assisted pit stops, private-server online rooms and a recorded cinematic home screen. It includes all twelve prepared circuits and the original MR 26 artwork. Native wet-road and facade shaders, rain, spray, local shadows and graphics presets extend the desktop renderer.
 
-This is a **practice preview**, not the full desktop replacement. Native qualifying, AI races and multiplayer are not implemented yet. The compatibility game above retains those modes. The native preview also has not yet met the supplied commercial-game visual benchmark or survey-exact placement standard.
+The home screen uses a four-shot sequence recorded inside the native game, with smooth transitions and Milano branding. Circuit rendering is suspended during menu playback to reduce GPU work. The new interface separates race selection, setup and online rooms.
 
-See [native build and controls](native-desktop/README.md), [measured validation](native-desktop/docs/VALIDATION.md) and [accuracy limits](native-desktop/docs/ACCURACY.md). Prepared source assets are included; Godot's engine binaries and export templates are downloaded by the pinned, hash-checked bootstrap script. The local Windows download packages are separate from the source repository. Nothing in this update deploys the private game website.
+See [build and controls](native-desktop/README.md), [measured validation](native-desktop/docs/VALIDATION.md) and [accuracy boundaries](native-desktop/docs/ACCURACY.md). The circuits remain researched reconstructions; the supplied commercial-game reference quality and exact surveyed placement have not been achieved. Native online was verified with two clients on a private local server, not across the public Internet.
 
-The accompanying compatibility update repairs pit transitions and overlapping surfaces across all twelve venues, adds textured gravel and mapped runoff treatment, and fits all six sponsor logos without stretching. [Validation and references](upgrade/docs/Validation.html) describe the checks and source selection.
+Prepared assets and menu footage are included. The pinned bootstrap downloads and verifies the official engine and export templates. Local Windows ZIPs are separate from this source repository. This update does not deploy the private game website or change its access controls.

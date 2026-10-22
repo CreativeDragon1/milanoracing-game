@@ -15,6 +15,9 @@ func key(code: Key, pressed: bool) -> void:
 	Input.flush_buffered_events()
 func _initialize() -> void:
 	call_deferred("run")
+func axis(which:JoyAxis,value:float) -> void:
+	var event:=InputEventJoypadMotion.new(); event.device=15; event.axis=which; event.axis_value=value
+	Input.parse_input_event(event); Input.flush_buffered_events()
 func run() -> void:
 	var tracks: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/physics.json"))
 	var pits: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/pits.json"))
@@ -61,7 +64,21 @@ func run() -> void:
 		check(car.position.distance_to(Vector3(pits[id].x[-1],pits[id].y[-1]+.045,pits[id].z[-1]))<.1,id+" continuous pit rejoin")
 		reports.append({"id":id,"pitSeconds":count/120.0})
 		car.free()
-	var report := {"checks":checks,"circuits":reports,"passed":failures.is_empty(),"failures":failures,"scope":"Software-injected native keyboard input and complete assisted pit traversals; not hardware-controller or real-car validation"}
+	var pad_car=load("res://scripts/vehicle.gd").new(); root.add_child(pad_car)
+	pad_car.configure(tracks.monza,pits.monza); pad_car.set_physics_process(false); pad_car.enabled=true; pad_car.controller_device=15
+	axis(JOY_AXIS_LEFT_X,.1); pad_car._physics_process(1.0/120)
+	check(absf(pad_car.steering)<.001,"controller deadzone rejects drift")
+	axis(JOY_AXIS_TRIGGER_RIGHT,1)
+	for step in 240: pad_car._physics_process(1.0/120)
+	check(pad_car.speed>15,"controller trigger accelerates")
+	axis(JOY_AXIS_LEFT_X,.5)
+	for step in 20: pad_car._physics_process(1.0/120)
+	check(pad_car.steering>.1 and pad_car.steering<.5,"controller curved progressive steering")
+	axis(JOY_AXIS_LEFT_X,0); axis(JOY_AXIS_TRIGGER_RIGHT,0); axis(JOY_AXIS_TRIGGER_LEFT,1)
+	for step in 240: pad_car._physics_process(1.0/120)
+	check(pad_car.speed<1,"controller trigger brakes")
+	pad_car.free()
+	var report := {"checks":checks,"circuits":reports,"passed":failures.is_empty(),"failures":failures,"scope":"Software-injected keyboard and gamepad inputs and complete assisted pit traversals; not physical-controller or real-car validation"}
 	var file := FileAccess.open("res://../qa/vehicle.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"\t"))
 	print("NATIVE_PHYSICS ",JSON.stringify(report))

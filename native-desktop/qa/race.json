@@ -1,0 +1,68 @@
+{
+	"checks": 92053,
+	"failures": [],
+	"passed": true,
+	"races": [
+		{
+			"circuit": "bahrain",
+			"seconds": 117.866666666663,
+			"steps": 3717
+		},
+		{
+			"circuit": "singapore",
+			"seconds": 124.399999999996,
+			"steps": 3913
+		},
+		{
+			"circuit": "monza",
+			"seconds": 109.399999999996,
+			"steps": 3463
+		},
+		{
+			"circuit": "monaco",
+			"seconds": 112.23333333333,
+			"steps": 3548
+		},
+		{
+			"circuit": "austria",
+			"seconds": 90.5333333333308,
+			"steps": 2897
+		},
+		{
+			"circuit": "silverstone",
+			"seconds": 112.33333333333,
+			"steps": 3551
+		},
+		{
+			"circuit": "abu-dhabi",
+			"seconds": 116.366666666663,
+			"steps": 3672
+		},
+		{
+			"circuit": "milano",
+			"seconds": 101.03333333333,
+			"steps": 3212
+		},
+		{
+			"circuit": "spa",
+			"seconds": 133.166666666662,
+			"steps": 4176
+		},
+		{
+			"circuit": "suzuka",
+			"seconds": 119.766666666662,
+			"steps": 3774
+		},
+		{
+			"circuit": "interlagos",
+			"seconds": 94.9333333333305,
+			"steps": 3029
+		},
+		{
+			"circuit": "zandvoort",
+			"seconds": 95.2666666666638,
+			"steps": 3039
+		}
+	],
+	"scope": "Deterministic 22-car all-circuit races, qualifying progression, tyre strategy, and timing guards; not human driving or online latency validation."
+}

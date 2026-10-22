@@ -1,0 +1,6 @@
+{
+	"checks": 7,
+	"failures": [],
+	"passed": true,
+	"scope": "Two native WebSocket clients on a private-password loopback Python server: login, room, ready, countdown, snapshots, reconnect and server recovery penalty. No public deployment or WAN latency test."
+}

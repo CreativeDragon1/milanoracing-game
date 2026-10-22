@@ -1,5 +1,5 @@
 {
-	"checks": 77907,
+	"checks": 77911,
 	"circuits": [
 		{
 			"id": "bahrain",
@@ -52,5 +52,5 @@
 	],
 	"failures": [],
 	"passed": true,
-	"scope": "Software-injected native keyboard input and complete assisted pit traversals; not hardware-controller or real-car validation"
+	"scope": "Software-injected keyboard and gamepad inputs and complete assisted pit traversals; not physical-controller or real-car validation"
 }

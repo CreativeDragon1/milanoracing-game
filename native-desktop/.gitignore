@@ -12,3 +12,5 @@ tools/_sc_
 packages/
 qa/*.log
 **/__pycache__/
+capture/
+verification/

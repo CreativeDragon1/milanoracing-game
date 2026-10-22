@@ -18,3 +18,8 @@ upgrade/assets/fonts/*.txt -whitespace
 native-desktop/licenses/** -whitespace
 *.scn binary
 *.dat binary
+
+*.ogv binary
+*.gd text eol=lf
+*.gdshader text eol=lf
+*.uid text eol=lf

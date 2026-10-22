@@ -30,6 +30,11 @@ var wheel_parts: Array[MeshInstance3D] = []
 var wheel_angle := 0.0
 var pit_entry_pose := Vector3.ZERO
 var pit_entry_heading := 0.0
+var grip_multiplier := 1.0
+var brake_assist := false
+var assist_target := 105.0
+var steering_strength := 1.0
+var controller_device := -1
 
 func configure(track: Dictionary, pit_data: Dictionary) -> void:
 	circuit = track
@@ -107,13 +112,17 @@ func _physics_process(dt: float) -> void:
 	var gas_target := float(Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_UP))
 	var brake_target := float(Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_SPACE))
 	var keyboard := true
-	if pad.size():
-		var axis := Input.get_joy_axis(pad[0],JOY_AXIS_LEFT_X)
+	if pad.size() or controller_device>=0:
+		var device:int=controller_device if controller_device>=0 else pad[0]
+		var axis := Input.get_joy_axis(device,JOY_AXIS_LEFT_X)
 		if absf(axis)>.12 and steer_target==0:
 			steer_target = signf(axis)*pow((absf(axis)-.12)/.88,1.4)
 			keyboard = false
-		gas_target = maxf(gas_target,Input.get_joy_axis(pad[0],JOY_AXIS_TRIGGER_RIGHT))
-		brake_target = maxf(brake_target,Input.get_joy_axis(pad[0],JOY_AXIS_TRIGGER_LEFT))
+		gas_target = maxf(gas_target,Input.get_joy_axis(device,JOY_AXIS_TRIGGER_RIGHT))
+		brake_target = maxf(brake_target,Input.get_joy_axis(device,JOY_AXIS_TRIGGER_LEFT))
+	if brake_assist and speed>assist_target+2:
+		brake_target=maxf(brake_target,clampf((speed-assist_target-2)/12,0,.75))
+		gas_target=minf(gas_target,1-brake_target)
 	throttle = move_toward(throttle,gas_target,dt*(5 if gas_target>throttle else 12))
 	brake = move_toward(brake,brake_target,dt*14)
 	var rate := (13.0 if absf(steer_target)<.015 else 7.5-clampf(speed/90,0,1)*1.5) if keyboard else 16.0
@@ -121,13 +130,13 @@ func _physics_process(dt: float) -> void:
 	var edge: float = circuit.widthRight[idx] if lateral>=0 else circuit.widthLeft[idx]
 	var off := clampf((absf(lateral)-edge-1.1)/1.8,0,1)
 	var mass := 800.0
-	var mu := 2.0*(1-off*.27)
+	var mu := 2.0*(1-off*.27)*grip_multiplier
 	var downforce := 2.6*1.2*speed*speed
 	var load := mass*9.81+downforce
 	var max_lat := minf(60,mu*load/mass)
 	# Full low-speed steering, progressively limited at speed by the tyre envelope.
 	var lock := minf(.50,atan(max_lat*3.0/maxf(speed*speed,12.0)))*.92
-	var angle := steering*lock
+	var angle := steering*lock*steering_strength
 	var front_load := load*.46
 	var rear_load := load-front_load
 	var fy_front := -mu*front_load*tanh((atan2(side_speed+1.6*yaw_rate,maxf(speed,4))-angle)*14)
@@ -179,9 +188,7 @@ func _physics_process(dt: float) -> void:
 	while gear<6 and speed>tops[gear-1]: gear += 1
 	while gear>1 and speed<tops[gear-2]*.87: gear -= 1
 	rpm = clampf(18000*speed/tops[gear-1],4500,18000)
-	wheel_angle -= speed*dt/.373
-	for wheel in wheel_parts:
-		wheel.rotation = Vector3(0,-angle if wheel.position.x>0 else 0,wheel_angle)
+	animate_wheels(dt,angle)
 	if pit_requested and absi(idx-int(pit.entry))<3:
 		pit_active = true
 		pit_s = 0
@@ -189,6 +196,11 @@ func _physics_process(dt: float) -> void:
 		pit_entry_pose = position
 		pit_entry_heading = heading
 	if not is_finite(position.x+position.z+speed+heading): reset_at(idx)
+
+func animate_wheels(dt: float,angle: float) -> void:
+	wheel_angle=fposmod(wheel_angle-speed*dt/.373,TAU)
+	for wheel in wheel_parts:
+		wheel.rotation=Vector3(0,-angle if wheel.position.x>0 else 0,wheel_angle)
 
 func step_pit(dt: float) -> void:
 	var old_idx := idx
@@ -214,6 +226,7 @@ func step_pit(dt: float) -> void:
 	rotation = Vector3(0,-heading,atan(lerpf(pit.grade[k],pit.grade[k+1],t)))
 	idx = posmod(roundi(lerpf(pit.station[k],pit.station[k+1],t)),int(circuit.N))
 	lap_clock += dt
+	animate_wheels(dt,0)
 	lap_distance += speed*dt
 	distance += speed*dt
 	if old_idx>int(circuit.N)*.9 and idx<int(circuit.N)*.1 and lap_distance>float(circuit.length)*.8:

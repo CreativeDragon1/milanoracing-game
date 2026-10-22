@@ -1,0 +1,6 @@
+{
+	"checks": 14,
+	"failures": [],
+	"passed": true,
+	"scope": "Native Vulkan UI button-signal integration: cinematic playback, render suspension, race launch, lights, pit request, garage, new qualifying, grid progression, return home, practice and circuit reload."
+}

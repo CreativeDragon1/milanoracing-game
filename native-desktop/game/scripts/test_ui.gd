@@ -1,0 +1,49 @@
+extends SceneTree
+var failures:Array[String]=[]
+var checks:=0
+func check(value:bool,message:String) -> void:
+	checks+=1
+	if not value: failures.append(message); push_error(message)
+func _initialize() -> void: call_deferred("run")
+func run() -> void:
+	var game=load("res://main.tscn").instantiate()
+	game.qa_mode=true; game.qa_home=true; game.qa_seconds=180
+	root.add_child(game)
+	while not game.loaded: await process_frame
+	await create_timer(3).timeout
+	check(game.ui.home.video.is_playing(),"home movie plays")
+	check(game.viewport.disable_3d,"home pauses 3D rendering")
+	game.ui.home.choose(1)
+	check(game.menu.visible and not game.ui.home.hero.visible,"race opens setup")
+	game.ui.drive.pressed.emit()
+	await process_frame
+	check(not game.paused and game.director.model.phase=="countdown","drive starts race countdown")
+	check(not game.viewport.disable_3d and not game.ui.home.visible,"starting race restores 3D and hides home")
+	await create_timer(6.2).timeout
+	check(game.director.model.phase=="race" and game.vehicle.enabled,"lights release player input")
+	game.request_pit(); check(game.director.model.drivers[0].requested,"pit button requests service")
+	game.cycle_tyre(); check(game.director.next_tyre=="medium","pit compound can be selected")
+	game.set_paused(true)
+	await physics_frame
+	check(game.menu.visible and not game.vehicle.enabled,"garage pauses local race")
+	game.ui.home.open_home(); game.ui.home.choose(2); game.ui.drive.pressed.emit()
+	await process_frame
+	check(game.director.model.phase=="qualifying","new Grand Prix starts qualifying")
+	game.director.model.end_qualifying(); game.set_paused(true); game.ui.drive.pressed.emit()
+	check(game.director.model.phase=="countdown","qualifying results advance to race")
+	game.set_paused(true); game.ui.home.open_home()
+	await create_timer(.2).timeout
+	check(game.ui.home.visible and not game.menu.visible,"home remains accessible from garage")
+	game.ui.mode.select(0); game.ui.restart.pressed.emit()
+	await process_frame
+	check(game.director==null and game.vehicle.enabled,"new practice clears race state")
+	game.load_circuit("singapore")
+	while not game.loaded: await process_frame
+	check(game.active_id=="singapore" and is_instance_valid(game.vehicle),"circuit reload replaces race assets")
+	game.set_paused(true); game.ui.home.open_home()
+	await create_timer(1).timeout
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png("res://../qa/home-ui.png")
+	var report:={"passed":failures.is_empty(),"checks":checks,"failures":failures,"scope":"Native Vulkan UI button-signal integration: cinematic playback, render suspension, race launch, lights, pit request, garage, new qualifying, grid progression, return home, practice and circuit reload."}
+	var file:=FileAccess.open("res://../qa/ui.json",FileAccess.WRITE); file.store_string(JSON.stringify(report,"\t")); file.close()
+	print("NATIVE_UI_TEST ",JSON.stringify(report)); quit(0 if failures.is_empty() else 1)

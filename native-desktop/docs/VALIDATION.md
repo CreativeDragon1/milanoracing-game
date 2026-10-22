@@ -1,46 +1,72 @@
-# Native desktop validation
+# Native desktop 0.2 validation
 
-The Windows preview is built with Godot 4.7.2 Forward+. All twelve circuits were launched from the exported executable and resource pack on an NVIDIA GeForce RTX 3050 6 GB Laptop GPU. No script or engine errors were reported by those final runs. Runtime readback confirmed the stored instanced geometry transforms on every circuit.
+The final Windows executable and resource pack were tested on an NVIDIA GeForce RTX 3050 6 GB Laptop GPU with Godot 4.7.2 Forward+/Vulkan. All twelve circuits completed the final packaged moving-grid samples without script or engine errors. Runtime readback verified stored static instance transforms, and all 22 drivers had finite positions.
 
-## Render sample
+## Packaged moving-grid samples
 
-Exported Windows executable. Stationary driving view, 3 second warmup, 9 second sample, High preset, 1440x810 window, 144 FPS cap. Not a full-race benchmark.
+Exported Windows executable, 22-car moving grid with deterministic Elite QA driver. First 45 seconds per circuit, 3 second warmup, High preset, 1440x810 window, 144 FPS cap. Partial-lap samples, not minimum-FPS or other-hardware guarantees.
 
-| Circuit | Median frame ms | 95th percentile ms | Verified static instances |
+| Circuit | Median frame ms | 95th percentile ms | Mean race-model CPU ms |
 |---|---:|---:|---:|
-| bahrain | 8.45 | 12.62 | 110,468 |
-| singapore | 11.23 | 20.02 | 134,373 |
-| monza | 18.24 | 25.68 | 85,130 |
-| monaco | 6.98 | 8.27 | 122,410 |
-| austria | 13.48 | 20.82 | 85,926 |
-| silverstone | 7.51 | 11.47 | 146,828 |
-| abu-dhabi | 6.99 | 11.25 | 122,454 |
-| milano | 7.63 | 10.61 | 44,339 |
-| spa | 18.88 | 24.86 | 45,634 |
-| suzuka | 10.28 | 13.51 | 56,659 |
-| interlagos | 7.52 | 10.82 | 71,613 |
-| zandvoort | 7.08 | 9.94 | 15,262 |
+| bahrain | 6.96 | 8.33 | 1.12 |
+| singapore | 7.18 | 10.65 | 1.13 |
+| monza | 12.07 | 22.99 | 1.23 |
+| monaco | 9.83 | 12.23 | 1.29 |
+| austria | 8.10 | 9.12 | 1.32 |
+| silverstone | 7.66 | 10.83 | 1.36 |
+| abu-dhabi | 7.42 | 9.23 | 1.34 |
+| milano | 7.14 | 9.58 | 1.31 |
+| spa | 8.38 | 11.77 | 1.39 |
+| suzuka | 8.00 | 10.67 | 1.29 |
+| interlagos | 8.13 | 10.68 | 1.39 |
+| zandvoort | 7.18 | 9.06 | 1.42 |
 
-These measurements include rendering, frame pacing and the frame cap. They do not measure unlimited throughput, minimum FPS, a moving full-grid race or other computers. Shader compilation, camera movement, temperature and other applications can change performance. No cross-engine speed comparison is claimed.
+These are frame-time samples including pacing and the frame cap, not unlimited throughput or minimum-FPS guarantees. A percentile does not capture every worst frame. The QA driver follows the model's optimized line; it is not a human driving the vehicle. Asset loading is outside the frame sample. Other GPUs, temperatures, background applications and camera positions can change results. Ultra is materially more expensive than High and is not the default.
 
-## Controls and pits
+## Longer packaged checks
 
-The native vehicle/pit suite passed 77,907 checks, with no reported failures. It injects keyboard input, checks progressive steering and centering, accelerates and brakes, and traverses every assisted pit route through service and rejoining. Four rotating wheel parts were identified. The exported executable separately responded to injected keyboard acceleration and produced finite vehicle coordinates. This is software-input verification, not physical Bluetooth/controller testing or real-car correlation.
+| Mode | Runtime seconds | Median frame ms | 95th percentile ms |
+|---|---:|---:|---:|
+| full-monaco | 118.6 | 9.78 | 12.91 |
+| full-spa | 138.7 | 9.10 | 19.40 |
+| rain | 35.0 | 7.72 | 10.88 |
+| home | 24.0 | 6.94 | 7.00 |
 
-## Geometry checks
+The Monaco and Spa runs continued through a complete one-lap 22-car race to results. The Singapore run exercised rain and wet materials. The home run exceeded the reel's duration, verified playback after looping, and confirmed 3D rendering was suspended. These are targeted regressions, not a claim that every rendering defect or gameplay bug is absent.
 
-The conversion preserves original MR 26 geometry and artwork. Native instance metadata is kept on the CPU because headless conversion cannot reliably retain GPU instance state. It is uploaded on scene attachment and checked after rendering. This fixed missing windows, railings and fixtures.
+## Simulation, controls and UI
 
-Trees retain their original X/Z positions. Roots were checked against authored ground triangles; peripheral trees with no ground beneath them were omitted from the native preview. This prevents unsupported vegetation outside the actual terrain mesh. Existing source references, inferred dimensions and imagery dates are described in [ACCURACY.md](ACCURACY.md).
+- Race model: 92,053 checks passed. Complete deterministic races on twelve circuits, finite positions, qualifying progression, tyre strategy, pit queues, timing and teleport guards. Full qualifying clock settings are checked; expiry is accelerated in the progression tests.
+- Vehicle and pits: 77,911 checks passed. Injected keyboard and gamepad axes, acceleration, braking, progressive steering, centering and complete assisted pit routes on all twelve circuits. All four original wheel parts rotate. The exported executable separately passed the injected-keyboard smoke test.
+- Native UI: 14 integration checks passed. Footage playback, rendering suspension, race launch, five-light countdown, pit request, tyre choice, pause, new qualifying, grid continuation, practice cleanup and circuit reload were exercised using native button signals.
+- Online: 7 integration checks passed against a temporary private-password loopback Python server. Two native clients logged in, created/joined/readied a room, agreed on the countdown, received state, resumed identity after reconnect and received a server recovery penalty.
 
-## Remaining work
+Software input is not physical Bluetooth/controller verification. Loopback checks do not establish WAN behaviour, cross-platform interoperability or public-server capacity. The existing server remains Python/aiohttp; no public deployment or access-policy change occurred.
 
-The source archive was extracted into a fresh folder and imported without the original Godot cache. The first editor import exited during font processing; the second completed and the extracted source passed all 77,907 vehicle/pit assertions. The build script now retries interrupted editor imports up to three times, retains logs and stops immediately on script errors. The underlying first-import engine issue has not been independently diagnosed.
+## Cinematic home screen
 
-The native project is practice-only. Native race opponents, qualifying, race rules and online multiplayer are not implemented yet. The original compatibility game retains those modes. The native preview does not yet meet the supplied commercial-game image benchmark: facade detail, landscape assets, lighting, cockpit presentation and real-venue placement need further authored and surveyed data. Rendering features and passing tests do not establish that every location is exact or every visual defect is absent.
+Four unique native-game shots cover Monza, Singapore, Spa and Milano. Recorded at 60 FPS with scripted cameras, assembled with 0.65-second video and audio crossfades, then delivered as a 17.4-second 1280 x 720, 30 FPS Theora loop. FFmpeg decoded both the preview MP4 and shipping OGV without decode errors. Native playback passed across the loop boundary. Menu playback pauses on focus loss and reduced motion; a warmed home screen suspends circuit rendering.
 
-Engine source: [Godot renderers](https://docs.godotengine.org/en/stable/tutorials/rendering/renderers.html), [native instance colour requirements](https://docs.godotengine.org/en/stable/classes/class_multimesh.html). Asset licences are included under `licenses`.
+Godot MovieWriter reported ObjectDB leak warnings on shutdown during offline captures. The generated clips completed and decoded; normal runtime and final packaged checks did not report that warning. This capture-only shutdown issue remains recorded rather than being called fixed.
 
-Executable SHA-256: `9e238ce618e459c31ce5faa1b4a4874b7237e7260b5fd2a73a290f66efeabfa4`
+Reel SHA-256: `afa382aae4de5cafc101e0bf11ee0b8d4de35bcc613cc3db73881e9bfd7e207e`
 
-Resource pack SHA-256: `6570269df34fe306a9f054b55800e147c5bb430f5422ec2da0a94d6d4657ff19`
+## Geometry and remaining limits
+
+The conversion preserves original MR 26 geometry, artwork and source circuit coordinates. Instance metadata is retained on the CPU and uploaded after scene attachment, avoiding lost GPU instance transforms during headless conversion. Tree roots are grounded to authored triangles; unsupported peripheral vegetation was excluded. Native runtime metadata maps every source object, including duplicate-named tiles, to its intended road/facade material.
+
+The venues remain researched reconstructions with inferred dimensions and mixed imagery dates. No new survey data or commercially detailed cockpit was added in this release. This build does not meet the supplied commercial-game reference images or every-detail placement standard. See [ACCURACY.md](ACCURACY.md).
+
+The sporting model includes selected qualifying, race, tyre and pit procedures. It does not include safety cars, red flags, damage, fuel, ERS, DRS or a complete wet-tyre ruleset. Online uses ghost cars and its existing casual server rules.
+
+First-time editor imports have occasionally exited during font processing on this workstation. The build retries interrupted imports up to three times, keeps logs, and stops immediately on script errors. The underlying engine/import issue has not been independently diagnosed.
+
+## Reproduction and sources
+
+`verify-packaged.py`, `verify-modes.py` and `verify-input.py` exercise the exported binary. `test_race.gd`, `test_vehicle.gd` and `test_ui.gd` exercise source subsystems. `verify-online.py` launches the private loopback server. `record-home.py` records and decodes the footage. Evidence JSON is in `qa`; generated captures and working logs are not distributed.
+
+Official renderer and media references: [Godot performance](https://docs.godotengine.org/en/stable/tutorials/performance/optimizing_3d_performance.html), [reflection probes](https://docs.godotengine.org/en/stable/tutorials/3d/global_illumination/reflection_probes.html), [MovieWriter](https://docs.godotengine.org/en/stable/tutorials/animation/creating_movies.html), [VideoStreamPlayer](https://docs.godotengine.org/en/stable/classes/class_videostreamplayer.html) and [HTTPRequest redirect handling](https://docs.godotengine.org/en/stable/classes/class_httprequest.html). Asset licences and adapted V10 attribution are under `licenses`.
+
+Executable SHA-256: `c872fb81c8737fe2bd3bfa9ed9d724a7508d4990abbd5fb734ab3f1fae83a16d`
+
+Resource pack SHA-256: `67a4ec0577422ef062b47aa49081677b1430cd8e05b57f05a2c6517ce3f7999f`

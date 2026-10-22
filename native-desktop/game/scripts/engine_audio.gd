@@ -3,6 +3,7 @@ var players: Array[AudioStreamPlayer] = []
 var base_rpm := [7275.0,8796.0,15165.0]
 var vehicle: Node3D
 var smooth_rpm := 4500.0
+var active := false
 func _ready() -> void:
 	for name in ["idle","mid","high"]:
 		var player := AudioStreamPlayer.new()
@@ -25,5 +26,5 @@ func _process(dt: float) -> void:
 	for i in players.size():
 		players[i].pitch_scale = clampf(smooth_rpm/base_rpm[i],.55,2.1)
 		var volume: float = sqrt(maxf(0,weights[i]))*(.2+vehicle.throttle*.8)*.3
-		if not vehicle.enabled: volume = 0
+		if not active: volume = 0
 		players[i].volume_db = linear_to_db(maxf(.0001,volume))
