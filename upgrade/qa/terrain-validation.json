@@ -1,0 +1,32 @@
+[
+  {
+    "id": "milano",
+    "terrainTriangles": 4910,
+    "bytes": 176760,
+    "roadCorridorArea": 372594.5887128122
+  },
+  {
+    "id": "spa",
+    "terrainTriangles": 6037,
+    "bytes": 217332,
+    "roadCorridorArea": 528415.7316354321
+  },
+  {
+    "id": "suzuka",
+    "terrainTriangles": 5189,
+    "bytes": 186804,
+    "roadCorridorArea": 411276.8318428636
+  },
+  {
+    "id": "interlagos",
+    "terrainTriangles": 3929,
+    "bytes": 141444,
+    "roadCorridorArea": 312026.0597875713
+  },
+  {
+    "id": "zandvoort",
+    "terrainTriangles": 3818,
+    "bytes": 137448,
+    "roadCorridorArea": 318390.5812322507
+  }
+]

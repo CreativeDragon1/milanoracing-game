@@ -1,0 +1,2147 @@
+[
+  {
+    "id": "bahrain",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "bahrain",
+      "webgl2": true,
+      "drawCalls": 223,
+      "triangles": 540268,
+      "textures": 50,
+      "quality": "ultra",
+      "guide": 90.47516766707695
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "runoff stencil",
+        "station": 564,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "runoff stencil",
+        "station": 804,
+        "side": -1
+      }
+    ],
+    "venues": [],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 42.48132377859668,
+      "required": 90.23314349909819,
+      "feed": 0,
+      "coast": -0.04810693390085305
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9949319173668498,
+      "throttle": 0,
+      "target": 42.48132377859668,
+      "required": -43.25257356499474,
+      "feed": -43.25257356499474,
+      "coast": 2.262610948246099
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 7,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "bahrain",
+      "webgl2": true,
+      "drawCalls": 161,
+      "triangles": 539786,
+      "textures": 57,
+      "quality": "ultra",
+      "guide": 90.47516766707695
+    }
+  },
+  {
+    "id": "singapore",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "singapore",
+      "webgl2": true,
+      "drawCalls": 237,
+      "triangles": 790064,
+      "textures": 28,
+      "quality": "ultra",
+      "guide": 94.50777702398983
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      }
+    ],
+    "venues": [
+      {
+        "kind": "grandstand",
+        "name": "BAY",
+        "station": 1020,
+        "side": -1
+      }
+    ],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 47.25297478627308,
+      "required": 111.64218130760796,
+      "feed": 0,
+      "coast": 0.15611346203666543
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9953924478687683,
+      "throttle": 0,
+      "target": 47.25297478627308,
+      "required": -47.2878970094384,
+      "feed": -47.2878970094384,
+      "coast": 2.999228750437905
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 6.900000000000091,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "singapore",
+      "webgl2": true,
+      "drawCalls": 307,
+      "triangles": 792076,
+      "textures": 43,
+      "quality": "ultra",
+      "guide": 94.50777702398983
+    }
+  },
+  {
+    "id": "monza",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "monza",
+      "webgl2": true,
+      "drawCalls": 205,
+      "triangles": 1503438,
+      "textures": 29,
+      "quality": "ultra",
+      "guide": 83.40927952438666
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "runoff stencil",
+        "station": 240,
+        "side": -1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "runoff stencil",
+        "station": 804,
+        "side": 1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "runoff stencil",
+        "station": 1044,
+        "side": -1
+      }
+    ],
+    "venues": [
+      {
+        "kind": "grandstand",
+        "name": "ASCARI",
+        "station": 684,
+        "side": -1
+      },
+      {
+        "kind": "heritage",
+        "name": "Old banking silhouette"
+      }
+    ],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 43.81125726083221,
+      "required": 95.97131313874114,
+      "feed": 0,
+      "coast": 0.09749137227035158
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9955724339191172,
+      "throttle": 0,
+      "target": 43.81125726083221,
+      "required": -45.891932833672755,
+      "feed": -45.891932833672755,
+      "coast": 2.543742186498132
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 6.900000000000546,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "monza",
+      "webgl2": true,
+      "drawCalls": 191,
+      "triangles": 1503254,
+      "textures": 37,
+      "quality": "ultra",
+      "guide": 83.40927952438666
+    }
+  },
+  {
+    "id": "monaco",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "monaco",
+      "webgl2": true,
+      "drawCalls": 247,
+      "triangles": 634964,
+      "textures": 43,
+      "quality": "ultra",
+      "guide": 82.05577254929212
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      }
+    ],
+    "venues": [],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 44.294826936039115,
+      "required": 98.10158466468282,
+      "feed": 0,
+      "coast": 0.11874260256384635
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9947494182427835,
+      "throttle": 0,
+      "target": 44.294826936039115,
+      "required": -45.74288876070267,
+      "feed": -45.74288876070267,
+      "coast": 2.6238554432893357
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 6.900000000000546,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "monaco",
+      "webgl2": true,
+      "drawCalls": 285,
+      "triangles": 634962,
+      "textures": 90,
+      "quality": "ultra",
+      "guide": 82.05577254929212
+    }
+  },
+  {
+    "id": "austria",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "austria",
+      "webgl2": true,
+      "drawCalls": 235,
+      "triangles": 1555808,
+      "textures": 44,
+      "quality": "ultra",
+      "guide": 64.15246461529627
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "runoff stencil",
+        "station": 564,
+        "side": -1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "runoff stencil",
+        "station": 804,
+        "side": 1
+      }
+    ],
+    "venues": [
+      {
+        "kind": "grandstand",
+        "name": "RED BULL RING",
+        "station": 984,
+        "side": -1
+      }
+    ],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 47.1206807650002,
+      "required": 111.017927787853,
+      "feed": 0,
+      "coast": -0.40072706798636437
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9942689728411538,
+      "throttle": 0,
+      "target": 47.1206807650002,
+      "required": -43.190320041188144,
+      "feed": -43.190320041188144,
+      "coast": 2.431046578250732
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 6.900000000000546,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "austria",
+      "webgl2": true,
+      "drawCalls": 211,
+      "triangles": 1555530,
+      "textures": 62,
+      "quality": "ultra",
+      "guide": 64.15246461529627
+    }
+  },
+  {
+    "id": "silverstone",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "silverstone",
+      "webgl2": true,
+      "drawCalls": 231,
+      "triangles": 1014726,
+      "textures": 49,
+      "quality": "ultra",
+      "guide": 87.29777503531392
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "runoff stencil",
+        "station": 804,
+        "side": -1
+      }
+    ],
+    "venues": [
+      {
+        "kind": "pit-architecture",
+        "name": "Wing-inspired folded roof"
+      }
+    ],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 44.08166756757491,
+      "required": 97.15967077690928,
+      "feed": 0,
+      "coast": 0.08191688527644543
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9953127421321785,
+      "throttle": 0,
+      "target": 44.08166756757491,
+      "required": -45.461566829668584,
+      "feed": -45.461566829668584,
+      "coast": 2.56880011727707
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 7,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "silverstone",
+      "webgl2": true,
+      "drawCalls": 189,
+      "triangles": 1014462,
+      "textures": 56,
+      "quality": "ultra",
+      "guide": 87.29777503531392
+    }
+  },
+  {
+    "id": "abu-dhabi",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "abu-dhabi",
+      "webgl2": true,
+      "drawCalls": 235,
+      "triangles": 548734,
+      "textures": 52,
+      "quality": "ultra",
+      "guide": 89.20751383970035
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "runoff stencil",
+        "station": 804,
+        "side": 1
+      }
+    ],
+    "venues": [],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 40.79063259244276,
+      "required": 83.19378536458268,
+      "feed": 0,
+      "coast": 0.19733056682462202
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9947999621957627,
+      "throttle": 0,
+      "target": 40.79063259244276,
+      "required": -41.140704171220705,
+      "feed": -41.140704171220705,
+      "coast": 2.3222275081963617
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 6.900000000000546,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "abu-dhabi",
+      "webgl2": true,
+      "drawCalls": 169,
+      "triangles": 548238,
+      "textures": 58,
+      "quality": "ultra",
+      "guide": 89.20751383970035
+    }
+  },
+  {
+    "id": "milano",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "milano",
+      "webgl2": true,
+      "drawCalls": 293,
+      "triangles": 1877740,
+      "textures": 47,
+      "quality": "ultra",
+      "guide": 62.04236806494839
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "runoff stencil",
+        "station": 1044,
+        "side": -1
+      }
+    ],
+    "venues": [
+      {
+        "kind": "grandstand",
+        "name": "BELVEDERE",
+        "station": 504,
+        "side": -1
+      },
+      {
+        "kind": "grandstand",
+        "name": "PICCO",
+        "station": 840,
+        "side": 1
+      },
+      {
+        "kind": "pit-architecture",
+        "name": "Milano folded-roof paddock"
+      }
+    ],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 80.45477418056917,
+      "required": 323.648534422319,
+      "feed": 0,
+      "coast": -0.18404948041982003
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9900562670487044,
+      "throttle": 0,
+      "target": 80.45477418056917,
+      "required": -66.25848825185793,
+      "feed": -66.25848825185793,
+      "coast": 8.12578922077488
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 7,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "milano",
+      "webgl2": true,
+      "drawCalls": 235,
+      "triangles": 1877268,
+      "textures": 54,
+      "quality": "ultra",
+      "guide": 62.04236806494839
+    }
+  },
+  {
+    "id": "spa",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "spa",
+      "webgl2": true,
+      "drawCalls": 231,
+      "triangles": 2190130,
+      "textures": 35,
+      "quality": "ultra",
+      "guide": 104.46816821086178
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "runoff stencil",
+        "station": 240,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "runoff stencil",
+        "station": 564,
+        "side": -1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "runoff stencil",
+        "station": 804,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "runoff stencil",
+        "station": 1044,
+        "side": 1
+      }
+    ],
+    "venues": [
+      {
+        "kind": "grandstand",
+        "name": "RAIDILLON",
+        "station": 168,
+        "side": -1
+      }
+    ],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 43.05598505114043,
+      "required": 92.69089243620142,
+      "feed": 0,
+      "coast": 0.44772701078381677
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9953645668488316,
+      "throttle": 0,
+      "target": 43.05598505114043,
+      "required": -45.159540077236095,
+      "feed": -45.159540077236095,
+      "coast": 2.8120919354752703
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 7,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "spa",
+      "webgl2": true,
+      "drawCalls": 221,
+      "triangles": 2190074,
+      "textures": 50,
+      "quality": "ultra",
+      "guide": 104.46816821086178
+    }
+  },
+  {
+    "id": "suzuka",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "suzuka",
+      "webgl2": true,
+      "drawCalls": 357,
+      "triangles": 1545814,
+      "textures": 84,
+      "quality": "ultra",
+      "guide": 92.78203501663229
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "runoff stencil",
+        "station": 240,
+        "side": 1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "runoff stencil",
+        "station": 564,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "runoff stencil",
+        "station": 804,
+        "side": 1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "runoff stencil",
+        "station": 1044,
+        "side": -1
+      }
+    ],
+    "venues": [
+      {
+        "kind": "grandstand",
+        "name": "FIRST CURVE",
+        "station": 120,
+        "side": -1
+      },
+      {
+        "kind": "overpass",
+        "station": 969,
+        "clearance": 6.208762544831046
+      },
+      {
+        "kind": "landmark",
+        "name": "Suzuka Ferris wheel"
+      }
+    ],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 42.17454145293194,
+      "required": 88.93459733825372,
+      "feed": 0,
+      "coast": -0.11361637250021053
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9954785094468697,
+      "throttle": 0,
+      "target": 42.17454145293194,
+      "required": -44.72629872453475,
+      "feed": -44.72629872453475,
+      "coast": 2.16639454629182
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 6.900000000000546,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "suzuka",
+      "webgl2": true,
+      "drawCalls": 525,
+      "triangles": 1548694,
+      "textures": 105,
+      "quality": "ultra",
+      "guide": 92.78203501663229
+    }
+  },
+  {
+    "id": "interlagos",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "interlagos",
+      "webgl2": true,
+      "drawCalls": 235,
+      "triangles": 1359902,
+      "textures": 29,
+      "quality": "ultra",
+      "guide": 70.90871061651097
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      }
+    ],
+    "venues": [
+      {
+        "kind": "grandstand",
+        "name": "S DO SENNA",
+        "station": 120,
+        "side": -1
+      },
+      {
+        "kind": "grandstand",
+        "name": "FERRADURA",
+        "station": 564,
+        "side": 1
+      }
+    ],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 51.379822183199856,
+      "required": 131.9943063788618,
+      "feed": 0,
+      "coast": 0.2974052874002148
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9946029777189521,
+      "throttle": 0,
+      "target": 51.379822183199856,
+      "required": -46.01123918832691,
+      "feed": -46.01123918832691,
+      "coast": 3.644518861668151
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 7,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "interlagos",
+      "webgl2": true,
+      "drawCalls": 207,
+      "triangles": 1359658,
+      "textures": 30,
+      "quality": "ultra",
+      "guide": 70.90871061651097
+    }
+  },
+  {
+    "id": "zandvoort",
+    "errors": [],
+    "diagnostics": {
+      "circuit": "zandvoort",
+      "webgl2": true,
+      "drawCalls": 269,
+      "triangles": 775666,
+      "textures": 52,
+      "quality": "ultra",
+      "guide": 70.54860529816285
+    },
+    "nonfinite": 0,
+    "sponsors": [
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "flush barrier wrap",
+        "station": 42,
+        "side": -1
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "flush barrier wrap",
+        "station": 230,
+        "side": 1
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "flush barrier wrap",
+        "station": 419,
+        "side": -1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "flush barrier wrap",
+        "station": 607,
+        "side": 1
+      },
+      {
+        "name": "Enermax Synergy",
+        "sha256": "8b50e8339f2fff4a8af35c103c3162235913e962eb1f15481df23a1848ab80b1",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "flush barrier wrap",
+        "station": 796,
+        "side": -1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "flush barrier wrap",
+        "station": 984,
+        "side": 1
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "pit building fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "STEM Racing",
+        "sha256": "2299756672e72eb1abc3cf105bd04b65dc05fd90a4453acc766d7f7b806b3181",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Axis",
+        "sha256": "f71e04d3563f9686a03d3b751e4771b86781e4ab9fd014185bd5439605bfeb3a",
+        "kind": "overhead bridge fascia",
+        "station": 0,
+        "side": 0
+      },
+      {
+        "name": "Hustle Hive",
+        "sha256": "702949edd75cb0d8b27d7033a42faa9e5bb325cd45beae5976abcde347d3769e",
+        "kind": "runoff stencil",
+        "station": 240,
+        "side": 1
+      },
+      {
+        "name": "Brinda's",
+        "sha256": "93d0bdd054083142d4925f13018157d7dea80af63934537697807d0be3f96b92",
+        "kind": "runoff stencil",
+        "station": 564,
+        "side": 1
+      },
+      {
+        "name": "NPE Print Communications",
+        "sha256": "4cd99c22b8b711637dac721b04569de83872c0ed07a36396f3f5c76954dee665",
+        "kind": "runoff stencil",
+        "station": 1044,
+        "side": -1
+      }
+    ],
+    "venues": [
+      {
+        "kind": "grandstand",
+        "name": "ARENA",
+        "station": 1056,
+        "side": -1
+      }
+    ],
+    "stopped": {
+      "level": 0,
+      "brake": 0,
+      "throttle": 1,
+      "target": 42.86444381173961,
+      "required": 91.86802716448912,
+      "feed": 0,
+      "coast": -0.21672911707629403
+    },
+    "braking": {
+      "level": 2,
+      "brake": 0.9952455544778565,
+      "throttle": 0,
+      "target": 42.86444381173961,
+      "required": -41.24562830481186,
+      "feed": -41.24562830481186,
+      "coast": 2.112904330537771
+    },
+    "renderer": "WebKit WebGL",
+    "performance": {
+      "medianFrameMs": 6.900000000000546,
+      "p95FrameMs": 7.100000000000364,
+      "circuit": "zandvoort",
+      "webgl2": true,
+      "drawCalls": 379,
+      "triangles": 777970,
+      "textures": 75,
+      "quality": "ultra",
+      "guide": 70.54860529816285
+    }
+  }
+]

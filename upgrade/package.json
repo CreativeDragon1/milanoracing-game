@@ -1,0 +1,13 @@
+{
+  "name": "milano-racing-source",
+  "version": "2.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "test:physics": "cd .. && node upgrade/tests/physics.cjs",
+    "test:weekend": "cd .. && node upgrade/tests/weekend-core.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.64.0"
+  }
+}

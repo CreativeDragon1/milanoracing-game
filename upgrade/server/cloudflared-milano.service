@@ -1,0 +1,26 @@
+[Unit]
+Description=Cloudflare Tunnel for Milano Racing
+Wants=network-online.target
+After=network-online.target milano.service
+
+[Service]
+Type=simple
+User=cloudflared
+Group=cloudflared
+ExecStart=/usr/bin/cloudflared tunnel --no-autoupdate --loglevel warn run --token-file /etc/cloudflared/milano-token
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+UMask=0077
+StandardOutput=journal
+StandardError=journal
+LogRateLimitIntervalSec=30s
+LogRateLimitBurst=20
+
+[Install]
+WantedBy=multi-user.target

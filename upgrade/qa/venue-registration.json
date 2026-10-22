@@ -1,0 +1,79 @@
+[
+  {
+    "circuit": "bahrain",
+    "registrationRMSMetres": 0.00010752430000658556,
+    "features": 191,
+    "buildings": 188,
+    "mappedHeights": 0
+  },
+  {
+    "circuit": "singapore",
+    "registrationRMSMetres": 7.268091183927335e-05,
+    "features": 661,
+    "buildings": 646,
+    "mappedHeights": 594
+  },
+  {
+    "circuit": "monza",
+    "registrationRMSMetres": 0.00014427019020944786,
+    "features": 388,
+    "buildings": 370,
+    "mappedHeights": 14
+  },
+  {
+    "circuit": "monaco",
+    "registrationRMSMetres": 0.006720010318965248,
+    "features": 1689,
+    "buildings": 1663,
+    "mappedHeights": 402
+  },
+  {
+    "circuit": "austria",
+    "registrationRMSMetres": 3.382723572122225e-05,
+    "features": 173,
+    "buildings": 160,
+    "mappedHeights": 1
+  },
+  {
+    "circuit": "silverstone",
+    "registrationRMSMetres": 0.019538860580385183,
+    "features": 250,
+    "buildings": 210,
+    "mappedHeights": 6
+  },
+  {
+    "circuit": "abu-dhabi",
+    "registrationRMSMetres": 8.2243815165633e-05,
+    "features": 220,
+    "buildings": 214,
+    "mappedHeights": 10
+  },
+  {
+    "circuit": "spa",
+    "registrationRMSMetres": 4.0552015341711007e-07,
+    "features": 148,
+    "buildings": 110,
+    "mappedHeights": 0
+  },
+  {
+    "circuit": "suzuka",
+    "registrationRMSMetres": 4.135905304344008e-07,
+    "features": 403,
+    "buildings": 270,
+    "mappedHeights": 0
+  },
+  {
+    "circuit": "interlagos",
+    "registrationRMSMetres": 4.0427256752806607e-07,
+    "features": 3032,
+    "buildings": 3024,
+    "mappedHeights": 2915
+  },
+  {
+    "circuit": "zandvoort",
+    "registrationRMSMetres": 4.1031801895996663e-07,
+    "features": 438,
+    "buildings": 398,
+    "mappedHeights": 7
+  }
+]

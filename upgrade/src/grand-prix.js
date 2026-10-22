@@ -1,0 +1,18 @@
+// Grand Prix edition shell. URL invites, quality presets, install and fullscreen stay keyboard-accessible.
+const gpTools=document.createElement('div');gpTools.className='gp-tools';gpTools.innerHTML='<label for="graphics-quality">GRAPHICS</label><select id="graphics-quality"><option value="ultra">Ultra</option><option value="high">High</option><option value="performance">Performance</option></select><button id="install-game" hidden>Install game</button><a href="https://game.milanoracing.team/?multiplayer=1" target="_blank" rel="noopener">Online grid ↗</a>';
+$('graphics-settings').append(gpTools);$('graphics-quality').value=graphicsPreset;$('graphics-quality').onchange=e=>applyGraphics(e.target.value);
+applyGraphics(graphicsPreset);
+const title=document.querySelector('#menu h1');if(title)title.innerHTML='MILANO<b>RACING</b>';
+const tourSubtitle=document.querySelector('#circuits .small');if(tourSubtitle)tourSubtitle.textContent='12 circuits. One grid.';
+document.title='Milano Racing · Grand Prix';
+const style=document.createElement('style');style.textContent='.gp-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px;padding-top:15px;border-top:1px solid #ffffff22}.gp-tools label{font:700 10px Arial;letter-spacing:.15em;color:#97a5b8}.gp-tools select{max-width:150px;background:#101828;color:#fff;padding:9px;border:1px solid #414c60}.gp-tools a{font-size:12px;color:#ff9c40}.circuit-card.selected{border-color:#ff7a00}#circuit-grid{max-height:55vh;overflow-y:auto}.status-error:empty{display:none}#network-browse{display:grid;gap:8px;margin-top:14px}#network-browse button{display:flex;justify-content:space-between;gap:16px}#network-ping{font-size:11px}';document.head.append(style);
+let installPrompt;addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;$('install-game').hidden=false});$('install-game').onclick=async()=>{if(installPrompt){await installPrompt.prompt();installPrompt=null;$('install-game').hidden=true}};
+if('serviceWorker' in navigator&&location.protocol!=='file:')navigator.serviceWorker.register('/sw.js').catch(()=>{});
+// A strict-origin message API allows the parent Milano site to pause and select a venue.
+addEventListener('message',e=>{if(!['https://milanoracing.team','https://www.milanoracing.team',location.origin].includes(e.origin)||e.source!==parent)return;const m=e.data;if(m?.type==='milano:pause')pause();if(m?.type==='milano:circuit'&&CIRCUITS[m.id]&&!MP.active)chooseCircuit(m.id)});
+if(parent!==window)for(const origin of['https://milanoracing.team','https://www.milanoracing.team'])parent.postMessage({type:'milano:ready',circuits:Object.keys(CIRCUITS)},origin);
+window.MilanoBuild={version:'grand-prix-1',circuits:12,rendering:graphics,getDiagnostics:()=>({circuit:CIRCUIT.id,webgl2:ren.capabilities.isWebGL2,drawCalls:ren.info.render.calls,triangles:ren.info.render.triangles,textures:ren.info.memory.textures,quality:graphicsPreset,guide:racingGuide.report?.time})};
+
+// Keep incomplete terrain textures out of the first playable frame.
+window.MilanoReady=false;
+(async()=>{await document.fonts.ready;await window.sponsorReady;const start=performance.now();while(!sceneAssetsLoaded&&performance.now()-start<45000)await new Promise(r=>setTimeout(r,50));if(sceneAssetErrors.length||!sceneAssetsLoaded){$('load-progress').textContent='A circuit asset did not finish loading.';$('load-retry').hidden=false;return}window.MilanoReady=true;$('scene-loading').hidden=true})().catch(error=>{$('load-progress').textContent='The circuit could not finish loading.';$('load-retry').hidden=false;console.error(error)});

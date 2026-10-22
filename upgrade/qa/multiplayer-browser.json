@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Two independent clients join with invite",
+    "Ready and synchronized countdown",
+    "Keyboard driving",
+    "Remote snapshot buffer and finite pose",
+    "Offline/reconnect preserves identity"
+  ],
+  "speedKmh": 60.920736085700625,
+  "snapshots": [
+    {
+      "samples": 12,
+      "finite": true
+    }
+  ],
+  "errors": []
+}

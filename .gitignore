@@ -1,0 +1,28 @@
+# Local dependencies and generated packages
+**/node_modules/
+**/__pycache__/
+*.py[cod]
+.venv/
+**/.venv/
+upgrade/desktop/public/
+upgrade/desktop/licenses/
+upgrade/release/
+upgrade/qa/standalone.html
+upgrade/qa/game.js
+upgrade/qa/*.log
+upgrade/tools/deps/
+upgrade/assets/tree-small-02/*.bin
+upgrade/assets/tree-small-02/*.gltf
+upgrade/research/experiments/
+upgrade/research/references/
+upgrade/research/steering-before/
+# Credentials must remain on the server
+.env
+.env.*
+!.env.example
+milano.env
+**/milano.env
+*.pem
+*.key
+**/credentials.json
+upgrade/server/downloads/

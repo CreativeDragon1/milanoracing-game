@@ -1,0 +1,45 @@
+{
+  "checks": [
+    "Packaged executable launches",
+    "12 local circuits each loaded",
+    "MR 26 caption",
+    "WebGL2 available",
+    "Renderer has no Node integration",
+    "Practice accelerates"
+  ],
+  "loaded": [
+    "bahrain",
+    "singapore",
+    "monza",
+    "monaco",
+    "austria",
+    "silverstone",
+    "abu-dhabi",
+    "milano",
+    "spa",
+    "suzuka",
+    "interlagos",
+    "zandvoort"
+  ],
+  "result": {
+    "title": "Milano Racing · Grand Prix",
+    "car": "MR 26",
+    "circuits": 12,
+    "webgl2": true,
+    "exposedRequire": "undefined",
+    "nodeProcess": "undefined",
+    "origin": "http://127.0.0.1:59804",
+    "assetsLoaded": 17,
+    "diagnostics": {
+      "circuit": "milano",
+      "webgl2": true,
+      "drawCalls": 442,
+      "triangles": 2879925,
+      "textures": 56,
+      "quality": "ultra",
+      "guide": 62.02057593566936
+    }
+  },
+  "speedKmh": 36.307558721757204,
+  "errors": []
+}

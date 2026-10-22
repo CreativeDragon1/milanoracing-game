@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "Existing React website launches real embedded game",
+    "Responsive website route",
+    "Two independent browsers join via invite, ready and start",
+    "Guest drives during synchronized online race",
+    "Real browser offline/reconnect preserves driver",
+    "Leaving and creating a new room clears old identity"
+  ],
+  "errors": [],
+  "guestSpeedKmh": 57.35288132183579
+}

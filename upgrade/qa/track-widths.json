@@ -1,0 +1,122 @@
+[
+  {
+    "id": "bahrain",
+    "source": "Sakhir.csv",
+    "registrationMedianMetres": 2.5956143877876245,
+    "registrationP95Metres": 9.33299368286574,
+    "scale": 0.9990108269910983,
+    "boundaryCoverage": 0.7033333333333334,
+    "minMetres": 10.784120932331795,
+    "maxMetres": 19.96212088420034,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  },
+  {
+    "id": "singapore",
+    "source": "Promoter-map reconstruction; width estimates pending survey",
+    "minMetres": 10.0,
+    "maxMetres": 15.0,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  },
+  {
+    "id": "monza",
+    "source": "Monza.csv",
+    "registrationMedianMetres": 1.872910117882133,
+    "registrationP95Metres": 3.5026602446924078,
+    "scale": 1.0009843992497411,
+    "boundaryCoverage": 0.7216666666666667,
+    "minMetres": 7.540393396506665,
+    "maxMetres": 12.215836047002313,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  },
+  {
+    "id": "monaco",
+    "source": "Promoter-map reconstruction; width estimates pending survey",
+    "minMetres": 8.0,
+    "maxMetres": 13.0,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  },
+  {
+    "id": "austria",
+    "source": "Spielberg.csv",
+    "registrationMedianMetres": 2.226531121251421,
+    "registrationP95Metres": 5.853306818122883,
+    "scale": 1.0028561889105383,
+    "boundaryCoverage": 0.7316666666666667,
+    "minMetres": 10.206196872468585,
+    "maxMetres": 13.573425631265046,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  },
+  {
+    "id": "silverstone",
+    "source": "Silverstone.csv",
+    "registrationMedianMetres": 2.1639048520059347,
+    "registrationP95Metres": 11.936265871287075,
+    "scale": 1.0004511630188886,
+    "boundaryCoverage": 0.8775,
+    "minMetres": 11.291477759454784,
+    "maxMetres": 17.759663520694005,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  },
+  {
+    "id": "abu-dhabi",
+    "source": "YasMarina.csv",
+    "registrationMedianMetres": 2.4351664462557583,
+    "registrationP95Metres": 19.566978425971186,
+    "scale": 0.9973957282385377,
+    "boundaryCoverage": 0.7658333333333334,
+    "minMetres": 9.917008388500076,
+    "maxMetres": 16.0,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  },
+  {
+    "id": "milano",
+    "source": "Milano original design",
+    "minMetres": 16.0,
+    "maxMetres": 16.0,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  },
+  {
+    "id": "spa",
+    "source": "Spa.csv",
+    "registrationMedianMetres": 1.8424671469082456,
+    "registrationP95Metres": 3.7505372858826758,
+    "scale": 1.00111365805801,
+    "boundaryCoverage": 0.8383333333333334,
+    "minMetres": 7.944340536440716,
+    "maxMetres": 16.393806306121622,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  },
+  {
+    "id": "suzuka",
+    "source": "Suzuka.csv",
+    "registrationMedianMetres": 1.91855775817218,
+    "registrationP95Metres": 3.5610948204047514,
+    "scale": 0.9988723665748215,
+    "boundaryCoverage": 0.7291666666666666,
+    "minMetres": 7.832435673411507,
+    "maxMetres": 15.266325517958428,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  },
+  {
+    "id": "interlagos",
+    "source": "SaoPaulo.csv",
+    "registrationMedianMetres": 2.214877188908946,
+    "registrationP95Metres": 5.144844074126186,
+    "scale": 0.9983960288401069,
+    "boundaryCoverage": 0.81,
+    "minMetres": 9.025290364484935,
+    "maxMetres": 17.75808208263384,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  },
+  {
+    "id": "zandvoort",
+    "source": "Zandvoort.csv",
+    "registrationMedianMetres": 1.8906750766653557,
+    "registrationP95Metres": 4.67632651572748,
+    "scale": 0.9940090859505197,
+    "boundaryCoverage": 0.7983333333333333,
+    "minMetres": 7.954625136105077,
+    "maxMetres": 15.838085998146727,
+    "note": "Widths share the track metre scale. Satellite-derived boundaries and estimates, not certified survey dimensions."
+  }
+]

@@ -1,0 +1,1162 @@
+[
+  {
+    "id": "bahrain",
+    "initial": {
+      "architecture": {
+        "buildings": 180,
+        "water": 0,
+        "forest": 0,
+        "heightFromMap": 0,
+        "recessedWindows": 4628,
+        "balconies": 0,
+        "roofStructures": 857,
+        "grandstands": 1
+      },
+      "geography": {
+        "realTerrain": true,
+        "waterBodies": 3,
+        "mappedRoads": 405,
+        "forests": 0,
+        "imageryVintage": "2016 / 2017"
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 1,
+          "middle": 1,
+          "far": 31
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 169,
+      "misses": [],
+      "surfaces": 17
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          537.5106636972329,
+          7.067487096132782,
+          161.44540601316498
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          -102.99164479452917,
+          5,
+          188.12964372000047
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          536.4335045711338,
+          9.307319264478512,
+          158.00982074341792
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          176.6456596621542,
+          38.49266090512502,
+          564.9631956031191
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "bahrain",
+      "webgl2": true,
+      "drawCalls": 414,
+      "triangles": 1531201,
+      "textures": 79,
+      "quality": "ultra",
+      "guide": 91.68455005550688
+    }
+  },
+  {
+    "id": "singapore",
+    "initial": {
+      "architecture": {
+        "buildings": 637,
+        "water": 0,
+        "forest": 9,
+        "heightFromMap": 585,
+        "recessedWindows": 27787,
+        "balconies": 0,
+        "roofStructures": 3735,
+        "grandstands": 0
+      },
+      "geography": {
+        "realTerrain": true,
+        "waterBodies": 16,
+        "mappedRoads": 2236,
+        "forests": 9,
+        "imageryVintage": "2016 / 2017"
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 3,
+          "middle": 0,
+          "far": 1
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 169,
+      "misses": [],
+      "surfaces": 31
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          153.52021969354436,
+          5.023333143187342,
+          -139.5928105857473
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          -303.2365372535811,
+          6.063705892414769,
+          -1299.98128822378
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          157.0720989432373,
+          7.33238650809813,
+          -140.17972681055141
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          218.65481242046693,
+          27.321240837869006,
+          -801.2817216590976
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "singapore",
+      "webgl2": true,
+      "drawCalls": 863,
+      "triangles": 1634912,
+      "textures": 57,
+      "quality": "ultra",
+      "guide": 94.51135951105339
+    }
+  },
+  {
+    "id": "monza",
+    "initial": {
+      "architecture": {
+        "buildings": 368,
+        "water": 0,
+        "forest": 40,
+        "heightFromMap": 13,
+        "recessedWindows": 4374,
+        "balconies": 0,
+        "roofStructures": 1379,
+        "grandstands": 44
+      },
+      "geography": {
+        "realTerrain": true,
+        "waterBodies": 1,
+        "mappedRoads": 386,
+        "forests": 40,
+        "imageryVintage": "2016 / 2017",
+        "distantTrees": 2800,
+        "regionalForestTrees": 1801
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 7,
+          "middle": 10,
+          "far": 2333
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 169,
+      "misses": [],
+      "surfaces": 13
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          766.7200445553608,
+          12.65306564325704,
+          -21.749790709316134
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          706.0128156278234,
+          6.341297645374663,
+          538.0237832026392
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          763.1859351836358,
+          14.984064773141641,
+          -21.06313059074615
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          1335.804528067839,
+          37.99736833676055,
+          644.799069501003
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "monza",
+      "webgl2": true,
+      "drawCalls": 446,
+      "triangles": 4365939,
+      "textures": 118,
+      "quality": "ultra",
+      "guide": 85.29013672296118
+    }
+  },
+  {
+    "id": "monaco",
+    "initial": {
+      "architecture": {
+        "buildings": 1660,
+        "water": 0,
+        "forest": 20,
+        "heightFromMap": 401,
+        "recessedWindows": 30034,
+        "balconies": 5294,
+        "roofStructures": 7663,
+        "grandstands": 0
+      },
+      "geography": {
+        "realTerrain": true,
+        "waterBodies": 14,
+        "mappedRoads": 1524,
+        "forests": 20,
+        "imageryVintage": "2016 / 2017"
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 1,
+          "middle": 19,
+          "far": 20
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 169,
+      "misses": [],
+      "surfaces": 29
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          280.6187711681987,
+          22.17186008155273,
+          232.5144902171304
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          284.01208855348983,
+          9.369447639481674,
+          655.0720021019554
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          280.23504000042476,
+          24.20536572656242,
+          228.93499091388043
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          520.5931282739693,
+          64.49056237504578,
+          616.4552645313563
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "monaco",
+      "webgl2": true,
+      "drawCalls": 785,
+      "triangles": 4062036,
+      "textures": 134,
+      "quality": "ultra",
+      "guide": 82.77988064240566
+    }
+  },
+  {
+    "id": "austria",
+    "initial": {
+      "architecture": {
+        "buildings": 157,
+        "water": 0,
+        "forest": 20,
+        "heightFromMap": 1,
+        "recessedWindows": 1404,
+        "balconies": 0,
+        "roofStructures": 410,
+        "grandstands": 8
+      },
+      "geography": {
+        "realTerrain": true,
+        "waterBodies": 4,
+        "mappedRoads": 206,
+        "forests": 20,
+        "imageryVintage": "2016 / 2017",
+        "distantTrees": 1768,
+        "regionalForestTrees": 415
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 3,
+          "middle": 69,
+          "far": 1229
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 169,
+      "misses": [],
+      "surfaces": 16
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          419.41444727530484,
+          22.37569026635199,
+          254.1255107363475
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          206.9057841798693,
+          34.37526093716755,
+          577.1015248107374
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          418.33901999047947,
+          24.698619108228094,
+          250.68989436152887
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          538.8763364567715,
+          89.19725781634729,
+          873.307402202333
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "austria",
+      "webgl2": true,
+      "drawCalls": 341,
+      "triangles": 6449063,
+      "textures": 77,
+      "quality": "ultra",
+      "guide": 66.30611032607011
+    }
+  },
+  {
+    "id": "silverstone",
+    "initial": {
+      "architecture": {
+        "buildings": 206,
+        "water": 0,
+        "forest": 38,
+        "heightFromMap": 2,
+        "recessedWindows": 8178,
+        "balconies": 0,
+        "roofStructures": 939,
+        "grandstands": 27
+      },
+      "geography": {
+        "realTerrain": true,
+        "waterBodies": 12,
+        "mappedRoads": 631,
+        "forests": 38,
+        "imageryVintage": "2016 / 2017",
+        "distantTrees": 2800,
+        "regionalForestTrees": 5824
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 16,
+          "middle": 5,
+          "far": 803
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 169,
+      "misses": [],
+      "surfaces": 24
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          664.2132979852038,
+          13.67117938181767,
+          294.8744190759866
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          1062.5276732723862,
+          14.204477706457526,
+          207.78671799186213
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          666.3396882712888,
+          15.983573883899663,
+          291.96916658819214
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          795.8636004484762,
+          33.03422534945527,
+          -405.6868232610457
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "silverstone",
+      "webgl2": true,
+      "drawCalls": 482,
+      "triangles": 2593576,
+      "textures": 104,
+      "quality": "ultra",
+      "guide": 89.8044216852141
+    }
+  },
+  {
+    "id": "abu-dhabi",
+    "initial": {
+      "architecture": {
+        "buildings": 209,
+        "water": 0,
+        "forest": 1,
+        "heightFromMap": 8,
+        "recessedWindows": 5134,
+        "balconies": 0,
+        "roofStructures": 1059,
+        "grandstands": 1
+      },
+      "geography": {
+        "realTerrain": true,
+        "waterBodies": 8,
+        "mappedRoads": 1062,
+        "forests": 1,
+        "imageryVintage": "2016 / 2017"
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 0,
+          "middle": 0,
+          "far": 0
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 169,
+      "misses": [],
+      "surfaces": 23
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          84.56874524949494,
+          14.963651367431613,
+          -390.8743691867628
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          -157.08357229438786,
+          4.1971799999999995,
+          483.961371832613
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          85.10760716014605,
+          17.310939726046506,
+          -387.31432222914117
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          -46.13619185431931,
+          28.6255996370957,
+          -653.4882695500302
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "abu-dhabi",
+      "webgl2": true,
+      "drawCalls": 475,
+      "triangles": 2647201,
+      "textures": 88,
+      "quality": "ultra",
+      "guide": 90.45558315459107
+    }
+  },
+  {
+    "id": "milano",
+    "initial": {
+      "architecture": {
+        "buildings": 0,
+        "water": 0,
+        "forest": 0,
+        "heightFromMap": 0,
+        "recessedWindows": 0,
+        "balconies": 0,
+        "roofStructures": 0,
+        "grandstands": 0
+      },
+      "geography": {
+        "realTerrain": false,
+        "waterBodies": 0,
+        "mappedRoads": 0,
+        "forests": 0
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 15,
+          "middle": 32,
+          "far": 337
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 0,
+      "misses": []
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          698.272025,
+          6.05,
+          0
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          150.9659500689357,
+          44.19049226610249,
+          934.4797154829245
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          694.672025,
+          8.4,
+          0
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          1087.145610840339,
+          56.20674431697457,
+          627.3628095375265
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "milano",
+      "webgl2": true,
+      "drawCalls": 158,
+      "triangles": 2729889,
+      "textures": 63,
+      "quality": "ultra",
+      "guide": 62.02057593566936
+    }
+  },
+  {
+    "id": "spa",
+    "initial": {
+      "architecture": {
+        "buildings": 104,
+        "water": 0,
+        "forest": 59,
+        "heightFromMap": 0,
+        "recessedWindows": 1616,
+        "balconies": 0,
+        "roofStructures": 456,
+        "grandstands": 6
+      },
+      "geography": {
+        "realTerrain": true,
+        "waterBodies": 1,
+        "mappedRoads": 238,
+        "forests": 59,
+        "imageryVintage": "2016 / 2017",
+        "distantTrees": 2800,
+        "regionalForestTrees": 14000
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 1,
+          "middle": 54,
+          "far": 8355
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 169,
+      "misses": [],
+      "surfaces": 13
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          -431.6388251232216,
+          31.823973714608503,
+          249.21024750225683
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          -1164.7679248388722,
+          15.053610804348061,
+          -423.1474917801687
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          -428.19568177204286,
+          33.77624510971319,
+          248.15823916401365
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          -1646.7571501129598,
+          122.16514161789938,
+          -4.306076334443934
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "spa",
+      "webgl2": true,
+      "drawCalls": 440,
+      "triangles": 3852042,
+      "textures": 90,
+      "quality": "ultra",
+      "guide": 106.53754373799802
+    }
+  },
+  {
+    "id": "suzuka",
+    "initial": {
+      "architecture": {
+        "buildings": 268,
+        "water": 0,
+        "forest": 169,
+        "heightFromMap": 0,
+        "recessedWindows": 8374,
+        "balconies": 0,
+        "roofStructures": 1451,
+        "grandstands": 0
+      },
+      "geography": {
+        "realTerrain": true,
+        "waterBodies": 12,
+        "mappedRoads": 328,
+        "forests": 169,
+        "imageryVintage": "2016 / 2017",
+        "distantTrees": 2617,
+        "regionalForestTrees": 2037
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 4,
+          "middle": 10,
+          "far": 2315
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 169,
+      "misses": [],
+      "surfaces": 24
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          337.21378714599444,
+          8.595735104097525,
+          144.38314860846248
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          -1123.7461223056275,
+          40.09473477822705,
+          876.7642568624731
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          340.8086797437647,
+          10.884513494934279,
+          144.5763031909858
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          -467.4916544931627,
+          58.775834445829595,
+          327.3929579642161
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "suzuka",
+      "webgl2": true,
+      "drawCalls": 1539,
+      "triangles": 3148080,
+      "textures": 112,
+      "quality": "ultra",
+      "guide": 94.56871547569249
+    }
+  },
+  {
+    "id": "interlagos",
+    "initial": {
+      "architecture": {
+        "buildings": 3023,
+        "water": 0,
+        "forest": 9,
+        "heightFromMap": 2915,
+        "recessedWindows": 11961,
+        "balconies": 0,
+        "roofStructures": 18006,
+        "grandstands": 3
+      },
+      "geography": {
+        "realTerrain": true,
+        "waterBodies": 2,
+        "mappedRoads": 574,
+        "forests": 9,
+        "imageryVintage": "2016 / 2017"
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 2,
+          "middle": 4,
+          "far": 33
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 169,
+      "misses": [],
+      "surfaces": 14
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          353.2086077718777,
+          28.194889213768356,
+          -271.08993826247473
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          -312.54195440637517,
+          20.523032545335223,
+          -219.57095466080438
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          353.84249259600904,
+          30.601178179777506,
+          -267.5455752749433
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          -271.15825873585493,
+          34.102166994839266,
+          -689.8739854644539
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "interlagos",
+      "webgl2": true,
+      "drawCalls": 376,
+      "triangles": 1547144,
+      "textures": 71,
+      "quality": "ultra",
+      "guide": 71.86911924474043
+    }
+  },
+  {
+    "id": "zandvoort",
+    "initial": {
+      "architecture": {
+        "buildings": 396,
+        "water": 0,
+        "forest": 68,
+        "heightFromMap": 7,
+        "recessedWindows": 2610,
+        "balconies": 0,
+        "roofStructures": 2019,
+        "grandstands": 0
+      },
+      "geography": {
+        "realTerrain": true,
+        "waterBodies": 25,
+        "mappedRoads": 239,
+        "forests": 68,
+        "imageryVintage": "2016 / 2017"
+      },
+      "trees": {
+        "source": "Poly Haven Tree Small 02 / CC0",
+        "nearTriangles": 38154,
+        "middleTriangles": 9415,
+        "active": {
+          "near": 0,
+          "middle": 1,
+          "far": 28
+        }
+      },
+      "fonts": true,
+      "assets": [],
+      "landLoaded": true
+    },
+    "coverage": {
+      "tested": 169,
+      "misses": [],
+      "surfaces": 38
+    },
+    "cameraChecks": [
+      {
+        "mode": 0,
+        "position": [
+          303.03706559578825,
+          6.467663358833203,
+          74.69742553365855
+        ],
+        "fov": 61,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 1,
+        "position": [
+          86.68030090203784,
+          4.459627783386448,
+          617.119707166153
+        ],
+        "fov": 76,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 2,
+        "position": [
+          306.6297841709591,
+          8.847848405195524,
+          74.4683332960025
+        ],
+        "fov": 55,
+        "finite": true,
+        "blocked": false
+      },
+      {
+        "mode": 3,
+        "position": [
+          174.59656464163135,
+          27.661436204572404,
+          429.0718573786996
+        ],
+        "fov": 51,
+        "finite": true,
+        "blocked": false
+      }
+    ],
+    "errors": [],
+    "stats": {
+      "circuit": "zandvoort",
+      "webgl2": true,
+      "drawCalls": 907,
+      "triangles": 1059007,
+      "textures": 92,
+      "quality": "ultra",
+      "guide": 72.29558412280268
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "bahrain",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.013333333333333641,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 9.182161686003383
+  },
+  {
+    "id": "singapore",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.013333333333333641,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 9.09533606525656
+  },
+  {
+    "id": "monza",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.013333333333333641,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 10.566851536772447
+  },
+  {
+    "id": "monaco",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.03488301660256932,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 8.466293516975384
+  },
+  {
+    "id": "austria",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.013333333333333641,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 9.067980658703163
+  },
+  {
+    "id": "silverstone",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.013333333333333641,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 9.34159851503864
+  },
+  {
+    "id": "abu-dhabi",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.013333333333333641,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 9.223431287644416
+  },
+  {
+    "id": "milano",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.013333333333333641,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 11.537071610908242
+  },
+  {
+    "id": "spa",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.013333333333333641,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 9.339389167903391
+  },
+  {
+    "id": "suzuka",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.047977062032361406,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 10.221201131445923
+  },
+  {
+    "id": "interlagos",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.013333333333333641,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 9.541435535704295
+  },
+  {
+    "id": "zandvoort",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.013333333333333641,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 9.476139308495476
+  }
+]

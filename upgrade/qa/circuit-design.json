@@ -1,0 +1,12 @@
+{
+  "lengthMetres": 5033.234436350114,
+  "widthMetres": 16,
+  "corners": 15,
+  "longestStraightMetres": 1171.7979715703848,
+  "startToFirstCornerMetres": 788.6531121117962,
+  "integrationClosureErrorMetres": 6.122173593813261e-07,
+  "reference": "FIA Appendix O 2026 sections 7 and 10; design guidance for a fictional game circuit, not FIA homologation.",
+  "elevationRangeMetres": 48.0,
+  "maxGradePercent": 6.7049866,
+  "gridGradePercent": 0.0
+}

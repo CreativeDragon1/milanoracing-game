@@ -1,0 +1,38 @@
+{
+  "medianMs": 13.899999999999636,
+  "p95Ms": 14,
+  "diagnostics": {
+    "circuit": "austria",
+    "webgl2": true,
+    "drawCalls": 756,
+    "triangles": 5781752,
+    "textures": 60,
+    "quality": "ultra",
+    "guide": 66.30611032607011
+  },
+  "trees": {
+    "source": "Poly Haven Tree Small 02 / CC0",
+    "nearTriangles": 38154,
+    "middleTriangles": 9415,
+    "active": {
+      "near": 6,
+      "middle": 128,
+      "far": 1429
+    }
+  },
+  "batches": {
+    "bounded": 246,
+    "tiles": 28,
+    "instances": 90525,
+    "mergedDrawBatches": -93,
+    "sharedDetailDrawsSaved": 0
+  },
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "atlas": {
+    "width": 2048,
+    "height": 2048,
+    "hasUV": true
+  },
+  "assetErrors": [],
+  "errors": []
+}

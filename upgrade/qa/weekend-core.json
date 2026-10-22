@@ -1,0 +1,113 @@
+{
+  "checks": 2799340,
+  "reports": [
+    {
+      "id": "bahrain",
+      "raceSeconds": 579.150000000021,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "singapore",
+      "raceSeconds": 590.9000000000103,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "monza",
+      "raceSeconds": 535.9000000000603,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "monaco",
+      "raceSeconds": 522.0500000000729,
+      "services": 21,
+      "maxPitKmh": 60.00000000000001,
+      "classified": 21
+    },
+    {
+      "id": "austria",
+      "raceSeconds": 430.70000000006365,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "silverstone",
+      "raceSeconds": 561.9500000000367,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "abu-dhabi",
+      "raceSeconds": 572.7000000000269,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "milano",
+      "raceSeconds": 394.65000000005546,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "spa",
+      "raceSeconds": 643.4999999999625,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "suzuka",
+      "raceSeconds": 591.0000000000102,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "interlagos",
+      "raceSeconds": 478.4000000000745,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "zandvoort",
+      "raceSeconds": 461.10000000007057,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    }
+  ],
+  "qualifyingGrid": [
+    1,
+    5,
+    9,
+    13,
+    17,
+    21,
+    2,
+    6,
+    10,
+    14,
+    18,
+    3,
+    4,
+    7,
+    8,
+    11,
+    12,
+    16,
+    15,
+    19,
+    20,
+    0
+  ]
+}

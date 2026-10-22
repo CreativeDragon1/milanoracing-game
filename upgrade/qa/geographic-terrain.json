@@ -1,0 +1,222 @@
+[
+  {
+    "circuit": "bahrain",
+    "demTiles": 4,
+    "heightRangeMetres": [
+      -15.94485092163086,
+      114.42346954345703
+    ],
+    "nearTerrainTriangles": 5945,
+    "farGrid": 161,
+    "features": {
+      "water": 3,
+      "forest": 0,
+      "sand": 15,
+      "grass": 76,
+      "field": 0,
+      "paved": 12,
+      "road": 405
+    },
+    "verticalDatumOffset": 8.03128783493042
+  },
+  {
+    "circuit": "singapore",
+    "demTiles": 4,
+    "heightRangeMetres": [
+      -27.373044967651367,
+      38.14176940917969
+    ],
+    "nearTerrainTriangles": 6190,
+    "farGrid": 161,
+    "features": {
+      "water": 16,
+      "forest": 9,
+      "sand": 0,
+      "grass": 89,
+      "field": 0,
+      "paved": 12,
+      "road": 2236
+    },
+    "verticalDatumOffset": 3.281561257400513
+  },
+  {
+    "circuit": "monza",
+    "demTiles": 9,
+    "heightRangeMetres": [
+      -23.18892478942871,
+      90.15674591064453
+    ],
+    "nearTerrainTriangles": 8232,
+    "farGrid": 161,
+    "features": {
+      "water": 1,
+      "forest": 40,
+      "sand": 10,
+      "grass": 49,
+      "field": 10,
+      "paved": 29,
+      "road": 386
+    },
+    "verticalDatumOffset": 180.01250135498046
+  },
+  {
+    "circuit": "monaco",
+    "demTiles": 9,
+    "heightRangeMetres": [
+      -11.266679763793945,
+      1119.730224609375
+    ],
+    "nearTerrainTriangles": 5912,
+    "farGrid": 161,
+    "features": {
+      "water": 14,
+      "forest": 20,
+      "sand": 4,
+      "grass": 76,
+      "field": 2,
+      "paved": 22,
+      "road": 1524
+    },
+    "verticalDatumOffset": 8.987894375457763
+  },
+  {
+    "circuit": "austria",
+    "demTiles": 16,
+    "heightRangeMetres": [
+      -63.935401916503906,
+      909.8049926757812
+    ],
+    "nearTerrainTriangles": 6185,
+    "farGrid": 161,
+    "features": {
+      "water": 4,
+      "forest": 20,
+      "sand": 0,
+      "grass": 89,
+      "field": 0,
+      "paved": 9,
+      "road": 206
+    },
+    "verticalDatumOffset": 675.8307416406251
+  },
+  {
+    "circuit": "silverstone",
+    "demTiles": 9,
+    "heightRangeMetres": [
+      -53.98548889160156,
+      19.85264015197754
+    ],
+    "nearTerrainTriangles": 7885,
+    "farGrid": 161,
+    "features": {
+      "water": 12,
+      "forest": 38,
+      "sand": 19,
+      "grass": 240,
+      "field": 2,
+      "paved": 52,
+      "road": 631
+    },
+    "verticalDatumOffset": 144.33087161376955
+  },
+  {
+    "circuit": "abu-dhabi",
+    "demTiles": 4,
+    "heightRangeMetres": [
+      -7.873507499694824,
+      31.857608795166016
+    ],
+    "nearTerrainTriangles": 6835,
+    "farGrid": 161,
+    "features": {
+      "water": 8,
+      "forest": 1,
+      "sand": 56,
+      "grass": 385,
+      "field": 0,
+      "paved": 21,
+      "road": 1062
+    },
+    "verticalDatumOffset": -5.882855
+  },
+  {
+    "circuit": "spa",
+    "demTiles": 16,
+    "heightRangeMetres": [
+      -112.03206634521484,
+      256.4857177734375
+    ],
+    "nearTerrainTriangles": 8183,
+    "farGrid": 161,
+    "features": {
+      "water": 1,
+      "forest": 59,
+      "sand": 2,
+      "grass": 90,
+      "field": 0,
+      "paved": 20,
+      "road": 238
+    },
+    "verticalDatumOffset": 367.21445761230467
+  },
+  {
+    "circuit": "suzuka",
+    "demTiles": 9,
+    "heightRangeMetres": [
+      -21.024492263793945,
+      79.27001190185547
+    ],
+    "nearTerrainTriangles": 7475,
+    "farGrid": 161,
+    "features": {
+      "water": 12,
+      "forest": 169,
+      "sand": 24,
+      "grass": 61,
+      "field": 5,
+      "paved": 37,
+      "road": 328
+    },
+    "verticalDatumOffset": 14.999493035888673
+  },
+  {
+    "circuit": "interlagos",
+    "demTiles": 4,
+    "heightRangeMetres": [
+      -22.993322372436523,
+      80.6289291381836
+    ],
+    "nearTerrainTriangles": 5494,
+    "farGrid": 161,
+    "features": {
+      "water": 2,
+      "forest": 9,
+      "sand": 0,
+      "grass": 56,
+      "field": 0,
+      "paved": 2,
+      "road": 574
+    },
+    "verticalDatumOffset": 742.0289752539063
+  },
+  {
+    "circuit": "zandvoort",
+    "demTiles": 9,
+    "heightRangeMetres": [
+      -15.7333345413208,
+      42.165279388427734
+    ],
+    "nearTerrainTriangles": 5763,
+    "farGrid": 161,
+    "features": {
+      "water": 25,
+      "forest": 68,
+      "sand": 15,
+      "grass": 34,
+      "field": 0,
+      "paved": 14,
+      "road": 239
+    },
+    "verticalDatumOffset": 0.8731282315063478
+  }
+]

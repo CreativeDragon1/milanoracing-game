@@ -1,0 +1,10 @@
+const {chromium}=require('playwright'),fs=require('fs'),assert=require('assert');
+(async()=>{const browser=await chromium.launch({channel:'msedge',headless:true});try{for(const id of process.argv.slice(2).length?process.argv.slice(2):['singapore','spa','milano']){
+ const page=await browser.newPage({viewport:{width:1440,height:900}}),errors=[];page.on('pageerror',e=>{errors.push(e.message);console.error(id,e.message)});page.on('console',m=>{if(m.type()==='error'&&!m.text().includes('favicon'))errors.push(m.text().slice(0,220))});
+ await page.goto('http://127.0.0.1:8878/?circuit='+id);await page.waitForFunction(()=>window.MilanoReady===true,null,{timeout:90000});await page.waitForTimeout(1200);await page.screenshot({path:`upgrade/qa/${id}-home-updated.png`});
+ const result=await page.evaluate(async()=>{
+  applyGraphics('ultra');newSession('pr');placeCar(Math.floor(N*.48));state='pause';show('none');snap=true;await new Promise(r=>setTimeout(r,2000));
+  const frames=[],start=performance.now();let previous=start;await new Promise(resolve=>{const tick=t=>{frames.push(t-previous);previous=t;if(t-start<6000)requestAnimationFrame(tick);else resolve()};requestAnimationFrame(tick)});frames.splice(0,5);frames.sort((a,b)=>a-b);
+  const gl=ren.getContext(),ext=gl.getExtension('WEBGL_debug_renderer_info');return{medianMs:frames[Math.floor(frames.length*.5)],p95Ms:frames[Math.floor(frames.length*.95)],diagnostics:MilanoBuild.getDiagnostics(),trees:treeAudit,batches:batchAudit,renderer:ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):'unknown',atlas:{width:atlas.image?.width,height:atlas.image?.height,hasUV:!!stemBody.geometry.attributes.uv},assetErrors:sceneAssetErrors};
+ });await page.screenshot({path:`upgrade/qa/${id}-detail-updated.png`});assert(!errors.length,errors.join('\n'));fs.writeFileSync(`upgrade/qa/performance-updated-${id}.json`,JSON.stringify({...result,errors},null,2));console.log(id,JSON.stringify(result));await page.close();
+ }}finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});

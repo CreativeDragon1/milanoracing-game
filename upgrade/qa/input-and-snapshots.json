@@ -1,0 +1,42 @@
+{
+  "keyboard": [
+    {
+      "speed": 0,
+      "fullLockAfterOneSecond": 0.9993537854786824,
+      "releaseAfter350ms": 0.013391241841521172,
+      "maxStep": 0.037500000000000006
+    },
+    {
+      "speed": 25,
+      "fullLockAfterOneSecond": 0.9990156002977923,
+      "releaseAfter350ms": 0.013382740191331816,
+      "maxStep": 0.03518518518518521
+    },
+    {
+      "speed": 55,
+      "fullLockAfterOneSecond": 0.9983666196206599,
+      "releaseAfter350ms": 0.013366425441282418,
+      "maxStep": 0.03240740740740741
+    },
+    {
+      "speed": 90,
+      "fullLockAfterOneSecond": 0.9970466402717447,
+      "releaseAfter350ms": 0.013333242429974471,
+      "maxStep": 0.029166666666666674
+    }
+  ],
+  "standardGamepad": {
+    "mid": {
+      "t": 1,
+      "b": 0.4,
+      "s": 0.26090444557468806
+    },
+    "full": {
+      "t": 1,
+      "b": 0.4,
+      "s": 1
+    }
+  },
+  "snapshotInterpolation": "shortest-angle, midpoint and bounded stale extrapolation passed",
+  "physicalControllerTested": false
+}

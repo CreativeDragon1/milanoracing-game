@@ -1,0 +1,33 @@
+{
+  "sampleRate": 44100,
+  "layers": [
+    {
+      "name": "idle",
+      "start": 0,
+      "frames": 34839,
+      "rpm": 7275.0,
+      "firingHz": 606.25,
+      "sourceStartSeconds": 7.0,
+      "loopBoundaryStep": 0.0024453770131461633
+    },
+    {
+      "name": "mid",
+      "start": 34839,
+      "frames": 30429,
+      "rpm": 8796.0,
+      "firingHz": 733.0,
+      "sourceStartSeconds": 16.0,
+      "loopBoundaryStep": 0.004285421217699384
+    },
+    {
+      "name": "high",
+      "start": 65268,
+      "frames": 34840,
+      "rpm": 15165.0,
+      "firingHz": 1263.75,
+      "sourceStartSeconds": 19.4,
+      "loopBoundaryStep": 0.06623402292299096
+    }
+  ],
+  "note": "Estimated firing orders from the recording; sample-based V10 character, not a calibrated RB1 engine simulation."
+}

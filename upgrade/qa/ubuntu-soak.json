@@ -1,0 +1,29 @@
+{
+  "platform": "linux",
+  "python": "3.12.3",
+  "aiohttp": "3.14.5",
+  "checks": [
+    "Small hosted index and cache revalidation",
+    "Precompressed immutable hashed assets",
+    "Asset 304 revalidation",
+    "Public invite address and private API cache policy",
+    "Foreign origin refused",
+    "Malformed and oversized requests rejected",
+    "Sixteen-player lobby, ready and countdown",
+    "Sixteen clients at 10 updates per second each, bounded load run",
+    "Creation flood rate-limited",
+    "Healthy after rate limit",
+    "2,000 expired guest sessions removed without token growth"
+  ],
+  "soakSeconds": 300.043387294,
+  "requests": 47568,
+  "players": 16,
+  "pollHzPerPlayer": 10,
+  "latencyP50ms": 2.2400304999976584,
+  "latencyP95ms": 3.9080439999850114,
+  "serverCPUPercentOneCore": 4.1793955577873065,
+  "rssStartMiB": 39.91796875,
+  "rssEndMiB": 40.140625,
+  "rssMaxMiB": 40.140625,
+  "limits": "Local Ubuntu 24.04 WSL test, not a 24-hour soak, production server benchmark or real Cloudflare route test."
+}

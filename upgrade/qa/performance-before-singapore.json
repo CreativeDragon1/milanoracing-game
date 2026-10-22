@@ -1,0 +1,24 @@
+{
+  "medianMs": 48.5,
+  "p95Ms": 48.70000000000073,
+  "diagnostics": {
+    "circuit": "singapore",
+    "webgl2": true,
+    "drawCalls": 251,
+    "triangles": 7912350,
+    "textures": 48,
+    "quality": "ultra",
+    "guide": 94.51135951105339
+  },
+  "trees": {
+    "source": "Poly Haven Tree Small 02 / CC0",
+    "nearTriangles": 25414,
+    "middleTriangles": 8389,
+    "active": {
+      "near": 7,
+      "middle": 24,
+      "far": 229
+    }
+  },
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+}

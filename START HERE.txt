@@ -1,3 +1,11 @@
+LATEST VERSION: MILANO RACING - GRAND PRIX
+
+Open Milano Racing - Grand Prix.html for the current game.
+Read README.md and upgrade/docs/Start Here.html for the new server, source and desktop instructions.
+The older Team Edition HTML and root LAN launcher below are legacy World Tour files.
+
+--- ORIGINAL WORLD TOUR INSTRUCTIONS ---
+
 MILANO RACING - WORLD TOUR
 
 SOLO PLAY

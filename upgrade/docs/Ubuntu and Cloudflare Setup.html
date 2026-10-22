@@ -1,0 +1,145 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Milano Racing — Ubuntu & Cloudflare setup</title>
+<style>body{margin:0;background:#0d1420;color:#e9edf4;font:17px/1.65 system-ui,sans-serif}main{max-width:900px;margin:auto;padding:50px 28px 100px}h1{font-size:48px;line-height:1.1;margin:14px 0 22px}h2{margin:55px 0 15px;border-top:1px solid #344052;padding-top:28px}h3{margin-top:30px}a{color:#8dd8f8}small,.muted{color:#aebbd0}.tag{font-size:13px;letter-spacing:3px;color:#ff9d66;font-weight:700}pre{background:#171f2e;border:1px solid #354157;padding:20px;overflow:auto;font-size:14px;line-height:1.6;border-radius:8px}code{font-family:Consolas,monospace}p code,li code{color:#acdfff}aside{border-left:3px solid #ff883e;padding:12px 20px;background:#172031}p,li,td{overflow-wrap:anywhere}table{border-collapse:collapse;width:100%;font-size:15px}th,td{padding:12px;text-align:left;border-bottom:1px solid #344052}nav{display:flex;flex-wrap:wrap;gap:15px}li{margin:10px 0} @media print{body{background:white;color:#111}main{padding:0}pre,aside{background:#f3f4f6;color:#111;border-color:#bbb}a,p code,li code{color:#234}h2{break-before:auto}pre{white-space:pre-wrap;break-inside:avoid}}</style>
+<main><div class="tag">MILANO RACING / SERVER GUIDE / 22 OCTOBER 2026</div><h1>Your private test server.</h1>
+<p>Host the game on Ubuntu 24.04 LTS, manage it through SSH, and publish it at your own HTTPS address with Cloudflare Tunnel. The hosted game is password-protected by default. Once installed, both services start at boot and keep running when you close SSH.</p>
+<aside><b>Your address: https://game.milanoracing.team</b><br>The domain is set throughout this guide and in the supplied configuration. Replace only <code>SERVER_IP</code> and <code>YOUR_USER</code> with your server details.</aside>
+<p><b>Private testing:</b> visitors can see only an access screen. The game HTML, graphics, sound and multiplayer endpoints require a signed access cookie after entering your password. With no password configured, the game stays locked. The standalone HTML in your Downloads folder is a separate offline copy; share it only with people you want to have the game.</p><p>The backend is Python. The Ubuntu edition uses one asynchronous <code>aiohttp</code> process. Graphics, sound and vehicle physics run in players’ browsers, so the server does not need a GPU or a desktop environment. Rooms support 2–16 drivers; races use ghosts rather than car-to-car collision physics.</p>
+<nav><a href="#prepare">1. Prepare</a><a href="#upload">2. Upload</a><a href="#install">3. Install</a><a href="#tunnel">4. Tunnel</a><a href="#publish">5. Publish</a><a href="#test">6. Test</a><a href="#operate">7. Operate</a><a href="#fix">Troubleshooting</a></nav>
+
+<h2 id="prepare">1 / Find your server and domain</h2>
+<p>Get the server’s IP address, SSH username and password or private key from its owner or hosting dashboard. In Cloudflare, open the Websites list and select <b>milanoracing.team</b>. The domain must be active on your Cloudflare account. If it is registered elsewhere, follow Cloudflare’s domain-onboarding instructions before creating the public route.</p>
+<p>Open <b>PowerShell on your Windows computer</b>. Replace the placeholders and connect:</p>
+<pre>ssh YOUR_USER@SERVER_IP</pre>
+<p>For a private key, use <code>ssh -i "C:\path\to\your-key" YOUR_USER@SERVER_IP</code>. On first connection, compare the server fingerprint with the hosting console before accepting it. Passwords are not displayed while typing.</p>
+<p>In the <b>Ubuntu SSH terminal</b>, check the OS and available resources:</p>
+<pre>cat /etc/os-release
+nproc
+free -h
+df -h /
+uname -m</pre>
+<p>This package targets Ubuntu 24.04 and Python 3.12. It uses standard Python networking and works on amd64 or arm64 when dependencies are installed for that machine. The verification supplied with this build covers amd64 Ubuntu 24.04 under WSL. Allow space for the system, updates, game files and a previous release. Start with one event room and check actual CPU, memory and latency before increasing attendance; your remote server’s capacity has not been measured.</p>
+
+<h2 id="upload">2 / Upload the server package</h2>
+<p>Keep the SSH terminal open. Open a <b>second PowerShell window on Windows</b> and upload the ZIP from Downloads:</p>
+<pre>scp "$env:USERPROFILE\Downloads\Milano-Racing-Server.zip" YOUR_USER@SERVER_IP:~/</pre>
+<p>Return to the <b>Ubuntu SSH terminal</b>:</p>
+<pre>sudo apt update
+sudo apt install -y python3 python3-venv unzip curl ca-certificates rsync
+mkdir -p "$HOME/milano-upload"
+unzip -o "$HOME/Milano-Racing-Server.zip" -d "$HOME/milano-upload"
+cd "$HOME/milano-upload/Milano-Racing-Server"
+ls</pre>
+<p>You should see <code>milano_server.py</code>, <code>race_core.py</code>, <code>requirements.txt</code>, <code>milano.service</code> and a <code>public</code> directory. Upload this full package. The standalone HTML alone provides solo play but does not host multiplayer.</p>
+
+<h2 id="install">3 / Install the Python service</h2>
+<p>The game runs as a dedicated account, with read-only access to its installed files. Run these commands in Ubuntu from the extracted package folder:</p>
+<pre>id milano &gt;/dev/null 2&gt;&amp;1 || sudo useradd --system --user-group --home-dir /opt/milano --shell /usr/sbin/nologin milano
+sudo install -d -m 755 /opt/milano
+sudo rsync -a --exclude='.venv' ./ /opt/milano/
+sudo chown -R root:root /opt/milano
+sudo chmod -R a+rX /opt/milano
+sudo python3 -m venv /opt/milano/.venv
+sudo /opt/milano/.venv/bin/pip install -r /opt/milano/requirements.txt
+sudo install -m 600 /opt/milano/milano.env.example /etc/milano.env
+sudo nano /etc/milano.env</pre>
+<p>Set your actual hostname. Keep the service on loopback:</p>
+<pre>PUBLIC_ORIGIN=https://game.milanoracing.team
+BIND=127.0.0.1
+PORT=8767
+TRUST_CLOUDFLARE=1
+PRIVATE_SITE=1
+SITE_PASSWORD_HASH=
+SESSION_SECRET=</pre>
+<p>Use just the HTTPS origin: no path, port or trailing slash. In nano, press Ctrl+O, Enter, then Ctrl+X. For an optional local preview before publishing, temporarily leave <code>PUBLIC_ORIGIN=</code> empty for local testing and set it before publishing.</p>
+<p>Set a private test password now. The prompt hides your input, stores only a salted password hash, and creates a signing secret. Choose at least 12 characters and share it only with your testers:</p><pre>sudo /opt/milano/.venv/bin/python /opt/milano/set-private-password.py</pre><p>Do not change <code>PRIVATE_SITE=1</code> while the game is in development. Without configured credentials, visitors remain locked out.</p><pre>sudo install -m 644 /opt/milano/milano.service /etc/systemd/system/milano.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now milano
+sudo systemctl status milano --no-pager
+curl -fsS http://127.0.0.1:8767/healthz</pre>
+<p>Expected health response: <code>{"status": "ok"}</code>. The service status should say <b>active (running)</b>. It is normal that <code>http://SERVER_IP:8767</code> is unreachable from another computer: the server intentionally listens only on loopback.</p>
+<p>Optional preview before your domain is ready: with <code>PUBLIC_ORIGIN=</code> empty, open a separate Windows terminal and run <code>ssh -L 8767:127.0.0.1:8767 YOUR_USER@SERVER_IP</code>. Browse to <code>http://localhost:8767</code>. Keep that SSH session open while previewing. After setting the real origin, use the public hostname for multiplayer.</p>
+
+<h2 id="tunnel">4 / Install and connect Cloudflare Tunnel</h2>
+<p>If this server already has a working Cloudflare Tunnel, reuse it: add the route in step 5 and skip the new connector installation below. Do not replace an existing tunnel or its credentials.</p>
+<p>For a new connector, install Cloudflare’s stable package in Ubuntu:</p>
+<pre>sudo install -d -m 0755 /usr/share/keyrings
+curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /usr/share/keyrings/cloudflare-main.gpg &gt;/dev/null
+echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main' | sudo tee /etc/apt/sources.list.d/cloudflared.list
+sudo apt update
+sudo apt install -y cloudflared
+cloudflared --version
+command -v cloudflared</pre>
+<p>The package should install <code>/usr/bin/cloudflared</code>, which the supplied service uses. The token-file option requires version 2025.4.0 or newer.</p>
+<ol><li>In your browser, sign in to Cloudflare and open <b>Networking → Tunnels → Create Tunnel</b>. Some accounts show this under Cloudflare One / Networks / Connectors.</li><li>Name the tunnel <b>milano-racing</b> and choose the server’s operating system and architecture.</li><li>Locate the connector token in the supplied install/run command. Copy only the long value after <code>--token</code>. We will store it in a protected file rather than put it into shell history.</li></ol>
+<p>In Ubuntu:</p>
+<pre>id cloudflared &gt;/dev/null 2&gt;&amp;1 || sudo useradd --system --user-group --home-dir /nonexistent --shell /usr/sbin/nologin cloudflared
+sudo install -d -o root -g cloudflared -m 750 /etc/cloudflared
+sudo install -o root -g cloudflared -m 640 /dev/null /etc/cloudflared/milano-token
+read -rsp 'Paste tunnel token, then press Enter: ' MILANO_TUNNEL_TOKEN
+printf '\n'
+printf '%s' "$MILANO_TUNNEL_TOKEN" | sudo tee /etc/cloudflared/milano-token &gt;/dev/null
+unset MILANO_TUNNEL_TOKEN
+sudo install -m 644 /opt/milano/cloudflared-milano.service /etc/systemd/system/cloudflared-milano.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now cloudflared-milano
+sudo systemctl status cloudflared-milano --no-pager</pre>
+<p>The token will not appear while pasting. Keep it private. Do not include the token file in screenshots, archives or support messages. This custom unit is called <code>cloudflared-milano</code>; use that name in the commands below.</p>
+<p>Return to the dashboard and wait for <b>Healthy</b>. The connector needs outbound access to Cloudflare on port 7844 (UDP for QUIC or TCP for HTTP/2), plus DNS. Package downloads use HTTPS. No inbound web-server port or router forwarding is required. Keep your existing SSH access rule; if enabling a firewall, allow your actual SSH port first and confirm a second SSH connection before closing the first.</p>
+
+<h2 id="publish">5 / Publish your hostname</h2>
+<p>Open your tunnel’s <b>Routes → Add route → Published application</b> (older dashboards call this Public Hostname). Set:</p>
+<table><tr><th>Field</th><th>Value</th></tr><tr><td>Subdomain</td><td><code>game</code></td></tr><tr><td>Domain</td><td><code>milanoracing.team</code></td></tr><tr><td>Path</td><td>Leave empty</td></tr><tr><td>Service type</td><td>HTTP</td></tr><tr><td>Service URL</td><td><code>http://127.0.0.1:8767</code> (or <code>127.0.0.1:8767</code> when HTTP is selected separately)</td></tr></table>
+<p>Save the route. Cloudflare creates the DNS route for the chosen hostname. If that exact hostname already serves another site, use a different unused subdomain rather than replacing it.</p>
+<p>Players connect over HTTPS to Cloudflare. The tunnel forwards to HTTP on the same server’s loopback interface; you do not need a self-signed origin certificate or a “no TLS verify” override. Leave the origin Host header unchanged.</p>
+<p>Make sure <code>PUBLIC_ORIGIN</code> in <code>/etc/milano.env</code> exactly matches the new HTTPS address, then run <code>sudo systemctl restart milano</code>. This restart closes current rooms.</p>
+<p><b>Private mode caching:</b> authenticated assets use browser-only <code>private</code> caching; the access screen, game page and API use <code>no-store</code>. Do not add a Cloudflare rule that overrides these headers or forces edge caching.</p><p>Use Cloudflare’s normal caching defaults. If you have custom “cache everything” rules, exclude <code>/api/*</code> and <code>/healthz</code> and respect origin cache headers for HTML. The game marks multiplayer responses <code>no-store</code>, the HTML <code>no-cache</code>, and hashed assets as private/immutable during testing (public/immutable only after launch). Do not cache lobby responses or apply interactive challenges to every game API request.</p>
+
+<h2 id="test">6 / Check before the event</h2>
+<pre>curl -fsS https://game.milanoracing.team/healthz
+curl -I https://game.milanoracing.team/
+sudo systemctl is-enabled milano cloudflared-milano
+sudo systemctl is-active milano cloudflared-milano</pre>
+<ol><li>First open the HTTPS website in a private/incognito window. Confirm you see only <b>Private testing</b>, and that a direct <code>/api/info</code> visit is blocked. Then enter the test password.</li><li>Open the HTTPS website in a current Chrome, Edge or Firefox browser. Load a circuit and drive a practice lap. The browser device needs hardware-accelerated WebGL.</li><li>Press a button on the Bluetooth-paired controller after opening the page. Pairing happens in the player’s OS settings. The browser reads the controller through the Gamepad API; the server does not pair controllers.</li><li>Open the website on a second device. Host a room, copy its invite, join it, ready both drivers and start. Confirm the circuit matches, both cars appear, and results arrive.</li><li>Test on the actual venue network and speakers. Keep music/volume appropriate for the event. Browser audio starts after an interaction.</li><li>Close SSH and verify the website remains online. When no race is running, test a server reboot and verify both services return automatically.</li></ol>
+<p>The first visit downloads the graphics and audio. Later visits can reuse cached assets without reducing texture resolution. Internet latency still affects multiplayer. Races are casual ghost sessions with basic server movement/checkpoint checks; this is not a competitive anti-cheat system.</p>
+
+<h2>Website integration and downloads</h2><p>The existing Milano React website source now includes <code>/racing</code>, a Race navigation link, the MR 26 introduction, an embedded game, fullscreen and Windows download links. Its production game origin is <code>https://game.milanoracing.team</code>. Build that website with <code>npm ci</code> followed by <code>npm run build</code>, then use its existing hosting workflow to deploy <code>dist</code>. Configure the site host to rewrite <code>/racing</code> to <code>/index.html</code> for React Router.</p><p>The game server permits embedding only by itself and <code>https://milanoracing.team</code> / <code>https://www.milanoracing.team</code>. For a different production host, update the explicit frame-ancestors and message-origin lists. Both pages must use HTTPS. The iframe requests gamepad, autoplay and fullscreen permissions; users still need to interact before browser audio starts. Private access remains required inside the embedded game.</p><p>The Windows download is a separate ZIP. Upload it once from Windows:</p><pre>scp "$env:USERPROFILE\Downloads\Milano-Racing-Windows.zip" YOUR_USER@SERVER_IP:~/</pre><p>Then on Ubuntu:</p><pre>sudo install -d -m 755 /opt/milano/downloads
+sudo install -m 644 "$HOME/Milano-Racing-Windows.zip" /opt/milano/downloads/Milano-Racing-Windows.zip</pre><p>The website download button now serves it through the same private gate. Keep this ZIP name exactly as shown. The server bundle does not duplicate the large desktop runtime.</p><h2>Solo qualifying and race weekends</h2><p>The game now includes 22-car solo races, short/full qualifying, four difficulty levels and assisted pit stops with tyre changes. These run locally in the browser or Windows app. Online rooms retain their separate 2–16-driver ghost-race format; qualifying and AI tyre strategy are not yet part of the online coordinator. See <a href="Race%20Weekend%20Guide.html">Race Weekend Guide</a>.</p><h2>Online race behavior</h2><p>Drivers open the same HTTPS game, create or join a room, ready up, and race. An invite retains the room code through private login. Unlisted rooms are the default; the host can opt to show a room on the grid. Each room supports sixteen drivers. Equal setups and ghost opponents keep casual events manageable. WebSocket updates use interpolation and bounded prediction; HTTPS polling is a fallback. A disconnected driver has 30 seconds to reconnect before being marked DNF.</p><p>The host server owns countdown, checkpoints, penalties and results. Vehicle dynamics run locally. Geographic distance still adds latency; the tunnel does not eliminate it. Before an event, test two devices on different Internet connections through the real domain. Cloudflare can restart connections, so the client reconnects automatically. <a href="https://developers.cloudflare.com/network/websockets/">Cloudflare WebSocket reference</a>.</p><h2 id="operate">7 / Keep it running</h2>
+<p>These units use automatic restart on process failure, restricted service accounts and rate-limited journal logging. The game has bounded room/player counts and removes old credentials. No database, build server, browser or GPU process is needed on Ubuntu. Use one Python process: multiple workers would have separate room lists.</p>
+<pre>sudo systemctl status milano cloudflared-milano --no-pager
+sudo journalctl -u milano -n 60 --no-pager
+sudo journalctl -u cloudflared-milano -n 60 --no-pager
+sudo systemctl show milano -p MemoryCurrent -p CPUUsageNSec -p NRestarts
+free -h
+df -h /
+journalctl --disk-usage</pre>
+<p>The Python unit has a 512 MB memory ceiling, not a reservation. Leave memory for Ubuntu, Cloudflare and other services. If monitoring shows the ceiling is genuinely too low, inspect the cause and adjust it deliberately rather than continually restarting. Ensure the physical host does not sleep; an Ubuntu VM stops serving when its host sleeps.</p>
+<p>Rooms and results are held in memory. Restarting the game service ends active races; personal bests stay in each browser. Apply OS, Python dependency and cloudflared updates between sessions. A pinned dependency helps reproduce this build but should still receive reviewed security updates over time.</p>
+<h3>Manage private access</h3>
+<p>Each successful login lasts 12 hours. To revoke all current sessions and change the password, run:</p>
+<pre>sudo /opt/milano/.venv/bin/python /opt/milano/set-private-password.py
+sudo systemctl restart milano</pre>
+<p>Keep <code>/etc/milano.env</code> private: it contains the password hash and cookie signing key. The gate limits password attempts and blocks direct asset/API requests. A shared password is suitable for a small trusted test group. Testers can still copy content they can access; do not distribute the offline HTML publicly. Cloudflare Access can add individual account-based access later if you need per-person revocation.</p>
+<h3>When you decide to launch publicly</h3>
+<p>Only when you are ready, edit <code>/etc/milano.env</code>, set <code>PRIVATE_SITE=0</code>, and restart <code>milano</code>. Keep the current value at <code>1</code> until then. To return to private mode, set it back to <code>1</code>, restart and purge any Cloudflare cache for the hostname. Files already downloaded by visitors cannot be recalled.</p>
+<h3>Update the game safely</h3>
+<p>Upload and extract the new ZIP into a new folder first. When the grid is empty:</p>
+<pre>sudo systemctl stop milano
+sudo cp -a /opt/milano "/opt/milano-backup-$(date +%Y%m%d-%H%M%S)"
+sudo rsync -a --exclude='.venv' "$HOME/milano-upload/Milano-Racing-Server/" /opt/milano/
+sudo chown -R root:root /opt/milano
+sudo chmod -R a+rX /opt/milano
+sudo /opt/milano/.venv/bin/pip install -r /opt/milano/requirements.txt
+sudo install -m 644 /opt/milano/milano.service /etc/systemd/system/milano.service
+sudo systemctl daemon-reload
+sudo systemctl start milano
+curl -fsS http://127.0.0.1:8767/healthz</pre>
+<p>The configuration in <code>/etc/milano.env</code> and tunnel token remain outside the release. Retaining old hashed assets lets existing browser sessions finish loading. Keep one known-good backup; remove older backups manually once the new release has been verified and no rollback is needed. To roll back, stop the service, copy files from that known-good backup to <code>/opt/milano</code>, reinstall its requirements, and start it again.</p>
+
+<h2 id="fix">Troubleshooting</h2>
+<table><tr><th>Symptom</th><th>Check</th></tr><tr><td>SSH times out</td><td>Correct IP, username, actual SSH port and provider firewall. Use the provider’s console if locked out.</td></tr><tr><td>“externally managed environment” from pip</td><td>Use <code>/opt/milano/.venv/bin/pip</code>, not the system pip.</td></tr><tr><td>Cloudflare 502</td><td>Check the local health URL and <code>milano</code> service. The route must use HTTP on 127.0.0.1:8767.</td></tr><tr><td>Tunnel disconnected / 1033</td><td>Check <code>cloudflared-milano</code>, token permissions, DNS and outbound 7844. If UDP is blocked, Cloudflare can use HTTP/2 over TCP.</td></tr><tr><td>“Open the game at this server address”</td><td>Match <code>PUBLIC_ORIGIN</code> to the browser’s HTTPS origin and restart the game service.</td></tr><tr><td>Room cannot be joined</td><td>Both devices need the same public server. Check the six-character code, sixteen-player limit and whether the race has started.</td></tr><tr><td>429 / too many requests</td><td>Wait briefly, close duplicate tabs and investigate automated traffic. Sixteen normal players behind one Wi-Fi connection are accommodated by the configured limits.</td></tr><tr><td>Controller missing</td><td>Use HTTPS or localhost, pair it in the OS, press a controller button and focus the game tab. Browser and controller mappings can differ.</td></tr><tr><td>Low frame rate</td><td>Check the playing device’s hardware acceleration and GPU. The server does not render frames. Try the game’s Performance option on weaker clients.</td></tr><tr><td>No sound</td><td>Click into the game, check engine volume, the browser’s site mute setting and the OS output device.</td></tr></table>
+<p>For support, share service status and recent error messages with tokens and personal addresses removed. Do not send private keys or the contents of <code>milano-token</code>.</p>
+
+<h2>Reference and verification</h2>
+<p>The setup was checked against <a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/">Cloudflare’s tunnel setup</a>, <a href="https://pkg.cloudflare.com/index.html">stable package repository</a>, <a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/run-parameters/">run parameters and token-file support</a>, and <a href="https://docs.aiohttp.org/en/stable/web_quickstart.html">aiohttp server documentation</a>. Dashboard wording may change.</p>
+<p>See <code>qa/ubuntu-soak.json</code> and <code>qa/driving.json</code> in the delivered packages for the actual test results and limits. Local tests are not proof of 24-hour uptime on your remote server. Your SSH connection, domain, DNS route and venue devices must still be verified after installation.</p>
+<p class="muted">Milano Racing — Grand Prix / MR 26. Unofficial circuit recreations. Audio and asset credits are included with the game.</p></main></html>

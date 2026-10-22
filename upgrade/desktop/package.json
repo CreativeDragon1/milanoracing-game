@@ -1,0 +1,18 @@
+{
+  "name": "milano-racing",
+  "productName": "Milano Racing",
+  "version": "2.0.0",
+  "private": true,
+  "main": "main.cjs",
+  "description": "Milano Racing Grand Prix",
+  "author": "Milano Racing",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "package:win": "electron-packager . \"Milano Racing\" --platform=win32 --arch=x64 --out=../release --overwrite --asar"
+  },
+  "devDependencies": {
+    "electron": "45.0.0",
+    "@electron/packager": "20.3.0"
+  }
+}

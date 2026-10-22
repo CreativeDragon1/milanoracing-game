@@ -1,0 +1,46 @@
+[
+  {
+    "circuit": "bahrain",
+    "overlappingFootprintsAdapted": 0
+  },
+  {
+    "circuit": "singapore",
+    "overlappingFootprintsAdapted": 0
+  },
+  {
+    "circuit": "monza",
+    "overlappingFootprintsAdapted": 0
+  },
+  {
+    "circuit": "monaco",
+    "overlappingFootprintsAdapted": 0
+  },
+  {
+    "circuit": "austria",
+    "overlappingFootprintsAdapted": 0
+  },
+  {
+    "circuit": "silverstone",
+    "overlappingFootprintsAdapted": 1
+  },
+  {
+    "circuit": "abu-dhabi",
+    "overlappingFootprintsAdapted": 0
+  },
+  {
+    "circuit": "spa",
+    "overlappingFootprintsAdapted": 0
+  },
+  {
+    "circuit": "suzuka",
+    "overlappingFootprintsAdapted": 0
+  },
+  {
+    "circuit": "interlagos",
+    "overlappingFootprintsAdapted": 0
+  },
+  {
+    "circuit": "zandvoort",
+    "overlappingFootprintsAdapted": 0
+  }
+]

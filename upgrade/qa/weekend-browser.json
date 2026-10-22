@@ -1,0 +1,77 @@
+{
+  "start": {
+    "mode": "qual",
+    "phase": "qualifying",
+    "pit": true,
+    "pose": [
+      -41.356080957366245,
+      6.027942741457821,
+      15.279487417659807
+    ],
+    "progress": -42.881629621374486
+  },
+  "drive": {
+    "pitExited": true,
+    "after": {
+      "x": 193.0932,
+      "z": -8.03295,
+      "h": -0.08817629829375805,
+      "vx": 22.22222222222222,
+      "vy": 0,
+      "r": 0,
+      "st": 0,
+      "idx": 40,
+      "d": -3.728531190493341,
+      "rpm": 3500,
+      "gear": 1,
+      "odo": 0
+    },
+    "best": 90,
+    "phase": "qualifying-result",
+    "grid": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  "raceState": {
+    "state": "race",
+    "phase": "race",
+    "position": 1,
+    "speed": 59.70837878084377,
+    "cars": 21
+  },
+  "pit": {
+    "stops": 1,
+    "tyres": [
+      "medium",
+      "hard"
+    ],
+    "exited": true,
+    "max": 80,
+    "ticks": 4720,
+    "limit": 80,
+    "progress": 193.10000000000036,
+    "expected": 193.1
+  },
+  "errors": []
+}

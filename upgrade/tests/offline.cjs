@@ -1,0 +1,13 @@
+const {chromium}=require('playwright'),assert=require('assert'),fs=require('fs'),path=require('path'),{pathToFileURL}=require('url');
+(async()=>{const browser=await chromium.launch({channel:'msedge',headless:true});try{
+ const page=await browser.newPage({viewport:{width:1440,height:900}}),errors=[],external=[];
+ page.on('pageerror',e=>errors.push(e.message));await page.route(/^https?:/,route=>{external.push(route.request().url());return route.abort()});
+ await page.goto(pathToFileURL(path.resolve('upgrade/qa/standalone.html')).href);await page.waitForFunction(()=>window.MilanoReady===true,null,{timeout:120000});
+ const loaded=await page.evaluate(()=>({circuits:Object.keys(CIRCUITS).length,car:document.querySelector('.car-caption h3').textContent,fonts:document.fonts.status}));assert.equal(loaded.circuits,12);assert.equal(loaded.car,'MR 26');
+ await page.screenshot({path:'upgrade/qa/final-menu.png'});await page.setViewportSize({width:960,height:640});await page.screenshot({path:'upgrade/qa/final-menu-compact.png'});assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),'Compact viewport horizontal overflow');
+ await page.locator('[data-ov="sessions"]').click();const cards=await page.locator('.session-list .session-copy').evaluateAll(nodes=>nodes.map(n=>({width:n.getBoundingClientRect().width,overflow:n.scrollWidth>n.clientWidth})));assert(cards.length===4&&cards.every(c=>c.width>110&&!c.overflow),'Four readable session cards');
+ await page.locator('[data-go="pr"]').click();await page.locator('#go').click();await page.evaluate(()=>{race.cd=.01});await page.waitForFunction(()=>state==='race',null,{timeout:8000});
+ await page.keyboard.down('ArrowUp');await page.waitForTimeout(1100);await page.keyboard.up('ArrowUp');assert(await page.evaluate(()=>c.vx>2));
+ const guide=await page.evaluate(()=>{state='pause';S.line=2;placeCar(Math.round(N*.55));snap=true;return{arrowCulled:guideArrows.frustumCulled,outlineCulled:guideOutline.frustumCulled}});assert(!guide.arrowCulled&&!guide.outlineCulled,'Dynamic guide retains moving bounds');
+ assert(!errors.length,errors.join(','));assert(!external.length,external.join(','));fs.writeFileSync('upgrade/qa/offline.json',JSON.stringify({loaded,cards,guide,errors,externalRequests:external,checks:['Offline file URL with all network blocked','12 circuits and MR 26','1440 and 960 pixel home','Four readable session cards','Start practice through UI and accelerate','Dynamic racing-line culling regression']},null,2));console.log('Embedded HTML offline and menu checks passed');
+ }finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});
