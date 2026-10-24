@@ -6,7 +6,11 @@ for directory in ['vegetation','audio','surfaces','fonts']: (A/directory).mkdir(
 for p in (U/'assets/tree-small-02/textures').glob('*1k.jpg'):shutil.copy2(p,A/'vegetation'/p.name)
 for p in (U/'assets/tree-small-02').glob('canopy-*.png'):shutil.copy2(p,A/'vegetation'/p.name)
 shutil.copy2(U/'src/tree-model.json',A/'vegetation/model.json')
-for p in (U/'assets').glob('*.jpg'):shutil.copy2(p,A/'surfaces'/p.name)
+for p in (U/'assets').glob('*.jpg'):
+ if not p.name.startswith(('lawn-','turf-','sand-fine-','asphalt-fine-','rock-ground-','palm-bark-')):shutil.copy2(p,A/'surfaces'/p.name)
+for prefix,kinds in [('asphalt-fine',['color','normal','rough']),('lawn',['color','normal']),('sand-fine',['color','normal']),('palm-bark',['color','normal','rough'])]:
+ for kind in kinds:
+  p=U/'assets'/f'{prefix}-{kind}.webp';shutil.copy2(p,A/'surfaces'/p.name)
 for name in ['Barlow-Bold.ttf','Barlow-ExtraBoldItalic.ttf','Michroma.ttf','DM-Sans.ttf']:
  shutil.copy2(U/'assets/fonts'/name,A/'fonts'/name)
 shutil.copy2(U/'vendor/team-logo.png',A/'team-logo.png')

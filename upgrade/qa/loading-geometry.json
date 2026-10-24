@@ -1,0 +1,567 @@
+{
+  "readyMs": 7143.5999999940395,
+  "largestFrameGap": 1076.5,
+  "frames": 180,
+  "longTasks": [
+    {
+      "at": 221.2000000178814,
+      "ms": 78
+    },
+    {
+      "at": 729.0999999940395,
+      "ms": 55
+    },
+    {
+      "at": 955.4000000059605,
+      "ms": 380
+    },
+    {
+      "at": 1395.800000011921,
+      "ms": 384
+    },
+    {
+      "at": 2492.800000011921,
+      "ms": 102
+    },
+    {
+      "at": 2595.2000000178814,
+      "ms": 101
+    },
+    {
+      "at": 3094.5999999940395,
+      "ms": 63
+    },
+    {
+      "at": 3199.300000011921,
+      "ms": 536
+    },
+    {
+      "at": 3874.5999999940395,
+      "ms": 1079
+    },
+    {
+      "at": 4971.5999999940395,
+      "ms": 142
+    },
+    {
+      "at": 5208.5,
+      "ms": 98
+    },
+    {
+      "at": 5307,
+      "ms": 311
+    },
+    {
+      "at": 5636.5999999940395,
+      "ms": 106
+    },
+    {
+      "at": 5875,
+      "ms": 96
+    },
+    {
+      "at": 6149.5999999940395,
+      "ms": 684
+    },
+    {
+      "at": 6833.800000011921,
+      "ms": 125
+    },
+    {
+      "at": 6966.300000011921,
+      "ms": 132
+    }
+  ],
+  "boot": [
+    {
+      "ms": 21.900000005960464,
+      "stage": "const geographicHeights=geography?new Float32Array(Uint8Array.from(atob("
+    },
+    {
+      "ms": 19.900000005960464,
+      "stage": "try{ren=new T.WebGLRenderer({canvas:$('c'),antialias:true,powerPreferenc"
+    },
+    {
+      "ms": 384,
+      "stage": "if(ren){const environmentScene=new T.Scene();environmentScene.add(sky.cl"
+    },
+    {
+      "ms": 12.300000011920929,
+      "stage": "const asphalt=pbrTexture('data:image/webp;base64,UklGRsx/EABXRUJQVlA4IMB"
+    },
+    {
+      "ms": 27.099999994039536,
+      "stage": "loadTerrain();if(terrainVertices){const geometry=new T.BufferGeometry();"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "if(terrainVertices){const geometry=new T.BufferGeometry();geometry.setAt"
+    },
+    {
+      "ms": 8.200000017881393,
+      "stage": "if(terrainVertices){const geometry=new T.BufferGeometry();geometry.setAt"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "if(terrainVertices){const geometry=new T.BufferGeometry();geometry.setAt"
+    },
+    {
+      "ms": 14,
+      "stage": "const gravel=pbrTexture('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQAB"
+    },
+    {
+      "ms": 15.300000011920929,
+      "stage": "const foundationMaterial=new T.MeshStandardMaterial({color:linear(THEME="
+    },
+    {
+      "ms": 14,
+      "stage": "ribbon(barrierLeft,cx.map((_,i)=>-trackHalf(i,-1)-1.5),.003,()=>runoffCo"
+    },
+    {
+      "ms": 13.900000005960464,
+      "stage": "if(pavedRunoff){for(const side of[-1,1]){const bounds=side>0?barrierRigh"
+    },
+    {
+      "ms": 10.900000005960464,
+      "stage": "physicalKerb(1);physicalKerb(-1); ribbon(cx.map((_,i)=>trackHalf(i,1)-."
+    },
+    {
+      "ms": 8.5,
+      "stage": "ribbon(cx.map((_,i)=>trackHalf(i,1)-.4),cx.map((_,i)=>trackHalf(i,1)-.18"
+    },
+    {
+      "ms": 8.299999982118607,
+      "stage": "ribbon(barrierLeft.map((v,i)=>Math.max(v,-trackHalf(i,-1)-2.4)),cx.map(("
+    },
+    {
+      "ms": 27,
+      "stage": "wall(barrierRight,1.2,0x363e4a);wall(barrierLeft,1.2,0x363e4a);trackFoun"
+    },
+    {
+      "ms": 22.599999994039536,
+      "stage": "wall(barrierLeft,1.2,0x363e4a);trackFoundation(barrierRight);trackFounda"
+    },
+    {
+      "ms": 24.69999998807907,
+      "stage": "trackFoundation(barrierRight);trackFoundation(barrierLeft); const box=("
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "const h0=-Math.atan2(tz[0],tx[0]); const grid=canvasTex(128,512,(x,w,h)"
+    },
+    {
+      "ms": 33.29999998211861,
+      "stage": "board('MILANO RACING',cx[0]-.45,7.7,cz[0],-Math.PI/2+h0,17,1.8,'TEAM EDI"
+    },
+    {
+      "ms": 10.5,
+      "stage": "beams(scene,fenceLines,M(0x737f8c,.5,.5)); for(let i=0;i<N;i+=28){if(tu"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.200000017881393,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 9.5,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<16000&&treePositions.length<treeMax;i++){const xx=trackBou"
+    },
+    {
+      "ms": 10.399999976158142,
+      "stage": "treePositions.forEach(([x,z,h],i)=>{const ground=groundHeight(x,z);dummy"
+    },
+    {
+      "ms": 46.5,
+      "stage": "const waterNormals=canvasTex(256,256,(c,w,h)=>{const data=c.createImageD"
+    },
+    {
+      "ms": 38.19999998807907,
+      "stage": "const photoGrass=pbrTexture('data:image/webp;base64,UklGRvrtGQBXRUJQVlA4"
+    },
+    {
+      "ms": 37,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 13.099999994039536,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 33.29999998211861,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 18,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 8.900000005960464,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 31.30000001192093,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 15.299999982118607,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 9.599999994039536,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 13.400000005960464,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 26.69999998807907,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 10.300000011920929,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 11.400000005960464,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 9.700000017881393,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 8.200000017881393,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 9.399999976158142,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 31.19999998807907,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 9.299999982118607,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 8.400000005960464,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 8.400000005960464,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 9.099999994039536,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 9.200000017881393,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 14.200000017881393,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 9.199999988079071,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 63.10000002384186,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 40.5,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 536.5,
+      "stage": "if(mappedBuildings.length){ const make=()=>({p:[],uv:[],c:[]}),walls=m"
+    },
+    {
+      "ms": 13.899999976158142,
+      "stage": "if(geography){ const g=geography,n=g.count,b=g.bounds,nb=g.nearBounds;"
+    },
+    {
+      "ms": 36.30000001192093,
+      "stage": "if(geography){ const g=geography,n=g.count,b=g.bounds,nb=g.nearBounds;"
+    },
+    {
+      "ms": 28,
+      "stage": "if(CIRCUIT.id==='singapore'){ const towers=landmarksHere.filter(f=>f.n"
+    },
+    {
+      "ms": 11.300000011920929,
+      "stage": "buildLandmarkArchitecture(); // Recognizable buildings and the infrastr"
+    },
+    {
+      "ms": 43.099999994039536,
+      "stage": "buildContextStructures();buildContextInfrastructure(); // Date-palm s"
+    },
+    {
+      "ms": 1079.1000000238419,
+      "stage": "buildContextInfrastructure(); // Date-palm silhouettes: tapered ringe"
+    },
+    {
+      "ms": 8.300000011920929,
+      "stage": "if(calendarHere){ // Keep asynchronous loader-owned textures; cloning "
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "if(calendarHere){ // Keep asynchronous loader-owned textures; cloning "
+    },
+    {
+      "ms": 142.60000002384186,
+      "stage": "(() => { const profile={bahrain:'desert',singapore:'civic',monza:'wood"
+    },
+    {
+      "ms": 12.100000023841858,
+      "stage": "const treeTextures={trunk:{map:pbrTexture('data:image/jpeg;base64,/9j/4A"
+    },
+    {
+      "ms": 19.5,
+      "stage": "for(const part of TREE_MODEL.near){const p=decodeTree(part.positions);fo"
+    },
+    {
+      "ms": 98.2000000178814,
+      "stage": "for(const part of TREE_MODEL.near){const p=decodeTree(part.positions);fo"
+    },
+    {
+      "ms": 311.7000000178814,
+      "stage": "for(const level of['near','middle'])for(const part of TREE_MODEL[level])"
+    },
+    {
+      "ms": 8.900000005960464,
+      "stage": "for(let view=0;view<2;view++)for(const [u,v] of [[0,0],[1,0],[1,1],[0,0]"
+    },
+    {
+      "ms": 106.10000002384186,
+      "stage": "for(const part of stemAsset.parts){ const bytes=Uint8Array.from(atob(p"
+    },
+    {
+      "ms": 9.799999982118607,
+      "stage": "for(const part of stemAsset.parts){ const bytes=Uint8Array.from(atob(p"
+    },
+    {
+      "ms": 24.900000005960464,
+      "stage": "teamDecal([1.55,3,0],[0,-1,0],.84,.28,[-Math.PI/2,0,0]); for(const side"
+    },
+    {
+      "ms": 25.099999994039536,
+      "stage": "for(const side of[-1,1])teamDecal([-1.1,.90,side*3],[0,0,-side],.85,.29,"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<PIT.x.length-1;i++){ const a=pitSections[i],b=pitSection"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<PIT.x.length-1;i++){ const a=pitSections[i],b=pitSection"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<PIT.x.length-1;i++){ const a=pitSections[i],b=pitSection"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<PIT.x.length-1;i++){const j=i+1;for(const [k,side]of[[i,-1"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<PIT.x.length-1;i++){const j=i+1;for(const [k,side]of[[i,-1"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<PIT.x.length-1;i++){const j=i+1;for(const [k,side]of[[i,-1"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<PIT.x.length-1;i++){const j=i+1;for(const [k,side]of[[i,-1"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=0;i<PIT.x.length-1;i++){const j=i+1;for(const [k,side]of[[i,-1"
+    },
+    {
+      "ms": 96.5,
+      "stage": "for(const side of[-1,1])for(let i=0;i<PIT.x.length-1;i++){ if(PIT.s[i]"
+    },
+    {
+      "ms": 17.69999998807907,
+      "stage": "{const x=mb.getContext('2d');x.scale(mapScale,mapScale);x.fillStyle='#10"
+    },
+    {
+      "ms": 37.5,
+      "stage": "refreshGuideSpeeds(); // Two instanced meshes provide high-contrast che"
+    },
+    {
+      "ms": 44.900000005960464,
+      "stage": "if(ren){const studio=new T.Scene();studio.background=new T.Color(0x18233"
+    },
+    {
+      "ms": 13.699999988079071,
+      "stage": "resize(); const cp=new T.Vector3(),lk=new T.Vector3(),lookSmooth=new "
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=1;i<PIT.x.length-2;i++){ const a=pitApronEdge(i),b=pitApronE"
+    },
+    {
+      "ms": 8.200000017881393,
+      "stage": "for(let i=1;i<PIT.x.length-2;i++){ const a=pitApronEdge(i),b=pitApronE"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=1;i<PIT.x.length-2;i++){ const a=pitApronEdge(i),b=pitApronE"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=1;i<PIT.x.length-2;i++){ const a=pitApronEdge(i),b=pitApronE"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=1;i<PIT.x.length-2;i++){ const a=pitApronEdge(i),b=pitApronE"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "for(let i=1;i<PIT.x.length-2;i++){ const a=pitApronEdge(i),b=pitApronE"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "for(let i=1;i<PIT.x.length-2;i++){ const a=pitApronEdge(i),b=pitApronE"
+    },
+    {
+      "ms": 684,
+      "stage": "trimPitGround(); // One construction-time spatial index, released bef"
+    },
+    {
+      "ms": 125.40000000596046,
+      "stage": "finalizeSceneryBatches(); registerPalmLods(); // Immutable scenery n"
+    }
+  ],
+  "assets": [],
+  "errors": []
+}

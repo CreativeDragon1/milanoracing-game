@@ -1,5 +1,8 @@
 extends Node3D
 # Fixed-step assisted two-axle bicycle model, SI units. No path-following for player input.
+var road_points:=PackedVector2Array()
+var road_vectors:=PackedVector2Array()
+var road_lengths:=PackedFloat64Array()
 var circuit: Dictionary
 var idx := 0
 var lateral := 0.0
@@ -38,6 +41,11 @@ var controller_device := -1
 
 func configure(track: Dictionary, pit_data: Dictionary) -> void:
 	circuit = track
+	road_points.resize(track.N); road_vectors.resize(track.N); road_lengths.resize(track.N)
+	for i in int(track.N): road_points[i]=Vector2(track.x[i],track.z[i])
+	for i in int(track.N):
+		road_vectors[i]=road_points[(i+1)%int(track.N)]-road_points[i]
+		road_lengths[i]=road_vectors[i].length_squared()
 	pit = pit_data
 	visual = load("res://assets/mr26.scn").instantiate()
 	add_child(visual)
@@ -74,20 +82,25 @@ func reset_at(station: int) -> void:
 	reset_physics_interpolation()
 
 func project(point: Vector3, hint: int) -> Dictionary:
-	var count := int(circuit.N)
+	var count := road_points.size()
 	var best := INF
-	var result := {"i":hint,"offset":0.0,"fraction":0.0}
-	for k in range(-45,46):
-		var i := posmod(hint+k,count)
-		var j := (i+1)%count
-		var a := Vector2(circuit.x[i],circuit.z[i])
-		var delta := Vector2(circuit.x[j],circuit.z[j])-a
-		var t := clampf((Vector2(point.x,point.z)-a).dot(delta)/delta.length_squared(),0,1)
-		var diff := Vector2(point.x,point.z)-a-delta*t
-		if diff.length_squared()<best:
-			best = diff.length_squared()
-			result = {"i":i,"offset":(diff.y*delta.x-diff.x*delta.y)/delta.length(),"fraction":t}
-	return result
+	var best_i:=hint; var fraction:=0.0; var offset:=0.0
+	var p:=Vector2(point.x,point.z)
+	# Coherent motion stays in a few road segments. Expand at the window edge;
+	# this preserves the old recovery search without allocating 91 dictionaries.
+	for radius in [8,45]:
+		for k in range(-radius,radius+1):
+			var i:=posmod(hint+k,count)
+			var delta:=road_vectors[i]
+			var relative:=p-road_points[i]
+			var t:=clampf(relative.dot(delta)/road_lengths[i],0,1)
+			var diff:=relative-delta*t
+			if diff.length_squared()<best:
+				best=diff.length_squared(); best_i=i; fraction=t
+				offset=(diff.y*delta.x-diff.x*delta.y)/sqrt(road_lengths[i])
+		var separation:=absi(best_i-hint)
+		if mini(separation,count-separation)<radius-1 and best<900: break
+	return {"i":best_i,"offset":offset,"fraction":fraction}
 
 func update_pose() -> void:
 	var q := project(position,idx)
@@ -98,7 +111,7 @@ func update_pose() -> void:
 	var ground := lerpf(circuit.elevation.height[idx],circuit.elevation.height[j],q.fraction)-lateral*tan(bank)
 	position.y = ground+.045
 	var along := cos(heading)*float(circuit.tx[idx])+sin(heading)*float(circuit.tz[idx])
-	var grade := float(circuit.elevation.grade[idx])*along
+	var grade := lerpf(circuit.elevation.grade[idx],circuit.elevation.grade[j],q.fraction)*along
 	rotation = Vector3(-bank*along,-heading,atan(grade))
 
 func _physics_process(dt: float) -> void:
@@ -125,8 +138,9 @@ func _physics_process(dt: float) -> void:
 		gas_target=minf(gas_target,1-brake_target)
 	throttle = move_toward(throttle,gas_target,dt*(5 if gas_target>throttle else 12))
 	brake = move_toward(brake,brake_target,dt*14)
-	var rate := (13.0 if absf(steer_target)<.015 else 7.5-clampf(speed/90,0,1)*1.5) if keyboard else 16.0
-	steering = move_toward(steering,lerpf(steering,steer_target,1-exp(-rate*dt)),dt*(4.5 if keyboard else 8.0))
+	var releasing:=absf(steer_target)<.015
+	var rate := (11.0 if releasing else 4.8-clampf(speed/90,0,1)*1.3) if keyboard else (17.0 if releasing else 16.0-clampf(speed/75,0,1)*2)
+	steering = move_toward(steering,lerpf(steering,steer_target,1-exp(-rate*dt)),dt*(5.5 if releasing else 2.7 if keyboard else 8.0))
 	var edge: float = circuit.widthRight[idx] if lateral>=0 else circuit.widthLeft[idx]
 	var off := clampf((absf(lateral)-edge-1.1)/1.8,0,1)
 	var mass := 800.0
@@ -136,17 +150,25 @@ func _physics_process(dt: float) -> void:
 	var max_lat := minf(60,mu*load/mass)
 	# Full low-speed steering, progressively limited at speed by the tyre envelope.
 	var lock := minf(.50,atan(max_lat*3.0/maxf(speed*speed,12.0)))*.92
-	var angle := steering*lock*steering_strength
+	var gentle := clampf((1.25-steering_strength)/.65,0,1)
+	var centre_response := (.42 if keyboard else .78)-.12*gentle
+	var steer_command := signf(steering)*(absf(steering)*centre_response+(1-centre_response)*pow(absf(steering),3))
+	var angle := steer_command*lock
 	var front_load := load*.46
 	var rear_load := load-front_load
 	var fy_front := -mu*front_load*tanh((atan2(side_speed+1.6*yaw_rate,maxf(speed,4))-angle)*14)
 	var fy_rear := -mu*rear_load*tanh(atan2(side_speed-1.4*yaw_rate,maxf(speed,4))*14.16)
-	var available_front := sqrt(maxf(0,pow(mu*front_load,2)-fy_front*fy_front))
-	var available_rear := sqrt(maxf(0,pow(mu*rear_load,2)-fy_rear*fy_rear))
 	var brake_force := brake*minf(47000,speed*mass/dt)
 	var drive := minf(19000,720000/maxf(speed,12))*clampf((105-speed)/5,0,1)
-	var fx_front := clampf(-brake_force*.58,-available_front,available_front)
-	var fx_rear := clampf(throttle*drive-brake_force*.42,-available_rear,available_rear)
+	var fx_front := -brake_force*.58
+	var fx_rear := throttle*drive-brake_force*.42
+	# Combined slip preserves braking authority at steering lock while keeping
+	# each axle inside its friction circle.
+	var front_scale := minf(1,mu*front_load/maxf(1,Vector2(fx_front,fy_front).length()))
+	var rear_scale := minf(1,mu*rear_load/maxf(1,Vector2(fx_rear,fy_rear).length()))
+	fx_front*=front_scale; fy_front*=front_scale
+	if brake_force>0:fx_rear*=rear_scale; fy_rear*=rear_scale
+	else:fx_rear=minf(throttle*drive,sqrt(maxf(0,pow(mu*rear_load,2)-fy_rear*fy_rear)))
 	var drag := minf(.6*1.7*speed*speed+mass*9.81*.015+off*(600+50*speed),speed*mass/dt)
 	var slope := float(circuit.elevation.grade[idx])*(cos(heading)*float(circuit.tx[idx])+sin(heading)*float(circuit.tz[idx]))
 	speed = maxf(0,speed+((fx_front*cos(angle)-fy_front*sin(angle)+fx_rear-drag)/mass-9.81*sin(atan(slope))+yaw_rate*side_speed)*dt)
@@ -215,18 +237,26 @@ func step_pit(dt: float) -> void:
 		pit_service += dt
 	else:
 		speed = move_toward(speed,target,dt*8)
-		pit_s += speed*dt
+		pit_s = minf(float(pit.length),pit_s+speed*dt)
+	while k<pit.s.size()-2 and float(pit.s[k+1])<pit_s: k += 1
 	var t := clampf((pit_s-float(pit.s[k]))/maxf(.01,float(pit.s[k+1])-float(pit.s[k])),0,1)
 	position = Vector3(lerpf(pit.x[k],pit.x[k+1],t),lerpf(pit.y[k],pit.y[k+1],t)+.045,lerpf(pit.z[k],pit.z[k+1],t))
 	heading = lerp_angle(pit.heading[k],pit.heading[k+1],t)
 	if pit_s<18:
 		var blend := smoothstep(0,18,pit_s)
-		position = pit_entry_pose.lerp(position,blend)
-		heading = lerp_angle(pit_entry_heading,heading,blend)
+		position += (pit_entry_pose-Vector3(pit.x[0],pit.y[0]+.045,pit.z[0]))*(1-blend)
+		heading += angle_difference(pit.heading[0],pit_entry_heading)*(1-blend)
 	rotation = Vector3(0,-heading,atan(lerpf(pit.grade[k],pit.grade[k+1],t)))
 	idx = posmod(roundi(lerpf(pit.station[k],pit.station[k+1],t)),int(circuit.N))
 	lap_clock += dt
-	animate_wheels(dt,0)
+	var curve:float=lerpf(pit.curvature[k],pit.curvature[k+1],t) if pit.has("curvature") else 0.0
+	var angle:=atan(3.0*curve)
+	var max_lat:=minf(60,2.0*(800*9.81+2.6*1.2*speed*speed)/800)
+	var lock:=minf(.50,atan(max_lat*3.0/maxf(speed*speed,12.0)))*.92
+	steering=clampf(angle/maxf(.01,lock*steering_strength),-1,1)
+	yaw_rate=curve*speed
+	side_speed=0
+	animate_wheels(dt,angle)
 	lap_distance += speed*dt
 	distance += speed*dt
 	if old_idx>int(circuit.N)*.9 and idx<int(circuit.N)*.1 and lap_distance>float(circuit.length)*.8:

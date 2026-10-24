@@ -1,0 +1,457 @@
+{
+  "data": {
+    "tasks": [
+      {
+        "at": 37.39999997615814,
+        "ms": 50
+      }
+    ],
+    "times": []
+  },
+  "events": [
+    {
+      "name": "FireAnimationFrame",
+      "ms": 49.204,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 534
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 49.174,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 49.166,
+      "args": {
+        "data": {
+          "columnNumber": 15,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 7331,
+          "sampleTraceId": 5132570797470162,
+          "scriptId": "5",
+          "url": "file:///C:/Users/Geet/Documents/Codex/2026-10-09/usi/upgrade/qa/standalone.html?circuit=singapore"
+        }
+      }
+    },
+    {
+      "name": "MajorGC",
+      "ms": 32.736,
+      "args": {
+        "type": "finalize incremental marking via task",
+        "usedHeapSizeAfter": 93441284,
+        "usedHeapSizeBefore": 502467992
+      }
+    },
+    {
+      "name": "V8.GCFinalizeMC",
+      "ms": 32.61,
+      "args": {}
+    },
+    {
+      "name": "V8.GC_MARK_COMPACTOR",
+      "ms": 32.594,
+      "args": {
+        "epoch": 106
+      }
+    },
+    {
+      "name": "V8.GC_MC_FINISH",
+      "ms": 28.733,
+      "args": {}
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 16.672,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 593
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 16.651,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 16.641,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797468637,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 16.187,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 594
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 16.162,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 16.15,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797468607,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 13.192,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 592
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 13.174,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 13.164,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797468665,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 13.033,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 602
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 13.012,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 13.001,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797467850,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 12.988,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 595
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 12.964,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 12.955,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797468563,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 11.741,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 1048
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 11.73,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 11.722,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797458469,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 11.639,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 1063
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 11.613,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 11.604,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797458881,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 11.317,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 2579
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 11.312,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 568
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 11.299,
+      "args": {}
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 11.293,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 11.291,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797429361,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 11.285,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797468804,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 11.265,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 596
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 11.244,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 11.233,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797467762,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 11.169,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 631
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 11.151,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 11.139,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797467443,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 11.137,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 1758
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 11.123,
+      "args": {}
+    },
+    {
+      "name": "FunctionCall",
+      "ms": 11.116,
+      "args": {
+        "data": {
+          "columnNumber": 222,
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "functionName": "frame",
+          "isolate": "11822574825019397976",
+          "lineNumber": 1,
+          "sampleTraceId": 5132570797445618,
+          "scriptId": "24",
+          "url": ""
+        }
+      }
+    },
+    {
+      "name": "FireAnimationFrame",
+      "ms": 11.067,
+      "args": {
+        "data": {
+          "frame": "864BCB38B2C327501F9A596CDD64FE69",
+          "id": 588
+        }
+      }
+    },
+    {
+      "name": "v8.callFunction",
+      "ms": 11.046,
+      "args": {}
+    }
+  ]
+}

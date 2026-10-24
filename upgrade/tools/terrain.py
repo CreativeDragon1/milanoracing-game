@@ -11,7 +11,7 @@ from scipy.spatial import cKDTree
 path=ROOT/'upgrade/src/world-tour-data.json';tour=json.loads(path.read_text());reports=[r for r in json.loads((ROOT/'upgrade/qa/terrain-validation.json').read_text()) if r['id'] not in sys.argv[1:]] if len(sys.argv)>1 else []
 for ident,d in tour.items():
  if len(sys.argv)>1 and ident not in sys.argv[1:]:continue
- if ident not in ['milano','spa','suzuka','interlagos','zandvoort']:continue
+ if ident not in ['milano','spa','suzuka','interlagos','zandvoort'] and not d.get('original',False):continue
  q=np.array([d['x'],d['z']]).T;norm=np.array([-np.array(d['tz']),d['tx']]).T;y=np.array(d['elevation']['height']);n=len(q)
  left=q-norm*(np.array(d.get('widthLeft',[d['width']/2]*n))+np.array(d['runoffLeft']))[:,None];right=q+norm*(np.array(d.get('widthRight',[d['width']/2]*n))+np.array(d['runoffRight']))[:,None]
  corridor=union_all([Polygon([left[i],right[i],right[(i+1)%n],left[(i+1)%n]]).buffer(0) for i in range(n)])

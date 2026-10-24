@@ -1,4 +1,5 @@
 extends Node3D
+const Buffers=preload("res://scripts/instance_buffers.gd")
 func configure(id: String) -> void:
 	var file := "res://circuits/"+id+"-detail.dat"
 	if not FileAccess.file_exists(file): return
@@ -32,19 +33,22 @@ func configure(id: String) -> void:
 	stone.material = rock
 	for key in tiles:
 		var list: Array = tiles[key]
-		var center := Vector3(key.x*40+20,0,key.z*40+20)
+		var ground_mean:=0.0
+		for index in list:ground_mean+=f[index+1]/list.size()
+		var center := Vector3(key.x*40+20,ground_mean,key.z*40+20)
 		var mm := MultiMesh.new()
 		mm.transform_format = MultiMesh.TRANSFORM_3D
 		mm.use_colors = true
 		mm.mesh = grass if key.y==0 else stone
 		mm.instance_count = list.size()
+		var buffer:=PackedFloat32Array(); buffer.resize(mm.instance_count*16)
 		for j in list.size():
 			var i: int = list[j]
 			var scale := Vector3(f[i+3]*1.5,f[i+3],f[i+3]*1.5)
-			mm.set_instance_transform(j,Transform3D(Basis(Vector3.UP,f[i+4]).scaled(scale),Vector3(f[i],f[i+1]+.006,f[i+2])-center))
-			mm.set_instance_color(j,Color(f[i+5],f[i+5],f[i+5]))
+			Buffers.write(buffer,j*16,Transform3D(Basis(Vector3.UP,f[i+4]).scaled(scale),Vector3(f[i],f[i+1]+.006,f[i+2])-center),Color(f[i+5],f[i+5],f[i+5]),true)
 		var node := MultiMeshInstance3D.new()
 		node.multimesh = mm
+		node.set_meta("gpu_buffer",buffer)
 		node.position = center
 		node.visibility_range_end = 95 if key.y==0 else 55
 		node.visibility_range_end_margin = 20

@@ -1,0 +1,4 @@
+{
+  "scope": "Edge headless, High, 1440x810, 22-car grid moving for 12 seconds after 3 second warmup, player stationary. One GPU test at a time.",
+  "reports": []
+}

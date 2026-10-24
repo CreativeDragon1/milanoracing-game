@@ -1,5 +1,10 @@
 extends Node3D
 const Model = preload("res://scripts/race_model.gd")
+var learning: RefCounted
+var learn_rows:Array=[]
+var learn_lap:=-1
+var learn_clean:=true
+var learn_clock:=0.0
 var model: RefCounted
 var vehicle: Node3D
 var cars: Array[Node3D] = []
@@ -14,6 +19,8 @@ var physics_ms := 0.0
 var player_contact_time := 0.0
 var spatial_audio: Array[AudioStreamPlayer3D] = []
 var audio_clock:=0.0
+var car_parts:Array[Array]=[]
+var shadow_near:Array[bool]=[]
 var wheels:Array[Array]=[]
 var wheel_angles:Array[float]=[]
 
@@ -38,6 +45,7 @@ func configure(car: Node3D,track: Dictionary,pit: Dictionary,options: Dictionary
 			for original in vehicle.wheel_parts:
 				if part.name==original.name: wheel_set.append(part)
 		wheels.append(wheel_set); wheel_angles.append(0.0)
+		car_parts.append(visual.get_children()); shadow_near.append(true)
 		for part in visual.get_children():
 			if part is GeometryInstance3D:
 				part.visibility_range_end=500
@@ -92,6 +100,7 @@ func request_pit() -> void:
 	message_until=model.clock+6
 
 func recover() -> void:
+	learn_clean=false
 	if not model.phase in ["race","qualifying"]: return
 	model.recover_player()
 	var d: Dictionary = model.drivers[0]
@@ -115,12 +124,20 @@ func _physics_process(dt: float) -> void:
 		vehicle.brake_assist=model.difficulty==0
 	# The physics model runs at 120 Hz; render interpolation never moves race state.
 	model.update(dt)
+	observe_learning(dt)
 	var in_pit: bool = not d.pit.is_empty()
 	if in_pit or player_was_in_pit or qa_autopilot or d.finished:
-		apply_player_pose(model.pose(d),d.v)
+		var pose:Dictionary=d.last_pit_pose if player_was_in_pit and not in_pit and d.has("last_pit_pose") else model.pose(d)
+		apply_player_pose(pose,d.v)
+		var curve:float=pose.get("curvature",0.0)
+		var angle:=atan(3.0*curve)
+		var max_lat:=minf(60,2.0*(800*9.81+2.6*1.2*d.v*d.v)/800)
+		var lock:=minf(.50,atan(max_lat*3.0/maxf(d.v*d.v,12.0)))*.92
+		vehicle.steering=clampf(angle/maxf(.01,lock*vehicle.steering_strength),-1,1)
+		vehicle.yaw_rate=curve*d.v
 		vehicle.gear=clampi(ceili(d.v/18),1,6); vehicle.rpm=clampf(4500+d.v*140,4500,18000)
 		vehicle.throttle=.35 if d.v>1 else 0
-		vehicle.animate_wheels(dt,0)
+		vehicle.animate_wheels(dt,angle)
 	player_was_in_pit=in_pit
 	vehicle.lap=d.laps; vehicle.lap_clock=model.clock-d.lap_start
 	for id in range(1,22):
@@ -130,8 +147,9 @@ func _physics_process(dt: float) -> void:
 		place(car,model.pose(opponent))
 		wheel_angles[id-1]=fposmod(wheel_angles[id-1]-opponent.v*dt/.373,TAU)
 		var station:float=fposmod(opponent.progress,model.length)/model.length*model.count
-		var steering_angle:=atan(Model.sample(model.track.line.curvature,station)*3)
-		for wheel in wheels[id-1]: wheel.rotation=Vector3(0,-steering_angle if wheel.position.x>0 else 0,wheel_angles[id-1])
+		var steering_angle:=atan(float(model.pit_pose(opponent).curvature)*3) if not opponent.pit.is_empty() else atan(Model.sample(model.track.line.curvature,station)*3)
+		if car.position.distance_squared_to(vehicle.position)<150*150:
+			for wheel in wheels[id-1]: wheel.rotation=Vector3(0,-steering_angle if wheel.position.x>0 else 0,wheel_angles[id-1])
 		# Contact resolves longitudinal velocity without teleporting either driver.
 		if vehicle.enabled and car.visible and opponent.pit.is_empty() and not in_pit:
 			var delta := car.position-vehicle.position
@@ -158,6 +176,12 @@ func _process(dt: float) -> void:
 	audio_clock+=dt
 	if audio_clock<.15: return
 	audio_clock=0
+	for i in cars.size():
+		var near:bool=cars[i].position.distance_squared_to(vehicle.position)<125*125
+		if near!=shadow_near[i]:
+			shadow_near[i]=near
+			for part in car_parts[i]:
+				if part is GeometryInstance3D: part.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_ON if near else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	var nearest:=cars.duplicate()
 	nearest.sort_custom(func(a,b):return a.position.distance_squared_to(vehicle.position)<b.position.distance_squared_to(vehicle.position))
 	for i in spatial_audio.size():
@@ -198,3 +222,22 @@ func timing_text() -> String:
 	if message_until>model.clock: text+="\n"+message
 	if model.phase.ends_with("result"): text+="\nESC   CONTINUE"
 	return text
+
+func observe_learning(dt:float) -> void:
+	if not learning or qa_autopilot: return
+	var d:Dictionary=model.drivers[0]
+	var lap_number:=floori(d.progress/model.length)
+	if lap_number!=learn_lap:
+		if learn_lap>=0 and learn_clean and learn_rows.size()>=60:
+			learning.pending.append(learn_rows)
+			if learning.pending.size()>4: learning.pending.pop_front()
+		learn_rows=[]; learn_lap=lap_number; learn_clean=true
+	var i:int=vehicle.idx
+	var edge:float=model.track.widthRight[i] if vehicle.lateral>=0 else model.track.widthLeft[i]
+	if not d.pit.is_empty() or d.finished or absf(vehicle.lateral)>edge+.5 or not d.valid: learn_clean=false
+	learn_clock+=dt
+	if learn_clock<.5: return
+	learn_clock=0
+	if lap_number<0 or not vehicle.enabled or vehicle.speed<10 or learn_rows.size()>=300: return
+	var track:Dictionary=model.track
+	learn_rows.append({"x":learning.features(track.line.curvature[i],track.line.speed[i],track.elevation.grade[i],track.widthLeft[i]+track.widthRight[i]),"y":clampf(vehicle.speed/track.line.speed[i],.4,1.05)})

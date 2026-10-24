@@ -6,7 +6,7 @@ if(CIRCUIT.id==='milano'){
  for(const [turn,length,rows,title]of[[0,110,16,'FERRO'],[5,85,12,'VERTICE'],[7,110,14,'RIDGE'],[10,100,15,'FRENATA'],[12,95,16,'ARENA'],[13,90,14,'ARENA']]){
   const i=CIRCUIT.turns[turn].index,side=-(Math.sign(CIRCUIT.line.curvature[i])||1);let site=null;
   for(let extra=20;extra<=90;extra+=7){const p=venuePoint(i/N,side,extra),depth=rows*1.25;if([-length/2,0,length/2].every(s=>[0,depth].every(d=>clearSite(p.x+tx[i]*s+nx[i]*side*d,p.z+tz[i]*s+nz[i]*side*d,8)))){site=p;break}}
-  if(!site)continue;const g=grandstand(site.x,site.z,site.a+(side>0?Math.PI:0),length,rows,title);g.name='Milano '+title+' grandstand';milanoCampusAudit.push({name:title,station:i,position:g.position.toArray(),kind:'spectator district'});
+  if(!site)continue;const g=grandstand(site.x,site.z,site.a+(side<0?Math.PI:0),length,rows,title);g.name='Milano '+title+' grandstand';milanoCampusAudit.push({name:title,station:i,position:g.position.toArray(),kind:'spectator district'});
  }
  // A low race-control building and timing blade sit beside the paddock.
  const i=35,p=venuePoint(i/N,pitSide,65),g=new T.Group();g.name='Milano race control';g.position.set(p.x,groundHeight(p.x,p.z),p.z);g.rotation.y=p.a;scene.add(g);

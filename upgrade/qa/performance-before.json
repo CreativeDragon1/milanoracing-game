@@ -1,0 +1,47 @@
+{
+  "scope": "Edge headless, High, 1440x810, 22-car grid moving for 12 seconds after 3 second warmup, player stationary. One GPU test at a time.",
+  "reports": [
+    {
+      "id": "monza",
+      "readyMs": 18499.2899,
+      "frames": 720,
+      "p50Ms": 13.900000000001455,
+      "p95Ms": 27.700000000000728,
+      "p99Ms": 34.69999999999709,
+      "over33Ms": 8,
+      "over50Ms": 0,
+      "drawCalls": 2483,
+      "triangles": 10266075,
+      "drivers": 22,
+      "errors": []
+    },
+    {
+      "id": "singapore",
+      "readyMs": 7980.902799999996,
+      "frames": 1161,
+      "p50Ms": 7,
+      "p95Ms": 14,
+      "p99Ms": 20.900000000001455,
+      "over33Ms": 1,
+      "over50Ms": 1,
+      "drawCalls": 1353,
+      "triangles": 3315970,
+      "drivers": 22,
+      "errors": []
+    },
+    {
+      "id": "interlagos",
+      "readyMs": 7813.653799999993,
+      "frames": 1155,
+      "p50Ms": 7,
+      "p95Ms": 14,
+      "p99Ms": 20.900000000001455,
+      "over33Ms": 0,
+      "over50Ms": 0,
+      "drawCalls": 1491,
+      "triangles": 5500802,
+      "drivers": 22,
+      "errors": []
+    }
+  ]
+}

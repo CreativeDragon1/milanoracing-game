@@ -1,0 +1,35 @@
+{
+  "scope": "Edge headless, High, 1440x810, 22-car grid moving for 12 seconds after 3 second warmup, player stationary. One GPU test at a time.",
+  "reports": [
+    {
+      "id": "monza",
+      "readyMs": 19390.6539,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "frames": 693,
+      "p50Ms": 14,
+      "p95Ms": 27.799999999999272,
+      "p99Ms": 34.80000000000291,
+      "over33Ms": 25,
+      "over50Ms": 3,
+      "drawCalls": 2063,
+      "triangles": 10265939,
+      "drivers": 22,
+      "errors": []
+    },
+    {
+      "id": "interlagos",
+      "readyMs": 7561.684399999998,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "frames": 1282,
+      "p50Ms": 7,
+      "p95Ms": 14,
+      "p99Ms": 14.100000000000364,
+      "over33Ms": 2,
+      "over50Ms": 0,
+      "drawCalls": 1071,
+      "triangles": 5500802,
+      "drivers": 22,
+      "errors": []
+    }
+  ]
+}

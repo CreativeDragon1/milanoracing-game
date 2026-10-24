@@ -1,18 +1,19 @@
-# Milano Racing native desktop
+# Milano Apex
 
-Version 0.2 is an independent Windows game built with Godot 4.7.2 Forward+ and Vulkan. It uses native scenes and GDScript, with the original MR 26 geometry, sponsor artwork and researched circuit assets. Godot supplies the graphics engine and platform runtime; Milano's gameplay and asset pipeline live here.
+Version 0.3 is an independent Windows game built with Godot 4.7.2 Forward+ and Vulkan. It uses native scenes and GDScript, with the original MR 26 geometry, sponsor artwork and researched circuit assets. Godot supplies the graphics engine and platform runtime; Milano's gameplay and asset pipeline live here.
 
 ## Play
 
-Extract the entire `Milano-Racing-Native-Windows.zip` folder. Run `Milano Racing Native.exe` and keep its `.pck` alongside it. High is the default graphics setting. No server or account is needed for offline modes. This is a portable, unsigned executable, with no installer or automatic updater.
+Extract the entire `Milano-Apex-Windows.zip` folder. Run `Milano Apex.exe` and keep its `.pck` alongside it. High is the default graphics setting. No server or account is needed for offline modes. This is a portable, unsigned executable, with no installer or automatic updater.
 
-The home screen plays a recorded four-shot sequence through Monza, Marina Bay, Spa and Milano Autodromo. Choose RACE, GRAND PRIX or FREE PRACTICE, select the circuit and start. ONLINE opens the private-server lobby. SETUP contains graphics, lighting, weather, steering, volume, racing guide and reduced-motion preferences. Preferences stay on this computer; the server password and login cookie are not written to disk.
+The home screen plays a recorded four-shot sequence through Monza, Marina Bay, Spa and Milano Autodromo. Choose RACE, GRAND PRIX or FREE PRACTICE, select the circuit and start. ONLINE opens the private-server lobby. SETTINGS contains graphics, lighting, weather, steering, volume, racing guide and reduced-motion preferences. Preferences stay on this computer; the server password and login cookie are not written to disk.
 
 | Action | Keyboard | Standard controller |
 |---|---|---|
 | Drive | WASD or arrows | Left stick and triggers |
 | Brake | S / down / Space | Left trigger |
 | Camera | C | Y / Triangle |
+| Expand map | M | D-pad up |
 | Request pit stop | P | X / Square |
 | Next pit compound | T | Right shoulder |
 | Recover | R | Back / Select |
@@ -33,11 +34,17 @@ This implements a selected sporting model, not every FIA procedure. Safety cars,
 
 ## Rendering and performance
 
-The native renderer adds physically based asphalt and facade detail, wet-road clearcoat, water ripples, tyre spray, rain particles, local night shadows, rubber on the racing line and speed-sensitive cameras. Original logos and MR 26 artwork remain intact. High combines FSR2, screen-space reflections, ambient occlusion, indirect screen-space lighting, volumetric fog and native mesh/vegetation LODs. Ultra adds SDFGI and larger shadow maps and costs substantially more GPU time.
+The native renderer adds physically based asphalt and facade detail, wet-road clearcoat, water ripples, tyre spray, rain particles, local night shadows, rubber on the racing line and speed-sensitive cameras. The MR 26 keeps its original geometry and outer sponsor artwork; the requested STEM Racing decals have been removed from the two inner sidepod panels. High combines FSR2, screen-space reflections, ambient occlusion, indirect screen-space lighting, volumetric fog and native mesh/vegetation LODs. Ultra adds SDFGI and larger shadow maps and costs substantially more GPU time.
+
+The current scenery refresh includes curved Marina Bay Sands towers and its mapped SkyPark, separate Yas hotel wings with an elevated connecting bridge, closed yacht hulls in Monaco, rebuilt palm fronds and corrected tree textures. Terrain uses repeating surface materials instead of blurred satellite colour patches. Vegetation roots are checked against the exported ground meshes before packaging. The interface separates session setup, settings and online rooms, with a compact driving HUD and a cached map that rotates and zooms with the car.
 
 The 17.4-second home sequence was recorded from the native game at 60 FPS using scripted cameras. Its shipped 720p30 Theora version has four unique shots, crossfades and matching engine-audio fades. Once playback is ready, the menu suspends circuit rendering and caps itself at 60 FPS. Gameplay returns to a 144 FPS cap. Reduced motion pauses the footage; losing focus pauses playback as well.
 
-All twelve circuits are included: Bahrain, Singapore, Monza, Monaco, Austria, Silverstone, Abu Dhabi, Milano Autodromo, Spa, Suzuka, Interlagos and Zandvoort. They are researched reconstructions, not surveyed digital twins. The native release has not reached the supplied commercial-game visual benchmark. See [measured validation](docs/VALIDATION.md) and [geometry provenance](docs/ACCURACY.md) for the remaining accuracy and testing limits.
+Fourteen circuits are included: Bahrain, Singapore, Monza, Monaco, Austria, Silverstone, Abu Dhabi, Milano Autodromo, Spa, Suzuka, Interlagos, Zandvoort, Milano Riviera and Milano Solara. The real venues are researched reconstructions, not surveyed digital twins. Riviera and Solara are original designs using selected FIA Appendix O dimensions; they are not FIA-certified circuits. The native release has not reached the supplied commercial-game visual benchmark. See [measured validation](docs/VALIDATION.md) and [geometry provenance](docs/ACCURACY.md) for the remaining accuracy and testing limits.
+
+## Adaptive rivals
+
+SETTINGS includes Adaptive rivals and Reset learning. Clean offline laps fit a small five-weight pace model on this device. Training happens between sessions, and the profile is fixed for each race. All four difficulty levels retain their order and physical speed caps. The model learns pace, not an unrestricted driving policy, and has been validated with synthetic held-out data rather than a large human driving dataset. No driving telemetry is uploaded.
 
 ## Private online play
 
@@ -50,11 +57,12 @@ Two native clients have been tested against a private-password loopback server, 
 Install Python 3.11 or newer, then run from this folder:
 
 ```
+python -m pip install -r tools/requirements.txt
 python tools/bootstrap.py
 python tools/build.py --test
 ```
 
-Bootstrap downloads the pinned official engine and export templates, verifies SHA-256 hashes and extracts them locally. The template download is about 1.2 GB. Prepared native scenes, textures and menu footage are included. Normal builds do not need the original workstation, a browser or FFmpeg. The exported executable and resource pack appear in `build`. With `--test`, the build also runs the vehicle/pit and race-model suites.
+Bootstrap downloads the pinned official engine and export templates, verifies SHA-256 hashes and extracts them locally. The template download is about 1.2 GB. Prepared native scenes, textures and menu footage are included. Normal builds do not need the original workstation, a browser or FFmpeg. The exported executable and resource pack appear in `build`. The build prepares foliage, track detail, bulk instance buffers and MR 26 distance LODs offline. With `--test`, it also runs the vehicle/pit, race-model and adaptive-learning suites.
 
 To edit, open `game/project.godot` in Godot 4.7.2. Interrupted first editor imports are retried up to three times with logs retained; script errors stop immediately. GPU regression commands are `python tools/verify-packaged.py`, `python tools/verify-modes.py` and `python tools/verify-input.py`. They launch game windows and require a Vulkan GPU. `scripts/test_race.gd` and `scripts/test_vehicle.gd` run through Godot's headless `--script` option. `scripts/test_ui.gd` requires the native renderer. `tools/verify-online.py` additionally requires the sibling Python server and its dependencies.
 
@@ -65,3 +73,5 @@ To edit, open `game/project.godot` in Godot 4.7.2. Interrupted first editor impo
 The optional shared-geometry conversion requires sibling `upgrade` source and dependencies. Start its preview server at `http://127.0.0.1:8878`, run `node native-desktop/tools/export-world.cjs` from the repository root, then `prepare-assets.py`, `ground-detail.py` and Godot's `scripts/import_world.gd` converter for selected circuits. This is an offline authoring bridge; the delivered native game does not run HTML, Electron or Chromium.
 
 Prepared `.scn` files are included for reproducible builds. Intermediate `.bin` exports and the Godot cache are not needed to play or export. Credits are under `licenses`. The recorded home reel uses the game's adapted V10 audio with the same attribution; no film soundtrack is included.
+
+The Windows release also has a ready-to-launch copy in Downloads/Milano Apex. The icon is the original borderless Milano logo. The latest livery uses the supplied Livery_FINAL artwork and its matching designer UV layout. See docs/VALIDATION.md and docs/PERFORMANCE-RESULTS.md for measured checks and limits.

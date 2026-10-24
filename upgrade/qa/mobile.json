@@ -1,0 +1,252 @@
+{
+  "passed": true,
+  "reports": [
+    {
+      "spec": {
+        "name": "iphone-landscape",
+        "width": 844,
+        "height": 390,
+        "id": "singapore",
+        "dpr": 3
+      },
+      "stats": {
+        "circuit": "singapore",
+        "circuits": 14,
+        "ratio": 2,
+        "pixels": 1316640,
+        "mobile": true,
+        "quality": "high",
+        "errors": []
+      },
+      "boxes": {
+        "touch-steering": {
+          "x": 12,
+          "y": 278,
+          "w": 205,
+          "h": 100
+        },
+        "touch-throttle": {
+          "x": 756,
+          "y": 278,
+          "w": 76,
+          "h": 100
+        },
+        "touch-brake": {
+          "x": 668,
+          "y": 278,
+          "w": 76,
+          "h": 100
+        },
+        "touch-camera": {
+          "x": 661.859375,
+          "y": 17,
+          "w": 51.390625,
+          "h": 44
+        },
+        "touch-reset": {
+          "x": 721.25,
+          "y": 17,
+          "w": 51.375,
+          "h": 44
+        },
+        "touch-pause": {
+          "x": 780.625,
+          "y": 17,
+          "w": 51.375,
+          "h": 44
+        },
+        "bc": {
+          "x": 349,
+          "y": 292.953125,
+          "w": 146,
+          "h": 85.046875
+        }
+      },
+      "held": {
+        "touch": {
+          "t": 1,
+          "b": 0,
+          "s": 0.4892137982169968
+        },
+        "input": {
+          "t": 1,
+          "b": 0,
+          "s": 0.48918734415921955
+        },
+        "speed": 5.445526235555365
+      },
+      "resized": {
+        "aspect": 0.46208530805687204,
+        "w": 390,
+        "h": 844,
+        "pixels": 740610
+      },
+      "errors": []
+    },
+    {
+      "spec": {
+        "name": "iphone-portrait",
+        "width": 390,
+        "height": 844,
+        "id": "milano",
+        "dpr": 3
+      },
+      "stats": {
+        "circuit": "milano",
+        "circuits": 14,
+        "ratio": 2,
+        "pixels": 1316640,
+        "mobile": true,
+        "quality": "high",
+        "errors": []
+      },
+      "boxes": {
+        "touch-steering": {
+          "x": 12,
+          "y": 740,
+          "w": 156,
+          "h": 92
+        },
+        "touch-throttle": {
+          "x": 315,
+          "y": 740,
+          "w": 63,
+          "h": 92
+        },
+        "touch-brake": {
+          "x": 244,
+          "y": 740,
+          "w": 63,
+          "h": 92
+        },
+        "touch-camera": {
+          "x": 225.859375,
+          "y": 17,
+          "w": 47.390625,
+          "h": 44
+        },
+        "touch-reset": {
+          "x": 278.25,
+          "y": 17,
+          "w": 47.375,
+          "h": 44
+        },
+        "touch-pause": {
+          "x": 330.625,
+          "y": 17,
+          "w": 47.375,
+          "h": 44
+        },
+        "bc": {
+          "x": 122,
+          "y": 635.953125,
+          "w": 146,
+          "h": 85.046875
+        }
+      },
+      "held": {
+        "touch": {
+          "t": 1,
+          "b": 0,
+          "s": 0.7204364539243734
+        },
+        "input": {
+          "t": 1,
+          "b": 0,
+          "s": 0.7203888649114195
+        },
+        "speed": 4.4484509324123085
+      },
+      "resized": {
+        "aspect": 2.164102564102564,
+        "w": 844,
+        "h": 390,
+        "pixels": 740610
+      },
+      "errors": []
+    },
+    {
+      "spec": {
+        "name": "ipad-landscape",
+        "width": 1194,
+        "height": 834,
+        "id": "monaco",
+        "dpr": 2
+      },
+      "stats": {
+        "circuit": "monaco",
+        "circuits": 14,
+        "ratio": 1.7926264514210937,
+        "pixels": 3199300,
+        "mobile": true,
+        "quality": "high",
+        "errors": []
+      },
+      "boxes": {
+        "touch-steering": {
+          "x": 12,
+          "y": 722,
+          "w": 205,
+          "h": 100
+        },
+        "touch-throttle": {
+          "x": 1106,
+          "y": 722,
+          "w": 76,
+          "h": 100
+        },
+        "touch-brake": {
+          "x": 1018,
+          "y": 722,
+          "w": 76,
+          "h": 100
+        },
+        "touch-camera": {
+          "x": 1011.859375,
+          "y": 17,
+          "w": 51.390625,
+          "h": 44
+        },
+        "touch-reset": {
+          "x": 1071.25,
+          "y": 17,
+          "w": 51.375,
+          "h": 44
+        },
+        "touch-pause": {
+          "x": 1130.625,
+          "y": 17,
+          "w": 51.375,
+          "h": 44
+        },
+        "bc": {
+          "x": 524,
+          "y": 736.953125,
+          "w": 146,
+          "h": 85.046875
+        }
+      },
+      "held": {
+        "touch": {
+          "t": 1,
+          "b": 0,
+          "s": 0.4892137982169968
+        },
+        "input": {
+          "t": 1,
+          "b": 0,
+          "s": 0.489183511778743
+        },
+        "speed": 5.5814584205459745
+      },
+      "resized": {
+        "aspect": 0.6984924623115578,
+        "w": 834,
+        "h": 1194,
+        "pixels": 1799205
+      },
+      "errors": []
+    }
+  ],
+  "scope": "Desktop Chromium device emulation and trusted multi-touch events. Not physical iOS/Safari hardware performance."
+}

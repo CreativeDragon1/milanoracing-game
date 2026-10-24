@@ -28,5 +28,17 @@
     "terrainTriangles": 5583,
     "bytes": 200988,
     "roadCorridorArea": 455496.0061100575
+  },
+  {
+    "id": "riviera",
+    "terrainTriangles": 4692,
+    "bytes": 168912,
+    "roadCorridorArea": 343017.7804439533
+  },
+  {
+    "id": "solara",
+    "terrainTriangles": 5247,
+    "bytes": 188892,
+    "roadCorridorArea": 416885.107867813
   }
 ]

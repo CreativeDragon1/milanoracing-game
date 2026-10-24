@@ -10,37 +10,37 @@
     },
     {
       "circuit": "singapore",
-      "trees": 710,
+      "trees": 759,
       "adjusted": 0,
       "uncovered": 0,
       "maxRootAdjustment": 0
     },
     {
       "circuit": "monza",
-      "trees": 18201,
+      "trees": 18209,
       "adjusted": 0,
       "uncovered": 0,
       "maxRootAdjustment": 0
     },
     {
       "circuit": "monaco",
-      "trees": 533,
+      "trees": 535,
       "adjusted": 0,
       "uncovered": 0,
       "maxRootAdjustment": 0
     },
     {
       "circuit": "austria",
-      "trees": 7766,
+      "trees": 8072,
       "adjusted": 0,
       "uncovered": 0,
       "maxRootAdjustment": 0
     },
     {
       "circuit": "silverstone",
-      "trees": 7967,
+      "trees": 11732,
       "adjusted": 0,
-      "uncovered": 3442,
+      "uncovered": 0,
       "maxRootAdjustment": 0
     },
     {
@@ -52,28 +52,28 @@
     },
     {
       "circuit": "milano",
-      "trees": 2819,
+      "trees": 3447,
       "adjusted": 0,
-      "uncovered": 242,
+      "uncovered": 0,
       "maxRootAdjustment": 0
     },
     {
       "circuit": "spa",
-      "trees": 26774,
+      "trees": 37370,
       "adjusted": 0,
-      "uncovered": 10573,
+      "uncovered": 0,
       "maxRootAdjustment": 0
     },
     {
       "circuit": "suzuka",
-      "trees": 7325,
+      "trees": 7960,
       "adjusted": 0,
-      "uncovered": 590,
+      "uncovered": 0,
       "maxRootAdjustment": 0
     },
     {
       "circuit": "interlagos",
-      "trees": 911,
+      "trees": 1057,
       "adjusted": 0,
       "uncovered": 0,
       "maxRootAdjustment": 0
@@ -81,6 +81,20 @@
     {
       "circuit": "zandvoort",
       "trees": 1025,
+      "adjusted": 0,
+      "uncovered": 0,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "riviera",
+      "trees": 1329,
+      "adjusted": 0,
+      "uncovered": 0,
+      "maxRootAdjustment": 0
+    },
+    {
+      "circuit": "solara",
+      "trees": 90,
       "adjusted": 0,
       "uncovered": 0,
       "maxRootAdjustment": 0

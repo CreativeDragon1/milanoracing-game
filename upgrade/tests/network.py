@@ -56,7 +56,7 @@ async def main():
  private,base=await host()
  async with ClientSession(cookie_jar=CookieJar(unsafe=True)) as client:
   r=await client.get(base+'/?room=ABC123&multiplayer=1');html=await r.text();check('Private testing.' in html and 'room=ABC123' in html,'private login preserves invitation')
-  for path in ['/api/info','/api/ws','/assets/example.js','/downloads/Milano-Racing-Windows.zip','/sw.js']:
+  for path in ['/api/info','/api/ws','/assets/example.js','/downloads/Milano-Racing-Windows.zip','/downloads/Milano-Racing-Native-Windows.zip','/sw.js']:
    r=await client.get(base+path);check(r.status==401,'private protection '+path)
   r=await client.post(base+'/login',data={'password':'wrong'},headers={'Origin':base});check(r.status==401,'wrong password denied')
   r=await client.post(base+'/login',data={'password':'temporary-test-password','next':'/?room=ABC123&multiplayer=1'},headers={'Origin':base},allow_redirects=False);check(r.status==303 and r.headers['Location']=='/?room=ABC123&multiplayer=1','successful login retains room')

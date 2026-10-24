@@ -1,0 +1,7572 @@
+{
+  "passed": true,
+  "requested": [
+    "bahrain",
+    "riviera"
+  ],
+  "reports": [
+    {
+      "id": "bahrain",
+      "sites": [
+        {
+          "x": 635.5643802911895,
+          "z": 68.46523348842744,
+          "a": 1.4558805048129397,
+          "station": 162,
+          "anchor": {
+            "name": "University Grandstand 1",
+            "kind": "grandstand",
+            "x": 620.5476242303233,
+            "z": 93.91119657510274
+          },
+          "facilityType": 2,
+          "y": 3.6275368526310574,
+          "r": 13,
+          "type": "Spectator concourse",
+          "accessLength": 19.746573405388393
+        },
+        {
+          "x": -667.4078270360459,
+          "z": -7.767919690570411,
+          "a": 2.082753504914027,
+          "station": 1058,
+          "facilityType": 0,
+          "anchor": {
+            "name": "Mapped access road / Victory Grandstand 2",
+            "kind": "mapped service access",
+            "x": -680.0487441458978,
+            "z": -0.6645954953886903
+          },
+          "y": 5.991210044317389,
+          "r": 13,
+          "type": "Venue service court",
+          "accessLength": 4.6999999999999735
+        },
+        {
+          "x": 448.93718445686454,
+          "z": 47.59196060383031,
+          "a": 2.1740576411007275,
+          "station": 103,
+          "facilityType": 0,
+          "anchor": {
+            "name": "Mapped access road / First Turn Grandstand",
+            "kind": "mapped service access",
+            "x": 460.87778586661256,
+            "z": 39.36565900630034
+          },
+          "y": 3.732754590642722,
+          "r": 13,
+          "type": "Venue service court",
+          "accessLength": 4.700000000000022
+        },
+        {
+          "x": 651.7001988213486,
+          "z": 187.72184708103006,
+          "a": -1.6591419217481476,
+          "station": 175,
+          "facilityType": 0,
+          "anchor": {
+            "name": "Mapped access road / University Grandstand 2",
+            "kind": "mapped service access",
+            "x": 666.1436497708178,
+            "z": 189.00119248797807
+          },
+          "y": 5.31073478559488,
+          "r": 13,
+          "type": "Venue service court",
+          "accessLength": 4.700000000000002
+        },
+        {
+          "x": -689.5064018395485,
+          "z": 165.4049963888345,
+          "a": 3.1409592180169583,
+          "station": 1043,
+          "facilityType": 0,
+          "anchor": {
+            "name": "Mapped access road / Victory Grandstand 2",
+            "kind": "mapped service access",
+            "x": -689.4972170243567,
+            "z": 150.90499929782894
+          },
+          "y": 6.371820750998367,
+          "r": 13,
+          "type": "Venue service court",
+          "accessLength": 4.699999999999976
+        },
+        {
+          "x": -616.0403247575298,
+          "z": 173.1005250802797,
+          "a": 2.405097268440054,
+          "station": 1028,
+          "facilityType": 0,
+          "anchor": {
+            "name": "Mapped access road / Victory Grandstand 1",
+            "kind": "mapped service access",
+            "x": -625.7799128155766,
+            "z": 183.84251858519082
+          },
+          "y": 6.929814853360513,
+          "r": 13,
+          "type": "Venue service court",
+          "accessLength": 4.699999999999999
+        }
+      ],
+      "planting": [
+        {
+          "x": 311.59618999154594,
+          "z": -37.4503542691701,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 402.0722420362983,
+          "z": 35.52811530580631,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 505.95034010448126,
+          "z": 29.770935221069298,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 565.378059963744,
+          "z": 72.741052883296,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 476.68532944034706,
+          "z": 30.463517481783704,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 479.74342551620106,
+          "z": 168.18805541820382,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 542.1452788070145,
+          "z": 504.94421100355703,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 104.8980768973784,
+          "z": 221.26677498037742,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 122.8252224623034,
+          "z": 225.84796061104223,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 130.9649655339525,
+          "z": 232.5733389321535,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 241.26062577334702,
+          "z": 245.89888461148456,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 309.8505205533678,
+          "z": 232.8432056635435,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 282.807692842696,
+          "z": 233.79794048669118,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 273.92674001588654,
+          "z": 227.53621529796848,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 178.5628163832098,
+          "z": 223.21509806435128,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 169.4097235385624,
+          "z": 227.9051212997594,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 160.5090192300866,
+          "z": 222.828783607954,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 151.3376117484566,
+          "z": 228.71158157546202,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": 142.4424934459243,
+          "z": 223.615350668618,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": -331.16233346400196,
+          "z": 138.611382176479,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": -289.0852173584471,
+          "z": 22.7605656417649,
+          "r": 3,
+          "type": "mapped scrub"
+        },
+        {
+          "x": -271.1857080111078,
+          "z": 23.9538246887566,
+          "r": 3,
+          "type": "mapped scrub"
+        }
+      ],
+      "sectors": [
+        {
+          "station": 14,
+          "distance": 65,
+          "before": 2,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 40,
+          "distance": 180,
+          "before": 2,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 65,
+          "distance": 295,
+          "before": 11,
+          "features": 0,
+          "trees": 1
+        },
+        {
+          "station": 91,
+          "distance": 410,
+          "before": 6,
+          "features": 1,
+          "trees": 1
+        },
+        {
+          "station": 116,
+          "distance": 525,
+          "before": 5,
+          "features": 0,
+          "trees": 1
+        },
+        {
+          "station": 142,
+          "distance": 640,
+          "before": 2,
+          "features": 0,
+          "trees": 2
+        },
+        {
+          "station": 167,
+          "distance": 755,
+          "before": 4,
+          "features": 0,
+          "trees": 1
+        },
+        {
+          "station": 193,
+          "distance": 870,
+          "before": 1,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 218,
+          "distance": 985,
+          "before": 1,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 244,
+          "distance": 1100,
+          "before": 2,
+          "features": 0,
+          "trees": 1
+        },
+        {
+          "station": 269,
+          "distance": 1215,
+          "before": 6,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 295,
+          "distance": 1330,
+          "before": 4,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 320,
+          "distance": 1445,
+          "before": 1,
+          "features": 4,
+          "trees": 0
+        },
+        {
+          "station": 346,
+          "distance": 1560,
+          "before": 0,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 371,
+          "distance": 1675,
+          "before": 0,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 397,
+          "distance": 1790,
+          "before": 0,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 422,
+          "distance": 1905,
+          "before": 1,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 448,
+          "distance": 2020,
+          "before": 0,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 473,
+          "distance": 2135,
+          "before": 0,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 499,
+          "distance": 2250,
+          "before": 0,
+          "features": 0,
+          "trees": 3
+        },
+        {
+          "station": 524,
+          "distance": 2365,
+          "before": 4,
+          "features": 0,
+          "trees": 1
+        },
+        {
+          "station": 550,
+          "distance": 2480,
+          "before": 0,
+          "features": 1,
+          "trees": 1
+        },
+        {
+          "station": 575,
+          "distance": 2595,
+          "before": 3,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 601,
+          "distance": 2710,
+          "before": 6,
+          "features": 1,
+          "trees": 2
+        },
+        {
+          "station": 626,
+          "distance": 2825,
+          "before": 4,
+          "features": 0,
+          "trees": 5
+        },
+        {
+          "station": 652,
+          "distance": 2940,
+          "before": 3,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 677,
+          "distance": 3055,
+          "before": 0,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 703,
+          "distance": 3170,
+          "before": 2,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 728,
+          "distance": 3285,
+          "before": 0,
+          "features": 1,
+          "trees": 1
+        },
+        {
+          "station": 754,
+          "distance": 3400,
+          "before": 1,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 779,
+          "distance": 3515,
+          "before": 4,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 805,
+          "distance": 3630,
+          "before": 0,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 830,
+          "distance": 3745,
+          "before": 0,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 856,
+          "distance": 3860,
+          "before": 0,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 881,
+          "distance": 3975,
+          "before": 0,
+          "features": 3,
+          "trees": 0
+        },
+        {
+          "station": 907,
+          "distance": 4090,
+          "before": 2,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 932,
+          "distance": 4205,
+          "before": 2,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 958,
+          "distance": 4320,
+          "before": 1,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 983,
+          "distance": 4435,
+          "before": 1,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 1009,
+          "distance": 4550,
+          "before": 4,
+          "features": 1,
+          "trees": 0
+        },
+        {
+          "station": 1034,
+          "distance": 4665,
+          "before": 3,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 1060,
+          "distance": 4780,
+          "before": 4,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 1085,
+          "distance": 4895,
+          "before": 3,
+          "features": 3,
+          "trees": 0
+        },
+        {
+          "station": 1111,
+          "distance": 5010,
+          "before": 2,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 1136,
+          "distance": 5125,
+          "before": 6,
+          "features": 0,
+          "trees": 2
+        },
+        {
+          "station": 1162,
+          "distance": 5240,
+          "before": 8,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 1187,
+          "distance": 5355,
+          "before": 1,
+          "features": 0,
+          "trees": 0
+        }
+      ],
+      "connections": [
+        {
+          "from": {
+            "x": 630.5836264360014,
+            "z": 76.90514409423531
+          },
+          "to": {
+            "name": "University Grandstand 1",
+            "kind": "grandstand",
+            "x": 620.5476242303233,
+            "z": 93.91119657510274
+          },
+          "length": 19.746573405388393
+        },
+        {
+          "from": {
+            "x": -675.951343427532,
+            "z": -2.967052303482081
+          },
+          "to": {
+            "name": "Mapped access road / Victory Grandstand 2",
+            "kind": "mapped service access",
+            "x": -680.0487441458978,
+            "z": -0.6645954953886903
+          },
+          "length": 4.6999999999999735
+        },
+        {
+          "from": {
+            "x": 457.0073840303494,
+            "z": 42.03211538618937
+          },
+          "to": {
+            "name": "Mapped access road / First Turn Grandstand",
+            "kind": "mapped service access",
+            "x": 460.87778586661256,
+            "z": 39.36565900630034
+          },
+          "length": 4.700000000000022
+        },
+        {
+          "from": {
+            "x": 661.4619794630588,
+            "z": 188.58650811469147
+          },
+          "to": {
+            "name": "Mapped access road / University Grandstand 2",
+            "kind": "mapped service access",
+            "x": 666.1436497708178,
+            "z": 189.00119248797807
+          },
+          "length": 4.700000000000002
+        },
+        {
+          "from": {
+            "x": -689.5001941713499,
+            "z": 155.60499835491348
+          },
+          "to": {
+            "name": "Mapped access road / Victory Grandstand 2",
+            "kind": "mapped service access",
+            "x": -689.4972170243567,
+            "z": 150.90499929782894
+          },
+          "length": 4.699999999999976
+        },
+        {
+          "from": {
+            "x": -622.6229428933132,
+            "z": 180.36063103532308
+          },
+          "to": {
+            "name": "Mapped access road / Victory Grandstand 1",
+            "kind": "mapped service access",
+            "x": -625.7799128155766,
+            "z": 183.84251858519082
+          },
+          "length": 4.699999999999999
+        }
+      ],
+      "rejected": 431,
+      "instances": 860,
+      "triangles": 15242,
+      "failures": [],
+      "assets": [],
+      "partnerCount": 36
+    },
+    {
+      "id": "riviera",
+      "sites": [
+        {
+          "x": 39.378423,
+          "z": 57.5,
+          "a": 0,
+          "station": 25,
+          "anchor": {
+            "name": "MILANO RIVIERA",
+            "kind": "grandstand",
+            "x": 54.378423,
+            "z": 57.5
+          },
+          "facilityType": 2,
+          "y": 2.984999895095825,
+          "r": 13,
+          "type": "Spectator concourse",
+          "accessLength": 5.200000000000003
+        },
+        {
+          "x": 164.378423,
+          "z": 57.5,
+          "a": 0,
+          "station": 25,
+          "anchor": {
+            "name": "MILANO RIVIERA",
+            "kind": "grandstand",
+            "x": 149.378423,
+            "z": 57.5
+          },
+          "facilityType": 2,
+          "y": 2.984999895095825,
+          "r": 13,
+          "type": "Spectator concourse",
+          "accessLength": 5.199999999999989
+        },
+        {
+          "x": 855.4261497716813,
+          "z": -17.84532640165078,
+          "a": 2.387843043223882,
+          "station": 180,
+          "anchor": {
+            "name": "LEVANTE",
+            "kind": "grandstand",
+            "x": 844.4892319993279,
+            "z": -28.110989051513187
+          },
+          "facilityType": 2,
+          "y": 6.116923541511566,
+          "r": 13,
+          "type": "Spectator concourse",
+          "accessLength": 5.1999999999999345
+        },
+        {
+          "x": 760.6395290779518,
+          "z": -106.81440270045833,
+          "a": 2.387843043223882,
+          "station": 180,
+          "anchor": {
+            "name": "LEVANTE",
+            "kind": "grandstand",
+            "x": 771.5764468503052,
+            "z": -96.54874005059592
+          },
+          "facilityType": 2,
+          "y": 6.798693508176775,
+          "r": 13,
+          "type": "Spectator concourse",
+          "accessLength": 5.1999999999999345
+        },
+        {
+          "x": -620.7599201263425,
+          "z": 360.6533144181265,
+          "a": 5.258355566784498,
+          "station": 1008,
+          "anchor": {
+            "name": "FARO",
+            "kind": "grandstand",
+            "x": -612.971254087208,
+            "z": 373.47270135084807
+          },
+          "facilityType": 2,
+          "y": 7.4062578733537805,
+          "r": 13,
+          "type": "Spectator concourse",
+          "accessLength": 5.200000000000037
+        },
+        {
+          "x": -553.258147787176,
+          "z": 471.7546678350464,
+          "a": 5.258355566784498,
+          "station": 1008,
+          "anchor": {
+            "name": "FARO",
+            "kind": "grandstand",
+            "x": -561.0468138263105,
+            "z": 458.93528090232485
+          },
+          "facilityType": 2,
+          "y": 7.247597495368273,
+          "r": 13,
+          "type": "Spectator concourse",
+          "accessLength": 5.200000000000037
+        }
+      ],
+      "planting": [
+        {
+          "x": 57.051917,
+          "z": -46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 65.202191,
+          "z": -41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 73.352465,
+          "z": -47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 85.577876,
+          "z": -42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 44.826506,
+          "z": -63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 57.051917,
+          "z": -58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 65.202191,
+          "z": -64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 73.352465,
+          "z": -59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 85.577876,
+          "z": -65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 44.826506,
+          "z": -75.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 57.051917,
+          "z": -70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 65.202191,
+          "z": -76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 73.352465,
+          "z": -71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 85.577876,
+          "z": -77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 44.826506,
+          "z": -87.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 57.051917,
+          "z": -93.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 65.202191,
+          "z": 64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 73.352465,
+          "z": 59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 85.577876,
+          "z": 65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 57.051917,
+          "z": 70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 65.202191,
+          "z": 76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 73.352465,
+          "z": 71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 85.577876,
+          "z": 77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 44.826506,
+          "z": 87.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 57.051917,
+          "z": 93.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 65.202191,
+          "z": 88.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 73.352465,
+          "z": 94.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 85.577876,
+          "z": 89.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 158.93034,
+          "z": -40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 171.155751,
+          "z": -46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 179.306025,
+          "z": -41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 187.456299,
+          "z": -47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 199.68171,
+          "z": -42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 158.93034,
+          "z": -63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 171.155751,
+          "z": -58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 179.306025,
+          "z": -64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 187.456299,
+          "z": -59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 199.68171,
+          "z": -65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 158.93034,
+          "z": -75.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 171.155751,
+          "z": -70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 179.306025,
+          "z": -76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 187.456299,
+          "z": -71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 199.68171,
+          "z": -77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 179.306025,
+          "z": -88.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 179.306025,
+          "z": 41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 187.456299,
+          "z": 47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 199.68171,
+          "z": 42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 187.456299,
+          "z": 59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 199.68171,
+          "z": 65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 179.306025,
+          "z": 76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 187.456299,
+          "z": 71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 199.68171,
+          "z": 77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 158.93034,
+          "z": 87.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 171.155751,
+          "z": 93.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 179.306025,
+          "z": 88.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 187.456299,
+          "z": 94.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 199.68171,
+          "z": 89.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 273.034175,
+          "z": -40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 285.259585,
+          "z": -46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 293.409859,
+          "z": -41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 301.560133,
+          "z": -47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 313.785544,
+          "z": -42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 273.034175,
+          "z": -63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 285.259585,
+          "z": -58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 293.409859,
+          "z": -64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 301.560133,
+          "z": -59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 313.785544,
+          "z": -65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 285.259585,
+          "z": -70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 293.409859,
+          "z": -76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 301.560133,
+          "z": -71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 313.785544,
+          "z": -77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 293.409859,
+          "z": -88.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 273.034175,
+          "z": 40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 285.259585,
+          "z": 46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 293.409859,
+          "z": 41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 301.560133,
+          "z": 47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 313.785544,
+          "z": 42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 273.034175,
+          "z": 63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 285.259585,
+          "z": 58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 293.409859,
+          "z": 64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 301.560133,
+          "z": 59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 313.785544,
+          "z": 65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 285.259585,
+          "z": 70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 293.409859,
+          "z": 76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 301.560133,
+          "z": 71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 313.785544,
+          "z": 77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 293.409859,
+          "z": 88.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 301.560133,
+          "z": 94.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 391.213146,
+          "z": -40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 403.438556,
+          "z": -46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 411.58883,
+          "z": -41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 419.739104,
+          "z": -47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 431.964515,
+          "z": -42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 391.213146,
+          "z": -63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 403.438556,
+          "z": -58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 411.58883,
+          "z": -64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 419.739104,
+          "z": -59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 431.964515,
+          "z": -65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 391.213146,
+          "z": -75.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 403.438556,
+          "z": -70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 411.58883,
+          "z": -76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 419.739104,
+          "z": -71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 431.964515,
+          "z": -77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 391.213146,
+          "z": 40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 403.438556,
+          "z": 46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 411.58883,
+          "z": 41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 419.739104,
+          "z": 47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 431.964515,
+          "z": 42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 391.213146,
+          "z": 63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 403.438556,
+          "z": 58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 411.58883,
+          "z": 64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 419.739104,
+          "z": 59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 431.964515,
+          "z": 65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 391.213146,
+          "z": 75.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 403.438556,
+          "z": 70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 411.58883,
+          "z": 76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 419.739104,
+          "z": 71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 431.964515,
+          "z": 77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 505.31698,
+          "z": -40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 517.542391,
+          "z": -46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 525.692664,
+          "z": -41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 533.842938,
+          "z": -47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 546.068349,
+          "z": -42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 505.31698,
+          "z": -63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 517.542391,
+          "z": -58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 525.692664,
+          "z": -64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 533.842938,
+          "z": -59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 546.068349,
+          "z": -65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 505.31698,
+          "z": -75.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 517.542391,
+          "z": -70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 525.692664,
+          "z": -76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 533.842938,
+          "z": -71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 546.068349,
+          "z": -77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 525.692664,
+          "z": -88.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 505.31698,
+          "z": 40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 517.542391,
+          "z": 46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 525.692664,
+          "z": 41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 533.842938,
+          "z": 47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 546.068349,
+          "z": 42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 505.31698,
+          "z": 63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 517.542391,
+          "z": 58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 525.692664,
+          "z": 64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 533.842938,
+          "z": 59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 546.068349,
+          "z": 65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 505.31698,
+          "z": 75.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 517.542391,
+          "z": 70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 525.692664,
+          "z": 76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 533.842938,
+          "z": 71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 546.068349,
+          "z": 77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 525.692664,
+          "z": 88.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 619.420814,
+          "z": -40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 631.646225,
+          "z": -46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 639.796499,
+          "z": -41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 647.946772,
+          "z": -47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 660.3797783089612,
+          "z": -51.287958885891875,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 619.420814,
+          "z": -63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 631.646225,
+          "z": -58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 639.796499,
+          "z": -64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 647.946772,
+          "z": -59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 660.4728683686612,
+          "z": -74.28777049979189,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 619.420814,
+          "z": -75.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 631.646225,
+          "z": -70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 639.796499,
+          "z": -76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 647.946772,
+          "z": -71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 660.5214370954612,
+          "z": -86.28767221139188,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 639.796499,
+          "z": -88.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 619.420814,
+          "z": 40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 631.646225,
+          "z": 46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 639.796499,
+          "z": 41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 647.946772,
+          "z": 47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 659.9645836910388,
+          "z": 51.29440088589188,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 619.420814,
+          "z": 63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 631.646225,
+          "z": 58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 639.796499,
+          "z": 64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 647.946772,
+          "z": 59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 659.8714936313388,
+          "z": 74.29421249979188,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 631.646225,
+          "z": 70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 639.796499,
+          "z": 76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 647.946772,
+          "z": 71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 659.8229249045388,
+          "z": 86.29411421139187,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 639.796499,
+          "z": 88.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 816.1435269450234,
+          "z": -11.308243869892628,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 810.5432932817336,
+          "z": 7.452288113098781,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 788.8739876489909,
+          "z": 35.810588981560244,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 808.717216935,
+          "z": -63.05899240275001,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 820.8987303677335,
+          "z": 1.3888796042987863,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 809.0625379093909,
+          "z": 24.791403970060244,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 816.929747055,
+          "z": -71.80852662075,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 834.0121260531877,
+          "z": -45.93618709340049,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 831.2541674537335,
+          "z": -4.674528904501216,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 819.5956945669909,
+          "z": 19.042263964060247,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 825.142277175,
+          "z": -80.55806083875001,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 851.9928421757877,
+          "z": -60.27821790210051,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 855.2693934224235,
+          "z": -37.349875390692624,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 830.1288512245909,
+          "z": 13.293123958060242,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 712.9765803510091,
+          "z": 77.23642501843976,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 821.5193589847261,
+          "z": 101.57253409813839,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 832.6228548552368,
+          "z": 109.4418961686059,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 832.1233214450534,
+          "z": 118.99824584702448,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 841.280021558404,
+          "z": 123.28755805776093,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 842.7234227905926,
+          "z": 136.4260626585224,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 841.7109571614261,
+          "z": 90.5589350920384,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 843.1576017300368,
+          "z": 103.6956706002059,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 852.3149196217535,
+          "z": 107.98464684092448,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 851.814768433204,
+          "z": 117.54133248936093,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 862.9150209672925,
+          "z": 125.4124636524224,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 853.6923486048369,
+          "z": 97.94944503180591,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 862.8496664965534,
+          "z": 102.23842127252448,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 862.349515308004,
+          "z": 111.79510692096093,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 873.4497678420926,
+          "z": 119.66623808402241,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 873.3844133713534,
+          "z": 96.49219570412447,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 882.5411134847039,
+          "z": 100.78150791486092,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 750.5811770152739,
+          "z": 140.2660879018616,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 751.1860091447633,
+          "z": 153.86199383139413,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 759.4910945549465,
+          "z": 158.61582415297556,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 758.139946441596,
+          "z": 168.63668994223906,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 768.4048732094075,
+          "z": 176.96345334147762,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 730.3895788385738,
+          "z": 151.2796869079616,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 740.6512622699632,
+          "z": 159.6082193997941,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 739.2994963782464,
+          "z": 169.62942315907554,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 747.6051995667959,
+          "z": 174.38291551063904,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 748.2132750327075,
+          "z": 187.9770523475776,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 719.8548319637738,
+          "z": 157.0259124763616,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 730.1165153951632,
+          "z": 165.35444496819412,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 728.7647495034465,
+          "z": 175.37564872747555,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 737.0704526919959,
+          "z": 180.12914107903904,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 737.6785281579075,
+          "z": 193.7232779159776,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 709.9249172184633,
+          "z": 176.36804397429412,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 877.8827720714917,
+          "z": 205.44506041445516,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 888.9754243059444,
+          "z": 213.3203371955,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 888.4690546904203,
+          "z": 222.8804147131956,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 897.6192329067217,
+          "z": 227.17328532232278,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 899.5219301378285,
+          "z": 240.07076789021195,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 898.0743702481917,
+          "z": 194.43146140835515,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 899.5101711807445,
+          "z": 207.57411162710002,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 908.6606528671203,
+          "z": 211.86681570709558,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 908.1539797815216,
+          "z": 221.42705975392278,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 919.7156866920284,
+          "z": 229.06112683221195,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 908.6091171229917,
+          "z": 188.68523583995517,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 910.0449180555445,
+          "z": 201.82788605870002,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 919.1953997419203,
+          "z": 206.1205901386956,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 918.6887266563216,
+          "z": 215.6808341855228,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 930.2515596768284,
+          "z": 223.31696628021194,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 930.2365162322444,
+          "z": 190.8142870526,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 807.3982679285084,
+          "z": 243.89115358554483,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 808.0139436940556,
+          "z": 257.4811448045,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 816.3258653095797,
+          "z": 262.2312452868044,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 814.9812390932784,
+          "z": 272.2485546776772,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 824.7868718621716,
+          "z": 280.81634010978803,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 787.2066697518084,
+          "z": 254.90475259164484,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 797.4791968192555,
+          "z": 263.2273703729,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 796.1342671328797,
+          "z": 273.24484429290436,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 804.4464922184785,
+          "z": 277.9947802460772,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 804.5931153079716,
+          "z": 291.82598116778803,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 776.6719228770083,
+          "z": 260.6509781600448,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 786.9444499444555,
+          "z": 268.9735959413,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 785.5995202580798,
+          "z": 278.99106986130437,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 793.9117453436785,
+          "z": 283.7410058144772,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 794.0572423231716,
+          "z": 297.57014171978807,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 766.7528517677556,
+          "z": 279.9871949474,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 952.00310005161,
+          "z": 411.5531447236645,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 931.2495241339491,
+          "z": 428.8608960024662,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 948.6124286798491,
+          "z": 443.94497853206616,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 832.1900288567634,
+          "z": 445.44507779531494,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 827.1839480316864,
+          "z": 458.09357232020216,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 817.7784032773482,
+          "z": 459.8798250654747,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 815.7900546077777,
+          "z": 469.7896735225833,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 803.3682334527317,
+          "z": 474.31616782898544,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 847.6982242287635,
+          "z": 462.4302441550149,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 835.2751803996865,
+          "z": 466.95539824700217,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 833.2865986493482,
+          "z": 476.86499142517465,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 823.8812869757777,
+          "z": 478.6514994493833,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 818.8764288247318,
+          "z": 491.3013341886854,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 855.7894565967634,
+          "z": 471.2920700818149,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 843.3664127676865,
+          "z": 475.8172241738022,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 841.3778310173482,
+          "z": 485.72681735197466,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 831.9725193437778,
+          "z": 487.51332537618333,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 826.9676611927317,
+          "z": 500.1631601154854,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 778.9648791432365,
+          "z": 387.1508662046851,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 765.9143839683136,
+          "z": 390.9888116797979,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 763.2822107226518,
+          "z": 400.19351893452534,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 753.2328413922222,
+          "z": 401.2746304774167,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 747.5980845472683,
+          "z": 413.23457617101457,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 763.4566837712365,
+          "z": 370.1656998449851,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 757.8231516003135,
+          "z": 382.1269857529979,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 747.7740153506518,
+          "z": 383.20835257482537,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 745.1416090242222,
+          "z": 392.41280455061667,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 732.0898891752682,
+          "z": 396.2494098113146,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 755.3654514032365,
+          "z": 361.3038739181851,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 749.7319192323135,
+          "z": 373.2651598261979,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 739.6827829826518,
+          "z": 374.34652664802536,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 737.0503766562222,
+          "z": 383.55097862381666,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 723.9986568072683,
+          "z": 387.3875838845146,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 747.7317980186908,
+          "z": 522.1690962583795,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 763.0765553975607,
+          "z": 555.161938774235,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 762.4358018290956,
+          "z": 558.3785962067791,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 751.8093008398276,
+          "z": 548.8245783968723,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 763.2399933906908,
+          "z": 539.1542626180794,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 771.3237906659607,
+          "z": 563.8787679246349,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 779.4082145921956,
+          "z": 573.900748280079,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 761.6438319946277,
+          "z": 555.7007689820723,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 768.5476748889704,
+          "z": 552.3737211229168,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 771.3312257586907,
+          "z": 548.0160885448795,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 779.5710259343607,
+          "z": 572.5955970750349,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 788.2633864685956,
+          "z": 581.9992624052791,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 771.4783631494277,
+          "z": 562.5769595672723,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 795.3782268654606,
+          "z": 589.3028529466349,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 797.1185583449956,
+          "z": 590.097776530479,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 694.8950579813093,
+          "z": 464.30028574162054,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 661.5341206024393,
+          "z": 447.83772322576505,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 636.3425266261924,
+          "z": 443.0597537747121,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 618.5366252519354,
+          "z": 455.6418630526231,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 605.9805017760604,
+          "z": 489.8565330206968,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 679.3868626093093,
+          "z": 447.31511938192057,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 653.2868853340393,
+          "z": 439.120894075365,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 619.3701138630923,
+          "z": 427.5376017014121,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 608.7020940971354,
+          "z": 448.7656724674231,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 584.5131702445603,
+          "z": 481.6010089950968,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 645.0396500656393,
+          "z": 430.40406492496504,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 610.5149419866924,
+          "z": 419.43908757621205,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 598.8675629423354,
+          "z": 441.8894818822231,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 573.3128233585603,
+          "z": 477.2937790686968,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 629.2324491345394,
+          "z": 413.69680905336503,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 601.6597701102924,
+          "z": 411.34057345101206,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 580.0180448956354,
+          "z": 428.7101165939231,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 562.1124764725604,
+          "z": 472.9865491422968,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 748.5031340677607,
+          "z": 565.1086280404089,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 692.3360239322393,
+          "z": 619.2697699595911,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 696.5079057762208,
+          "z": 632.2302931816803,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 705.7668410109254,
+          "z": 634.6243073837506,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 707.1067336040682,
+          "z": 644.6545412762914,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 719.1929378886,
+          "z": 649.9833973945999,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 675.7796051380393,
+          "z": 635.2348880833912,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 687.8697742314207,
+          "z": 640.5599200288802,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 689.2104222167254,
+          "z": 650.5894255075507,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 698.4686020592682,
+          "z": 652.9841681234914,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 702.6365190944,
+          "z": 665.9485155184,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 667.1414735932393,
+          "z": 643.5645149305911,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 679.2316426866207,
+          "z": 648.8895468760802,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 680.5722906719254,
+          "z": 658.9190523547506,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 689.8304705144682,
+          "z": 661.3137949706914,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 693.9983875496,
+          "z": 674.2781423655999,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 658.5033420484393,
+          "z": 651.8941417777912,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 827.7028065225303,
+          "z": 647.2493418161669,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 840.5099790153898,
+          "z": 651.8829776264093,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 842.5696508601316,
+          "z": 661.2191386691585,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 852.547731178052,
+          "z": 662.9196915409493,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 857.4372538463508,
+          "z": 675.188204932411,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 844.2592253167303,
+          "z": 631.2842236923669,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 849.1481105601899,
+          "z": 643.5533507792094,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 859.1260696543316,
+          "z": 645.2540205453585,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 861.185862722852,
+          "z": 654.5900646937494,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 873.9936726405508,
+          "z": 659.223086808611,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 857.7862421049899,
+          "z": 635.2237239320093,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 867.7642011991315,
+          "z": 636.9243936981585,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 869.823994267652,
+          "z": 646.2604378465494,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 882.6318041853509,
+          "z": 650.893459961411,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 886.380413061852,
+          "z": 630.2953197227494,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 771.5434114774697,
+          "z": 701.4030441838331,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 775.7084229846101,
+          "z": 714.3701923735906,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 784.9635411398685,
+          "z": 716.7678873308415,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 786.300250821948,
+          "z": 726.8011904590508,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 798.3829141536492,
+          "z": 732.133461067589,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 754.9869926832697,
+          "z": 717.368162307633,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 767.07029143981,
+          "z": 722.6998192207906,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 768.4071223456685,
+          "z": 732.7330054546416,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 777.662119277148,
+          "z": 735.1308173062507,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 781.8264953594492,
+          "z": 748.098579191389,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 746.3488611384697,
+          "z": 725.6977891548331,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 758.43215989501,
+          "z": 731.0294460679906,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 759.7689908008686,
+          "z": 741.0626323018415,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 769.023987732348,
+          "z": 743.4604441534507,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 773.188363814649,
+          "z": 756.428206038589,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 751.1308592560686,
+          "z": 749.3922591490416,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 906.9351644536242,
+          "z": 729.3585374540392,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 921.9087842562369,
+          "z": 731.9780106243121,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 936.0756287539864,
+          "z": 730.9683902991159,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 923.4915832478242,
+          "z": 713.3934193302391,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 930.5562664278369,
+          "z": 723.6580916283121,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 952.9032983310864,
+          "z": 715.2894382742159,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 932.1297147926242,
+          "z": 705.0637924830392,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 939.203748599437,
+          "z": 715.3381726323121,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 940.7678463374242,
+          "z": 696.7341656358392,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 850.7181135463758,
+          "z": 783.5678365459607,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 852.716509743763,
+          "z": 798.5493093756878,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 849.7916232460136,
+          "z": 811.362337700884,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 836.6695336573038,
+          "z": 830.2588051349974,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 835.1079753074438,
+          "z": 835.7417604578491,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 834.1616947521758,
+          "z": 799.5329546697608,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 844.069027572163,
+          "z": 806.8692283716878,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 832.9639536689136,
+          "z": 827.041289725784,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 827.5684045465038,
+          "z": 838.0798951421974,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 816.1817199618438,
+          "z": 848.8106876742492,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 825.5235632073758,
+          "z": 807.8625815169607,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 835.421545400563,
+          "z": 815.1891473676878,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 824.1842999765137,
+          "z": 835.221612521384,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 818.4672754357038,
+          "z": 845.9009851493973,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 806.3071519554438,
+          "z": 855.6292583958491,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 815.4046462841136,
+          "z": 843.401935316984,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 801.0234446400037,
+          "z": 860.8914076631974,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 894.3302735088386,
+          "z": 1015.5508419694172,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 838.6889042606128,
+          "z": 944.6145233895925,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 828.0735220135693,
+          "z": 953.1517822078392,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 829.1522192885435,
+          "z": 962.649243535994,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 820.2628805714676,
+          "z": 967.4949552015587,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 819.6154064911615,
+          "z": 980.6839040305829,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 817.8466920406129,
+          "z": 934.8881576876925,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 817.1993243335694,
+          "z": 948.0771566242391,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 808.3100070685435,
+          "z": 952.9228778340939,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 809.3886828914676,
+          "z": 962.4203296179587,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 798.7731942711615,
+          "z": 970.9575383286829,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 806.9724943606128,
+          "z": 929.8135321040925,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 806.3251266535693,
+          "z": 943.0025310406392,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 797.4358093885435,
+          "z": 947.8482522504939,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 798.5144852114677,
+          "z": 957.3457040343587,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 787.8989965911614,
+          "z": 965.8829127450829,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 897.3947535425428,
+          "z": 1123.5941810453435,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 885.8846824520397,
+          "z": 1146.2783330991474,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 870.4314127020413,
+          "z": 1153.9922432104522,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 861.1666056872722,
+          "z": 1168.993058056332,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 837.4308415915816,
+          "z": 1178.0839436555982,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 894.4839897104397,
+          "z": 1154.6480352843473,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 885.4782317310413,
+          "z": 1171.3874505134522,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 868.2105815912721,
+          "z": 1178.708118708732,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 848.4304321509817,
+          "z": 1198.2831765005983,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 893.3287460070413,
+          "z": 1180.4632108454523,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 875.2545574952721,
+          "z": 1188.423179361132,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 854.1693489645817,
+          "z": 1208.8219066805982,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 888.7555113112721,
+          "z": 1207.043712278232,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 859.9082657781817,
+          "z": 1219.3606368605983,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 753.2195471515938,
+          "z": 1015.5162023021519,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 748.2977706662045,
+          "z": 1012.3650489675736,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 751.3835925366889,
+          "z": 1016.364382680239,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 747.3202492136087,
+          "z": 1011.9760163642496,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 749.3886791677845,
+          "z": 1016.406640362175,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 734.8162742722939,
+          "z": 1001.7205672214518,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 739.6984634078045,
+          "z": 1003.9953467823735,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 725.2145666830938,
+          "z": 994.5228445706518,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 728.4862592316888,
+          "z": 989.8934150452391,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 715.6128590938938,
+          "z": 987.3251219198519,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 714.6171505708045,
+          "z": 979.5837154088736,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 708.6160317140497,
+          "z": 1160.9264842725295,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 698.0434856042897,
+          "z": 1145.4517282614088,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 691.4920998691179,
+          "z": 1137.2325755930076,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 682.2331599998764,
+          "z": 1141.3268980051946,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 671.3818093236753,
+          "z": 1133.8016160476006,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 704.1831768195497,
+          "z": 1183.4952635377294,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 695.4473237714897,
+          "z": 1157.1675271566087,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 686.5026993397179,
+          "z": 1159.6848779776076,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 679.6299945062765,
+          "z": 1153.0411427275947,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 666.3924087942753,
+          "z": 1156.2539184322009,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 701.8703829615497,
+          "z": 1195.2702788065294,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 692.8511619386896,
+          "z": 1168.8833260518086,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 683.8995338461178,
+          "z": 1171.3991227000074,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 677.0268290126764,
+          "z": 1164.7553874499945,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 663.7892433006753,
+          "z": 1167.9681631546007,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 699.5575891035496,
+          "z": 1207.0452940753296,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 731.7118162859502,
+          "z": 1043.3400357274706,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 718.3729863957104,
+          "z": 1053.7100117385912,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 720.9691482285104,
+          "z": 1041.9942128433913,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 714.001384660282,
+          "z": 1035.9407940223925,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 600.2006143822053,
+          "z": 1115.9788387840201,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 586.9633727083519,
+          "z": 1119.1900663169606,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 580.0909528429056,
+          "z": 1112.5450532109694,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 570.8323240579665,
+          "z": 1116.6379757437962,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 559.981459780526,
+          "z": 1109.1105049917783,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 595.2112138528053,
+          "z": 1138.4311411686201,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 584.360207214752,
+          "z": 1130.9043110393604,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 575.1015523135056,
+          "z": 1134.9973555955696,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 568.2291585643665,
+          "z": 1128.3522204661963,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 554.9920592511261,
+          "z": 1131.5628073763783,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 581.757041721152,
+          "z": 1142.6185557617605,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 572.4983868199056,
+          "z": 1146.7116003179694,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 565.6259930707665,
+          "z": 1140.066465188596,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 552.3888937575261,
+          "z": 1143.2770520987783,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 549.7857282639261,
+          "z": 1154.9912968211784,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 617.3110556177948,
+          "z": 1038.98185321598,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 606.6797212916481,
+          "z": 1030.4664976830393,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 597.6397591570944,
+          "z": 1033.5754247890304,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 590.9860039420336,
+          "z": 1025.946416256204,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 577.9682922194739,
+          "z": 1028.1697590082217,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 622.3004561471948,
+          "z": 1016.5295508313799,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 609.282886785248,
+          "z": 1018.7522529606393,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 602.6291596864944,
+          "z": 1011.1231224044303,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 593.5891694356336,
+          "z": 1014.232171533804,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 582.9576927488739,
+          "z": 1005.7174566236217,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 624.9036216407948,
+          "z": 1004.8153061089799,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 611.8860522788481,
+          "z": 1007.0380082382394,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 605.2323251800944,
+          "z": 999.4088776820303,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 596.1923349292335,
+          "z": 1002.5179268114041,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 585.5608582424738,
+          "z": 994.0032119012217,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 616.875452808248,
+          "z": 984.5857058536394,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 488.8036814937665,
+          "z": 1091.2723527819994,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 475.56709230605577,
+          "z": 1094.4806441272979,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 467.1524801885468,
+          "z": 1095.4325471629847,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 452.97803400969525,
+          "z": 1140.5043112794901,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 483.81428096436645,
+          "z": 1113.7246551665994,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 472.9639268124558,
+          "z": 1106.194888849698,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 462.2294379343468,
+          "z": 1117.8994929943847,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 450.8977110792953,
+          "z": 1152.3226130406902,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 456.3391137705238,
+          "z": 1134.695801743289,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 470.3607613188558,
+          "z": 1117.909133572098,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 459.6608941495468,
+          "z": 1129.6213777759847,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 448.81738814889525,
+          "z": 1164.1409148018902,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 456.2035888833238,
+          "z": 1146.6950364276888,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 465.37136078945576,
+          "z": 1140.361435956698,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 457.0923503647468,
+          "z": 1141.3432625575847,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 444.83010253229526,
+          "z": 1186.79265984419,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 505.9346165062335,
+          "z": 1014.1831452180005,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 495.30262969394425,
+          "z": 1005.6707258727022,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 487.80471181145316,
+          "z": 1001.1833928370154,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 486.0131059903047,
+          "z": 952.8322707205099,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 458.43703755089956,
+          "z": 948.947779289206,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 510.92401703563354,
+          "z": 991.7308428334004,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 497.90579518754424,
+          "z": 993.9564811503021,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 492.7277540656532,
+          "z": 978.7164470056154,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 488.0934289207047,
+          "z": 941.0139689593099,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 458.6967935846996,
+          "z": 925.949246144106,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 513.5271825292335,
+          "z": 980.0165981110005,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 500.50896068114423,
+          "z": 982.2422364279021,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 495.2962978504532,
+          "z": 966.9945622240153,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 490.1737518511047,
+          "z": 929.1956671981098,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 458.83231847189955,
+          "z": 913.950011459706,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 494.1610374677047,
+          "z": 906.5439221558098,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 458.96784335909956,
+          "z": 901.950776775306,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 399.95461457392935,
+          "z": 1124.4783468526648,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 397.3835770611905,
+          "z": 1134.2663364558264,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 384.7300775293393,
+          "z": 1138.0568696545822,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 399.18183099263933,
+          "z": 1155.9495167991822,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 414.2619215630393,
+          "z": 1174.6201051239823,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 365.54028216770985,
+          "z": 1049.4421739226789,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 352.2601358210285,
+          "z": 1052.4568586840446,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 349.0618934260707,
+          "z": 1061.468311147335,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 338.9520649388095,
+          "z": 1061.9225595441737,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 332.5842624706607,
+          "z": 1073.495384345418,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 351.08852870440984,
+          "z": 1031.5495267780789,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 344.7200905358285,
+          "z": 1043.1215645216448,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 334.6101399627707,
+          "z": 1043.575664002735,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 331.4120196536095,
+          "z": 1052.5872653817737,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 318.1325090073607,
+          "z": 1055.602737200818,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 343.54848341920984,
+          "z": 1022.214232615679,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 337.1800452506285,
+          "z": 1033.7862703592448,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 327.0700946775707,
+          "z": 1034.240369840335,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 323.8719743684095,
+          "z": 1043.2519712193737,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 310.5924637221607,
+          "z": 1046.267443038418,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 336.00843813400985,
+          "z": 1012.878938453279,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 326.39731646592196,
+          "z": 1182.5759785284847,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 320.6538595461718,
+          "z": 1194.9218013420134,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 311.16973727704817,
+          "z": 1196.1507358660508,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 308.5972326443928,
+          "z": 1205.936910273125,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 295.941592202976,
+          "z": 1209.7247925838471,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 340.84906992922197,
+          "z": 1200.4686256730847,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 328.1939048313718,
+          "z": 1204.2570955044134,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 325.6214907403482,
+          "z": 1214.0433830106508,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 316.1372779295928,
+          "z": 1215.272204435525,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 310.39334566627593,
+          "z": 1227.6174397284472,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 348.38911521442196,
+          "z": 1209.8039198354847,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 335.7339501165718,
+          "z": 1213.5923896668132,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 333.1615360255482,
+          "z": 1223.3786771730508,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 323.6773232147928,
+          "z": 1224.607498597925,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 317.933390951476,
+          "z": 1236.9527338908472,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 340.70158131074817,
+          "z": 1232.7139713354509,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 276.7892175340781,
+          "z": 1121.1564274715154,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 263.51137445382824,
+          "z": 1124.1739626579867,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 260.31462872295185,
+          "z": 1133.1872681339494,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 250.2062653556072,
+          "z": 1133.643331726875,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 243.84060579702404,
+          "z": 1145.2188094161527,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 262.3374640707781,
+          "z": 1103.2637803269154,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 255.97132916862822,
+          "z": 1114.8386684955867,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 245.86287525965184,
+          "z": 1115.2946209893494,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 242.6662200704072,
+          "z": 1124.308037564475,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 229.38885233372403,
+          "z": 1127.3261622715527,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 248.43128388342822,
+          "z": 1105.503374333187,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 238.32282997445185,
+          "z": 1105.9593268269493,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 235.12617478520718,
+          "z": 1114.972743402075,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 221.84880704852404,
+          "z": 1117.9908681091526,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 257.93274282664845,
+          "z": 1304.556506069475,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 238.20071912093275,
+          "z": 1320.6219852598047,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 220.93413514333957,
+          "z": 1321.4060105290657,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 206.3744255949996,
+          "z": 1331.3579909401133,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 180.97703327072935,
+          "z": 1330.0374426464898,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 269.16724896214845,
+          "z": 1324.626032019875,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 242.67141496493275,
+          "z": 1331.7580922398047,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 227.64253698983956,
+          "z": 1343.4059501809659,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 208.87805583819957,
+          "z": 1343.0939116801133,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 182.84919618322937,
+          "z": 1352.9611204929897,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 275.0287304241484,
+          "z": 1335.0970890374751,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 247.14211080893276,
+          "z": 1342.8941992198047,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 231.14257273583956,
+          "z": 1354.8841795645658,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 211.38168608139958,
+          "z": 1354.8298324201132,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 183.82597683322936,
+          "z": 1364.9213002389897,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 280.89021188614845,
+          "z": 1345.568146055075,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 184.80275748322936,
+          "z": 1376.8814799849897,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 169.66833249346476,
+          "z": 1146.8793592226684,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 166.58857026311125,
+          "z": 1142.2424715161753,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 167.78344411329277,
+          "z": 1147.1004125828304,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 165.8488698980842,
+          "z": 1141.3919562609813,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 165.98898412115065,
+          "z": 1146.5164424394898,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 158.43382635796476,
+          "z": 1126.8098332722684,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 152.57234489596476,
+          "z": 1116.3387762546683,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 157.64717857511127,
+          "z": 1119.9702575561753,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 157.57500652079275,
+          "z": 1113.6222435473303,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 146.71086343396476,
+          "z": 1105.8677192370683,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 87.11455864707601,
+          "z": 1251.9862717989117,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 73.51101088009496,
+          "z": 1252.533088803909,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 68.07476725619668,
+          "z": 1244.663315018212,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 58.19849928033305,
+          "z": 1246.8575931633432,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 49.0350931192841,
+          "z": 1237.3400891951876,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 77.83083389527602,
+          "z": 1273.0293812357118,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 68.66732840089496,
+          "z": 1263.5121024231091,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 58.79104250439667,
+          "z": 1265.706424455012,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 53.354816801133055,
+          "z": 1257.836606782543,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 39.7513683674841,
+          "z": 1258.3831986319876,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 72.987151416076,
+          "z": 1284.0083948549118,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 63.82364592169496,
+          "z": 1274.4911160423092,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 53.94736002519667,
+          "z": 1276.685438074212,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 48.511134321933056,
+          "z": 1268.815620401743,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 34.90768588828409,
+          "z": 1269.3622122511877,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 118.87912935292398,
+          "z": 1179.9865782010884,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 110.11218511990505,
+          "z": 1169.570427196091,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 95.59737471966694,
+          "z": 1162.086808836657,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 128.16285410472398,
+          "z": 1158.9434687642884,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 114.95586759910505,
+          "z": 1158.591413576891,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 109.91849349560334,
+          "z": 1149.817535544988,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -17.24670674292784,
+          "z": 1205.8514859495895,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -30.850011695097113,
+          "z": 1206.3977525743467,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -36.28611896920289,
+          "z": 1198.5276664624532,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -46.162268216672906,
+          "z": 1200.721678756559,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -55.32553457525448,
+          "z": 1191.2038579028108,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -26.530431494727843,
+          "z": 1226.8945953863895,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -35.693694174297114,
+          "z": 1217.3767661935467,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -45.56984372100288,
+          "z": 1219.5707758992532,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -51.005950695872905,
+          "z": 1211.700692375759,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -64.60925932705447,
+          "z": 1212.2469673396108,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -40.53737665349712,
+          "z": 1228.3557798127465,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -50.41352620020288,
+          "z": 1230.5497895184533,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -55.84963317507291,
+          "z": 1222.679705994959,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -69.45294180625447,
+          "z": 1223.2259809588109,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 14.449136742927841,
+          "z": 1134.0075740504108,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 5.681949695097114,
+          "z": 1123.5919734256531,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -3.795605030797116,
+          "z": 1124.8825015375467,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -8.833115783327095,
+          "z": 1116.1089332434412,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -22.040341424745524,
+          "z": 1115.7574200971894,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 23.732861494727842,
+          "z": 1112.9644646136107,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 10.525632174297115,
+          "z": 1112.612959806453,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 5.488119721002885,
+          "z": 1103.8393921007466,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -3.989433304127097,
+          "z": 1105.1299196242412,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -12.756616672945526,
+          "z": 1094.7143106603894,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 28.57654397392784,
+          "z": 1101.9854509944107,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 15.369314653497117,
+          "z": 1101.6339461872533,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 10.331802200202883,
+          "z": 1092.8603784815466,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": 0.8542491750729049,
+          "z": 1094.1509060050412,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -125.33462894463305,
+          "z": 1158.067825873457,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -138.93811679627095,
+          "z": 1158.614506070343,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -144.37437140605977,
+          "z": 1150.7447549193314,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -158.7609682892676,
+          "z": 1162.532971858988,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -189.69459708359125,
+          "z": 1185.4858174712288,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -134.61835369643305,
+          "z": 1179.110935310257,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -143.78179927547095,
+          "z": 1169.593519689543,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -153.65809615785977,
+          "z": 1171.7878643561314,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -163.6537550072676,
+          "z": 1173.490190398988,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -200.58791543459125,
+          "z": 1205.7425599371288,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -139.46203617563305,
+          "z": 1190.089948929457,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -148.62548175467094,
+          "z": 1180.572533308743,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -158.50177863705977,
+          "z": 1182.7668779753312,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -168.54654172526762,
+          "z": 1184.447408938988,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -206.27138587859125,
+          "z": 1216.3112951367289,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -211.95485632259124,
+          "z": 1226.8800303363287,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -93.71102905536695,
+          "z": 1086.387666126543,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -102.47803320372904,
+          "z": 1075.971649929657,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -111.95544059394024,
+          "z": 1077.2618450806688,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -112.48069371073242,
+          "z": 1058.889974141012,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -103.58478491640875,
+          "z": 1025.3597445287712,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -84.42730430356696,
+          "z": 1065.344556689743,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -97.63435072452904,
+          "z": 1064.9926363104569,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -102.67171584214023,
+          "z": 1056.2187356438687,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -107.58790699273241,
+          "z": 1047.932755601012,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -92.69146656540875,
+          "z": 1005.1030020628712,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -79.58362182436694,
+          "z": 1054.365543070543,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -92.79066824532904,
+          "z": 1054.0136226912568,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -97.82803336294023,
+          "z": 1045.239722024669,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -102.69512027473242,
+          "z": 1036.9755370610121,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -87.00799612140875,
+          "z": 994.5342668632712,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -83.50694349352905,
+          "z": 1032.9705132544568,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -81.32452567740874,
+          "z": 983.9655316636712,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -229.12721981554316,
+          "z": 1082.6486845986622,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -241.82282499058567,
+          "z": 1077.7300442986555,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -243.6734205400352,
+          "z": 1068.3465121135703,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -253.60692797070936,
+          "z": 1066.4241283572235,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -258.2200847059312,
+          "z": 1054.0447654974669,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -246.02769904134317,
+          "z": 1098.2491269607622,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -250.64046632578567,
+          "z": 1085.8694055310552,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -260.5738997658352,
+          "z": 1083.9469544756703,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -262.42456930590936,
+          "z": 1074.5634895896235,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -275.12056393173117,
+          "z": 1069.6452078595667,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -254.84534037654316,
+          "z": 1106.3884881931622,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -259.45810766098566,
+          "z": 1094.0087667634552,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -269.3915411010352,
+          "z": 1092.0863157080703,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -271.24221064110935,
+          "z": 1082.7028508220235,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -283.93820526693116,
+          "z": 1077.7845690919667,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -175.56162500941434,
+          "z": 1016.5658597013447,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -184.7673674599648,
+          "z": 1013.9716938864296,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -185.89019802929062,
+          "z": 1003.9163776427765,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -197.86154729406883,
+          "z": 998.3291925025334,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -167.8668882341648,
+          "z": 998.3712515243296,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -177.07255669409062,
+          "z": 995.7770164103765,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -180.96106806826884,
+          "z": 982.7287501404334,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -168.25491535889063,
+          "z": 987.6376551779765,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -172.14342673306885,
+          "z": 974.5893889080334,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -151.35443613309062,
+          "z": 972.0372128158765,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -163.32578539786886,
+          "z": 966.4500276756334,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -306.4776193915264,
+          "z": 998.7642157457241,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -319.17506066162974,
+          "z": 993.8472693796195,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -321.0269232573014,
+          "z": 984.4649066987395,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -330.9617344538095,
+          "z": 982.5437274185471,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -335.5769138120546,
+          "z": 970.1662315954271,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -323.3780986173264,
+          "z": 1014.3646581078241,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -327.99270199682974,
+          "z": 1001.9866306120196,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -337.9274024831014,
+          "z": 1000.0653490608395,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -339.7793757890095,
+          "z": 990.6830886509471,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -352.47739303785465,
+          "z": 985.7666739575271,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -332.19573995252637,
+          "z": 1022.5040193402241,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -336.81034333202973,
+          "z": 1010.1259918444196,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -346.7450438183014,
+          "z": 1008.2047102932395,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -348.5970171242095,
+          "z": 998.8224498833471,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -361.29503437305465,
+          "z": 993.9060351899271,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -355.5626851535014,
+          "z": 1016.3440715256395,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -249.11104660847363,
+          "z": 945.8104562542759,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -252.99811133837028,
+          "z": 932.7608546203805,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -262.2025847426986,
+          "z": 930.1655173012605,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -263.32411154619047,
+          "z": 920.108998581453,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -275.2934381879454,
+          "z": 914.5199464045728,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -232.21056738267362,
+          "z": 930.2100138921759,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -244.18047000317029,
+          "z": 924.6214933879805,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -245.30210551689862,
+          "z": 914.5650749391605,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -254.50647021099044,
+          "z": 911.969637349053,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -258.39295896214537,
+          "z": 898.9195040424728,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -235.3628286679703,
+          "z": 916.4821321555805,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -236.48446418169863,
+          "z": 906.4257137067605,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -245.68882887579045,
+          "z": 903.830276116653,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -249.57531762694538,
+          "z": 890.7801428100728,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -227.66682284649863,
+          "z": 898.2863524743605,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -228.78834964999044,
+          "z": 888.2298337545529,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -383.89309845139724,
+          "z": 914.9386328676096,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -424.74945972905607,
+          "z": 932.4383315659366,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -444.95645149113045,
+          "z": 929.5012847478353,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -460.87300535836846,
+          "z": 916.0491937770066,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -469.276504523846,
+          "z": 884.5422401691586,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -400.79392582589725,
+          "z": 930.5386980619096,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -433.8263981442561,
+          "z": 940.2874836859365,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -463.4577732531304,
+          "z": 943.1651455881353,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -471.3130212655684,
+          "z": 921.9657863658066,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -491.166344790346,
+          "z": 891.6016235083586,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -409.6117488038973,
+          "z": 938.6778625111097,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -442.9033365594561,
+          "z": 948.1366358059365,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -473.11063678113044,
+          "z": 950.2941164613353,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -481.7530371727685,
+          "z": 927.8823789546066,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -502.58713101634595,
+          "z": 895.2847800331585,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -460.30080185525605,
+          "z": 963.1808440359365,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -501.76306766156847,
+          "z": 939.2225147498066,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -514.0079172423459,
+          "z": 898.9679365579586,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -326.48428754860277,
+          "z": 861.9482571323904,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -302.072474270944,
+          "z": 826.3551704340634,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -307.0497357787446,
+          "z": 827.652444071646,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -314.42244227073934,
+          "z": 833.0523550851924,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -309.58346017410275,
+          "z": 846.3481919380904,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -292.995535855744,
+          "z": 818.5060183140635,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -288.54841401674463,
+          "z": 813.988583231346,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -303.9824263635394,
+          "z": 827.1357624963923,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -296.81144781298366,
+          "z": 828.9229696255499,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -300.7656371961027,
+          "z": 838.2090274888903,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -283.918597440544,
+          "z": 810.6568661940635,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -278.8955504887446,
+          "z": 806.8596123581459,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -293.5424104563393,
+          "z": 821.2191699075923,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -266.521132144744,
+          "z": 795.6126579640635,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -269.2426869607446,
+          "z": 799.7306414849459,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -387.59701033223854,
+          "z": 760.6023842984488,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -384.8355495108478,
+          "z": 747.2622841597308,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -375.89102032082866,
+          "z": 743.8938704184682,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -375.62984588133787,
+          "z": 733.7717370938279,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -364.188027303971,
+          "z": 727.1830263205027,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -405.7521113324385,
+          "z": 746.4817501879487,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -394.30777611964777,
+          "z": 739.8949967977309,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -394.04612132102864,
+          "z": 729.7732363079682,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -385.10207249013786,
+          "z": 726.404449731828,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -382.34312830417105,
+          "z": 713.0623922100026,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -415.2243379412385,
+          "z": 739.1144628259487,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -403.7800027284478,
+          "z": 732.5277094357308,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -424.6965645500385,
+          "z": 731.7471754639487,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -304.2588258803522,
+          "z": 809.9330692022692,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -317.65896197298355,
+          "z": 670.4448795778742,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -314.9063241793143,
+          "z": 657.097917084262,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -305.9674796246057,
+          "z": 653.7250819599803,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -305.711831913889,
+          "z": 643.5986510685162,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -294.2780073549275,
+          "z": 637.0037217253202,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -335.8140629731836,
+          "z": 656.3242454673742,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -324.37855078811435,
+          "z": 649.730629722262,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -324.12258062480566,
+          "z": 639.6044478494804,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -315.184058522689,
+          "z": 636.2313637065162,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -312.43310835512756,
+          "z": 622.8830876148203,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -333.85077739691434,
+          "z": 642.3633423602621,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -333.59480723360565,
+          "z": 632.2371604874804,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -324.65628513148897,
+          "z": 628.8640763445162,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -321.90533496392754,
+          "z": 615.5158002528203,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -255.81303602701644,
+          "z": 718.5472664221259,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -243.55432182068566,
+          "z": 712.593918915738,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -242.48559637539435,
+          "z": 703.0998800400196,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -232.73367608611105,
+          "z": 700.3594389314839,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -229.1561486450725,
+          "z": 687.6540562746798,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -237.65793502681643,
+          "z": 732.6679005326258,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -234.08209521188567,
+          "z": 719.9612062777379,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -224.33049537519435,
+          "z": 717.2205141505195,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -223.26144947731103,
+          "z": 707.7267262934839,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -211.0010476448725,
+          "z": 701.7746903851797,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -228.18570841801642,
+          "z": 740.0351878946259,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -224.60986860308566,
+          "z": 727.3284936397379,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -214.85826876639433,
+          "z": 724.5878015125195,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -213.78922286851105,
+          "z": 715.0940136554839,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -201.5288210360725,
+          "z": 709.1419777471797,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -293.021709617153,
+          "z": 572.9913020872793,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -289.59024384275585,
+          "z": 579.1427578722676,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -295.85579743159593,
+          "z": 582.0120458443433,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -304.144778983553,
+          "z": 568.4882666800794,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -315.26784834995306,
+          "z": 563.9852312728793,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -131.32920289659165,
+          "z": 638.4504895523005,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -116.42758032979658,
+          "z": 607.5191784277217,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -119.37764235283709,
+          "z": 584.5255741197633,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -114.74446223788476,
+          "z": 561.4865958636035,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -127.82476722191339,
+          "z": 529.5479612769698,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -110.00998661099165,
+          "z": 647.0813074161006,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -104.58552935539659,
+          "z": 609.4597527517217,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -96.37997483113709,
+          "z": 584.8531233711633,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -102.85194783868477,
+          "z": 559.8840662196035,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -106.2686736396134,
+          "z": 521.5270617348698,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -98.88691724459166,
+          "z": 651.5843428233005,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -92.74347838099659,
+          "z": 611.4003270757217,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -84.38119177633706,
+          "z": 585.0240186327633,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -90.95943343948477,
+          "z": 558.2815365756035,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -95.0220161184134,
+          "z": 517.3422445824698,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -87.76384787819165,
+          "z": 656.0873782305006,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -70.04621401339656,
+          "z": 615.1197611967217,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -68.16544750768477,
+          "z": 555.2100214246035,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -83.7753585972134,
+          "z": 513.1574274300698,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -293.55013408688023,
+          "z": 546.9065338529223,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -307.04123017546397,
+          "z": 544.9504433452981,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -310.9365523599181,
+          "z": 536.2300298864129,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -321.06369464383187,
+          "z": 536.5740834810871,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -328.32299493020355,
+          "z": 525.5535617158998,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -327.8620405186319,
+          "z": 546.4625865714871,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -341.3531578569035,
+          "z": 544.5065259724998,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -248.58183591311982,
+          "z": 481.49810014707765,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -255.2392418245361,
+          "z": 469.6020966547019,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -264.7762556400819,
+          "z": 469.0877801135871,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -268.0814473561681,
+          "z": 459.5089965189129,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -280.9706490697964,
+          "z": 456.67742228410015,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -235.55167298641982,
+          "z": 462.54513589047764,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -248.4408959497361,
+          "z": 459.7135935643019,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -251.7460927133819,
+          "z": 450.13481585698713,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -261.2831014813681,
+          "z": 449.6204934285129,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -267.94048614309645,
+          "z": 437.72445802750013,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -228.7533271116198,
+          "z": 452.65663280007766,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -241.64255007493608,
+          "z": 449.8250904739019,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -244.9477468385819,
+          "z": 440.2463127665871,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -387.73988246491115,
+          "z": 482.5011044027803,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -401.23017106535355,
+          "z": 480.54383836695047,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -405.12481325979394,
+          "z": 471.8224358316817,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -415.25116222202496,
+          "z": 472.1653355039083,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -422.50906002899325,
+          "z": 461.1427737686798,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -400.7700453916112,
+          "z": 501.4540686593803,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -408.02851694015357,
+          "z": 490.43234145735045,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -418.15497618649397,
+          "z": 490.7754000882817,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -422.049508096825,
+          "z": 482.0538385943083,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -435.5392229556932,
+          "z": 480.09573802527973,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -407.56839126641114,
+          "z": 511.3425717497803,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -414.82686281495353,
+          "z": 500.3208445477505,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -424.95332206129393,
+          "z": 500.66390317868166,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -428.847853971625,
+          "z": 491.9423416847083,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -442.33756883049324,
+          "z": 489.98424111567977,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -431.75166793609395,
+          "z": 510.55240626908164,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -342.44477353508887,
+          "z": 416.61730959721973,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -349.1029869346465,
+          "z": 404.7224796330495,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -358.64068074020605,
+          "z": 404.2091521683184,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -361.946665777975,
+          "z": 394.63152249609175,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -374.8372699710067,
+          "z": 391.8019882313202,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -329.41461060838884,
+          "z": 397.6643453406197,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -342.30464105984646,
+          "z": 394.8339765426495,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -345.610517813506,
+          "z": 385.25618791171837,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -355.148319903175,
+          "z": 384.74301940569177,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -361.80710704430675,
+          "z": 372.84902397472024,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -335.5062951850465,
+          "z": 384.9454734522495,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -338.81217193870606,
+          "z": 375.3676848213184,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -348.34997402837496,
+          "z": 374.85451631529173,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -355.0087611695067,
+          "z": 362.9605208843202,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -508.9570315303965,
+          "z": 442.04972472734994,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -523.1207395877965,
+          "z": 460.17124160824994,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -594.203875109603,
+          "z": 409.7720024445428,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -530.5105003133965,
+          "z": 469.62594606784995,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -576.0471712641531,
+          "z": 454.75187860422625,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -584.1465912335943,
+          "z": 436.6524877893031,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -604.717120394003,
+          "z": 415.5574733505428,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -574.4955607608345,
+          "z": 481.00527548500156,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -585.0882014853531,
+          "z": 462.6423648094262,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -602.7073721838943,
+          "z": 450.2354701761031,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -615.230365678403,
+          "z": 421.3429442565428,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -415.5626964696035,
+          "z": 322.5579212726501,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -406.4069999771723,
+          "z": 306.87891693660845,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -411.0182258516876,
+          "z": 310.72419753505164,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -406.57804612346035,
+          "z": 306.7058854809736,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -411.063847776109,
+          "z": 308.98948751224293,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -401.39898841220355,
+          "z": 304.4364043917501,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -398.0727239699723,
+          "z": 298.2452709258084,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -393.6895845943876,
+          "z": 295.60076564175165,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -396.8941604102603,
+          "z": 299.61911206177365,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -390.913460981009,
+          "z": 297.90066827574293,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -394.00922768660354,
+          "z": 294.9816999321501,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -389.7384479627723,
+          "z": 289.61162491500846,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -373.7644189489723,
+          "z": 273.0638033943085,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -548.6617855179347,
+          "z": 272.2206265991877,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -541.7083725905836,
+          "z": 260.6635380991551,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -535.4115648409283,
+          "z": 253.47382422762468,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -539.9560113855183,
+          "z": 244.42561079146077,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -532.9728292489256,
+          "z": 233.21897895769106,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -571.3563599964348,
+          "z": 268.48481487968775,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -553.5358396481837,
+          "z": 258.6359723179551,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -558.0808767013284,
+          "z": 249.58765648032468,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -551.7834784431183,
+          "z": 242.39804501026077,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -555.6421411093255,
+          "z": 229.33281121039107,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -583.1970075504347,
+          "z": 266.5356957216877,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -565.3633067057837,
+          "z": 256.6084065367551,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -569.9083437589284,
+          "z": 247.5600906991247,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -447.3203564820652,
+          "z": 288.9026974008123,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -424.62578200356523,
+          "z": 292.6385091203123,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -518.6398825489322,
+          "z": 161.25356273481592,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -522.4880588482,
+          "z": 148.19012659785,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -516.1828465742,
+          "z": 141.00185467335,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -520.719479103,
+          "z": 131.95498078275,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -513.725715829,
+          "z": 120.75016285825,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -541.3091944093321,
+          "z": 157.3673949875159,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -534.3155259058,
+          "z": 146.16256081665,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -538.8521584346,
+          "z": 137.11568692605002,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -532.5469461606,
+          "z": 129.92741500155,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -536.3950276894,
+          "z": 116.86399511095,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -553.1366614669322,
+          "z": 155.3398292063159,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -546.1429929634,
+          "z": 144.13499503545,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -550.6796254922,
+          "z": 135.08812114485002,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -544.3744132182001,
+          "z": 127.89984922035,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -548.222494747,
+          "z": 114.83642932974999,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -438.80466945106787,
+          "z": 174.93959926518406,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -430.82518915180003,
+          "z": 163.90376140215,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -434.3761994258,
+          "z": 155.02585132665,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -427.085364897,
+          "z": 148.00654321725,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -429.947824171,
+          "z": 135.11208714174998,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -416.13535759066787,
+          "z": 178.82576701248408,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -418.9977220942,
+          "z": 165.93132718335,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -411.7068875654,
+          "z": 158.91201907395,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -415.2578978394,
+          "z": 150.03410899845,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -407.27851231060004,
+          "z": 138.99825488905,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -404.3078905330679,
+          "z": 180.85333279368407,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -407.1702550366,
+          "z": 167.95889296455,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -399.8794205078,
+          "z": 160.93958485515,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -403.4304307818,
+          "z": 152.06167477965,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -395.451045253,
+          "z": 141.02582067025,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -540.7206575783005,
+          "z": 14.992142252108714,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -534.0495691763,
+          "z": -9.0927713007,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -520.59700794835,
+          "z": -19.43185378959999,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -514.721986200623,
+          "z": -35.720535165055274,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -493.73405960225,
+          "z": -49.181712974499995,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -561.3943974387005,
+          "z": 4.912634320208717,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -544.1140712267,
+          "z": -15.627738666299997,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -538.8035598220499,
+          "z": -33.486086920799984,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -523.5925619754229,
+          "z": -43.80217394825528,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -508.72005651355,
+          "z": -66.6293459531,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -572.1806964963005,
+          "z": -0.34623938339128557,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -554.1785732771,
+          "z": -22.162706031899994,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -548.30263036485,
+          "z": -40.81873029359999,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -532.4631377502229,
+          "z": -51.88381273145527,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -516.53883751075,
+          "z": -75.73245881149998,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -582.9669955539005,
+          "z": -5.605113086991288,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -524.35761850795,
+          "z": -84.83557166989999,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -373.5155843353574,
+          "z": 96.51318650372954,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -368.0149756257487,
+          "z": 98.71491207797148,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -371.77918601820426,
+          "z": 95.44549245326272,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -366.8732168249045,
+          "z": 98.97876496714366,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -369.99070855863897,
+          "z": 94.88801994550323,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -352.8418444749574,
+          "z": 106.59269443562954,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -342.0555454173574,
+          "z": 111.85156813922954,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -331.2692463597574,
+          "z": 117.11044184282954,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -328.59567592834867,
+          "z": 124.31020092657147,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -359.95224143862606,
+          "z": -58.82317943320183,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -346.4181712653144,
+          "z": -48.2414556956156,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -338.236366,
+          "z": -41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -330.086092,
+          "z": -47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -317.860681,
+          "z": -42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -360.47551364972605,
+          "z": -81.81722618910183,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -346.4260148685144,
+          "z": -60.2414531324156,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -338.236366,
+          "z": -64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -330.086092,
+          "z": -59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -317.860681,
+          "z": -65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -360.74852523812604,
+          "z": -93.81412014870183,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -346.4338584717144,
+          "z": -72.2414505692156,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -338.236366,
+          "z": -76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -330.086092,
+          "z": -71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -361.0215368265261,
+          "z": -105.81101410830183,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -357.2705805613739,
+          "z": 59.01651143320183,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -346.3551067346856,
+          "z": 48.2415236956156,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -338.236366,
+          "z": 41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -330.086092,
+          "z": 47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -317.860681,
+          "z": 42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -346.3472631314856,
+          "z": 60.2415211324156,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -338.236366,
+          "z": 64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -244.508216,
+          "z": -40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -232.282805,
+          "z": -46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -224.132531,
+          "z": -41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -215.982257,
+          "z": -47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -203.756847,
+          "z": -42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -244.508216,
+          "z": -63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -232.282805,
+          "z": -58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -224.132531,
+          "z": -64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -215.982257,
+          "z": -59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -203.756847,
+          "z": -65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -232.282805,
+          "z": -70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -224.132531,
+          "z": -76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -215.982257,
+          "z": -71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -244.508216,
+          "z": 40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -232.282805,
+          "z": 46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -224.132531,
+          "z": 41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -215.982257,
+          "z": 47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -203.756847,
+          "z": 42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -244.508216,
+          "z": 63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -232.282805,
+          "z": 58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -224.132531,
+          "z": 64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -215.982257,
+          "z": 59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -203.756847,
+          "z": 65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -244.508216,
+          "z": 75.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -232.282805,
+          "z": 70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -224.132531,
+          "z": 76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -215.982257,
+          "z": 71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -203.756847,
+          "z": 77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -118.178971,
+          "z": -46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -110.028697,
+          "z": -41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -101.878423,
+          "z": -47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -89.653013,
+          "z": -42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -130.404382,
+          "z": -63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -118.178971,
+          "z": -58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -110.028697,
+          "z": -64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -101.878423,
+          "z": -59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -89.653013,
+          "z": -65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -130.404382,
+          "z": -75.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -118.178971,
+          "z": -70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -110.028697,
+          "z": -76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -101.878423,
+          "z": -71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -89.653013,
+          "z": -77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -118.178971,
+          "z": -93.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -110.028697,
+          "z": -88.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -130.404382,
+          "z": 40.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -118.178971,
+          "z": 46.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -110.028697,
+          "z": 41.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -101.878423,
+          "z": 47.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -89.653013,
+          "z": 42.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -130.404382,
+          "z": 63.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -118.178971,
+          "z": 58.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -110.028697,
+          "z": 64.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -101.878423,
+          "z": 59.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -89.653013,
+          "z": 65.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -130.404382,
+          "z": 75.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -118.178971,
+          "z": 70.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -110.028697,
+          "z": 76.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -101.878423,
+          "z": 71.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        },
+        {
+          "x": -89.653013,
+          "z": 77.5,
+          "r": 3,
+          "type": "mapped green-space tree"
+        }
+      ],
+      "sectors": [
+        {
+          "station": 16,
+          "distance": 65,
+          "before": 1,
+          "features": 0,
+          "trees": 28
+        },
+        {
+          "station": 44,
+          "distance": 180,
+          "before": 1,
+          "features": 0,
+          "trees": 29
+        },
+        {
+          "station": 72,
+          "distance": 295,
+          "before": 1,
+          "features": 0,
+          "trees": 31
+        },
+        {
+          "station": 101,
+          "distance": 410,
+          "before": 0,
+          "features": 0,
+          "trees": 30
+        },
+        {
+          "station": 129,
+          "distance": 525,
+          "before": 0,
+          "features": 0,
+          "trees": 32
+        },
+        {
+          "station": 157,
+          "distance": 640,
+          "before": 0,
+          "features": 0,
+          "trees": 31
+        },
+        {
+          "station": 185,
+          "distance": 755,
+          "before": 3,
+          "features": 0,
+          "trees": 15
+        },
+        {
+          "station": 213,
+          "distance": 870,
+          "before": 0,
+          "features": 0,
+          "trees": 32
+        },
+        {
+          "station": 242,
+          "distance": 985,
+          "before": 0,
+          "features": 0,
+          "trees": 32
+        },
+        {
+          "station": 270,
+          "distance": 1100,
+          "before": 2,
+          "features": 0,
+          "trees": 3
+        },
+        {
+          "station": 298,
+          "distance": 1215,
+          "before": 0,
+          "features": 0,
+          "trees": 30
+        },
+        {
+          "station": 326,
+          "distance": 1330,
+          "before": 0,
+          "features": 0,
+          "trees": 33
+        },
+        {
+          "station": 355,
+          "distance": 1445,
+          "before": 15,
+          "features": 0,
+          "trees": 17
+        },
+        {
+          "station": 383,
+          "distance": 1560,
+          "before": 0,
+          "features": 0,
+          "trees": 31
+        },
+        {
+          "station": 411,
+          "distance": 1675,
+          "before": 0,
+          "features": 0,
+          "trees": 26
+        },
+        {
+          "station": 439,
+          "distance": 1790,
+          "before": 3,
+          "features": 0,
+          "trees": 0
+        },
+        {
+          "station": 467,
+          "distance": 1905,
+          "before": 1,
+          "features": 0,
+          "trees": 16
+        },
+        {
+          "station": 496,
+          "distance": 2020,
+          "before": 0,
+          "features": 0,
+          "trees": 25
+        },
+        {
+          "station": 524,
+          "distance": 2135,
+          "before": 1,
+          "features": 0,
+          "trees": 20
+        },
+        {
+          "station": 552,
+          "distance": 2250,
+          "before": 1,
+          "features": 0,
+          "trees": 31
+        },
+        {
+          "station": 580,
+          "distance": 2365,
+          "before": 0,
+          "features": 0,
+          "trees": 33
+        },
+        {
+          "station": 609,
+          "distance": 2480,
+          "before": 0,
+          "features": 0,
+          "trees": 21
+        },
+        {
+          "station": 637,
+          "distance": 2595,
+          "before": 0,
+          "features": 0,
+          "trees": 30
+        },
+        {
+          "station": 665,
+          "distance": 2710,
+          "before": 0,
+          "features": 0,
+          "trees": 27
+        },
+        {
+          "station": 693,
+          "distance": 2825,
+          "before": 0,
+          "features": 0,
+          "trees": 21
+        },
+        {
+          "station": 721,
+          "distance": 2940,
+          "before": 2,
+          "features": 0,
+          "trees": 28
+        },
+        {
+          "station": 750,
+          "distance": 3055,
+          "before": 0,
+          "features": 0,
+          "trees": 33
+        },
+        {
+          "station": 778,
+          "distance": 3170,
+          "before": 1,
+          "features": 0,
+          "trees": 26
+        },
+        {
+          "station": 806,
+          "distance": 3285,
+          "before": 0,
+          "features": 0,
+          "trees": 32
+        },
+        {
+          "station": 834,
+          "distance": 3400,
+          "before": 0,
+          "features": 0,
+          "trees": 33
+        },
+        {
+          "station": 863,
+          "distance": 3515,
+          "before": 15,
+          "features": 0,
+          "trees": 14
+        },
+        {
+          "station": 891,
+          "distance": 3630,
+          "before": 2,
+          "features": 0,
+          "trees": 29
+        },
+        {
+          "station": 919,
+          "distance": 3745,
+          "before": 0,
+          "features": 0,
+          "trees": 24
+        },
+        {
+          "station": 947,
+          "distance": 3860,
+          "before": 5,
+          "features": 0,
+          "trees": 20
+        },
+        {
+          "station": 975,
+          "distance": 3975,
+          "before": 1,
+          "features": 0,
+          "trees": 30
+        },
+        {
+          "station": 1004,
+          "distance": 4090,
+          "before": 0,
+          "features": 0,
+          "trees": 24
+        },
+        {
+          "station": 1032,
+          "distance": 4205,
+          "before": 2,
+          "features": 0,
+          "trees": 15
+        },
+        {
+          "station": 1060,
+          "distance": 4320,
+          "before": 2,
+          "features": 0,
+          "trees": 30
+        },
+        {
+          "station": 1088,
+          "distance": 4435,
+          "before": 0,
+          "features": 0,
+          "trees": 26
+        },
+        {
+          "station": 1117,
+          "distance": 4550,
+          "before": 2,
+          "features": 0,
+          "trees": 22
+        },
+        {
+          "station": 1145,
+          "distance": 4665,
+          "before": 2,
+          "features": 0,
+          "trees": 28
+        },
+        {
+          "station": 1173,
+          "distance": 4780,
+          "before": 0,
+          "features": 0,
+          "trees": 31
+        }
+      ],
+      "connections": [
+        {
+          "from": {
+            "x": 49.178422999999995,
+            "z": 57.5
+          },
+          "to": {
+            "name": "MILANO RIVIERA",
+            "kind": "grandstand",
+            "x": 54.378423,
+            "z": 57.5
+          },
+          "length": 5.200000000000003
+        },
+        {
+          "from": {
+            "x": 154.578423,
+            "z": 57.5
+          },
+          "to": {
+            "name": "MILANO RIVIERA",
+            "kind": "grandstand",
+            "x": 149.378423,
+            "z": 57.5
+          },
+          "length": 5.199999999999989
+        },
+        {
+          "from": {
+            "x": 848.280696827077,
+            "z": -24.552225999560903
+          },
+          "to": {
+            "name": "LEVANTE",
+            "kind": "grandstand",
+            "x": 844.4892319993279,
+            "z": -28.110989051513187
+          },
+          "length": 5.1999999999999345
+        },
+        {
+          "from": {
+            "x": 767.784982022556,
+            "z": -100.10750310254821
+          },
+          "to": {
+            "name": "LEVANTE",
+            "kind": "grandstand",
+            "x": 771.5764468503052,
+            "z": -96.54874005059592
+          },
+          "length": 5.1999999999999345
+        },
+        {
+          "from": {
+            "x": -615.6713249807747,
+            "z": 369.02864721417126
+          },
+          "to": {
+            "name": "FARO",
+            "kind": "grandstand",
+            "x": -612.971254087208,
+            "z": 373.47270135084807
+          },
+          "length": 5.200000000000037
+        },
+        {
+          "from": {
+            "x": -558.3467429327438,
+            "z": 463.37933503900166
+          },
+          "to": {
+            "name": "FARO",
+            "kind": "grandstand",
+            "x": -561.0468138263105,
+            "z": 458.93528090232485
+          },
+          "length": 5.200000000000037
+        }
+      ],
+      "rejected": 0,
+      "instances": 1434,
+      "triangles": 25068,
+      "failures": [],
+      "assets": [],
+      "partnerCount": 36
+    }
+  ]
+}

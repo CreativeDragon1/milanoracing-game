@@ -1,27 +1,27 @@
 {
-	"checks": 92053,
+	"checks": 103741,
 	"failures": [],
 	"passed": true,
 	"races": [
 		{
 			"circuit": "bahrain",
-			"seconds": 117.866666666663,
-			"steps": 3717
+			"seconds": 118.266666666663,
+			"steps": 3729
 		},
 		{
 			"circuit": "singapore",
-			"seconds": 124.399999999996,
-			"steps": 3913
+			"seconds": 124.833333333329,
+			"steps": 3926
 		},
 		{
 			"circuit": "monza",
-			"seconds": 109.399999999996,
-			"steps": 3463
+			"seconds": 108.766666666663,
+			"steps": 3444
 		},
 		{
 			"circuit": "monaco",
-			"seconds": 112.23333333333,
-			"steps": 3548
+			"seconds": 111.73333333333,
+			"steps": 3533
 		},
 		{
 			"circuit": "austria",
@@ -30,38 +30,48 @@
 		},
 		{
 			"circuit": "silverstone",
-			"seconds": 112.33333333333,
-			"steps": 3551
+			"seconds": 111.03333333333,
+			"steps": 3512
 		},
 		{
 			"circuit": "abu-dhabi",
-			"seconds": 116.366666666663,
-			"steps": 3672
+			"seconds": 116.699999999996,
+			"steps": 3682
 		},
 		{
 			"circuit": "milano",
-			"seconds": 101.03333333333,
-			"steps": 3212
+			"seconds": 99.6333333333302,
+			"steps": 3170
 		},
 		{
 			"circuit": "spa",
-			"seconds": 133.166666666662,
-			"steps": 4176
+			"seconds": 132.499999999995,
+			"steps": 4156
 		},
 		{
 			"circuit": "suzuka",
-			"seconds": 119.766666666662,
-			"steps": 3774
+			"seconds": 119.799999999996,
+			"steps": 3775
 		},
 		{
 			"circuit": "interlagos",
-			"seconds": 94.9333333333305,
-			"steps": 3029
+			"seconds": 94.8666666666638,
+			"steps": 3027
 		},
 		{
 			"circuit": "zandvoort",
-			"seconds": 95.2666666666638,
-			"steps": 3039
+			"seconds": 95.1333333333305,
+			"steps": 3035
+		},
+		{
+			"circuit": "riviera",
+			"seconds": 76.9666666666649,
+			"steps": 2490
+		},
+		{
+			"circuit": "solara",
+			"seconds": 93.4999999999973,
+			"steps": 2986
 		}
 	],
 	"scope": "Deterministic 22-car all-circuit races, qualifying progression, tyre strategy, and timing guards; not human driving or online latency validation."

@@ -166,5 +166,33 @@
     "converged": true,
     "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
     "elapsedSeconds": 86.67618083953857
+  },
+  {
+    "id": "riviera",
+    "centrelineSeconds": 68.42237273009506,
+    "previousPathSeconds": 68.42237273009506,
+    "optimizedSeconds": 61.606807943167155,
+    "maxSpeedKmh": 320.2104302193455,
+    "minSpeedKmh": 192.53231048583984,
+    "maxOffsetMetres": 7.242393191877275,
+    "minimumCentreClearanceMetres": 1.2576068081227252,
+    "iterations": 13,
+    "converged": true,
+    "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+    "elapsedSeconds": 46.805625677108765
+  },
+  {
+    "id": "solara",
+    "centrelineSeconds": 82.47018200526158,
+    "previousPathSeconds": 82.47018200526158,
+    "optimizedSeconds": 75.90333286928157,
+    "maxSpeedKmh": 318.79375417015973,
+    "minSpeedKmh": 143.91973972320557,
+    "maxOffsetMetres": 7.246091923066084,
+    "minimumCentreClearanceMetres": 1.2539080769339161,
+    "iterations": 38,
+    "converged": false,
+    "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "elapsedSeconds": 62.31692361831665
   }
 ]

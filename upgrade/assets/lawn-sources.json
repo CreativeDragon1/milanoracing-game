@@ -1,0 +1,35 @@
+[
+  {
+    "file": "lawn-color.jpg",
+    "source": "https://ambientcg.com/get?file=Grass004_2K-JPG.zip",
+    "license": "CC0 / ambientCG",
+    "author": "Lennart Demes",
+    "dimensionsMetres": [
+      1.4,
+      1.4
+    ],
+    "sha256": "735b141c8f1972e70a45879424f1238fea9f887324173097785f4ac36e67e9a3"
+  },
+  {
+    "file": "lawn-normal.jpg",
+    "source": "https://ambientcg.com/get?file=Grass004_2K-JPG.zip",
+    "license": "CC0 / ambientCG",
+    "author": "Lennart Demes",
+    "dimensionsMetres": [
+      1.4,
+      1.4
+    ],
+    "sha256": "15ccad231764049d6581a52076d02bb6b627df77895cb0508e4017d8a4877fef"
+  },
+  {
+    "file": "lawn-rough.jpg",
+    "source": "https://ambientcg.com/get?file=Grass004_2K-JPG.zip",
+    "license": "CC0 / ambientCG",
+    "author": "Lennart Demes",
+    "dimensionsMetres": [
+      1.4,
+      1.4
+    ],
+    "sha256": "c449fdf1e779eb7be5a19c1d58ee28cc155ed0523a141b151f3cbc843c4ae2e3"
+  }
+]

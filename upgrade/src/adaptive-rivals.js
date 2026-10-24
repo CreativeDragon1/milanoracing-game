@@ -1,0 +1,10 @@
+let learnedPace=new AdaptivePace.Model();try{learnedPace=new AdaptivePace.Model(JSON.parse(localStorage.getItem('milano:learned-pace')))}catch(e){}
+const learning={pending:[],rows:[],lap:-1,clean:true,clock:0};
+function learningFlush(){if(!learning.pending.length)return;for(const rows of learning.pending)learnedPace.fit(rows);learning.pending=[];try{localStorage.setItem('milano:learned-pace',JSON.stringify(learnedPace.serialize()))}catch(e){}}
+function learningProfile(){learningFlush();if(!$('gp-adaptive')?.checked)return null;return CIRCUIT.line.speed.map((v,i)=>learnedPace.multiplier(AdaptivePace.Model.features(CIRCUIT.line.curvature[i],v,CIRCUIT.elevation.grade[i],trackHalf(i,-1)+trackHalf(i,1))))}
+function learningObserve(dt){const w=GP.weekend;if(!w||!$('gp-adaptive').checked||MP.active)return;const d=w.player,lap=Math.floor(d.progress/LEN);if(lap!==learning.lap){if(learning.lap>=0&&learning.clean&&learning.rows.length>=60){learning.pending.push(learning.rows);if(learning.pending.length>4)learning.pending.shift()}learning.rows=[];learning.clean=true;learning.lap=lap}if(d.pit||d.finished||Math.abs(c.d)>trackHalf(c.idx,Math.sign(c.d))+.5||!d.valid)learning.clean=false;learning.clock+=dt;if(learning.clock<.5)return;learning.clock=0;if(lap<0||d.pit||c.vx<10||learning.rows.length>=300)return;const i=c.idx,base=CIRCUIT.line.speed[i];learning.rows.push({x:AdaptivePace.Model.features(CIRCUIT.line.curvature[i],base,CIRCUIT.elevation.grade[i],trackHalf(i,-1)+trackHalf(i,1)),y:Math.max(.4,Math.min(1.05,c.vx/base))})}
+const learningPause=pause;pause=function(){learningPause();if(state==='pause')learningFlush()};
+const learningReset=resetCar;resetCar=function(){learning.clean=false;learningReset()};
+$('gp-forget').onclick=()=>{learnedPace=new AdaptivePace.Model();learning.pending=[];learning.rows=[];try{localStorage.removeItem('milano:learned-pace')}catch(e){}msg('RIVAL LEARNING RESET',1500)};
+try{$('gp-adaptive').checked=localStorage.getItem('milano:adaptive')!=='off'}catch(e){}
+$('gp-adaptive').onchange=()=>{try{localStorage.setItem('milano:adaptive',$('gp-adaptive').checked?'on':'off')}catch(e){}learning.rows=[];learning.pending=[]};

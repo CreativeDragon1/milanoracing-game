@@ -25,16 +25,20 @@ var leader_finished := false
 var finish_clock := 0.0
 var events: Array[Dictionary] = []
 var automatic_player := false # Deterministic QA driver only; never enabled by the playing UI.
+var learned_profile:Array=[]
 var surface_grip := 1.0
+var corridor=preload("res://scripts/corridor.gd").new()
 
 func configure(t: Dictionary,p: Dictionary,options: Dictionary = {}) -> void:
 	track=t; pit=p; length=t.length; count=int(t.N)
+	corridor.configure(t)
+	learned_profile=options.get("learned_profile",[])
 	laps=int(options.get("laps",3)); difficulty=int(options.get("difficulty",0))
 	full_qualifying=options.get("full_qualifying",false)
 	two_compounds=options.get("two_compounds",laps>=5)
 	start_tyre=options.get("tyre","medium")
 	for id in 22:
-		drivers.append({"id":id,"name":NAMES[id],"active":true,"progress":0.0,"v":0.0,"best":INF,"best_set":INF,"laps":0,"lap_start":0.0,"outlap":true,"valid":true,"tyre":"soft","wear":0.0,"used":[],"stops":0,"penalty":0.0,"warnings":0,"offset":0.0,"lateral_v":0.0,"lane":0.0,"lane_until":0.0,"finished":false,"retired":false,"dsq":false,"stage_done":false,"requested":false,"next_tyre":"hard","pit":{},"pace":PACE[difficulty]*(.958+float((id*17)%23)/23*.042),"finish_time":INF,"plan_lap":1,"limit_time":0.0,"outside":false,"speed_key":"","profile":[]})
+		drivers.append({"id":id,"name":NAMES[id],"active":true,"progress":0.0,"v":0.0,"best":INF,"best_set":INF,"laps":0,"lap_start":0.0,"outlap":true,"valid":true,"tyre":"soft","wear":0.0,"used":[],"stops":0,"penalty":0.0,"warnings":0,"offset":0.0,"lateral_v":0.0,"lane":0.0,"lane_until":0.0,"pass_target":-1,"q_mode":"outlap","finished":false,"retired":false,"dsq":false,"stage_done":false,"requested":false,"next_tyre":"hard","pit":{},"pace":PACE[difficulty]*(.958+float((id*17)%23)/23*.042),"finish_time":INF,"plan_lap":1,"limit_time":0.0,"outside":false,"speed_key":"","profile":[]})
 
 static func sample(a: Array,f: float) -> float:
 	var n := a.size()
@@ -51,10 +55,10 @@ func start_qualifying(next_stage: int = 0) -> void:
 	for d in drivers:
 		if d.active: d.best=INF; d.best_set=INF
 		d.stage_done=not d.active; d.finished=false; d.retired=false; d.requested=false
-		d.valid=true; d.outlap=true; d.v=0.0; d.lap_start=0.0; d.tyre="soft"; d.wear=0.0; d.offset=0.0; d.lateral_v=0.0; d.lane_until=0.0; d.laps=0
+		d.valid=true; d.outlap=true; d.v=0.0; d.lap_start=0.0; d.tyre="soft"; d.wear=0.0; d.offset=0.0; d.lateral_v=0.0; d.lane_until=0.0; d.pass_target=-1; d.q_mode="outlap"; d.laps=0
 		if d.active:
 			var release_s:=maxf(0,float(pit.s[int(pit.box)])-float(d.id)*7.0)
-			d.pit={"s":release_s,"service":false,"release":d.id*3.2,"base":-length,"hold":0.0,"release_only":true}
+			d.pit={"s":release_s,"service":false,"release":d.id*6.5,"base":-length,"hold":0.0,"release_only":true}
 			d.progress=pit_pose(d).progress
 	emit("qualifying_start")
 
@@ -65,7 +69,7 @@ func start_race() -> void:
 	for pos in 22:
 		var d: Dictionary = drivers[grid[pos]]
 		d.erase("display_progress")
-		d.merge({"active":true,"stage_done":false,"progress":-6.0-pos*8,"v":0.0,"best":INF,"best_set":INF,"laps":0,"lap_start":0.0,"outlap":false,"valid":true,"tyre":"hard" if pos%3==0 else "medium","wear":0.0,"used":[],"stops":0,"penalty":0.0,"warnings":0,"finished":false,"retired":false,"dsq":false,"pit":{},"requested":false,"next_tyre":"hard","offset":(2.0 if pos%2 else -2.0)-sample(track.line.offset,(-6.0-pos*8)/length*count),"lateral_v":0.0,"lane_until":0.0,"finish_time":INF,"limit_time":0.0,"outside":false},true)
+		d.merge({"active":true,"stage_done":false,"progress":-6.0-pos*8,"v":0.0,"best":INF,"best_set":INF,"laps":0,"lap_start":0.0,"outlap":false,"valid":true,"tyre":"hard" if pos%3==0 else "medium","wear":0.0,"used":[],"stops":0,"penalty":0.0,"warnings":0,"finished":false,"retired":false,"dsq":false,"pit":{},"requested":false,"next_tyre":"hard","offset":(2.0 if pos%2 else -2.0)-sample(track.line.offset,(-6.0-pos*8)/length*count),"lateral_v":0.0,"lane_until":0.0,"pass_target":-1,"q_mode":"outlap","finish_time":INF,"limit_time":0.0,"outside":false},true)
 		if d.id==0: d.tyre=start_tyre
 		d.used.append(d.tyre)
 		d.plan_lap=maxi(1,mini(laps-1,roundi(laps*(.40+(int(d.id)%5)*.035))))
@@ -106,7 +110,7 @@ func speed_at(d: Dictionary,f: float) -> float:
 	var key := str(factor)+":"+str(d.pace)
 	if d.speed_key!=key:
 		var profile: Array = track.line.speed.duplicate()
-		for i in count: profile[i]*=d.pace*factor
+		for i in count: profile[i]*=d.pace*factor*(learned_profile[i] if d.id>0 and learned_profile.size()==count else 1.0)
 		for pass_id in 3:
 			for i in range(count-1,-1,-1): profile[i]=minf(profile[i],sqrt(profile[(i+1)%count]*profile[(i+1)%count]+60*track.line.ds[i]))
 		d.profile=profile; d.speed_key=key
@@ -122,8 +126,9 @@ func lap(d: Dictionary) -> void:
 	var time: float = clock-d.lap_start
 	if phase=="qualifying":
 		if not d.pit.is_empty() and d.pit.release_only: d.lap_start=clock; return
-		if not d.outlap and d.valid and time>.1 and d.lap_start<duration and time<d.best:
+		if not d.outlap and d.q_mode!="cooldown" and d.valid and time>.1 and d.lap_start<duration and time<d.best:
 			d.best=time; d.best_set=clock; emit("lap",{"id":d.id,"seconds":time})
+		d.q_mode="cooldown" if d.id>0 and d.q_mode=="push" else "push"
 		d.outlap=false; d.lap_start=clock; d.valid=true
 		if clock>=duration: d.stage_done=true; d.v=0.0
 	else:
@@ -159,8 +164,8 @@ func pit_pose(d: Dictionary) -> Dictionary:
 	var h := lerp_angle(pit.heading[i],pit.heading[i+1],t)
 	if a.has("entry_pose") and a.s<18:
 		var blend := smoothstep(0,18,a.s)
-		pos=a.entry_pose.position.lerp(pos,blend); h=lerp_angle(a.entry_pose.heading,h,blend)
-	return {"position":pos,"heading":h,"bank":0.0,"grade":lerpf(pit.grade[i],pit.grade[i+1],t),"progress":a.base+lerpf(pit.station[i],pit.station[i+1],t)/count*length}
+		pos+=(a.entry_pose.position-Vector3(pit.x[0],pit.y[0]+.045,pit.z[0]))*(1-blend); h+=angle_difference(pit.heading[0],a.entry_pose.heading)*(1-blend)
+	return {"position":pos,"heading":h,"bank":0.0,"grade":lerpf(pit.grade[i],pit.grade[i+1],t),"curvature":lerpf(pit.curvature[i],pit.curvature[i+1],t) if pit.has("curvature") else 0.0,"progress":a.base+lerpf(pit.station[i],pit.station[i+1],t)/count*length}
 
 func update_pit(d: Dictionary,dt: float) -> void:
 	var a: Dictionary = d.pit
@@ -189,6 +194,7 @@ func update_pit(d: Dictionary,dt: float) -> void:
 	a.s=minf(pit.length,a.s+delta)
 	if remaining<.03 or (not a.release_only and not a.service and a.s>=box_s-.02): a.s=box_s
 	var p := pit_pose(d)
+	d.last_pit_pose=p
 	advance(d,p.progress-d.progress)
 	if a.s>=pit.length-.001:
 		d.pit={}
@@ -246,7 +252,7 @@ func update(dt: float) -> void:
 	clock+=dt
 	var traffic := []
 	for d in drivers:
-		if d.active and not d.finished and not d.stage_done and d.pit.is_empty(): traffic.append({"id":d.id,"progress":d.progress,"v":d.v,"offset":d.offset})
+		if d.active and not d.finished and not d.stage_done and d.pit.is_empty(): traffic.append({"id":d.id,"progress":d.progress,"v":d.v,"offset":d.offset,"push":not d.outlap and d.valid and d.q_mode!="cooldown"})
 	var step := length/count
 	for d in drivers:
 		if d.finished:
@@ -263,16 +269,14 @@ func update(dt: float) -> void:
 		if d.requested and to_entry<maxf(.8,d.v*dt*1.25): enter_pit(d); continue
 		if d.id==0 and not automatic_player: continue
 		var target := speed_at(d,f+d.v*.10/step)
+		var push_lap:bool=not d.outlap and d.valid and d.q_mode!="cooldown"
+		if phase=="qualifying" and not push_lap: target*=.72 if d.q_mode=="cooldown" else .80
 		var line := sample(track.line.offset,f)
 		var min_offset := -sample(track.widthLeft,f)+1.05-line
 		var max_offset := sample(track.widthRight,f)-1.05-line
-		var future_min := min_offset
-		var future_max := max_offset
-		for ahead in range(1,17):
-			var at: float = f+(35+d.v*3.5)/step*ahead/16.0
-			var off := sample(track.line.offset,at)
-			future_min=maxf(future_min,-sample(track.widthLeft,at)+1.2-off)
-			future_max=minf(future_max,sample(track.widthRight,at)-1.2-off)
+		var bounds: Vector2=corridor.query(f,(35+d.v*3.5)/step)
+		var future_min := maxf(min_offset,bounds.x)
+		var future_max := minf(max_offset,bounds.y)
 		if future_min>future_max: future_min=minf(0,future_min); future_max=maxf(0,future_max)
 		var desired: float = d.lane if d.lane_until>clock else 0.0
 		var passing_room := future_max-future_min>5.4
@@ -284,13 +288,38 @@ func update(dt: float) -> void:
 			var side_gap: float = absf(o.offset-d.offset)
 			if absf(fposmod(o.progress-d.progress+length/2,length)-length/2)<8 and absf(o.offset-desired)<2.4: desired=d.offset
 			if gap>0 and gap<front_gap and (not passing_room or side_gap<2.3 or absf(o.offset-desired)<2.3): front=o; front_gap=gap
-		if phase=="race" and passing_room and not front.is_empty() and front_gap<maxf(28,d.v*.65) and front.v<target+1 and d.lane_until<=clock:
-			for lane in [front.offset-2.55,front.offset+2.55]:
+		if not traffic.any(func(o):return o.id==d.pass_target):d.pass_target=-1
+		for o in traffic:
+			if o.id!=d.pass_target: continue
+			var signed_gap:float=fposmod(o.progress-d.progress+length/2,length)-length/2
+			if signed_gap>-14 and signed_gap<180 and d.lane>=future_min and d.lane<=future_max:
+				desired=d.lane; d.lane_until=clock+1
+			else: d.pass_target=-1
+		if phase=="qualifying" and not push_lap and passing_room:
+			var approaching:Dictionary={}
+			var nearest_behind:float=INF
+			for o in traffic:
+				var behind:float=fposmod(d.progress-o.progress,length)
+				if o.id!=d.id and o.push and behind>0 and behind<minf(nearest_behind,maxf(180,o.v*4)): approaching=o; nearest_behind=behind
+			if not approaching.is_empty():
+				var choices:Array=[future_min+.2,future_max-.2]
+				choices.sort_custom(func(a,b):return absf(a)>absf(b))
+				for lane in choices:
+					if absf(lane-approaching.offset)<=2.7: continue
+					var clear:=true
+					for o in traffic:
+						if o.id!=d.id and absf(fposmod(o.progress-d.progress+length/2,length)-length/2)<16 and absf(lane-o.offset)<=2.2: clear=false
+					if clear: desired=lane; d.lane=lane; d.lane_until=clock+3; d.pass_target=-1; target*=.82; break
+		if (phase=="race" or push_lap) and passing_room and not front.is_empty() and front_gap<maxf(70,d.v*1.5) and front.v<target+1 and d.pass_target<0 and d.lane_until<=clock:
+			var choices:Array=[front.offset-2.8,front.offset+2.8]
+			choices.sort_custom(func(a,b):return absf(a-d.offset)<absf(b-d.offset))
+			for lane in choices:
 				if lane<future_min or lane>future_max: continue
 				var free := true
 				for o in traffic:
-					if o.id!=d.id and absf(fposmod(o.progress-d.progress+length/2,length)-length/2)<22 and absf(o.offset-lane)<2.1: free=false
-				if free: desired=lane; d.lane=lane; d.lane_until=clock+2; break
+					var gap:float=fposmod(o.progress-d.progress+length/2,length)-length/2
+					if o.id!=d.id and gap<=28 and gap>=-maxf(18,(o.v-d.v)*2+10) and absf(o.offset-lane)<=2.2: free=false
+				if free: desired=lane; d.lane=lane; d.lane_until=clock+2.5; d.pass_target=front.id; emit("overtake_attempt",{"id":d.id,"target":front.id}); break
 		desired=clampf(desired,future_min,future_max)
 		for o in traffic:
 			if o.id==d.id: continue
@@ -302,6 +331,11 @@ func update(dt: float) -> void:
 		for o in traffic:
 			if o.id!=d.id and absf(fposmod(o.progress-d.progress+length/2,length)-length/2)<8 and absf(next_offset-o.offset)<2.15 and absf(next_offset-o.offset)<absf(d.offset-o.offset): next_offset=d.offset; d.lateral_v=0.0
 		d.offset=next_offset
+		front={}; front_gap=INF
+		for o in traffic:
+			if o.id==d.id: continue
+			var gap:float=fposmod(o.progress-d.progress,length)
+			if gap>0 and gap<front_gap and (not passing_room or absf(o.offset-d.offset)<2.3 or absf(o.offset-desired)<2.3): front=o; front_gap=gap
 		var own_ds := sample(track.line.ds,f)
 		if not front.is_empty():
 			var front_ds := sample(track.line.ds,fposmod(front.progress,length)/step)

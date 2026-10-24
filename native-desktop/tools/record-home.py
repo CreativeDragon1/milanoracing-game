@@ -9,7 +9,7 @@ for ident in ids:
     avi=C/(ident+'.avi');metadata=N/'qa'/('capture-'+ident+'.json')
     if '--reuse' not in sys.argv or not avi.exists() or not metadata.exists():
         with (C/(ident+'.log')).open('w',encoding='utf-8') as log:
-            r=subprocess.run([str(engine),'--path',str(N/'game'),'--rendering-method','forward_plus','--fixed-fps','60','--write-movie',str(avi),'--','--capture','--circuit='+ident,'--qa-quality=2'],stdout=log,stderr=subprocess.STDOUT,timeout=300)
+            r=subprocess.run([str(engine),'--path',str(N/'game'),'--position','-4000,-4000','--rendering-method','forward_plus','--fixed-fps','60','--write-movie',str(avi),'--','--capture','--circuit='+ident,'--qa-quality=2'],stdout=log,stderr=subprocess.STDOUT,timeout=300)
         text=(C/(ident+'.log')).read_text(encoding='utf-8');assert r.returncode==0 and 'CINEMATIC_BEGIN' in text and 'SCRIPT ERROR' not in text and '\nERROR:' not in text,text[-2500:]
     info=json.loads(metadata.read_text());start=info['startFrame']/60
     clip=C/(ident+'.mp4')

@@ -1,18 +1,18 @@
-# Milano Racing — Grand Prix
+# Milano Racing
 
-Milano Racing, featuring the MR 26. Start with **Grand Prix**; the older World Tour files remain in the repository for reference.
+Milano Racing, featuring the MR 26. Open **Milano Racing.html** for the browser game; the independent native desktop source is under **native-desktop**.
 
-The latest update adds terrain-fitted ground detail, supporting raceways, fuller planting and footprint-based spectator structures across the calendar. Milano Autodromo is now a 6.54 km, 17-corner ridge circuit. All six partners share balanced trackside wall allocations, rotating gantries and pit facades. Track limits allow kerb use and brief excursions, with gradual grip loss outside the kerbs and warnings before race penalties.
+The latest update adds Riviera and Solara, progressive steering, steadier cameras, local adaptive rivals and less repeated rendering and race-model work. Pit routes now keep their working areas clear of the racing surface, use smooth joins and transfer steering continuously out of assist. Reversed procedural grandstands, garage floors and service aprons are corrected. See upgrade/docs/PERFORMANCE-RESULTS.md for measured gains and remaining limits. Milano Autodromo is now a 6.54 km, 17-corner ridge circuit. All six partners share balanced trackside wall allocations, rotating gantries and pit facades. Track limits allow kerb use and brief excursions, with gradual grip loss outside the kerbs and warnings before race penalties.
 
 Menus use Barlow headings, DM Sans controls and Milano’s colours, with visual race setup and tabbed settings. Embedded fonts also work offline. The environment guide lists references, inspection frames and the details that remain approximate; these are mapped game reconstructions, not survey-exact replicas.
 
 ## Play
 
-Download [Milano Racing - Grand Prix.html](Milano%20Racing%20-%20Grand%20Prix.html) using GitHub's **Download raw file** button, then open the saved file in Edge or Chrome. All game assets are embedded; solo play works offline. Pair PS/Xbox controllers in the operating system, return to the game and press a controller button.
+Download [Milano Racing.html](Milano%20Racing.html) using GitHub's **Download raw file** button, then open the saved file in Edge or Chrome. All game assets are embedded; solo play works offline. Pair PS/Xbox controllers in the operating system, return to the game and press a controller button.
 
 ## Included
 
-- MR 26 and 12 circuits: Milano Autodromo, Bahrain, Singapore, Monza, Monaco, Austria, Silverstone, Abu Dhabi, Spa, Suzuka, Interlagos and Zandvoort.
+- MR 26 and 14 circuits: Milano Autodromo, Bahrain, Singapore, Monza, Monaco, Austria, Silverstone, Abu Dhabi, Spa, Suzuka, Interlagos, Zandvoort, Milano Riviera and Milano Solara.
 - Five-minute or full Q1/Q2/Q3 qualifying, 22-car solo races, four difficulties, tyre wear and assisted pit stops.
 - Variable circuit widths, model-based racing lines, mapped surroundings, terrain, landmarks and revised cameras/materials.
 - Python/aiohttp multiplayer server with rooms, invites, reconnects and up to 16 drivers. Online ghost races are separate from solo qualifying and AI tyre strategy.
@@ -102,7 +102,7 @@ This commit uploads the game and source to GitHub. It does not deploy the websit
 
 ## Native desktop
 
-`native-desktop` is the independent Godot 4.7.2 Forward+/Vulkan game. Version 0.2 adds 22-car races, staged qualifying, tyre strategy, assisted pit stops, private-server online rooms and a recorded cinematic home screen. It includes all twelve prepared circuits and the original MR 26 artwork. Native wet-road and facade shaders, rain, spray, local shadows and graphics presets extend the desktop renderer.
+`native-desktop` is the independent Godot 4.7.2 Forward+/Vulkan game. Version 0.3 includes 22-car races, staged qualifying, tyre strategy, assisted pit stops, private-server online rooms and a recorded cinematic home screen. It includes fourteen prepared circuits, including the original Riviera and Solara layouts, and the original MR 26 model fitted with the supplied final livery. Native wet-road and facade shaders, rain, spray, local shadows and graphics presets extend the desktop renderer.
 
 The home screen uses a four-shot sequence recorded inside the native game, with smooth transitions and Milano branding. Circuit rendering is suspended during menu playback to reduce GPU work. The new interface separates race selection, setup and online rooms.
 

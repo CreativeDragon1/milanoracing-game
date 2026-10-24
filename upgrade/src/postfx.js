@@ -1,10 +1,19 @@
 // Quality presets share the same scene and physics. Ultra adds screen-space reflection and shafts.
 let composer,ambientPass,aaPass,cinemaPass;
-let graphicsPreset='ultra';try{graphicsPreset=localStorage.getItem('mrs:graphics')||'ultra'}catch(e){}
+let graphicsPreset=device.mobile?'high':'ultra';try{graphicsPreset=localStorage.getItem(device.mobile?'mrs:mobile:graphics':'mrs:graphics')||graphicsPreset}catch(e){}
 const graphics={scale:1,frames:0,elapsed:0,quality:graphicsPreset};
 if(ren){ren.info.autoReset=false;ren.shadowMap.autoUpdate=false;}
 if(ren&&ren.capabilities.isWebGL2){
  composer=new T.EffectComposer(ren);ambientPass=new T.SSAOPass(scene,cam,innerWidth,innerHeight);ambientPass.kernelRadius=1.35;ambientPass.minDistance=.0004;ambientPass.maxDistance=.025;ambientPass.needsSwap=true;ambientPass.beautyRenderTarget.texture.encoding=T.sRGBEncoding;
+ // AO is a low-frequency effect. Calculate it at half resolution while
+ // retaining full-resolution normals/depth for reflections and edge rejection.
+ const originalAOSize=ambientPass.setSize.bind(ambientPass);
+ ambientPass.setSize=(w,h)=>{originalAOSize(w,h);const aw=Math.max(1,Math.ceil(w/2)),ah=Math.max(1,Math.ceil(h/2));ambientPass.ssaoRenderTarget.setSize(aw,ah);ambientPass.blurRenderTarget.setSize(aw,ah);ambientPass.ssaoMaterial.uniforms.resolution.value.set(aw,ah);ambientPass.blurMaterial.uniforms.resolution.value.set(aw,ah)};
+ ambientPass.copyMaterial.uniforms.edgeAware={value:0};ambientPass.copyMaterial.uniforms.tDepth={value:ambientPass.normalRenderTarget.depthTexture};ambientPass.copyMaterial.uniforms.aoSize={value:new T.Vector2()};
+ ambientPass.copyMaterial.fragmentShader=`uniform sampler2D tDiffuse,tDepth;uniform float opacity,edgeAware;uniform vec2 aoSize;varying vec2 vUv;
+ void main(){if(edgeAware<.5){gl_FragColor=opacity*texture2D(tDiffuse,vUv);return;}float center=texture2D(tDepth,vUv).x;vec2 pixel=vUv*aoSize-.5,base=floor(pixel),f=fract(pixel);float value=0.,weight=0.;for(int y=0;y<2;y++)for(int x=0;x<2;x++){vec2 o=vec2(float(x),float(y)),uv=(base+o+.5)/aoSize;float spatial=(x==0?1.-f.x:f.x)*(y==0?1.-f.y:f.y),depth=texture2D(tDepth,uv).x,w=spatial*exp(-abs(depth-center)*25000.);value+=texture2D(tDiffuse,uv).r*w;weight+=w;}float ao=weight>.00001?value/weight:texture2D(tDiffuse,vUv).r;gl_FragColor=vec4(vec3(ao),1.);}`;
+ const originalAORender=ambientPass.renderPass.bind(ambientPass);
+ ambientPass.renderPass=(renderer,material,...args)=>{if(material===ambientPass.copyMaterial){material.uniforms.edgeAware.value=material.uniforms.tDiffuse.value===ambientPass.blurRenderTarget.texture?1:0;material.uniforms.aoSize.value.set(ambientPass.blurRenderTarget.width,ambientPass.blurRenderTarget.height)}return originalAORender(renderer,material,...args)};
  ambientPass.normalRenderTarget.dispose();ambientPass.normalRenderTarget.depthTexture.type=T.UnsignedIntType;
  const baseVisibility=ambientPass.overrideVisibility.bind(ambientPass);ambientPass.overrideVisibility=()=>{baseVisibility();scene.traverse(o=>{if(o===sky||o.isMesh&&(o.material?.transparent||o.material?.alphaTest>0))o.visible=false})};
  composer.addPass(ambientPass);
@@ -27,10 +36,10 @@ if(ren&&ren.capabilities.isWebGL2){
  float l=dot(c,vec3(.2126,.7152,.0722));c=mix(vec3(l),c,1.025);c=mix(c,smoothstep(vec3(0.),vec3(1.),c),.14);c+=vec3(-.006,.002,.012)*(1.-smoothstep(.04,.4,l));c*=1.-.12*smoothstep(.22,.75,length(vUv-.5));gl_FragColor=vec4(c,1.);
  }`});composer.addPass(cinemaPass);aaPass=new T.ShaderPass(T.FXAAShader);composer.addPass(aaPass);
 }
-function resizeFX(){if(!composer)return;const pr=ren.getPixelRatio();composer.setPixelRatio(pr);composer.setSize(innerWidth,innerHeight);aaPass.uniforms.resolution.value.set(1/(innerWidth*pr),1/(innerHeight*pr));cinemaPass.uniforms.resolution.value.set(innerWidth*pr,innerHeight*pr);}
-function applyGraphics(preset){graphicsPreset=preset;graphics.quality=preset;S.q=preset==='performance'?1:0;try{localStorage.setItem('mrs:graphics',preset)}catch(e){};sun.shadow.mapSize.set(preset==='ultra'?4096:2048,preset==='ultra'?4096:2048);if(sun.shadow.map){sun.shadow.map.dispose();sun.shadow.map=null}sun.shadow.camera.left=-55;sun.shadow.camera.right=55;sun.shadow.camera.top=55;sun.shadow.camera.bottom=-55;sun.shadow.camera.updateProjectionMatrix();resize();}
+function resizeFX(){if(!composer)return;const pr=ren.getPixelRatio(),{w,h}=viewportSize();composer.setPixelRatio(pr);composer.setSize(w,h);aaPass.uniforms.resolution.value.set(1/(w*pr),1/(h*pr));cinemaPass.uniforms.resolution.value.set(w*pr,h*pr);}
+function applyGraphics(preset){graphicsPreset=preset;graphics.quality=preset;S.q=preset==='performance'?1:0;try{localStorage.setItem(device.mobile?'mrs:mobile:graphics':'mrs:graphics',preset)}catch(e){};sun.shadow.mapSize.set(preset==='ultra'&&!device.mobile?4096:2048,preset==='ultra'&&!device.mobile?4096:2048);if(sun.shadow.map){sun.shadow.map.dispose();sun.shadow.map=null}sun.shadow.camera.left=-55;sun.shadow.camera.right=55;sun.shadow.camera.top=55;sun.shadow.camera.bottom=-55;sun.shadow.camera.updateProjectionMatrix();resize();}
 const sunScreen=new T.Vector3();let previousRender=performance.now();
-function renderGame(){if(!ren)return;ren.info.reset();const now=performance.now(),dt=now-previousRender;previousRender=now;ren.shadowMap.needsUpdate=true;
- if(composer&&!S.q){for(const m of[ambientPass.ssaoMaterial,ambientPass.depthRenderMaterial]){m.uniforms.cameraNear.value=cam.near;m.uniforms.cameraFar.value=cam.far;}ambientPass.ssaoMaterial.uniforms.cameraProjectionMatrix.value.copy(cam.projectionMatrix);ambientPass.ssaoMaterial.uniforms.cameraInverseProjectionMatrix.value.copy(cam.projectionMatrixInverse);sunScreen.copy(cam.position).addScaledVector(sunDirection,5000).project(cam);cinemaPass.uniforms.sunUV.value.set(sunScreen.x*.5+.5,sunScreen.y*.5+.5);cinemaPass.uniforms.sunVisible.value=sunScreen.z<1&&sunScreen.x>-1.2&&sunScreen.x<1.2&&sunScreen.y>-1.2&&sunScreen.y<1.2?1:0;cinemaPass.uniforms.ultra.value=graphicsPreset==='ultra'?1:0;cinemaPass.uniforms.menu.value=state==='menu'?1:0;composer.render()}else ren.render(scene,cam);
+function renderGame(){if(!ren)return;ren.info.reset();if(state==='menu'){drawShowroom(performance.now());return;}const now=performance.now(),dt=now-previousRender;previousRender=now;ren.shadowMap.needsUpdate=true;
+ if(composer&&!S.q){for(const m of[ambientPass.ssaoMaterial,ambientPass.depthRenderMaterial]){m.uniforms.cameraNear.value=cam.near;m.uniforms.cameraFar.value=cam.far;}ambientPass.ssaoMaterial.uniforms.cameraProjectionMatrix.value.copy(cam.projectionMatrix);ambientPass.ssaoMaterial.uniforms.cameraInverseProjectionMatrix.value.copy(cam.projectionMatrixInverse);sunScreen.copy(cam.position).addScaledVector(sunDirection,5000).project(cam);cinemaPass.uniforms.sunUV.value.set(sunScreen.x*.5+.5,sunScreen.y*.5+.5);cinemaPass.uniforms.sunVisible.value=sunScreen.z<1&&sunScreen.x>-1.2&&sunScreen.x<1.2&&sunScreen.y>-1.2&&sunScreen.y<1.2?1:0;cinemaPass.uniforms.ultra.value=graphicsPreset==='ultra'?1:0;cinemaPass.uniforms.menu.value=0;composer.render()}else ren.render(scene,cam);
  graphics.frames++;if(dt<200)graphics.elapsed+=dt;
 }

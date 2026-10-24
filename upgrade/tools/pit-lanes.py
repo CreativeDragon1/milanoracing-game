@@ -4,12 +4,13 @@ import sys,json,xml.etree.ElementTree as ET,numpy as np
 from scipy.spatial import cKDTree
 from scipy.interpolate import CubicSpline
 from scipy.ndimage import gaussian_filter1d
+from pit_alignment import fair_pit,project
 U=Path(__file__).resolve().parents[1];tour=json.loads((U/'src/world-tour-data.json').read_text(encoding='utf-8'));trs=json.loads((U/'src/geographic-transforms.json').read_text());result=json.loads((U/'src/pit-lanes.json').read_text()) if len(sys.argv)>1 else {}
 ids={'bahrain':[187123422],'singapore':[100484287],'monza':[38168747],'monaco':[850261588,1388331347],'austria':[289111668],'silverstone':[227902927],'abu-dhabi':[176695253,176695254,176695255],'spa':[323851541],'suzuka':[120917578],'interlagos':[33779109],'zandvoort':[38144527]}
 for ident,d in tour.items():
  if len(sys.argv)>1 and ident not in sys.argv[1:]:continue
  q=np.column_stack([d['x'],d['z']]);n=len(q);ds=d['length']/n;tree=cKDTree(q);norm=np.column_stack([-np.array(d['tz']),d['tx']]);tunnel=[]
- if ident!='milano':
+ if ident!='milano' and not d.get('original',False):
   tr=trs[ident];r=ET.parse(U/f'research/osm/{ident}-map.osm').getroot();nodes={int(x.get('id')):[float(x.get('lon')),float(x.get('lat'))] for x in r.findall('node')};parts=[]
   for w in r.findall('way'):
    if int(w.get('id')) not in ids[ident]:continue
@@ -38,7 +39,8 @@ for ident,d in tour.items():
  sample=np.linspace(0,denseS[-1],int(denseS[-1]/1.5)+1);path=np.column_stack([np.interp(sample,denseS,dense[:,k]) for k in [0,1]])
  # A short fairing removes mapping-node chatter without straightening the real bends.
  fair=gaussian_filter1d(path,2.0,axis=0,mode='nearest');fade=np.minimum(np.clip(sample/18,0,1),np.clip((sample[-1]-sample)/18,0,1));fade=fade*fade*(3-2*fade);path=path*(1-fade[:,None])+fair*fade[:,None]
- length=np.r_[0,np.cumsum(np.linalg.norm(np.diff(path,axis=0),axis=1))];dist,ix=tree.query(path);progress=np.unwrap(ix/n*2*np.pi)*n/(2*np.pi)
+ path=fair_pit(path,d,entry,exit,bool(tunnel))
+ length=np.r_[0,np.cumsum(np.linalg.norm(np.diff(path,axis=0),axis=1))];dist,ix=tree.query(path);fraction,_,_,_=project(path,d);progress=np.unwrap(fraction/n*2*np.pi)*n/(2*np.pi)
  # Pit progress is monotonic through the legal bypass, including the timing line.
  progress=np.maximum.accumulate(progress);progress=entry+(progress-progress[0])/(progress[-1]-progress[0])*((exit-entry)%n)
  # Height is sampled by physical position, not the monotonic timing coordinate.
@@ -60,9 +62,15 @@ for ident,d in tour.items():
  # A route-level pit box is chosen on the working lane, clear of entry/exit tapers.
  valid=np.arange(len(path))[int(len(path)*.27):int(len(path)*.70)];box=int(valid[np.argmin(abs(progress[valid]%n-np.where(progress[valid]%n>n/2,n,0)))])
  box=max(int(len(path)*.3),min(int(len(path)*.68),box));speed=60 if ident=='monaco' else 80
+ if ident=='monza':
+  venues=json.loads((U/'src/venue-map-data.json').read_text(encoding='utf-8'))
+  garages=next(f for f in venues[ident] if f['id']==34404652)
+  centre=np.asarray(garages['footprint']).mean(axis=0)
+  valid=np.arange(int(len(path)*.2),int(len(path)*.8))
+  box=int(valid[np.argmin(np.linalg.norm(path[valid]-centre,axis=1))])
  targetSpeed=np.minimum(speed/3.6,np.sqrt(6/np.maximum(abs(curvature),.0001)))
  for k in range(len(path)-2,-1,-1):targetSpeed[k]=min(targetSpeed[k],np.sqrt(targetSpeed[k+1]**2+2*8*(length[k+1]-length[k])))
- result[ident]={'x':path[:,0].round(5).tolist(),'z':path[:,1].round(5).tolist(),'y':y.round(5).tolist(),'s':length.round(5).tolist(),'heading':heading.round(7).tolist(),'grade':grade.round(6).tolist(),'cornerSpeed':targetSpeed.round(5).tolist(),'station':progress.round(5).tolist(),'length':float(length[-1]),'entry':int(entry),'exit':int(exit),'box':box,'speedLimitKmh':speed,'limitStart':float(length[min(12,len(path)//10)]),'limitEnd':float(length[-min(12,len(path)//10)]),'width':7,'sourceWayIds':ids.get(ident,[]),'note':'OSM alignment with tangent-continuous merges; reconstructed width and smoothed height, not surveyed pit elevations. Curvature-limited assisted travel.'}
+ result[ident]={'x':path[:,0].round(5).tolist(),'z':path[:,1].round(5).tolist(),'y':y.round(5).tolist(),'s':length.round(5).tolist(),'heading':heading.round(7).tolist(),'grade':grade.round(6).tolist(),'cornerSpeed':targetSpeed.round(5).tolist(),'curvature':curvature.round(8).tolist(),'station':progress.round(5).tolist(),'length':float(length[-1]),'entry':int(entry),'exit':int(exit),'box':box,'speedLimitKmh':speed,'limitStart':float(length[min(12,len(path)//10)]),'limitEnd':float(length[-min(12,len(path)//10)]),'width':7,'sourceWayIds':ids.get(ident,[]),'note':'OSM alignment with tangent-continuous merges; reconstructed width and smoothed height, not surveyed pit elevations. Curvature-limited assisted travel.'}
  if tunnelInfo:result[ident]['tunnel']=tunnelInfo
  print(ident,'entry',round(entry/n,3),'exit',round(exit/n,3),'metres',round(length[-1]),'box',round(length[box]))
 (U/'src/pit-lanes.json').write_text(json.dumps(result,separators=(',',':')),encoding='utf-8')

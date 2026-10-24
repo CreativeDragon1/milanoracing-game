@@ -1,0 +1,131 @@
+{
+  "reports": [
+    {
+      "id": "bahrain",
+      "minBodyClearance": 2.050044561295328,
+      "boxClearance": 2.099444605903252,
+      "maxCurvature": 0.012887224731225264,
+      "maxHeadingStepDegrees": 0.7457733252981825,
+      "bodyOverlaps": 0,
+      "length": 880.7366029350495
+    },
+    {
+      "id": "singapore",
+      "minBodyClearance": 2.0979289846701823,
+      "boxClearance": 2.196568095281422,
+      "maxCurvature": 0.037250866503432845,
+      "maxHeadingStepDegrees": 2.1822014360029662,
+      "bodyOverlaps": 0,
+      "length": 905.5975622482816
+    },
+    {
+      "id": "monza",
+      "minBodyClearance": 2.0993787747926493,
+      "boxClearance": 8.770487426951727,
+      "maxCurvature": 0.013481704696510832,
+      "maxHeadingStepDegrees": 0.7772745448744753,
+      "bodyOverlaps": 0,
+      "length": 847.4470816736891
+    },
+    {
+      "id": "monaco",
+      "minBodyClearance": 2.114587851659973,
+      "boxClearance": 18.13292739708105,
+      "maxCurvature": 0.08047875212478715,
+      "maxHeadingStepDegrees": 4.611553946513533,
+      "bodyOverlaps": 0,
+      "length": 656.0499474611996
+    },
+    {
+      "id": "austria",
+      "minBodyClearance": 2.0892088665615143,
+      "boxClearance": 3.543967837899543,
+      "maxCurvature": 0.030798378124969272,
+      "maxHeadingStepDegrees": 1.7925385691124445,
+      "bodyOverlaps": 0,
+      "length": 1087.9043628988475
+    },
+    {
+      "id": "silverstone",
+      "minBodyClearance": 2.0656289346460897,
+      "boxClearance": 16.251691146525594,
+      "maxCurvature": 0.02207245717796963,
+      "maxHeadingStepDegrees": 1.3058510291944654,
+      "bodyOverlaps": 0,
+      "length": 1231.8332926860085
+    },
+    {
+      "id": "abu-dhabi",
+      "minBodyClearance": 2.0989634156173125,
+      "boxClearance": 2.893090102651584,
+      "maxCurvature": 0.0865477812695673,
+      "maxHeadingStepDegrees": 5.004293596763922,
+      "bodyOverlaps": 0,
+      "length": 1194.8109357738479
+    },
+    {
+      "id": "milano",
+      "minBodyClearance": 2.075675935522016,
+      "boxClearance": 9.242590000000002,
+      "maxCurvature": 0.011041524194685293,
+      "maxHeadingStepDegrees": 0.6779351223546967,
+      "bodyOverlaps": 0,
+      "length": 928.3299046844421
+    },
+    {
+      "id": "spa",
+      "minBodyClearance": 3.3794445443973142,
+      "boxClearance": 4.583328984281749,
+      "maxCurvature": 0.08117816259277888,
+      "maxHeadingStepDegrees": 4.654732045954613,
+      "bodyOverlaps": 0,
+      "length": 777.6398306470658
+    },
+    {
+      "id": "suzuka",
+      "minBodyClearance": 2.0998293164305233,
+      "boxClearance": 5.943171918920136,
+      "maxCurvature": 0.015894849123711474,
+      "maxHeadingStepDegrees": 0.940361251680512,
+      "bodyOverlaps": 0,
+      "length": 980.3017752779082
+    },
+    {
+      "id": "interlagos",
+      "minBodyClearance": 2.086335021426814,
+      "boxClearance": 2.4158970070322052,
+      "maxCurvature": 0.04445770105466551,
+      "maxHeadingStepDegrees": 2.582257757297154,
+      "bodyOverlaps": 0,
+      "length": 1449.9950706221614
+    },
+    {
+      "id": "zandvoort",
+      "minBodyClearance": 2.0333771724507024,
+      "boxClearance": 3.4089449911007073,
+      "maxCurvature": 0.04582121963461816,
+      "maxHeadingStepDegrees": 2.646572269800597,
+      "bodyOverlaps": 0,
+      "length": 837.0986186580484
+    },
+    {
+      "id": "riviera",
+      "minBodyClearance": 2.8459000000000003,
+      "boxClearance": 9.713080000000001,
+      "maxCurvature": 0.010644160117646795,
+      "maxHeadingStepDegrees": 0.6351466342143226,
+      "bodyOverlaps": 0,
+      "length": 712.6973662914774
+    },
+    {
+      "id": "solara",
+      "minBodyClearance": 2.36107,
+      "boxClearance": 9.73669,
+      "maxCurvature": 0.011485025056137882,
+      "maxHeadingStepDegrees": 0.6889874782227653,
+      "bodyOverlaps": 0,
+      "length": 848.7307161017004
+    }
+  ],
+  "passed": true
+}

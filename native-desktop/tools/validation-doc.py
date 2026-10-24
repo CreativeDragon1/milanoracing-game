@@ -7,9 +7,9 @@ r=read('packaged-rendering.json');m=read('packaged-modes.json');v=read('vehicle.
 assert r['exeSHA256']==m['exeSHA256'] and r['packSHA256']==m['packSHA256']
 rows='\n'.join(f"| {x['circuit']} | {x['medianMs']:.2f} | {x['p95Ms']:.2f} | {x['race']['physicsMeanMs']:.2f} |" for x in r['reports'])
 mode_rows='\n'.join(f"| {x['mode']} | {x['race']['elapsedSeconds']:.1f} | {x['medianMs']:.2f} | {x['p95Ms']:.2f} |" for x in m['reports'])
-text=f'''# Native desktop 0.2 validation
+text=f'''# Native desktop 0.3 validation
 
-The final Windows executable and resource pack were tested on an NVIDIA GeForce RTX 3050 6 GB Laptop GPU with Godot 4.7.2 Forward+/Vulkan. All twelve circuits completed the final packaged moving-grid samples without script or engine errors. Runtime readback verified stored static instance transforms, and all 22 drivers had finite positions.
+The final Windows executable and resource pack were tested on an NVIDIA GeForce RTX 3050 6 GB Laptop GPU with Godot 4.7.2 Forward+/Vulkan. All fourteen circuits completed the final packaged moving-grid samples without script or engine errors. Runtime readback verified stored static instance transforms, and all 22 drivers had finite positions.
 
 ## Packaged moving-grid samples
 
@@ -31,8 +31,10 @@ The Monaco and Spa runs continued through a complete one-lap 22-car race to resu
 
 ## Simulation, controls and UI
 
-- Race model: {race['checks']:,} checks passed. Complete deterministic races on twelve circuits, finite positions, qualifying progression, tyre strategy, pit queues, timing and teleport guards. Full qualifying clock settings are checked; expiry is accelerated in the progression tests.
-- Vehicle and pits: {v['checks']:,} checks passed. Injected keyboard and gamepad axes, acceleration, braking, progressive steering, centering and complete assisted pit routes on all twelve circuits. All four original wheel parts rotate. The exported executable separately passed the injected-keyboard smoke test.
+- Race model: {race['checks']:,} checks passed. Complete deterministic races on fourteen circuits, finite positions, qualifying progression, tyre strategy, pit queues, timing and teleport guards. Full qualifying clock settings are checked; expiry is accelerated in the progression tests.
+- Vehicle and pits: {v['checks']:,} checks passed. Injected keyboard and gamepad axes, acceleration, braking, progressive steering, centering and complete assisted pit routes on all fourteen circuits. All four original wheel parts rotate. The exported executable separately passed the injected-keyboard smoke test.
+- Adaptive pace: {read('learning.json')['checks']:,} synthetic regression and corridor-bound checks passed. This validates bounded local learning, not human-trained driving skill. See [performance and circuit update](PERFORMANCE-UPDATE.md).
+- Traffic: {len(read('traffic.json')['reports'])} overtaking and qualifying-yield checks passed. Passing is constrained by space and difficulty, and preparation/cooldown laps yield to approaching push laps.
 - Native UI: {ui['checks']} integration checks passed. Footage playback, rendering suspension, race launch, five-light countdown, pit request, tyre choice, pause, new qualifying, grid continuation, practice cleanup and circuit reload were exercised using native button signals.
 - Online: {online['checks']} integration checks passed against a temporary private-password loopback Python server. Two native clients logged in, created/joined/readied a room, agreed on the countdown, received state, resumed identity after reconnect and received a server recovery penalty.
 
@@ -48,7 +50,7 @@ Reel SHA-256: `{reel['sha256']}`
 
 ## Geometry and remaining limits
 
-The conversion preserves original MR 26 geometry, artwork and source circuit coordinates. Instance metadata is retained on the CPU and uploaded after scene attachment, avoiding lost GPU instance transforms during headless conversion. Tree roots are grounded to authored triangles; unsupported peripheral vegetation was excluded. Native runtime metadata maps every source object, including duplicate-named tiles, to its intended road/facade material.
+The conversion preserves original MR 26 geometry and source circuit coordinates. The supplied Livery_FINAL artwork uses the matching Designer_Livery_UV layout recovered from the supplied preview model. Wheel textures retain their original atlas. The requested inner-sidepod STEM decal is masked in a neutral part of the new atlas. Exact geometry and wheel UVs are unchanged; body UVs intentionally follow the designer layout. Instance metadata is retained on the CPU and uploaded after scene attachment, avoiding lost GPU instance transforms during headless conversion. Tree roots are grounded to authored triangles; unsupported peripheral vegetation was excluded. Native runtime metadata maps every source object, including duplicate-named tiles, to its intended road/facade material.
 
 The venues remain researched reconstructions with inferred dimensions and mixed imagery dates. No new survey data or commercially detailed cockpit was added in this release. This build does not meet the supplied commercial-game reference images or every-detail placement standard. See [ACCURACY.md](ACCURACY.md).
 

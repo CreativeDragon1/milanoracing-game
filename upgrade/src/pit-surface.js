@@ -7,7 +7,7 @@ for(let i=0;i<PIT.x.length-1;i++){
  for(let x=Math.floor(Math.min(...v.map(p=>p[0]))/24);x<=Math.floor(Math.max(...v.map(p=>p[0]))/24);x++)for(let z=Math.floor(Math.min(...v.map(p=>p[2]))/24);z<=Math.floor(Math.max(...v.map(p=>p[2]))/24);z++){const key=x+':'+z;if(!pitCutCells.has(key))pitCutCells.set(key,[]);pitCutCells.get(key).push(q)}
 }
 const pitSurfaceAudit={trimmedMeshes:0,removedTriangles:0,elapsedMs:0};
-function trimPitGround(){
+async function trimPitGround(){
  const begin=performance.now(),meshes=[];scene.updateMatrixWorld(true);
  scene.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh&&(o.userData.pitCut||o.userData.calendarGround||['Circuit terrain','Mapped surrounding road network'].includes(o.name)))meshes.push(o)});
  const split=(poly,a,b)=>{const inside=[],outside=[],distance=p=>(b[0]-a[0])*(p[2]-a[2])-(b[2]-a[2])*(p[0]-a[0]);for(let i=0;i<poly.length;i++){const p=poly[i],q=poly[(i+1)%poly.length],d=distance(p),e=distance(q);if(d>=-1e-8)inside.push(p);if(d<=1e-8)outside.push(p);if((d>1e-8&&e<-1e-8)||(d<-1e-8&&e>1e-8)){const f=d/(d-e),v=p.map((x,k)=>x+(q[k]-x)*f);inside.push(v);outside.push(v)}}return{inside,outside}};
@@ -16,6 +16,7 @@ function trimPitGround(){
   // These ground meshes have world-space vertices. Preserve all UVs, colours and normals.
   if(mesh.position.lengthSq()>1e-8||mesh.rotation.x||mesh.rotation.y||mesh.rotation.z)continue;
   for(let i=0;i<pos.count;i+=3){
+   if(i%384===0&&MilanoBoot.shouldYield())await MilanoBoot.checkpoint("Pit surface fitting");
    const tri=[];for(let j=0;j<3;j++){const v=[];for(const [_,a] of attributes)for(let k=0;k<a.itemSize;k++)v.push(a.array[(i+j)*a.itemSize+k]);tri.push(v)}
    const candidates=new Set();for(let x=Math.floor(Math.min(...tri.map(p=>p[0]))/24);x<=Math.floor(Math.max(...tri.map(p=>p[0]))/24);x++)for(let z=Math.floor(Math.min(...tri.map(p=>p[2]))/24);z<=Math.floor(Math.max(...tri.map(p=>p[2]))/24);z++)for(const q of pitCutCells.get(x+':'+z)||[])candidates.add(q);
    let pieces=[tri];for(const q of candidates){

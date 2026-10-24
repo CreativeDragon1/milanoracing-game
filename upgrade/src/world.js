@@ -1,5 +1,8 @@
 // ---- renderer & world ----
 let sceneAssetsLoaded=false;const sceneAssetErrors=[];
+// Cooperative construction can begin another batch after an earlier batch
+// finishes. Keep readiness tied to the current pending images, not the first.
+T.DefaultLoadingManager.onStart=()=>{sceneAssetsLoaded=false};
 T.DefaultLoadingManager.onLoad=()=>{sceneAssetsLoaded=true};
 T.DefaultLoadingManager.onProgress=(url,done,total)=>{const el=document.getElementById('load-progress');if(el)el.textContent='Preparing circuit '+Math.round(done/Math.max(1,total)*100)+'%'};
 T.DefaultLoadingManager.onError=url=>{sceneAssetErrors.push(url.startsWith('data:')?'Embedded visual asset':url)};
@@ -45,15 +48,17 @@ let seed=84731;function rand(){seed=(seed*1664525+1013904223)>>>0;return seed/42
 function canvasTex(w,h,fn){const el=document.createElement('canvas');el.width=w;el.height=h;fn(el.getContext('2d'),w,h);const t=new T.CanvasTexture(el);t.encoding=T.sRGBEncoding;if(ren)t.anisotropy=Math.min(8,ren.capabilities.getMaxAnisotropy());return t}
 // Prefilter the actual sky once: paint and glass reflect the same sunset as the view.
 let sunsetEnvironment;
-if(ren){const environmentScene=new T.Scene();environmentScene.add(sky.clone());const pmrem=new T.PMREMGenerator(ren);sunsetEnvironment=pmrem.fromScene(environmentScene,.035,.1,5000);scene.environment=sunsetEnvironment.texture;pmrem.dispose()}
+if(ren&&isNight){const environmentScene=new T.Scene();environmentScene.add(sky.clone());const pmrem=new T.PMREMGenerator(ren);sunsetEnvironment=pmrem.fromScene(environmentScene,.035,.1,5000);scene.environment=sunsetEnvironment.texture;pmrem.dispose()}
 function pbrTexture(url,color=false){const t=new T.TextureLoader().load(url);t.encoding=color?T.sRGBEncoding:T.LinearEncoding;t.wrapS=t.wrapT=T.RepeatWrapping;t.anisotropy=ren?Math.min(16,ren.capabilities.getMaxAnisotropy()):1;return t}
 const asphalt=pbrTexture('__ASPHALT_COLOR__',true),asphaltNormal=pbrTexture('__ASPHALT_NORMAL__'),asphaltRough=pbrTexture('__ASPHALT_ROUGH__');
+// Photographed asphalt footprint, shared by road, pits and paved runoff.
+asphalt.repeat.set(5/2.08,5/2.08);asphaltNormal.repeat.copy(asphalt.repeat);asphaltRough.repeat.copy(asphalt.repeat);
 let hdrReady=false;
 if(ren&&!isNight)new T.RGBELoader().setDataType(T.HalfFloatType).load('__SUNSET_HDR__',hdr=>{const half=new Float32Array(32768);for(let j=0;j<32768;j++){const e=j>>10,f=j&1023;half[j]=e?Math.pow(2,e-15)*(1+f/1024):f*Math.pow(2,-24)}const data=hdr.image.data,ww=hdr.image.width,hh=hdr.image.height;let peak=-1,px=0,py=0;for(let y=0;y<hh/2;y+=2)for(let x=0;x<ww;x+=2){const i=(y*ww+x)*4,l=half[data[i]]*.2126+half[data[i+1]]*.7152+half[data[i+2]]*.0722;if(l>peak){peak=l;px=x;py=y}}const theta=(px/ww-.5)*Math.PI*2,elevation=(.5-py/hh)*Math.PI;sunDirection.set(Math.cos(theta)*Math.cos(elevation),Math.sin(elevation),Math.sin(theta)*Math.cos(elevation));const pm=new T.PMREMGenerator(ren),env=pm.fromEquirectangular(hdr);if(sunsetEnvironment)sunsetEnvironment.dispose();sunsetEnvironment=env;scene.environment=env.texture;pm.dispose();sky.material.uniforms.photoSky.value=hdr;sky.material.uniforms.photoReady.value=1;hdrReady=true});
 const grass=canvasTex(256,256,x=>{x.fillStyle=(THEME==='desert'||THEME==='marina')?'#b59c76':(THEME==='city'||THEME==='harbour')?'#636d77':'#58624a';x.fillRect(0,0,256,256);for(let i=0;i<9000;i++){x.fillStyle=(THEME==='desert'||THEME==='marina')?(rand()>.5?'#cab68d':'#a38b69'):(THEME==='city'||THEME==='harbour')?'#777c85':(rand()>.5?'#75805d':'#414e3b');x.globalAlpha=.3;x.fillRect(rand()*256,rand()*256,2,3)}});grass.wrapS=grass.wrapT=T.RepeatWrapping;grass.repeat.set(190,190);
 const grassMaterial=new T.MeshStandardMaterial({map:grass,roughness:1,envMapIntensity:.35});
-grassMaterial.onBeforeCompile=shader=>{shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 landscapePos;').replace('#include <begin_vertex>','#include <begin_vertex>\nlandscapePos=(modelMatrix*vec4(position,1.)).xyz;');shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 landscapePos;').replace('#include <map_fragment>','#include <map_fragment>\nfloat landVariation=sin(landscapePos.x*.027+sin(landscapePos.z*.013)*2.)*sin(landscapePos.z*.036);float mow=smoothstep(-.1,.1,sin(landscapePos.x*.24));diffuseColor.rgb*=.85+landVariation*.17+mow*.10;');};
-const gnd=new T.Mesh(new T.PlaneGeometry(Math.max(6000,circuitRadius*3),Math.max(6000,circuitRadius*3)),grassMaterial);gnd.rotation.x=-Math.PI/2;gnd.position.set(circuitCentre.x,-.015,circuitCentre.z);gnd.receiveShadow=true;if(!geography)scene.add(gnd);
+grassMaterial.onBeforeCompile=shader=>{shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 landscapePos;').replace('#include <begin_vertex>','#include <begin_vertex>\nlandscapePos=(modelMatrix*vec4(position,1.)).xyz;');shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 landscapePos;').replace('#include <map_fragment>','#include <map_fragment>\nfloat landVariation=sin(landscapePos.x*.027+sin(landscapePos.z*.013)*2.)*sin(landscapePos.z*.036);diffuseColor.rgb*=.94+landVariation*.06;');};
+const gnd=new T.Mesh(new T.PlaneGeometry(Math.max(6000,circuitRadius*3),Math.max(6000,circuitRadius*3)),grassMaterial);gnd.name='Original circuit regional ground';gnd.userData.groundSurface=true;gnd.rotation.x=-Math.PI/2;gnd.position.set(circuitCentre.x,-.015,circuitCentre.z);gnd.receiveShadow=true;if(!geography)scene.add(gnd);
 loadTerrain();if(terrainVertices){const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.BufferAttribute(terrainVertices,3));const uv=new Float32Array(terrainVertices.length/3*2);for(let i=0,j=0;i<terrainVertices.length;i+=3){uv[j++]=terrainVertices[i]/6000+.5;uv[j++]=-terrainVertices[i+2]/6000+.5}geometry.setAttribute('uv',new T.BufferAttribute(uv,2));geometry.computeVertexNormals();{const norms=geometry.getAttribute('normal'),pos=geometry.getAttribute('position'),shared=new Map(),keys=[];for(let i=0;i<pos.count;i++){const k=Math.round(pos.getX(i)*100)+':'+Math.round(pos.getY(i)*100)+':'+Math.round(pos.getZ(i)*100);keys.push(k);const a=shared.get(k)||new T.Vector3();a.add(new T.Vector3(norms.getX(i),norms.getY(i),norms.getZ(i)));shared.set(k,a)}shared.forEach(v=>v.normalize());for(let i=0;i<pos.count;i++){const a=shared.get(keys[i]);norms.setXYZ(i,a.x,a.y,a.z)}}const land=new T.Mesh(geometry,grassMaterial);land.name="Circuit terrain";land.userData.pitCut=true;land.receiveShadow=true;scene.add(land)}
 const col=h=>linear(h).toArray();
 // Shared small maps: detailed surfaces without per-stone geometry or extra lights.
@@ -96,24 +101,25 @@ const finishLine=new T.Mesh(new T.PlaneGeometry(1.6,W*2),new T.MeshStandardMater
 for(let k=1;k<=20;k++){const i=(N-Math.round(k*8/(LEN/N)))%N,side=k%2?2.4:-2.4;box(.12,.01,2.1,0xcccac2,cx[i]+nx[i]*side,.043,cz[i]+nz[i]*side,-Math.atan2(tz[i],tx[i]));}
 function textTexture(text,bg='#111929',fg='#f2ede4',sub='MILANO RACING'){return canvasTex(1024,256,(x,w,h)=>{x.fillStyle=bg;x.fillRect(0,0,w,h);x.fillStyle='#ff8138';x.fillRect(0,0,12,h);x.fillStyle=fg;x.textAlign='center';x.font='bold 95px Bahnschrift,Arial';x.fillText(text,w/2,130);x.fillStyle='#9caac8';x.font='25px Arial';x.fillText(sub,w/2,198)})}
 function board(text,x,y,z,rot,w=18,h=3,sub='MILANO RACING'){const m=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({map:textTexture(text,undefined,undefined,sub),side:T.DoubleSide}));m.position.set(x,y+groundHeight(x,z),z);m.rotation.y=rot;scene.add(m);return m}
-for(const s of[-1,1])box(.65,8,.65,0x30394c,cx[0]+nx[0]*s*(W+1.5),4,cz[0]+nz[0]*s*(W+1.5),h0);
-box(.85,1.8,W*2+4,0x172139,cx[0],7.7,cz[0],h0);
-board('MILANO RACING',cx[0]-.45,7.7,cz[0],-Math.PI/2+h0,17,1.8,'TEAM EDITION  /  START · FINISH');
+for(const side of[-1,1]){const x=cx[0]+nx[0]*side*(W+1.5),z=cz[0]+nz[0]*side*(W+1.5),base=Math.min(groundHeight(x,z),cy[0]),height=cy[0]+8-base;const post=box(.65,height,.65,0x30394c,x,0,z,h0);post.position.y=base+height/2;post.name='Start gantry support';}
+const startBeam=box(.85,1.8,W*2+4,0x172139,cx[0],0,cz[0],h0);startBeam.position.y=cy[0]+7.7;startBeam.name='Start gantry overhead beam';
+const startFascia=board('MILANO RACING',cx[0]-.45,0,cz[0],-Math.PI/2+h0,17,1.8,'START · FINISH');startFascia.position.y=cy[0]+7.7;
 for(let j=0;j<5;j++){const o=(j-2)*1.1;const l=new T.Mesh(new T.SphereGeometry(.2,12,8),new T.MeshStandardMaterial({color:0x50c695,emissive:0x1d6041,emissiveIntensity:.5}));l.position.set(cx[0]-.5,cy[0]+6.6,cz[0]+o);scene.add(l)}
 // __CIRCUIT_SCENERY__
 // __SUNSET_LANDSCAPE__
 // Distance boards are measured along the alignment to each corner entry.
-for(const turn of CIRCUIT.turns){const entry=turn.station-(Math.abs(turn.angleDeg)*Math.PI/180*turn.radius+turn.transition)/2,side=turn.angleDeg>0?-1:1;for(const distance of [150,100,50]){const i=Math.round(((entry-distance+LEN)%LEN)/LEN*N)%N,o=side*(trackHalf(i,side)+2.5);board(String(distance),cx[i]+nx[i]*o,1.2,cz[i]+nz[i]*o,-Math.atan2(tz[i],tx[i])-Math.PI/2,1.8,1.6,'BRAKING')}}
+// Corner guidance lives in the HUD; omit the repeated roadside number boards.
 // Actual Fusion STEM Racing mesh, scaled uniformly for the full-size circuit.
 const stemAsset=__STEM_CAR__;
 const car=new T.Group(),wheels=[];let stemBody;
 const atlas=new T.TextureLoader().load('__CAR_ATLAS__');atlas.encoding=T.sRGBEncoding;atlas.anisotropy=ren?Math.min(16,ren.capabilities.getMaxAnisotropy()):1;
 const bodyPaint=new T.MeshPhysicalMaterial({map:atlas,metalness:.28,roughness:.29,clearcoat:1,clearcoatRoughness:.14,envMapIntensity:.85});
-bodyPaint.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>','#include <map_fragment>\nfloat chroma=max(diffuseColor.r,max(diffuseColor.g,diffuseColor.b))-min(diffuseColor.r,min(diffuseColor.g,diffuseColor.b));float paintMask=(1.-smoothstep(.002,.01,chroma))*(1.-smoothstep(.08,.18,diffuseColor.r));diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.009,.015,.027),paintMask*.65);')};
-const tyrePaint=new T.MeshStandardMaterial({map:atlas,color:linear(0x3e4143),metalness:.02,roughness:.86,envMapIntensity:.32});
+if(!stemAsset.liveryRevision.startsWith('designer-'))bodyPaint.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>','#include <map_fragment>\nfloat chroma=max(diffuseColor.r,max(diffuseColor.g,diffuseColor.b))-min(diffuseColor.r,min(diffuseColor.g,diffuseColor.b));float paintMask=(1.-smoothstep(.002,.01,chroma))*(1.-smoothstep(.08,.18,diffuseColor.r));diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.009,.015,.027),paintMask*.65);')};
+const tyreAtlas=new T.TextureLoader().load('__TYRE_ATLAS__');tyreAtlas.encoding=T.sRGBEncoding;tyreAtlas.anisotropy=atlas.anisotropy;
+const tyrePaint=new T.MeshStandardMaterial({map:tyreAtlas,color:linear(0x3e4143),metalness:.02,roughness:.86,envMapIntensity:.32});
 tyrePaint.onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>','#include <map_fragment>\nfloat wear=fract(sin(dot(floor(vUv*1700.),vec2(12.9898,78.233)))*43758.5453);diffuseColor.rgb*=.78+wear*.22;')};
 for(const part of stemAsset.parts){
- const bytes=Uint8Array.from(atob(part.data),c=>c.charCodeAt(0)),values=new Float32Array(bytes.buffer),buffer=new T.InterleavedBuffer(values,8),geo=new T.BufferGeometry();
+ const bytes=decodeBase64Bytes(part.data),values=new Float32Array(bytes.buffer),buffer=new T.InterleavedBuffer(values,8),geo=new T.BufferGeometry();
  geo.setAttribute('position',new T.InterleavedBufferAttribute(buffer,3,0));geo.setAttribute('normal',new T.InterleavedBufferAttribute(buffer,3,3));geo.setAttribute('uv',new T.InterleavedBufferAttribute(buffer,2,6));geo.computeBoundingSphere();
  const mesh=new T.Mesh(geo,part.name==='body'?bodyPaint:tyrePaint);mesh.castShadow=true;mesh.receiveShadow=true;
  if(part.name==='body'){stemBody=mesh;car.add(mesh);}else{const pv=new T.Group(),sp=new T.Group();pv.position.set(...part.center);sp.userData.wheelSpin=true;sp.add(mesh);pv.add(sp);car.add(pv);wheels.push({pv,sp,front:part.center[0]>0})}
@@ -123,8 +129,8 @@ const logoMat=new T.MeshPhysicalMaterial({map:logoTexture,color:0xffffff,transpa
 // Project each mark onto the real body mesh, preserving the original artwork.
 const teamDecals=[];
 function teamDecal(origin,direction,width,height,rotation){stemBody.updateMatrixWorld(true);const ray=new T.Raycaster(new T.Vector3(...origin),new T.Vector3(...direction)),hit=ray.intersectObject(stemBody)[0];if(!hit)return;const size=new T.Vector3(width,height,.22),orientation=new T.Euler(...rotation);for(const logo of[false,true]){const material=logo?logoMat:new T.MeshPhysicalMaterial({color:0xe8e5db,roughness:.42,clearcoat:.4,polygonOffset:true,polygonOffsetFactor:-2});if(logo)material.polygonOffsetFactor=-4;const geometry=new T.DecalGeometry(stemBody,hit.point,orientation,logo?size.clone().multiplyScalar(.94):size),mesh=new T.Mesh(geometry,material);mesh.receiveShadow=true;mesh.renderOrder=logo?2:1;car.add(mesh);teamDecals.push(mesh)}}
-teamDecal([1.55,3,0],[0,-1,0],.84,.28,[-Math.PI/2,0,0]);
-for(const side of[-1,1])teamDecal([-1.1,.90,side*3],[0,0,-side],.85,.29,[0,side>0?0:Math.PI,0]);
+if(!stemAsset.liveryRevision.startsWith('designer-'))teamDecal([1.55,3,0],[0,-1,0],.84,.28,[-Math.PI/2,0,0]);
+if(!stemAsset.liveryRevision.startsWith('designer-'))for(const side of[-1,1])teamDecal([-1.1,.90,side*3],[0,0,-side],.85,.29,[0,side>0?0:Math.PI,0]);
 const rainLight=new T.Mesh(new T.BoxGeometry(.025,.085,.16),new T.MeshStandardMaterial({color:0xff3018,emissive:0xff1800,emissiveIntensity:1}));rainLight.position.set(-2.55,.38,0);car.add(rainLight);scene.add(car);
 const shadowMap=canvasTex(128,128,(x,w,h)=>{const g=x.createRadialGradient(64,64,8,64,64,64);g.addColorStop(0,'rgba(0,0,0,.6)');g.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=g;x.fillRect(0,0,w,h)});
 const contactShadow=new T.Mesh(new T.PlaneGeometry(6.8,2.8),new T.MeshBasicMaterial({map:shadowMap,transparent:true,depthWrite:false}));contactShadow.rotation.x=-Math.PI/2;scene.add(contactShadow);

@@ -1,6 +1,20 @@
 // Authored venue forms registered to OSM footprints. Facade/roof dimensions are
 // reconstructions from the linked venue/architect references, not survey models.
-const landmarkAudit=[],pitFascias=[];
+const landmarkAudit=[],pitFascias=[],pitGarageFronts=[];
+const PIT_BUILDING_PLANS=__PIT_BUILDING_PLANS__;
+const pitClearanceGrid=new Map();
+for(let i=0;i<PIT.x.length-1;i++)for(let x=Math.floor(Math.min(PIT.x[i],PIT.x[i+1])/32);x<=Math.floor(Math.max(PIT.x[i],PIT.x[i+1])/32);x++)for(let z=Math.floor(Math.min(PIT.z[i],PIT.z[i+1])/32);z<=Math.floor(Math.max(PIT.z[i],PIT.z[i+1])/32);z++){const key=x+':'+z;if(!pitClearanceGrid.has(key))pitClearanceGrid.set(key,[]);pitClearanceGrid.get(key).push(i);}
+// Construction-time clearance against both driving corridors. The pit route
+// is independent of the nearest race-track station, especially at its merges.
+function drivingClearance(x,z,radius=0){
+ const q=prog(x,z,-1);let top=-Infinity;
+ if(Math.hypot(x-cx[q.i],z-cz[q.i])<trackHalf(q.i,Math.sign(q.d))+radius)top=surfaceHeight(q.i,q.d);
+ const reach=PIT.width/2+radius;for(let gx=Math.floor((x-reach)/32);gx<=Math.floor((x+reach)/32);gx++)for(let gz=Math.floor((z-reach)/32);gz<=Math.floor((z+reach)/32);gz++)for(const i of pitClearanceGrid.get(gx+':'+gz)||[]){
+  const dx=PIT.x[i+1]-PIT.x[i],dz=PIT.z[i+1]-PIT.z[i],t=clamp(((x-PIT.x[i])*dx+(z-PIT.z[i])*dz)/(dx*dx+dz*dz||1),0,1);
+  if(Math.hypot(x-PIT.x[i]-dx*t,z-PIT.z[i]-dz*t)<PIT.width/2+radius)top=Math.max(top,PIT.y[i]+(PIT.y[i+1]-PIT.y[i])*t);
+ }
+ return top;
+}
 const landmarkStone=M(0xcfc9b9,.03,.82),landmarkTrim=M(0xe0dcd1,.12,.64),landmarkDark=M(0x283039,.45,.48),landmarkRoof=M(0x8d4634,.1,.87);
 if(isNight){landmarkStone.emissive.setHex(0x8c662d);landmarkStone.emissiveIntensity=.18;landmarkTrim.emissive.setHex(0xb18a4a);landmarkTrim.emissiveIntensity=.12}
 const architecturalModels={
@@ -12,12 +26,14 @@ const architecturalModels={
 const EXTRA_LANDMARKS=__EXTRA_LANDMARKS__;
 const VENUE_CONTEXT=__VENUE_CONTEXT__,contextHere=VENUE_CONTEXT[CIRCUIT.id]||{structures:[],infrastructure:[]};
 const authoredIds=new Set(Object.keys(architecturalModels[CIRCUIT.id]||{}).map(Number));
+if(CIRCUIT.id==='singapore')for(const id of[116801004,172307472,172307471,116800998])authoredIds.add(id);
 contextHere.structures.forEach(f=>authoredIds.add(f.id));
 (contextHere.replacedParts||[]).forEach(id=>authoredIds.add(id));
 function landmarkMesh(parent,geometry,material,x=0,y=0,z=0){const mesh=new T.Mesh(geometry,material);mesh.position.set(x,y,z);mesh.castShadow=mesh.receiveShadow=true;mesh.userData.staticArchitecture=true;parent.add(mesh);return mesh}
 function landmarkFrame(f){
  const pts=f.footprint,centre=pts.reduce((a,p)=>[a[0]+p[0]/pts.length,a[1]+p[1]/pts.length],[0,0]);let longest=0,angle=0;
  pts.forEach((a,i)=>{const b=pts[(i+1)%pts.length],length=Math.hypot(b[0]-a[0],b[1]-a[1]);if(length>longest){longest=length;angle=Math.atan2(b[1]-a[1],b[0]-a[0])}});
+ if(f.planAngle!==undefined)angle=f.planAngle;
  const co=Math.cos(angle),si=Math.sin(angle),local=pts.map(p=>[(p[0]-centre[0])*co+(p[1]-centre[1])*si,-(p[0]-centre[0])*si+(p[1]-centre[1])*co]);
  const ox=(Math.min(...local.map(p=>p[0]))+Math.max(...local.map(p=>p[0])))/2,oz=(Math.min(...local.map(p=>p[1]))+Math.max(...local.map(p=>p[1])))/2;centre[0]+=ox*co-oz*si;centre[1]+=ox*si+oz*co;local.forEach(p=>{p[0]-=ox;p[1]-=oz});
  const minX=Math.min(...local.map(p=>p[0])),maxX=Math.max(...local.map(p=>p[0])),minZ=Math.min(...local.map(p=>p[1])),maxZ=Math.max(...local.map(p=>p[1]));
@@ -74,12 +90,33 @@ function classicalLandmark(f,type){const a=landmarkFrame(f),g=a.group,pts=a.loca
  else{landmarkMesh(g,new T.BoxGeometry(9,31,9),landmarkTrim,0,33,0);landmarkMesh(g,new T.CylinderGeometry(4.5,5.5,4,12),landmarkStone,0,49,0);landmarkMesh(g,new T.SphereGeometry(4.3,20,12,0,Math.PI*2,0,Math.PI/2),M(0x739285,.5,.6),0,51,0);for(const side of[-1,1]){const face=landmarkMesh(g,new T.CircleGeometry(2.1,24),M(0xe7e4d7,0,.8),0,42,side*4.55);face.rotation.y=side<0?Math.PI:0;}}
  landmarkAudit.push({name:f.name,type,id:f.id,position:g.position.toArray()});
 }
-function pitLandmark(f,type){const a=landmarkFrame(f),g=a.group,L=a.L,D=a.D,h=type==='wing'?12:type==='suzuka-pit'?12:type==='interlagos-pit'?9:10,stone=type==='austria-pit'?landmarkDark:venueWhite;
- const slabs=[],columns=[],glass=[],shutters=[],roofFrames=[];
- const pitch=type==='suzuka-pit'?.028:0;const groundAt=x=>x*pitch;
+let garageNumberMaterial;
+const garageInteriorMaterial=M(0x17202a,0,.86),garageThresholdMaterial=M(0xff7a00,.08,.7),garageFixtureMaterial=new T.MeshStandardMaterial({color:0xffeed9,emissive:0xffe0b4,emissiveIntensity:isNight?1.2:.35,roughness:.65});
+function addGarageNumbers(group,numbers){if(!garageNumberMaterial){const map=canvasTex(512,512,(c,w,h)=>{c.fillStyle='#111923';c.fillRect(0,0,w,h);c.textAlign='center';c.textBaseline='middle';c.font='700 32px Barlow, sans-serif';for(let i=0;i<64;i++){const x=i%8*64,y=Math.floor(i/8)*64;c.fillStyle='#ff7a00';c.fillRect(x+7,y+5,50,4);c.fillStyle='#ffffff';c.fillText(String(i+1).padStart(2,'0'),x+32,y+34)}});garageNumberMaterial=new T.MeshStandardMaterial({map,roughness:.7,side:T.DoubleSide,emissiveMap:map,emissive:0xffffff,emissiveIntensity:isNight?.22:0})}
+ const p=[],uv=[];for(const b of numbers){const tile=(b.number-1)%64,u=tile%8/8,v=1-Math.floor(tile/8)/8;for(const[x,y,U,V]of[[-.52,-.30,0,1],[.52,-.30,1,1],[.52,.30,1,0],[-.52,-.30,0,1],[.52,.30,1,0],[-.52,.30,0,0]]){p.push(b.x+x*b.side,b.y+y,b.z);uv.push(u+U/8,v-V/8)}}const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(p,3));geo.setAttribute('uv',new T.Float32BufferAttribute(uv,2));geo.computeVertexNormals();const mesh=new T.Mesh(geo,garageNumberMaterial);mesh.name='Pit garage bay numbers';group.add(mesh);}
+function pitBlock(f,type){const a=landmarkFrame(f),g=a.group,L=a.L,D=a.D,h=type==='wing'?12:type==='suzuka-pit'?12:type==='interlagos-pit'?9:10,stone=type==='austria-pit'?landmarkDark:venueWhite;
+ const slabs=[],columns=[],glass=[],shutters=[],roofFrames=[],interiors=[],thresholds=[],fixtures=[];
+ let nearestPit=0,pitDistance=Infinity;for(let k=0;k<PIT.x.length;k++){const distance=(PIT.x[k]-a.centre[0])**2+(PIT.z[k]-a.centre[1])**2;if(distance<pitDistance){pitDistance=distance;nearestPit=k}}
+ const localPitZ=(PIT.x[nearestPit]-a.centre[0])*Math.sin(g.rotation.y)+(PIT.z[nearestPit]-a.centre[1])*Math.cos(g.rotation.y),garageSide=Math.sign(localPitZ)||-1;
+ const bayNumbers=[];let bayNumber=f.bayOffset||0;
+ // Match the service-lane elevation, preserving the mapped horizontal footprint.
+ g.position.y=PIT.y[nearestPit]-.575;
+ const co=Math.cos(g.rotation.y),si=Math.sin(g.rotation.y),sampleFloor=x=>{const xx=a.centre[0]+co*x+si*garageSide*D/2,zz=a.centre[1]-si*x+co*garageSide*D/2;let k=nearestPit,best=Infinity;for(let i=0;i<PIT.x.length;i++){const d=(PIT.x[i]-xx)**2+(PIT.z[i]-zz)**2;if(d<best){best=d;k=i}}return PIT.y[k]};
+ const pitch=clamp((sampleFloor(L*.4)-sampleFloor(-L*.4))/(L*.8),-.06,.06),groundAt=x=>x*pitch;
+ pitGarageFronts.push({group:g,L,D,side:garageSide,pitch,floor:.625,name:f.name||type});
  for(const y of[.4,4.2,8.2,h])slabs.push([0,y,0,L,.45,D+1,0,0,Math.atan(pitch)]);
- for(let x=-L/2+3;x<L/2;x+=7){const y=groundAt(x);for(const side of[-1,1]){columns.push([x,h/2+y,side*(D/2-.25),.45,h,.5]);glass.push([x+3,6.3+y,side*(D/2-.5),5.8,3.3,.12]);shutters.push([x+3,2.2+y,side*(D/2-.6),5.8,3.8,.15]);}for(let k=0;k<8;k++)columns.push([x+3,.7+k*.43+y,-D/2-.04,5.8,.045,.08]);}
+ for(let x=-L/2+3;x<L/2-3;x+=7){const y=groundAt(x);bayNumber++;for(const side of[-1,1]){columns.push([x,h/2+y,side*(D/2-.25),.45,h,.5]);glass.push([x+3,6.3+y,side*(D/2-.5),5.8,3.3,.12]);
+   if(side===garageSide&&bayNumber%3!==0){shutters.push([x+3,3.83+y,side*(D/2-.6),5.8,.55,.15]);interiors.push([x+3,2.1+y,side*(D/2-4.6),5.8,3.4,.2],[x+.12,2.1+y,side*(D/2-2.5),.22,3.4,4.3],[x+5.88,2.1+y,side*(D/2-2.5),.22,3.4,4.3]);fixtures.push([x+3,3.6+y,side*(D/2-2.2),4.8,.08,.22]);thresholds.push([x+3,.64+y,side*(D/2-.3),5.6,.04,.3]);}
+   else{shutters.push([x+3,2.2+y,side*(D/2-.6),5.8,3.8,.15]);for(let k=0;k<8;k++)columns.push([x+3,.7+k*.43+y,side*(D/2-.51),5.8,.045,.08]);}}
+  bayNumbers.push({x:x+3,y:4.1+y,z:garageSide*(D/2+.56),side:garageSide,number:bayNumber});
+ }
+ instanceBoxes(g,garageInteriorMaterial,interiors);instanceBoxes(g,garageThresholdMaterial,thresholds);instanceBoxes(g,garageFixtureMaterial,fixtures,false);
+ addGarageNumbers(g,bayNumbers);
  instanceBoxes(g,stone,slabs);instanceBoxes(g,landmarkTrim,columns);instanceBoxes(g,venueGlass,glass);instanceBoxes(g,landmarkDark,shutters);
+ const road=prog(...a.centre,-1),side=garageSide;pitFascias.push({group:g,length:L,height:h,z:side*(D/2+.15),side,station:road.i,name:f.name||type,brand:f.sectionBrand});
+ return{a,h,pitch};
+}
+function pitRoof(a,type,h,pitch){const g=a.group,L=a.L,D=a.D,roofFrames=[];
  if(type==='wing'){
   const roofFn=(x,z)=>{const wave=Math.sin((x+.5)*Math.PI*2.7);return 3+9*Math.max(0,wave)*(.5-z)+3*(x+.5)};
   roofSurface(g,L+8,D+12,h,roofFn,venueWhite,72);
@@ -89,8 +126,22 @@ function pitLandmark(f,type){const a=landmarkFrame(f),g=a.group,L=a.L,D=a.D,h=ty
  else if(type==='austria-pit'){instanceBoxes(g,venueMetal,[[0,h+1,0,L+8,.8,D+9],[0,7,-D/2-2,L,.35,5]]);}
  else if(type==='suzuka-pit'){instanceBoxes(g,venueWhite,[[0,h+1,0,L+6,.55,D+15,0,0,Math.atan(pitch)],[0,8.4,-D/2-3,L,.35,7,0,0,Math.atan(pitch)]]);}
  else{instanceBoxes(g,venueWhite,[[0,h+.6,0,L+4,.5,D+6],[0,7.5,-D/2-1.5,L,.25,4]]);if(type==='zandvoort-pit')landmarkMesh(g,new T.CylinderGeometry(7,7,6,32),venueGlass,L*.35,h+4,0);}
- beams(g,roofFrames,venueMetal);const road=prog(...a.centre,-1),co=Math.cos(g.rotation.y),si=Math.sin(g.rotation.y),localRoadZ=(cx[road.i]-a.centre[0])*si+(cz[road.i]-a.centre[1])*co,side=Math.sign(localRoadZ)||-1;pitFascias.push({group:g,length:L,height:h,z:side*(D/2+.15),side,station:road.i,name:f.name||type});landmarkAudit.push({name:f.name||type,type,id:f.id,position:g.position.toArray()});
+ beams(g,roofFrames,venueMetal);
 }
+function pitLandmark(f,type){
+ const plans=PIT_BUILDING_PLANS[CIRCUIT.id]?.[f.id];
+ if(!plans?.length){const block=pitBlock(f,type);pitRoof(block.a,type,block.h,block.pitch);return;}
+ const whole=landmarkFrame(f),slots=new Map();
+ for(let brand=0;brand<6;brand++)slots.set(Math.min(plans.length-1,Math.floor((brand+.5)*plans.length/6)),brand);
+ let height=10,roofBase=-Infinity;
+ for(let i=0;i<plans.length;i++){
+  const block=pitBlock({...f,footprint:plans[i],planAngle:whole.angle,bayOffset:i*2,sectionBrand:slots.has(i)?slots.get(i):-1},type);
+  block.a.group.name=(f.name||type)+' garage section '+(i+1);height=block.h;roofBase=Math.max(roofBase,block.a.group.position.y+Math.abs(block.pitch)*block.a.L/2);
+ }
+ whole.group.position.y=roofBase;pitRoof(whole,type,height,0);
+ landmarkAudit.push({name:f.name||type,type,id:f.id,position:whole.group.position.toArray(),garageSections:plans.length});
+}
+
 function shellLandmark(f,type){const a=landmarkFrame(f),g=a.group;
  if(type==='esplanade'){
   const dome=landmarkMesh(g,new T.SphereGeometry(1,48,24,0,Math.PI*2,0,Math.PI/2),venueGlass,0,5,0);dome.scale.set(a.L*.5,27,a.D*.5);
@@ -109,5 +160,5 @@ function buildLandmarkArchitecture(){
    for(const side of[-1,1]){const curve=new T.CatmullRomCurve3([new T.Vector3(6,13,side*1.7),new T.Vector3(6.2,15,side*3),new T.Vector3(4.3,17.2,side*2.6)]);landmarkMesh(g,new T.TubeGeometry(curve,18,.35,8,false),horn)}
    const arch=new T.Mesh(new T.TorusGeometry(11,.5,8,50,Math.PI),landmarkTrim);arch.position.set(0,2,0);g.add(arch);landmarkAudit.push({name:f.name,type:f.type,id:f.id,position:g.position.toArray()});
   }else if(!mappedBuildings.some(v=>v.id===f.id))classicalLandmark(f,f.type)}
- if(CIRCUIT.id==='milano'){instanceBoxes(pitGroup,venueGlass,[[0,5.9,2,130,4,.25]]);const ribs=[];for(let x=-62;x<=62;x+=7)ribs.push([[x,0,3],[x,9.8,1],.22]);beams(pitGroup,ribs,venueMetal);landmarkAudit.push({name:'Milano paddock',type:'original',position:pitGroup.position.toArray()})}
+
 }

@@ -1,0 +1,2 @@
+# Icon preparation and the optional capture/asset tools.
+Pillow==12.3.0

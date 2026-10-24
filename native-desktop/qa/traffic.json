@@ -1,0 +1,133 @@
+{
+	"passed": true,
+	"reports": [
+		{
+			"difficulty": 0,
+			"minimumSeparation": 45.633847222289,
+			"passedOpponent": true,
+			"phase": "race",
+			"width": 8.0,
+			"yielded": false
+		},
+		{
+			"difficulty": 0,
+			"minimumSeparation": 14.6244021597499,
+			"passedOpponent": false,
+			"phase": "race",
+			"width": 2.5,
+			"yielded": false
+		},
+		{
+			"difficulty": 0,
+			"minimumSeparation": 64.8048024999962,
+			"passedOpponent": true,
+			"phase": "qualifying",
+			"width": 8.0,
+			"yielded": true
+		},
+		{
+			"difficulty": 0,
+			"minimumSeparation": 12.5866228202244,
+			"passedOpponent": false,
+			"phase": "qualifying",
+			"width": 2.5,
+			"yielded": false
+		},
+		{
+			"difficulty": 1,
+			"minimumSeparation": 52.8246279112268,
+			"passedOpponent": true,
+			"phase": "race",
+			"width": 8.0,
+			"yielded": false
+		},
+		{
+			"difficulty": 1,
+			"minimumSeparation": 14.6243987687392,
+			"passedOpponent": false,
+			"phase": "race",
+			"width": 2.5,
+			"yielded": false
+		},
+		{
+			"difficulty": 1,
+			"minimumSeparation": 62.896531444836,
+			"passedOpponent": true,
+			"phase": "qualifying",
+			"width": 8.0,
+			"yielded": true
+		},
+		{
+			"difficulty": 1,
+			"minimumSeparation": 12.5866228176671,
+			"passedOpponent": false,
+			"phase": "qualifying",
+			"width": 2.5,
+			"yielded": false
+		},
+		{
+			"difficulty": 2,
+			"minimumSeparation": 50.4373284382577,
+			"passedOpponent": true,
+			"phase": "race",
+			"width": 8.0,
+			"yielded": false
+		},
+		{
+			"difficulty": 2,
+			"minimumSeparation": 14.6243985361175,
+			"passedOpponent": false,
+			"phase": "race",
+			"width": 2.5,
+			"yielded": false
+		},
+		{
+			"difficulty": 2,
+			"minimumSeparation": 62.896531444836,
+			"passedOpponent": true,
+			"phase": "qualifying",
+			"width": 8.0,
+			"yielded": true
+		},
+		{
+			"difficulty": 2,
+			"minimumSeparation": 12.5866228176369,
+			"passedOpponent": false,
+			"phase": "qualifying",
+			"width": 2.5,
+			"yielded": false
+		},
+		{
+			"difficulty": 3,
+			"minimumSeparation": 50.4373284382577,
+			"passedOpponent": true,
+			"phase": "race",
+			"width": 8.0,
+			"yielded": false
+		},
+		{
+			"difficulty": 3,
+			"minimumSeparation": 14.6243985361175,
+			"passedOpponent": false,
+			"phase": "race",
+			"width": 2.5,
+			"yielded": false
+		},
+		{
+			"difficulty": 3,
+			"minimumSeparation": 62.896531444836,
+			"passedOpponent": true,
+			"phase": "qualifying",
+			"width": 8.0,
+			"yielded": true
+		},
+		{
+			"difficulty": 3,
+			"minimumSeparation": 12.5866228176369,
+			"passedOpponent": false,
+			"phase": "qualifying",
+			"width": 2.5,
+			"yielded": false
+		}
+	]
+}

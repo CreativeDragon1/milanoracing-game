@@ -1,9 +1,8 @@
 extends Node3D
 
 const Vehicle = preload("res://scripts/vehicle.gd")
-const Vegetation = preload("res://scripts/vegetation.gd")
+const Buffers = preload("res://scripts/instance_buffers.gd")
 const EngineAudio = preload("res://scripts/engine_audio.gd")
-const GroundDetail = preload("res://scripts/ground_detail.gd")
 const Floodlights = preload("res://scripts/floodlights.gd")
 var tracks: Dictionary
 var pits: Dictionary
@@ -62,8 +61,21 @@ var cinematic:Node
 var qa_home:=false
 var qa_complete_race:=false
 var pending_new_session:=false
+var learning=preload("res://scripts/adaptive_pace.gd").new()
+var camera_focus:=Vector3.ZERO
+var hud_clock:=0.0
+var loading_started:=0
+var loading_ms:=0.0
+var loading_last_tick:=0
+var assembling_circuit:=false
+var queued_circuit:=""
+var load_steps:Array=[]
+var load_step_started:=0
+var loading_frame_gaps:Array=[]
+var qa_minimized_frames:=0
 
 func _ready() -> void:
+	learning.load_store()
 	tracks = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/physics.json"))
 	pits = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/pits.json"))
 	for arg in OS.get_cmdline_user_args():
@@ -177,6 +189,7 @@ func build_interface() -> void:
 
 func set_paused(value: bool) -> void:
 	paused = value
+	if value and not qa_mode: learning.flush()
 	Engine.max_fps = 60 if value and not qa_mode else 144
 	ui.show_garage(value)
 	if director: director.paused=value
@@ -192,6 +205,9 @@ func _notification(what: int) -> void:
 		ui.home.video.paused=not ui.home.visible or not ui.home.motion
 
 func load_circuit(id: String) -> void:
+	if assembling_circuit or load_path!="":
+		queued_circuit=id
+		return
 	if not FileAccess.file_exists("res://circuits/"+id+".scn"):
 		status.text = "Circuit asset build required"
 		return
@@ -200,30 +216,66 @@ func load_circuit(id: String) -> void:
 	if online_director: online_director.free(); online_director=null
 	if visual_upgrade: visual_upgrade.free(); visual_upgrade=null
 	if racing_guide: racing_guide.free(); racing_guide=null
+	loading_started=Time.get_ticks_usec()
+	loading_last_tick=loading_started
+	load_step_started=loading_started; load_steps.clear(); loading_frame_gaps.clear()
 	loaded = false
 	active_id = id
 	load_path = "res://circuits/"+id+".scn"
 	status.text = "Loading circuit…"
 	ResourceLoader.load_threaded_request(load_path)
 
+func load_checkpoint(label:String) -> void:
+	var now:=Time.get_ticks_usec()
+	load_steps.append({"stage":str(status.text),"ms":float(now-load_step_started)/1000.0})
+	status.text=label
+	await get_tree().process_frame
+	load_step_started=Time.get_ticks_usec()
+
+func retire_world(old:Node) -> void:
+	if not old:return
+	if old is Node3D:old.visible=false
+	var deadline:=Time.get_ticks_usec()+3000
+	for child in old.get_children():
+		child.free()
+		if Time.get_ticks_usec()>deadline:
+			await get_tree().process_frame
+			deadline=Time.get_ticks_usec()+3000
+	old.free()
+
+func clear_runtime_owners(node:Node) -> void:
+	# Ownership is editor serialization state. Detached runtime cells must not
+	# retain an owner outside their temporary subtree.
+	for child in node.get_children():clear_runtime_owners(child)
+	node.owner=null
+
 func finish_load() -> void:
+	assembling_circuit=true
+	await load_checkpoint("Preparing circuit…")
 	var packed: PackedScene = ResourceLoader.load_threaded_get(load_path)
-	if world: world.free()
+	if world: await retire_world(world)
 	if vehicle: vehicle.free()
 	world = packed.instantiate()
 	world.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+	# Instantiate off-tree, then upload static cells within a small frame budget.
+	# The prepared meshes, material quality and instance counts are unchanged.
+	var staged_nodes:Array[Node]=world.get_children()
+	for child in staged_nodes:
+		clear_runtime_owners(child)
+		world.remove_child(child)
+	world.visible=false
 	add_child(world)
-	restored_instances = 0
+	await load_checkpoint("Preparing scenery…")
+	restored_instances=0
+	var deadline:=Time.get_ticks_usec()+3000
+	for child in staged_nodes:
+		restored_instances+=Buffers.restore(child)
+		world.add_child(child)
+		if Time.get_ticks_usec()>deadline:
+			await get_tree().process_frame
+			deadline=Time.get_ticks_usec()+3000
+	await load_checkpoint("Preparing MR 26…")
 	instance_errors = 0
-	for node in world.get_children():
-		if node is MultiMeshInstance3D and node.has_meta("instance_transforms"):
-			var values: PackedFloat32Array = node.get_meta("instance_transforms")
-			var colors: PackedFloat32Array = node.get_meta("instance_colors",PackedFloat32Array())
-			for i in node.multimesh.instance_count:
-				var j: int = i*16
-				node.multimesh.set_instance_transform(i,Transform3D(Basis(Vector3(values[j],values[j+1],values[j+2]),Vector3(values[j+4],values[j+5],values[j+6]),Vector3(values[j+8],values[j+9],values[j+10])),Vector3(values[j+12],values[j+13],values[j+14])))
-				if colors.size(): node.multimesh.set_instance_color(i,Color(colors[i*3],colors[i*3+1],colors[i*3+2]))
-				restored_instances += 1
 	circuit = tracks[active_id]
 	vehicle = Vehicle.new()
 	add_child(vehicle)
@@ -231,40 +283,37 @@ func finish_load() -> void:
 	vehicle.steering_strength=ui.sensitivity.value
 	engine_audio.vehicle = vehicle
 	network.car=vehicle
-	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/"+active_id+".json"))
-	# Godot renames duplicate sibling names. Keep semantic source labels for every tile.
-	var source_index:=0
-	for object in source.objects:
-		if object.car: continue
-		world.get_child(source_index).set_meta("source_name",object.name)
-		source_index+=1
+	await load_checkpoint("Preparing surfaces…")
 	var geographic: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/geography.json"))
 	if geographic.has(active_id):
 		var geo: Dictionary = geographic[active_id]
 		var terrain := ShaderMaterial.new()
 		terrain.shader = load("res://scripts/terrain.gdshader")
-		terrain.set_shader_parameter("detail_albedo",load("res://assets/surfaces/grass-color.jpg"))
-		terrain.set_shader_parameter("detail_normal",load("res://assets/surfaces/grass-normal.jpg"))
-		terrain.set_shader_parameter("satellite",load(geo.satellite))
+		var dry_ground: bool=active_id in ["bahrain","abu-dhabi","zandvoort","solara"]
+		terrain.set_shader_parameter("detail_scale",1.8 if dry_ground else 1.4)
+		terrain.set_shader_parameter("paving_albedo",load("res://assets/surfaces/concrete-color.jpg"))
+		terrain.set_shader_parameter("paving_normal",load("res://assets/surfaces/concrete-normal.jpg"))
+		terrain.set_shader_parameter("urban",0.0)
+		terrain.set_shader_parameter("detail_albedo",load("res://assets/surfaces/sand-fine-color.webp" if dry_ground else "res://assets/surfaces/lawn-color.webp"))
+		terrain.set_shader_parameter("detail_normal",load("res://assets/surfaces/sand-fine-normal.webp" if dry_ground else "res://assets/surfaces/lawn-normal.webp"))
 		terrain.set_shader_parameter("cover",load(geo.cover))
 		terrain.set_shader_parameter("geo_bounds",Vector4(geo.bounds[0][0],geo.bounds[0][1],geo.bounds[1][0]-geo.bounds[0][0],geo.bounds[1][1]-geo.bounds[0][1]))
 		terrain.set_shader_parameter("cover_bounds",Vector4(geo.nearBounds[0][0],geo.nearBounds[0][1],geo.nearBounds[1][0]-geo.nearBounds[0][0],geo.nearBounds[1][1]-geo.nearBounds[0][1]))
 		for node in world.get_children():
 			if node is MeshInstance3D and str(node.name) in ["Circuit terrain","Measured regional terrain"]: node.material_override = terrain
-	var direction := Vector3(source.sun[0],source.sun[1],source.sun[2]).normalized()
+	var direction: Vector3 = world.get_meta("sun_direction").normalized()
 	sun.look_at_from_position(direction*100,Vector3.ZERO)
-	var vegetation := Vegetation.new()
-	world.add_child(vegetation)
-	vegetation.configure(source.trees)
-	var detail := GroundDetail.new()
-	world.add_child(detail)
-	detail.configure(active_id)
+	await load_checkpoint("Preparing lighting…")
 	native_lights.clear()
 	floodlights = Floodlights.new()
 	world.add_child(floodlights)
 	floodlights.configure(circuit)
 	# Realtime illumination is anchored to the existing modeled fixture geometry.
+	deadline=Time.get_ticks_usec()+3000
 	for node in world.get_children():
+		if Time.get_ticks_usec()>deadline:
+			await get_tree().process_frame
+			deadline=Time.get_ticks_usec()+3000
 		if node is MultiMeshInstance3D:
 			var mat: Material = node.multimesh.mesh.surface_get_material(0)
 			if mat is StandardMaterial3D and mat.emission_enabled and mat.emission_energy_multiplier>.5 and minf(mat.emission.r,minf(mat.emission.g,mat.emission.b))>.5 and not mat.emission_texture:
@@ -290,16 +339,31 @@ func finish_load() -> void:
 					native_lights.append(light)
 	visual_upgrade=load("res://scripts/visual_upgrade.gd").new()
 	add_child(visual_upgrade)
-	visual_upgrade.configure(world,circuit,vehicle)
+	await load_checkpoint("Preparing track finish…")
+	await visual_upgrade.configure(world,circuit,vehicle)
 	racing_guide=load("res://scripts/racing_guide.gd").new()
 	add_child(racing_guide); racing_guide.configure(circuit,vehicle)
 	racing_guide.visible=ui.guide.button_pressed
 	apply_lighting()
 	apply_weather(ui.weather.selected)
+	await load_checkpoint("Finishing…")
+	world.visible=true
+	vehicle.reset_at(0)
+	camera.position=vehicle.position+Vector3(-8,4,0)
+	camera.look_at(vehicle.position+Vector3(0,1,0))
+	# Submit several real frames before enabling input. Pipeline uploads happen
+	# behind the garage screen instead of hitching the first corner.
+	for warm_frame in 6:await get_tree().process_frame
+	load_steps.append({"stage":"First render","ms":float(Time.get_ticks_usec()-load_step_started)/1000.0})
+	loading_ms=(Time.get_ticks_usec()-loading_started)/1000.0
+	assembling_circuit=false
 	loaded = true
 	load_path = ""
 	camera_initialized = false
-	status.text = "MR 26   •   %.3f KM" % (float(circuit.length)/1000)
+	status.text = ""
+	if queued_circuit!="":
+		var next_id:=queued_circuit; queued_circuit=""
+		if next_id!=active_id:load_circuit(next_id); return
 	print("NATIVE_READY ",active_id," renderer=",RenderingServer.get_current_rendering_method())
 	if online_mode and not network.room.is_empty(): setup_online_director()
 	if cinematic_mode:
@@ -345,14 +409,17 @@ func apply_lighting() -> void:
 		environment.ambient_light_energy=.28
 		environment.fog_light_color=Color(.56,.43,.35)
 	elif loaded:
-		var source: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://circuits/"+active_id+".json"))
-		var direction:=Vector3(source.sun[0],source.sun[1],source.sun[2]).normalized()
+		var direction: Vector3=world.get_meta("sun_direction").normalized()
 		sun.look_at_from_position(direction*100,Vector3.ZERO)
 	for light in native_lights: light.visible = night
 	if is_instance_valid(floodlights): floodlights.visible = night
 
 func _process(dt: float) -> void:
 	if load_path:
+		var loading_now:=Time.get_ticks_usec()
+		loading_frame_gaps.append(float(loading_now-loading_last_tick)/1000.0)
+		loading_last_tick=loading_now
+		if assembling_circuit:return
 		var progress := []
 		var state := ResourceLoader.load_threaded_get_status(load_path,progress)
 		if state==ResourceLoader.THREAD_LOAD_LOADED: finish_load()
@@ -365,7 +432,8 @@ func _process(dt: float) -> void:
 		cinematic.update(dt)
 		return
 	engine_audio.active=not paused
-	last_heading=lerp_angle(last_heading,vehicle.heading,1-exp(-16*dt)) if camera_initialized else vehicle.heading
+	var visual_heading: float=-vehicle.get_global_transform_interpolated().basis.get_euler().y
+	last_heading=lerp_angle(last_heading,visual_heading,1-exp(-12*dt)) if camera_initialized else visual_heading
 	var forward := Vector3(cos(last_heading),0,sin(last_heading))
 	var target: Vector3 = vehicle.get_global_transform_interpolated().origin
 	var camera_target := target-forward*8.5+Vector3.UP*3.1
@@ -381,18 +449,19 @@ func _process(dt: float) -> void:
 		camera_target=target+Vector3(cos(garage_angle)*7,2.3,sin(garage_angle)*7)
 		focus=target+Vector3.UP*.6
 	camera.global_position = camera_target if not camera_initialized else camera.global_position.lerp(camera_target,1-exp(-10*dt))
-	camera.look_at(focus)
+	camera_focus=focus if not camera_initialized else camera_focus.lerp(focus,1-exp(-12*dt))
+	camera.look_at(camera_focus)
 	shadow_clock+=dt
 	if shadow_clock>.5:
 		shadow_clock=0
 		update_near_shadows()
 	camera_initialized = true
 	camera.fov = lerpf(camera.fov,65+clampf(vehicle.speed/100,0,1)*7,1-exp(-3*dt))
-	hud.text = "%03d  KM/H     %d\n%s    LAP %d    %02d:%05.2f" % [vehicle.speed*3.6,vehicle.gear,str(circuit.name).to_upper(),vehicle.lap+1,int(vehicle.lap_clock/60),fmod(vehicle.lap_clock,60)]
-	hud.visible=not menu.visible and not ui.home.visible
-	if vehicle.pit_active: hud.text += "    PIT LANE"
-	elif vehicle.pit_requested: hud.text += "    BOX THIS LAP"
-	ui.timing.text=director.timing_text() if director else online_director.timing_text() if online_director else ""
+	hud_clock+=dt
+	if hud_clock>=.1:
+		hud_clock=0
+		hud.visible=false
+		ui.timing.text=director.timing_text() if director else online_director.timing_text() if online_director else ""
 	if director:
 		if qa_mode: race_physics_samples.append(director.physics_ms)
 		if director.model.phase.ends_with("result") and not paused and not qa_mode: set_paused(true)
@@ -400,6 +469,7 @@ func _process(dt: float) -> void:
 			# Eliminated player can advance the remaining AI qualifying without waiting in real time.
 			for step in 12: director.model.update(1.0/30)
 	if qa_mode:
+		if DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_MINIMIZED:qa_minimized_frames+=1
 		qa_clock += dt
 		if qa_drive:
 			qa_input_time += dt
@@ -415,7 +485,7 @@ func _process(dt: float) -> void:
 		previous_tick = tick
 		if qa_clock>qa_seconds or qa_complete_race and director and director.model.phase=="race_result":
 			qa_mode = false
-			await RenderingServer.frame_post_draw
+			RenderingServer.force_draw()
 			for node in world.get_children():
 				if node is MultiMeshInstance3D and node.has_meta("instance_transforms"):
 					var values: PackedFloat32Array = node.get_meta("instance_transforms")
@@ -429,6 +499,13 @@ func _process(dt: float) -> void:
 			frames.sort()
 			var report := {"circuit":active_id,"renderer":RenderingServer.get_current_rendering_method(),"device":RenderingServer.get_video_adapter_name(),"frames":frames.size(),"medianMs":frames[frames.size()/2],"p95Ms":frames[int(frames.size()*.95)],"drawCalls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),"primitives":Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)}
 			report["race"]={"enabled":qa_race,"phase":director.model.phase if director else "practice","drivers":director.model.drivers.size() if director else 1,"physicsMeanMs":0.0 if race_physics_samples.is_empty() else race_physics_samples.reduce(func(a,b):return a+b,0.0)/race_physics_samples.size(),"elapsedSeconds":qa_clock,"finiteDrivers":director.model.drivers.all(func(d):return director.model.pose(d).position.is_finite()) if director else true}
+			report["loadingMs"]=loading_ms
+			report["loadingStages"]=load_steps
+			report["loadingFrameGapsMs"]=loading_frame_gaps
+			report["minimizedFrames"]=qa_minimized_frames
+			report["p99Ms"]=frames[int(frames.size()*.99)]
+			report["over33Ms"]=frames.filter(func(t):return t>33.33).size()
+			report["over50Ms"]=frames.filter(func(t):return t>50).size()
 			report["visuals"]={"roadMaterials":visual_upgrade.road_count,"facades":visual_upgrade.facade_count,"water":visual_upgrade.waters,"wet":visual_upgrade.wetness}
 			report["restoredInstances"] = restored_instances
 			report["home"]={"enabled":qa_home,"playing":ui.home.video.is_playing(),"position":ui.home.video.stream_position,"render3DDisabled":viewport.disable_3d}
@@ -447,6 +524,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_R: recover_vehicle()
 			KEY_P: request_pit()
 			KEY_T: cycle_tyre()
+			KEY_M: ui.circuit_map.toggle_view()
 			KEY_F11: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if DisplayServer.window_get_mode()!=DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_WINDOWED)
 	if event is InputEventJoypadButton and event.pressed:
 		if event.button_index==JOY_BUTTON_START: set_paused(not paused)
@@ -454,6 +532,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index==JOY_BUTTON_BACK: recover_vehicle()
 		if event.button_index==JOY_BUTTON_X: request_pit()
 		if event.button_index==JOY_BUTTON_RIGHT_SHOULDER: cycle_tyre()
+		if event.button_index==JOY_BUTTON_DPAD_UP: ui.circuit_map.toggle_view()
 
 func create_session(autopilot: bool = false) -> void:
 	if director: director.free(); director=null
@@ -463,6 +542,8 @@ func create_session(autopilot: bool = false) -> void:
 	add_child(director)
 	var options:Dictionary=ui.options()
 	if autopilot: options.difficulty=3; options.laps=1; options.two_compounds=false
+	if not autopilot and ui.adaptive.button_pressed:
+		learning.flush(); options["learned_profile"]=learning.profile(circuit); director.learning=learning
 	director.configure(vehicle,circuit,pits[active_id],options,"weekend" if ui.mode.selected==2 else "race")
 	director.model.surface_grip=.74 if ui.weather.selected==1 else 1.0
 	camera_initialized=false

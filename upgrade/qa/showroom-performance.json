@@ -1,0 +1,89 @@
+{
+  "runs": [
+    {
+      "variant": "before",
+      "renderCPU": {
+        "median": 3.0999999940395355,
+        "p95": 5.299999982118607,
+        "samples": 198
+      },
+      "frame": {
+        "median": 34.70000001788139,
+        "p95": 35.80000001192093,
+        "samples": 198
+      },
+      "gpu": {
+        "median": 5.932032,
+        "p95": 8.088576,
+        "samples": 197
+      },
+      "calls": 353,
+      "triangles": 1925380,
+      "pixels": 1296000
+    },
+    {
+      "variant": "after",
+      "renderCPU": {
+        "median": 0.5,
+        "p95": 0.800000011920929,
+        "samples": 199
+      },
+      "frame": {
+        "median": 34.70000001788139,
+        "p95": 35.19999998807907,
+        "samples": 199
+      },
+      "gpu": {
+        "median": 0.935936,
+        "p95": 1.52576,
+        "samples": 198
+      },
+      "calls": 20,
+      "triangles": 19254,
+      "pixels": 1296000
+    },
+    {
+      "variant": "after",
+      "renderCPU": {
+        "median": 0.5,
+        "p95": 0.800000011920929,
+        "samples": 198
+      },
+      "frame": {
+        "median": 34.70000001788139,
+        "p95": 35.89999997615814,
+        "samples": 198
+      },
+      "gpu": {
+        "median": 0.9216,
+        "p95": 1.481728,
+        "samples": 197
+      },
+      "calls": 20,
+      "triangles": 19254,
+      "pixels": 1296000
+    },
+    {
+      "variant": "before",
+      "renderCPU": {
+        "median": 3.199999988079071,
+        "p95": 5.299999982118607,
+        "samples": 198
+      },
+      "frame": {
+        "median": 34.70000001788139,
+        "p95": 35.10000002384186,
+        "samples": 198
+      },
+      "gpu": {
+        "median": 6.437888,
+        "p95": 8.308736,
+        "samples": 197
+      },
+      "calls": 353,
+      "triangles": 1925380,
+      "pixels": 1296000
+    }
+  ],
+  "scope": "Alternating same-machine 1440x900 Singapore home view; GPU timer where available."
+}

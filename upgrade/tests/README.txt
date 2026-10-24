@@ -57,3 +57,15 @@ interface-refresh.cjs verifies Barlow/DM Sans typography, visible separator remo
 calendar-views.cjs captures six driving views per venue and audits all partner placements. track-limits.cjs covers kerb use, recovery, repeated excursions, deep/fast shortcuts and exact browser/Python event parity. calendar-environments.py rebuilds terrain-fitted ground and planting from cached OSM; redesign-milano.py changes only the original circuit. After a Milano geometry change, regenerate its terrain, racing line and pit route with their optional milano argument.
 
 calendar-benchmark.cjs runs all twelve circuits sequentially: one paused viewpoint, a paused 22-car grid and a moving-AI start. Run it alone; it writes per-venue performance plus grid-performance.json and moving-performance.json.
+
+
+Performance, handling and pit release checks:
+  node upgrade/tests/controls-regression.cjs
+  node upgrade/tests/learning-performance.cjs
+  node upgrade/tests/race-cpu-benchmark.cjs
+  python upgrade/tools/check-pit-alignment.py --assert
+  node upgrade/tests/pit-driving.cjs
+  node upgrade/tests/facilities.cjs
+  node upgrade/tests/upgrade-benchmark.cjs release
+The first three are CPU/model tests; the last three require the preview browser.
+Run GPU measurements alone. Prior reports remain historical snapshots.

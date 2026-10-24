@@ -1,0 +1,13 @@
+{
+  "revision": "designer-final-1",
+  "vertices": 48537,
+  "uvLayer": "Designer_Livery_UV",
+  "sourceBodySHA256": "96c1b17a459f19faaa011a1ef7bc5d36066f332072f2c10c1dca21431a1c1461",
+  "artworkSHA256": "341f7e5e5f96a08540c482017f25601f325bb6643a8c40358492b3edc05ad6ba",
+  "uvSHA256": "6d5980de65efde96d0fd0c3d71685c7a2c358015153deab8d280705ad9af507e",
+  "geometryAndNormalsPreserved": true,
+  "innerNeutralUV": [
+    0.6837158203125,
+    0.7801513671875
+  ]
+}

@@ -2,27 +2,31 @@
   "keyboard": [
     {
       "speed": 0,
-      "fullLockAfterOneSecond": 0.9993537854786824,
-      "releaseAfter350ms": 0.013391241841521172,
-      "maxStep": 0.037500000000000006
+      "steeringAfterOneSecond": 0.9899254470420557,
+      "fullLockAfterTwoSeconds": 0.999917088977524,
+      "releaseAfter350ms": 0.028916314534268038,
+      "maxStep": 0.02250000000000002
     },
     {
       "speed": 25,
-      "fullLockAfterOneSecond": 0.9990156002977923,
-      "releaseAfter350ms": 0.013382740191331816,
-      "maxStep": 0.03518518518518521
+      "steeringAfterOneSecond": 0.9863241326506927,
+      "fullLockAfterTwoSeconds": 0.9998385009658259,
+      "releaseAfter350ms": 0.028911730623569,
+      "maxStep": 0.02250000000000002
     },
     {
       "speed": 55,
-      "fullLockAfterOneSecond": 0.9983666196206599,
-      "releaseAfter350ms": 0.013366425441282418,
-      "maxStep": 0.03240740740740741
+      "steeringAfterOneSecond": 0.9800908764299517,
+      "fullLockAfterTwoSeconds": 0.9996373718892057,
+      "releaseAfter350ms": 0.028899999092177813,
+      "maxStep": 0.02250000000000002
     },
     {
       "speed": 90,
-      "fullLockAfterOneSecond": 0.9970466402717447,
-      "releaseAfter350ms": 0.013333242429974471,
-      "maxStep": 0.029166666666666674
+      "steeringAfterOneSecond": 0.9686714539584798,
+      "fullLockAfterTwoSeconds": 0.9990539598831205,
+      "releaseAfter350ms": 0.02886596962026654,
+      "maxStep": 0.022500000000000006
     }
   ],
   "standardGamepad": {

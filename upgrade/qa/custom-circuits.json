@@ -1,0 +1,30 @@
+[
+  {
+    "id": "riviera",
+    "lengthMetres": 4890.040190007362,
+    "turns": 12,
+    "minimumWidthMetres": 14.0,
+    "gridWidthMetres": 17.0,
+    "gridGradePercent": 0.0,
+    "maxGradePercent": 6.792597155618493,
+    "longestStraightMetres": 1002.1665104257767,
+    "startToFirstTurnMetres": 656.8562881110823,
+    "closureErrorMetres": 6.976883641563111e-07,
+    "reference": "https://www.fia.com/system/files/documents/appendix_o_2026_published_23122025.pdf",
+    "scope": "Fictional game circuit using published dimensional guidance; not FIA certification or a safety-engineered real venue"
+  },
+  {
+    "id": "solara",
+    "lengthMetres": 5968.564926971578,
+    "turns": 14,
+    "minimumWidthMetres": 14.0,
+    "gridWidthMetres": 17.0,
+    "gridGradePercent": 0.0,
+    "maxGradePercent": 6.801419032397031,
+    "longestStraightMetres": 1170.6861882093401,
+    "startToFirstTurnMetres": 743.4960025682138,
+    "closureErrorMetres": 7.756102671554146e-07,
+    "reference": "https://www.fia.com/system/files/documents/appendix_o_2026_published_23122025.pdf",
+    "scope": "Fictional game circuit using published dimensional guidance; not FIA certification or a safety-engineered real venue"
+  }
+]

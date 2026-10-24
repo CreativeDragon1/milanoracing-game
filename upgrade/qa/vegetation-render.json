@@ -1,0 +1,529 @@
+{
+  "passed": true,
+  "requested": [
+    "bahrain",
+    "singapore",
+    "monza",
+    "monaco",
+    "austria",
+    "silverstone",
+    "abu-dhabi",
+    "milano",
+    "spa",
+    "suzuka",
+    "interlagos",
+    "zandvoort",
+    "riviera",
+    "solara"
+  ],
+  "reports": [
+    {
+      "id": "bahrain",
+      "trees": 90,
+      "rootSamples": 90,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 1.7053025658242404e-13,
+      "palms": 2055,
+      "palm": {
+        "x": 416.3399963378906,
+        "y": 6.638162612915039,
+        "z": 344.05999755859375,
+        "h": 13
+      },
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 351,
+          "triangles": 4471856,
+          "tree": {
+            "near": 2,
+            "middle": 1,
+            "far": 12
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 1859,
+          "triangles": 13728234,
+          "tree": {
+            "near": 2,
+            "middle": 3,
+            "far": 33
+          }
+        },
+        {
+          "view": "palm",
+          "drawCalls": 1637,
+          "triangles": 13135909,
+          "tree": {
+            "near": 1,
+            "middle": 2,
+            "far": 28
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "singapore",
+      "trees": 759,
+      "rootSamples": 95,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 7.071321750373727e-9,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 1399,
+          "triangles": 8246843,
+          "tree": {
+            "near": 28,
+            "middle": 21,
+            "far": 359
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 326,
+          "triangles": 5570502,
+          "tree": {
+            "near": 32,
+            "middle": 41,
+            "far": 28
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "monza",
+      "trees": 18209,
+      "rootSamples": 91,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 1.829647544582258e-13,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 615,
+          "triangles": 6906861,
+          "tree": {
+            "near": 32,
+            "middle": 128,
+            "far": 1186
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 1086,
+          "triangles": 9073695,
+          "tree": {
+            "near": 32,
+            "middle": 128,
+            "far": 1488
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "monaco",
+      "trees": 535,
+      "rootSamples": 107,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 1.9806378759312793e-13,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 643,
+          "triangles": 3594420,
+          "tree": {
+            "near": 0,
+            "middle": 59,
+            "far": 70
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 1561,
+          "triangles": 9115566,
+          "tree": {
+            "near": 32,
+            "middle": 53,
+            "far": 238
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "austria",
+      "trees": 8072,
+      "rootSamples": 91,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 1.4210854715202004e-13,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 333,
+          "triangles": 7310496,
+          "tree": {
+            "near": 32,
+            "middle": 128,
+            "far": 813
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 1787,
+          "triangles": 10033480,
+          "tree": {
+            "near": 32,
+            "middle": 94,
+            "far": 2005
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "silverstone",
+      "trees": 11732,
+      "rootSamples": 91,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 9.399142051336185e-7,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 1159,
+          "triangles": 7181499,
+          "tree": {
+            "near": 32,
+            "middle": 81,
+            "far": 1658
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 1755,
+          "triangles": 8695382,
+          "tree": {
+            "near": 27,
+            "middle": 128,
+            "far": 4860
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "abu-dhabi",
+      "trees": 17,
+      "rootSamples": 17,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 1.2878587085651816e-13,
+      "palms": 1215,
+      "palm": {
+        "x": -381.44000244140625,
+        "y": 4.1082916259765625,
+        "z": -261.7799987792969,
+        "h": 10
+      },
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 628,
+          "triangles": 4646602,
+          "tree": {
+            "near": 7,
+            "middle": 0,
+            "far": 0
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 505,
+          "triangles": 7023386,
+          "tree": {
+            "near": 11,
+            "middle": 3,
+            "far": 0
+          }
+        },
+        {
+          "view": "palm",
+          "drawCalls": 163,
+          "triangles": 2532712,
+          "tree": {
+            "near": 0,
+            "middle": 0,
+            "far": 0
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "milano",
+      "trees": 3447,
+      "rootSamples": 91,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 6.237615934878704e-8,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 218,
+          "triangles": 6774973,
+          "tree": {
+            "near": 32,
+            "middle": 128,
+            "far": 346
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 159,
+          "triangles": 6541017,
+          "tree": {
+            "near": 32,
+            "middle": 128,
+            "far": 434
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "spa",
+      "trees": 37370,
+      "rootSamples": 91,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 0.000016931402443631782,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 482,
+          "triangles": 6667702,
+          "tree": {
+            "near": 32,
+            "middle": 128,
+            "far": 5025
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 380,
+          "triangles": 6593678,
+          "tree": {
+            "near": 32,
+            "middle": 128,
+            "far": 3642
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "suzuka",
+      "trees": 7960,
+      "rootSamples": 91,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 0.000006754612783765879,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 1511,
+          "triangles": 6679667,
+          "tree": {
+            "near": 32,
+            "middle": 55,
+            "far": 1676
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 289,
+          "triangles": 5861459,
+          "tree": {
+            "near": 32,
+            "middle": 79,
+            "far": 262
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "interlagos",
+      "trees": 1057,
+      "rootSamples": 97,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 2.3447910280083306e-13,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 540,
+          "triangles": 7495251,
+          "tree": {
+            "near": 32,
+            "middle": 128,
+            "far": 347
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 321,
+          "triangles": 7187957,
+          "tree": {
+            "near": 32,
+            "middle": 128,
+            "far": 129
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "zandvoort",
+      "trees": 1025,
+      "rootSamples": 94,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 1.9051427102567686e-13,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 893,
+          "triangles": 3235771,
+          "tree": {
+            "near": 8,
+            "middle": 54,
+            "far": 251
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 308,
+          "triangles": 6416077,
+          "tree": {
+            "near": 32,
+            "middle": 103,
+            "far": 103
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "riviera",
+      "trees": 1329,
+      "rootSamples": 95,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 2.408333948933361e-13,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 766,
+          "triangles": 5750953,
+          "tree": {
+            "near": 32,
+            "middle": 88,
+            "far": 179
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 1399,
+          "triangles": 6249815,
+          "tree": {
+            "near": 32,
+            "middle": 90,
+            "far": 519
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "solara",
+      "trees": 90,
+      "rootSamples": 90,
+      "miss": [],
+      "floating": [],
+      "maxRootError": 3.6881435405700103e-13,
+      "palms": 0,
+      "assets": [],
+      "atlas": 1536,
+      "views": [
+        {
+          "view": "driving",
+          "drawCalls": 272,
+          "triangles": 581269,
+          "tree": {
+            "near": 0,
+            "middle": 2,
+            "far": 11
+          }
+        },
+        {
+          "view": "tree",
+          "drawCalls": 175,
+          "triangles": 758129,
+          "tree": {
+            "near": 2,
+            "middle": 2,
+            "far": 3
+          }
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

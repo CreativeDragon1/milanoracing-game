@@ -1,0 +1,1928 @@
+[
+  {
+    "id": "singapore",
+    "view": "waterfront",
+    "closed": [
+      "Marina Bay Sands Tower 1 bay wing",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 1 curved eastern wing",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 2 bay wing",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 2 curved eastern wing",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 3 bay wing",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "Marina Bay Sands Tower 3 curved eastern wing",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "ArtScience Museum closed petal 0",
+      "ArtScience Museum closed petal 1",
+      "ArtScience Museum closed petal 2",
+      "ArtScience Museum closed petal 3",
+      "ArtScience Museum closed petal 4",
+      "ArtScience Museum closed petal 5",
+      "ArtScience Museum closed petal 6",
+      "ArtScience Museum closed petal 7",
+      "ArtScience Museum closed petal 8",
+      "ArtScience Museum closed petal 9"
+    ],
+    "boats": 0,
+    "yachts": [],
+    "mbs": {
+      "name": "Marina Bay Sands",
+      "type": "mbs",
+      "id": "mbs",
+      "position": [
+        -835.9240000000001,
+        -1.4133853171467738,
+        -503.52600000000007
+      ],
+      "height": 207,
+      "span": 340,
+      "towers": [
+        {
+          "id": 116801004,
+          "name": "Marina Bay Sands Tower 1",
+          "position": [
+            -932.715,
+            0.1346261089841525,
+            -578.995
+          ],
+          "width": 58.48890345842119,
+          "baseDepth": 52.03944246657042,
+          "roofDatum": 191.58661468285322,
+          "closedSlabs": 2
+        },
+        {
+          "id": 172307472,
+          "name": "Marina Bay Sands Tower 2",
+          "position": [
+            -839.894629280293,
+            -1.6968356277905872,
+            -508.59475594225154
+          ],
+          "width": 61.07329628669213,
+          "baseDepth": 50.48550195745755,
+          "roofDatum": 191.58661468285322,
+          "closedSlabs": 2
+        },
+        {
+          "id": 172307471,
+          "name": "Marina Bay Sands Tower 3",
+          "position": [
+            -745.1621431961544,
+            -3.7300367037757782,
+            -463.28422374734674
+          ],
+          "width": 54.76854340534465,
+          "baseDepth": 31.02787163248494,
+          "roofDatum": 191.58661468285322,
+          "closedSlabs": 2
+        }
+      ],
+      "skypark": {
+        "length": 340,
+        "width": 38,
+        "northOverhang": 75.54477569933766
+      },
+      "sources": [
+        "https://www.safdiearchitects.com/projects/marina-bay-sands-integrated-resort",
+        "https://www.arup.com/en-us/projects/marina-bay-sands-integrated-resort/"
+      ]
+    },
+    "calls": 618,
+    "triangles": 4456581,
+    "assets": []
+  },
+  {
+    "id": "singapore",
+    "view": "elevated",
+    "closed": [
+      "Marina Bay Sands Tower 1 bay wing",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 1 curved eastern wing",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 2 bay wing",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 2 curved eastern wing",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 3 bay wing",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "Marina Bay Sands Tower 3 curved eastern wing",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "ArtScience Museum closed petal 0",
+      "ArtScience Museum closed petal 1",
+      "ArtScience Museum closed petal 2",
+      "ArtScience Museum closed petal 3",
+      "ArtScience Museum closed petal 4",
+      "ArtScience Museum closed petal 5",
+      "ArtScience Museum closed petal 6",
+      "ArtScience Museum closed petal 7",
+      "ArtScience Museum closed petal 8",
+      "ArtScience Museum closed petal 9"
+    ],
+    "boats": 0,
+    "yachts": [],
+    "mbs": {
+      "name": "Marina Bay Sands",
+      "type": "mbs",
+      "id": "mbs",
+      "position": [
+        -835.9240000000001,
+        -1.4133853171467738,
+        -503.52600000000007
+      ],
+      "height": 207,
+      "span": 340,
+      "towers": [
+        {
+          "id": 116801004,
+          "name": "Marina Bay Sands Tower 1",
+          "position": [
+            -932.715,
+            0.1346261089841525,
+            -578.995
+          ],
+          "width": 58.48890345842119,
+          "baseDepth": 52.03944246657042,
+          "roofDatum": 191.58661468285322,
+          "closedSlabs": 2
+        },
+        {
+          "id": 172307472,
+          "name": "Marina Bay Sands Tower 2",
+          "position": [
+            -839.894629280293,
+            -1.6968356277905872,
+            -508.59475594225154
+          ],
+          "width": 61.07329628669213,
+          "baseDepth": 50.48550195745755,
+          "roofDatum": 191.58661468285322,
+          "closedSlabs": 2
+        },
+        {
+          "id": 172307471,
+          "name": "Marina Bay Sands Tower 3",
+          "position": [
+            -745.1621431961544,
+            -3.7300367037757782,
+            -463.28422374734674
+          ],
+          "width": 54.76854340534465,
+          "baseDepth": 31.02787163248494,
+          "roofDatum": 191.58661468285322,
+          "closedSlabs": 2
+        }
+      ],
+      "skypark": {
+        "length": 340,
+        "width": 38,
+        "northOverhang": 75.54477569933766
+      },
+      "sources": [
+        "https://www.safdiearchitects.com/projects/marina-bay-sands-integrated-resort",
+        "https://www.arup.com/en-us/projects/marina-bay-sands-integrated-resort/"
+      ]
+    },
+    "calls": 602,
+    "triangles": 4430312,
+    "assets": []
+  },
+  {
+    "id": "singapore",
+    "view": "reverse",
+    "closed": [
+      "Marina Bay Sands Tower 1 bay wing",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 1 curved eastern wing",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 1 curved stone fin",
+      "Marina Bay Sands Tower 2 bay wing",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 2 curved eastern wing",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 2 curved stone fin",
+      "Marina Bay Sands Tower 3 bay wing",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "Marina Bay Sands Tower 3 curved eastern wing",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "Marina Bay Sands Tower 3 curved stone fin",
+      "ArtScience Museum closed petal 0",
+      "ArtScience Museum closed petal 1",
+      "ArtScience Museum closed petal 2",
+      "ArtScience Museum closed petal 3",
+      "ArtScience Museum closed petal 4",
+      "ArtScience Museum closed petal 5",
+      "ArtScience Museum closed petal 6",
+      "ArtScience Museum closed petal 7",
+      "ArtScience Museum closed petal 8",
+      "ArtScience Museum closed petal 9"
+    ],
+    "boats": 0,
+    "yachts": [],
+    "mbs": {
+      "name": "Marina Bay Sands",
+      "type": "mbs",
+      "id": "mbs",
+      "position": [
+        -835.9240000000001,
+        -1.4133853171467738,
+        -503.52600000000007
+      ],
+      "height": 207,
+      "span": 340,
+      "towers": [
+        {
+          "id": 116801004,
+          "name": "Marina Bay Sands Tower 1",
+          "position": [
+            -932.715,
+            0.1346261089841525,
+            -578.995
+          ],
+          "width": 58.48890345842119,
+          "baseDepth": 52.03944246657042,
+          "roofDatum": 191.58661468285322,
+          "closedSlabs": 2
+        },
+        {
+          "id": 172307472,
+          "name": "Marina Bay Sands Tower 2",
+          "position": [
+            -839.894629280293,
+            -1.6968356277905872,
+            -508.59475594225154
+          ],
+          "width": 61.07329628669213,
+          "baseDepth": 50.48550195745755,
+          "roofDatum": 191.58661468285322,
+          "closedSlabs": 2
+        },
+        {
+          "id": 172307471,
+          "name": "Marina Bay Sands Tower 3",
+          "position": [
+            -745.1621431961544,
+            -3.7300367037757782,
+            -463.28422374734674
+          ],
+          "width": 54.76854340534465,
+          "baseDepth": 31.02787163248494,
+          "roofDatum": 191.58661468285322,
+          "closedSlabs": 2
+        }
+      ],
+      "skypark": {
+        "length": 340,
+        "width": 38,
+        "northOverhang": 75.54477569933766
+      },
+      "sources": [
+        "https://www.safdiearchitects.com/projects/marina-bay-sands-integrated-resort",
+        "https://www.arup.com/en-us/projects/marina-bay-sands-integrated-resort/"
+      ]
+    },
+    "calls": 1651,
+    "triangles": 3922539,
+    "assets": []
+  },
+  {
+    "id": "monaco",
+    "view": "waterfront",
+    "closed": [
+      "Closed yacht hull",
+      "Closed yacht hull",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail"
+    ],
+    "boats": 65,
+    "yachts": [
+      {
+        "x": 111.97754127741449,
+        "z": 133.54434767302786,
+        "r": 22.32,
+        "length": 36,
+        "heading": -1.59789966264827,
+        "sea": 0
+      },
+      {
+        "x": 127.97256483575467,
+        "z": 97.04440765433547,
+        "r": 18.6,
+        "length": 30,
+        "heading": 1.5436929909415233,
+        "sea": 0
+      },
+      {
+        "x": 163.6503687125988,
+        "z": 97.0589774624965,
+        "r": 26.04,
+        "length": 42,
+        "heading": 1.2057341915781263,
+        "sea": 0
+      },
+      {
+        "x": 147.1280692131534,
+        "z": 140.28919859598858,
+        "r": 26.04,
+        "length": 42,
+        "heading": -1.9358584620116668,
+        "sea": 0
+      },
+      {
+        "x": -170.29249040981585,
+        "z": 433.3968994711378,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.657102666732038,
+        "sea": 0
+      },
+      {
+        "x": -167.9168395313311,
+        "z": 460.85431892205406,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": -1.4844899868577552,
+        "sea": 0
+      },
+      {
+        "x": -396.423219730565,
+        "z": -344.23373583937894,
+        "r": 18.6,
+        "length": 30,
+        "heading": -2.732155444063651,
+        "sea": 0
+      },
+      {
+        "x": -359.1983976840723,
+        "z": -327.6848318392057,
+        "r": 11.16,
+        "length": 18,
+        "heading": 0.4094372095261425,
+        "sea": 0
+      },
+      {
+        "x": -378.75619332064065,
+        "z": -319.19748656295906,
+        "r": 11.16,
+        "length": 18,
+        "heading": -2.732155444063651,
+        "sea": 0
+      },
+      {
+        "x": -400.1237895484698,
+        "z": -375.0794097316795,
+        "r": 11.16,
+        "length": 18,
+        "heading": -2.7369668372281915,
+        "sea": 0
+      },
+      {
+        "x": -434.8903585911359,
+        "z": -257.5296731405846,
+        "r": 11.16,
+        "length": 18,
+        "heading": -0.7356995819443589,
+        "sea": 0
+      },
+      {
+        "x": -74.73929314729301,
+        "z": 166.82446686628953,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.5679204103194513,
+        "sea": 0
+      },
+      {
+        "x": -74.80060760202852,
+        "z": 145.50455503397558,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.5736722432703418,
+        "sea": 0
+      },
+      {
+        "x": -99.52748433872006,
+        "z": 149.56035026664355,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.5724349980032848,
+        "sea": 0
+      },
+      {
+        "x": -99.4925478841927,
+        "z": 170.88032164195604,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.5691576555865085,
+        "sea": 0
+      },
+      {
+        "x": -68.57794168205902,
+        "z": 126.92870821518565,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.575887430780175,
+        "sea": 0
+      },
+      {
+        "x": -83.43743706772275,
+        "z": 99.292699153032,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.5657052228096182,
+        "sea": 0
+      },
+      {
+        "x": -105.58504497546718,
+        "z": 124.2817573280692,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.571776718637652,
+        "sea": 0
+      },
+      {
+        "x": -178.2699528792327,
+        "z": 361.251734827076,
+        "r": 22.32,
+        "length": 36,
+        "heading": 1.610296728131049,
+        "sea": 0
+      },
+      {
+        "x": -161.82367786436322,
+        "z": 397.5505838189556,
+        "r": 18.6,
+        "length": 30,
+        "heading": -1.5312959254587442,
+        "sea": 0
+      },
+      {
+        "x": -148.0469356495638,
+        "z": 366.30216347572923,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.610296728131049,
+        "sea": 0
+      },
+      {
+        "x": -180.92562828837265,
+        "z": 318.80505512334264,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.6347337526282368,
+        "sea": 0
+      },
+      {
+        "x": -151.48529952028267,
+        "z": 309.1041767081282,
+        "r": 20.46,
+        "length": 33,
+        "heading": 1.6347337526282368,
+        "sea": 0
+      },
+      {
+        "x": -134.35633615819452,
+        "z": 341.8767050533786,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.5068589009615565,
+        "sea": 0
+      },
+      {
+        "x": -121.14790078795592,
+        "z": 313.41461034708146,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.6347337526282368,
+        "sea": 0
+      },
+      {
+        "x": -103.919262985397,
+        "z": 347.7439511427949,
+        "r": 26.04,
+        "length": 42,
+        "heading": -1.5068589009615565,
+        "sea": 0
+      },
+      {
+        "x": -104.27806056912418,
+        "z": 316.2660993399152,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.6369118980333244,
+        "sea": 0
+      },
+      {
+        "x": -162.63534784593963,
+        "z": 343.0601550555256,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.5046807555564687,
+        "sea": 0
+      },
+      {
+        "x": -187.40110949213363,
+        "z": 261.28208869455085,
+        "r": 20.46,
+        "length": 33,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -185.31715370019924,
+        "z": 298.14322715034547,
+        "r": 20.46,
+        "length": 33,
+        "heading": -1.5143211376824224,
+        "sea": 0
+      },
+      {
+        "x": -157.09672060222272,
+        "z": 265.81878507066483,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -127.58482194304743,
+        "z": 256.33786541429345,
+        "r": 22.32,
+        "length": 36,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -110.52478064632108,
+        "z": 292.3523262731484,
+        "r": 18.6,
+        "length": 30,
+        "heading": -1.5143211376824224,
+        "sea": 0
+      },
+      {
+        "x": -97.28043305313655,
+        "z": 260.8745617904074,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -80.92482751706406,
+        "z": 284.42891950927543,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.5143211376824224,
+        "sea": 0
+      },
+      {
+        "x": -73.52882194075465,
+        "z": 257.57917480383776,
+        "r": 20.46,
+        "length": 33,
+        "heading": 1.6259189475039026,
+        "sea": 0
+      },
+      {
+        "x": 68.59704011721671,
+        "z": 460.6141699444705,
+        "r": 13.02,
+        "length": 21,
+        "heading": -3.1371693534735554,
+        "sea": 0
+      },
+      {
+        "x": 93.03680102617106,
+        "z": 460.5060648421537,
+        "r": 13.02,
+        "length": 21,
+        "heading": 0.004423300116237887,
+        "sea": 0
+      },
+      {
+        "x": 60.664417852104265,
+        "z": 430.64896505614973,
+        "r": 22.32,
+        "length": 36,
+        "heading": -3.1371693534735554,
+        "sea": 0
+      },
+      {
+        "x": 100.70402614975288,
+        "z": 430.471856697035,
+        "r": 22.32,
+        "length": 36,
+        "heading": 0.004423300116237887,
+        "sea": 0
+      },
+      {
+        "x": 68.4987548842518,
+        "z": 399.4002530286899,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.5791156024170092,
+        "sea": 0
+      },
+      {
+        "x": 205.6162466654731,
+        "z": 612.1154505248612,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.505928296899066,
+        "sea": 0
+      },
+      {
+        "x": 204.23422996654426,
+        "z": 590.8402905996365,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.6356643566907274,
+        "sea": 0
+      },
+      {
+        "x": 208.34555721515414,
+        "z": 645.1649911578322,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.5029882258482214,
+        "sea": 0
+      },
+      {
+        "x": -195.1733486613807,
+        "z": 173.94169032306272,
+        "r": 24.18,
+        "length": 39,
+        "heading": -1.4907733718204006,
+        "sea": 0
+      },
+      {
+        "x": -165.76816298453025,
+        "z": 165.32353185910142,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.4907733718204006,
+        "sea": 0
+      },
+      {
+        "x": -148.86883862797862,
+        "z": 194.06664321421712,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": -1.5158119305384465,
+        "sea": 0
+      },
+      {
+        "x": -171.15148878371392,
+        "z": 195.8586999838953,
+        "r": 18.6,
+        "length": 30,
+        "heading": -1.514444456024026,
+        "sea": 0
+      },
+      {
+        "x": 100.94135940788546,
+        "z": 173.9021316318703,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.5997377886298487,
+        "sea": 0
+      },
+      {
+        "x": 130.70308427210378,
+        "z": 182.56698783994267,
+        "r": 22.32,
+        "length": 36,
+        "heading": -1.5997377886298487,
+        "sea": 0
+      },
+      {
+        "x": 220.90263158242152,
+        "z": 321.46913730558447,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 222.266786648444,
+        "z": 293.942919240695,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 190.5533227485442,
+        "z": 327.77464706340237,
+        "r": 24.18,
+        "length": 39,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 192.6896410594851,
+        "z": 284.66755084857556,
+        "r": 24.18,
+        "length": 39,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 160.89896083509345,
+        "z": 320.05736648627663,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 162.4175485500996,
+        "z": 289.41497279139975,
+        "r": 16.74,
+        "length": 27,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 130.54965200121617,
+        "z": 326.36287624409465,
+        "r": 26.04,
+        "length": 42,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 132.8404029611407,
+        "z": 280.1396043992803,
+        "r": 26.04,
+        "length": 42,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 200.80973681376844,
+        "z": 671.0064994511655,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.764801201666804,
+        "sea": 0
+      },
+      {
+        "x": -353.05118748480743,
+        "z": -308.1944284752403,
+        "r": 18.6,
+        "length": 30,
+        "heading": 2.135490268973997,
+        "sea": 0
+      },
+      {
+        "x": -193.1022983054636,
+        "z": 202.2372056030549,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.6694767591950699,
+        "sea": 0
+      },
+      {
+        "x": -104.200463594275,
+        "z": 203.87950733404404,
+        "r": 13.02,
+        "length": 21,
+        "heading": 0.08270287575213556,
+        "sea": 0
+      },
+      {
+        "x": -138.5335377222571,
+        "z": 228.89003475074216,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.4733033219279863,
+        "sea": 0
+      },
+      {
+        "x": -167.63183597261343,
+        "z": 239.57315409545177,
+        "r": 22.32,
+        "length": 36,
+        "heading": -1.4733033219279863,
+        "sea": 0
+      },
+      {
+        "x": 203.76133074130547,
+        "z": 382.2085719883509,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 3.082611080257091,
+        "sea": 0
+      }
+    ],
+    "calls": 905,
+    "triangles": 5167679,
+    "assets": []
+  },
+  {
+    "id": "monaco",
+    "view": "elevated",
+    "closed": [
+      "Closed yacht hull",
+      "Closed yacht hull",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail"
+    ],
+    "boats": 65,
+    "yachts": [
+      {
+        "x": 111.97754127741449,
+        "z": 133.54434767302786,
+        "r": 22.32,
+        "length": 36,
+        "heading": -1.59789966264827,
+        "sea": 0
+      },
+      {
+        "x": 127.97256483575467,
+        "z": 97.04440765433547,
+        "r": 18.6,
+        "length": 30,
+        "heading": 1.5436929909415233,
+        "sea": 0
+      },
+      {
+        "x": 163.6503687125988,
+        "z": 97.0589774624965,
+        "r": 26.04,
+        "length": 42,
+        "heading": 1.2057341915781263,
+        "sea": 0
+      },
+      {
+        "x": 147.1280692131534,
+        "z": 140.28919859598858,
+        "r": 26.04,
+        "length": 42,
+        "heading": -1.9358584620116668,
+        "sea": 0
+      },
+      {
+        "x": -170.29249040981585,
+        "z": 433.3968994711378,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.657102666732038,
+        "sea": 0
+      },
+      {
+        "x": -167.9168395313311,
+        "z": 460.85431892205406,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": -1.4844899868577552,
+        "sea": 0
+      },
+      {
+        "x": -396.423219730565,
+        "z": -344.23373583937894,
+        "r": 18.6,
+        "length": 30,
+        "heading": -2.732155444063651,
+        "sea": 0
+      },
+      {
+        "x": -359.1983976840723,
+        "z": -327.6848318392057,
+        "r": 11.16,
+        "length": 18,
+        "heading": 0.4094372095261425,
+        "sea": 0
+      },
+      {
+        "x": -378.75619332064065,
+        "z": -319.19748656295906,
+        "r": 11.16,
+        "length": 18,
+        "heading": -2.732155444063651,
+        "sea": 0
+      },
+      {
+        "x": -400.1237895484698,
+        "z": -375.0794097316795,
+        "r": 11.16,
+        "length": 18,
+        "heading": -2.7369668372281915,
+        "sea": 0
+      },
+      {
+        "x": -434.8903585911359,
+        "z": -257.5296731405846,
+        "r": 11.16,
+        "length": 18,
+        "heading": -0.7356995819443589,
+        "sea": 0
+      },
+      {
+        "x": -74.73929314729301,
+        "z": 166.82446686628953,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.5679204103194513,
+        "sea": 0
+      },
+      {
+        "x": -74.80060760202852,
+        "z": 145.50455503397558,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.5736722432703418,
+        "sea": 0
+      },
+      {
+        "x": -99.52748433872006,
+        "z": 149.56035026664355,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.5724349980032848,
+        "sea": 0
+      },
+      {
+        "x": -99.4925478841927,
+        "z": 170.88032164195604,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.5691576555865085,
+        "sea": 0
+      },
+      {
+        "x": -68.57794168205902,
+        "z": 126.92870821518565,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.575887430780175,
+        "sea": 0
+      },
+      {
+        "x": -83.43743706772275,
+        "z": 99.292699153032,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.5657052228096182,
+        "sea": 0
+      },
+      {
+        "x": -105.58504497546718,
+        "z": 124.2817573280692,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.571776718637652,
+        "sea": 0
+      },
+      {
+        "x": -178.2699528792327,
+        "z": 361.251734827076,
+        "r": 22.32,
+        "length": 36,
+        "heading": 1.610296728131049,
+        "sea": 0
+      },
+      {
+        "x": -161.82367786436322,
+        "z": 397.5505838189556,
+        "r": 18.6,
+        "length": 30,
+        "heading": -1.5312959254587442,
+        "sea": 0
+      },
+      {
+        "x": -148.0469356495638,
+        "z": 366.30216347572923,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.610296728131049,
+        "sea": 0
+      },
+      {
+        "x": -180.92562828837265,
+        "z": 318.80505512334264,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.6347337526282368,
+        "sea": 0
+      },
+      {
+        "x": -151.48529952028267,
+        "z": 309.1041767081282,
+        "r": 20.46,
+        "length": 33,
+        "heading": 1.6347337526282368,
+        "sea": 0
+      },
+      {
+        "x": -134.35633615819452,
+        "z": 341.8767050533786,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.5068589009615565,
+        "sea": 0
+      },
+      {
+        "x": -121.14790078795592,
+        "z": 313.41461034708146,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.6347337526282368,
+        "sea": 0
+      },
+      {
+        "x": -103.919262985397,
+        "z": 347.7439511427949,
+        "r": 26.04,
+        "length": 42,
+        "heading": -1.5068589009615565,
+        "sea": 0
+      },
+      {
+        "x": -104.27806056912418,
+        "z": 316.2660993399152,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.6369118980333244,
+        "sea": 0
+      },
+      {
+        "x": -162.63534784593963,
+        "z": 343.0601550555256,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.5046807555564687,
+        "sea": 0
+      },
+      {
+        "x": -187.40110949213363,
+        "z": 261.28208869455085,
+        "r": 20.46,
+        "length": 33,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -185.31715370019924,
+        "z": 298.14322715034547,
+        "r": 20.46,
+        "length": 33,
+        "heading": -1.5143211376824224,
+        "sea": 0
+      },
+      {
+        "x": -157.09672060222272,
+        "z": 265.81878507066483,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -127.58482194304743,
+        "z": 256.33786541429345,
+        "r": 22.32,
+        "length": 36,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -110.52478064632108,
+        "z": 292.3523262731484,
+        "r": 18.6,
+        "length": 30,
+        "heading": -1.5143211376824224,
+        "sea": 0
+      },
+      {
+        "x": -97.28043305313655,
+        "z": 260.8745617904074,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -80.92482751706406,
+        "z": 284.42891950927543,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.5143211376824224,
+        "sea": 0
+      },
+      {
+        "x": -73.52882194075465,
+        "z": 257.57917480383776,
+        "r": 20.46,
+        "length": 33,
+        "heading": 1.6259189475039026,
+        "sea": 0
+      },
+      {
+        "x": 68.59704011721671,
+        "z": 460.6141699444705,
+        "r": 13.02,
+        "length": 21,
+        "heading": -3.1371693534735554,
+        "sea": 0
+      },
+      {
+        "x": 93.03680102617106,
+        "z": 460.5060648421537,
+        "r": 13.02,
+        "length": 21,
+        "heading": 0.004423300116237887,
+        "sea": 0
+      },
+      {
+        "x": 60.664417852104265,
+        "z": 430.64896505614973,
+        "r": 22.32,
+        "length": 36,
+        "heading": -3.1371693534735554,
+        "sea": 0
+      },
+      {
+        "x": 100.70402614975288,
+        "z": 430.471856697035,
+        "r": 22.32,
+        "length": 36,
+        "heading": 0.004423300116237887,
+        "sea": 0
+      },
+      {
+        "x": 68.4987548842518,
+        "z": 399.4002530286899,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.5791156024170092,
+        "sea": 0
+      },
+      {
+        "x": 205.6162466654731,
+        "z": 612.1154505248612,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.505928296899066,
+        "sea": 0
+      },
+      {
+        "x": 204.23422996654426,
+        "z": 590.8402905996365,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.6356643566907274,
+        "sea": 0
+      },
+      {
+        "x": 208.34555721515414,
+        "z": 645.1649911578322,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.5029882258482214,
+        "sea": 0
+      },
+      {
+        "x": -195.1733486613807,
+        "z": 173.94169032306272,
+        "r": 24.18,
+        "length": 39,
+        "heading": -1.4907733718204006,
+        "sea": 0
+      },
+      {
+        "x": -165.76816298453025,
+        "z": 165.32353185910142,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.4907733718204006,
+        "sea": 0
+      },
+      {
+        "x": -148.86883862797862,
+        "z": 194.06664321421712,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": -1.5158119305384465,
+        "sea": 0
+      },
+      {
+        "x": -171.15148878371392,
+        "z": 195.8586999838953,
+        "r": 18.6,
+        "length": 30,
+        "heading": -1.514444456024026,
+        "sea": 0
+      },
+      {
+        "x": 100.94135940788546,
+        "z": 173.9021316318703,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.5997377886298487,
+        "sea": 0
+      },
+      {
+        "x": 130.70308427210378,
+        "z": 182.56698783994267,
+        "r": 22.32,
+        "length": 36,
+        "heading": -1.5997377886298487,
+        "sea": 0
+      },
+      {
+        "x": 220.90263158242152,
+        "z": 321.46913730558447,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 222.266786648444,
+        "z": 293.942919240695,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 190.5533227485442,
+        "z": 327.77464706340237,
+        "r": 24.18,
+        "length": 39,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 192.6896410594851,
+        "z": 284.66755084857556,
+        "r": 24.18,
+        "length": 39,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 160.89896083509345,
+        "z": 320.05736648627663,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 162.4175485500996,
+        "z": 289.41497279139975,
+        "r": 16.74,
+        "length": 27,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 130.54965200121617,
+        "z": 326.36287624409465,
+        "r": 26.04,
+        "length": 42,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 132.8404029611407,
+        "z": 280.1396043992803,
+        "r": 26.04,
+        "length": 42,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 200.80973681376844,
+        "z": 671.0064994511655,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.764801201666804,
+        "sea": 0
+      },
+      {
+        "x": -353.05118748480743,
+        "z": -308.1944284752403,
+        "r": 18.6,
+        "length": 30,
+        "heading": 2.135490268973997,
+        "sea": 0
+      },
+      {
+        "x": -193.1022983054636,
+        "z": 202.2372056030549,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.6694767591950699,
+        "sea": 0
+      },
+      {
+        "x": -104.200463594275,
+        "z": 203.87950733404404,
+        "r": 13.02,
+        "length": 21,
+        "heading": 0.08270287575213556,
+        "sea": 0
+      },
+      {
+        "x": -138.5335377222571,
+        "z": 228.89003475074216,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.4733033219279863,
+        "sea": 0
+      },
+      {
+        "x": -167.63183597261343,
+        "z": 239.57315409545177,
+        "r": 22.32,
+        "length": 36,
+        "heading": -1.4733033219279863,
+        "sea": 0
+      },
+      {
+        "x": 203.76133074130547,
+        "z": 382.2085719883509,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 3.082611080257091,
+        "sea": 0
+      }
+    ],
+    "calls": 877,
+    "triangles": 5102369,
+    "assets": []
+  },
+  {
+    "id": "monaco",
+    "view": "reverse",
+    "closed": [
+      "Closed yacht hull",
+      "Closed yacht hull",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail",
+      "Shared static venue detail"
+    ],
+    "boats": 65,
+    "yachts": [
+      {
+        "x": 111.97754127741449,
+        "z": 133.54434767302786,
+        "r": 22.32,
+        "length": 36,
+        "heading": -1.59789966264827,
+        "sea": 0
+      },
+      {
+        "x": 127.97256483575467,
+        "z": 97.04440765433547,
+        "r": 18.6,
+        "length": 30,
+        "heading": 1.5436929909415233,
+        "sea": 0
+      },
+      {
+        "x": 163.6503687125988,
+        "z": 97.0589774624965,
+        "r": 26.04,
+        "length": 42,
+        "heading": 1.2057341915781263,
+        "sea": 0
+      },
+      {
+        "x": 147.1280692131534,
+        "z": 140.28919859598858,
+        "r": 26.04,
+        "length": 42,
+        "heading": -1.9358584620116668,
+        "sea": 0
+      },
+      {
+        "x": -170.29249040981585,
+        "z": 433.3968994711378,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.657102666732038,
+        "sea": 0
+      },
+      {
+        "x": -167.9168395313311,
+        "z": 460.85431892205406,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": -1.4844899868577552,
+        "sea": 0
+      },
+      {
+        "x": -396.423219730565,
+        "z": -344.23373583937894,
+        "r": 18.6,
+        "length": 30,
+        "heading": -2.732155444063651,
+        "sea": 0
+      },
+      {
+        "x": -359.1983976840723,
+        "z": -327.6848318392057,
+        "r": 11.16,
+        "length": 18,
+        "heading": 0.4094372095261425,
+        "sea": 0
+      },
+      {
+        "x": -378.75619332064065,
+        "z": -319.19748656295906,
+        "r": 11.16,
+        "length": 18,
+        "heading": -2.732155444063651,
+        "sea": 0
+      },
+      {
+        "x": -400.1237895484698,
+        "z": -375.0794097316795,
+        "r": 11.16,
+        "length": 18,
+        "heading": -2.7369668372281915,
+        "sea": 0
+      },
+      {
+        "x": -434.8903585911359,
+        "z": -257.5296731405846,
+        "r": 11.16,
+        "length": 18,
+        "heading": -0.7356995819443589,
+        "sea": 0
+      },
+      {
+        "x": -74.73929314729301,
+        "z": 166.82446686628953,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.5679204103194513,
+        "sea": 0
+      },
+      {
+        "x": -74.80060760202852,
+        "z": 145.50455503397558,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.5736722432703418,
+        "sea": 0
+      },
+      {
+        "x": -99.52748433872006,
+        "z": 149.56035026664355,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.5724349980032848,
+        "sea": 0
+      },
+      {
+        "x": -99.4925478841927,
+        "z": 170.88032164195604,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.5691576555865085,
+        "sea": 0
+      },
+      {
+        "x": -68.57794168205902,
+        "z": 126.92870821518565,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.575887430780175,
+        "sea": 0
+      },
+      {
+        "x": -83.43743706772275,
+        "z": 99.292699153032,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.5657052228096182,
+        "sea": 0
+      },
+      {
+        "x": -105.58504497546718,
+        "z": 124.2817573280692,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.571776718637652,
+        "sea": 0
+      },
+      {
+        "x": -178.2699528792327,
+        "z": 361.251734827076,
+        "r": 22.32,
+        "length": 36,
+        "heading": 1.610296728131049,
+        "sea": 0
+      },
+      {
+        "x": -161.82367786436322,
+        "z": 397.5505838189556,
+        "r": 18.6,
+        "length": 30,
+        "heading": -1.5312959254587442,
+        "sea": 0
+      },
+      {
+        "x": -148.0469356495638,
+        "z": 366.30216347572923,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.610296728131049,
+        "sea": 0
+      },
+      {
+        "x": -180.92562828837265,
+        "z": 318.80505512334264,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.6347337526282368,
+        "sea": 0
+      },
+      {
+        "x": -151.48529952028267,
+        "z": 309.1041767081282,
+        "r": 20.46,
+        "length": 33,
+        "heading": 1.6347337526282368,
+        "sea": 0
+      },
+      {
+        "x": -134.35633615819452,
+        "z": 341.8767050533786,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.5068589009615565,
+        "sea": 0
+      },
+      {
+        "x": -121.14790078795592,
+        "z": 313.41461034708146,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.6347337526282368,
+        "sea": 0
+      },
+      {
+        "x": -103.919262985397,
+        "z": 347.7439511427949,
+        "r": 26.04,
+        "length": 42,
+        "heading": -1.5068589009615565,
+        "sea": 0
+      },
+      {
+        "x": -104.27806056912418,
+        "z": 316.2660993399152,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.6369118980333244,
+        "sea": 0
+      },
+      {
+        "x": -162.63534784593963,
+        "z": 343.0601550555256,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.5046807555564687,
+        "sea": 0
+      },
+      {
+        "x": -187.40110949213363,
+        "z": 261.28208869455085,
+        "r": 20.46,
+        "length": 33,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -185.31715370019924,
+        "z": 298.14322715034547,
+        "r": 20.46,
+        "length": 33,
+        "heading": -1.5143211376824224,
+        "sea": 0
+      },
+      {
+        "x": -157.09672060222272,
+        "z": 265.81878507066483,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -127.58482194304743,
+        "z": 256.33786541429345,
+        "r": 22.32,
+        "length": 36,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -110.52478064632108,
+        "z": 292.3523262731484,
+        "r": 18.6,
+        "length": 30,
+        "heading": -1.5143211376824224,
+        "sea": 0
+      },
+      {
+        "x": -97.28043305313655,
+        "z": 260.8745617904074,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.627271515907371,
+        "sea": 0
+      },
+      {
+        "x": -80.92482751706406,
+        "z": 284.42891950927543,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.5143211376824224,
+        "sea": 0
+      },
+      {
+        "x": -73.52882194075465,
+        "z": 257.57917480383776,
+        "r": 20.46,
+        "length": 33,
+        "heading": 1.6259189475039026,
+        "sea": 0
+      },
+      {
+        "x": 68.59704011721671,
+        "z": 460.6141699444705,
+        "r": 13.02,
+        "length": 21,
+        "heading": -3.1371693534735554,
+        "sea": 0
+      },
+      {
+        "x": 93.03680102617106,
+        "z": 460.5060648421537,
+        "r": 13.02,
+        "length": 21,
+        "heading": 0.004423300116237887,
+        "sea": 0
+      },
+      {
+        "x": 60.664417852104265,
+        "z": 430.64896505614973,
+        "r": 22.32,
+        "length": 36,
+        "heading": -3.1371693534735554,
+        "sea": 0
+      },
+      {
+        "x": 100.70402614975288,
+        "z": 430.471856697035,
+        "r": 22.32,
+        "length": 36,
+        "heading": 0.004423300116237887,
+        "sea": 0
+      },
+      {
+        "x": 68.4987548842518,
+        "z": 399.4002530286899,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.5791156024170092,
+        "sea": 0
+      },
+      {
+        "x": 205.6162466654731,
+        "z": 612.1154505248612,
+        "r": 11.16,
+        "length": 18,
+        "heading": -1.505928296899066,
+        "sea": 0
+      },
+      {
+        "x": 204.23422996654426,
+        "z": 590.8402905996365,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.6356643566907274,
+        "sea": 0
+      },
+      {
+        "x": 208.34555721515414,
+        "z": 645.1649911578322,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.5029882258482214,
+        "sea": 0
+      },
+      {
+        "x": -195.1733486613807,
+        "z": 173.94169032306272,
+        "r": 24.18,
+        "length": 39,
+        "heading": -1.4907733718204006,
+        "sea": 0
+      },
+      {
+        "x": -165.76816298453025,
+        "z": 165.32353185910142,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.4907733718204006,
+        "sea": 0
+      },
+      {
+        "x": -148.86883862797862,
+        "z": 194.06664321421712,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": -1.5158119305384465,
+        "sea": 0
+      },
+      {
+        "x": -171.15148878371392,
+        "z": 195.8586999838953,
+        "r": 18.6,
+        "length": 30,
+        "heading": -1.514444456024026,
+        "sea": 0
+      },
+      {
+        "x": 100.94135940788546,
+        "z": 173.9021316318703,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.5997377886298487,
+        "sea": 0
+      },
+      {
+        "x": 130.70308427210378,
+        "z": 182.56698783994267,
+        "r": 22.32,
+        "length": 36,
+        "heading": -1.5997377886298487,
+        "sea": 0
+      },
+      {
+        "x": 220.90263158242152,
+        "z": 321.46913730558447,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 222.266786648444,
+        "z": 293.942919240695,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 190.5533227485442,
+        "z": 327.77464706340237,
+        "r": 24.18,
+        "length": 39,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 192.6896410594851,
+        "z": 284.66755084857556,
+        "r": 24.18,
+        "length": 39,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 160.89896083509345,
+        "z": 320.05736648627663,
+        "r": 16.74,
+        "length": 27,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 162.4175485500996,
+        "z": 289.41497279139975,
+        "r": 16.74,
+        "length": 27,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 130.54965200121617,
+        "z": 326.36287624409465,
+        "r": 26.04,
+        "length": 42,
+        "heading": -1.6203142046921248,
+        "sea": 0
+      },
+      {
+        "x": 132.8404029611407,
+        "z": 280.1396043992803,
+        "r": 26.04,
+        "length": 42,
+        "heading": 1.5212784488976685,
+        "sea": 0
+      },
+      {
+        "x": 200.80973681376844,
+        "z": 671.0064994511655,
+        "r": 11.16,
+        "length": 18,
+        "heading": 1.764801201666804,
+        "sea": 0
+      },
+      {
+        "x": -353.05118748480743,
+        "z": -308.1944284752403,
+        "r": 18.6,
+        "length": 30,
+        "heading": 2.135490268973997,
+        "sea": 0
+      },
+      {
+        "x": -193.1022983054636,
+        "z": 202.2372056030549,
+        "r": 13.02,
+        "length": 21,
+        "heading": 1.6694767591950699,
+        "sea": 0
+      },
+      {
+        "x": -104.200463594275,
+        "z": 203.87950733404404,
+        "r": 13.02,
+        "length": 21,
+        "heading": 0.08270287575213556,
+        "sea": 0
+      },
+      {
+        "x": -138.5335377222571,
+        "z": 228.89003475074216,
+        "r": 13.02,
+        "length": 21,
+        "heading": -1.4733033219279863,
+        "sea": 0
+      },
+      {
+        "x": -167.63183597261343,
+        "z": 239.57315409545177,
+        "r": 22.32,
+        "length": 36,
+        "heading": -1.4733033219279863,
+        "sea": 0
+      },
+      {
+        "x": 203.76133074130547,
+        "z": 382.2085719883509,
+        "r": 14.879999999999999,
+        "length": 24,
+        "heading": 3.082611080257091,
+        "sea": 0
+      }
+    ],
+    "calls": 1468,
+    "triangles": 8318360,
+    "assets": []
+  }
+]

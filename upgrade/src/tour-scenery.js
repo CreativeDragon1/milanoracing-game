@@ -3,16 +3,9 @@ function clearSite(x,z,r){if(buildingAt(x,z,r))return false;const q=prog(x,z,-1)
 const night=THEME==='city',arid=THEME==='desert'||THEME==='marina'||THEME==='dunes',urban=night||THEME==='harbour'||THEME==='metropolis';
 const pitSide=Math.sign(prog(PIT.x[PIT.box],PIT.z[PIT.box],-1).d)||-1;
 const mainGrandstand=geography?null:grandstand(cx[25]-nx[25]*pitSide*40,cz[25]-nz[25]*pitSide*40,-Math.atan2(tz[25],tx[25])+(pitSide>0?Math.PI:0),85,10,CIRCUIT.name);
-// Modular paddock buildings follow the first straight rather than fixed world coordinates.
-const garages=[],windows=[],pitRoof=[],pitLamps=[],posts=[];
-for(let i=0;i<26&&!geography;i+=2){const off=trackBarrier(i,pitSide)+pitSide*17,xx=cx[i]+nx[i]*off,zz=cz[i]+nz[i]*off,a=-Math.atan2(tz[i],tx[i]);
- if(!clearSite(xx,zz,8))continue;
- garages.push([xx,3.5,zz,8,7,12,0,a]);pitRoof.push([xx,7.2,zz,8.5,.4,13,0,a]);
- windows.push([xx-nx[i]*pitSide*6.05,5.6,zz-nz[i]*pitSide*6.05,7,1.8,.15,0,a]);
- pitLamps.push([xx-nx[i]*pitSide*6.15,3.8,zz-nz[i]*pitSide*6.15,7,.12,.18,0,a]);
-}
-instanceBoxes(scene,M(0xc0c7ce,.18,.65),garages);instanceBoxes(scene,M(0x192e45,.6,.24),windows);instanceBoxes(scene,M(0x424e61,.4,.4),pitRoof);
-const glow=new T.MeshStandardMaterial({color:0xe7f5ff,emissive:night?0xc9e1ff:0xffd6a4,emissiveIntensity:night?2:.6});instanceBoxes(scene,glow,pitLamps,false);
+// Original venue garages are prepared beside the actual service lane in pit-details.js.
+const pitLamps=[],posts=[];
+const glow=new T.MeshStandardMaterial({color:0xe7f5ff,emissive:night?0xc9e1ff:0xffd6a4,emissiveIntensity:night?2:.6});
 function tunnelStation(i){return CIRCUIT.features?.tunnel&&i>=CIRCUIT.features.tunnel[0]&&i<=CIRCUIT.features.tunnel[1]}
 const fenceLines=[];for(let i=0;i<N;i+=4)for(const side of[-1,1]){if(pitOpening(i,side)||tunnelStation(i))continue;const o=trackBarrier(i,side)+side*.25,xx=cx[i]+nx[i]*o,zz=cz[i]+nz[i]*o;fenceLines.push([[xx,1.1,zz],[xx,urban?4.5:3.2,zz],.055]);}
 beams(scene,fenceLines,M(0x737f8c,.5,.5));
@@ -21,7 +14,8 @@ beams(scene,posts);instanceBoxes(scene,glow,pitLamps,false);
 // City windows are baked into a repeating texture; hundreds of towers cost one draw call.
 const windowTexture=canvasTex(512,1024,(a,w,h)=>{a.fillStyle=night?'#162130':THEME==='harbour'?'#b9aa94':'#959ba1';a.fillRect(0,0,w,h);for(let yy=24;yy<h;yy+=72)for(let xx=20;xx<w;xx+=64){a.fillStyle=night?(rand()>.65?'#c7b995':'#23354b'):'#34444b';a.fillRect(xx,yy,34,45);a.fillStyle=night?'#384656':'#78828a';a.fillRect(xx+2,yy+2,14,19);a.fillStyle='#b0afa755';a.fillRect(xx+18,yy+2,14,40);a.fillStyle='#252d36';a.fillRect(xx-2,yy+46,39,4);a.fillStyle='#b4b3b14a';a.fillRect(xx-2,yy+50,39,3)}for(let yy=0;yy<h;yy+=72){a.fillStyle='#13182155';a.fillRect(0,yy,w,3)}});
 const buildings=[];
-if((urban||THEME==='marina')&&!mappedBuildings.length)for(let i=0;i<1900&&buildings.length<(urban?260:100);i++){const xx=trackBounds.x-180+rand()*(trackBounds.X-trackBounds.x+360),zz=trackBounds.z-180+rand()*(trackBounds.Z-trackBounds.z+360),size=12+rand()*18,h=urban?14+rand()*(night?130:45):14+rand()*45;if(!clearSite(xx,zz,size))continue;buildings.push([xx,h/2,zz,size,h,size,0,rand()*.12]);}
+// Mapped architecture and authored original districts supply the skyline.
+
 instanceBoxes(scene,new T.MeshStandardMaterial({map:windowTexture,roughness:.65,metalness:.25,emissiveMap:windowTexture,emissive:night?0xffffff:0x000000,emissiveIntensity:night?.42:0}),buildings,false);
 if(THEME==='desert'&&!geography){
  const i=100,o=trackBarrier(i,-1)-65,xx=cx[i]+nx[i]*o,zz=cz[i]+nz[i]*o;
@@ -57,7 +51,7 @@ if(!geography&&!urban&&THEME!=='airfield')for(let band=0;band<3;band++){
  const geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.Float32BufferAttribute(vertices,3));geometry.setAttribute('color',new T.Float32BufferAttribute(colors,3));geometry.setIndex(indices);geometry.computeVertexNormals();
  const mountainMaterial=new T.MeshStandardMaterial({vertexColors:true,roughness:1,envMapIntensity:.35,side:T.DoubleSide});mountainMaterial.onBeforeCompile=shader=>{shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 ridgePosition;').replace('#include <begin_vertex>','#include <begin_vertex>\nridgePosition=position;');shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 ridgePosition;float terrainHash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}float terrainNoise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(terrainHash(i),terrainHash(i+vec2(1.,0.)),f.x),mix(terrainHash(i+vec2(0.,1.)),terrainHash(i+vec2(1.,1.)),f.x),f.y);}').replace('#include <map_fragment>','#include <map_fragment>\nvec2 rp=ridgePosition.xz+ridgePosition.y*.32;float rock=terrainNoise(rp*.024)*.55+terrainNoise(rp*.071)*.3+terrainNoise(rp*.21)*.15;diffuseColor.rgb*=.70+rock*.47;');};const ridge=new T.Mesh(geometry,mountainMaterial);scene.add(ridge);
 }
-const waterNormals=canvasTex(128,128,(x,w,h)=>{const data=x.createImageData(w,h);for(let j=0;j<h;j++)for(let i=0;i<w;i++){const k=(j*w+i)*4,a=i/w*Math.PI*2,b=j/h*Math.PI*2;data.data[k]=128+Math.sin(a*4+b*3)*22+Math.sin(a*7-b*2)*9;data.data[k+1]=128+Math.cos(a*4+b*3)*18;data.data[k+2]=250;data.data[k+3]=255}x.putImageData(data,0,0)});waterNormals.encoding=T.LinearEncoding;waterNormals.wrapS=waterNormals.wrapT=T.RepeatWrapping;waterNormals.repeat.set(12,8);
+const waterNormals=canvasTex(256,256,(c,w,h)=>{const data=c.createImageData(w,h),waves=[[3,2,.32],[5,-3,.21],[-7,5,.17],[11,9,.10],[-13,4,.08],[17,-15,.05]];for(let j=0;j<h;j++)for(let i=0;i<w;i++){const a=i/w*Math.PI*2,b=j/h*Math.PI*2,k=(j*w+i)*4;let nx=0,ny=0;for(let q=0;q<waves.length;q++){const[x,y,am]=waves[q],v=Math.cos(a*x+b*y+q*1.79)*am/Math.hypot(x,y);nx+=x*v;ny+=y*v;}const z=1/Math.hypot(nx,ny,1);data.data[k]=(nx*z*.5+.5)*255;data.data[k+1]=(ny*z*.5+.5)*255;data.data[k+2]=(z*.5+.5)*255;data.data[k+3]=255;}c.putImageData(data,0,0)});waterNormals.encoding=T.LinearEncoding;waterNormals.wrapS=waterNormals.wrapT=T.RepeatWrapping;waterNormals.repeat.set(4,4);
 if(!geography&&(THEME==='harbour'||THEME==='marina')){
  const wx=trackBounds.X+210,wz=circuitCentre.z,water=new T.Mesh(new T.PlaneGeometry(350,1100),new T.MeshStandardMaterial({color:0x316c84,metalness:.55,roughness:.2,normalMap:waterNormals,envMapIntensity:1.2}));water.rotation.x=-Math.PI/2;water.position.set(wx,.005,wz);scene.add(water);
  const yachts=[],cabins=[];for(let i=0;i<16;i++){const xx=wx-100+(i%4)*65,zz=wz-350+Math.floor(i/4)*170;yachts.push([xx,.8,zz,9,1.6,30]);cabins.push([xx,2.2,zz-2,6,2,14]);}instanceBoxes(scene,M(0xe9edf0,.3,.3),yachts,true,false);instanceBoxes(scene,M(0x7191a4,.6,.2),cabins,true,false);
@@ -66,7 +60,7 @@ if(THEME==='marina'&&!geography){
  const xx=trackBounds.x-90,zz=circuitCentre.z;
  const hotel=new T.Mesh(new T.SphereGeometry(1,32,20),new T.MeshStandardMaterial({color:0xb6c4df,metalness:.7,roughness:.24,wireframe:true,emissive:0x5533ad,emissiveIntensity:.7}));hotel.scale.set(45,26,100);hotel.position.set(xx,20+groundHeight(xx,zz),zz);scene.add(hotel);
 }
-if(THEME==='airfield'){const i=140,o=trackBarrier(i,-1)-65;box(90,8,30,0x8999ac,cx[i]+nx[i]*o,4,cz[i]+nz[i]*o,-Math.atan2(tz[i],tx[i]));}
+if(THEME==='airfield'&&!geography){const i=140,o=trackBarrier(i,-1)-65;box(90,8,30,0x8999ac,cx[i]+nx[i]*o,4,cz[i]+nz[i]*o,-Math.atan2(tz[i],tx[i]));}
 // A small light rig follows the player on night layouts; masts provide the visual source.
 const nightLight=new T.PointLight(0xcce5ff,night?1.8:0,75,1.1);nightLight.position.set(0,14,0);scene.add(nightLight);
 

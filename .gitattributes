@@ -14,6 +14,7 @@
 upgrade/server/public/** binary
 # Preserve upstream licence text, including its original whitespace.
 upgrade/licenses/** -whitespace
+upgrade/research/** -whitespace
 upgrade/assets/fonts/*.txt -whitespace
 native-desktop/licenses/** -whitespace
 *.scn binary
@@ -23,3 +24,5 @@ native-desktop/licenses/** -whitespace
 *.gd text eol=lf
 *.gdshader text eol=lf
 *.uid text eol=lf
+
+"/Milano Racing.html" binary

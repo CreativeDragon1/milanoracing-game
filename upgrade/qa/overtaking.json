@@ -1,0 +1,149 @@
+{
+  "passed": true,
+  "reports": [
+    {
+      "difficulty": "rookie",
+      "phase": "race",
+      "width": 8,
+      "passed": true,
+      "yielded": false,
+      "maxOffset": 2.7997991660770443,
+      "minSeparation": 45.62465277776846
+    },
+    {
+      "difficulty": "rookie",
+      "phase": "race",
+      "width": 2.5,
+      "passed": false,
+      "yielded": false,
+      "maxOffset": 0,
+      "minSeparation": 14.509440083401387
+    },
+    {
+      "difficulty": "rookie",
+      "phase": "qualifying",
+      "width": 8,
+      "passed": true,
+      "yielded": true,
+      "maxOffset": 2.1624698099384956,
+      "minSeparation": 64.43675833332964
+    },
+    {
+      "difficulty": "rookie",
+      "phase": "qualifying",
+      "width": 2.5,
+      "passed": false,
+      "yielded": false,
+      "maxOffset": 0,
+      "minSeparation": 12.513419067805444
+    },
+    {
+      "difficulty": "club",
+      "phase": "race",
+      "width": 8,
+      "passed": true,
+      "yielded": false,
+      "maxOffset": 2.7974269373122285,
+      "minSeparation": 52.555332358586384
+    },
+    {
+      "difficulty": "club",
+      "phase": "race",
+      "width": 2.5,
+      "passed": false,
+      "yielded": false,
+      "maxOffset": 0,
+      "minSeparation": 14.509437242449167
+    },
+    {
+      "difficulty": "club",
+      "phase": "qualifying",
+      "width": 8,
+      "passed": true,
+      "yielded": true,
+      "maxOffset": 2.3978672616922303,
+      "minSeparation": 62.649005614996895
+    },
+    {
+      "difficulty": "club",
+      "phase": "qualifying",
+      "width": 2.5,
+      "passed": false,
+      "yielded": false,
+      "maxOffset": 0,
+      "minSeparation": 12.513419065722701
+    },
+    {
+      "difficulty": "pro",
+      "phase": "race",
+      "width": 8,
+      "passed": true,
+      "yielded": false,
+      "maxOffset": 2.795355378928103,
+      "minSeparation": 49.85580805644895
+    },
+    {
+      "difficulty": "pro",
+      "phase": "race",
+      "width": 2.5,
+      "passed": false,
+      "yielded": false,
+      "maxOffset": 0,
+      "minSeparation": 14.509437031249035
+    },
+    {
+      "difficulty": "pro",
+      "phase": "qualifying",
+      "width": 8,
+      "passed": true,
+      "yielded": true,
+      "maxOffset": 2.390264217627543,
+      "minSeparation": 62.638052242516096
+    },
+    {
+      "difficulty": "pro",
+      "phase": "qualifying",
+      "width": 2.5,
+      "passed": false,
+      "yielded": false,
+      "maxOffset": 0,
+      "minSeparation": 12.513419065682683
+    },
+    {
+      "difficulty": "elite",
+      "phase": "race",
+      "width": 8,
+      "passed": true,
+      "yielded": false,
+      "maxOffset": 2.794758975605841,
+      "minSeparation": 49.85580805644895
+    },
+    {
+      "difficulty": "elite",
+      "phase": "race",
+      "width": 2.5,
+      "passed": false,
+      "yielded": false,
+      "maxOffset": 0,
+      "minSeparation": 14.509437031249035
+    },
+    {
+      "difficulty": "elite",
+      "phase": "qualifying",
+      "width": 8,
+      "passed": true,
+      "yielded": true,
+      "maxOffset": 2.3882231418682287,
+      "minSeparation": 62.638052242516096
+    },
+    {
+      "difficulty": "elite",
+      "phase": "qualifying",
+      "width": 2.5,
+      "passed": false,
+      "yielded": false,
+      "maxOffset": 0,
+      "minSeparation": 12.513419065682683
+    }
+  ]
+}

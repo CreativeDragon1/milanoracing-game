@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "model": "Five-weight regularized online regression, synthetic held-out validation; no claim of trained human driving performance",
+  "beforeMSE": 0.0031009837494809737,
+  "afterMSE": 0.000004821046008191216,
+  "improvementPercent": 99.84453172290895,
+  "trainedSamples": 2400,
+  "validatedCircuits": [
+    "bahrain",
+    "singapore",
+    "monza",
+    "monaco",
+    "austria",
+    "silverstone",
+    "abu-dhabi",
+    "milano",
+    "spa",
+    "suzuka",
+    "interlagos",
+    "zandvoort",
+    "riviera",
+    "solara"
+  ],
+  "profileBounds": [
+    0.94,
+    1
+  ]
+}

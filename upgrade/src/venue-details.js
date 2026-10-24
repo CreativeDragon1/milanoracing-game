@@ -1,5 +1,7 @@
 // Venue landmarks and furnishings, arranged by circuit sector from the research map index.
 const venuePlans={
+ riviera:{stands:[[.15,-1,90,12,'LEVANTE'],[.5,1,80,10,'COSTA'],[.84,-1,90,12,'FARO']],bridge:.66,climate:'harbour'},
+ solara:{stands:[[.15,-1,100,14,'MIRAGGIO'],[.52,1,100,12,'SOLE'],[.86,-1,85,10,'VORTICE']],bridge:.65,climate:'desert'},
  milano:{stands:[],bridge:.63,climate:'alpine'},
  bahrain:{stands:[[.12,-1,90,12,'TURN ONE'],[.33,1,100,10,'OASIS'],[.91,-1,70,9,'VICTORY']],bridge:.56,climate:'desert'},
  singapore:{stands:[[.10,-1,100,12,'TURN 1'],[.40,1,110,12,'PADANG'],[.85,-1,80,10,'BAY']],bridge:.64,climate:'urban'},
@@ -15,19 +17,22 @@ const venuePlans={
 };
 const venuePlan=venuePlans[CIRCUIT.id],venueObjects=[];
 function venuePoint(f,side,distance){const i=Math.round(f*N)%N,o=trackBarrier(i,side)+side*distance;return {i,x:cx[i]+nx[i]*o,z:cz[i]+nz[i]*o,a:-Math.atan2(tz[i],tx[i]),side,o}}
-for(const [f,side,len,rows,label] of (geography?[]:venuePlan.stands)){const p=venuePoint(f,side,20);if([[-len/2,0],[len/2,0],[-len/2,rows*1.25],[len/2,rows*1.25]].every(([a,b])=>clearSite(p.x+tx[p.i]*a+nx[p.i]*side*b,p.z+tz[p.i]*a+nz[p.i]*side*b,10))){const g=grandstand(p.x,p.z,p.a+(side>0?Math.PI:0),len,rows,label);venueObjects.push({kind:'grandstand',name:label,station:p.i,side});}}
+for(const [f,side,len,rows,label] of (geography?[]:venuePlan.stands)){const p=venuePoint(f,side,20);if([[-len/2,0],[len/2,0],[-len/2,rows*1.25],[len/2,rows*1.25]].every(([a,b])=>clearSite(p.x+tx[p.i]*a+nx[p.i]*side*b,p.z+tz[p.i]*a+nz[p.i]*side*b,10))){const g=grandstand(p.x,p.z,p.a+(side<0?Math.PI:0),len,rows,label);venueObjects.push({kind:'grandstand',name:label,station:p.i,side});}}
 // Texture terrain at metre scale, with fine normal detail and macro colour variation.
 const photoGrass=pbrTexture('__GRASS_COLOR__',true),photoGrassNormal=pbrTexture('__GRASS_NORMAL__'),photoSand=pbrTexture('__SAND_COLOR__',true),photoSandNormal=pbrTexture('__SAND_NORMAL__');
-for(const texture of[photoGrass,photoGrassNormal,photoSand,photoSandNormal])texture.repeat.set(750,750);
-grassMaterial.map=arid||THEME==='dunes'?photoSand:photoGrass;grassMaterial.normalMap=arid||THEME==='dunes'?photoSandNormal:photoGrassNormal;grassMaterial.color.setHex(arid?0xffffff:0x879f78);grassMaterial.normalScale=new T.Vector2(.42,.42);grassMaterial.needsUpdate=true;
+// Real material footprints: short grass 1.4 m; compact sand 1.8 m.
+for(const texture of[photoGrass,photoGrassNormal])texture.repeat.set(6000/1.4,6000/1.4);
+for(const texture of[photoSand,photoSandNormal])texture.repeat.set(6000/1.8,6000/1.8);
+grassMaterial.map=arid||THEME==='dunes'?photoSand:photoGrass;grassMaterial.normalMap=arid||THEME==='dunes'?photoSandNormal:photoGrassNormal;grassMaterial.color.setHex(0xffffff);grassMaterial.normalScale=new T.Vector2(.32,.32);grassMaterial.needsUpdate=true;
 // Grass verges share the terrain's metre scale and orientation, avoiding texture seams.
 scene.traverse(o=>{if(!o.userData.runoffGrass)return;const g=o.geometry,p=g.attributes.position,uv=g.attributes.uv;for(let i=0;i<p.count;i++)uv.setXY(i,p.getX(i)/6000+.5,-p.getZ(i)/6000+.5);uv.needsUpdate=true;o.material.map=photoGrass;o.material.normalMap=photoGrassNormal;o.material.normalScale.set(.3,.3);o.material.needsUpdate=true;});
 const venueMetal=M(0x52606a,.65,.35),venueWhite=M(0xd9dbd5,.25,.47),venueGlass=new T.MeshPhysicalMaterial({color:linear(0x7098a8),metalness:.75,roughness:.13,envMapIntensity:1.2});
 // Sculpted pit canopies, service lanes, garage aprons and pit-wall facilities.
 const pitIndex=PIT.box,pitH=Math.atan2(PIT.z[pitIndex+1]-PIT.z[pitIndex-1],PIT.x[pitIndex+1]-PIT.x[pitIndex-1]),pitAngle=-pitH+(pitSide<0?Math.PI:0);
 const pitP={x:PIT.x[pitIndex]-Math.sin(pitH)*pitSide*6,z:PIT.z[pitIndex]+Math.cos(pitH)*pitSide*6},pitGroup=new T.Group();pitGroup.position.set(pitP.x,PIT.y[pitIndex],pitP.z);pitGroup.rotation.y=pitAngle;scene.add(pitGroup);
-const pitApron=new T.Mesh(new T.PlaneGeometry(225,22),new T.MeshStandardMaterial({map:asphalt,color:0x898c8d,normalMap:asphaltNormal,roughness:.92}));pitApron.rotation.x=-Math.PI/2;pitApron.position.y=.03;pitGroup.add(pitApron);
-for(let j=0;j<10&&!geography;j++){const g=new T.Mesh(new T.BoxGeometry(10,.35,18),venueWhite);g.position.set(j*11-55,8.4,12);g.rotation.x=-.08;pitGroup.add(g);const panel=new T.Mesh(new T.PlaneGeometry(9,2),venueGlass);panel.position.set(j*11-55,6.3,3);pitGroup.add(panel)}
+// The service apron is built from the actual pit cross-sections below.
+
+
 if(CIRCUIT.id==='milano'){
  const roofs=[],frames=[];for(let k=0;k<9;k++){const x=k*14-56;roofs.push([x,10.5+(k%3)*1.2,12,15,.32,24,0,0,(k%3-1)*.14]);frames.push([[x,8,2],[x+7,13,12],.15],[[x+7,13,12],[x,8,24],.15]);}instanceBoxes(pitGroup,venueWhite,roofs,true,false);beams(pitGroup,frames,venueMetal);venueObjects.push({kind:'pit-architecture',name:CIRCUIT.id==='silverstone'?'Wing-inspired folded roof':'Milano folded-roof paddock'});
 }

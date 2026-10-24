@@ -4,24 +4,25 @@ const architectureSolids=[],architectureMetal=[],architectureGlass=[];
 if(mappedBuildings.length){
  const make=()=>({p:[],uv:[],c:[]}),walls=make(),farWalls=make(),roofs=make(),glazing=make(),roofMetal=make();
  function vertex(out,p,u,v,color){out.p.push(...p);out.uv.push(u,v);out.c.push(color.r,color.g,color.b)}
- function quad(out,a,b,c,d,color){for(const [p,u,v]of[[a,0,0],[b,1,0],[c,1,1],[a,0,0],[c,1,1],[d,0,1]])vertex(out,p,u,v,color)}
+ let reverseFacade=false;
+ function quad(out,a,b,c,d,color){if(reverseFacade)[a,b,c,d]=[d,c,b,a];for(const [p,u,v]of[[a,0,0],[b,1,0],[c,1,1],[a,0,0],[c,1,1],[d,0,1]])vertex(out,p,u,v,color)}
  function structuralBeam(list,a,b,width,depth=width,color=0xc7c9c7){const dx=b[0]-a[0],dz=b[2]-a[2];list.push([(a[0]+b[0])/2,(a[1]+b[1])/2,(a[2]+b[2])/2,Math.hypot(dx,dz),width,depth,0,-Math.atan2(dz,dx),0,color])}
  for(const f of mappedBuildings){
   if(authoredIds.has(f.id))continue;
   const pts=f.footprint,n=pts.length,centre=pts.reduce((a,p)=>[a[0]+p[0]/n,a[1]+p[1]/n],[0,0]),grounds=pts.map(p=>groundHeight(...p));
-  const h=f.height,base=Math.max(groundHeight(...centre),Math.max(...grounds)-h*.35),top=base+h,q=prog(...centre,-1),distance=Math.hypot(centre[0]-cx[q.i],centre[1]-cz[q.i]);
+  const minimum=Math.max(0,f.minHeight||0),h=Math.max(.25,f.height-minimum),siteBase=Math.max(groundHeight(...centre),Math.max(...grounds)-h*.35),base=siteBase+minimum,top=base+h,q=prog(...centre,-1),distance=Math.hypot(centre[0]-cx[q.i],centre[1]-cz[q.i]);
   const mx=Math.max(...pts.map(p=>p[0]))-Math.min(...pts.map(p=>p[0])),mz=Math.max(...pts.map(p=>p[1]))-Math.min(...pts.map(p=>p[1]));
   const stand=f.facade==='grandstand'||/grandstand|tribun|tribun|stowe |club b|^vale$/i.test(f.name||'');
   if(stand){const g=mappedGrandstand(f);g.name='Mapped grandstand '+f.id;mappedVenueAudit.grandstands++;mappedVenueAudit.buildings++;continue}
   const palette=THEME==='harbour'?[0xd2c5b0,0xcab5a4,0xd1b6a5,0xb8bdbe,0xbca58f]:THEME==='desert'||THEME==='marina'?[0xc9bda6,0xd7cbbb,0xb8b9b7]:[0xb9bdbb,0xb6b4ac,0x8f9c9f,0xc6c4b8];const color=linear(palette[f.id%palette.length]);
   const detailed=distance<280&&h>5&&h<120&&f.facade!=='concrete'&&f.facade!=='canopy'&&mappedVenueAudit.recessedWindows<30000;
-  const sign=T.ShapeUtils.area(pts.map(p=>new T.Vector2(...p)))>0?1:-1;
+  const sign=T.ShapeUtils.area(pts.map(p=>new T.Vector2(...p)))>0?1:-1;reverseFacade=sign>0;
   for(let i=0;i<n;i++){
    const a=pts[i],b=pts[(i+1)%n],len=Math.hypot(a[0]-b[0],a[1]-b[1]);if(len<.15)continue;const ux=(b[0]-a[0])/len,uz=(b[1]-a[1])/len,ox=uz*sign,oz=-ux*sign;
    const at=(x,y,recess=0)=>[a[0]+ux*x+ox*recess,y,a[1]+uz*x+oz*recess];
    if(f.facade==='canopy'){if(len>8)for(let x=1;x<len;x+=8){const pos=at(x,0);architectureMetal.push([pos[0],base+h/2,pos[2],.22,h,.22]);}continue}
    // Foundations meet the actual terrain at every perimeter vertex; no hovering lower corners.
-   quad(walls,[a[0],grounds[i]-.65,a[1]],[b[0],grounds[(i+1)%n]-.65,b[1]],at(len,base+.2),at(0,base+.2),color.clone().multiplyScalar(.80));
+   if(minimum===0)quad(walls,[a[0],grounds[i]-.65,a[1]],[b[0],grounds[(i+1)%n]-.65,b[1]],at(len,base+.2),at(0,base+.2),color.clone().multiplyScalar(.80));
    if(detailed&&len>4){
     const columns=Math.max(1,Math.floor(len/3.1)),cw=len/columns,floors=Math.max(1,Math.floor(h/3.3)),fh=h/floors;
     for(let floor=0;floor<floors;floor++)for(let col=0;col<columns;col++){
@@ -40,19 +41,20 @@ if(mappedBuildings.length){
   const triangles=T.ShapeUtils.triangulateShape(pts.map(p=>new T.Vector2(...p)),[]),roofColor=linear(THEME==='harbour'?0x93816f:0x7c8585);
   const ferrari=CIRCUIT.id==='abu-dhabi'&&f.id===139010069;
   for(const t of triangles)for(const i of t){const p=pts[i];vertex(roofs,[p[0],top,p[1]],p[0]/8,p[1]/8,ferrari?linear(0xb51525):roofColor)}
+  if(minimum>0)for(const t of triangles)for(const i of [...t].reverse()){const p=pts[i];vertex(roofs,[p[0],base,p[1]],p[0]/8,p[1]/8,roofColor)}
   if(n<=7&&mx>5&&mz>5&&mx<42&&mz<35&&h<20&&(f.roof!=='flat'||['house','detached'].includes(f.building))){const ridge=base+h+Math.min(mx,mz)*.24,axis=mx>mz?0:1,ends=[centre.slice(),centre.slice()];ends[0][axis]-=(axis===0?mx:mz)*.32;ends[1][axis]+=(axis===0?mx:mz)*.32;for(let i=0;i<n;i++){const a=pts[i],b=pts[(i+1)%n],r=ends[((a[axis]+b[axis])/2)>centre[axis]?1:0];for(const p of[[a[0],top,a[1]],[b[0],top,b[1]],[r[0],ridge,r[1]]])vertex(roofs,p,p[0]/4,p[2]/4,linear(THEME==='harbour'?0x995a42:0x62656a));}mappedVenueAudit.roofStructures++;}
   if(distance<250&&mx>14&&mz>14&&h>6&&f.facade!=='canopy'&&!ferrari){architectureSolids.push([centre[0],top+.7,centre[1],Math.min(6,mx*.2),1.4,Math.min(4,mz*.2)]);architectureMetal.push([centre[0],top+1.45,centre[1],Math.min(6,mx*.2)+.2,.12,Math.min(4,mz*.2)+.2]);}
   mappedVenueAudit.buildings++;if(f.heightFromMap)mappedVenueAudit.heightFromMap++;
  }
- function batch(data,material,name){
-  const tiles=new Map();for(let t=0;t<data.p.length;t+=9){const x=(data.p[t]+data.p[t+3]+data.p[t+6])/3,z=(data.p[t+2]+data.p[t+5]+data.p[t+8])/3,key=Math.floor(x/220)+','+Math.floor(z/220);if(!tiles.has(key))tiles.set(key,{p:[],uv:[],c:[]});const out=tiles.get(key);out.p.push(...data.p.slice(t,t+9));out.c.push(...data.c.slice(t,t+9));out.uv.push(...data.uv.slice(t/3*2,t/3*2+6))}
-  for(const data of tiles.values()){const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(data.p,3));g.setAttribute('uv',new T.Float32BufferAttribute(data.uv,2));g.setAttribute('color',new T.Float32BufferAttribute(data.c,3));g.computeVertexNormals();g.computeBoundingSphere();const m=new T.Mesh(g,material);m.name=name;m.castShadow=true;m.receiveShadow=true;scene.add(m)}
+ async function batch(data,material,name){
+  const tiles=new Map();for(let t=0;t<data.p.length;t+=9){if(t%3456===0&&MilanoBoot.shouldYield())await MilanoBoot.checkpoint("Building mesh batches");const x=(data.p[t]+data.p[t+3]+data.p[t+6])/3,z=(data.p[t+2]+data.p[t+5]+data.p[t+8])/3,key=Math.floor(x/220)+','+Math.floor(z/220);if(!tiles.has(key))tiles.set(key,{p:[],uv:[],c:[]});const out=tiles.get(key);out.p.push(...data.p.slice(t,t+9));out.c.push(...data.c.slice(t,t+9));out.uv.push(...data.uv.slice(t/3*2,t/3*2+6))}
+  for(const data of tiles.values()){if(MilanoBoot.shouldYield())await MilanoBoot.checkpoint("Building mesh upload");const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(data.p,3));g.setAttribute('uv',new T.Float32BufferAttribute(data.uv,2));g.setAttribute('color',new T.Float32BufferAttribute(data.c,3));g.computeVertexNormals();g.computeBoundingSphere();const m=new T.Mesh(g,material);m.name=name;m.castShadow=true;m.receiveShadow=true;scene.add(m)}
  }
 
  const facade=windowTexture.clone();facade.wrapS=facade.wrapT=T.RepeatWrapping;facade.needsUpdate=true;
- batch(farWalls,new T.MeshStandardMaterial({map:facade,vertexColors:true,roughness:.68,metalness:.12,side:T.DoubleSide,emissiveMap:facade,emissive:isNight?0xffe2a5:0x000000,emissiveIntensity:.24}),'Mapped distant facades');
- batch(walls,new T.MeshStandardMaterial({vertexColors:true,normalMap:barrierNormal,normalScale:new T.Vector2(.10,.10),roughness:.84,side:T.DoubleSide}),'Solid recessed facades and foundations');
- batch(glazing,new T.MeshPhysicalMaterial({vertexColors:true,roughness:.16,metalness:.6,clearcoat:1,envMapIntensity:1.1,side:T.DoubleSide,emissive:isNight?0x77654a:0x000000,emissiveIntensity:isNight?.24:0}),'Recessed architectural glass');
- batch(roofs,new T.MeshStandardMaterial({map:barrierColor,normalMap:barrierNormal,normalScale:new T.Vector2(.18,.18),vertexColors:true,roughness:.87,side:T.DoubleSide}),'Mapped structural rooftops');
+ await batch(farWalls,new T.MeshStandardMaterial({map:facade,vertexColors:true,roughness:.68,metalness:.12,side:T.DoubleSide,emissiveMap:facade,emissive:isNight?0xffe2a5:0x000000,emissiveIntensity:.24}),'Mapped distant facades');
+ await batch(walls,new T.MeshStandardMaterial({vertexColors:true,normalMap:barrierNormal,normalScale:new T.Vector2(.10,.10),roughness:.84,side:T.DoubleSide}),'Solid recessed facades and foundations');
+ await batch(glazing,new T.MeshPhysicalMaterial({vertexColors:true,roughness:.16,metalness:.6,clearcoat:1,envMapIntensity:1.1,side:T.DoubleSide,emissive:isNight?0x77654a:0x000000,emissiveIntensity:isNight?.24:0}),'Recessed architectural glass');
+ await batch(roofs,new T.MeshStandardMaterial({map:barrierColor,normalMap:barrierNormal,normalScale:new T.Vector2(.18,.18),vertexColors:true,roughness:.87,side:T.DoubleSide}),'Mapped structural rooftops');
  instanceBoxes(scene,M(0xbfc0b7,.08,.8),architectureSolids,true,false).name='Balconies parapets and plant rooms';instanceBoxes(scene,M(0xffffff,.6,.35),architectureMetal,true,false).name='Window frames and balcony railings';
 }

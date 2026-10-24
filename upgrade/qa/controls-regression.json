@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "scope": "Synthetic keyboard/stick input filtering; physical Bluetooth controller testing remains separate.",
+  "results": [
+    {
+      "keyboard": true,
+      "speedKmh": 0,
+      "previous83msPulse": 0.37499999999999994,
+      "current83msPulse": 0.22499999999999998
+    },
+    {
+      "keyboard": true,
+      "speedKmh": 108,
+      "previous83msPulse": 0.34722222222222215,
+      "current83msPulse": 0.22499999999999998
+    },
+    {
+      "keyboard": true,
+      "speedKmh": 252,
+      "previous83msPulse": 0.3101851851851852,
+      "current83msPulse": 0.22499999999999998
+    },
+    {
+      "keyboard": true,
+      "speedKmh": 342,
+      "previous83msPulse": 0.2916666666666667,
+      "current83msPulse": 0.22499999999999998
+    },
+    {
+      "keyboard": false,
+      "speedKmh": 0,
+      "previous83msPulse": 0.7364028618842732,
+      "current83msPulse": 0.6424959754476589
+    },
+    {
+      "keyboard": false,
+      "speedKmh": 108,
+      "previous83msPulse": 0.7182307109050416,
+      "current83msPulse": 0.6352739150867435
+    },
+    {
+      "keyboard": false,
+      "speedKmh": 252,
+      "previous83msPulse": 0.692037660482276,
+      "current83msPulse": 0.6254150758126233
+    },
+    {
+      "keyboard": false,
+      "speedKmh": 342,
+      "previous83msPulse": 0.6885967760854024,
+      "current83msPulse": 0.6237465488361664
+    }
+  ]
+}

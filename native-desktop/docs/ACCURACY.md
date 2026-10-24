@@ -4,7 +4,7 @@ This native project shares researched source assets with the browser game. Its r
 
 The real circuits are reconstructions, not laser-scanned digital twins. OpenStreetMap footprints and roads, calibrated circuit traces, public width data, terrain tiles and photographic references have different spatial resolution and capture dates. Some land-cover imagery dates from 2016/2017. A building's mapped footprint does not establish its exact facade, height or current appearance. Inferred dimensions and placement must not be described as surveyed facts.
 
-The original Milano Autodromo is fictional. Team sponsor placements are an original Milano event design, not the real venues' commercial contracts.
+Milano Autodromo, Riviera and Solara are fictional. The two new designs use selected FIA Appendix O dimensional guidance; they are not homologated circuits. Team sponsor placements are an original Milano event design, not the real venues' commercial contracts.
 
 ## Preserved data
 

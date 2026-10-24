@@ -1,0 +1,185 @@
+[
+  {
+    "file": "turf-color.jpg",
+    "asset": "leafy_grass",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_diff_2k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Charlotte Baglioni": "All"
+    },
+    "dimensionsMetres": [
+      2.0,
+      2.0
+    ],
+    "sha256": "8e1c6d21365d4b89bc5a35ab664da98a78dbc3ab9ba6100474881c8619a5b113",
+    "bytes": 4766204
+  },
+  {
+    "file": "turf-normal.jpg",
+    "asset": "leafy_grass",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_nor_gl_2k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Charlotte Baglioni": "All"
+    },
+    "dimensionsMetres": [
+      2.0,
+      2.0
+    ],
+    "sha256": "df0cf0ce96e653f033e5b934d5b12995464bda027aa53bd12e329be889aa9f45",
+    "bytes": 6047262
+  },
+  {
+    "file": "turf-rough.jpg",
+    "asset": "leafy_grass",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/leafy_grass/leafy_grass_rough_2k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Charlotte Baglioni": "All"
+    },
+    "dimensionsMetres": [
+      2.0,
+      2.0
+    ],
+    "sha256": "34e1733bf4064b6950a575ff57e78c8b7ff71b63749eb48a49221bd65de6fb4f",
+    "bytes": 2274652
+  },
+  {
+    "file": "sand-fine-color.jpg",
+    "asset": "dense_sand",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dense_sand/dense_sand_diff_2k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Dimitrios Savva": "All"
+    },
+    "dimensionsMetres": [
+      1.8000000715255737,
+      1.8000000715255737
+    ],
+    "sha256": "b2e3f157c315b9645d23e55d54b4c2c8fec39e5114001cbbc9a797ed27a06980",
+    "bytes": 2803876
+  },
+  {
+    "file": "sand-fine-normal.jpg",
+    "asset": "dense_sand",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dense_sand/dense_sand_nor_gl_2k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Dimitrios Savva": "All"
+    },
+    "dimensionsMetres": [
+      1.8000000715255737,
+      1.8000000715255737
+    ],
+    "sha256": "22a97f0fb874ab6976c7ad566c09e776d4c191b074ed5fa258cdb29a2e83a7c6",
+    "bytes": 3923081
+  },
+  {
+    "file": "sand-fine-rough.jpg",
+    "asset": "dense_sand",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dense_sand/dense_sand_rough_2k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Dimitrios Savva": "All"
+    },
+    "dimensionsMetres": [
+      1.8000000715255737,
+      1.8000000715255737
+    ],
+    "sha256": "e8ea428bb774ac990e7f656f18ff1ddb012ecc147b4b479dfd04491654e202c7",
+    "bytes": 1926419
+  },
+  {
+    "file": "asphalt-fine-color.jpg",
+    "asset": "asphalt_01",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_01/asphalt_01_diff_2k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Dario Barresi": "Processing ",
+      "Charlotte Baglioni": "Photography"
+    },
+    "dimensionsMetres": [
+      2.0799994468688965,
+      2.0799996852874756
+    ],
+    "sha256": "10fe1dafe34fec51397dbe9011f798c68c4e3fc16abfd4d7aea0123122db8993",
+    "bytes": 3118607
+  },
+  {
+    "file": "asphalt-fine-normal.jpg",
+    "asset": "asphalt_01",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_01/asphalt_01_nor_gl_2k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Dario Barresi": "Processing ",
+      "Charlotte Baglioni": "Photography"
+    },
+    "dimensionsMetres": [
+      2.0799994468688965,
+      2.0799996852874756
+    ],
+    "sha256": "60fd6af2aae30bb3fd2231227ecbe52d0ced2c761d53a64f50dea59d173307cd",
+    "bytes": 4845665
+  },
+  {
+    "file": "asphalt-fine-rough.jpg",
+    "asset": "asphalt_01",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_01/asphalt_01_rough_2k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Dario Barresi": "Processing ",
+      "Charlotte Baglioni": "Photography"
+    },
+    "dimensionsMetres": [
+      2.0799994468688965,
+      2.0799996852874756
+    ],
+    "sha256": "c6962037eb41c6f0feafba22353e315d37ae8c8ea472dfd7d4fe28136904ceb5",
+    "bytes": 1599661
+  },
+  {
+    "file": "rock-ground-color.jpg",
+    "asset": "rocky_terrain_02",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rocky_terrain_02/rocky_terrain_02_diff_1k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Amal Kumar": "All"
+    },
+    "dimensionsMetres": [
+      90.0,
+      90.0
+    ],
+    "sha256": "d570c10b1d5302f4fde9e0e94f4cbab0d5e112fc3fe2b3b91c38a98bd3ddaf4b",
+    "bytes": 843188
+  },
+  {
+    "file": "rock-ground-normal.jpg",
+    "asset": "rocky_terrain_02",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rocky_terrain_02/rocky_terrain_02_nor_gl_1k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Amal Kumar": "All"
+    },
+    "dimensionsMetres": [
+      90.0,
+      90.0
+    ],
+    "sha256": "f4f9d9671c660f4e509e96d5da3091887dfd557e1353e313fa2d1dc789499ffd",
+    "bytes": 993692
+  },
+  {
+    "file": "rock-ground-rough.jpg",
+    "asset": "rocky_terrain_02",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rocky_terrain_02/rocky_terrain_02_rough_1k.jpg",
+    "license": "CC0 / Poly Haven",
+    "authors": {
+      "Amal Kumar": "All"
+    },
+    "dimensionsMetres": [
+      90.0,
+      90.0
+    ],
+    "sha256": "8652ee05de206888eb77f84df7c8080f6ffef27afadb7917127726570b66c45d",
+    "bytes": 437094
+  }
+]

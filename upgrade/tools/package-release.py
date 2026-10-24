@@ -1,6 +1,6 @@
 """Package verified local builds; never deploys or edits the original game/reel."""
 from pathlib import Path
-import zipfile,shutil,hashlib,json,subprocess,datetime
+import zipfile,shutil,hashlib,json,subprocess,datetime,sys
 U=Path(__file__).resolve().parents[1];root=U.parent;out=U/'release/packages';out.mkdir(parents=True,exist_ok=True)
 downloads=Path.home()/'Downloads'
 def files(folder):return sorted(p for p in folder.rglob('*') if p.is_file())
@@ -20,11 +20,13 @@ def archive(name,entries):
  return target
 def extras(prefix):
  return [(p,str(Path(prefix)/folder/p.relative_to(U/folder))) for folder in ['docs','licenses'] for p in files(U/folder)]
-app=U/'release/Milano Racing-win32-x64'
-assert (app/'Milano Racing.exe').is_file()
-entries=[(p,str(Path('Milano Racing')/p.relative_to(app))) for p in files(app) if 'licenses' not in p.relative_to(app).parts]
-entries+=extras('Milano Racing')
-windows=archive('Milano-Racing-Windows.zip',entries)
+artifacts=[]
+if '--browser-only' not in sys.argv:
+ app=U/'release/Milano Racing-win32-x64'
+ assert (app/'Milano Racing.exe').is_file()
+ entries=[(p,str(Path('Milano Racing')/p.relative_to(app))) for p in files(app) if 'licenses' not in p.relative_to(app).parts]
+ entries+=extras('Milano Racing')
+ artifacts.append(archive('Milano-Racing-Windows.zip',entries))
 entries=[(p,str(Path('Milano-Racing-Server')/p.relative_to(U/'server'))) for p in files(U/'server') if not any(x in p.parts for x in ['__pycache__','downloads','.venv']) and p.suffix!='.pyc' and p.name!='milano.env']
 server=archive('Milano-Racing-Server.zip',entries+extras('Milano-Racing-Server'))
 entries=[]
@@ -33,9 +35,10 @@ for folder in include:
  for p in files(U/folder):
   rel=p.relative_to(U);parts=rel.parts
   if any(x in parts for x in ['__pycache__','node_modules','deps','experiments','references','steering-before']):continue
-  if p.suffix in ['.pyc','.bin','.gltf','.blend','.blend1']:continue
+  if p.suffix in ['.pyc','.gltf','.blend','.blend1']:continue
+  if p.suffix=='.bin' and rel.as_posix()!='assets/livery/designer-uv.bin':continue
   entries.append((p,str(Path('Milano-Racing-Source/upgrade')/rel)))
-for p in [U/'build-base.py',U/'build-web.py',U/'package.json',U/'package-lock.json',U/'PROGRESS.txt']:
+for p in [U/'build-base.py',U/'build-web.py',U/'car_livery.py',U/'package.json',U/'package-lock.json',U/'PROGRESS.txt']:
  entries.append((p,str(Path('Milano-Racing-Source/upgrade')/p.relative_to(U))))
 for folder in ['server','desktop']:
  for p in files(U/folder):
@@ -45,6 +48,7 @@ for folder in ['server','desktop']:
   entries.append((p,str(Path('Milano-Racing-Source/upgrade')/rel)))
 for p in files(U/'qa'):
  if p.name=='release.json':continue # A bundle cannot contain its own hash manifest.
+ if p.name.endswith('-trace.json'):continue # Raw profiler streams stay in local QA.
  if p.suffix=='.json' or p.name in ['final-menu.png','final-menu-compact.png','monaco-camera-final-0.png','spa-circuit.png','milano-design.png','windows-app.png']:
   entries.append((p,str(Path('Milano-Racing-Source/upgrade/qa')/p.name)))
 source=archive('Milano-Racing-Source.zip',entries)
@@ -53,6 +57,7 @@ verify=U/'release'/('source-verification-'+datetime.datetime.now().strftime('%Y%
 verify.mkdir()
 with zipfile.ZipFile(source) as z:z.extractall(verify)
 vroot=verify/'Milano-Racing-Source'
+subprocess.run(['npm.cmd','ci','--ignore-scripts','--prefer-offline'],cwd=vroot/'upgrade',check=True)
 subprocess.run(['python','upgrade/build-base.py'],cwd=vroot,check=True)
 subprocess.run(['node','--check','upgrade/qa/game.js'],cwd=vroot,check=True)
 subprocess.run(['python','upgrade/build-web.py'],cwd=vroot,check=True)
@@ -60,9 +65,9 @@ a=sha(U/'qa/standalone.html');b=sha(vroot/'upgrade/qa/standalone.html')
 assert a==b,'Extracted source build differs from release HTML'
 assert sha(U/'server/public/index.html')==sha(vroot/'upgrade/server/public/index.html')
 print('Extracted source build matches both release outputs byte-for-byte.',flush=True)
-standalone=out/'Milano Racing - Grand Prix.html';shutil.copy2(U/'qa/standalone.html',standalone)
-manifest={'build':'Milano Racing Grand Prix 2.0','date':datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date().isoformat(),'privateDeploymentDefault':True,'published':False,'sourceRebuild':'Extracted ZIP produces byte-identical standalone HTML and hosted index','files':[]}
-for p in [windows,server,source,standalone]:
+standalone=out/'Milano Racing.html';shutil.copy2(U/'qa/standalone.html',standalone)
+manifest={'build':'Milano Racing 3.0 performance update','date':datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date().isoformat(),'privateDeploymentDefault':True,'published':False,'sourceRebuild':'Extracted ZIP produces byte-identical standalone HTML and hosted index','files':[]}
+for p in artifacts+[server,source,standalone]:
  dest=downloads/p.name
  if dest.exists() and sha(dest)!=sha(p):
   backup=downloads/(p.stem+' - previous '+datetime.datetime.now().strftime('%Y%m%d-%H%M%S')+p.suffix);shutil.copy2(dest,backup)

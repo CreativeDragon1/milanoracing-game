@@ -1,0 +1,281 @@
+{
+  "scope": "Seeded identical scene, camera, lighting and quality; only material/box sharing differs.",
+  "reports": [
+    {
+      "id": "monza",
+      "label": "before",
+      "views": [
+        {
+          "fraction": 0.01,
+          "calls": 2029,
+          "triangles": 9112135,
+          "batches": {
+            "bounded": 774,
+            "tiles": 42,
+            "instances": 94356,
+            "mergedDrawBatches": 277,
+            "sharedDetailDrawsSaved": 0
+          }
+        },
+        {
+          "fraction": 0.25,
+          "calls": 601,
+          "triangles": 6986002,
+          "batches": {
+            "bounded": 774,
+            "tiles": 42,
+            "instances": 94356,
+            "mergedDrawBatches": 277,
+            "sharedDetailDrawsSaved": 0
+          }
+        },
+        {
+          "fraction": 0.65,
+          "calls": 1770,
+          "triangles": 9366391,
+          "batches": {
+            "bounded": 774,
+            "tiles": 42,
+            "instances": 94356,
+            "mergedDrawBatches": 277,
+            "sharedDetailDrawsSaved": 0
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "monza",
+      "label": "after",
+      "views": [
+        {
+          "fraction": 0.01,
+          "calls": 1903,
+          "triangles": 9124303,
+          "batches": {
+            "bounded": 651,
+            "tiles": 42,
+            "instances": 94380,
+            "mergedDrawBatches": 403,
+            "sharedDetailDrawsSaved": 21,
+            "materialReuses": 1654,
+            "canonicalBoxes": 28
+          }
+        },
+        {
+          "fraction": 0.25,
+          "calls": 589,
+          "triangles": 6986818,
+          "batches": {
+            "bounded": 651,
+            "tiles": 42,
+            "instances": 94380,
+            "mergedDrawBatches": 403,
+            "sharedDetailDrawsSaved": 21,
+            "materialReuses": 1654,
+            "canonicalBoxes": 28
+          }
+        },
+        {
+          "fraction": 0.65,
+          "calls": 1554,
+          "triangles": 9377191,
+          "batches": {
+            "bounded": 651,
+            "tiles": 42,
+            "instances": 94380,
+            "mergedDrawBatches": 403,
+            "sharedDetailDrawsSaved": 21,
+            "materialReuses": 1654,
+            "canonicalBoxes": 28
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "interlagos",
+      "label": "before",
+      "views": [
+        {
+          "fraction": 0.01,
+          "calls": 747,
+          "triangles": 6812794,
+          "batches": {
+            "bounded": 265,
+            "tiles": 0,
+            "instances": 73244,
+            "mergedDrawBatches": 75,
+            "sharedDetailDrawsSaved": 0
+          }
+        },
+        {
+          "fraction": 0.25,
+          "calls": 435,
+          "triangles": 5721453,
+          "batches": {
+            "bounded": 265,
+            "tiles": 0,
+            "instances": 73244,
+            "mergedDrawBatches": 75,
+            "sharedDetailDrawsSaved": 0
+          }
+        },
+        {
+          "fraction": 0.65,
+          "calls": 1264,
+          "triangles": 7304767,
+          "batches": {
+            "bounded": 265,
+            "tiles": 0,
+            "instances": 73244,
+            "mergedDrawBatches": 75,
+            "sharedDetailDrawsSaved": 0
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "interlagos",
+      "label": "after",
+      "views": [
+        {
+          "fraction": 0.01,
+          "calls": 717,
+          "triangles": 6823522,
+          "batches": {
+            "bounded": 233,
+            "tiles": 0,
+            "instances": 73267,
+            "mergedDrawBatches": 110,
+            "sharedDetailDrawsSaved": 20,
+            "materialReuses": 739,
+            "canonicalBoxes": 28
+          }
+        },
+        {
+          "fraction": 0.25,
+          "calls": 435,
+          "triangles": 5721453,
+          "batches": {
+            "bounded": 233,
+            "tiles": 0,
+            "instances": 73267,
+            "mergedDrawBatches": 110,
+            "sharedDetailDrawsSaved": 20,
+            "materialReuses": 739,
+            "canonicalBoxes": 28
+          }
+        },
+        {
+          "fraction": 0.65,
+          "calls": 1216,
+          "triangles": 7320199,
+          "batches": {
+            "bounded": 233,
+            "tiles": 0,
+            "instances": 73267,
+            "mergedDrawBatches": 110,
+            "sharedDetailDrawsSaved": 20,
+            "materialReuses": 739,
+            "canonicalBoxes": 28
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "singapore",
+      "label": "before",
+      "views": [
+        {
+          "fraction": 0.01,
+          "calls": 569,
+          "triangles": 2578204,
+          "batches": {
+            "bounded": 342,
+            "tiles": 0,
+            "instances": 134100,
+            "mergedDrawBatches": 274,
+            "sharedDetailDrawsSaved": 0
+          }
+        },
+        {
+          "fraction": 0.25,
+          "calls": 1171,
+          "triangles": 6491415,
+          "batches": {
+            "bounded": 342,
+            "tiles": 0,
+            "instances": 134100,
+            "mergedDrawBatches": 274,
+            "sharedDetailDrawsSaved": 0
+          }
+        },
+        {
+          "fraction": 0.65,
+          "calls": 953,
+          "triangles": 4425601,
+          "batches": {
+            "bounded": 342,
+            "tiles": 0,
+            "instances": 134100,
+            "mergedDrawBatches": 274,
+            "sharedDetailDrawsSaved": 0
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "singapore",
+      "label": "after",
+      "views": [
+        {
+          "fraction": 0.01,
+          "calls": 555,
+          "triangles": 2578276,
+          "batches": {
+            "bounded": 349,
+            "tiles": 0,
+            "instances": 134156,
+            "mergedDrawBatches": 276,
+            "sharedDetailDrawsSaved": 47,
+            "materialReuses": 1279,
+            "canonicalBoxes": 64
+          }
+        },
+        {
+          "fraction": 0.25,
+          "calls": 1159,
+          "triangles": 6491583,
+          "batches": {
+            "bounded": 349,
+            "tiles": 0,
+            "instances": 134156,
+            "mergedDrawBatches": 276,
+            "sharedDetailDrawsSaved": 47,
+            "materialReuses": 1279,
+            "canonicalBoxes": 64
+          }
+        },
+        {
+          "fraction": 0.65,
+          "calls": 954,
+          "triangles": 4425733,
+          "batches": {
+            "bounded": 349,
+            "tiles": 0,
+            "instances": 134156,
+            "mergedDrawBatches": 276,
+            "sharedDetailDrawsSaved": 47,
+            "materialReuses": 1279,
+            "canonicalBoxes": 64
+          }
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

@@ -1,12 +1,14 @@
 // ---- render and simulation loop ----
-function resize(){if(!ren)return;ren.setPixelRatio(S.q?1:Math.min((devicePixelRatio||1)*(graphicsPreset==='ultra'?1.25:1),1.75));ren.setSize(innerWidth,innerHeight,false);ren.shadowMap.enabled=!S.q;cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();resizeFX()}
-addEventListener('resize',resize);resize();
-const cp=new T.Vector3(),lk=new T.Vector3(),lookSmooth=new T.Vector3(),sunFollow=new T.Vector3();let last=performance.now();placeCar(0);$('track-length').textContent=(LEN/1000).toFixed(2)+' KM';
+let resizeStamp='',resizeTimer;
+function resize(){if(!ren)return;const {w,h}=viewportSize(),pr=renderPixelRatio(),stamp=[w,h,pr,S.q].join(':');if(stamp===resizeStamp)return;resizeStamp=stamp;ren.setPixelRatio(pr);ren.setSize(w,h,false);ren.shadowMap.enabled=!S.q;cam.aspect=w/h;cam.updateProjectionMatrix();resizeFX()}
+addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(resize,120)});window.visualViewport?.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(resize,120)});resize();
+
+const cp=new T.Vector3(),lk=new T.Vector3(),lookSmooth=new T.Vector3(),sunFollow=new T.Vector3(),roadAhead=new T.Vector3();let lastProjectionFov=-1;let last=performance.now();placeCar(0);$('track-length').textContent=(LEN/1000).toFixed(2)+' KM';
 const shadowGroundRotation=new T.Quaternion().setFromAxisAngle(new T.Vector3(1,0,0),-Math.PI/2);
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let previousPose=null,lastHudPaint=0,lastPanelDraw=-Infinity,lastPanelScreen='',lastPanelQuality='',lastShowroomDraw=-Infinity;
-function interpolatedPose(){if(snap||state!=='race'||!previousPose||Math.hypot(c.x-previousPose.x,c.z-previousPose.z)>35)return c;const a=clamp(acc/H,0,1),p=previousPose;return {...c,x:p.x+(c.x-p.x)*a,z:p.z+(c.z-p.z)*a,h:p.h+Math.atan2(Math.sin(c.h-p.h),Math.cos(c.h-p.h))*a,vx:p.vx+(c.vx-p.vx)*a};}
-function frame(now){requestAnimationFrame(frame);const dt=Math.min(.1,Math.max(0,(now-last)/1000));last=now;if(document.hidden){audioUpd();return}pollController(now);if(typeof MP!=='undefined')mpFrame(now,dt);
+let previousPose=null,lastHudPaint=0,lastPanelDraw=-Infinity,lastPanelScreen='',lastPanelQuality='',lastShowroomDraw=-Infinity,lastMobileDraw=-Infinity;
+function interpolatedPose(){if(snap||state!=='race'||!previousPose||Math.hypot(c.x-previousPose.x,c.z-previousPose.z)>35)return c;const a=clamp(acc/H,0,1),p=previousPose;return {...c,x:p.x+(c.x-p.x)*a,z:p.z+(c.z-p.z)*a,h:p.h+Math.atan2(Math.sin(c.h-p.h),Math.cos(c.h-p.h))*a,vx:p.vx+(c.vx-p.vx)*a,d:p.d+(c.d-p.d)*a,odo:p.odo+(c.odo-p.odo)*a,st:p.st+(c.st-p.st)*a};}
+function frame(now){requestAnimationFrame(frame);if(!window.MilanoReady)return;const dt=Math.min(.1,Math.max(0,(now-last)/1000));last=now;if(document.hidden||renderContextLost){audioUpd();return}pollController(now);if(typeof MP!=='undefined')mpFrame(now,dt);
  const panel=document.body.dataset.screen;
  // Opaque settings need a fresh backdrop only on entry/quality change. Input,
  // audio and network polling continue; driving never uses this render throttle.
@@ -14,18 +16,20 @@ function frame(now){requestAnimationFrame(frame);const dt=Math.min(.1,Math.max(0
   if(panel===lastPanelScreen&&graphicsPreset===lastPanelQuality&&now-lastPanelDraw<250){audioUpd(dt);return}lastPanelDraw=now;
  }lastPanelScreen=panel;lastPanelQuality=graphicsPreset;
  if(state==='count'){if(typeof MP!=='undefined'&&MP.active)race.cd=(MP.startAt-(Date.now()+MP.clockOffset))/1000;else race.cd-=dt;if(typeof GP!=='undefined'&&GP.weekend?.phase==='race')$('cdn').innerHTML=Array.from({length:5},(_,i)=>'<i class="start-light '+(race.cd<7.2-i?'on':'')+'"></i>').join('');else $('cdn').textContent=race.cd>0?Math.ceil(race.cd):'GO';if(race.cd<=0){state='race';show('none');msg('GO',1300)}}
- if(state==='race'){acc+=dt;let n=0;while(acc>=H&&n++<12&&state==='race'){previousPose={x:c.x,z:c.z,h:c.h,vx:c.vx};step(H);acc-=H}if(acc>H)acc=0}
+ if(state==='race'){acc+=dt;let n=0;while(acc>=H&&n++<12&&state==='race'){previousPose={x:c.x,z:c.z,h:c.h,vx:c.vx,d:c.d,odo:c.odo,st:c.st};step(H);acc-=H}if(acc>H)acc=0}
  // The slowly orbiting home scene needs 30 fps; racing retains the display rate.
  // Input, countdown, network and CSS motion continue at their existing cadence.
- if(state==='menu'){if(now-lastShowroomDraw<1000/30){audioUpd(dt);return}lastShowroomDraw=now}
- const view=interpolatedPose();
- const showroom=state==='menu',baseY=showroom?groundHeight(0,0):typeof GP!=='undefined'&&GP.weekend?.player.pit?GP.weekend.pitPose(GP.weekend.player).y:roadHeightAt(view.x,view.z,view.idx),pitch=showroom?0:typeof GP!=='undefined'&&GP.weekend?.player.pit?GP.weekend.pitPose(GP.weekend.player).pitch:roadPitchAt(view.x,view.z,view.h,view.idx);if(showroom){car.position.set(0,baseY,0);car.rotation.set(0,0,0,'YXZ')}else{car.position.set(view.x,baseY+(Math.abs(view.d)>trackHalf(view.idx,Math.sign(view.d))&&view.vx>2?Math.sin(view.odo*5)*.009:0),view.z);car.rotation.set(typeof GP!=='undefined'&&GP.weekend?.player.pit?0:-bankAt(view.idx),-view.h,pitch,'YXZ')}
+ if(state==='menu'){if(now-lastShowroomDraw<1000/30){audioUpd(dt);return}lastShowroomDraw=now;resize();audioUpd(dt);renderGame();return}
+ resize();
+ if(device.mobile){if(now-lastMobileDraw<1000/60-.7){audioUpd(dt);return}lastMobileDraw=now;}
+ const view=interpolatedPose(),surfaceStation=state==='menu'?0:prog(view.x,view.z,view.idx).s*N/LEN;
+ const showroom=state==='menu',baseY=showroom?groundHeight(0,0):typeof GP!=='undefined'&&GP.weekend?.player.pit?GP.weekend.pitPose(GP.weekend.player).y:roadHeightAt(view.x,view.z,view.idx),pitch=showroom?0:typeof GP!=='undefined'&&GP.weekend?.player.pit?GP.weekend.pitPose(GP.weekend.player).pitch:roadPitchAt(view.x,view.z,view.h,view.idx);if(showroom){car.position.set(0,baseY,0);car.rotation.set(0,0,0,'YXZ')}else{car.position.set(view.x,baseY,view.z);car.rotation.set(typeof GP!=='undefined'&&GP.weekend?.player.pit?0:-bankAt(surfaceStation),-view.h,pitch,'YXZ')}
  const spin=showroom?0:view.vx/.37;for(const w of wheels){w.sp.rotation.z=(w.sp.rotation.z-spin*dt)%(Math.PI*2);if(w.front)w.pv.rotation.y=showroom?-.1:-view.st}
  rainLight.material.emissiveIntensity=showroom?.5:inp.b>.1?3:.6;
  const co=Math.cos(view.h),si=Math.sin(view.h),v=view.vx;
  if(showroom){const t=reducedMotion?0:Math.sin(now*.00008)*.16;cp.set(5.9+Math.sin(t)*1.4,1.6,-5.6+Math.cos(t)*.25);lk.set(.7,.55,1.25);cp.y+=baseY;lk.y+=baseY;cam.fov=46;cam.position.copy(cp);lookSmooth.copy(lk);snap=true}
  else{
-  const forward=Math.round((8+v*.22)/(LEN/N)),ahead=(view.idx+forward)%N,roadAhead=new T.Vector3(cx[ahead],cy[ahead]+.6,cz[ahead]),headingAhead=Math.atan2(tz[ahead],tx[ahead]);
+  const station=surfaceStation,ahead=(station+(8+v*.22)/(LEN/N))%N,ai=Math.floor(ahead),aj=(ai+1)%N,u=ahead-ai;roadAhead.set(cx[ai]+(cx[aj]-cx[ai])*u,sampleHeight(ahead)+.6,cz[ai]+(cz[aj]-cz[ai])*u);const headingAhead=Math.atan2(tz[ai]+(tz[aj]-tz[ai])*u,tx[ai]+(tx[aj]-tx[ai])*u);
   const turn=Math.atan2(Math.sin(headingAhead-view.h),Math.cos(headingAhead-view.h)),lookDistance=10+v*.17;
   const fx=view.x+co*lookDistance,fz=view.z+si*lookDistance,blend=clamp(Math.abs(turn)*1.8,.10,.55);
   lk.set(fx*(1-blend)+roadAhead.x*blend,.65,fz*(1-blend)+roadAhead.z*blend);
@@ -44,7 +48,7 @@ function frame(now){requestAnimationFrame(frame);const dt=Math.min(.1,Math.max(0
   cam.fov=camMode===3?51:camMode===2?55+v*.045:camMode===1?76:61+v*.055;
  }
 
- cam.lookAt(lookSmooth);cam.updateProjectionMatrix();updateVegetation(now);
+ cam.lookAt(lookSmooth);if(Math.abs(cam.fov-lastProjectionFov)>.015){cam.updateProjectionMatrix();lastProjectionFov=cam.fov;}updateVegetation(now);
  const px=car.position.x,pz=car.position.z;sun.position.copy(sunDirection).multiplyScalar(230).add(sunFollow.set(px,baseY,pz));sun.target.position.set(px,baseY,pz);sun.target.updateMatrixWorld();contactShadow.position.set(px,baseY+.049,pz);contactShadow.quaternion.copy(car.quaternion).multiply(shadowGroundRotation);
  windTime.value=reducedMotion?0:now*.001;sky.position.copy(cam.position);waterNormals.offset.set(windTime.value*.004,windTime.value*.002);
  if(msgT&&now>msgT){$('msg').textContent='';msgT=0}

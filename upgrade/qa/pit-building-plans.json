@@ -1,0 +1,74 @@
+[
+  {
+    "circuit": "singapore",
+    "id": 49890775,
+    "name": "F1 Pit Building",
+    "sections": 23,
+    "originalOverlapM2": 716.709,
+    "newOverlapM2": 0
+  },
+  {
+    "circuit": "monza",
+    "id": 34404652,
+    "name": "Palazzina Box",
+    "sections": 17,
+    "originalOverlapM2": 0.0,
+    "newOverlapM2": 0
+  },
+  {
+    "circuit": "austria",
+    "id": 118364939,
+    "name": "Box",
+    "sections": 22,
+    "originalOverlapM2": 0.0,
+    "newOverlapM2": 0
+  },
+  {
+    "circuit": "silverstone",
+    "id": 227332429,
+    "name": "Silverstone Wing",
+    "sections": 26,
+    "originalOverlapM2": 121.368,
+    "newOverlapM2": 0
+  },
+  {
+    "circuit": "spa",
+    "id": 77352246,
+    "name": "Stand F1",
+    "sections": 18,
+    "originalOverlapM2": 0.0,
+    "newOverlapM2": 0
+  },
+  {
+    "circuit": "spa",
+    "id": 77352249,
+    "name": "Stand Endurance",
+    "sections": 9,
+    "originalOverlapM2": 0.0,
+    "newOverlapM2": 0
+  },
+  {
+    "circuit": "suzuka",
+    "id": 184422099,
+    "name": "\u30d4\u30c3\u30c8\u30d3\u30eb",
+    "sections": 21,
+    "originalOverlapM2": 0.0,
+    "newOverlapM2": 0
+  },
+  {
+    "circuit": "interlagos",
+    "id": 33779114,
+    "name": "",
+    "sections": 22,
+    "originalOverlapM2": 756.85,
+    "newOverlapM2": 0
+  },
+  {
+    "circuit": "zandvoort",
+    "id": 52473177,
+    "name": "Pitgebouw",
+    "sections": 11,
+    "originalOverlapM2": 0.0,
+    "newOverlapM2": 0
+  }
+]

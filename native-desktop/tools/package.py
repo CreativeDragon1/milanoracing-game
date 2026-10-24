@@ -1,6 +1,6 @@
 """Package the tested native desktop build and prepared Godot source snapshot."""
 from pathlib import Path
-import hashlib,json,zipfile,shutil,datetime
+import hashlib,json,zipfile,shutil,datetime,sys
 
 N=Path(__file__).resolve().parents[1];D=Path.home()/'Downloads';OUT=N/'packages';OUT.mkdir(exist_ok=True)
 def sha(p):
@@ -9,9 +9,9 @@ def sha(p):
         for block in iter(lambda:f.read(4*1024*1024),b''):h.update(block)
     return h.hexdigest()
 report=json.loads((N/'qa/packaged-rendering.json').read_text())
-assert len(report['reports'])==12
-assert report['exeSHA256']==sha(N/'build/Milano Racing Native.exe')
-assert report['packSHA256']==sha(N/'build/Milano Racing Native.pck')
+assert {r['circuit'] for r in report['reports']}==set(json.loads((N/'game/circuits/physics.json').read_text()))
+assert report['exeSHA256']==sha(N/'build/Milano Apex.exe')
+assert report['packSHA256']==sha(N/'build/Milano Apex.pck')
 assert all(r['instanceErrors']==0 for r in report['reports'])
 assert all(r['race']['drivers']==22 and r['race']['finiteDrivers'] for r in report['reports'])
 modes=json.loads((N/'qa/packaged-modes.json').read_text())
@@ -20,13 +20,17 @@ assert {r['mode'] for r in modes['reports']}=={'full-monaco','full-spa','rain','
 drive=json.loads((N/'qa/packaged-input.json').read_text())
 assert drive['exeSHA256']==report['exeSHA256'] and drive['packSHA256']==report['packSHA256']
 assert drive['inputSmoke']['peakKmh']>50 and drive['inputSmoke']['finitePosition']
-for name in ['race','vehicle','online','ui']:
+comparison=json.loads((N/'qa/performance-comparison.json').read_text())
+assert comparison['packSHA256']==report['packSHA256'],'Performance comparison must use this resource pack'
+for name in ['race','vehicle','online','ui','learning','traffic']:
     checks=json.loads((N/f'qa/{name}.json').read_text())
-    assert checks['passed'] and not checks['failures'],name
+    assert checks['passed'] and not checks.get('failures',[]),name
+assert json.loads((N/'qa/car-livery.json').read_text())['passed']
+assert json.loads((N/'qa/circuit-map.json').read_text())['passed']
 reel=json.loads((N/'qa/home-reel.json').read_text())
 assert reel['decodePassed'] and reel['sha256']==sha(N/'game/assets/home-reel.ogv')
 def source_files():
-    evidence={'tree-grounding.json','race.json','vehicle.json','online.json','ui.json','home-reel.json','packaged-rendering.json','packaged-modes.json','packaged-input.json'}
+    evidence={'traffic.json','icon.json','tree-grounding.json','race.json','vehicle.json','online.json','ui.json','home-reel.json','packaged-rendering.json','packaged-modes.json','packaged-input.json','learning.json','performance-comparison.json','car-livery.json','circuit-map.json'}
     for root in ['game','tools','docs','licenses','qa']:
         for p in (N/root).rglob('*'):
             if not p.is_file():continue
@@ -38,8 +42,8 @@ def source_files():
             if root=='tools' and p.name in ['_sc_','inspect-engine.gd']:continue
             if root=='qa' and p.name=='release.json':continue
             if p.name=='inspect_car.gd':continue
-            yield p,Path('Milano-Racing-Native-Source')/rel
-    for name in ['README.md','.gitignore']:yield N/name,Path('Milano-Racing-Native-Source')/name
+            yield p,Path('Milano-Apex-Source')/rel
+    for name in ['README.md','.gitignore']:yield N/name,Path('Milano-Apex-Source')/name
 def archive(name,entries):
     path=OUT/name
     with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
@@ -47,13 +51,19 @@ def archive(name,entries):
     with zipfile.ZipFile(path) as z:assert z.testzip() is None
     print(name,round(path.stat().st_size/1024**2,1),'MiB; CRC passed',flush=True)
     return path
-base=Path('Milano Racing Native')
-entries=[(p,base/p.name) for p in (N/'build').glob('*') if p.suffix in ['.exe','.pck']]
+base=Path('Milano Apex')
+entries=[(p,base/p.name) for p in [N/'build/Milano Apex.exe',N/'build/Milano Apex.pck']]
 entries.append((N/'README.md',base/'README.md'))
 for folder in ['docs','licenses']:
     entries.extend((p,base/folder/p.relative_to(N/folder)) for p in (N/folder).rglob('*') if p.is_file())
-binary=archive('Milano-Racing-Native-Windows.zip',entries)
-source=archive('Milano-Racing-Native-Source.zip',source_files())
+if '--source-only' in sys.argv:
+    binary=OUT/'Milano-Apex-Windows.zip'
+    previous=json.loads((N/'qa/release.json').read_text())
+    assert previous['exeSHA256']==report['exeSHA256'] and previous['packSHA256']==report['packSHA256']
+    assert sha(binary)==next(f['sha256'] for f in previous['files'] if f['name']==binary.name)
+else:
+    binary=archive('Milano-Apex-Windows.zip',entries)
+source=archive('Milano-Apex-Source.zip',source_files())
 files=[]
 for p in [binary,source]:
     destination=D/p.name
@@ -61,7 +71,19 @@ for p in [binary,source]:
         shutil.copy2(destination,D/(p.stem+' - previous '+datetime.datetime.now().strftime('%Y%m%d-%H%M%S')+p.suffix))
     shutil.copy2(p,destination);digest=sha(p);assert sha(destination)==digest
     files.append({'name':p.name,'bytes':p.stat().st_size,'sha256':digest,'downloadsPath':str(destination)})
-manifest={'version':'0.2.0','scope':'Native practice, 22-car AI races, qualifying, private-server online client and recorded cinematic home screen. Reconstructed venues; commercial-reference visual parity is not claimed.','publicWebsiteDeployed':False,'exeSHA256':report['exeSHA256'],'packSHA256':report['packSHA256'],'files':files}
+manifest={'version':'0.3.0','scope':'Native practice, 22-car AI races, qualifying, private-server online client and recorded cinematic home screen. Reconstructed venues; commercial-reference visual parity is not claimed.','publicWebsiteDeployed':False,'exeSHA256':report['exeSHA256'],'packSHA256':report['packSHA256'],'files':files}
+# Keep a ready-to-launch copy alongside the archives. The older Native folder
+# remains available for rollback and the measured baseline.
+installed=D/'Milano Apex';installed.mkdir(exist_ok=True)
+for name in ['Milano Apex.exe','Milano Apex.pck']:
+    target=installed/name
+    if target.exists() and sha(target)!=sha(N/'build'/name):
+        shutil.copy2(target,installed/(target.stem+' - previous '+datetime.datetime.now().strftime('%Y%m%d-%H%M%S')+target.suffix))
+    shutil.copy2(N/'build'/name,target)
+    assert sha(target)==sha(N/'build'/name)
+for folder in ['docs','licenses']:shutil.copytree(N/folder,installed/folder,dirs_exist_ok=True)
+shutil.copy2(N/'README.md',installed/'README.md')
+manifest['readyToLaunch']=str(installed/'Milano Apex.exe')
 (N/'qa/release.json').write_text(json.dumps(manifest,indent=2))
-(D/'Milano-Racing-Native-SHA256SUMS.txt').write_text(''.join(f['sha256']+'  '+f['name']+'\n' for f in files))
+(D/'Milano-Apex-SHA256SUMS.txt').write_text(''.join(f['sha256']+'  '+f['name']+'\n' for f in files))
 print(json.dumps(manifest,indent=2),flush=True)

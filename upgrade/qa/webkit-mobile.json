@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "reports": [
+    {
+      "id": "singapore",
+      "mobile": true,
+      "webgl2": true,
+      "assets": [],
+      "renderer": "WebKit WebGL"
+    },
+    {
+      "id": "milano",
+      "mobile": true,
+      "webgl2": true,
+      "assets": [],
+      "renderer": "WebKit WebGL"
+    }
+  ],
+  "scope": "Desktop WebKit compatibility and touch taps; not a physical iOS device."
+}

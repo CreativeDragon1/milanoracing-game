@@ -1,0 +1,49 @@
+{
+  "type": 1,
+  "name": "Gravel",
+  "categories": [
+    "floor",
+    "outdoor"
+  ],
+  "tags": [
+    "rock",
+    "stones",
+    "driveway gravel",
+    "gravel",
+    "gravelly",
+    "gravelly ground",
+    "stony",
+    "scattered leaves",
+    "plant debris",
+    "dirt",
+    "fallen leaves"
+  ],
+  "description": "Free 8k gravel texture of dark, compacted driveway stones with mixed pebbles, dirt, scattered leaves and bits of plant debris.",
+  "authors": {
+    "Dimitrios Savva": "All"
+  },
+  "max_resolution": [
+    8192,
+    8192
+  ],
+  "dimensions": [
+    2000,
+    2000
+  ],
+  "files_hash": "3d71721e18cf9072d850823aa29639ecb3b744f5",
+  "staging": null,
+  "date_published": 1763683200,
+  "category_id": "a97bb631-d60c-54fb-ba1b-2121cbed91c6",
+  "category": "Ground & Terrain/Gravel & Pebbles/Driveway Gravel",
+  "attributes": {
+    "surface_use": "ground",
+    "origin": "natural",
+    "setting": "outdoor",
+    "condition": [
+      "clean"
+    ]
+  },
+  "img_version": "e8dfa600",
+  "download_count": 4707,
+  "thumbnail_url": "https://cdn.polyhaven.com/asset_img/thumbs/gravel.png?width=256&height=256&format=webp&v=e8dfa600"
+}

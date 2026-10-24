@@ -1,0 +1,86 @@
+[
+  {
+    "circuit": "bahrain",
+    "checked": 6234,
+    "boxInstances": 91944,
+    "hits": []
+  },
+  {
+    "circuit": "singapore",
+    "checked": 6306,
+    "boxInstances": 133998,
+    "hits": []
+  },
+  {
+    "circuit": "monza",
+    "checked": 6132,
+    "boxInstances": 76022,
+    "hits": []
+  },
+  {
+    "circuit": "monaco",
+    "checked": 5562,
+    "boxInstances": 120995,
+    "hits": []
+  },
+  {
+    "circuit": "austria",
+    "checked": 6852,
+    "boxInstances": 71677,
+    "hits": []
+  },
+  {
+    "circuit": "silverstone",
+    "checked": 7284,
+    "boxInstances": 130235,
+    "hits": []
+  },
+  {
+    "circuit": "abu-dhabi",
+    "checked": 7176,
+    "boxInstances": 109243,
+    "hits": []
+  },
+  {
+    "circuit": "milano",
+    "checked": 6378,
+    "boxInstances": 36792,
+    "hits": []
+  },
+  {
+    "circuit": "spa",
+    "checked": 5922,
+    "boxInstances": 37267,
+    "hits": []
+  },
+  {
+    "circuit": "suzuka",
+    "checked": 6534,
+    "boxInstances": 50627,
+    "hits": []
+  },
+  {
+    "circuit": "interlagos",
+    "checked": 7944,
+    "boxInstances": 68055,
+    "hits": []
+  },
+  {
+    "circuit": "zandvoort",
+    "checked": 6102,
+    "boxInstances": 14826,
+    "hits": []
+  },
+  {
+    "circuit": "riviera",
+    "checked": 5730,
+    "boxInstances": 13620,
+    "hits": []
+  },
+  {
+    "circuit": "solara",
+    "checked": 6138,
+    "boxInstances": 9572,
+    "hits": []
+  }
+]

@@ -13,12 +13,17 @@ func configure(world: Node3D,track: Dictionary,vehicle: Node3D) -> void:
 	target=vehicle
 	var road := ShaderMaterial.new()
 	road.shader=load("res://scripts/road.gdshader")
-	road.set_shader_parameter("color_map",load("res://assets/surfaces/asphalt-color.jpg"))
-	road.set_shader_parameter("normal_map",load("res://assets/surfaces/asphalt-normal.jpg"))
-	road.set_shader_parameter("rough_map",load("res://assets/surfaces/asphalt-rough.jpg"))
+	road.set_shader_parameter("color_map",load("res://assets/surfaces/asphalt-fine-color.webp"))
+	road.set_shader_parameter("normal_map",load("res://assets/surfaces/asphalt-fine-normal.webp"))
+	road.set_shader_parameter("rough_map",load("res://assets/surfaces/asphalt-fine-rough.webp"))
 	roads.append(road)
+	await get_tree().process_frame
 	var surface_cache := {}
+	var deadline:=Time.get_ticks_usec()+3000
 	for node in world.get_children():
+		if Time.get_ticks_usec()>deadline:
+			await get_tree().process_frame
+			deadline=Time.get_ticks_usec()+3000
 		if not node is GeometryInstance3D: continue
 		var name_lower := str(node.get_meta("source_name",node.name)).to_lower()
 		if name_lower.begins_with("main racing surface") or name_lower.begins_with("pit-lane asphalt") or name_lower.begins_with("mapped surrounding road") or name_lower.begins_with("mapped asphalt"):
@@ -45,13 +50,19 @@ func configure(world: Node3D,track: Dictionary,vehicle: Node3D) -> void:
 				if base is StandardMaterial3D:
 					var glass: StandardMaterial3D=base.duplicate(); glass.roughness=.16; glass.metallic=.3; glass.metallic_specular=.65
 					node.material_override=glass
-	build_rubber(track)
+	await get_tree().process_frame
+	await build_rubber(track)
+	await get_tree().process_frame
 	build_particles()
 
 func build_rubber(track: Dictionary) -> void:
 	# Thin accumulated rubber follows the existing optimized line and terrain bank.
 	var st := SurfaceTool.new(); st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var deadline:=Time.get_ticks_usec()+3000
 	for i in int(track.N):
+		if i%64==0 and Time.get_ticks_usec()>deadline:
+			await get_tree().process_frame
+			deadline=Time.get_ticks_usec()+3000
 		var j := (i+1)%int(track.N)
 		var points := []
 		for k in [i,j]:
@@ -102,7 +113,7 @@ func set_weather(value: float) -> void:
 	if rubber: rubber.visible=value<.5
 
 func _process(_dt: float) -> void:
-	if not is_instance_valid(target): return
+	if not is_instance_valid(target) or not is_instance_valid(rain) or not is_instance_valid(spray): return
 	rain.position=target.position+Vector3.UP*9
 	var forward := Vector3(cos(target.heading),0,sin(target.heading))
 	spray.position=target.position-forward*2.2+Vector3.UP*.25

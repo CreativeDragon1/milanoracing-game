@@ -1,0 +1,47 @@
+[
+  {
+    "circuit": "monza",
+    "station": 0.01,
+    "meanAbsolutePixelDifference255": 0.0
+  },
+  {
+    "circuit": "monza",
+    "station": 0.25,
+    "meanAbsolutePixelDifference255": 0.0
+  },
+  {
+    "circuit": "monza",
+    "station": 0.65,
+    "meanAbsolutePixelDifference255": 0.0
+  },
+  {
+    "circuit": "interlagos",
+    "station": 0.01,
+    "meanAbsolutePixelDifference255": 0.0
+  },
+  {
+    "circuit": "interlagos",
+    "station": 0.25,
+    "meanAbsolutePixelDifference255": 0.0
+  },
+  {
+    "circuit": "interlagos",
+    "station": 0.65,
+    "meanAbsolutePixelDifference255": 0.0
+  },
+  {
+    "circuit": "singapore",
+    "station": 0.01,
+    "meanAbsolutePixelDifference255": 0.0
+  },
+  {
+    "circuit": "singapore",
+    "station": 0.25,
+    "meanAbsolutePixelDifference255": 0.0
+  },
+  {
+    "circuit": "singapore",
+    "station": 0.65,
+    "meanAbsolutePixelDifference255": 0.0
+  }
+]

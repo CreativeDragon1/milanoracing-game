@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "changedUVVertices": {
+    "body": 48537,
+    "front-1": 0,
+    "front1": 0,
+    "rear-1": 0,
+    "rear1": 0
+  },
+  "unchanged": "all positions, normals and wheels; body uses matching Designer_Livery_UV",
+  "atlasSHA256": "341f7e5e5f96a08540c482017f25601f325bb6643a8c40358492b3edc05ad6ba",
+  "tagline": "Always the Fastest",
+  "errors": []
+}

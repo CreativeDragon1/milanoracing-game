@@ -9,17 +9,26 @@ var start_frame:=-1
 var rivals: Array[Node3D]=[]
 var shot:=0
 var duration_frames:=300
+var capture_seconds:=5.0
+var trailer:=false
+var capture_samples:Array=[]
 func configure(main: Node) -> void:
 	game=main
 	model=Model.new(); model.configure(game.circuit,game.pits[game.active_id],{"difficulty":3})
 	var stations:={"monza":.20,"singapore":.72,"spa":.06,"milano":.36}
 	shot=["monza","singapore","spa","milano"].find(game.active_id)
-	model.drivers[0].progress=stations.get(game.active_id,.2)*model.length
+	var fraction:float=stations.get(game.active_id,.2)
+	for arg in OS.get_cmdline_user_args():
+		if arg=="--trailer":trailer=true
+		if arg.begins_with("--capture-station="):fraction=float(arg.trim_prefix("--capture-station="))
+		if arg.begins_with("--capture-angle="):shot=int(arg.trim_prefix("--capture-angle="))
+		if arg.begins_with("--capture-seconds="):capture_seconds=float(arg.trim_prefix("--capture-seconds=")); duration_frames=int(round(capture_seconds*60))
+	model.drivers[0].progress=fraction*model.length
 	for i in 3:
 		var node:=Node3D.new(); node.add_child(game.vehicle.visual.duplicate()); game.world.add_child(node); rivals.append(node)
 	game.ui.hide(); game.racing_guide.hide(); game.vehicle.enabled=false
 	game.camera.fov=58
-	game.engine_audio.active=true
+	game.engine_audio.active=not trailer
 	if game.active_id=="singapore": game.apply_weather(1)
 	if game.active_id=="milano": game.light_mode=3; game.apply_lighting()
 
@@ -40,7 +49,7 @@ func update(dt: float) -> void:
 		var p:Dictionary=model.pose(other); rivals[i].position=p.position; rivals[i].rotation=Vector3(-p.bank,-p.heading,atan(p.grade))
 	var forward:=Vector3(cos(pose.heading),0,sin(pose.heading))
 	var right:=Vector3(-forward.z,0,forward.x)
-	var t:=clampf((clock-2)/5,0,1)
+	var t:=smoothstep(0.0,1.0,clampf((clock-2)/capture_seconds,0,1))
 	var location:Vector3
 	var focus:Vector3
 	match shot:
@@ -53,19 +62,31 @@ func update(dt: float) -> void:
 		2:
 			location=pose.position-forward*lerpf(10,8,t)-right*2.8+Vector3.UP*lerpf(5.8,3.2,t)
 			focus=pose.position+forward*6+Vector3.UP*1
+		3:
+			location=pose.position+forward*lerpf(10,8,t)-right*1.6+Vector3.UP*lerpf(5.2,2.4,t)
+			focus=pose.position+Vector3.UP*.6
+		4:
+			location=pose.position-forward*lerpf(11,8,t)+right*1.6+Vector3.UP*lerpf(8,5,t)
+			focus=pose.position+forward*5+Vector3.UP*.6
+		5:
+			location=pose.position-forward*8+right*lerpf(1.6,-1.6,t)+Vector3.UP*1.7
+			focus=pose.position+forward*3+Vector3.UP*.6
 		_:
 			location=pose.position-forward*7.5-right*2.2+Vector3.UP*1.5
 			focus=pose.position+forward*3+Vector3.UP*.6
 	game.camera.position=location
 	game.camera.look_at(focus)
-	game.camera.fov=58+4*t
+	game.camera.fov=(66 if trailer else 58)+4*t
 	game.update_near_shadows()
 	if clock>=2 and start_frame<0:
 		start_frame=Engine.get_process_frames()
 		print("CINEMATIC_BEGIN ",start_frame)
 	if start_frame>=0:
 		recorded+=1
+		if recorded%30==0:
+			var projected:Vector2=game.camera.unproject_position(pose.position+Vector3.UP*.5)
+			capture_samples.append({"station":station,"heading":pose.heading,"position":[pose.position.x,pose.position.y,pose.position.z],"screen":[projected.x,projected.y],"behind":game.camera.is_position_behind(pose.position),"speed":d.v})
 		if recorded>=duration_frames:
 			var file:=FileAccess.open("res://../qa/capture-"+game.active_id+".json",FileAccess.WRITE)
-			file.store_string(JSON.stringify({"circuit":game.active_id,"startFrame":start_frame,"frames":duration_frames,"fps":60,"source":"Native in-engine movie capture; scripted camera and racing-line-driven cars"},"\t")); file.close()
+			file.store_string(JSON.stringify({"circuit":game.active_id,"startFrame":start_frame,"frames":duration_frames,"fps":60,"samples":capture_samples,"source":"Native in-engine movie capture; scripted camera and racing-line-driven cars"},"\t")); file.close()
 			game.get_tree().quit()

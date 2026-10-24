@@ -5,7 +5,7 @@
     "violations": 0,
     "maxLateralStep": 0.013333333333333641,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 9.182161686003383
+    "minimumAlongGap": 9.14922111409669
   },
   {
     "id": "singapore",
@@ -13,23 +13,23 @@
     "violations": 0,
     "maxLateralStep": 0.013333333333333641,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 9.09533606525656
+    "minimumAlongGap": 9.13840971420359
   },
   {
     "id": "monza",
     "overlap": 0,
     "violations": 0,
-    "maxLateralStep": 0.013333333333333641,
+    "maxLateralStep": 0.013665172711603724,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 10.566851536772447
+    "minimumAlongGap": 10.561181640765426
   },
   {
     "id": "monaco",
     "overlap": 0,
     "violations": 0,
-    "maxLateralStep": 0.03488301660256932,
+    "maxLateralStep": 0.027875362499117262,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 8.466293516975384
+    "minimumAlongGap": 8.576746186283344
   },
   {
     "id": "austria",
@@ -37,7 +37,7 @@
     "violations": 0,
     "maxLateralStep": 0.013333333333333641,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 9.067980658703163
+    "minimumAlongGap": 9.291875035043631
   },
   {
     "id": "silverstone",
@@ -45,7 +45,7 @@
     "violations": 0,
     "maxLateralStep": 0.013333333333333641,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 9.34159851503864
+    "minimumAlongGap": 9.718216077661054
   },
   {
     "id": "abu-dhabi",
@@ -53,7 +53,7 @@
     "violations": 0,
     "maxLateralStep": 0.013333333333333641,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 9.223431287644416
+    "minimumAlongGap": 9.164569738717546
   },
   {
     "id": "milano",
@@ -61,7 +61,7 @@
     "violations": 0,
     "maxLateralStep": 0.013333333333333641,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 8.012924096383358
+    "minimumAlongGap": 9.683880943051918
   },
   {
     "id": "spa",
@@ -69,15 +69,15 @@
     "violations": 0,
     "maxLateralStep": 0.013333333333333641,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 9.339389167903391
+    "minimumAlongGap": 9.074257997644054
   },
   {
     "id": "suzuka",
     "overlap": 0,
     "violations": 0,
-    "maxLateralStep": 0.047977062032361406,
+    "maxLateralStep": 0.07839246089040053,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 10.221201131445923
+    "minimumAlongGap": 9.162124930524442
   },
   {
     "id": "interlagos",
@@ -85,7 +85,7 @@
     "violations": 0,
     "maxLateralStep": 0.013333333333333641,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 9.541435535704295
+    "minimumAlongGap": 9.087047941404307
   },
   {
     "id": "zandvoort",
@@ -93,6 +93,22 @@
     "violations": 0,
     "maxLateralStep": 0.013333333333333641,
     "maxSpeedStep": 0.31666666666667,
-    "minimumAlongGap": 9.476139308495476
+    "minimumAlongGap": 9.398598111582032
+  },
+  {
+    "id": "riviera",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.039555147469965135,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 10.789662241731548
+  },
+  {
+    "id": "solara",
+    "overlap": 0,
+    "violations": 0,
+    "maxLateralStep": 0.013333333333333641,
+    "maxSpeedStep": 0.31666666666667,
+    "minimumAlongGap": 11.648075743853951
   }
 ]

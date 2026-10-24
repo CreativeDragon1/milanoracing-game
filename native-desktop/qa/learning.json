@@ -1,0 +1,9 @@
+{
+	"afterMSE": 0.00000482104600819122,
+	"beforeMSE": 0.00310098374948097,
+	"checks": 17920,
+	"failures": [],
+	"passed": true,
+	"samples": 2400,
+	"scope": "Synthetic held-out regression and all-circuit pace/corridor bounds; not human-trained driving validation"
+}

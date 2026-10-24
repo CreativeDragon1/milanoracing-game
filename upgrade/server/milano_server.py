@@ -122,7 +122,7 @@ async def pwa(request):
 
 async def download(request):
  name=request.match_info['name']
- if name not in ('Milano-Racing-Windows.zip','Milano-Racing-Portable.zip'):raise web.HTTPNotFound()
+ if name not in ('Milano-Racing-Native-Windows.zip','Milano-Racing-Windows.zip','Milano-Racing-Portable.zip'):raise web.HTTPNotFound()
  path=ROOT/'downloads'/name
  if not path.is_file():raise web.HTTPNotFound(text='This download has not been uploaded to this server yet.')
  return web.FileResponse(path,headers={'Content-Disposition':'attachment; filename="'+name+'"','Cache-Control':'private, max-age=3600'})

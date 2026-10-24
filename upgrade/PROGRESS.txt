@@ -1,3 +1,7 @@
+MILANO RACING 3.0 PERFORMANCE UPDATE
+Fourteen circuits, including original Riviera and Solara designs; smoother controls/camera; local adaptive pace learning; shared browser opponent draws; cached foliage and scenery; native assets, buffers and bounds prepared offline.
+Current scope and evidence: docs/PERFORMANCE-UPDATE.md and docs/PERFORMANCE-RESULTS.md. Previous entries below are dated historical validation.
+
 MILANO RACING GRAND PRIX 2.0
 Local release candidate: 12 circuits, MR 26, qualifying and races, mapped pit lanes, variable widths, improved geographic scenery and cameras, online rooms, website integration and desktop package.
 Environment update: mapped neighbourhoods, bridge supports, shorelines, harbour infrastructure and expanded landmark architecture; primary sources and inspection frames in docs/Venue Environment Research.html. Reconstructed detail remains approximate where reference data is incomplete.

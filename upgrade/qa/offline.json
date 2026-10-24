@@ -1,6 +1,6 @@
 {
   "loaded": {
-    "circuits": 12,
+    "circuits": 14,
     "car": "MR 26",
     "fonts": "loaded"
   },
@@ -30,7 +30,7 @@
   "externalRequests": [],
   "checks": [
     "Offline file URL with all network blocked",
-    "12 circuits and MR 26",
+    "14 circuits and MR 26",
     "1440 and 960 pixel home",
     "Four readable session cards",
     "Start practice through UI and accelerate",

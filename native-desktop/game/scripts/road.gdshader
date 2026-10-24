@@ -9,7 +9,7 @@ void vertex(){world=(MODEL_MATRIX*vec4(VERTEX,1.0)).xyz;}
 float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float noise(vec2 p){vec2 a=floor(p),b=fract(p);b=b*b*(3.0-2.0*b);return mix(mix(hash(a),hash(a+vec2(1,0)),b.x),mix(hash(a+vec2(0,1)),hash(a+vec2(1,1)),b.x),b.y);}
 void fragment(){
- vec2 uv=world.xz/3.8;
+ vec2 uv=world.xz/2.08;
  vec3 asphalt=texture(color_map,uv).rgb;
  float macro=noise(world.xz*.045);
  float puddle=smoothstep(.42,.72,noise(world.xz*.18))*wetness;

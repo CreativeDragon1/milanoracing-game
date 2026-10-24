@@ -118,6 +118,7 @@ func mesh_for(o: Dictionary) -> ArrayMesh:
 
 func _initialize() -> void:
 	var ids := OS.get_cmdline_user_args()
+	if ids.is_empty(): ids=JSON.parse_string(FileAccess.get_file_as_string("res://circuits/physics.json")).keys()
 	for id in ids:
 		data = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/"+id+".json"))
 		bytes = FileAccess.get_file_as_bytes("res://circuits/"+id+".bin")

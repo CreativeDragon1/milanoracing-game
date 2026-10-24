@@ -1,113 +1,127 @@
 {
-  "checks": 2887604,
+  "checks": 3254000,
   "reports": [
     {
       "id": "bahrain",
-      "raceSeconds": 582.6000000000179,
+      "raceSeconds": 578.2000000000219,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "singapore",
-      "raceSeconds": 596.750000000005,
+      "raceSeconds": 592.7500000000086,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "monza",
-      "raceSeconds": 538.0000000000584,
+      "raceSeconds": 539.4000000000572,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "monaco",
-      "raceSeconds": 526.1500000000692,
+      "raceSeconds": 522.2500000000728,
       "services": 21,
       "maxPitKmh": 60.00000000000001,
       "classified": 21
     },
     {
       "id": "austria",
-      "raceSeconds": 435.8000000000648,
+      "raceSeconds": 433.80000000006436,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "silverstone",
-      "raceSeconds": 566.8500000000322,
+      "raceSeconds": 565.2000000000337,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "abu-dhabi",
-      "raceSeconds": 580.20000000002,
+      "raceSeconds": 574.1500000000256,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "milano",
-      "raceSeconds": 540.7500000000559,
+      "raceSeconds": 532.5000000000634,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "spa",
-      "raceSeconds": 650.8999999999558,
+      "raceSeconds": 647.6499999999587,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "suzuka",
-      "raceSeconds": 593.0000000000084,
+      "raceSeconds": 592.6500000000087,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "interlagos",
-      "raceSeconds": 485.25000000007606,
+      "raceSeconds": 478.9500000000746,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     },
     {
       "id": "zandvoort",
-      "raceSeconds": 466.35000000007176,
+      "raceSeconds": 464.20000000007127,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "riviera",
+      "raceSeconds": 393.1500000000551,
+      "services": 21,
+      "maxPitKmh": 80,
+      "classified": 21
+    },
+    {
+      "id": "solara",
+      "raceSeconds": 480.45000000007497,
       "services": 21,
       "maxPitKmh": 80,
       "classified": 21
     }
   ],
   "qualifyingGrid": [
+    4,
+    8,
     12,
-    1,
-    5,
+    20,
     9,
     13,
-    17,
-    21,
     2,
     6,
     10,
-    14,
+    21,
+    16,
+    17,
     18,
     3,
-    4,
-    8,
+    5,
     7,
+    1,
     11,
+    14,
     15,
-    16,
     19,
-    20,
     0
   ]
 }

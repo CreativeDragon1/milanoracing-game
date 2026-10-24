@@ -1,7 +1,7 @@
 {
-  "htmlBytes": 45465,
-  "assets": 71,
-  "bytes": 105965194,
+  "htmlBytes": 47205,
+  "assets": 105,
+  "bytes": 108749256,
   "circuits": [
     "bahrain",
     "singapore",
@@ -14,6 +14,41 @@
     "spa",
     "suzuka",
     "interlagos",
-    "zandvoort"
-  ]
+    "zandvoort",
+    "riviera",
+    "solara"
+  ],
+  "circuitPacks": {
+    "bahrain": "/assets/730dc7101d6882937e89.json",
+    "singapore": "/assets/2d323e7576eda722e1af.json",
+    "monza": "/assets/7545c58f1f6bdc043edf.json",
+    "monaco": "/assets/304b4d0630cc4aded24d.json",
+    "austria": "/assets/c6e6da280992d4e76f16.json",
+    "silverstone": "/assets/b659c7ebe3dc01fd2535.json",
+    "abu-dhabi": "/assets/347b1c8a7dd64bd88f22.json",
+    "milano": "/assets/a36d0f2f16b9a759e758.json",
+    "spa": "/assets/579ac0afec64b17d4cc2.json",
+    "suzuka": "/assets/15a0994d2f43370ab202.json",
+    "interlagos": "/assets/2a39a76ab484b3340b47.json",
+    "zandvoort": "/assets/7624f515045f48b7bc23.json",
+    "riviera": "/assets/114919bd104dfc2d0c5a.json",
+    "solara": "/assets/98634e59a71508338afb.json"
+  },
+  "packBytes": {
+    "bahrain": 1541225,
+    "singapore": 1689890,
+    "monza": 1878922,
+    "monaco": 2008032,
+    "austria": 2107644,
+    "silverstone": 2601802,
+    "abu-dhabi": 2335236,
+    "milano": 605563,
+    "spa": 2592346,
+    "suzuka": 2277773,
+    "interlagos": 2649502,
+    "zandvoort": 3118609,
+    "riviera": 576746,
+    "solara": 607895
+  },
+  "gameScriptBytes": 8825732
 }

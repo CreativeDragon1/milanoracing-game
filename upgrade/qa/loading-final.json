@@ -1,0 +1,995 @@
+{
+  "readyMs": 4519.5,
+  "largestFrameGap": 312.6,
+  "frames": 288,
+  "longTasks": [
+    {
+      "at": 154.80000001192093,
+      "ms": 60
+    },
+    {
+      "at": 714.0999999940395,
+      "ms": 253
+    },
+    {
+      "at": 988.3000000119209,
+      "ms": 294
+    },
+    {
+      "at": 1730,
+      "ms": 53
+    },
+    {
+      "at": 1783.5999999940395,
+      "ms": 53
+    },
+    {
+      "at": 3110.300000011921,
+      "ms": 116
+    },
+    {
+      "at": 3420.9000000059605,
+      "ms": 81
+    },
+    {
+      "at": 4254.800000011921,
+      "ms": 104
+    },
+    {
+      "at": 4362.0999999940395,
+      "ms": 118
+    }
+  ],
+  "boot": [
+    {
+      "ms": 18.19999998807907,
+      "stage": "Try scene"
+    },
+    {
+      "ms": 294.5,
+      "stage": "If scene"
+    },
+    {
+      "ms": 8.800000011920929,
+      "stage": "Prepare asphalt, asphaltNormal, asphaltRough"
+    },
+    {
+      "ms": 10.699999988079071,
+      "stage": "Build loadTerrain"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "If terrainVertices"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "If terrainVertices"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "If terrainVertices"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "If terrainVertices"
+    },
+    {
+      "ms": 12.200000017881393,
+      "stage": "Prepare gravel, gravelNormal, gravelRough"
+    },
+    {
+      "ms": 11.800000011920929,
+      "stage": "Prepare foundationMaterial"
+    },
+    {
+      "ms": 11.799999982118607,
+      "stage": "Build ribbon"
+    },
+    {
+      "ms": 12.900000005960464,
+      "stage": "If pavedRunoff"
+    },
+    {
+      "ms": 13.300000011920929,
+      "stage": "Build physicalKerb"
+    },
+    {
+      "ms": 8.599999994039536,
+      "stage": "Build ribbon"
+    },
+    {
+      "ms": 16.900000005960464,
+      "stage": "Build wall"
+    },
+    {
+      "ms": 11.800000011920929,
+      "stage": "Build wall"
+    },
+    {
+      "ms": 11.300000011920929,
+      "stage": "Build trackFoundation"
+    },
+    {
+      "ms": 16.700000017881393,
+      "stage": "Prepare startFascia"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 9,
+      "stage": "Prepare foliageTexture"
+    },
+    {
+      "ms": 24.099999994039536,
+      "stage": "Prepare waterNormals"
+    },
+    {
+      "ms": 20.400000005960464,
+      "stage": "Prepare photoGrass, photoGrassNormal, photoSand, photoSandNormal"
+    },
+    {
+      "ms": 18.600000023841858,
+      "stage": "If scene"
+    },
+    {
+      "ms": 9.799999982118607,
+      "stage": "If scene"
+    },
+    {
+      "ms": 16.5,
+      "stage": "If scene"
+    },
+    {
+      "ms": 12.099999994039536,
+      "stage": "If scene"
+    },
+    {
+      "ms": 13.699999988079071,
+      "stage": "If scene"
+    },
+    {
+      "ms": 9.5,
+      "stage": "If scene"
+    },
+    {
+      "ms": 16.200000017881393,
+      "stage": "If scene"
+    },
+    {
+      "ms": 9.699999988079071,
+      "stage": "If scene"
+    },
+    {
+      "ms": 8.700000017881393,
+      "stage": "If scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "If scene"
+    },
+    {
+      "ms": 21,
+      "stage": "If scene"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "If scene"
+    },
+    {
+      "ms": 12.299999982118607,
+      "stage": "If scene"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "If scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "If scene"
+    },
+    {
+      "ms": 24.80000001192093,
+      "stage": "If scene"
+    },
+    {
+      "ms": 34.69999998807907,
+      "stage": "If scene"
+    },
+    {
+      "ms": 8.200000017881393,
+      "stage": "If scene"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "Building mesh upload"
+    },
+    {
+      "ms": 8.700000017881393,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 25.200000017881393,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.800000011920929,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 9.100000023841858,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.399999976158142,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.400000005960464,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 9.400000005960464,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.299999982118607,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.800000011920929,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.5,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 9.200000017881393,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.800000011920929,
+      "stage": "Building mesh upload"
+    },
+    {
+      "ms": 11.5,
+      "stage": "Building mesh upload"
+    },
+    {
+      "ms": 8.599999994039536,
+      "stage": "Building mesh upload"
+    },
+    {
+      "ms": 8.599999994039536,
+      "stage": "Building mesh upload"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "Building mesh upload"
+    },
+    {
+      "ms": 9.5,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 8.400000005960464,
+      "stage": "Building mesh batches"
+    },
+    {
+      "ms": 23.69999998807907,
+      "stage": "Building mesh upload"
+    },
+    {
+      "ms": 11.700000017881393,
+      "stage": "If geography"
+    },
+    {
+      "ms": 26.200000017881393,
+      "stage": "If geography"
+    },
+    {
+      "ms": 14.900000005960464,
+      "stage": "If scene"
+    },
+    {
+      "ms": 38,
+      "stage": "Build buildContextStructures"
+    },
+    {
+      "ms": 8.399999976158142,
+      "stage": "Build scene"
+    },
+    {
+      "ms": 8.400000005960464,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 12.199999988079071,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 8.599999994039536,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 11,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 10.599999994039536,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 8.5,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 8.599999994039536,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 8.599999994039536,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 12.900000005960464,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 8.5,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 8.299999982118607,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 8.400000005960464,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 8.699999988079071,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 10.5,
+      "stage": "Venue infrastructure"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 9.599999994039536,
+      "stage": "Surrounding roads"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "If calendarHere"
+    },
+    {
+      "ms": 116.19999998807907,
+      "stage": "Build scene"
+    },
+    {
+      "ms": 11,
+      "stage": "Prepare treeTextures"
+    },
+    {
+      "ms": 12.300000011920929,
+      "stage": "ForOf scene"
+    },
+    {
+      "ms": 10.400000005960464,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.599999994039536,
+      "stage": "Build scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 81,
+      "stage": "ForOf scene"
+    },
+    {
+      "ms": 15.099999994039536,
+      "stage": "Block scene"
+    },
+    {
+      "ms": 34.599999994039536,
+      "stage": "Build refreshGuideSpeeds"
+    },
+    {
+      "ms": 13.699999988079071,
+      "stage": "If ren"
+    },
+    {
+      "ms": 9.599999994039536,
+      "stage": "Build resize"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.200000017881393,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "For scene"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "For scene"
+    },
+    {
+      "ms": 9.099999994039536,
+      "stage": "Build scene"
+    },
+    {
+      "ms": 24.5,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 12.599999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 26.400000005960464,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 9.300000011920929,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 42.70000001788139,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 12.699999988079071,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 9.400000005960464,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 42.400000005960464,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 13,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.899999976158142,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 12.399999976158142,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.900000005960464,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.200000017881393,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 13.900000005960464,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 14.699999988079071,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 16.599999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 9.300000011920929,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.800000011920929,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 11.799999982118607,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 9.100000023841858,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.800000011920929,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.5,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.299999982118607,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.199999988079071,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.800000011920929,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 11.099999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 9.700000017881393,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.200000017881393,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 9.599999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.599999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 11.599999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 11,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 12.199999988079071,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 15.699999988079071,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 13.699999988079071,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.599999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.599999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.300000011920929,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.100000023841858,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.099999994039536,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.200000017881393,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.400000005960464,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 8.5,
+      "stage": "Pit surface fitting"
+    },
+    {
+      "ms": 10.699999988079071,
+      "stage": "Build scene"
+    },
+    {
+      "ms": 118.80000001192093,
+      "stage": "Build finalizeSceneryBatches"
+    }
+  ],
+  "assets": [],
+  "errors": []
+}

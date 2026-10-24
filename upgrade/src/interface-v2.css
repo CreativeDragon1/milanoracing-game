@@ -42,3 +42,6 @@ body:not([data-screen=none]):not([data-screen=count]):not([data-screen=controlle
 #menu .home-drive{font-family:Barlow,sans-serif;font-weight:800}#menu .home-online,.home-circuit strong{font-family:Barlow,sans-serif;font-style:normal;font-weight:700}#sessions .session-card strong{font-family:Barlow,sans-serif;font-style:normal;font-size:25px}
 .gp-table-head,.gp-result-position,.start-light-label{font-family:Barlow,sans-serif;font-style:normal}.circuit-card strong{font-family:Barlow,sans-serif}
 .team-partners{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:24px;max-width:620px}.team-partners img{width:84px;height:30px;object-fit:contain;border-radius:2px;background:#edeee8}.team-partners img:nth-child(3){background:#101b32}@media(max-width:600px){.team-partners{gap:5px;margin-top:16px}.team-partners img{width:65px;height:24px}}
+
+/* Equal partner cards preserve each logo and its full local-market wordmark. */
+.team-partners{display:grid;grid-template-columns:repeat(3,106px);gap:8px;justify-content:start;max-width:334px}.team-partners img{display:block;width:106px;height:40px;object-fit:contain;background:none}.team-partners img:nth-child(3){background:none}@media(max-width:600px){.team-partners{grid-template-columns:repeat(3,90px);gap:6px}.team-partners img{width:90px;height:34px}}
