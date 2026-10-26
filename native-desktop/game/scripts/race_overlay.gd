@@ -3,6 +3,8 @@ var game: Node
 var last_count:=-2
 func _ready() -> void:
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
+	get_viewport().size_changed.connect(func():position.x=(get_viewport().get_visible_rect().size.x-1600)/2)
+	position.x=(get_viewport().get_visible_rect().size.x-1600)/2
 func _process(_dt: float) -> void:
 	var count:=-1
 	if game and game.loaded and not game.menu.visible and not game.ui.home.visible:

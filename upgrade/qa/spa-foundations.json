@@ -1,0 +1,674 @@
+{
+  "circuit": "spa",
+  "sites": [
+    {
+      "name": "Ancienne douane",
+      "maxUnsupportedHeightBefore": 0.7529167064030986,
+      "segments": 23
+    },
+    {
+      "name": "Mapped building 77352259",
+      "maxUnsupportedHeightBefore": 0.19197728784845225,
+      "segments": 30
+    },
+    {
+      "name": "Karting de Spa-Francorchamps",
+      "maxUnsupportedHeightBefore": 0.38372343217959504,
+      "segments": 48
+    },
+    {
+      "name": "Mapped building 174899901",
+      "maxUnsupportedHeightBefore": 0.11504594709383298,
+      "segments": 18
+    },
+    {
+      "name": "Mapped building 175054894",
+      "maxUnsupportedHeightBefore": 0.3193256788253791,
+      "segments": 13
+    },
+    {
+      "name": "Ferme Foguenne",
+      "maxUnsupportedHeightBefore": 2.561994920518657,
+      "segments": 43
+    },
+    {
+      "name": "Mapped building 175178730",
+      "maxUnsupportedHeightBefore": 0.3772187522252395,
+      "segments": 16
+    },
+    {
+      "name": "Fan Shop",
+      "maxUnsupportedHeightBefore": 0.05838488769532546,
+      "segments": 8
+    },
+    {
+      "name": "Mapped building 175222042",
+      "maxUnsupportedHeightBefore": 0.2528188797632822,
+      "segments": 13
+    },
+    {
+      "name": "Mapped building 175222043",
+      "maxUnsupportedHeightBefore": 0.10489625469843489,
+      "segments": 8
+    },
+    {
+      "name": "Mapped building 175222044",
+      "maxUnsupportedHeightBefore": 0.13787087313334467,
+      "segments": 8
+    },
+    {
+      "name": "Mapped building 175222045",
+      "maxUnsupportedHeightBefore": 0.2350791234693972,
+      "segments": 12
+    },
+    {
+      "name": "Mapped building 175370738",
+      "maxUnsupportedHeightBefore": 0.07818178939820086,
+      "segments": 11
+    },
+    {
+      "name": "Mapped building 175370740",
+      "maxUnsupportedHeightBefore": 0.4916694912380706,
+      "segments": 26
+    },
+    {
+      "name": "Mapped building 175371355",
+      "maxUnsupportedHeightBefore": 1.5148112678527355,
+      "segments": 10
+    },
+    {
+      "name": "Mapped building 175371356",
+      "maxUnsupportedHeightBefore": 0.5521086969375588,
+      "segments": 16
+    },
+    {
+      "name": "Mapped building 175387822",
+      "maxUnsupportedHeightBefore": 0.6741232962078492,
+      "segments": 16
+    },
+    {
+      "name": "Mapped building 175398612",
+      "maxUnsupportedHeightBefore": 0.3496248473387471,
+      "segments": 19
+    },
+    {
+      "name": "Mapped building 175398613",
+      "maxUnsupportedHeightBefore": 0.09724807249372924,
+      "segments": 23
+    },
+    {
+      "name": "Campus Automobile (Forem)",
+      "maxUnsupportedHeightBefore": 1.29207676154151,
+      "segments": 100
+    },
+    {
+      "name": "Mapped building 175535504",
+      "maxUnsupportedHeightBefore": 0.19946980327650632,
+      "segments": 13
+    },
+    {
+      "name": "Mapped building 175536262",
+      "maxUnsupportedHeightBefore": 0.25913966687520684,
+      "segments": 7
+    },
+    {
+      "name": "Mapped building 175536264",
+      "maxUnsupportedHeightBefore": 0.3775496524174926,
+      "segments": 9
+    },
+    {
+      "name": "Mapped building 175536265",
+      "maxUnsupportedHeightBefore": 0.2205255282719918,
+      "segments": 9
+    },
+    {
+      "name": "Mapped building 175536266",
+      "maxUnsupportedHeightBefore": 0.17917995421092314,
+      "segments": 8
+    },
+    {
+      "name": "Mapped building 175688517",
+      "maxUnsupportedHeightBefore": 0.09516436615290402,
+      "segments": 10
+    },
+    {
+      "name": "Mapped building 175689116",
+      "maxUnsupportedHeightBefore": 0.3386771812438951,
+      "segments": 18
+    },
+    {
+      "name": "Mapped building 175692130",
+      "maxUnsupportedHeightBefore": 0.30136637369790975,
+      "segments": 13
+    },
+    {
+      "name": "Salons de l'Eau Rouge",
+      "maxUnsupportedHeightBefore": 0.42724423068157336,
+      "segments": 65
+    },
+    {
+      "name": "Mapped building 176136368",
+      "maxUnsupportedHeightBefore": 1.4888615248998036,
+      "segments": 17
+    },
+    {
+      "name": "Conciergerie",
+      "maxUnsupportedHeightBefore": 4.146555549939471,
+      "segments": 25
+    },
+    {
+      "name": "Mapped building 297343835",
+      "maxUnsupportedHeightBefore": 0.7627959264119255,
+      "segments": 15
+    },
+    {
+      "name": "Mapped building 297343838",
+      "maxUnsupportedHeightBefore": 1.0630288225809679,
+      "segments": 22
+    },
+    {
+      "name": "Mapped building 297343841",
+      "maxUnsupportedHeightBefore": 0.9956796336454659,
+      "segments": 31
+    },
+    {
+      "name": "Mapped building 306182370",
+      "maxUnsupportedHeightBefore": 0.42571191279093057,
+      "segments": 35
+    },
+    {
+      "name": "Mapped building 306182371",
+      "maxUnsupportedHeightBefore": 0.4612973208957243,
+      "segments": 42
+    },
+    {
+      "name": "Mapped building 306182372",
+      "maxUnsupportedHeightBefore": 0.32559117938311033,
+      "segments": 66
+    },
+    {
+      "name": "Mapped building 307291109",
+      "maxUnsupportedHeightBefore": 0.7287831446329847,
+      "segments": 21
+    },
+    {
+      "name": "Mapped building 307291111",
+      "maxUnsupportedHeightBefore": 0.6407071825663024,
+      "segments": 21
+    },
+    {
+      "name": "Mapped building 307291113",
+      "maxUnsupportedHeightBefore": 0.6566121704101562,
+      "segments": 22
+    },
+    {
+      "name": "Mapped building 307291115",
+      "maxUnsupportedHeightBefore": 0.8649578056334875,
+      "segments": 23
+    },
+    {
+      "name": "Mapped building 307291117",
+      "maxUnsupportedHeightBefore": 0.7317487106323881,
+      "segments": 17
+    },
+    {
+      "name": "Mapped building 307291118",
+      "maxUnsupportedHeightBefore": 0.8108900629679354,
+      "segments": 18
+    },
+    {
+      "name": "Mapped building 307291119",
+      "maxUnsupportedHeightBefore": 1.146090954250809,
+      "segments": 22
+    },
+    {
+      "name": "Mapped building 307291123",
+      "maxUnsupportedHeightBefore": 0.9579154129028282,
+      "segments": 28
+    },
+    {
+      "name": "Mapped building 307291124",
+      "maxUnsupportedHeightBefore": 0.2367720174719068,
+      "segments": 15
+    },
+    {
+      "name": "Mapped building 307297942",
+      "maxUnsupportedHeightBefore": 1.0018833431667389,
+      "segments": 23
+    },
+    {
+      "name": "Mapped building 307297943",
+      "maxUnsupportedHeightBefore": 0.9353174851735417,
+      "segments": 23
+    },
+    {
+      "name": "Mapped building 307297944",
+      "maxUnsupportedHeightBefore": 0.9894084447225069,
+      "segments": 18
+    },
+    {
+      "name": "Mapped building 307297945",
+      "maxUnsupportedHeightBefore": 0.775146714528411,
+      "segments": 21
+    },
+    {
+      "name": "Mapped building 503394807",
+      "maxUnsupportedHeightBefore": 0.4923277740478085,
+      "segments": 16
+    },
+    {
+      "name": "Mapped building 584458613",
+      "maxUnsupportedHeightBefore": 0.35362830479940044,
+      "segments": 14
+    },
+    {
+      "name": "Mapped building 584458614",
+      "maxUnsupportedHeightBefore": 3.0925526948151827,
+      "segments": 42
+    },
+    {
+      "name": "Mapped building 639707099",
+      "maxUnsupportedHeightBefore": 0.36756853908964615,
+      "segments": 17
+    },
+    {
+      "name": "Mapped building 693158137",
+      "maxUnsupportedHeightBefore": 0.6677834968566714,
+      "segments": 13
+    },
+    {
+      "name": "Mapped building 693158138",
+      "maxUnsupportedHeightBefore": 0.5035389213561956,
+      "segments": 7
+    },
+    {
+      "name": "Mapped building 693685322",
+      "maxUnsupportedHeightBefore": 0.2205766372680671,
+      "segments": 9
+    },
+    {
+      "name": "Mapped building 693685328",
+      "maxUnsupportedHeightBefore": 0.4713753916422547,
+      "segments": 34
+    },
+    {
+      "name": "Mapped building 693685334",
+      "maxUnsupportedHeightBefore": 0.8374280535380052,
+      "segments": 14
+    },
+    {
+      "name": "RSR Spa",
+      "maxUnsupportedHeightBefore": 1.4624979803694593,
+      "segments": 71
+    },
+    {
+      "name": "Mapped building 700261031",
+      "maxUnsupportedHeightBefore": 1.067176892995854,
+      "segments": 34
+    },
+    {
+      "name": "Mapped building 708928634",
+      "maxUnsupportedHeightBefore": 0.019709915263064204,
+      "segments": 12
+    },
+    {
+      "name": "Mapped building 868882532",
+      "maxUnsupportedHeightBefore": 0.5882062009175613,
+      "segments": 14
+    },
+    {
+      "name": "Mapped building 1134057211",
+      "maxUnsupportedHeightBefore": 0.6721068077087446,
+      "segments": 25
+    },
+    {
+      "name": "Mapped building 1192913539",
+      "maxUnsupportedHeightBefore": 0.4454144126044213,
+      "segments": 18
+    },
+    {
+      "name": "Mapped building 1192913540",
+      "maxUnsupportedHeightBefore": 0.46630551783243845,
+      "segments": 19
+    },
+    {
+      "name": "Mapped building 1192913541",
+      "maxUnsupportedHeightBefore": 0.4594052441914869,
+      "segments": 13
+    },
+    {
+      "name": "Mapped building 1235849095",
+      "maxUnsupportedHeightBefore": 0.3010725717544531,
+      "segments": 9
+    },
+    {
+      "name": "Mapped building 1244919084",
+      "maxUnsupportedHeightBefore": 1.17814739200805,
+      "segments": 10
+    },
+    {
+      "name": "Mapped building 1244919085",
+      "maxUnsupportedHeightBefore": 4.62446023241678,
+      "segments": 26
+    },
+    {
+      "name": "Mapped building 1244919086",
+      "maxUnsupportedHeightBefore": 1.987503034114848,
+      "segments": 12
+    },
+    {
+      "name": "Mapped building 1421364805",
+      "maxUnsupportedHeightBefore": 0.12041914427648237,
+      "segments": 8
+    },
+    {
+      "name": "Mapped building 1445412853",
+      "maxUnsupportedHeightBefore": 1.453821708679186,
+      "segments": 16
+    },
+    {
+      "name": "Mapped building 1445412856",
+      "maxUnsupportedHeightBefore": 0.4648777046203634,
+      "segments": 8
+    },
+    {
+      "name": "Mapped building 1447364380",
+      "maxUnsupportedHeightBefore": 1.0420524265004416,
+      "segments": 68
+    },
+    {
+      "name": "Mapped building 1450016044",
+      "maxUnsupportedHeightBefore": 0.17369592698415204,
+      "segments": 8
+    },
+    {
+      "name": "Mapped building 1509741631",
+      "maxUnsupportedHeightBefore": 0.30232822672525117,
+      "segments": 40
+    },
+    {
+      "name": "Mapped building 1509741635",
+      "maxUnsupportedHeightBefore": 0.19318015363141683,
+      "segments": 8
+    },
+    {
+      "name": "Mapped building 1509741648",
+      "maxUnsupportedHeightBefore": 0.26068218827188616,
+      "segments": 11
+    },
+    {
+      "name": "Mapped building 1509741653",
+      "maxUnsupportedHeightBefore": 0.44316372251510217,
+      "segments": 9
+    },
+    {
+      "name": "Mapped building 1509741654",
+      "maxUnsupportedHeightBefore": 0.3267033298810347,
+      "segments": 8
+    },
+    {
+      "name": "Mapped building 1509741659",
+      "maxUnsupportedHeightBefore": 0.3265417235692496,
+      "segments": 11
+    },
+    {
+      "name": "Mapped building 1509741663",
+      "maxUnsupportedHeightBefore": 0.22493059968572027,
+      "segments": 20
+    },
+    {
+      "name": "Mapped building 1509741664",
+      "maxUnsupportedHeightBefore": 0.14142786921515693,
+      "segments": 13
+    },
+    {
+      "name": "Mapped building 1509741668",
+      "maxUnsupportedHeightBefore": 0.2664167770703614,
+      "segments": 19
+    },
+    {
+      "name": "Mapped building 1509741669",
+      "maxUnsupportedHeightBefore": 0.9675740964056043,
+      "segments": 41
+    },
+    {
+      "name": "Mapped building 1509741670",
+      "maxUnsupportedHeightBefore": 0.1510417718490089,
+      "segments": 10
+    },
+    {
+      "name": "Mapped building 1509741686",
+      "maxUnsupportedHeightBefore": 0.01305680084229266,
+      "segments": 6
+    },
+    {
+      "name": "Mapped building 1509741708",
+      "maxUnsupportedHeightBefore": 0.4386809183756526,
+      "segments": 8
+    },
+    {
+      "name": "Mapped building 1509741709",
+      "maxUnsupportedHeightBefore": 0.3570591112772661,
+      "segments": 9
+    },
+    {
+      "name": "Mapped building 1509741710",
+      "maxUnsupportedHeightBefore": 0.4883525021870838,
+      "segments": 19
+    },
+    {
+      "name": "Mapped building 1509741713",
+      "maxUnsupportedHeightBefore": 0.09955713588000048,
+      "segments": 12
+    },
+    {
+      "name": "Mapped building 1509741714",
+      "maxUnsupportedHeightBefore": 0.06717933787902064,
+      "segments": 13
+    },
+    {
+      "name": "Mapped building 1509741716",
+      "maxUnsupportedHeightBefore": 0.10478088204019897,
+      "segments": 12
+    },
+    {
+      "name": "Fan Shop",
+      "maxUnsupportedHeightBefore": 0.8622974297205594,
+      "segments": 21
+    },
+    {
+      "name": "Virtex Simulation",
+      "maxUnsupportedHeightBefore": 0.10689515216422762,
+      "segments": 20
+    },
+    {
+      "name": "Conteneur Tickets",
+      "maxUnsupportedHeightBefore": 0.4264041137695429,
+      "segments": 9
+    },
+    {
+      "name": "Fan Shop",
+      "maxUnsupportedHeightBefore": 0.47182160695393804,
+      "segments": 15
+    },
+    {
+      "name": "Stand F1 section 1",
+      "maxUnsupportedHeightBefore": 0.31757887857890665,
+      "segments": 14
+    },
+    {
+      "name": "Stand F1 section 2",
+      "maxUnsupportedHeightBefore": 1.3044291672847521,
+      "segments": 36
+    },
+    {
+      "name": "Stand F1 section 3",
+      "maxUnsupportedHeightBefore": 1.3142865769575494,
+      "segments": 37
+    },
+    {
+      "name": "Stand F1 section 4",
+      "maxUnsupportedHeightBefore": 1.3407151476055432,
+      "segments": 37
+    },
+    {
+      "name": "Stand F1 section 5",
+      "maxUnsupportedHeightBefore": 1.5606499439414776,
+      "segments": 40
+    },
+    {
+      "name": "Stand F1 section 6",
+      "maxUnsupportedHeightBefore": 1.6421367923167693,
+      "segments": 38
+    },
+    {
+      "name": "Stand F1 section 7",
+      "maxUnsupportedHeightBefore": 1.7432233508480337,
+      "segments": 37
+    },
+    {
+      "name": "Stand F1 section 8",
+      "maxUnsupportedHeightBefore": 1.7800074447372296,
+      "segments": 35
+    },
+    {
+      "name": "Stand F1 section 9",
+      "maxUnsupportedHeightBefore": 1.8478683507825124,
+      "segments": 35
+    },
+    {
+      "name": "Stand F1 section 10",
+      "maxUnsupportedHeightBefore": 1.9116502824747883,
+      "segments": 34
+    },
+    {
+      "name": "Stand F1 section 11",
+      "maxUnsupportedHeightBefore": 1.9927569136329168,
+      "segments": 35
+    },
+    {
+      "name": "Stand F1 section 12",
+      "maxUnsupportedHeightBefore": 2.0747506605550186,
+      "segments": 37
+    },
+    {
+      "name": "Stand F1 section 13",
+      "maxUnsupportedHeightBefore": 2.1582322328901498,
+      "segments": 38
+    },
+    {
+      "name": "Stand F1 section 14",
+      "maxUnsupportedHeightBefore": 2.274166473557287,
+      "segments": 40
+    },
+    {
+      "name": "Stand F1 section 15",
+      "maxUnsupportedHeightBefore": 2.3299764851731197,
+      "segments": 40
+    },
+    {
+      "name": "Stand F1 section 16",
+      "maxUnsupportedHeightBefore": 2.4797293944738144,
+      "segments": 40
+    },
+    {
+      "name": "Stand F1 section 17",
+      "maxUnsupportedHeightBefore": 2.556618883103731,
+      "segments": 40
+    },
+    {
+      "name": "Stand F1 section 18",
+      "maxUnsupportedHeightBefore": 0.723317151431857,
+      "segments": 20
+    },
+    {
+      "name": "Stand Endurance section 1",
+      "maxUnsupportedHeightBefore": 0,
+      "segments": 0
+    },
+    {
+      "name": "Stand Endurance section 2",
+      "maxUnsupportedHeightBefore": 0,
+      "segments": 0
+    },
+    {
+      "name": "Stand Endurance section 3",
+      "maxUnsupportedHeightBefore": 0,
+      "segments": 0
+    },
+    {
+      "name": "Stand Endurance section 4",
+      "maxUnsupportedHeightBefore": 0,
+      "segments": 0
+    },
+    {
+      "name": "Stand Endurance section 5",
+      "maxUnsupportedHeightBefore": 0,
+      "segments": 0
+    },
+    {
+      "name": "Stand Endurance section 6",
+      "maxUnsupportedHeightBefore": 0,
+      "segments": 0
+    },
+    {
+      "name": "Stand Endurance section 7",
+      "maxUnsupportedHeightBefore": 0.033640162755048664,
+      "segments": 6
+    },
+    {
+      "name": "Stand Endurance section 8",
+      "maxUnsupportedHeightBefore": 0,
+      "segments": 0
+    },
+    {
+      "name": "Stand Endurance section 9",
+      "maxUnsupportedHeightBefore": 0,
+      "segments": 0
+    },
+    {
+      "name": "Hôtel de la Source",
+      "maxUnsupportedHeightBefore": 3.0433366146672256,
+      "segments": 95
+    },
+    {
+      "name": "Hotel de l'Eau Rouge",
+      "maxUnsupportedHeightBefore": 0.3099046342797749,
+      "segments": 20
+    }
+  ],
+  "segments": 2763,
+  "roadConflicts": [],
+  "missingGround": 0,
+  "checks": 2763,
+  "failures": [],
+  "meshCount": 38,
+  "triangles": 5526,
+  "assets": [],
+  "screenshots": [
+    {
+      "name": "Mapped building 1244919085",
+      "file": "spa-foundation-0.png"
+    },
+    {
+      "name": "Conciergerie",
+      "file": "spa-foundation-1.png"
+    },
+    {
+      "name": "Mapped building 584458614",
+      "file": "spa-foundation-2.png"
+    },
+    {
+      "name": "Hôtel de la Source",
+      "file": "spa-foundation-3.png"
+    },
+    {
+      "name": "Stand Endurance section 7",
+      "file": "spa-foundation-4.png"
+    },
+    {
+      "name": "Hotel de l'Eau Rouge",
+      "file": "spa-foundation-5.png"
+    }
+  ]
+}

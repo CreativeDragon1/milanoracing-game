@@ -1,0 +1,72 @@
+[
+  {
+    "id": "milano",
+    "seconds": 4.433333333333334,
+    "clearance": 3.7582012061033354
+  },
+  {
+    "id": "singapore",
+    "seconds": 5.466666666666667,
+    "clearance": 0.4139191006728522
+  },
+  {
+    "id": "monaco",
+    "seconds": 4.45,
+    "clearance": 0.39409885041022896
+  },
+  {
+    "id": "monza",
+    "seconds": 4.816666666666666,
+    "clearance": 0.4185252573573024
+  },
+  {
+    "id": "bahrain",
+    "seconds": 4.85,
+    "clearance": 0.6177954852057583
+  },
+  {
+    "id": "spa",
+    "seconds": 4.783333333333333,
+    "clearance": 0.7017393134809211
+  },
+  {
+    "id": "austria",
+    "seconds": 4.833333333333333,
+    "clearance": 0.4934016277551585
+  },
+  {
+    "id": "silverstone",
+    "seconds": 4.8,
+    "clearance": 1.2365488636575441
+  },
+  {
+    "id": "abu-dhabi",
+    "seconds": 4.816666666666666,
+    "clearance": 0.5676267791585325
+  },
+  {
+    "id": "suzuka",
+    "seconds": 4.816666666666666,
+    "clearance": 0.9043947418236877
+  },
+  {
+    "id": "interlagos",
+    "seconds": 4.8,
+    "clearance": 0.6542698126588089
+  },
+  {
+    "id": "zandvoort",
+    "seconds": 4.833333333333333,
+    "clearance": 0.3904783895125714
+  },
+  {
+    "id": "riviera",
+    "seconds": 4.816666666666666,
+    "clearance": 0.4076481980366813
+  },
+  {
+    "id": "solara",
+    "seconds": 4.8,
+    "clearance": 0.4916721528487571
+  }
+]

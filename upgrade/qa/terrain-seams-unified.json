@@ -1,0 +1,3501 @@
+[
+  {
+    "id": "suzuka",
+    "surfaces": [
+      {
+        "name": "Circuit terrain",
+        "triangles": 22134
+      },
+      {
+        "name": "Grass verge",
+        "triangles": 30
+      },
+      {
+        "name": "Grass verge",
+        "triangles": 30
+      },
+      {
+        "name": "Grass verge",
+        "triangles": 9815
+      },
+      {
+        "name": "Main racing surface",
+        "triangles": 2612
+      },
+      {
+        "name": "Profiled raised kerb",
+        "triangles": 7251
+      },
+      {
+        "name": "Profiled raised kerb",
+        "triangles": 7200
+      },
+      {
+        "name": "Track markings",
+        "triangles": 2418
+      },
+      {
+        "name": "Track markings",
+        "triangles": 2400
+      },
+      {
+        "name": "Track markings",
+        "triangles": 5043
+      },
+      {
+        "name": "Track markings",
+        "triangles": 3986
+      },
+      {
+        "name": "Measured regional terrain",
+        "triangles": 46818
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 116
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 198
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 104
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 166
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 180
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 128
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 144
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 114
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 158
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 56
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 96
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 92
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 10
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 22
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 130
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 64
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 144
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 32
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 294
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 180
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 426
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 208
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 54
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 496
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 144
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 418
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 282
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 184
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 100
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 116
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 196
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 118
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 122
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 60
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 40
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 20
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 78
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 120
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 272
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 392
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 378
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 2
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 20
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 60
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 60
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 60
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 62
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 194
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 152
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 254
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 106
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 514
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 52
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 72
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 110
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 124
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 14
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 64
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 22
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 58
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 114
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 312
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 390
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 344
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 78
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 80
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 186
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 282
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 88
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 56
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 240
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 16
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 18
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 90
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 84
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 82
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 178
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 30
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 58
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 106
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 220
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 406
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 142
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 40
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 126
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 122
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 100
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 118
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 82
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 58
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 40
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 106
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 82
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 160
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 164
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 62
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 98
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 98
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 48
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 30
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 64
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 64
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 60
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 60
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 60
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 54
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 66
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 72
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 86
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 36
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 42
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 34
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 38
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 84
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 80
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 70
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 74
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 20
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 586
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 400
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 576
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 112
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 260
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 249
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 136
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 77
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 262
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 243
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 142
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 157
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 25
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 5
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 183
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 42
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 47
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 234
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 741
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 852
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 274
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 205
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 3
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 32
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 980
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 51
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 32
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 458
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 125
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 25
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 14
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 64
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 32
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 24
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 30
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 11
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 56
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 37
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 67
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 46
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 691
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 589
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 246
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 36
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 29
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 55
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 49
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 106
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 52
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 38
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 195
+      },
+      {
+        "name": "Mapped sand ground detail",
+        "triangles": 72
+      },
+      {
+        "name": "Mapped sand ground detail",
+        "triangles": 7
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 365
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 47
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 53
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 72
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 80
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 291
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 475
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 11
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 1
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 91
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 392
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 25
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 1644
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 347
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 215
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 577
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 272
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 483
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 91
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 40
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 13
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 109
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 373
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 1321
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 213
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 913
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 133
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 180
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 253
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 103
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 77
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 92
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 148
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 233
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 39
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 39
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 4
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 439
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 11
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 28
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 305
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 625
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 248
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 12
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 30
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 7
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 2
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 7
+      },
+      {
+        "name": "Pit-lane asphalt",
+        "triangles": 1960
+      },
+      {
+        "name": "Pit service apron",
+        "triangles": 630
+      }
+    ],
+    "samples": 7200,
+    "maxStep": 3.6422278113206303,
+    "issues": [
+      {
+        "station": 184.37,
+        "off": 45.0337,
+        "point": [
+          227.12717723541687,
+          7.997954999999986,
+          122.13903515008536
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 186.37,
+        "off": 58.424600000000005,
+        "point": [
+          208.66428954546404,
+          8.262348999999984,
+          120.19132098260326
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 186.37,
+        "off": 58.7246,
+        "point": [
+          208.46364595301563,
+          8.262348999999984,
+          119.96836966395975
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 188.37,
+        "off": 72.1105,
+        "point": [
+          187.97911783875668,
+          8.542384999999983,
+          121.36060264823506
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 188.37,
+        "off": 72.41050000000001,
+        "point": [
+          187.75922192643637,
+          8.542384999999983,
+          121.15663666460534
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 190.37,
+        "off": 51.3699,
+        "point": [
+          194.47365188359524,
+          8.839588399999982,
+          145.62771065776425
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 190.37,
+        "off": 51.6699,
+        "point": [
+          194.23957368397015,
+          8.839588399999982,
+          145.44010113441163
+        ],
+        "type": "ground-hole"
+      }
+    ],
+    "seams": [
+      {
+        "station": 974.37,
+        "side": -1,
+        "delta": 3.6422278113206303,
+        "point": [
+          -596.0134172474229,
+          32.306232244323084,
+          622.0670670574746
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 34.127346149983396
+        },
+        "b": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 30.485118338662765
+        }
+      },
+      {
+        "station": 964.37,
+        "side": -1,
+        "delta": 3.043826495257818,
+        "point": [
+          -638.0197197787512,
+          32.542825857807834,
+          645.2957794473281
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 34.06473910543674
+        },
+        "b": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 31.020912610178925
+        }
+      },
+      {
+        "station": 964.37,
+        "side": 1,
+        "delta": 2.6480273075552887,
+        "point": [
+          -631.8824128812488,
+          32.74072547398826,
+          656.4269629926719
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 34.06473912776591
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 31.416711820210622
+        }
+      },
+      {
+        "station": 976.37,
+        "side": 1,
+        "delta": 1.500072825621288,
+        "point": [
+          -580.0835244277171,
+          33.377981658994514,
+          627.713846990154
+        ],
+        "a": {
+          "name": "Grass verge",
+          "road": false,
+          "y": 34.12801807180516
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 32.62794524618387
+        }
+      },
+      {
+        "station": 976.37,
+        "side": -1,
+        "delta": 0.8722159439367516,
+        "point": [
+          -589.3229912393186,
+          33.69190792304467,
+          615.3686639734913
+        ],
+        "a": {
+          "name": "Grass verge",
+          "road": false,
+          "y": 34.12801589501304
+        },
+        "b": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 33.25579995107629
+        }
+      },
+      {
+        "station": 478.37,
+        "side": -1,
+        "delta": 0.8126321221195205,
+        "point": [
+          -609.246340940231,
+          28.320359277522442,
+          647.6563365612467
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 28.7266753385822
+        },
+        "b": {
+          "name": "Mapped gravel ground detail",
+          "road": false,
+          "y": 27.91404321646268
+        }
+      },
+      {
+        "station": 480.37,
+        "side": 1,
+        "delta": 0.6585737887840928,
+        "point": [
+          -612.4398668956072,
+          28.21662684149517,
+          631.5085421040491
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 28.54591373588722
+        },
+        "b": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 27.887339947103126
+        }
+      },
+      {
+        "station": 962.37,
+        "side": -1,
+        "delta": 0.6494611518910034,
+        "point": [
+          -647.405071554638,
+          33.72340281566505,
+          648.2988173996139
+        ],
+        "a": {
+          "name": "Grass verge",
+          "road": false,
+          "y": 34.04813339161055
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 33.398672239719545
+        }
+      },
+      {
+        "station": 476.37,
+        "side": -1,
+        "delta": 0.6419821515338384,
+        "point": [
+          -600.6417405463342,
+          28.232210717514743,
+          652.1576081738905
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 28.553201793281662
+        },
+        "b": {
+          "name": "Mapped gravel ground detail",
+          "road": false,
+          "y": 27.911219641747824
+        }
+      },
+      {
+        "station": 476.37,
+        "side": 1,
+        "delta": 0.623102228837908,
+        "point": [
+          -595.2903384055996,
+          28.226566984220455,
+          640.4635908513093
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 28.53811809863941
+        },
+        "b": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 27.9150158698015
+        }
+      },
+      {
+        "station": 482.37,
+        "side": 1,
+        "delta": 0.4965028979308421,
+        "point": [
+          -620.9412947142856,
+          28.10547121897234,
+          627.0019091908935
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 28.35372266793776
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 27.857219770006918
+        }
+      },
+      {
+        "station": 474.37,
+        "side": -1,
+        "delta": 0.45033710334672605,
+        "point": [
+          -592.0042467283547,
+          28.163661765988376,
+          656.5047440632602
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 28.38883031766174
+        },
+        "b": {
+          "name": "Mapped gravel ground detail",
+          "road": false,
+          "y": 27.938493214315013
+        }
+      },
+      {
+        "station": 962.37,
+        "side": 1,
+        "delta": 0.43802466775478166,
+        "point": [
+          -639.4770649053621,
+          33.82912105770498,
+          662.750642580386
+        ],
+        "a": {
+          "name": "Grass verge",
+          "road": false,
+          "y": 34.048133391582375
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 33.610108723827594
+        }
+      },
+      {
+        "station": 482.37,
+        "side": -1,
+        "delta": 0.4247462645383848,
+        "point": [
+          -626.3688604684517,
+          28.116298301951424,
+          638.294870471773
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 28.328671434220617
+        },
+        "b": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 27.903925169682232
+        }
+      },
+      {
+        "station": 474.37,
+        "side": 1,
+        "delta": 0.40872681832028235,
+        "point": [
+          -586.5947490671475,
+          28.169958820336735,
+          644.7785942266253
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 28.374322229496876
+        },
+        "b": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 27.965595411176594
+        }
+      },
+      {
+        "station": 484.37,
+        "side": 1,
+        "delta": 0.31392753110370464,
+        "point": [
+          -629.4042177112728,
+          28.01205003982885,
+          622.4912796716033
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 28.1690138053807
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 27.855086274276996
+        }
+      },
+      {
+        "station": 484.37,
+        "side": -1,
+        "delta": 0.2864556600339512,
+        "point": [
+          -634.9764215411283,
+          28.0244380267136,
+          633.6731507313929
+        ],
+        "a": {
+          "name": "Track markings",
+          "road": false,
+          "y": 28.167665856730576
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 27.881210196696625
+        }
+      }
+    ],
+    "errors": []
+  },
+  {
+    "id": "interlagos",
+    "surfaces": [
+      {
+        "name": "Circuit terrain",
+        "triangles": 14085
+      },
+      {
+        "name": "Grass verge",
+        "triangles": 0
+      },
+      {
+        "name": "Grass verge",
+        "triangles": 0
+      },
+      {
+        "name": "Grass verge",
+        "triangles": 11843
+      },
+      {
+        "name": "Main racing surface",
+        "triangles": 2760
+      },
+      {
+        "name": "Profiled raised kerb",
+        "triangles": 7257
+      },
+      {
+        "name": "Profiled raised kerb",
+        "triangles": 7197
+      },
+      {
+        "name": "Track markings",
+        "triangles": 2395
+      },
+      {
+        "name": "Track markings",
+        "triangles": 2390
+      },
+      {
+        "name": "Track markings",
+        "triangles": 5082
+      },
+      {
+        "name": "Track markings",
+        "triangles": 5784
+      },
+      {
+        "name": "Measured regional terrain",
+        "triangles": 48978
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 188
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 274
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 354
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 594
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 188
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 208
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 96
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 50
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 86
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 182
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 274
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 396
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 322
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 406
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 116
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 42
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 56
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 514
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 458
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 58
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 604
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 180
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 12
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 274
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 16
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 362
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 430
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 208
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 42
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 222
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 626
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 228
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 394
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 206
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 32
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 440
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 230
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 294
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 108
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 220
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 178
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 44
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 380
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 298
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 470
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 108
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 24
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 348
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 50
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 234
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 62
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 48
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 14
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 54
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 274
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 362
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 506
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 12
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 32
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 138
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 170
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 170
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 44
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 278
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 150
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 132
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 364
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 164
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 26
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 54
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 220
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 368
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 128
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 70
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 136
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 114
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 74
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 166
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 252
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 159
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 252
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 20
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 342
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 86
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 48
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 136
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 428
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 116
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 70
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 30
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 124
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 2
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 24
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 734
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 427
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 941
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 20
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 1451
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 35
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 60
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 642
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 195
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 286
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 153
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 143
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 205
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 316
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 319
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 37
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 12
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 21
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 7
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 4
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 33
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 14
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 144
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 1023
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 725
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 302
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 1218
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 221
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 97
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 794
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 250
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 795
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 773
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 773
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 499
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 1112
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 1030
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 1798
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 644
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 95
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 12
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 5
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 209
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 3
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 141
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 111
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 111
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 100
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 57
+      },
+      {
+        "name": "Pit-lane asphalt",
+        "triangles": 2900
+      },
+      {
+        "name": "Pit service apron",
+        "triangles": 680
+      }
+    ],
+    "samples": 7200,
+    "maxStep": 2.4142899180859843,
+    "issues": [
+      {
+        "station": 418.37,
+        "off": 38.9343,
+        "point": [
+          -389.50354526273924,
+          2.6367414000000133,
+          -609.8652707723115
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 420.37,
+        "off": 58.1997,
+        "point": [
+          -410.81881460372455,
+          2.4134608000000104,
+          -608.9770884257837
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 420.37,
+        "off": 58.4997,
+        "point": [
+          -411.09733034279395,
+          2.4134608000000104,
+          -609.088499918811
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 422.37,
+        "off": 70.9542,
+        "point": [
+          -426.7632658709438,
+          2.2412344000000077,
+          -602.3913311545973
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 422.37,
+        "off": 71.25420000000001,
+        "point": [
+          -427.048726537124,
+          2.2412344000000077,
+          -602.4833920756193
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 424.37,
+        "off": 71.24499999999999,
+        "point": [
+          -430.58128601633655,
+          2.1184341000000053,
+          -589.6304192581598
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 424.37,
+        "off": 71.545,
+        "point": [
+          -430.87362930629234,
+          2.1184341000000053,
+          -589.6975073053693
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 426.37,
+        "off": 57.011900000000004,
+        "point": [
+          -418.7595894846461,
+          2.0413054000000033,
+          -575.8738377692173
+        ],
+        "type": "ground-hole"
+      },
+      {
+        "station": 426.37,
+        "off": 57.3119,
+        "point": [
+          -419.0556195566906,
+          2.0413054000000033,
+          -575.922403238317
+        ],
+        "type": "ground-hole"
+      }
+    ],
+    "seams": [
+      {
+        "station": 110.37,
+        "side": -1,
+        "delta": 2.4142899180859843,
+        "point": [
+          238.6417601949766,
+          35.30812287361514,
+          -63.12679783115757
+        ],
+        "a": {
+          "name": "Grass verge",
+          "road": false,
+          "y": 36.51526783265813
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 34.10097791457215
+        }
+      },
+      {
+        "station": 108.37,
+        "side": -1,
+        "delta": 0.30585017693461936,
+        "point": [
+          253.19060716963656,
+          37.817441339384715,
+          -60.16385394964347
+        ],
+        "a": {
+          "name": "Grass verge",
+          "road": false,
+          "y": 37.66451625091741
+        },
+        "b": {
+          "name": "Grass verge",
+          "road": false,
+          "y": 37.97036642785203
+        }
+      },
+      {
+        "station": 1144.37,
+        "side": -1,
+        "delta": 0.23858007552619398,
+        "point": [
+          -199.93252289270967,
+          37.65807992863783,
+          -22.618260607584073
+        ],
+        "a": {
+          "name": "Pit-lane asphalt",
+          "road": false,
+          "y": 37.777369966400926
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 37.53878989087473
+        }
+      },
+      {
+        "station": 1066.37,
+        "side": -1,
+        "delta": 0.17342737201268932,
+        "point": [
+          -446.6418066337957,
+          40.34074319664407,
+          -120.02172116119101
+        ],
+        "a": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 40.42745688265042
+        },
+        "b": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 40.25402951063773
+        }
+      },
+      {
+        "station": 1108.37,
+        "side": -1,
+        "delta": 0.16965164416136247,
+        "point": [
+          -320.2677149897603,
+          37.16236146006872,
+          -42.324592444421434
+        ],
+        "a": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 37.247187282149405
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 37.07753563798804
+        }
+      },
+      {
+        "station": 1134.37,
+        "side": -1,
+        "delta": 0.16455828215982393,
+        "point": [
+          -234.9465307983104,
+          36.38227249381484,
+          -29.720749334668707
+        ],
+        "a": {
+          "name": "Grass verge",
+          "road": false,
+          "y": 36.464551634894754
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 36.29999335273493
+        }
+      },
+      {
+        "station": 758.37,
+        "side": -1,
+        "delta": 0.15857287639760997,
+        "point": [
+          -571.0162047092033,
+          30.30860669881387,
+          -177.25303572844882
+        ],
+        "a": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 30.229320260615065
+        },
+        "b": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 30.387893137012675
+        }
+      },
+      {
+        "station": 634.37,
+        "side": -1,
+        "delta": 0.15602503249963462,
+        "point": [
+          -326.54025844720206,
+          29.675744790011983,
+          -55.050117520232504
+        ],
+        "a": {
+          "name": "Grass verge",
+          "road": false,
+          "y": 29.597732273762166
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 29.7537573062618
+        }
+      },
+      {
+        "station": 756.37,
+        "side": -1,
+        "delta": 0.15471980156413423,
+        "point": [
+          -564.5660351169003,
+          30.76317222061284,
+          -169.23916451199315
+        ],
+        "a": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 30.685812319830774
+        },
+        "b": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 30.840532121394908
+        }
+      },
+      {
+        "station": 754.37,
+        "side": -1,
+        "delta": 0.15266597815057636,
+        "point": [
+          -554.0789895245953,
+          30.33440274495218,
+          -163.23792007452465
+        ],
+        "a": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 30.258069755876893
+        },
+        "b": {
+          "name": "Mapped lawn ground detail",
+          "road": false,
+          "y": 30.41073573402747
+        }
+      }
+    ],
+    "errors": []
+  },
+  {
+    "id": "riviera",
+    "surfaces": [
+      {
+        "name": "Original circuit regional ground",
+        "triangles": 2
+      },
+      {
+        "name": "Circuit terrain",
+        "triangles": 12624
+      },
+      {
+        "name": "Paved runoff",
+        "triangles": 0
+      },
+      {
+        "name": "Paved runoff",
+        "triangles": 0
+      },
+      {
+        "name": "Paved runoff",
+        "triangles": 7123
+      },
+      {
+        "name": "Main racing surface",
+        "triangles": 2915
+      },
+      {
+        "name": "Track markings",
+        "triangles": 3756
+      },
+      {
+        "name": "Track markings",
+        "triangles": 2400
+      },
+      {
+        "name": "Profiled raised kerb",
+        "triangles": 7200
+      },
+      {
+        "name": "Profiled raised kerb",
+        "triangles": 7207
+      },
+      {
+        "name": "Track markings",
+        "triangles": 2411
+      },
+      {
+        "name": "Track markings",
+        "triangles": 2395
+      },
+      {
+        "name": "Track markings",
+        "triangles": 4879
+      },
+      {
+        "name": "Track markings",
+        "triangles": 4079
+      },
+      {
+        "name": "Pit-lane asphalt",
+        "triangles": 1424
+      },
+      {
+        "name": "Pit service apron",
+        "triangles": 320
+      }
+    ],
+    "samples": 7200,
+    "maxStep": 3.0410000228880416,
+    "issues": [],
+    "seams": [
+      {
+        "station": 26.37,
+        "side": -1,
+        "delta": 3.0410000228880416,
+        "point": [
+          107.46136068999999,
+          1.5055000114441628,
+          -22.5
+        ],
+        "a": {
+          "name": "Pit-lane asphalt",
+          "road": false,
+          "y": 3.0260000228881836
+        },
+        "b": {
+          "name": "Original circuit regional ground",
+          "road": false,
+          "y": -0.014999999999857946
+        }
+      },
+      {
+        "station": 498.37,
+        "side": 1,
+        "delta": 2.00413190815339,
+        "point": [
+          761.6089627108099,
+          42.39041687479421,
+          1032.4188164610587
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 43.39248282887091
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 41.38835092071752
+        }
+      },
+      {
+        "station": 1014.37,
+        "side": 1,
+        "delta": 2.0030247224433175,
+        "point": [
+          -430.8549909838374,
+          2.2802241043985756,
+          313.03836310258237
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 3.2817364656202344
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 1.278711743176917
+        }
+      },
+      {
+        "station": 500.37,
+        "side": 1,
+        "delta": 2.001727266919744,
+        "point": [
+          759.640383183687,
+          42.52749164414933,
+          1033.686803999392
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 43.5283552776092
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 41.52662801068946
+        }
+      },
+      {
+        "station": 672.37,
+        "side": 1,
+        "delta": 1.7455808270842823,
+        "point": [
+          164.85001551090824,
+          45.054763060662474,
+          1166.49496970447
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 44.18197264712033
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 45.927553474204615
+        }
+      },
+      {
+        "station": 1086.37,
+        "side": 1,
+        "delta": 1.5880838488273494,
+        "point": [
+          -387.8942740824224,
+          1.7414470059030644,
+          85.31336152899384
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 0.9474050814893898
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 2.535488930316739
+        }
+      },
+      {
+        "station": 1084.37,
+        "side": 1,
+        "delta": 1.5084074753687546,
+        "point": [
+          -389.07434085631667,
+          1.1942510608148846,
+          87.22035055825626
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 0.44004732313050726
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 1.948454798499262
+        }
+      },
+      {
+        "station": 268.37,
+        "side": 1,
+        "delta": 1.4492909776273954,
+        "point": [
+          820.1720253069393,
+          7.172183227531204,
+          321.67358514754613
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 6.447537738717506
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 7.896828716344902
+        }
+      },
+      {
+        "station": 418.37,
+        "side": 1,
+        "delta": 1.058052111379375,
+        "point": [
+          854.854979195791,
+          30.873452682557332,
+          825.566053408703
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 30.344426626867644
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 31.40247873824702
+        }
+      },
+      {
+        "station": 1094.37,
+        "side": 1,
+        "delta": 1.0580400068108708,
+        "point": [
+          -381.7576372484627,
+          1.6163195344216352,
+          78.83323116702555
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 1.0872995310162
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 2.1453395378270708
+        }
+      },
+      {
+        "station": 1004.37,
+        "side": 1,
+        "delta": 1.0259990928926852,
+        "point": [
+          -425.6381513804366,
+          2.9122263258657894,
+          322.92805531504877
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 3.425225872312132
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 2.399226779419447
+        }
+      },
+      {
+        "station": 182.37,
+        "side": 1,
+        "delta": 0.6986311167607477,
+        "point": [
+          687.1652196491428,
+          1.4528193510692273,
+          70.28796425481389
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 1.8021349094496013
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 1.1035037926888536
+        }
+      },
+      {
+        "station": 510.37,
+        "side": 1,
+        "delta": 0.6890811857136612,
+        "point": [
+          748.5635059698611,
+          43.13306998168689,
+          1037.1657254325323
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 43.47761057454372
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 42.78852938883006
+        }
+      },
+      {
+        "station": 502.37,
+        "side": 1,
+        "delta": 0.6572778258250054,
+        "point": [
+          757.5585335470325,
+          43.324557134184296,
+          1034.7603617890607
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 43.6531960470968
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 42.99591822127179
+        }
+      },
+      {
+        "station": 508.37,
+        "side": 1,
+        "delta": 0.6322532081594829,
+        "point": [
+          750.8788898817065,
+          42.38655647193555,
+          1036.8595960722644
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 42.70268307601529
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 42.07042986785581
+        }
+      },
+      {
+        "station": 506.37,
+        "side": 1,
+        "delta": 0.615869885934309,
+        "point": [
+          753.1615211607902,
+          42.24861378295809,
+          1036.3523835678654
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 42.556548725925246
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 41.94067883999094
+        }
+      },
+      {
+        "station": 430.37,
+        "side": 1,
+        "delta": 0.6009254502120385,
+        "point": [
+          857.922661185584,
+          32.73773128043439,
+          839.2400401591021
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 32.43726855532837
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 33.03819400554041
+        }
+      },
+      {
+        "station": 1006.37,
+        "side": 1,
+        "delta": 0.5932862382327966,
+        "point": [
+          -427.01233268877706,
+          1.7823445221974554,
+          321.1421569075962
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 2.0789876413138537
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 1.4857014030810571
+        }
+      },
+      {
+        "station": 176.37,
+        "side": 1,
+        "delta": 0.5870453172757246,
+        "point": [
+          682.2107772288458,
+          1.7167396575908844,
+          65.82157016563417
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 2.0102623162287467
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 1.4232169989530221
+        }
+      },
+      {
+        "station": 1088.37,
+        "side": 1,
+        "delta": 0.5529416844467181,
+        "point": [
+          -386.5632283674066,
+          2.2449014722472933,
+          83.5094122849973
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 1.968430630023934
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 2.521372314470652
+        }
+      },
+      {
+        "station": 424.37,
+        "side": 1,
+        "delta": 0.5276167940115073,
+        "point": [
+          857.3246907941354,
+          31.616357753932366,
+          832.1995946434538
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 31.88016615093812
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 31.352549356926612
+        }
+      },
+      {
+        "station": 168.37,
+        "side": 1,
+        "delta": 0.524990692051982,
+        "point": [
+          673.9710309869326,
+          1.656641534120817,
+          62.5502369536096
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 1.394146188094826
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 1.919136880146808
+        }
+      },
+      {
+        "station": 266.37,
+        "side": 1,
+        "delta": 0.5081428536280272,
+        "point": [
+          820.917677245681,
+          7.488068016542497,
+          319.49553162261515
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 7.233996589728483
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 7.7421394433565105
+        }
+      },
+      {
+        "station": 260.37,
+        "side": 1,
+        "delta": 0.5068237252759022,
+        "point": [
+          821.7797808212808,
+          5.872435417462349,
+          312.6758527122251
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 5.619023554824398
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 6.1258472801003006
+        }
+      },
+      {
+        "station": 668.37,
+        "side": 1,
+        "delta": 0.49744791876086936,
+        "point": [
+          169.50096258226336,
+          44.83529347033109,
+          1166.1632714041111
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 45.08401742971152
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 44.58656951095065
+        }
+      },
+      {
+        "station": 1012.37,
+        "side": -1,
+        "delta": 0.45754571662309385,
+        "point": [
+          -566.9119265922952,
+          4.209007187831789,
+          366.4212387998358
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 3.9802343295202416
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 4.437780046143335
+        }
+      },
+      {
+        "station": 270.37,
+        "side": 1,
+        "delta": 0.4277464531222126,
+        "point": [
+          819.2102319359072,
+          7.815022072708385,
+          323.76562360562866
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 7.601148846147279
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 8.028895299269491
+        }
+      },
+      {
+        "station": 1016.37,
+        "side": 1,
+        "delta": 0.4111140313753028,
+        "point": [
+          -431.3565728356615,
+          2.8147958857554416,
+          310.84260974623925
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 3.020352901443093
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 2.60923887006779
+        }
+      },
+      {
+        "station": 256.37,
+        "side": 1,
+        "delta": 0.4060373147934362,
+        "point": [
+          821.152460239945,
+          6.103341900879398,
+          308.1405565952677
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 5.90032324348268
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 6.306360558276116
+        }
+      },
+      {
+        "station": 422.37,
+        "side": 1,
+        "delta": 0.3871011569498002,
+        "point": [
+          856.7036799906734,
+          31.679264548975915,
+          829.9178590722049
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 31.485713970501017
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 31.872815127450817
+        }
+      },
+      {
+        "station": 1086.37,
+        "side": -1,
+        "delta": 0.3841718948547932,
+        "point": [
+          -512.4131381045864,
+          4.4823335108265345,
+          1.7659181443576661
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 4.290247563399138
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 4.674419458253931
+        }
+      },
+      {
+        "station": 584.37,
+        "side": -1,
+        "delta": 0.38347125262944814,
+        "point": [
+          457.5431397121723,
+          48.38837916316256,
+          1092.186746921624
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 48.19664353684784
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 48.580114789477285
+        }
+      },
+      {
+        "station": 496.37,
+        "side": 1,
+        "delta": 0.38117922622259215,
+        "point": [
+          763.4613816811865,
+          41.44795635853346,
+          1030.988305750573
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 41.63854597164475
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 41.25736674542216
+        }
+      },
+      {
+        "station": 760.37,
+        "side": 1,
+        "delta": 0.36276178312020235,
+        "point": [
+          -119.35976183126034,
+          22.793841453942115,
+          1038.4614092752317
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 22.975222345502214
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 22.61246056238201
+        }
+      },
+      {
+        "station": 1020.37,
+        "side": 1,
+        "delta": 0.35628281246185356,
+        "point": [
+          -431.1333723639607,
+          2.362827265736591,
+          306.35852966241555
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 2.540968671967518
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 2.1846858595056644
+        }
+      },
+      {
+        "station": 174.37,
+        "side": 1,
+        "delta": 0.3253642096189304,
+        "point": [
+          680.2835873631163,
+          1.5472771308690252,
+          64.69364568184957
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 1.3845950260595599
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 1.7099592356784903
+        }
+      },
+      {
+        "station": 258.37,
+        "side": 1,
+        "delta": 0.3055020261333041,
+        "point": [
+          821.584489705054,
+          6.928554162103131,
+          310.38969362267653
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 6.775803149036479
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 7.081305175169783
+        }
+      },
+      {
+        "station": 1010.37,
+        "side": 1,
+        "delta": 0.26714737609216455,
+        "point": [
+          -429.2778711143338,
+          2.246200142116761,
+          317.2528220626315
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 2.112626454070679
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 2.3797738301628435
+        }
+      },
+      {
+        "station": 1008.37,
+        "side": 1,
+        "delta": 0.26513103804105365,
+        "point": [
+          -428.228534381346,
+          2.5162764864751264,
+          319.24579096896144
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 2.6488420054956534
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 2.3837109674545998
+        }
+      },
+      {
+        "station": 1102.37,
+        "side": 1,
+        "delta": 0.2645395927375914,
+        "point": [
+          -373.90437606898706,
+          0.5523956116825814,
+          74.60648424419827
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 0.6846654080513772
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 0.4201258153137858
+        }
+      },
+      {
+        "station": 678.37,
+        "side": 1,
+        "delta": 0.26396867913631894,
+        "point": [
+          158.4557135264053,
+          44.33950710569842,
+          1163.2561446250954
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 44.47149144526657
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 44.20752276613025
+        }
+      },
+      {
+        "station": 928.37,
+        "side": -1,
+        "delta": 0.2593515829897566,
+        "point": [
+          -257.6764807062847,
+          5.547628348940624,
+          572.5668276206982
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 5.417952557445746
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 5.677304140435503
+        }
+      },
+      {
+        "station": 428.37,
+        "side": 1,
+        "delta": 0.24753646164055,
+        "point": [
+          857.9345589947859,
+          33.68119025222225,
+          836.8804632226553
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 33.804958483042526
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 33.557422021401976
+        }
+      },
+      {
+        "station": 674.37,
+        "side": 1,
+        "delta": 0.24314576065360427,
+        "point": [
+          162.51870686405442,
+          45.60048188675703,
+          1166.3559386938068
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 45.47890900643023
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 45.72205476708383
+        }
+      },
+      {
+        "station": 660.37,
+        "side": 1,
+        "delta": 0.2317328236984295,
+        "point": [
+          178.16542122991063,
+          46.87042305827062,
+          1162.949479738627
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 46.7545566464214
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 46.98628947011983
+        }
+      },
+      {
+        "station": 426.37,
+        "side": 1,
+        "delta": 0.22853670391498326,
+        "point": [
+          857.7363996689928,
+          32.149773503492334,
+          834.5269798321325
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 32.264041855449825
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 32.03550515153484
+        }
+      },
+      {
+        "station": 340.37,
+        "side": -1,
+        "delta": 0.18361113291717146,
+        "point": [
+          728.5810752621976,
+          17.165725760824007,
+          548.0656079174149
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 17.257531327282592
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 17.07392019436542
+        }
+      },
+      {
+        "station": 918.37,
+        "side": -1,
+        "delta": 0.18360567011350248,
+        "point": [
+          -253.9057644524101,
+          5.6753296187171385,
+          583.3531544333555
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 5.583526783660387
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 5.76713245377389
+        }
+      },
+      {
+        "station": 1012.37,
+        "side": 1,
+        "delta": 0.17899793581202061,
+        "point": [
+          -430.15285158322615,
+          1.80181127974928,
+          315.1779053500591
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 1.7123123118432697
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 1.8913102476552903
+        }
+      },
+      {
+        "station": 492.37,
+        "side": 1,
+        "delta": 0.17235520639051316,
+        "point": [
+          766.7699815619081,
+          42.11228836321682,
+          1027.6849964157307
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 42.02611076002157
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 42.19846596641208
+        }
+      },
+      {
+        "station": 262.37,
+        "side": -1,
+        "delta": 0.16781424964124447,
+        "point": [
+          955.5126602963503,
+          10.48500587734781,
+          325.9410918046152
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 10.568913002168431
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 10.401098752527187
+        }
+      },
+      {
+        "station": 494.37,
+        "side": 1,
+        "delta": 0.16661006436901715,
+        "point": [
+          765.186677214804,
+          41.949293811550376,
+          1029.407543130654
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 41.865988779365864
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 42.03259884373488
+        }
+      },
+      {
+        "station": 1104.37,
+        "side": 1,
+        "delta": 0.15544728817212605,
+        "point": [
+          -371.7522223062824,
+          1.9663050167498208,
+          73.98804013204585
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 2.0440286608358837
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 1.8885813726637577
+        }
+      },
+      {
+        "station": 272.37,
+        "side": -1,
+        "delta": 0.15054819353422744,
+        "point": [
+          929.3232392206256,
+          11.232585950880685,
+          400.4487246978076
+        ],
+        "a": {
+          "name": "Paved runoff",
+          "road": false,
+          "y": 11.157311854113571
+        },
+        "b": {
+          "name": "Circuit terrain",
+          "road": false,
+          "y": 11.307860047647798
+        }
+      }
+    ],
+    "errors": []
+  }
+]

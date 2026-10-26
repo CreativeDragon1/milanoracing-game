@@ -28,9 +28,9 @@ def clearance(track,x,z,heading,station):
             minimum=min(minimum,track['widthRight' if offset>=0 else 'widthLeft'][i]-distance)
     return minimum
 
-def preflight(track,fraction):
+def preflight(track,fraction,seconds=5.1):
     n=track['N'];length=track['length'];progress=fraction*length;minimum=math.inf
-    for tick in range(426):
+    for tick in range(round((seconds+2)*60)):
         station=progress/length*n
         speed=sample(track['line']['speed'],station)*.97
         progress+=speed/60*(length/n)/max(.5,sample(track['line']['ds'],station))

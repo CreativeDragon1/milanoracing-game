@@ -1,0 +1,305 @@
+{
+  "id": "suzuka",
+  "label": "feedback",
+  "frames": 5424,
+  "p50": 7,
+  "p95": 13.900000000001455,
+  "p99": 14,
+  "over33": 2,
+  "over50": 0,
+  "tasks": [],
+  "drawCalls": 972,
+  "triangles": 2435340,
+  "hot": [
+    {
+      "name": "(idle)",
+      "line": 0,
+      "hits": 5178399
+    },
+    {
+      "name": "",
+      "line": 822,
+      "hits": 4039891
+    },
+    {
+      "name": "(program)",
+      "line": 0,
+      "hits": 2701837
+    },
+    {
+      "name": "",
+      "line": 822,
+      "hits": 2514972
+    },
+    {
+      "name": "",
+      "line": 822,
+      "hits": 1711934
+    },
+    {
+      "name": "setup",
+      "line": 822,
+      "hits": 926567
+    },
+    {
+      "name": "setup",
+      "line": 822,
+      "hits": 925603
+    },
+    {
+      "name": "renderBufferDirect",
+      "line": 822,
+      "hits": 873080
+    },
+    {
+      "name": "renderBufferDirect",
+      "line": 822,
+      "hits": 773641
+    },
+    {
+      "name": "bindVertexArray",
+      "line": 0,
+      "hits": 631236
+    },
+    {
+      "name": "It",
+      "line": 822,
+      "hits": 438502
+    },
+    {
+      "name": "bindVertexArray",
+      "line": 0,
+      "hits": 436838
+    },
+    {
+      "name": "sort",
+      "line": 822,
+      "hits": 408297
+    },
+    {
+      "name": "At",
+      "line": 822,
+      "hits": 369090
+    },
+    {
+      "name": "update",
+      "line": 822,
+      "hits": 356700
+    },
+    {
+      "name": "getProgramCacheKey",
+      "line": 822,
+      "hits": 344679
+    },
+    {
+      "name": "setup",
+      "line": 822,
+      "hits": 334369
+    },
+    {
+      "name": "Gi",
+      "line": 822,
+      "hits": 330887
+    },
+    {
+      "name": "sort",
+      "line": 822,
+      "hits": 329350
+    },
+    {
+      "name": "multiplyMatrices",
+      "line": 822,
+      "hits": 327788
+    },
+    {
+      "name": "",
+      "line": 8046,
+      "hits": 322983
+    },
+    {
+      "name": "getProgramCacheKey",
+      "line": 822,
+      "hits": 315419
+    },
+    {
+      "name": "toArray",
+      "line": 822,
+      "hits": 310471
+    },
+    {
+      "name": "updateMatrixWorld",
+      "line": 822,
+      "hits": 307941
+    },
+    {
+      "name": "applyMatrix4",
+      "line": 822,
+      "hits": 275201
+    },
+    {
+      "name": "",
+      "line": 822,
+      "hits": 268039
+    },
+    {
+      "name": "frame",
+      "line": 7602,
+      "hits": 266342
+    },
+    {
+      "name": "Cr.upload",
+      "line": 822,
+      "hits": 265529
+    },
+    {
+      "name": "update",
+      "line": 7880,
+      "hits": 253141
+    },
+    {
+      "name": "",
+      "line": 822,
+      "hits": 244268
+    }
+  ],
+  "alloc": [
+    {
+      "name": "frame",
+      "line": 7602,
+      "bytes": 270560,
+      "stack": [
+        "(root)"
+      ]
+    },
+    {
+      "name": "At",
+      "line": 822,
+      "bytes": 136156,
+      "stack": [
+        "renderOverride",
+        "render",
+        "At"
+      ]
+    },
+    {
+      "name": "G",
+      "line": 822,
+      "bytes": 121472,
+      "stack": [
+        "Ct",
+        "renderBufferDirect",
+        "setMaterial"
+      ]
+    },
+    {
+      "name": "setMode",
+      "line": 822,
+      "bytes": 99900,
+      "stack": [
+        "Rt",
+        "Ct",
+        "renderBufferDirect"
+      ]
+    },
+    {
+      "name": "ir",
+      "line": 822,
+      "bytes": 99900,
+      "stack": [
+        "Ct",
+        "renderBufferDirect",
+        "It"
+      ]
+    },
+    {
+      "name": "At",
+      "line": 822,
+      "bytes": 67068,
+      "stack": [
+        "At",
+        "At",
+        "At"
+      ]
+    },
+    {
+      "name": "gpTrackPose",
+      "line": 8011,
+      "bytes": 67068,
+      "stack": [
+        "frame",
+        "gpRender",
+        "(anonymous)"
+      ]
+    },
+    {
+      "name": "setup",
+      "line": 822,
+      "bytes": 66300,
+      "stack": [
+        "M",
+        "M",
+        "renderBufferDirect"
+      ]
+    },
+    {
+      "name": "ir",
+      "line": 822,
+      "bytes": 66048,
+      "stack": [
+        "Ct",
+        "renderBufferDirect",
+        "It"
+      ]
+    },
+    {
+      "name": "setMaterial",
+      "line": 822,
+      "bytes": 65664,
+      "stack": [
+        "Rt",
+        "Ct",
+        "renderBufferDirect"
+      ]
+    },
+    {
+      "name": "updateMatrixWorld",
+      "line": 822,
+      "bytes": 65664,
+      "stack": [
+        "render",
+        "updateMatrixWorld",
+        "updateMatrixWorld"
+      ]
+    },
+    {
+      "name": "intersectsObject",
+      "line": 822,
+      "bytes": 65592,
+      "stack": [
+        "At",
+        "At",
+        "At"
+      ]
+    },
+    {
+      "name": "(anonymous)",
+      "line": 822,
+      "bytes": 65548,
+      "stack": [
+        "M",
+        "renderBufferDirect",
+        "setup"
+      ]
+    },
+    {
+      "name": "setMaterial",
+      "line": 822,
+      "bytes": 65548,
+      "stack": [
+        "M",
+        "M",
+        "renderBufferDirect"
+      ]
+    }
+  ]
+}

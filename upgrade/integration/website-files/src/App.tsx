@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, MotionConfig } from "motion/react";
 import { PageMotion } from "./motion";
@@ -11,7 +11,7 @@ import Journal from "./pages/Journal";
 import Article from "./pages/Article";
 import Partners from "./pages/Partners";
 import NotFound from "./pages/NotFound";
-import Racing from "./pages/Racing";
+const Racing = import.meta.env.MODE === "private-game" ? lazy(() => import("./pages/Racing")) : null;
 function RouteFocus() {
   const location = useLocation();
   useEffect(() => {
@@ -54,7 +54,7 @@ export default function App() {
               <Route path="/journal" element={<Journal />} />
               <Route path="/journal/:id" element={<Article />} />
               <Route path="/partners" element={<Partners />} />
-              <Route path="/racing" element={<Racing />} />
+              {Racing && <Route path="/racing" element={<Suspense fallback={<div role="status" className="page-heading">Opening the garage...</div>}><Racing /></Suspense>} />}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </PageMotion>

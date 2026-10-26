@@ -28,7 +28,7 @@ for ident,d in tour.items():
   border=np.minimum(points-lo*60,hi*60-points).min(axis=1);out*=np.clip(border/150,0,1)
   if not sea.is_empty:
    # Inferred shoreline slopes down to the existing marina water level.
-   sx=np.maximum(np.maximum(sea.bounds[0]-points[:,0],points[:,0]-sea.bounds[2]),0);sz=np.maximum(np.maximum(sea.bounds[1]-points[:,1],points[:,1]-sea.bounds[3]),0);out*=np.clip(np.hypot(sx,sz)/30,0,1)
+   sx=np.maximum(np.maximum(sea.bounds[0]-points[:,0],points[:,0]-sea.bounds[2]),0);sz=np.maximum(np.maximum(sea.bounds[1]-points[:,1],points[:,1]-sea.bounds[3]),0);out*=1-blend+blend*np.clip(np.hypot(sx,sz)/30,0,1)
   return out-.015
  for gx in range(lo[0],hi[0]):
   for gz in range(lo[1],hi[1]):

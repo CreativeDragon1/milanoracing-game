@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "reports": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "width": 2160,
+      "height": 1215,
+      "ratio": 1.5,
+      "targets": [
+        2160,
+        1215
+      ],
+      "identicalPixels": true,
+      "differentPixels": 0,
+      "maxChannelDelta": 0
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "width": 585,
+      "height": 1266,
+      "ratio": 1.5,
+      "targets": [
+        585,
+        1266
+      ],
+      "identicalPixels": true,
+      "differentPixels": 0,
+      "maxChannelDelta": 0
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "width": 1266,
+      "height": 585,
+      "ratio": 1.5,
+      "targets": [
+        1266,
+        585
+      ],
+      "identicalPixels": false,
+      "differentPixels": 5,
+      "maxChannelDelta": 1
+    }
+  ],
+  "errors": []
+}

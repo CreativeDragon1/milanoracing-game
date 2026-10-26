@@ -38,7 +38,7 @@
     },
     {
       "circuit": "silverstone",
-      "trees": 11732,
+      "trees": 11730,
       "adjusted": 0,
       "uncovered": 0,
       "maxRootAdjustment": 0
@@ -59,7 +59,7 @@
     },
     {
       "circuit": "spa",
-      "trees": 37370,
+      "trees": 37721,
       "adjusted": 0,
       "uncovered": 0,
       "maxRootAdjustment": 0
@@ -73,7 +73,7 @@
     },
     {
       "circuit": "interlagos",
-      "trees": 1057,
+      "trees": 1059,
       "adjusted": 0,
       "uncovered": 0,
       "maxRootAdjustment": 0
@@ -87,7 +87,7 @@
     },
     {
       "circuit": "riviera",
-      "trees": 1329,
+      "trees": 1346,
       "adjusted": 0,
       "uncovered": 0,
       "maxRootAdjustment": 0

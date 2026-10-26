@@ -1,0 +1,53 @@
+{
+  "scope": "Real private browser game: completing and cancelling the remaining full qualifying sessions after Q1 elimination.",
+  "completed": {
+    "paints": 493,
+    "gaps": 493,
+    "maxGapMs": 576.4000000000015,
+    "maxSimulationGapMs": 368.10000000000036,
+    "slowFrames": [
+      {
+        "ms": 576.4000000000015,
+        "simulating": false
+      },
+      {
+        "ms": 159.79999999999927,
+        "simulating": false
+      },
+      {
+        "ms": 368.10000000000036,
+        "simulating": true
+      }
+    ],
+    "frameWorkSpikes": [],
+    "setupMs": 8,
+    "grid": [
+      4,
+      8,
+      12,
+      1,
+      5,
+      9,
+      13,
+      2,
+      6,
+      10,
+      14,
+      16,
+      3,
+      7,
+      11,
+      15,
+      17,
+      18,
+      19,
+      20,
+      21,
+      0
+    ],
+    "button": "TO THE GRID"
+  },
+  "cancelled": true,
+  "errors": [],
+  "passed": true
+}

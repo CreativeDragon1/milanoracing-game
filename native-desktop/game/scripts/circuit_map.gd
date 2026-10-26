@@ -73,13 +73,14 @@ func configure(main:Node) -> void:
 	ink=CircuitInk.new();ink.owner_map=self;map_layer.add_child(ink)
 	markers=MapMarkers.new();markers.owner_map=self;clip.add_child(markers)
 	title=make_label(15,Color.WHITE);subtitle=make_label(12,Color("9bafc3"));caption=make_label(12,Color("a6b8c9"))
-	toggle=Button.new();toggle.text="M  EXPAND";toggle.add_theme_font_size_override("font_size",12)
-	toggle.add_theme_font_override("font",load("res://assets/fonts/Barlow-Bold.ttf"))
+	toggle=Button.new();toggle.text="M  +";toggle.tooltip_text="Expand map";toggle.add_theme_font_size_override("font_size",12)
+	toggle.add_theme_font_override("font",load("res://assets/fonts/Michroma.ttf"))
 	toggle.flat=true;toggle.pressed.connect(toggle_view);add_child(toggle)
 	layout_map()
+	get_viewport().size_changed.connect(layout_map)
 
 func make_label(font_size:int,color:Color) -> Label:
-	var node:=Label.new();node.add_theme_font_override("font",load("res://assets/fonts/Barlow-Bold.ttf"))
+	var node:=Label.new();node.add_theme_font_override("font",load("res://assets/fonts/Michroma.ttf"))
 	node.add_theme_font_size_override("font_size",font_size);node.add_theme_color_override("font_color",color)
 	node.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(node);return node
 
@@ -89,12 +90,14 @@ func toggle_view() -> void:
 
 func layout_map() -> void:
 	local_size=Vector2(660,500) if expanded else Vector2(304,208)
-	position=Vector2(470,190) if expanded else Vector2(48,510)
+	var area:=get_viewport().get_visible_rect().size
+	position=(area-Vector2(660,562))/2 if expanded else Vector2(48,area.y-390)
 	size=local_size+Vector2(0,62);backdrop.size=size
 	clip.position=Vector2(10,33);clip.size=local_size-Vector2(20,8)
 	title.position=Vector2(14,8);subtitle.position=Vector2(14,size.y-23)
 	caption.position=Vector2(14,33);caption.visible=expanded
-	toggle.position=Vector2(size.x-94,4);toggle.size=Vector2(86,26);toggle.text="M  CLOSE" if expanded else "M  EXPAND"
+	title.size.x=size.x-88
+	toggle.position=Vector2(size.x-68,4);toggle.size=Vector2(60,26);toggle.text="M  −" if expanded else "M  +";toggle.tooltip_text="Close map" if expanded else "Expand map"
 
 func prepare(track:Dictionary,pit:Dictionary) -> void:
 	circuit_id=str(track.id);road.clear();pit_road.clear();initialized=false
@@ -109,7 +112,7 @@ func prepare(track:Dictionary,pit:Dictionary) -> void:
 		var point:=Vector2(float(pit.x[i]),float(pit.z[i]))
 		if pit_road.is_empty() or point.distance_to(pit_road[-1])>=4.0 or i==pit.x.size()-1:pit_road.append(point)
 	point_count=road.size()+pit_road.size();ink.queue_redraw();redraws+=1
-	title.text=str(track.name).to_upper();title.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS;title.size.x=size.x-122
+	title.text=str(track.name).to_upper();title.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS;title.size.x=size.x-88
 	caption.text=""
 	marker_data.clear()
 

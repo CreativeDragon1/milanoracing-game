@@ -14,3 +14,4 @@ qa/*.log
 **/__pycache__/
 capture/
 verification/
+signing/

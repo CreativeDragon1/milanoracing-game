@@ -1,0 +1,150 @@
+{
+  "passed": true,
+  "comparisons": 686400,
+  "reports": [
+    {
+      "id": "suzuka",
+      "difficulty": "rookie",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "suzuka",
+      "difficulty": "rookie",
+      "mode": "qualifying",
+      "passed": true
+    },
+    {
+      "id": "suzuka",
+      "difficulty": "club",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "suzuka",
+      "difficulty": "club",
+      "mode": "qualifying",
+      "passed": true
+    },
+    {
+      "id": "suzuka",
+      "difficulty": "pro",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "suzuka",
+      "difficulty": "pro",
+      "mode": "qualifying",
+      "passed": true
+    },
+    {
+      "id": "suzuka",
+      "difficulty": "elite",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "suzuka",
+      "difficulty": "elite",
+      "mode": "qualifying",
+      "passed": true
+    },
+    {
+      "id": "monaco",
+      "difficulty": "rookie",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "monaco",
+      "difficulty": "rookie",
+      "mode": "qualifying",
+      "passed": true
+    },
+    {
+      "id": "monaco",
+      "difficulty": "club",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "monaco",
+      "difficulty": "club",
+      "mode": "qualifying",
+      "passed": true
+    },
+    {
+      "id": "monaco",
+      "difficulty": "pro",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "monaco",
+      "difficulty": "pro",
+      "mode": "qualifying",
+      "passed": true
+    },
+    {
+      "id": "monaco",
+      "difficulty": "elite",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "monaco",
+      "difficulty": "elite",
+      "mode": "qualifying",
+      "passed": true
+    },
+    {
+      "id": "interlagos",
+      "difficulty": "rookie",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "interlagos",
+      "difficulty": "rookie",
+      "mode": "qualifying",
+      "passed": true
+    },
+    {
+      "id": "interlagos",
+      "difficulty": "club",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "interlagos",
+      "difficulty": "club",
+      "mode": "qualifying",
+      "passed": true
+    },
+    {
+      "id": "interlagos",
+      "difficulty": "pro",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "interlagos",
+      "difficulty": "pro",
+      "mode": "qualifying",
+      "passed": true
+    },
+    {
+      "id": "interlagos",
+      "difficulty": "elite",
+      "mode": "race",
+      "passed": true
+    },
+    {
+      "id": "interlagos",
+      "difficulty": "elite",
+      "mode": "qualifying",
+      "passed": true
+    }
+  ]
+}

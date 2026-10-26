@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "scope": "Two actual native track-level views of the Esplanade podiums inspected; shared geometry clearance checked in singapore-static-clearance.json.",
+  "screenshots": [
+    "native-esplanade-0.png",
+    "native-esplanade-1.png"
+  ]
+}

@@ -1,6 +1,6 @@
 MILANO RACING GRAND PRIX - THIRD-PARTY NOTICES
 
-Original Milano logo, sponsor artwork and Fusion MR 26 model supplied by the user. Artwork is preserved. Ownership remains with its owners.
+Original Milano logo, sponsor artwork and Fusion MR 26 model supplied by the user. The active MR 26 paintwork is the supplied 2colour_livery PSD composite, converted losslessly to a 4096 by 4096 PNG with the matching designer UV layout. Artwork is preserved. Ownership remains with its owners.
 
 Three.js r128 and addons: MIT. See Three.js-MIT.txt.
 Circuit centreline source: https://github.com/bacinger/f1-circuits . MIT; see included license.

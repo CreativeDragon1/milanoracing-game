@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "originalProceduralEffects": true,
+  "effects": {
+    "gun": {
+      "seconds": 0.24,
+      "sampleRate": 32000,
+      "peak": 0.72,
+      "rms": 0.1443649299092776
+    },
+    "jack": {
+      "seconds": 0.19,
+      "sampleRate": 32000,
+      "peak": 0.72,
+      "rms": 0.12518800606564018
+    },
+    "tyre": {
+      "seconds": 0.13,
+      "sampleRate": 32000,
+      "peak": 0.72,
+      "rms": 0.15447244239274247
+    }
+  }
+}

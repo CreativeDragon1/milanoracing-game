@@ -1,0 +1,1280 @@
+[
+  {
+    "id": "spa",
+    "surfaces": [
+      {
+        "name": "Circuit terrain",
+        "triangles": 26044
+      },
+      {
+        "name": "Grass verge",
+        "triangles": 11052
+      },
+      {
+        "name": "Main racing surface",
+        "triangles": 2697
+      },
+      {
+        "name": "Profiled raised kerb",
+        "triangles": 7252
+      },
+      {
+        "name": "Profiled raised kerb",
+        "triangles": 7200
+      },
+      {
+        "name": "Track markings",
+        "triangles": 2385
+      },
+      {
+        "name": "Track markings",
+        "triangles": 2400
+      },
+      {
+        "name": "Track markings",
+        "triangles": 5143
+      },
+      {
+        "name": "Track markings",
+        "triangles": 3999
+      },
+      {
+        "name": "Measured regional terrain",
+        "triangles": 49320
+      },
+      {
+        "name": "Mapped water",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 294
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 218
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 144
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 104
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 292
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 258
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 198
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 58
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 64
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 48
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 68
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 156
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 136
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 326
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 316
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 208
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 176
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 180
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 84
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 282
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 188
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 216
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 186
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 324
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 160
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 108
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 90
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 46
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 76
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 150
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 202
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 184
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 46
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 214
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 284
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 178
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 82
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 112
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 178
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 260
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 14
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 110
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 46
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 198
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 126
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 116
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 24
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 90
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 120
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 14
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 102
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 96
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 76
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 146
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 74
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 148
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 140
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 50
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 54
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 92
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 66
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 62
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 18
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 124
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 80
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 126
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 46
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 142
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 18
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 100
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 62
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 36
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 16
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 164
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 76
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 60
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 4
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 26
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 52
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 66
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 70
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 12
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 32
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 34
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 24
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 60
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 4
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 64
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 56
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 52
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 18
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 70
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 4
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 68
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 56
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 68
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 14
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 28
+      },
+      {
+        "name": "Mapped surrounding road network",
+        "triangles": 2
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 150
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 372
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 297
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 157
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 193
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 43
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 304
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 175
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 130
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 50
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 178
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 162
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 21
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 50
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 5
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 157
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 98
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 296
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 213
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 103
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 88
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 16
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 42
+      },
+      {
+        "name": "Mapped gravel ground detail",
+        "triangles": 167
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 669
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 215
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 61
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 1661
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 211
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 189
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 577
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 532
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 2
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 127
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 127
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 19
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 101
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 1
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 21
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 215
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 10
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 103
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 36
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 18
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 1
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 250
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 93
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 21
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 75
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 44
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 89
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 66
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 43
+      },
+      {
+        "name": "Mapped asphalt ground detail",
+        "triangles": 56
+      },
+      {
+        "name": "Mapped sand ground detail",
+        "triangles": 21
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 683
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 163
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 51
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 233
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 220
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 317
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 449
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 399
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 257
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 201
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 551
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 437
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 401
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 18
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 609
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 109
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 523
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 358
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 386
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 206
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 7
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 292
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 449
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 299
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 30
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 155
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 64
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 865
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 83
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 180
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 142
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 26
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 283
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 771
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 110
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 61
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 3
+      },
+      {
+        "name": "Mapped lawn ground detail",
+        "triangles": 21
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 46
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 115
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 112
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 7
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 136
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 61
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 168
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 99
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 30
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 5
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 70
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 2
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 117
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 158
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 169
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 104
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 134
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 214
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 28
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 212
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 159
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 171
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 23
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 113
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 167
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 171
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 159
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 81
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 38
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 48
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 24
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 53
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 14
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 86
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 81
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 93
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 16
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 156
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 79
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 68
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 111
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 49
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 52
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 9
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 10
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 97
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 140
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 67
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 23
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 7
+      },
+      {
+        "name": "Mapped meadow ground detail",
+        "triangles": 20
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 23
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 49
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 152
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 86
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 10
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 6
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 49
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 84
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 5
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 122
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 72
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 12
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 99
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 150
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 160
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 99
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 37
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 46
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 40
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 14
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 15
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 142
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 49
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 60
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 12
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 48
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 96
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 8
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 11
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 55
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 57
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 90
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 105
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 10
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 13
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 7
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 49
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 47
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 77
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 41
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 1
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 35
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 64
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 1
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 72
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 52
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 125
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 4
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 5
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 28
+      },
+      {
+        "name": "Mapped scrub ground detail",
+        "triangles": 48
+      },
+      {
+        "name": "Pit-lane asphalt",
+        "triangles": 1554
+      },
+      {
+        "name": "Pit service apron",
+        "triangles": 556
+      },
+      {
+        "name": "Pit working lane divider",
+        "triangles": 556
+      }
+    ],
+    "samples": 7200,
+    "maxStep": 0.001342981387935538,
+    "issues": [],
+    "seams": [],
+    "errors": []
+  }
+]

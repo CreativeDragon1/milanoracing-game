@@ -17,7 +17,7 @@ export const nav = [
   ["/team", "Team"],
   ["/journal", "Journal"],
   ["/partners", "Partners"],
-  ["/racing", "Race"],
+  ...(import.meta.env.MODE === "private-game" ? [["/racing", "Race"]] : []),
 ];
 export function ArrowLink({
   to,

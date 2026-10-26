@@ -36,5 +36,6 @@ for file in [preview,asset]:
     result=subprocess.run([ffmpeg,'-hide_banner','-loglevel','error','-threads','1','-i',str(file),'-f','null','-'],capture_output=True,text=True)
     assert result.returncode==0 and not result.stderr.strip(),result.stderr
 report={'source':'Recorded from the native Vulkan game at 60 FPS, scripted race-line cameras, original MR 26 model and V10 layers','circuits':ids,'seconds':17.4,'fps':30,'resolution':[1280,720],'transitions':'0.65 second cross dissolves, matching audio fades, seamless cyclic overlap','bytes':asset.stat().st_size,'sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),'decodePassed':True}
+report['livery']=json.loads((N/'game/assets/livery-manifest.json').read_text())['artworkSHA256']
 (N/'qa/home-reel.json').write_text(json.dumps(report,indent=2))
 print(json.dumps(report,indent=2),flush=True)

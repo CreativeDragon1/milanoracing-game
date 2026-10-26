@@ -14,6 +14,7 @@ if(mappedBuildings.length){
   const mx=Math.max(...pts.map(p=>p[0]))-Math.min(...pts.map(p=>p[0])),mz=Math.max(...pts.map(p=>p[1]))-Math.min(...pts.map(p=>p[1]));
   const stand=f.facade==='grandstand'||/grandstand|tribun|tribun|stowe |club b|^vale$/i.test(f.name||'');
   if(stand){const g=mappedGrandstand(f);g.name='Mapped grandstand '+f.id;mappedVenueAudit.grandstands++;mappedVenueAudit.buildings++;continue}
+  if(minimum===0&&f.facade!=='canopy')buildingFoundationSites.push({group:scene,rings:[pts],floor:()=>base,name:f.name||'Mapped building '+f.id});
   const palette=THEME==='harbour'?[0xd2c5b0,0xcab5a4,0xd1b6a5,0xb8bdbe,0xbca58f]:THEME==='desert'||THEME==='marina'?[0xc9bda6,0xd7cbbb,0xb8b9b7]:[0xb9bdbb,0xb6b4ac,0x8f9c9f,0xc6c4b8];const color=linear(palette[f.id%palette.length]);
   const detailed=distance<280&&h>5&&h<120&&f.facade!=='concrete'&&f.facade!=='canopy'&&mappedVenueAudit.recessedWindows<30000;
   const sign=T.ShapeUtils.area(pts.map(p=>new T.Vector2(...p)))>0?1:-1;reverseFacade=sign>0;
@@ -22,7 +23,7 @@ if(mappedBuildings.length){
    const at=(x,y,recess=0)=>[a[0]+ux*x+ox*recess,y,a[1]+uz*x+oz*recess];
    if(f.facade==='canopy'){if(len>8)for(let x=1;x<len;x+=8){const pos=at(x,0);architectureMetal.push([pos[0],base+h/2,pos[2],.22,h,.22]);}continue}
    // Foundations meet the actual terrain at every perimeter vertex; no hovering lower corners.
-   if(minimum===0)quad(walls,[a[0],grounds[i]-.65,a[1]],[b[0],grounds[(i+1)%n]-.65,b[1]],at(len,base+.2),at(0,base+.2),color.clone().multiplyScalar(.80));
+   // Final-surface foundations are fitted after pit aprons and terrain cuts.
    if(detailed&&len>4){
     const columns=Math.max(1,Math.floor(len/3.1)),cw=len/columns,floors=Math.max(1,Math.floor(h/3.3)),fh=h/floors;
     for(let floor=0;floor<floors;floor++)for(let col=0;col<columns;col++){

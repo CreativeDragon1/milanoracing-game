@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "midway": {
+    "phase": 0.3933333333333329,
+    "lift": 0.075,
+    "actors": 10,
+    "draws": 13,
+    "peakSources": 4,
+    "context": "running"
+  },
+  "wheelsRestored": true,
+  "axlesRetained": true,
+  "idlePoseUploads": 0,
+  "skipSilent": true,
+  "errors": [],
+  "scope": "Real rendered stop, wheel visibility, lift and Web Audio cue scheduling. Sound character not a recording claim."
+}

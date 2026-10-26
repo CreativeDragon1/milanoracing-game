@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "profiles": 3696,
+  "maximumErrorMetresPerSecond": 5.684341886080802e-14,
+  "scope": "All 14 circuits, four difficulties, 22 drivers, three tyre/wear combinations, learned pace and lap seam; same braking envelope within 1e-10 m/s, reused profile buffers."
+}

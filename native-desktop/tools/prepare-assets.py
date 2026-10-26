@@ -11,9 +11,11 @@ for p in (U/'assets').glob('*.jpg'):
 for prefix,kinds in [('asphalt-fine',['color','normal','rough']),('lawn',['color','normal']),('sand-fine',['color','normal']),('palm-bark',['color','normal','rough'])]:
  for kind in kinds:
   p=U/'assets'/f'{prefix}-{kind}.webp';shutil.copy2(p,A/'surfaces'/p.name)
+shutil.copy2(U/'assets/zandvoort-dune-cover.png',A/'surfaces/zandvoort-dune-cover.png')
 for name in ['Barlow-Bold.ttf','Barlow-ExtraBoldItalic.ttf','Michroma.ttf','DM-Sans.ttf']:
  shutil.copy2(U/'assets/fonts'/name,A/'fonts'/name)
 shutil.copy2(U/'vendor/team-logo.png',A/'team-logo.png')
+shutil.copy2(U/'assets/livery/manifest.json',A/'livery-manifest.json')
 data=json.loads((U/'src/world-tour-data.json').read_text(encoding='utf-8'))
 for d in data.values():d['elevation'].pop('terrain',None)
 (G/'circuits/physics.json').write_text(json.dumps(data,separators=(',',':')))

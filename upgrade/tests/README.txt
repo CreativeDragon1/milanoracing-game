@@ -52,7 +52,7 @@ ubuntu-soak.py must run on Linux with its listed dependencies and a local server
 
 Regeneration utilities in tools are optional research pipelines. The normal build uses processed checked-in JSON and textures. Original high-resolution Poly Haven tree GLTF/bin and DEM tile download caches are omitted; their source URLs and metadata are in research and licenses. Install NumPy, SciPy, Numba and Shapely 2.1+ for geographic/line tools, Blender for prepare-tree.py. Restore source tree_small_02 glTF assets before rerunning that optional decimation tool.
 
-interface-refresh.cjs verifies Barlow/DM Sans typography, visible separator removal, settings render throttling, reduced motion and responsive layout. venue-refresh.cjs checks Monza banking clearance at 3,600 road points and the Monaco/Suzuka additions. grid-performance.cjs measures paused 22-car grids in all twelve venues; it is not a complete moving-race benchmark.
+interface-refresh.cjs verifies Michroma typography, visible separator removal, settings render throttling, reduced motion and responsive layout. venue-refresh.cjs checks Monza banking clearance at 3,600 road points and the Monaco/Suzuka additions. grid-performance.cjs measures paused 22-car grids; it is not a complete moving-race benchmark.
 
 calendar-views.cjs captures six driving views per venue and audits all partner placements. track-limits.cjs covers kerb use, recovery, repeated excursions, deep/fast shortcuts and exact browser/Python event parity. calendar-environments.py rebuilds terrain-fitted ground and planting from cached OSM; redesign-milano.py changes only the original circuit. After a Milano geometry change, regenerate its terrain, racing line and pit route with their optional milano argument.
 
@@ -69,3 +69,19 @@ Performance, handling and pit release checks:
   node upgrade/tests/upgrade-benchmark.cjs release
 The first three are CPU/model tests; the last three require the preview browser.
 Run GPU measurements alone. Prior reports remain historical snapshots.
+
+Feedback-loop checks added 25 October:
+  node upgrade/tests/qualifying-responsive.cjs
+  node upgrade/tests/hud-timing.cjs
+  node upgrade/tests/resize-responsive.cjs
+  node upgrade/tests/qualifying-browser-responsive.cjs
+  node upgrade/tests/resize-render-equivalence.cjs
+  node upgrade/tests/shader-preparation.cjs
+  node upgrade/tests/offline-all.cjs
+The first three are deterministic CPU checks. The private-browser checks use
+127.0.0.1:5183/play/. Shader preparation compares the actual rendered image with
+preparation disabled, retains shader link-error checks, and exercises the path
+without KHR_parallel_shader_compile. A lack of console errors alone is not visual QA.
+offline-all.cjs checks every circuit with external requests blocked and records
+the tested HTML hash. Run the private website's racing-timers.cjs after replacing
+the Windows archive to validate the download route against its new size.

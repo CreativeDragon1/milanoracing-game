@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "baselineFlickerReproduced": true,
+  "checks": [
+    "120 alternating HUD updates retain Q1/countdown/push status",
+    "Minute rounding and nonnegative clock",
+    "Pit-to-track timer reads session clock",
+    "Out lap display",
+    "Online timing ownership",
+    "Return to practice",
+    "No unchanged text writes"
+  ],
+  "scope": "Actual generated baseline HUD and updated source functions with controlled DOM and simulation clocks; browser integration still requires rendered verification."
+}

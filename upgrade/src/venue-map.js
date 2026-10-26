@@ -1,5 +1,7 @@
 // Geographic surroundings derived from OpenStreetMap. Database: ODbL 1.0.
-const VENUE_MAP=__VENUE_MAP_DATA__,venueMap=VENUE_MAP[CIRCUIT.id]||[];
+const BUILDING_SITE_PLANS=__BUILDING_SITE_PLANS__;
+function fitBuildingSite(f){return {...f,...(BUILDING_SITE_PLANS[CIRCUIT.id]?.[f.id]||{})}}
+const VENUE_MAP=__VENUE_MAP_DATA__,venueMap=(VENUE_MAP[CIRCUIT.id]||[]).map(fitBuildingSite);
 const mappedBuildings=venueMap.filter(f=>f.kind==='building'),mappedForest=geography?geography.features.filter(f=>f.kind==='forest').map(f=>({...f,footprint:f.points})):venueMap.filter(f=>f.kind==='forest');
 function insideFootprint(x,z,points){let inside=false;for(let i=0,j=points.length-1;i<points.length;j=i++){const a=points[i],b=points[j];if((a[1]>z)!==(b[1]>z)&&x<(b[0]-a[0])*(z-a[1])/(b[1]-a[1])+a[0])inside=!inside;}return inside}
 const mappedBounds=mappedBuildings.map(f=>({f,x:Math.min(...f.footprint.map(p=>p[0])),X:Math.max(...f.footprint.map(p=>p[0])),z:Math.min(...f.footprint.map(p=>p[1])),Z:Math.max(...f.footprint.map(p=>p[1]))}));

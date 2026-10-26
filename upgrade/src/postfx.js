@@ -15,7 +15,14 @@ if(ren&&ren.capabilities.isWebGL2){
  const originalAORender=ambientPass.renderPass.bind(ambientPass);
  ambientPass.renderPass=(renderer,material,...args)=>{if(material===ambientPass.copyMaterial){material.uniforms.edgeAware.value=material.uniforms.tDiffuse.value===ambientPass.blurRenderTarget.texture?1:0;material.uniforms.aoSize.value.set(ambientPass.blurRenderTarget.width,ambientPass.blurRenderTarget.height)}return originalAORender(renderer,material,...args)};
  ambientPass.normalRenderTarget.dispose();ambientPass.normalRenderTarget.depthTexture.type=T.UnsignedIntType;
- const baseVisibility=ambientPass.overrideVisibility.bind(ambientPass);ambientPass.overrideVisibility=()=>{baseVisibility();scene.traverse(o=>{if(o===sky||o.isMesh&&(o.material?.transparent||o.material?.alphaTest>0))o.visible=false})};
+ // Only remember nodes whose visibility actually changes for the normal pass.
+ // The stock pass allocates/clears a Map entry for every scene node every frame.
+ // Restoring this small list produces the same depth/normal image, including
+ // newly added opponents and online cars, without retaining discarded scenes.
+ const hiddenForNormals=[];
+ const hideFromNormals=o=>{if(o.visible&&(o===sky||o.isPoints||o.isLine||o.isMesh&&(o.material?.transparent||o.material?.alphaTest>0))){hiddenForNormals.push(o);o.visible=false;}};
+ ambientPass.overrideVisibility=()=>{scene.traverse(hideFromNormals)};
+ ambientPass.restoreVisibility=()=>{for(const o of hiddenForNormals)o.visible=true;hiddenForNormals.length=0;};
  composer.addPass(ambientPass);
  cinemaPass=new T.ShaderPass({uniforms:{tDiffuse:{value:null},tDepth:{value:ambientPass.normalRenderTarget.depthTexture},tNormal:{value:ambientPass.normalRenderTarget.texture},projection:{value:cam.projectionMatrix},inverseProjection:{value:cam.projectionMatrixInverse},cameraWorld:{value:cam.matrixWorld},near:{value:cam.near},far:{value:cam.far},resolution:{value:new T.Vector2()},sunUV:{value:new T.Vector2(-1,-1)},sunVisible:{value:0},night:{value:isNight?1:0},ultra:{value:1},focus:{value:8},menu:{value:1}},vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`
  varying vec2 vUv;uniform sampler2D tDiffuse,tDepth,tNormal;uniform mat4 projection,inverseProjection,cameraWorld;uniform vec2 resolution,sunUV;uniform float near,far,sunVisible,night,ultra,focus,menu;
@@ -36,7 +43,8 @@ if(ren&&ren.capabilities.isWebGL2){
  float l=dot(c,vec3(.2126,.7152,.0722));c=mix(vec3(l),c,1.025);c=mix(c,smoothstep(vec3(0.),vec3(1.),c),.14);c+=vec3(-.006,.002,.012)*(1.-smoothstep(.04,.4,l));c*=1.-.12*smoothstep(.22,.75,length(vUv-.5));gl_FragColor=vec4(c,1.);
  }`});composer.addPass(cinemaPass);aaPass=new T.ShaderPass(T.FXAAShader);composer.addPass(aaPass);
 }
-function resizeFX(){if(!composer)return;const pr=ren.getPixelRatio(),{w,h}=viewportSize();composer.setPixelRatio(pr);composer.setSize(w,h);aaPass.uniforms.resolution.value.set(1/(w*pr),1/(h*pr));cinemaPass.uniforms.resolution.value.set(w*pr,h*pr);}
+let fxPixelRatio=-1;
+function resizeFX(size=viewportSize()){if(!composer)return;const pr=ren.getPixelRatio(),{w,h}=size;if(pr!==fxPixelRatio){composer.setPixelRatio(pr);fxPixelRatio=pr}composer.setSize(w,h);aaPass.uniforms.resolution.value.set(1/(w*pr),1/(h*pr));cinemaPass.uniforms.resolution.value.set(w*pr,h*pr);}
 function applyGraphics(preset){graphicsPreset=preset;graphics.quality=preset;S.q=preset==='performance'?1:0;try{localStorage.setItem(device.mobile?'mrs:mobile:graphics':'mrs:graphics',preset)}catch(e){};sun.shadow.mapSize.set(preset==='ultra'&&!device.mobile?4096:2048,preset==='ultra'&&!device.mobile?4096:2048);if(sun.shadow.map){sun.shadow.map.dispose();sun.shadow.map=null}sun.shadow.camera.left=-55;sun.shadow.camera.right=55;sun.shadow.camera.top=55;sun.shadow.camera.bottom=-55;sun.shadow.camera.updateProjectionMatrix();resize();}
 const sunScreen=new T.Vector3();let previousRender=performance.now();
 function renderGame(){if(!ren)return;ren.info.reset();if(state==='menu'){drawShowroom(performance.now());return;}const now=performance.now(),dt=now-previousRender;previousRender=now;ren.shadowMap.needsUpdate=true;

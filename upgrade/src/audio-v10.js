@@ -49,11 +49,11 @@ async function createV10Audio(ctx){
  }
  return{update,master,layers,debug,description:'Recorded V10 with wheel-speed RPM, load shaping, shift cuts, overrun and road feedback',stop(){for(const l of layers){l.source.stop();l.source.disconnect();l.gain.disconnect()}noise.stop();noise.disconnect();for(const e of[wind,road,tyre,transient]){e.filter.disconnect();e.gain.disconnect()}for(const node of[engineBus,body,bite,filter,engineGain,master,limiter])node.disconnect()}};
 }
-function audioInit(){try{if(AC){AC.resume();return}AC=new(window.AudioContext||window.webkitAudioContext)();AC.resume();createV10Audio(AC).then(engine=>{engineAudio=engine}).catch(()=>{if(AC)AC.close();AC=null;engineAudio=null;msg('Engine audio unavailable. Reload to retry.',3500)})}catch(e){if(AC)AC.close();AC=null;engineAudio=null}}
+function audioInit(){try{if(AC){AC.resume();return}AC=new(window.AudioContext||window.webkitAudioContext)();AC.resume();preparePitSounds();createV10Audio(AC).then(engine=>{engineAudio=engine}).catch(()=>{if(AC)AC.close();AC=null;engineAudio=null;msg('Engine audio unavailable. Reload to retry.',3500)})}catch(e){if(AC)AC.close();AC=null;engineAudio=null}}
 function audioUpd(dt=1/60){
- const on=(state==='race'||state==='count')&&!document.hidden,countdown=state==='count';
+ const on=(state==='race'||state==='count')&&!document.hidden&&!GP.pitSkip,countdown=state==='count';
  const throttle=countdown?Math.max(keys.has('KeyW')||keys.has('ArrowUp')?1:0,padInput.t):inp.t;
  const vs=Math.max(c.vx,4),frontSlip=Math.abs(Math.atan2(c.vy+VEH.frontCG*c.r,vs)-c.st),rearSlip=Math.abs(Math.atan2(c.vy-VEH.rearCG*c.r,vs));
- const d=driveSound.update({on,countdown,speed:c.vx,gear:c.gear,throttle,brake:inp.b,camera:camMode,tyreSlip:Math.max(frontSlip,rearSlip),kerb:Math.abs(c.d)>W&&Math.abs(c.d)<=W+1.5,offroad:Math.abs(c.d)>W+1.5,distance:c.odo},dt);
+ const d=driveSound.update({on,countdown,speed:Math.abs(c.vx),gear:c.gear,throttle:c.reverse?inp.b:throttle,brake:c.reverse?inp.t:inp.b,camera:camMode,tyreSlip:Math.max(frontSlip,rearSlip),kerb:Math.abs(c.d)>W&&Math.abs(c.d)<=W+1.5,offroad:Math.abs(c.d)>W+1.5,distance:c.odo},dt);
  if(AC&&engineAudio)engineAudio.update(d.rpm,d.load,S.vol,on,d.gear,AC.currentTime,d);
 }

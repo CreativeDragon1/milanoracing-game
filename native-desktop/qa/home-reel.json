@@ -13,7 +13,8 @@
     720
   ],
   "transitions": "0.65 second cross dissolves, matching audio fades, seamless cyclic overlap",
-  "bytes": 39917281,
-  "sha256": "2d5a38c40f49d103c7f8d085652452e07a77647c70e052111e399d6604dcd4ef",
-  "decodePassed": true
+  "bytes": 41164130,
+  "sha256": "48b51a3e3e2612f2c4034703b5d9568b5c194edd3b39a58acd08fc74c2e8240e",
+  "decodePassed": true,
+  "livery": "5705c700e844368f973411f2cdf84e1a21ad64d4c25c021e1e62f21a98435111"
 }

@@ -1,3 +1,12 @@
+MICHROMA AND TIMING UPDATE - 25 OCTOBER 2026
+Michroma throughout both game interfaces and both cinematic edits. Phone circuit card refitted. Active-session lap and qualifying clocks, cached HUD writes, equivalent speed-profile calculations and private website Windows download. Measurements are recorded against the release hashes; no public deployment.
+
+STRUCTURE GROUNDING UPDATE - 25 OCTOBER 2026
+Spa endurance garages now use their own terrain elevation instead of the distant modern pit lane. Garage roofs follow supported footprint sections across the calendar. Perimeter foundations are fitted to final terrain and shoreline surfaces; mapped frontage corrections clear the Monaco driving lanes. Original venue building footings, low grass blades and footprint-bounded Raidillon canopies are included. Singapore Esplanade shells now include grounded lower podiums. Detailed ground samples are retained only with qaStructures=1, avoiding diagnostic-array retention during normal play. Numerical and rendered evidence: qa/structure-grounding.json, qa/building-site-plans.json, qa/singapore-esplanade.json.
+
+MR 26 LIVERY UPDATE - 25 OCTOBER 2026
+Supplied 2colour_livery PSD composite converted losslessly to 4096 x 4096 PNG; matching designer UVs and original geometry retained. New browser showroom lighting, native car and native home footage.
+
 MILANO RACING 3.0 PERFORMANCE UPDATE
 Fourteen circuits, including original Riviera and Solara designs; smoother controls/camera; local adaptive pace learning; shared browser opponent draws; cached foliage and scenery; native assets, buffers and bounds prepared offline.
 Current scope and evidence: docs/PERFORMANCE-UPDATE.md and docs/PERFORMANCE-RESULTS.md. Previous entries below are dated historical validation.

@@ -14,6 +14,7 @@ var message_until := 0.0
 var next_tyre := "hard"
 var previous_phase := ""
 var player_was_in_pit := false
+var pit_skipping := false
 var qa_autopilot := false
 var physics_ms := 0.0
 var player_contact_time := 0.0
@@ -23,6 +24,7 @@ var car_parts:Array[Array]=[]
 var shadow_near:Array[bool]=[]
 var wheels:Array[Array]=[]
 var wheel_angles:Array[float]=[]
+var pose_buffers:Array[Dictionary]=[]
 
 func configure(car: Node3D,track: Dictionary,pit: Dictionary,options: Dictionary,mode: String) -> void:
 	vehicle=car
@@ -36,9 +38,10 @@ func configure(car: Node3D,track: Dictionary,pit: Dictionary,options: Dictionary
 		sound.doppler_tracking=AudioStreamPlayer3D.DOPPLER_TRACKING_PHYSICS_STEP
 		add_child(sound); sound.play(); spatial_audio.append(sound)
 	for id in range(1,22):
+		pose_buffers.append({})
 		var root := Node3D.new()
 		add_child(root)
-		var visual: Node3D = vehicle.visual.duplicate()
+		var visual: Node3D = vehicle.duplicate_race_visual()
 		root.add_child(visual)
 		var wheel_set:=[]
 		for part in visual.get_children():
@@ -52,7 +55,7 @@ func configure(car: Node3D,track: Dictionary,pit: Dictionary,options: Dictionary
 				part.visibility_range_end_margin=50
 				part.visibility_range_fade_mode=GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
 		# Small number plate distinguishes the field without replacing supplied livery.
-		var plate := Label3D.new()
+		var plate := Label3D.new(); plate.font=load("res://assets/fonts/Michroma.ttf")
 		plate.text="%02d" % (id+1); plate.font_size=80; plate.pixel_size=.0035
 		plate.position=Vector3(-2.1,.95,0); plate.rotation.y=-PI/2
 		plate.modulate=Color.from_hsv(float(id%6)/6,.7,1)
@@ -111,6 +114,26 @@ func recover() -> void:
 	message_until=model.clock+5
 
 func _physics_process(dt: float) -> void:
+	if pit_skipping:return
+	advance_session(dt)
+
+func advance_hidden_pit(dt:float) -> void:
+	# The same session rules advance every competitor. Hidden render poses,
+	# wheel transforms, collision visuals and learning samples are unnecessary.
+	model.update(dt)
+	model.events.clear()
+
+func complete_pit_skip() -> void:
+	var d:Dictionary=model.drivers[0]
+	apply_player_pose(model.pit_pose(d) if not d.pit.is_empty() else d.get("last_pit_pose",model.pose(d)),d.v,true)
+	vehicle.lap=d.laps;vehicle.lap_clock=model.clock-d.lap_start
+	vehicle.gear=clampi(ceili(d.v/18),1,6);vehicle.rpm=clampf(4500+d.v*140,4500,18000)
+	player_was_in_pit=not d.pit.is_empty()
+	for id in range(1,22):
+		place(cars[id-1],model.pose(model.drivers[id]));cars[id-1].reset_physics_interpolation()
+	message="PIT EXIT   ·   WATCH TRAFFIC";message_until=model.clock+4
+
+func advance_session(dt:float) -> void:
 	if not model: return
 	var d: Dictionary = model.drivers[0]
 	vehicle.enabled=not paused and model.phase in ["race","qualifying"] and d.active and not d.finished and not d.stage_done and d.pit.is_empty() and not qa_autopilot
@@ -127,6 +150,7 @@ func _physics_process(dt: float) -> void:
 	observe_learning(dt)
 	var in_pit: bool = not d.pit.is_empty()
 	if in_pit or player_was_in_pit or qa_autopilot or d.finished:
+		vehicle.reverse=false;vehicle.reverse_armed=false;vehicle.reverse_hold=0
 		var pose:Dictionary=d.last_pit_pose if player_was_in_pit and not in_pit and d.has("last_pit_pose") else model.pose(d)
 		apply_player_pose(pose,d.v)
 		var curve:float=pose.get("curvature",0.0)
@@ -144,7 +168,7 @@ func _physics_process(dt: float) -> void:
 		var opponent: Dictionary = model.drivers[id]
 		var car := cars[id-1]
 		car.visible=opponent.active and not opponent.stage_done
-		place(car,model.pose(opponent))
+		place(car,model.pose(opponent,pose_buffers[id-1]))
 		wheel_angles[id-1]=fposmod(wheel_angles[id-1]-opponent.v*dt/.373,TAU)
 		var station:float=fposmod(opponent.progress,model.length)/model.length*model.count
 		var steering_angle:=atan(float(model.pit_pose(opponent).curvature)*3) if not opponent.pit.is_empty() else atan(Model.sample(model.track.line.curvature,station)*3)
@@ -194,12 +218,12 @@ func _process(dt: float) -> void:
 		sound.pitch_scale=clampf((6000+fmod(d.v,18)*650)/15165,.45,1.25)
 
 static func time_text(t: float) -> String:
-	return "—" if not is_finite(t) else "%d:%06.3f" % [int(t/60),fmod(t,60)]
+	return preload("res://scripts/race_time.gd").lap(t)
 
 func title() -> String:
 	match model.phase:
 		"countdown": return "LIGHTS OUT IN  %d" % ceili(model.countdown)
-		"qualifying": return "Q%d   %02d:%02d" % [model.stage+1,int(maxf(0,model.duration-model.clock)/60),int(maxf(0,model.duration-model.clock))%60]
+		"qualifying": return "Q%d   %s" % [model.stage+1,preload("res://scripts/race_time.gd").countdown(model.duration-model.clock)]
 		"qualifying_result": return "QUALIFYING COMPLETE"
 		"race_result": return "RACE RESULTS"
 	return "RACE   LAP %d / %d" % [mini(model.drivers[0].laps+1,model.laps),model.laps]

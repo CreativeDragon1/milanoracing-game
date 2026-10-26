@@ -1,0 +1,44 @@
+/* One typeface, regular weight, restrained spacing throughout the game. */
+:root{--disp:Michroma,sans-serif;--ui:Michroma,sans-serif;--mono:Michroma,sans-serif}
+*,*::before,*::after{font-family:Michroma,sans-serif!important;font-style:normal!important;font-weight:400!important;font-synthesis:none;font-variation-settings:normal!important}
+html,body{font-size:12px;line-height:1.6}
+#weekend .gp-strategy-toggle{font-family:Michroma,sans-serif!important;font-weight:400!important}
+h1,h2,h3{letter-spacing:0!important;line-height:1.35}
+#menu h1{font-size:clamp(28px,3.7vw,44px);line-height:1.4;letter-spacing:0}
+#menu .home-drive{font-size:21px}#menu .home-online,.home-circuit strong{font-size:15px}
+.pn h2,.screen-heading h2{font-size:clamp(23px,2.4vw,32px)}
+.settings-content h3,.race-venue h3{font-size:22px}
+#sessions .session-card strong{font-size:19px;line-height:1.45}
+.circuit-card strong{font-size:16px;line-height:1.5;overflow-wrap:anywhere}
+#scene-loading strong{font-size:clamp(18px,3vw,27px);letter-spacing:.02em;text-align:center}
+#scene-loading{padding:24px}
+.gp-table-head{font-size:10px;letter-spacing:.03em}
+#gp-timing{width:260px;font-size:10px}.gp-row{grid-template-columns:22px minmax(0,1fr) 16px 72px;gap:5px}
+#cur{font-size:25px;letter-spacing:0}#spd{font-size:43px}#gr{font-size:37px}
+#lap{font-size:15px}#val{font-size:9px;letter-spacing:0}
+.pn button,.pn select{letter-spacing:0;min-width:0}
+.pn select{max-width:100%}.quick-controls{gap:0 20px}.quick-controls span{font-size:10px}
+.race-layout,.race-venue,.race-config,.race-config .gp-settings>*{min-width:0}
+.race-venue h3{overflow-wrap:anywhere}.venue-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.venue-stats span{letter-spacing:0;font-size:8px}
+.touch-device #cur{font-size:18px}.touch-device #spd{font-size:30px}.touch-device #gr{font-size:27px}.touch-device #lap{font-size:11px}
+.touch-device #gp-timing{width:190px;font-size:8px}.touch-device #menu h1{font-size:28px}
+@media(max-width:600px){.race-venue{grid-template-columns:minmax(0,1fr);padding:18px}.race-venue canvas{grid-column:1;grid-row:auto;width:100%;height:115px;margin:0}.race-venue h3{font-size:18px}.venue-stats{gap:8px}.venue-stats strong{font-size:19px}.venue-stats span{font-size:7px}.race-config .gp-settings{grid-template-columns:repeat(2,minmax(0,1fr))}.screen-heading>div{min-width:0}.screen-heading h2{overflow-wrap:anywhere}.touch-device #menu h1{font-size:28px}}
+@media(max-width:600px){#menu h1{font-size:28px}#menu .home-drive{font-size:17px}#menu .home-online{font-size:13px}.home-circuit strong{font-size:12px}.pn h2,.screen-heading h2{font-size:22px}.touch-device .circuit-card strong{font-size:13px}#gp-timing{width:190px;font-size:8px}.gp-row{grid-template-columns:16px minmax(0,1fr) 12px 54px;gap:3px}#cur{font-size:18px}#spd{font-size:30px}#gr{font-size:27px}#lap{font-size:11px}.quick-controls{grid-template-columns:1fr}.pn select{font-size:16px}}
+@media(max-height:500px){#menu h1{font-size:25px}#menu .home-drive{font-size:16px}#menu .home-online{font-size:12px}}
+/* A shared column reserves room for strategy; panels cannot overlap. */
+#gp-hud-stack{position:fixed;left:22px;top:175px;bottom:115px;width:260px;display:flex;flex-direction:column;align-items:stretch;gap:10px;pointer-events:none}
+#gp-hud-stack #gp-timing,#gp-hud-stack #gp-race-strip{position:static;width:auto;max-width:none;box-sizing:border-box;margin:0;pointer-events:auto}
+#gp-hud-stack #gp-timing{flex:0 1 auto;min-height:68px;overflow:auto}
+#gp-hud-stack .gp-row small{white-space:nowrap;font-size:inherit}
+#gp-skip-pit small{display:block;font-size:8px;opacity:.8;margin-top:4px}
+#gp-hud-stack #gp-race-strip{flex:0 0 auto;display:grid}
+#gp-hud-stack [hidden],#gp-skip-pit[hidden]{display:none!important}
+#pit-transition{position:fixed;inset:0;z-index:10000;background:#05070b;opacity:0;pointer-events:none;transition:opacity .22s ease}
+#pit-transition.active{opacity:1;pointer-events:auto}
+@media(max-height:720px){#gp-hud-stack{top:125px;bottom:85px}#gp-hud-stack .gp-row{padding:6px 8px}#gp-hud-stack #gp-strategy-status{display:none}}
+.touch-device #gp-hud-stack{left:var(--safe-l);top:calc(var(--safe-t) + 86px);bottom:calc(var(--safe-b) + 112px);width:190px;gap:6px}
+.touch-device #gp-hud-stack #gp-race-strip{padding:6px;grid-template-columns:1fr 1fr;gap:5px;font-size:8px}
+.touch-device #gp-tyre,.touch-device #gp-skip-pit{grid-column:1 / -1}
+.touch-device #gp-hud-stack button{min-width:0;min-height:38px;padding:5px;font-size:8px}
+@media(max-width:600px) and (orientation:portrait){.touch-device #gp-hud-stack{top:calc(var(--safe-t) + 190px);bottom:calc(var(--safe-b) + 222px)}}
+@media(max-height:500px) and (orientation:landscape){.touch-device #gp-hud-stack{top:calc(var(--safe-t) + 66px);bottom:calc(var(--safe-b) + 108px)}.touch-device #gp-hud-stack .gp-row:not(.you){display:none}.touch-device #gp-hud-stack .gp-table-head{padding:4px}.touch-device #gp-hud-stack #gp-timing{min-height:43px}.touch-device #gp-hud-stack .gp-row{padding:4px}.touch-device #gp-hud-stack #gp-tyre{display:none}.touch-device #gp-hud-stack button{min-height:34px}}

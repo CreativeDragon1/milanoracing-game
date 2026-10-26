@@ -1,0 +1,105 @@
+[
+  {
+    "circuit": "bahrain",
+    "checkedBuildings": 188,
+    "adjusted": []
+  },
+  {
+    "circuit": "singapore",
+    "checkedBuildings": 653,
+    "adjusted": []
+  },
+  {
+    "circuit": "monza",
+    "checkedBuildings": 371,
+    "adjusted": []
+  },
+  {
+    "circuit": "monaco",
+    "checkedBuildings": 1670,
+    "adjusted": [
+      {
+        "id": 157719657,
+        "name": "H\u00f4tel de Paris",
+        "oldOverlapM2": 0.0,
+        "newOverlapM2": 0.0,
+        "retainedAreaFraction": 0.9946,
+        "facadeClearanceMetres": 2.95
+      },
+      {
+        "id": 157719654,
+        "name": "Caf\u00e9 de Paris",
+        "oldOverlapM2": 61.418,
+        "newOverlapM2": 0.0,
+        "retainedAreaFraction": 0.9507,
+        "facadeClearanceMetres": 2.95
+      },
+      {
+        "id": 112681614,
+        "name": "La Rascasse",
+        "oldOverlapM2": 8.034,
+        "newOverlapM2": 0.0,
+        "retainedAreaFraction": 0.9503,
+        "facadeClearanceMetres": 0.8
+      },
+      {
+        "id": 304229766,
+        "name": "Yacht Club de Monaco",
+        "oldOverlapM2": 0.0,
+        "newOverlapM2": 0.0,
+        "retainedAreaFraction": 0.9859,
+        "facadeClearanceMetres": 2.95
+      }
+    ]
+  },
+  {
+    "circuit": "austria",
+    "checkedBuildings": 160,
+    "adjusted": []
+  },
+  {
+    "circuit": "silverstone",
+    "checkedBuildings": 210,
+    "adjusted": []
+  },
+  {
+    "circuit": "abu-dhabi",
+    "checkedBuildings": 215,
+    "adjusted": []
+  },
+  {
+    "circuit": "milano",
+    "checkedBuildings": 0,
+    "adjusted": []
+  },
+  {
+    "circuit": "spa",
+    "checkedBuildings": 110,
+    "adjusted": []
+  },
+  {
+    "circuit": "suzuka",
+    "checkedBuildings": 271,
+    "adjusted": []
+  },
+  {
+    "circuit": "interlagos",
+    "checkedBuildings": 3024,
+    "adjusted": []
+  },
+  {
+    "circuit": "zandvoort",
+    "checkedBuildings": 398,
+    "adjusted": []
+  },
+  {
+    "circuit": "riviera",
+    "checkedBuildings": 0,
+    "adjusted": []
+  },
+  {
+    "circuit": "solara",
+    "checkedBuildings": 0,
+    "adjusted": []
+  }
+]

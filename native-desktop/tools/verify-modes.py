@@ -5,7 +5,7 @@ N=Path(__file__).resolve().parents[1];E=N/'build/Milano Apex.exe';out=N/'qa/mode
 reports=[]
 for name,ident,flags in [('full-monaco','monaco',['--qa-complete-race']),('full-spa','spa',['--qa-complete-race']),('rain','singapore',['--qa-race','--qa-rain','--qa-seconds=35']),('home','milano',['--qa-home','--qa-seconds=24'])]:
     log=out/(name+'.log')
-    r=subprocess.run([str(E),'--position','-4000,-4000','--log-file',str(log),'--quit-after','36000','--','--qa','--circuit='+ident,'--qa-output='+out.as_posix(),*flags],timeout=250)
+    r=subprocess.run([str(E),'--position','-4000,-4000','--log-file',str(log),'--quit-after','36000','--','--qa','--circuit='+ident,'--qa-output='+out.as_posix(),*flags],timeout=250,capture_output=True)
     text=log.read_text(encoding='utf-8')
     assert r.returncode==0 and 'NATIVE_QA ' in text and 'SCRIPT ERROR' not in text and '\nERROR:' not in text,(name,text[-3000:])
     report=json.loads((out/('native-'+ident+'.json')).read_text())

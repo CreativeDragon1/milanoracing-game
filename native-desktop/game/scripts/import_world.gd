@@ -129,6 +129,7 @@ func _initialize() -> void:
 		var car := Node3D.new()
 		car.name = "MR26"
 		for o in data.objects:
+			if int(data.geometry[o.geometry].attributes.position.bytes)==0:continue
 			var node: GeometryInstance3D
 			if o.has("instances"):
 				var mm := MultiMesh.new()

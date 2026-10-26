@@ -1,4 +1,45 @@
 extends Node3D
+var pit_skip_busy:=false
+
+func can_skip_pit() -> bool:
+	if not loaded or paused or online_mode or pit_skip_busy:return false
+	return not director.model.drivers[0].pit.is_empty() if director else vehicle.pit_active
+
+func skip_pit_drive() -> void:
+	if not can_skip_pit():return
+	pit_skip_busy=true
+	var active_director=director
+	var active_vehicle=vehicle
+	if active_director:active_director.pit_skipping=true
+	active_vehicle.enabled=false
+	var layer:=CanvasLayer.new();layer.layer=100;add_child(layer)
+	var cover:=ColorRect.new();cover.color=Color(0.02,0.025,0.04,0);cover.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);layer.add_child(cover)
+	await create_tween().tween_property(cover,"color:a",1.0,.22).finished
+	var old_disable_3d:bool=viewport.disable_3d
+	viewport.disable_3d=true
+	var steps:=0
+	while is_instance_valid(active_vehicle) and active_vehicle==vehicle and director==active_director and not paused:
+		var in_pit:bool=not active_director.model.drivers[0].pit.is_empty() if active_director else active_vehicle.pit_active
+		if not in_pit or steps>=72000:break
+		var deadline:=Time.get_ticks_usec()+8000
+		while in_pit and Time.get_ticks_usec()<deadline and steps<72000:
+			if active_director:active_director.advance_hidden_pit(.05)
+			else:active_vehicle.step_pit(.05)
+			active_vehicle.enabled=false
+			steps+=1
+			in_pit=not active_director.model.drivers[0].pit.is_empty() if active_director else active_vehicle.pit_active
+		await get_tree().process_frame
+	if is_instance_valid(active_vehicle) and active_vehicle==vehicle:
+		if is_instance_valid(active_director):active_director.complete_pit_skip()
+		active_vehicle.reset_physics_interpolation();camera_initialized=false
+		active_vehicle.throttle=0;active_vehicle.brake=0
+	viewport.disable_3d=old_disable_3d if active_vehicle==vehicle else viewport.disable_3d
+	await get_tree().process_frame
+	await create_tween().tween_property(cover,"color:a",0.0,.3).finished
+	layer.queue_free()
+	if is_instance_valid(active_director):active_director.pit_skipping=false
+	if is_instance_valid(active_vehicle) and active_vehicle==vehicle:active_vehicle.enabled=not paused and not active_director
+	pit_skip_busy=false
 
 const Vehicle = preload("res://scripts/vehicle.gd")
 const Buffers = preload("res://scripts/instance_buffers.gd")
@@ -9,6 +50,7 @@ var pits: Dictionary
 var active_id := "interlagos"
 var circuit: Dictionary
 var world: Node3D
+var working_crew:Node3D
 var vehicle: Node3D
 var camera := Camera3D.new()
 var environment := Environment.new()
@@ -73,10 +115,16 @@ var load_steps:Array=[]
 var load_step_started:=0
 var loading_frame_gaps:Array=[]
 var qa_minimized_frames:=0
+var shadow_lamps:Array=[]
+var shadow_selection:Array=[]
+var sky_cache:Dictionary={}
+var loading_assets=preload("res://scripts/loading_assets.gd").new()
+var geographic:Dictionary={}
 
 func _ready() -> void:
 	learning.load_store()
 	tracks = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/physics.json"))
+	geographic = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/geography.json"))
 	pits = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/pits.json"))
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--circuit="): active_id = arg.trim_prefix("--circuit=")
@@ -99,6 +147,8 @@ func _ready() -> void:
 	add_child(network)
 	network.snapshot_received.connect(receive_online)
 	build_interface()
+	if not qa_mode and not cinematic_mode:DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+	var updates=load("res://scripts/updates.gd").new();add_child(updates);updates.configure(self)
 	if qa_mode: apply_quality(qa_quality); quality_select.select(qa_quality)
 	engine_audio = EngineAudio.new()
 	add_child(engine_audio)
@@ -109,12 +159,7 @@ func build_environment() -> void:
 	we.environment = environment
 	add_child(we)
 	environment.background_mode = Environment.BG_SKY
-	var sky := Sky.new()
-	var material := PanoramaSkyMaterial.new()
-	material.panorama = load("res://assets/sky.hdr")
-	sky.sky_material = material
-	sky.radiance_size = Sky.RADIANCE_SIZE_512
-	environment.sky = sky
+	environment.sky = prepared_sky(active_id in ["singapore","bahrain","abu-dhabi"])
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
 	environment.ambient_light_energy = .35
 	environment.reflected_light_source = Environment.REFLECTION_SOURCE_SKY
@@ -224,6 +269,14 @@ func load_circuit(id: String) -> void:
 	load_path = "res://circuits/"+id+".scn"
 	status.text = "Loading circuit…"
 	ResourceLoader.load_threaded_request(load_path)
+	var dry:=id in ["bahrain","abu-dhabi","zandvoort","solara"]
+	var assets:Array[String]=["res://assets/pit-crew.res","res://assets/audio/gun.wav","res://assets/audio/jack.wav","res://assets/audio/tyre.wav","res://assets/mr26.scn","res://scripts/car_paint.gdshader","res://scripts/terrain.gdshader","res://scripts/road.gdshader","res://scripts/water.gdshader","res://scripts/architecture.gdshader"]
+	for name in ["concrete-color.jpg","concrete-normal.jpg","asphalt-fine-color.webp","asphalt-fine-normal.webp","asphalt-fine-rough.webp","sand-fine-color.webp" if dry else "lawn-color.webp","sand-fine-normal.webp" if dry else "lawn-normal.webp"]:
+		assets.append("res://assets/surfaces/"+name)
+	if geographic.has(id):assets.append(geographic[id].cover)
+	if id=="zandvoort":
+		assets.append_array(["res://assets/surfaces/zandvoort-dune-cover.png","res://assets/surfaces/lawn-color.webp","res://assets/surfaces/lawn-normal.webp"])
+	loading_assets.begin(assets)
 
 func load_checkpoint(label:String) -> void:
 	var now:=Time.get_ticks_usec()
@@ -253,6 +306,12 @@ func finish_load() -> void:
 	assembling_circuit=true
 	await load_checkpoint("Preparing circuit…")
 	var packed: PackedScene = ResourceLoader.load_threaded_get(load_path)
+	while not loading_assets.complete():
+		loading_assets.pump()
+		if not loading_assets.failed.is_empty():
+			status.text="Could not load circuit assets"; load_path=""; assembling_circuit=false
+			push_error("Circuit asset failed: "+loading_assets.failed); return
+		await get_tree().process_frame
 	if world: await retire_world(world)
 	if vehicle: vehicle.free()
 	world = packed.instantiate()
@@ -269,7 +328,17 @@ func finish_load() -> void:
 	restored_instances=0
 	var deadline:=Time.get_ticks_usec()+3000
 	for child in staged_nodes:
-		restored_instances+=Buffers.restore(child)
+		# Restore each cell independently, including children of vegetation groups.
+		var cells:Array[Node]=[child]
+		while not cells.is_empty():
+			var cell:Node=cells.pop_back()
+			if cell is MultiMeshInstance3D and cell.has_meta("gpu_buffer"):
+				cell.multimesh.buffer=cell.get_meta("gpu_buffer")
+				restored_instances+=cell.multimesh.instance_count
+			cells.append_array(cell.get_children())
+			if Time.get_ticks_usec()>deadline:
+				await get_tree().process_frame
+				deadline=Time.get_ticks_usec()+3000
 		world.add_child(child)
 		if Time.get_ticks_usec()>deadline:
 			await get_tree().process_frame
@@ -280,11 +349,11 @@ func finish_load() -> void:
 	vehicle = Vehicle.new()
 	add_child(vehicle)
 	vehicle.configure(circuit,pits[active_id])
+	working_crew=load("res://scripts/pit_crew.gd").new();world.add_child(working_crew);working_crew.configure(self,pits[active_id])
 	vehicle.steering_strength=ui.sensitivity.value
 	engine_audio.vehicle = vehicle
 	network.car=vehicle
 	await load_checkpoint("Preparing surfaces…")
-	var geographic: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://circuits/geography.json"))
 	if geographic.has(active_id):
 		var geo: Dictionary = geographic[active_id]
 		var terrain := ShaderMaterial.new()
@@ -299,15 +368,20 @@ func finish_load() -> void:
 		terrain.set_shader_parameter("cover",load(geo.cover))
 		terrain.set_shader_parameter("geo_bounds",Vector4(geo.bounds[0][0],geo.bounds[0][1],geo.bounds[1][0]-geo.bounds[0][0],geo.bounds[1][1]-geo.bounds[0][1]))
 		terrain.set_shader_parameter("cover_bounds",Vector4(geo.nearBounds[0][0],geo.nearBounds[0][1],geo.nearBounds[1][0]-geo.nearBounds[0][0],geo.nearBounds[1][1]-geo.nearBounds[0][1]))
+		if active_id=="zandvoort":
+			terrain.set_shader_parameter("coastal_dunes",true)
+			terrain.set_shader_parameter("dune_cover",load("res://assets/surfaces/zandvoort-dune-cover.png"))
+			terrain.set_shader_parameter("dune_grass",load("res://assets/surfaces/lawn-color.webp"))
+			terrain.set_shader_parameter("dune_grass_normal",load("res://assets/surfaces/lawn-normal.webp"))
 		for node in world.get_children():
-			if node is MeshInstance3D and str(node.name) in ["Circuit terrain","Measured regional terrain"]: node.material_override = terrain
+			if node is MeshInstance3D and str(node.name) in ["Circuit terrain","Measured regional terrain","Grass verge"]: node.material_override = terrain
 	var direction: Vector3 = world.get_meta("sun_direction").normalized()
 	sun.look_at_from_position(direction*100,Vector3.ZERO)
 	await load_checkpoint("Preparing lighting…")
 	native_lights.clear()
 	floodlights = Floodlights.new()
 	world.add_child(floodlights)
-	floodlights.configure(circuit)
+	await floodlights.configure(circuit)
 	# Realtime illumination is anchored to the existing modeled fixture geometry.
 	deadline=Time.get_ticks_usec()+3000
 	for node in world.get_children():
@@ -317,9 +391,12 @@ func finish_load() -> void:
 		if node is MultiMeshInstance3D:
 			var mat: Material = node.multimesh.mesh.surface_get_material(0)
 			if mat is StandardMaterial3D and mat.emission_enabled and mat.emission_energy_multiplier>.5 and minf(mat.emission.r,minf(mat.emission.g,mat.emission.b))>.5 and not mat.emission_texture:
+				var values: PackedFloat32Array = node.get_meta("instance_transforms",PackedFloat32Array())
+				if values.is_empty(): continue
 				for i in node.multimesh.instance_count:
-					var values: PackedFloat32Array = node.get_meta("instance_transforms",PackedFloat32Array())
-					if values.is_empty(): continue
+					if Time.get_ticks_usec()>deadline:
+						await get_tree().process_frame
+						deadline=Time.get_ticks_usec()+3000
 					var j: int = i*16
 					var transform: Transform3D = node.global_transform*Transform3D(Basis(Vector3(values[j],values[j+1],values[j+2]),Vector3(values[j+4],values[j+5],values[j+6]),Vector3(values[j+8],values[j+9],values[j+10])),Vector3(values[j+12],values[j+13],values[j+14]))
 					var size := transform.basis.get_scale().abs()
@@ -337,6 +414,9 @@ func finish_load() -> void:
 					light.distance_fade_length = 60
 					world.add_child(light)
 					native_lights.append(light)
+	shadow_lamps=native_lights.duplicate()
+	shadow_lamps.append_array(floodlights.lamps)
+	shadow_selection.clear()
 	visual_upgrade=load("res://scripts/visual_upgrade.gd").new()
 	add_child(visual_upgrade)
 	await load_checkpoint("Preparing track finish…")
@@ -348,12 +428,14 @@ func finish_load() -> void:
 	apply_weather(ui.weather.selected)
 	await load_checkpoint("Finishing…")
 	world.visible=true
+	viewport.disable_3d=false
 	vehicle.reset_at(0)
 	camera.position=vehicle.position+Vector3(-8,4,0)
 	camera.look_at(vehicle.position+Vector3(0,1,0))
 	# Submit several real frames before enabling input. Pipeline uploads happen
 	# behind the garage screen instead of hitching the first corner.
-	for warm_frame in 6:await get_tree().process_frame
+	var reflection_frames:=int(ProjectSettings.get_setting("rendering/reflections/sky_reflections/roughness_layers",8))+2
+	for warm_frame in maxi(6,reflection_frames):await get_tree().process_frame
 	load_steps.append({"stage":"First render","ms":float(Time.get_ticks_usec()-load_step_started)/1000.0})
 	loading_ms=(Time.get_ticks_usec()-loading_started)/1000.0
 	assembling_circuit=false
@@ -380,8 +462,8 @@ func finish_load() -> void:
 			vehicle.reset_at(0)
 			set_paused(false)
 
-func apply_lighting() -> void:
-	var night := light_mode==2 or (light_mode==0 and active_id in ["singapore","bahrain","abu-dhabi"])
+func prepared_sky(night:bool) -> Sky:
+	if sky_cache.has(night):return sky_cache[night]
 	var sky := Sky.new()
 	if night:
 		var material := ProceduralSkyMaterial.new()
@@ -395,7 +477,14 @@ func apply_lighting() -> void:
 		material.panorama = load("res://assets/sky.hdr")
 		sky.sky_material = material
 	sky.radiance_size = Sky.RADIANCE_SIZE_512
-	environment.sky = sky
+	# Identical importance sampling and resolution, distributed over loading frames.
+	sky.process_mode = Sky.PROCESS_MODE_INCREMENTAL
+	sky_cache[night]=sky
+	return sky
+
+func apply_lighting() -> void:
+	var night := light_mode==2 or (light_mode==0 and active_id in ["singapore","bahrain","abu-dhabi"])
+	environment.sky = prepared_sky(night)
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR if night else Environment.AMBIENT_SOURCE_SKY
 	environment.ambient_light_color = Color(.17,.21,.29)
 	environment.ambient_light_energy = .45 if night else .22
@@ -416,6 +505,9 @@ func apply_lighting() -> void:
 
 func _process(dt: float) -> void:
 	if load_path:
+		# Let the loading UI and initial sky pipeline present first. Submitting
+		# the car's textures in that same first frame compounds the upload spike.
+		if loading_frame_gaps.size()>2:loading_assets.pump()
 		var loading_now:=Time.get_ticks_usec()
 		loading_frame_gaps.append(float(loading_now-loading_last_tick)/1000.0)
 		loading_last_tick=loading_now
@@ -523,9 +615,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_C: camera_mode = (camera_mode+1)%3
 			KEY_R: recover_vehicle()
 			KEY_P: request_pit()
+			KEY_K: skip_pit_drive()
 			KEY_T: cycle_tyre()
 			KEY_M: ui.circuit_map.toggle_view()
-			KEY_F11: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if DisplayServer.window_get_mode()!=DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_WINDOWED)
+			KEY_F11: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if DisplayServer.window_get_mode()!=DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_MAXIMIZED)
 	if event is InputEventJoypadButton and event.pressed:
 		if event.button_index==JOY_BUTTON_START: set_paused(not paused)
 		if event.button_index==JOY_BUTTON_Y: camera_mode = (camera_mode+1)%3
@@ -533,6 +626,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index==JOY_BUTTON_X: request_pit()
 		if event.button_index==JOY_BUTTON_RIGHT_SHOULDER: cycle_tyre()
 		if event.button_index==JOY_BUTTON_DPAD_UP: ui.circuit_map.toggle_view()
+		if event.button_index==JOY_BUTTON_DPAD_RIGHT: skip_pit_drive()
 
 func create_session(autopilot: bool = false) -> void:
 	if director: director.free(); director=null
@@ -593,12 +687,23 @@ func apply_weather(value: int) -> void:
 
 func update_near_shadows() -> void:
 	if not floodlights or not floodlights.visible: return
-	var all_lights: Array=native_lights.duplicate()
-	all_lights.append_array(floodlights.lamps)
-	all_lights.sort_custom(func(a,b):return a.position.distance_squared_to(vehicle.position)<b.position.distance_squared_to(vehicle.position))
-	for i in all_lights.size():
-		all_lights[i].shadow_enabled=i<([1,2,4][quality])
-		all_lights[i].shadow_bias=.025
+	# Select exactly the same nearest lamps without sorting/rewriting every lamp.
+	# Reapplying shadow flags to hundreds of unchanged lights disturbed frame pacing.
+	var nearest:Array=[]
+	var distances:Array[float]=[]
+	var count:int=[1,2,4][quality]
+	for light in shadow_lamps:
+		var distance:float=light.position.distance_squared_to(vehicle.position)
+		var at:=0
+		while at<distances.size() and distances[at]<=distance: at+=1
+		if at>=count:continue
+		nearest.insert(at,light); distances.insert(at,distance)
+		if nearest.size()>count:nearest.pop_back(); distances.pop_back()
+	for light in shadow_selection:
+		if is_instance_valid(light) and not nearest.has(light):light.shadow_enabled=false
+	for light in nearest:
+		if not shadow_selection.has(light):light.shadow_bias=.025; light.shadow_enabled=true
+	shadow_selection=nearest
 
 func join_online() -> void:
 	if director: director.free(); director=null

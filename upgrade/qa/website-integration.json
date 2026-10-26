@@ -1,0 +1,13 @@
+{
+  "scope": "Local production-built website preview; real embedded game and Python multiplayer backend. Not a public deployment or physical controller test.",
+  "checks": [
+    "Lazy launch, 14 circuits, mobile width, origin-checked readiness handshake, no service-worker takeover, no retained foundation samples",
+    "Embedded practice launch and trusted pause; untrusted messages rejected",
+    "Real WebSocket host and second REST client create, join, ready and start a private room",
+    "Fullscreen, exit and iframe teardown",
+    "Loaded Michroma, restrained layout at 320/375/390/430/768px, 48px controls, phone viewport play and restored scrolling after exit",
+    "Normal production build excludes Race page, game chunks and assets; game URLs return 404; external Host and Origin rejected"
+  ],
+  "errors": [],
+  "passed": true
+}

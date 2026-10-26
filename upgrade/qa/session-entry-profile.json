@@ -1,0 +1,181 @@
+{
+  "frames": 1102,
+  "slowFrames": [],
+  "hot": [
+    {
+      "name": "getProgramInfoLog",
+      "line": 0,
+      "microseconds": 8403431
+    },
+    {
+      "name": "texImage2D",
+      "line": 0,
+      "microseconds": 1063047
+    },
+    {
+      "name": "(idle)",
+      "line": 0,
+      "microseconds": 1046494
+    },
+    {
+      "name": "(program)",
+      "line": 0,
+      "microseconds": 625558
+    },
+    {
+      "name": "",
+      "line": 28,
+      "microseconds": 377453
+    },
+    {
+      "name": "",
+      "line": 28,
+      "microseconds": 328417
+    },
+    {
+      "name": "",
+      "line": 28,
+      "microseconds": 267051
+    },
+    {
+      "name": "",
+      "line": 28,
+      "microseconds": 155213
+    },
+    {
+      "name": "setup",
+      "line": 28,
+      "microseconds": 145733
+    },
+    {
+      "name": "renderBufferDirect",
+      "line": 28,
+      "microseconds": 141402
+    },
+    {
+      "name": "getProgramInfoLog",
+      "line": 0,
+      "microseconds": 123113
+    },
+    {
+      "name": "setup",
+      "line": 28,
+      "microseconds": 115191
+    },
+    {
+      "name": "At",
+      "line": 28,
+      "microseconds": 101628
+    },
+    {
+      "name": "renderBufferDirect",
+      "line": 28,
+      "microseconds": 93869
+    },
+    {
+      "name": "bindVertexArray",
+      "line": 0,
+      "microseconds": 91157
+    },
+    {
+      "name": "bindVertexArray",
+      "line": 0,
+      "microseconds": 80187
+    },
+    {
+      "name": "getProgramInfoLog",
+      "line": 0,
+      "microseconds": 80060
+    },
+    {
+      "name": "M",
+      "line": 28,
+      "microseconds": 72688
+    },
+    {
+      "name": "It",
+      "line": 28,
+      "microseconds": 72453
+    },
+    {
+      "name": "copy",
+      "line": 28,
+      "microseconds": 72164
+    },
+    {
+      "name": "traverse",
+      "line": 28,
+      "microseconds": 70557
+    },
+    {
+      "name": "At",
+      "line": 28,
+      "microseconds": 70506
+    },
+    {
+      "name": "setup",
+      "line": 28,
+      "microseconds": 67030
+    },
+    {
+      "name": "setup",
+      "line": 28,
+      "microseconds": 63555
+    },
+    {
+      "name": "updateMatrixWorld",
+      "line": 28,
+      "microseconds": 59530
+    },
+    {
+      "name": "update",
+      "line": 28,
+      "microseconds": 56884
+    },
+    {
+      "name": "renderBufferDirect",
+      "line": 28,
+      "microseconds": 54580
+    },
+    {
+      "name": "Cr.upload",
+      "line": 28,
+      "microseconds": 53426
+    },
+    {
+      "name": "bindVertexArray",
+      "line": 0,
+      "microseconds": 51776
+    },
+    {
+      "name": "Cr.setValue",
+      "line": 28,
+      "microseconds": 48727
+    },
+    {
+      "name": "sort",
+      "line": 28,
+      "microseconds": 47284
+    },
+    {
+      "name": "getProgramCacheKey",
+      "line": 28,
+      "microseconds": 46971
+    },
+    {
+      "name": "At",
+      "line": 28,
+      "microseconds": 46187
+    },
+    {
+      "name": "",
+      "line": 28,
+      "microseconds": 45942
+    },
+    {
+      "name": "copy",
+      "line": 28,
+      "microseconds": 45805
+    }
+  ]
+}

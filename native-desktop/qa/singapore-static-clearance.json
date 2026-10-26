@@ -1,0 +1,7 @@
+{
+  "circuit": "singapore",
+  "scope": "Four barycentric samples per noninstanced static triangle, road interior, 0.12 to 6 metres clearance. Excludes ground, cars and instanced geometry; not an exhaustive collision proof.",
+  "exportSHA256": "70aa61f78c5e5bc921c471a84554ef2864535c4ca3211a7c3ca10e0052ca57ea",
+  "obstructions": [],
+  "verifiedOverhead": []
+}

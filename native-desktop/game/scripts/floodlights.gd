@@ -23,7 +23,11 @@ func configure(track: Dictionary) -> void:
 	var poles: Array[Transform3D] = []
 	var heads: Array[Transform3D] = []
 	var stride := maxi(1,roundi(42.0/(float(track.length)/float(track.N))))
+	var deadline:=Time.get_ticks_usec()+3000
 	for i in range(0,int(track.N),stride):
+		if Time.get_ticks_usec()>deadline:
+			await get_tree().process_frame
+			deadline=Time.get_ticks_usec()+3000
 		var side := 1.0 if (i/stride)%2==0 else -1.0
 		var half: float = track.widthRight[i] if side>0 else track.widthLeft[i]
 		var runoff: float = track.runoffRight[i] if side>0 else track.runoffLeft[i]

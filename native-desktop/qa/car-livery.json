@@ -1,9 +1,11 @@
 {
+	"artworkSHA256": "5705c700e844368f973411f2cdf84e1a21ad64d4c25c021e1e62f21a98435111",
 	"designerUVAnchors": 41,
 	"innerPanelTriangles": {
 		"left": 15,
 		"right": 9
 	},
 	"passed": true,
-	"scope": "Prepared native MR 26 mesh: inner panels unbranded, supplied designer UV layout preserved"
+	"revision": "designer-two-colour-1",
+	"scope": "Prepared native MR 26 mesh: active artwork verified, inner panels unbranded, supplied designer UV layout preserved"
 }

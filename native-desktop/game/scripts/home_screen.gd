@@ -25,7 +25,7 @@ func configure(main:Node,interface:Node) -> void:
 	var mat:=ShaderMaterial.new(); mat.shader=shader; shade.material=mat
 	hero=VBoxContainer.new(); hero.position=Vector2(72,128); hero.add_theme_constant_override("separation",16); add_child(hero)
 	var brand:=TextureRect.new();brand.texture=load("res://assets/team-logo-fit.png");brand.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;brand.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;brand.custom_minimum_size=Vector2(234,112);brand.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN;hero.add_child(brand)
-	title=Label.new(); title.text="APEX"; title.add_theme_font_override("font",load("res://assets/fonts/Barlow-ExtraBoldItalic.ttf")); title.add_theme_font_size_override("font_size",136); title.add_theme_constant_override("line_spacing",-12); hero.add_child(title)
+	title=Label.new(); title.text="APEX"; title.add_theme_font_override("font",load("res://assets/fonts/Michroma.ttf")); title.add_theme_font_size_override("font_size",104); title.add_theme_constant_override("line_spacing",-12); hero.add_child(title)
 	var choices:=VBoxContainer.new(); choices.add_theme_constant_override("separation",10); hero.add_child(choices)
 	resume_button=ui.button("RESUME",func():game.pending_new_session=false; game.start_or_resume()); resume_button.hide(); choices.add_child(resume_button)
 	for choice in [["RACE",1],["GRAND PRIX",2],["FREE PRACTICE",0]]:
@@ -34,7 +34,7 @@ func configure(main:Node,interface:Node) -> void:
 		var normal:=StyleBoxFlat.new(); normal.bg_color=Color(.04,.055,.08,.8); normal.content_margin_left=20
 		var hover:StyleBoxFlat=normal.duplicate(); hover.bg_color=Color("ff7a00"); hover.border_width_left=4; hover.border_color=Color.WHITE
 		button.add_theme_stylebox_override("normal",normal); button.add_theme_stylebox_override("hover",hover); button.add_theme_stylebox_override("focus",hover)
-		button.add_theme_font_override("font",load("res://assets/fonts/Barlow-Bold.ttf")); button.add_theme_font_size_override("font_size",23)
+		button.add_theme_font_override("font",load("res://assets/fonts/Michroma.ttf")); button.add_theme_font_size_override("font_size",18)
 		if choice[1]==1:preload("res://scripts/ui_theme.gd").primary(button)
 		choices.add_child(button)
 	var row:=HBoxContainer.new(); row.add_theme_constant_override("separation",20); hero.add_child(row)
@@ -43,6 +43,14 @@ func configure(main:Node,interface:Node) -> void:
 	row.add_child(ui.button("EXIT",func():ui.save_preferences(); get_tree().quit()))
 	caption=Label.new(); caption.position=Vector2(1050,810); caption.size=Vector2(480,35); caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
 	caption.hide();add_child(caption)
+	get_viewport().size_changed.connect(fit_window);fit_window()
+
+func fit_window() -> void:
+	size=get_viewport().get_visible_rect().size
+	shade.size=size
+	var cover:=maxf(size.x/1600,size.y/900)
+	video.size=Vector2(1600,900)*cover;video.position=(size-video.size)/2
+	hero.position=Vector2(72,maxf(72,(size.y-644)/2))
 
 func choose(mode:int) -> void:
 	hero.hide();ui.menu.show();ui.section(0)
@@ -66,4 +74,4 @@ func _process(dt:float) -> void:
 	if video.stream:
 		playback_ready=video.stream_position>.05
 		if game.loaded: warm_time+=dt
-		if playback_ready and warm_time>2 and game.paused and not game.qa_race and not game.cinematic_mode: game.get_viewport().disable_3d=true
+		if game.loaded and playback_ready and warm_time>2 and game.paused and not game.qa_race and not game.cinematic_mode: game.get_viewport().disable_3d=true

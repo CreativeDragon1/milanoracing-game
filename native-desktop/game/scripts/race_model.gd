@@ -28,6 +28,8 @@ var automatic_player := false # Deterministic QA driver only; never enabled by t
 var learned_profile:Array=[]
 var surface_grip := 1.0
 var corridor=preload("res://scripts/corridor.gd").new()
+var traffic_pool:Array[Dictionary]=[]
+var traffic:Array[Dictionary]=[]
 
 func configure(t: Dictionary,p: Dictionary,options: Dictionary = {}) -> void:
 	track=t; pit=p; length=t.length; count=int(t.N)
@@ -38,6 +40,7 @@ func configure(t: Dictionary,p: Dictionary,options: Dictionary = {}) -> void:
 	two_compounds=options.get("two_compounds",laps>=5)
 	start_tyre=options.get("tyre","medium")
 	for id in 22:
+		traffic_pool.append({"id":id,"progress":0.0,"v":0.0,"offset":0.0,"push":false})
 		drivers.append({"id":id,"name":NAMES[id],"active":true,"progress":0.0,"v":0.0,"best":INF,"best_set":INF,"laps":0,"lap_start":0.0,"outlap":true,"valid":true,"tyre":"soft","wear":0.0,"used":[],"stops":0,"penalty":0.0,"warnings":0,"offset":0.0,"lateral_v":0.0,"lane":0.0,"lane_until":0.0,"pass_target":-1,"q_mode":"outlap","finished":false,"retired":false,"dsq":false,"stage_done":false,"requested":false,"next_tyre":"hard","pit":{},"pace":PACE[difficulty]*(.958+float((id*17)%23)/23*.042),"finish_time":INF,"plan_lap":1,"limit_time":0.0,"outside":false,"speed_key":"","profile":[]})
 
 static func sample(a: Array,f: float) -> float:
@@ -53,6 +56,7 @@ func start_qualifying(next_stage: int = 0) -> void:
 	phase="qualifying"; stage=next_stage; clock=0; events.clear()
 	duration=[1080.0,900.0,780.0][stage] if full_qualifying else 300.0
 	for d in drivers:
+		d.erase("last_crossing")
 		if d.active: d.best=INF; d.best_set=INF
 		d.stage_done=not d.active; d.finished=false; d.retired=false; d.requested=false
 		d.valid=true; d.outlap=true; d.v=0.0; d.lap_start=0.0; d.tyre="soft"; d.wear=0.0; d.offset=0.0; d.lateral_v=0.0; d.lane_until=0.0; d.pass_target=-1; d.q_mode="outlap"; d.laps=0
@@ -68,7 +72,7 @@ func start_race() -> void:
 		grid=range(1,22); grid.append(0)
 	for pos in 22:
 		var d: Dictionary = drivers[grid[pos]]
-		d.erase("display_progress")
+		d.erase("display_progress");d.erase("last_crossing")
 		d.merge({"active":true,"stage_done":false,"progress":-6.0-pos*8,"v":0.0,"best":INF,"best_set":INF,"laps":0,"lap_start":0.0,"outlap":false,"valid":true,"tyre":"hard" if pos%3==0 else "medium","wear":0.0,"used":[],"stops":0,"penalty":0.0,"warnings":0,"finished":false,"retired":false,"dsq":false,"pit":{},"requested":false,"next_tyre":"hard","offset":(2.0 if pos%2 else -2.0)-sample(track.line.offset,(-6.0-pos*8)/length*count),"lateral_v":0.0,"lane_until":0.0,"pass_target":-1,"q_mode":"outlap","finish_time":INF,"limit_time":0.0,"outside":false},true)
 		if d.id==0: d.tyre=start_tyre
 		d.used.append(d.tyre)
@@ -107,13 +111,23 @@ func grip(d: Dictionary) -> float:
 
 func speed_at(d: Dictionary,f: float) -> float:
 	var factor := floorf(sqrt(grip(d))*200)/200
-	var key := str(factor)+":"+str(d.pace)
-	if d.speed_key!=key:
-		var profile: Array = track.line.speed.duplicate()
-		for i in count: profile[i]*=d.pace*factor*(learned_profile[i] if d.id>0 and learned_profile.size()==count else 1.0)
+	if d.get("profile_grip",-1.0)!=factor or d.get("profile_pace",-1.0)!=d.pace:
+		var profile:Array=d.profile
+		if profile.size()!=count:profile.resize(count)
+		var base:Array=track.line.speed
+		var ds:Array=track.line.ds
+		var pace:float=d.pace
+		var learned:bool=d.id>0 and learned_profile.size()==count
+		for i in count:
+			var v:float=base[i]*pace*factor*(learned_profile[i] if learned else 1.0)
+			profile[i]=v*v
+		# Identical v²(next) + 2 a ds constraint; no repeated roots or allocation.
 		for pass_id in 3:
-			for i in range(count-1,-1,-1): profile[i]=minf(profile[i],sqrt(profile[(i+1)%count]*profile[(i+1)%count]+60*track.line.ds[i]))
-		d.profile=profile; d.speed_key=key
+			var next:float=profile[0]
+			for i in range(count-1,-1,-1):
+				next=minf(profile[i],next+60*ds[i]);profile[i]=next
+		for i in count:profile[i]=sqrt(profile[i])
+		d.profile=profile;d.profile_grip=factor;d.profile_pace=pace
 	return sample(d.profile,f)
 
 func request_pit(id: int,tyre: String) -> void:
@@ -146,7 +160,10 @@ func advance(d: Dictionary,delta: float) -> void:
 	if not is_finite(delta) or absf(delta)>length*.1: d.valid=false; return
 	var before: float = d.progress
 	d.progress+=delta
-	if floori(d.progress/length)>floori(before/length): lap(d)
+	var line_before:=floori(before/length);var line_after:=floori(d.progress/length)
+	if line_after<line_before:d.valid=false
+	if line_after>line_before and line_after>int(d.get("last_crossing",line_before)):
+		d.last_crossing=line_after;lap(d)
 	if delta>0: d.wear=clampf(d.wear+delta/maxf(length*2,laps*length*TYRES[d.tyre].life),0,1)
 
 func enter_pit(d: Dictionary) -> void:
@@ -205,26 +222,28 @@ func update_pit(d: Dictionary,dt: float) -> void:
 		d.lateral_v=0.0; d.lane_until=0.0
 		emit("pit_exit",{"id":d.id})
 
-func pose(d: Dictionary) -> Dictionary:
+func pose(d: Dictionary,out: Dictionary = {}) -> Dictionary:
 	if not d.pit.is_empty(): return pit_pose(d)
 	var f: float = fposmod(d.get("display_progress",d.progress),length)/length*count
-	var tx := sample(track.tx,f)
-	var tz := sample(track.tz,f)
-	var off: float = sample(track.line.offset,f)+d.offset
-	var bank := sample(track.bank,f)
-	var pos := Vector3(sample(track.x,f)-tz*off,sample(track.elevation.height,f)-off*tan(bank)+.045,sample(track.z,f)+tx*off)
-	var ahead := f+1.0
-	var ahead_offset: float=sample(track.line.offset,ahead)+d.offset
-	var ax: float = sample(track.x,ahead)-sample(track.tz,ahead)*ahead_offset
-	var az: float = sample(track.z,ahead)+sample(track.tx,ahead)*ahead_offset
-	return {"position":pos,"heading":atan2(az-pos.z,ax-pos.x)+atan2(d.lateral_v,maxf(5,d.v)),"bank":bank,"grade":sample(track.elevation.grade,f),"progress":d.progress}
+	var i:=int(f); var j:=(i+1)%count; var k:=(i+2)%count; var u:=f-i
+	var tx:=lerpf(track.tx[i],track.tx[j],u)
+	var tz:=lerpf(track.tz[i],track.tz[j],u)
+	var off:float=lerpf(track.line.offset[i],track.line.offset[j],u)+d.offset
+	var bank:=lerpf(track.bank[i],track.bank[j],u)
+	var pos:=Vector3(lerpf(track.x[i],track.x[j],u)-tz*off,lerpf(track.elevation.height[i],track.elevation.height[j],u)-off*tan(bank)+.045,lerpf(track.z[i],track.z[j],u)+tx*off)
+	var ahead_offset:float=lerpf(track.line.offset[j],track.line.offset[k],u)+d.offset
+	var ax:float=lerpf(track.x[j],track.x[k],u)-lerpf(track.tz[j],track.tz[k],u)*ahead_offset
+	var az:float=lerpf(track.z[j],track.z[k],u)+lerpf(track.tx[j],track.tx[k],u)*ahead_offset
+	out.position=pos; out.heading=atan2(az-pos.z,ax-pos.x)+atan2(d.lateral_v,maxf(5,d.v))
+	out.bank=bank; out.grade=lerpf(track.elevation.grade[i],track.elevation.grade[j],u); out.progress=d.progress
+	return out
 
 func update_player(station: float,speed: float,offset: float,dt: float) -> void:
 	var d := drivers[0]
 	if d.finished or d.stage_done or not d.pit.is_empty() or not phase in ["race","qualifying"]: return
 	var where := fposmod(station,count)/count*length
 	var delta := fposmod(where-fposmod(d.progress,length)+length/2,length)-length/2
-	if absf(delta)>maxf(8,speed*dt*2.5+2): d.valid=false; return
+	if absf(delta)>maxf(8,absf(speed)*dt*2.5+2): d.valid=false; return
 	d.v=speed; d.offset=offset-sample(track.line.offset,station)
 	var edge := sample(track.widthRight if offset>=0 else track.widthLeft,station)
 	# Full car must leave the kerb margin for a sustained excursion; beginner tolerance.
@@ -250,9 +269,13 @@ func update(dt: float) -> void:
 		return
 	if not phase in ["race","qualifying"]: return
 	clock+=dt
-	var traffic := []
+	traffic.clear()
 	for d in drivers:
-		if d.active and not d.finished and not d.stage_done and d.pit.is_empty(): traffic.append({"id":d.id,"progress":d.progress,"v":d.v,"offset":d.offset,"push":not d.outlap and d.valid and d.q_mode!="cooldown"})
+		if d.active and not d.finished and not d.stage_done and d.pit.is_empty():
+			var row:Dictionary=traffic_pool[d.id]
+			row.progress=d.progress; row.v=d.v; row.offset=d.offset
+			row.push=not d.outlap and d.valid and d.q_mode!="cooldown"
+			traffic.append(row)
 	var step := length/count
 	for d in drivers:
 		if d.finished:

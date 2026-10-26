@@ -1,5 +1,7 @@
 {
   "passed": true,
+  "revision": "designer-two-colour-1",
+  "artwork": "2colour_livery.png",
   "changedUVVertices": {
     "body": 48537,
     "front-1": 0,
@@ -8,7 +10,7 @@
     "rear1": 0
   },
   "unchanged": "all positions, normals and wheels; body uses matching Designer_Livery_UV",
-  "atlasSHA256": "341f7e5e5f96a08540c482017f25601f325bb6643a8c40358492b3edc05ad6ba",
+  "atlasSHA256": "5705c700e844368f973411f2cdf84e1a21ad64d4c25c021e1e62f21a98435111",
   "tagline": "Always the Fastest",
   "errors": []
 }

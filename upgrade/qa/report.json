@@ -1,0 +1,3247 @@
+[
+  {
+    "id": "bahrain",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -12.000948452,
+          17,
+          -1.994300926
+        ],
+        "drawCalls": 1319,
+        "triangles": 11082825,
+        "file": "upgrade/qa/terrain-review/bahrain-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          439.69337839,
+          9.2021,
+          1.173108398
+        ],
+        "drawCalls": 420,
+        "triangles": 4508748,
+        "file": "upgrade/qa/terrain-review/bahrain-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          539.2989919299999,
+          14.74221,
+          299.12801326199997
+        ],
+        "drawCalls": 436,
+        "triangles": 4530033,
+        "file": "upgrade/qa/terrain-review/bahrain-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          462.129056976,
+          33.210049999999995,
+          743.907422998
+        ],
+        "drawCalls": 411,
+        "triangles": 6312178,
+        "file": "upgrade/qa/terrain-review/bahrain-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          158.62891226399998,
+          17.90435,
+          495.829318568
+        ],
+        "drawCalls": 1407,
+        "triangles": 13899901,
+        "file": "upgrade/qa/terrain-review/bahrain-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          100.113294768,
+          10.41967,
+          263.07482269999997
+        ],
+        "drawCalls": 798,
+        "triangles": 8141141,
+        "file": "upgrade/qa/terrain-review/bahrain-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          290.70938297,
+          18.99955,
+          195.220514046
+        ],
+        "drawCalls": 1533,
+        "triangles": 13261522,
+        "file": "upgrade/qa/terrain-review/bahrain-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          -160.883044942,
+          9,
+          185.68880674
+        ],
+        "drawCalls": 634,
+        "triangles": 5939761,
+        "file": "upgrade/qa/terrain-review/bahrain-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          -163.647176682,
+          17.37331,
+          393.405797914
+        ],
+        "drawCalls": 512,
+        "triangles": 7179071,
+        "file": "upgrade/qa/terrain-review/bahrain-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          -262.07557885200004,
+          29.6921,
+          654.396321592
+        ],
+        "drawCalls": 763,
+        "triangles": 8765427,
+        "file": "upgrade/qa/terrain-review/bahrain-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -501.532300614,
+          12.71603,
+          272.00389896400003
+        ],
+        "drawCalls": 569,
+        "triangles": 4920420,
+        "file": "upgrade/qa/terrain-review/bahrain-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -463.50948576,
+          7.76778,
+          -6.1079777160000015
+        ],
+        "drawCalls": 1710,
+        "triangles": 14613515,
+        "file": "upgrade/qa/terrain-review/bahrain-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Circuit terrain",
+          "vertices": 51279,
+          "normal": 51279
+        },
+        {
+          "name": "Paved runoff",
+          "vertices": 21720,
+          "normal": 21720
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8391,
+          "normal": 8391
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7260,
+          "normal": 7260
+        },
+        {
+          "name": "Track markings",
+          "vertices": 6804,
+          "normal": 6804
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7185,
+          "normal": 7185
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7191,
+          "normal": 7191
+        },
+        {
+          "name": "Track markings",
+          "vertices": 26817,
+          "normal": 26817
+        },
+        {
+          "name": "Track markings",
+          "vertices": 15519,
+          "normal": 15519
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 33,
+          "normal": 33
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 48,
+          "normal": 48
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 24,
+          "normal": 24
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 960,
+          "normal": 960
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 960,
+          "normal": 960
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 90,
+        "surfaceTriangles": 14845,
+        "planting": 2055,
+        "boundarySegments": 0,
+        "spectatorSections": 0
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "singapore",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -12.000056182,
+          18.08224,
+          -1.999662908
+        ],
+        "drawCalls": 736,
+        "triangles": 2376827,
+        "file": "upgrade/qa/terrain-review/singapore-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          342.427902658,
+          7.68538,
+          -82.775650148
+        ],
+        "drawCalls": 806,
+        "triangles": 5834556,
+        "file": "upgrade/qa/terrain-review/singapore-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          26.939140398,
+          8.06846,
+          -131.66517959
+        ],
+        "drawCalls": 1222,
+        "triangles": 5551341,
+        "file": "upgrade/qa/terrain-review/singapore-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          38.199841776,
+          18.08058,
+          -513.0438342900001
+        ],
+        "drawCalls": 1171,
+        "triangles": 6071976,
+        "file": "upgrade/qa/terrain-review/singapore-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          259.75650759,
+          8.48889,
+          -855.4875413780001
+        ],
+        "drawCalls": 688,
+        "triangles": 3273755,
+        "file": "upgrade/qa/terrain-review/singapore-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          241.066013912,
+          9.5658,
+          -1115.7099340859997
+        ],
+        "drawCalls": 456,
+        "triangles": 2802843,
+        "file": "upgrade/qa/terrain-review/singapore-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          -19.114980111999998,
+          19.64401,
+          -1381.71035076
+        ],
+        "drawCalls": 377,
+        "triangles": 4108521,
+        "file": "upgrade/qa/terrain-review/singapore-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          -341.204841094,
+          10.10548,
+          -1265.7021183220002
+        ],
+        "drawCalls": 710,
+        "triangles": 3522369,
+        "file": "upgrade/qa/terrain-review/singapore-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          -101.05574172200001,
+          11.35145,
+          -1103.8208172539998
+        ],
+        "drawCalls": 901,
+        "triangles": 5184259,
+        "file": "upgrade/qa/terrain-review/singapore-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          -63.065995238000006,
+          18.61761,
+          -875.183741928
+        ],
+        "drawCalls": 1345,
+        "triangles": 6609419,
+        "file": "upgrade/qa/terrain-review/singapore-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -166.709052666,
+          8.46374,
+          -479.95904946600007
+        ],
+        "drawCalls": 918,
+        "triangles": 6247868,
+        "file": "upgrade/qa/terrain-review/singapore-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -319.68325153800004,
+          7.8717299999999994,
+          -140.459043898
+        ],
+        "drawCalls": 166,
+        "triangles": 4579775,
+        "file": "upgrade/qa/terrain-review/singapore-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Circuit terrain",
+          "vertices": 63000,
+          "normal": 63000
+        },
+        {
+          "name": "Paved runoff",
+          "vertices": 18858,
+          "normal": 18858
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8625,
+          "normal": 8625
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7209,
+          "normal": 7209
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7251,
+          "normal": 7251
+        },
+        {
+          "name": "Fountain of Wealth",
+          "vertices": 42,
+          "normal": 42
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 30,
+          "normal": 30
+        },
+        {
+          "name": "Rain Oculus",
+          "vertices": 18,
+          "normal": 18
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 6,
+          "normal": 6
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 60,
+          "normal": 60
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 12,
+          "normal": 12
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 12,
+          "normal": 12
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 6,
+          "normal": 6
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 6,
+          "normal": 6
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 66,
+          "normal": 66
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 24,
+          "normal": 24
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 6,
+          "normal": 6
+        },
+        {
+          "name": "Dragonfly Lake",
+          "vertices": 288,
+          "normal": 288
+        },
+        {
+          "name": "Marina Reservoir",
+          "vertices": 984,
+          "normal": 984
+        },
+        {
+          "name": "Singapore River",
+          "vertices": 585,
+          "normal": 585
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 30,
+          "normal": 30
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 1962,
+          "normal": 1962
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 1962,
+          "normal": 1962
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 66,
+        "surfaceTriangles": 5319,
+        "planting": 450,
+        "boundarySegments": 25,
+        "spectatorSections": 0
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "monza",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -11.999941536,
+          21.26652,
+          -2.000350784
+        ],
+        "drawCalls": 2000,
+        "triangles": 9280047,
+        "file": "upgrade/qa/terrain-review/monza-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          471.012408462,
+          13.78357,
+          -13.46355036
+        ],
+        "drawCalls": 1131,
+        "triangles": 7788997,
+        "file": "upgrade/qa/terrain-review/monza-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          915.131094336,
+          16.29605,
+          -34.957937254
+        ],
+        "drawCalls": 643,
+        "triangles": 6843918,
+        "file": "upgrade/qa/terrain-review/monza-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          1254.28478811,
+          28.136029999999998,
+          248.59601793199997
+        ],
+        "drawCalls": 512,
+        "triangles": 6801532,
+        "file": "upgrade/qa/terrain-review/monza-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          1388.896373656,
+          18.60286,
+          690.227551308
+        ],
+        "drawCalls": 250,
+        "triangles": 6630221,
+        "file": "upgrade/qa/terrain-review/monza-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          1357.1537667399998,
+          16.00433,
+          1048.99714436
+        ],
+        "drawCalls": 1029,
+        "triangles": 7954726,
+        "file": "upgrade/qa/terrain-review/monza-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          1003.3293137320001,
+          25.187910000000002,
+          832.7962646780001
+        ],
+        "drawCalls": 2397,
+        "triangles": 10352875,
+        "file": "upgrade/qa/terrain-review/monza-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          660.2393583600001,
+          11.24073,
+          494.75879659000003
+        ],
+        "drawCalls": 2074,
+        "triangles": 9916843,
+        "file": "upgrade/qa/terrain-review/monza-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          263.86657541399995,
+          12.45468,
+          268.431124922
+        ],
+        "drawCalls": 1354,
+        "triangles": 8912523,
+        "file": "upgrade/qa/terrain-review/monza-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          -219.242663248,
+          19.67701,
+          264.51271391
+        ],
+        "drawCalls": 572,
+        "triangles": 7308291,
+        "file": "upgrade/qa/terrain-review/monza-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -702.9215325419999,
+          7.13699,
+          279.280599118
+        ],
+        "drawCalls": 207,
+        "triangles": 6691367,
+        "file": "upgrade/qa/terrain-review/monza-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -494.028797514,
+          8.75407,
+          20.457377202
+        ],
+        "drawCalls": 2644,
+        "triangles": 10233671,
+        "file": "upgrade/qa/terrain-review/monza-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Circuit terrain",
+          "vertices": 79482,
+          "normal": 79482
+        },
+        {
+          "name": "Grass verge",
+          "vertices": 19905,
+          "normal": 19905
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8241,
+          "normal": 8241
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7170,
+          "normal": 7170
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7179,
+          "normal": 7179
+        },
+        {
+          "name": "Track markings",
+          "vertices": 24957,
+          "normal": 24957
+        },
+        {
+          "name": "Track markings",
+          "vertices": 15588,
+          "normal": 15588
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 33,
+          "normal": 33
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 1380,
+          "normal": 1380
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 1380,
+          "normal": 1380
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 123,
+        "surfaceTriangles": 8951,
+        "planting": 12290,
+        "boundarySegments": 124,
+        "spectatorSections": 1
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "monaco",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -11.999812966,
+          19.556449999999998,
+          -2.001121908
+        ],
+        "drawCalls": 1077,
+        "triangles": 5305244,
+        "file": "upgrade/qa/terrain-review/monaco-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          257.27061794599996,
+          12.65786,
+          58.038099536000004
+        ],
+        "drawCalls": 775,
+        "triangles": 5996015,
+        "file": "upgrade/qa/terrain-review/monaco-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          286.14583279,
+          33.82159,
+          316.204045868
+        ],
+        "drawCalls": 617,
+        "triangles": 3322686,
+        "file": "upgrade/qa/terrain-review/monaco-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          322.845773044,
+          56.10575,
+          588.088426462
+        ],
+        "drawCalls": 608,
+        "triangles": 3478058,
+        "file": "upgrade/qa/terrain-review/monaco-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          551.213031594,
+          41.1825,
+          651.554033636
+        ],
+        "drawCalls": 399,
+        "triangles": 3066976,
+        "file": "upgrade/qa/terrain-review/monaco-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          535.662581568,
+          22.17508,
+          781.022837588
+        ],
+        "drawCalls": 422,
+        "triangles": 6065260,
+        "file": "upgrade/qa/terrain-review/monaco-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          460.31539772800005,
+          23.542650000000002,
+          820.748809244
+        ],
+        "drawCalls": 1354,
+        "triangles": 7649537,
+        "file": "upgrade/qa/terrain-review/monaco-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          277.232485666,
+          13.4356,
+          625.593927434
+        ],
+        "drawCalls": 1362,
+        "triangles": 5303021,
+        "file": "upgrade/qa/terrain-review/monaco-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          220.176891152,
+          8.34228,
+          360.38983958800003
+        ],
+        "drawCalls": 503,
+        "triangles": 4356158,
+        "file": "upgrade/qa/terrain-review/monaco-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          228.552003044,
+          17.77002,
+          97.668120656
+        ],
+        "drawCalls": 1008,
+        "triangles": 4592455,
+        "file": "upgrade/qa/terrain-review/monaco-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -34.434464268000006,
+          7.2424,
+          83.71736254999999
+        ],
+        "drawCalls": 421,
+        "triangles": 4418128,
+        "file": "upgrade/qa/terrain-review/monaco-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -240.75268009400003,
+          10.239899999999999,
+          90.660746116
+        ],
+        "drawCalls": 325,
+        "triangles": 4224164,
+        "file": "upgrade/qa/terrain-review/monaco-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Circuit terrain",
+          "vertices": 48192,
+          "normal": 48192
+        },
+        {
+          "name": "Paved runoff",
+          "vertices": 15516,
+          "normal": 15516
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8319,
+          "normal": 8319
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7197,
+          "normal": 7197
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7128,
+          "normal": 7128
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 84,
+          "normal": 84
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 12,
+          "normal": 12
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 15,
+          "normal": 15
+        },
+        {
+          "name": "Fontaine du Casino",
+          "vertices": 15,
+          "normal": 15
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 12,
+          "normal": 12
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 6,
+          "normal": 6
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 6,
+          "normal": 6
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 6,
+          "normal": 6
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 6,
+          "normal": 6
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 6,
+          "normal": 6
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 39,
+          "normal": 39
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 18,
+          "normal": 18
+        },
+        {
+          "name": "Mapped coastline",
+          "vertices": 102,
+          "normal": 102
+        },
+        {
+          "name": "Mapped coastline",
+          "vertices": 669,
+          "normal": 669
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 960,
+          "normal": 960
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 960,
+          "normal": 960
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 43,
+        "surfaceTriangles": 6907,
+        "planting": 273,
+        "boundarySegments": 0,
+        "spectatorSections": 0
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "austria",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -11.999985546,
+          17.00592,
+          -2.000086724
+        ],
+        "drawCalls": 1083,
+        "triangles": 5946248,
+        "file": "upgrade/qa/terrain-review/austria-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          334.217094526,
+          24.01311,
+          19.043930383999996
+        ],
+        "drawCalls": 760,
+        "triangles": 8677458,
+        "file": "upgrade/qa/terrain-review/austria-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          452.534719668,
+          27.7074,
+          358.729297794
+        ],
+        "drawCalls": 419,
+        "triangles": 7451286,
+        "file": "upgrade/qa/terrain-review/austria-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          540.0115041839999,
+          57.14762,
+          706.269746068
+        ],
+        "drawCalls": 171,
+        "triangles": 6699578,
+        "file": "upgrade/qa/terrain-review/austria-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          480.36328893999996,
+          68.36192,
+          861.4406472019999
+        ],
+        "drawCalls": 1301,
+        "triangles": 8713470,
+        "file": "upgrade/qa/terrain-review/austria-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          151.859688944,
+          55.91605,
+          714.7090169339999
+        ],
+        "drawCalls": 593,
+        "triangles": 7494233,
+        "file": "upgrade/qa/terrain-review/austria-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          -87.926069188,
+          48.26768,
+          558.054534378
+        ],
+        "drawCalls": 920,
+        "triangles": 9049333,
+        "file": "upgrade/qa/terrain-review/austria-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          246.42326801399997,
+          39.02561,
+          595.474625542
+        ],
+        "drawCalls": 392,
+        "triangles": 7364118,
+        "file": "upgrade/qa/terrain-review/austria-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          319.496813116,
+          19.69135,
+          338.86028998000006
+        ],
+        "drawCalls": 1106,
+        "triangles": 8773101,
+        "file": "upgrade/qa/terrain-review/austria-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          -8.693497954000001,
+          34.192840000000004,
+          360.31103841600003
+        ],
+        "drawCalls": 359,
+        "triangles": 7522434,
+        "file": "upgrade/qa/terrain-review/austria-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -358.323388816,
+          28.5685,
+          275.39493246399996
+        ],
+        "drawCalls": 202,
+        "triangles": 6925348,
+        "file": "upgrade/qa/terrain-review/austria-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -371.144697222,
+          10.15476,
+          13.29306468
+        ],
+        "drawCalls": 1344,
+        "triangles": 9833274,
+        "file": "upgrade/qa/terrain-review/austria-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Circuit terrain",
+          "vertices": 65352,
+          "normal": 65352
+        },
+        {
+          "name": "Grass verge",
+          "vertices": 25158,
+          "normal": 25158
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8070,
+          "normal": 8070
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7113,
+          "normal": 7113
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7200,
+          "normal": 7200
+        },
+        {
+          "name": "Track markings",
+          "vertices": 25746,
+          "normal": 25746
+        },
+        {
+          "name": "Track markings",
+          "vertices": 15537,
+          "normal": 15537
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 18,
+          "normal": 18
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 33,
+          "normal": 33
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 30,
+          "normal": 30
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 12,
+          "normal": 12
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 1830,
+          "normal": 1830
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 1830,
+          "normal": 1830
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 128,
+        "surfaceTriangles": 26667,
+        "planting": 4248,
+        "boundarySegments": 0,
+        "spectatorSections": 0
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "silverstone",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -11.999910014000001,
+          18.0492,
+          -2.0005398420000002
+        ],
+        "drawCalls": 2615,
+        "triangles": 9574206,
+        "file": "upgrade/qa/terrain-review/silverstone-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          399.509529648,
+          14.09132,
+          155.18451639399998
+        ],
+        "drawCalls": 1070,
+        "triangles": 4994622,
+        "file": "upgrade/qa/terrain-review/silverstone-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          658.631414606,
+          17.25402,
+          392.278169498
+        ],
+        "drawCalls": 1089,
+        "triangles": 4699036,
+        "file": "upgrade/qa/terrain-review/silverstone-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          836.728753736,
+          27.08218,
+          -11.973475093999998
+        ],
+        "drawCalls": 975,
+        "triangles": 8511030,
+        "file": "upgrade/qa/terrain-review/silverstone-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          723.4375411340001,
+          14.21511,
+          -382.03082242799996
+        ],
+        "drawCalls": 2179,
+        "triangles": 10351996,
+        "file": "upgrade/qa/terrain-review/silverstone-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          926.887615236,
+          13.24443,
+          -477.495109396
+        ],
+        "drawCalls": 777,
+        "triangles": 4021372,
+        "file": "upgrade/qa/terrain-review/silverstone-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          1277.2531895920001,
+          25.93891,
+          -135.302733962
+        ],
+        "drawCalls": 637,
+        "triangles": 4079318,
+        "file": "upgrade/qa/terrain-review/silverstone-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          1012.297969332,
+          17.78978,
+          247.94065427400002
+        ],
+        "drawCalls": 1334,
+        "triangles": 5432131,
+        "file": "upgrade/qa/terrain-review/silverstone-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          696.549397076,
+          15.04687,
+          590.0323531079999
+        ],
+        "drawCalls": 1649,
+        "triangles": 8248664,
+        "file": "upgrade/qa/terrain-review/silverstone-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          216.554093744,
+          22.012909999999998,
+          614.030031096
+        ],
+        "drawCalls": 557,
+        "triangles": 6729503,
+        "file": "upgrade/qa/terrain-review/silverstone-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -269.6299705,
+          13.47994,
+          673.455876368
+        ],
+        "drawCalls": 526,
+        "triangles": 7060059,
+        "file": "upgrade/qa/terrain-review/silverstone-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -218.697337492,
+          8.41977,
+          214.27018926399998
+        ],
+        "drawCalls": 292,
+        "triangles": 7290953,
+        "file": "upgrade/qa/terrain-review/silverstone-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Circuit terrain",
+          "vertices": 75174,
+          "normal": 75174
+        },
+        {
+          "name": "Grass verge",
+          "vertices": 21417,
+          "normal": 21417
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8448,
+          "normal": 8448
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7188,
+          "normal": 7188
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7206,
+          "normal": 7206
+        },
+        {
+          "name": "Track markings",
+          "vertices": 24678,
+          "normal": 24678
+        },
+        {
+          "name": "Track markings",
+          "vertices": 15555,
+          "normal": 15555
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 15,
+          "normal": 15
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 63,
+          "normal": 63
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 39,
+          "normal": 39
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 39,
+          "normal": 39
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 30,
+          "normal": 30
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 15,
+          "normal": 15
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 39,
+          "normal": 39
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 15,
+          "normal": 15
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 63,
+          "normal": 63
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 2166,
+          "normal": 2166
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 2166,
+          "normal": 2166
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 184,
+        "surfaceTriangles": 35171,
+        "planting": 1498,
+        "boundarySegments": 3253,
+        "spectatorSections": 4
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "abu-dhabi",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -11.999974262,
+          17.0517,
+          -2.000154428
+        ],
+        "drawCalls": 722,
+        "triangles": 4016618,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          264.81571482400005,
+          9.427710000000001,
+          -169.91310875000002
+        ],
+        "drawCalls": 820,
+        "triangles": 6777907,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          114.008104138,
+          15.12825,
+          -520.2435347600001
+        ],
+        "drawCalls": 626,
+        "triangles": 4662134,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          127.677026598,
+          20.55191,
+          -954.245827578
+        ],
+        "drawCalls": 699,
+        "triangles": 5866251,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          -77.99038722799999,
+          9.6858,
+          -588.3066013
+        ],
+        "drawCalls": 1542,
+        "triangles": 10722364,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          -274.188377324,
+          8.90849,
+          -193.742322992
+        ],
+        "drawCalls": 949,
+        "triangles": 7561162,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          -334.267501546,
+          20.09566,
+          158.583022512
+        ],
+        "drawCalls": 698,
+        "triangles": 6661026,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          -119.10022471,
+          8.1931,
+          525.3498463599999
+        ],
+        "drawCalls": 481,
+        "triangles": 4304383,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          230.629212328,
+          7.95825,
+          789.154205794
+        ],
+        "drawCalls": 248,
+        "triangles": 3675502,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          75.276966136,
+          17.79755,
+          597.385439884
+        ],
+        "drawCalls": 894,
+        "triangles": 7194979,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          62.13934875800001,
+          8.31958,
+          326.134594006
+        ],
+        "drawCalls": 1480,
+        "triangles": 7983748,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -254.73773111600002,
+          9.028880000000001,
+          164.43618871799998
+        ],
+        "drawCalls": 967,
+        "triangles": 7559254,
+        "file": "upgrade/qa/terrain-review/abu-dhabi-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Circuit terrain",
+          "vertices": 61176,
+          "normal": 61176
+        },
+        {
+          "name": "Paved runoff",
+          "vertices": 22161,
+          "normal": 22161
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 9549,
+          "normal": 9549
+        },
+        {
+          "name": "Track markings",
+          "vertices": 8055,
+          "normal": 8055
+        },
+        {
+          "name": "Track markings",
+          "vertices": 8391,
+          "normal": 8391
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7200,
+          "normal": 7200
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7140,
+          "normal": 7140
+        },
+        {
+          "name": "Track markings",
+          "vertices": 26052,
+          "normal": 26052
+        },
+        {
+          "name": "Track markings",
+          "vertices": 15384,
+          "normal": 15384
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 18,
+          "normal": 18
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 6,
+          "normal": 6
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 15,
+          "normal": 15
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 24,
+          "normal": 24
+        },
+        {
+          "name": "Mapped coastline",
+          "vertices": 36,
+          "normal": 36
+        },
+        {
+          "name": "Mapped coastline",
+          "vertices": 114,
+          "normal": 114
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 960,
+          "normal": 960
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 960,
+          "normal": 960
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 132,
+        "surfaceTriangles": 26763,
+        "planting": 1215,
+        "boundarySegments": 120,
+        "spectatorSections": 0
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "milano",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -12,
+          19,
+          -2
+        ],
+        "drawCalls": 719,
+        "triangles": 6737527,
+        "file": "upgrade/qa/terrain-review/milano-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          532.988127,
+          9,
+          2
+        ],
+        "drawCalls": 191,
+        "triangles": 6329163,
+        "file": "upgrade/qa/terrain-review/milano-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          740.2235695904001,
+          14.727170771375523,
+          366.86788129440004
+        ],
+        "drawCalls": 205,
+        "triangles": 6157455,
+        "file": "upgrade/qa/terrain-review/milano-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          857.4587471460001,
+          47.83407322635627,
+          841.9727168488
+        ],
+        "drawCalls": 226,
+        "triangles": 6167175,
+        "file": "upgrade/qa/terrain-review/milano-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          870.792952462,
+          56.69047324271716,
+          1274.8704718596
+        ],
+        "drawCalls": 386,
+        "triangles": 6557471,
+        "file": "upgrade/qa/terrain-review/milano-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          349.7207654006,
+          81.95396477588672,
+          1370.1897924452
+        ],
+        "drawCalls": 244,
+        "triangles": 6718801,
+        "file": "upgrade/qa/terrain-review/milano-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          -121.34242974099999,
+          87.51335274512459,
+          1421.8002668990002
+        ],
+        "drawCalls": 175,
+        "triangles": 6366849,
+        "file": "upgrade/qa/terrain-review/milano-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          -287.566726838,
+          34.02854712519316,
+          1052.956724947
+        ],
+        "drawCalls": 732,
+        "triangles": 7942209,
+        "file": "upgrade/qa/terrain-review/milano-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          231.19975773800002,
+          14.69218845989685,
+          885.895675597
+        ],
+        "drawCalls": 390,
+        "triangles": 7129349,
+        "file": "upgrade/qa/terrain-review/milano-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          -21.692777579199998,
+          27.63664507495244,
+          763.973991738
+        ],
+        "drawCalls": 273,
+        "triangles": 6729853,
+        "file": "upgrade/qa/terrain-review/milano-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -497.274654706,
+          30.76115976691697,
+          551.164888254
+        ],
+        "drawCalls": 107,
+        "triangles": 6356357,
+        "file": "upgrade/qa/terrain-review/milano-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -515.9368119906001,
+          11.528884777600698,
+          120.667017356
+        ],
+        "drawCalls": 838,
+        "triangles": 7015053,
+        "file": "upgrade/qa/terrain-review/milano-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Original circuit regional ground",
+          "vertices": 4,
+          "normal": 4
+        },
+        {
+          "name": "Circuit terrain",
+          "vertices": 48495,
+          "normal": 48495
+        },
+        {
+          "name": "Grass verge",
+          "vertices": 24306,
+          "normal": 24306
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8517,
+          "normal": 8517
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7200,
+          "normal": 7200
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7185,
+          "normal": 7185
+        },
+        {
+          "name": "Track markings",
+          "vertices": 24177,
+          "normal": 24177
+        },
+        {
+          "name": "Track markings",
+          "vertices": 16293,
+          "normal": 16293
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 960,
+          "normal": 960
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 960,
+          "normal": 960
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 0,
+        "surfaceTriangles": 0,
+        "planting": 0,
+        "boundarySegments": 0,
+        "spectatorSections": 0
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "spa",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -12.000192410999999,
+          67.61296,
+          -1.9988451936
+        ],
+        "drawCalls": 619,
+        "triangles": 6801793,
+        "file": "upgrade/qa/terrain-review/spa-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          -38.9164438316,
+          43.78033,
+          172.69967484519998
+        ],
+        "drawCalls": 1176,
+        "triangles": 7953845,
+        "file": "upgrade/qa/terrain-review/spa-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          -605.0501466694,
+          55.42165,
+          219.4191885796
+        ],
+        "drawCalls": 637,
+        "triangles": 6828103,
+        "file": "upgrade/qa/terrain-review/spa-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          -1177.3539446785999,
+          91.64599,
+          131.64689734520002
+        ],
+        "drawCalls": 427,
+        "triangles": 6484133,
+        "file": "upgrade/qa/terrain-review/spa-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          -1701.1087421376,
+          107.05306,
+          -70.01985787320001
+        ],
+        "drawCalls": 370,
+        "triangles": 6490519,
+        "file": "upgrade/qa/terrain-review/spa-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          -1831.6422620202002,
+          90.7995,
+          -546.6023603276001
+        ],
+        "drawCalls": 1838,
+        "triangles": 8561353,
+        "file": "upgrade/qa/terrain-review/spa-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          -1443.6859722628,
+          59.98845,
+          -237.46879782800002
+        ],
+        "drawCalls": 1587,
+        "triangles": 8548701,
+        "file": "upgrade/qa/terrain-review/spa-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          -1206.9023847928,
+          16.67143,
+          -490.2360754178
+        ],
+        "drawCalls": 369,
+        "triangles": 6560641,
+        "file": "upgrade/qa/terrain-review/spa-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          -1292.0396852650001,
+          15.74584,
+          -967.6101884854
+        ],
+        "drawCalls": 234,
+        "triangles": 6555348,
+        "file": "upgrade/qa/terrain-review/spa-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          -1014.4989728188001,
+          23.11992,
+          -1025.9398543444
+        ],
+        "drawCalls": 1741,
+        "triangles": 8607130,
+        "file": "upgrade/qa/terrain-review/spa-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -953.4740990028,
+          27.53391,
+          -454.54426277979996
+        ],
+        "drawCalls": 1460,
+        "triangles": 8549597,
+        "file": "upgrade/qa/terrain-review/spa-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -483.3848028728,
+          41.13725,
+          -171.7440223208
+        ],
+        "drawCalls": 1212,
+        "triangles": 8130660,
+        "file": "upgrade/qa/terrain-review/spa-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Circuit terrain",
+          "vertices": 78225,
+          "normal": 78225
+        },
+        {
+          "name": "Grass verge",
+          "vertices": 34761,
+          "normal": 34761
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8097,
+          "normal": 8097
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7155,
+          "normal": 7155
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7200,
+          "normal": 7200
+        },
+        {
+          "name": "Track markings",
+          "vertices": 24789,
+          "normal": 24789
+        },
+        {
+          "name": "Track markings",
+          "vertices": 15525,
+          "normal": 15525
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 18,
+          "normal": 18
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 1668,
+          "normal": 1668
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 1668,
+          "normal": 1668
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 199,
+        "surfaceTriangles": 26893,
+        "planting": 19099,
+        "boundarySegments": 347,
+        "spectatorSections": 0
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "suzuka",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -11.9999937336,
+          30.96162,
+          -2.0000375984
+        ],
+        "drawCalls": 731,
+        "triangles": 2844274,
+        "file": "upgrade/qa/terrain-review/suzuka-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          468.5220329292,
+          7.71799,
+          15.122862588200002
+        ],
+        "drawCalls": 227,
+        "triangles": 6589472,
+        "file": "upgrade/qa/terrain-review/suzuka-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          213.880353151,
+          15.62969,
+          206.72887953179998
+        ],
+        "drawCalls": 1533,
+        "triangles": 8816673,
+        "file": "upgrade/qa/terrain-review/suzuka-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          -195.4138938312,
+          37.11462,
+          201.7698059108
+        ],
+        "drawCalls": 744,
+        "triangles": 7185835,
+        "file": "upgrade/qa/terrain-review/suzuka-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          -459.1104786182,
+          38.56646,
+          406.182773001
+        ],
+        "drawCalls": 435,
+        "triangles": 7008470,
+        "file": "upgrade/qa/terrain-review/suzuka-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          -687.5320387004,
+          33.588589999999996,
+          596.7603313412001
+        ],
+        "drawCalls": 572,
+        "triangles": 7326368,
+        "file": "upgrade/qa/terrain-review/suzuka-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          -852.4232070462,
+          56.14075,
+          601.5940929664
+        ],
+        "drawCalls": 376,
+        "triangles": 5365238,
+        "file": "upgrade/qa/terrain-review/suzuka-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          -1186.4232199662,
+          45.75911,
+          876.0635198821999
+        ],
+        "drawCalls": 235,
+        "triangles": 5035665,
+        "file": "upgrade/qa/terrain-review/suzuka-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          -1356.482674608,
+          40.58863,
+          996.8908795002
+        ],
+        "drawCalls": 2061,
+        "triangles": 7203397,
+        "file": "upgrade/qa/terrain-review/suzuka-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          -909.8935994248,
+          49.13396,
+          821.75446218
+        ],
+        "drawCalls": 1874,
+        "triangles": 8687916,
+        "file": "upgrade/qa/terrain-review/suzuka-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -539.4333968032,
+          39.65918,
+          531.7806731108
+        ],
+        "drawCalls": 1390,
+        "triangles": 7867233,
+        "file": "upgrade/qa/terrain-review/suzuka-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -464.7020273488,
+          39.17491,
+          91.9962356276
+        ],
+        "drawCalls": 1165,
+        "triangles": 7263625,
+        "file": "upgrade/qa/terrain-review/suzuka-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Circuit terrain",
+          "vertices": 66423,
+          "normal": 66423
+        },
+        {
+          "name": "Grass verge",
+          "vertices": 90,
+          "normal": 90
+        },
+        {
+          "name": "Grass verge",
+          "vertices": 90,
+          "normal": 90
+        },
+        {
+          "name": "Grass verge",
+          "vertices": 29859,
+          "normal": 29859
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 7839,
+          "normal": 7839
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7254,
+          "normal": 7254
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7200,
+          "normal": 7200
+        },
+        {
+          "name": "Track markings",
+          "vertices": 25614,
+          "normal": 25614
+        },
+        {
+          "name": "Track markings",
+          "vertices": 15453,
+          "normal": 15453
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 78,
+          "normal": 78
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 54,
+          "normal": 54
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 30,
+          "normal": 30
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 63,
+          "normal": 63
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 15,
+          "normal": 15
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 27,
+          "normal": 27
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 24,
+          "normal": 24
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 18,
+          "normal": 18
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 9,
+          "normal": 9
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "丸竹池",
+          "vertices": 144,
+          "normal": 144
+        },
+        {
+          "name": "アドベンボート フロンティア",
+          "vertices": 57,
+          "normal": 57
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 1890,
+          "normal": 1890
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 1890,
+          "normal": 1890
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 104,
+        "surfaceTriangles": 21770,
+        "planting": 1886,
+        "boundarySegments": 0,
+        "spectatorSections": 9
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "interlagos",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -12.0000222796,
+          56.06931,
+          -1.999866315
+        ],
+        "drawCalls": 938,
+        "triangles": 6690770,
+        "file": "upgrade/qa/terrain-review/interlagos-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          317.74460223080007,
+          43.06015,
+          -52.74079100000001
+        ],
+        "drawCalls": 778,
+        "triangles": 6906179,
+        "file": "upgrade/qa/terrain-review/interlagos-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          301.183633031,
+          29.37264,
+          -363.8175578942
+        ],
+        "drawCalls": 602,
+        "triangles": 6495944,
+        "file": "upgrade/qa/terrain-review/interlagos-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          -8.211385931199999,
+          30.8826,
+          -545.5324056236
+        ],
+        "drawCalls": 437,
+        "triangles": 7050440,
+        "file": "upgrade/qa/terrain-review/interlagos-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          -318.79017390399997,
+          11.26449,
+          -663.638204819
+        ],
+        "drawCalls": 656,
+        "triangles": 7768841,
+        "file": "upgrade/qa/terrain-review/interlagos-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          -247.5880324714,
+          11.74658,
+          -351.5033697368
+        ],
+        "drawCalls": 1036,
+        "triangles": 8343597,
+        "file": "upgrade/qa/terrain-review/interlagos-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          -185.2096155694,
+          41.44719,
+          -66.9580044294
+        ],
+        "drawCalls": 498,
+        "triangles": 6614539,
+        "file": "upgrade/qa/terrain-review/interlagos-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          -354.59270168899997,
+          25.37417,
+          -228.428734032
+        ],
+        "drawCalls": 383,
+        "triangles": 6433870,
+        "file": "upgrade/qa/terrain-review/interlagos-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          -462.9621328388,
+          28.60499,
+          -265.6359456182
+        ],
+        "drawCalls": 571,
+        "triangles": 6544839,
+        "file": "upgrade/qa/terrain-review/interlagos-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          -568.1045761452,
+          28.03868,
+          -552.4397121306
+        ],
+        "drawCalls": 279,
+        "triangles": 6041886,
+        "file": "upgrade/qa/terrain-review/interlagos-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -649.8776091310001,
+          44.34109,
+          -238.40580184040002
+        ],
+        "drawCalls": 1001,
+        "triangles": 7719332,
+        "file": "upgrade/qa/terrain-review/interlagos-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -366.8197849316,
+          44.67016,
+          -33.88960504360001
+        ],
+        "drawCalls": 1079,
+        "triangles": 7513470,
+        "file": "upgrade/qa/terrain-review/interlagos-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Circuit terrain",
+          "vertices": 42255,
+          "normal": 42255
+        },
+        {
+          "name": "Grass verge",
+          "vertices": 36345,
+          "normal": 36345
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8280,
+          "normal": 8280
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7185,
+          "normal": 7185
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7170,
+          "normal": 7170
+        },
+        {
+          "name": "Track markings",
+          "vertices": 24945,
+          "normal": 24945
+        },
+        {
+          "name": "Track markings",
+          "vertices": 20853,
+          "normal": 20853
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 210,
+          "normal": 210
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 15,
+          "normal": 15
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 2040,
+          "normal": 2040
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 2040,
+          "normal": 2040
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 49,
+        "surfaceTriangles": 19254,
+        "planting": 651,
+        "boundarySegments": 0,
+        "spectatorSections": 2
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "zandvoort",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -12.00027473,
+          19.86138,
+          -1.9983509244
+        ],
+        "drawCalls": 885,
+        "triangles": 2767817,
+        "file": "upgrade/qa/terrain-review/zandvoort-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          342.8025072766,
+          10.6783,
+          -6.100563116799999
+        ],
+        "drawCalls": 151,
+        "triangles": 3147715,
+        "file": "upgrade/qa/terrain-review/zandvoort-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          197.49284280419997,
+          9.291409999999999,
+          93.0083234754
+        ],
+        "drawCalls": 681,
+        "triangles": 3574169,
+        "file": "upgrade/qa/terrain-review/zandvoort-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          60.144142931599994,
+          25.21597,
+          161.9786110808
+        ],
+        "drawCalls": 389,
+        "triangles": 3247054,
+        "file": "upgrade/qa/terrain-review/zandvoort-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          219.8663056188,
+          9.41825,
+          465.78512102599996
+        ],
+        "drawCalls": 188,
+        "triangles": 398299,
+        "file": "upgrade/qa/terrain-review/zandvoort-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          333.0848399332,
+          10.03367,
+          770.1865108134
+        ],
+        "drawCalls": 212,
+        "triangles": 426939,
+        "file": "upgrade/qa/terrain-review/zandvoort-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          1.4682143124,
+          18.65106,
+          764.7057899887999
+        ],
+        "drawCalls": 1093,
+        "triangles": 1104901,
+        "file": "upgrade/qa/terrain-review/zandvoort-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          108.6549696944,
+          8.52313,
+          653.7527325074
+        ],
+        "drawCalls": 166,
+        "triangles": 394945,
+        "file": "upgrade/qa/terrain-review/zandvoort-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          159.9235065456,
+          9.895679999999999,
+          481.57360705980005
+        ],
+        "drawCalls": 1015,
+        "triangles": 1373845,
+        "file": "upgrade/qa/terrain-review/zandvoort-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          -57.9012969288,
+          18.02028,
+          214.4515145056
+        ],
+        "drawCalls": 776,
+        "triangles": 1122771,
+        "file": "upgrade/qa/terrain-review/zandvoort-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -291.507481277,
+          7.37577,
+          280.775382121
+        ],
+        "drawCalls": 245,
+        "triangles": 826227,
+        "file": "upgrade/qa/terrain-review/zandvoort-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -361.3926666724,
+          13.6848,
+          30.1925091004
+        ],
+        "drawCalls": 848,
+        "triangles": 1213610,
+        "file": "upgrade/qa/terrain-review/zandvoort-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Circuit terrain",
+          "vertices": 44538,
+          "normal": 44538
+        },
+        {
+          "name": "Grass verge",
+          "vertices": 37632,
+          "normal": 37632
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8109,
+          "normal": 8109
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7161,
+          "normal": 7161
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7185,
+          "normal": 7185
+        },
+        {
+          "name": "Track markings",
+          "vertices": 26319,
+          "normal": 26319
+        },
+        {
+          "name": "Track markings",
+          "vertices": 15732,
+          "normal": 15732
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 27,
+          "normal": 27
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 54,
+          "normal": 54
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 12,
+          "normal": 12
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 30,
+          "normal": 30
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 93,
+          "normal": 93
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 120,
+          "normal": 120
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 48,
+          "normal": 48
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 30,
+          "normal": 30
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 42,
+          "normal": 42
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 33,
+          "normal": 33
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 12,
+          "normal": 12
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 135,
+          "normal": 135
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 45,
+          "normal": 45
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 12,
+          "normal": 12
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 72,
+          "normal": 72
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 27,
+          "normal": 27
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 21,
+          "normal": 21
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 15,
+          "normal": 15
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 18,
+          "normal": 18
+        },
+        {
+          "name": "Mapped water",
+          "vertices": 144,
+          "normal": 144
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 1746,
+          "normal": 1746
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 1746,
+          "normal": 1746
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 127,
+        "surfaceTriangles": 44870,
+        "planting": 935,
+        "boundarySegments": 11,
+        "spectatorSections": 0
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "riviera",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -12,
+          18,
+          -2
+        ],
+        "drawCalls": 713,
+        "triangles": 6340673,
+        "file": "upgrade/qa/terrain-review/riviera-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          395.513693,
+          8,
+          2
+        ],
+        "drawCalls": 200,
+        "triangles": 6320605,
+        "file": "upgrade/qa/terrain-review/riviera-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          766.4487295774001,
+          8.074921524885001,
+          80.80650286379999
+        ],
+        "drawCalls": 236,
+        "triangles": 6114265,
+        "file": "upgrade/qa/terrain-review/riviera-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          792.0247351987999,
+          27.60668667206286,
+          425.9639486442
+        ],
+        "drawCalls": 361,
+        "triangles": 6343697,
+        "file": "upgrade/qa/terrain-review/riviera-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          854.9645157436,
+          33.61357422067795,
+          728.835999314
+        ],
+        "drawCalls": 108,
+        "triangles": 5099659,
+        "file": "upgrade/qa/terrain-review/riviera-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          804.1568912378,
+          48.87943951987049,
+          1083.5730744854002
+        ],
+        "drawCalls": 211,
+        "triangles": 5117951,
+        "file": "upgrade/qa/terrain-review/riviera-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          413.6321743766,
+          64.44870491382544,
+          1063.9441280751998
+        ],
+        "drawCalls": 130,
+        "triangles": 5102975,
+        "file": "upgrade/qa/terrain-review/riviera-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          70.0421540324,
+          45.04822473047454,
+          1199.2616028759999
+        ],
+        "drawCalls": 280,
+        "triangles": 5373727,
+        "file": "upgrade/qa/terrain-review/riviera-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          -268.36049465680003,
+          22.95425623707324,
+          985.4559615406
+        ],
+        "drawCalls": 257,
+        "triangles": 6259233,
+        "file": "upgrade/qa/terrain-review/riviera-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          -257.4980929272,
+          22.637247705395346,
+          660.1621238358
+        ],
+        "drawCalls": 822,
+        "triangles": 6495885,
+        "file": "upgrade/qa/terrain-review/riviera-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -457.479688426,
+          9.018695832428484,
+          388.95438414739994
+        ],
+        "drawCalls": 142,
+        "triangles": 6238973,
+        "file": "upgrade/qa/terrain-review/riviera-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -416.33806640119997,
+          8,
+          16.274936920400002
+        ],
+        "drawCalls": 829,
+        "triangles": 6136671,
+        "file": "upgrade/qa/terrain-review/riviera-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Original circuit regional ground",
+          "vertices": 4,
+          "normal": 4
+        },
+        {
+          "name": "Circuit terrain",
+          "vertices": 37962,
+          "normal": 37962
+        },
+        {
+          "name": "Paved runoff",
+          "vertices": 21369,
+          "normal": 21369
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8745,
+          "normal": 8745
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7233,
+          "normal": 7233
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7185,
+          "normal": 7185
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 960,
+          "normal": 960
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 960,
+          "normal": 960
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 0,
+        "surfaceTriangles": 0,
+        "planting": 0,
+        "boundarySegments": 0,
+        "spectatorSections": 0
+      }
+    },
+    "errors": []
+  },
+  {
+    "id": "solara",
+    "shots": [
+      {
+        "station": 0,
+        "position": [
+          -12,
+          22,
+          -2
+        ],
+        "drawCalls": 787,
+        "triangles": 1082262,
+        "file": "upgrade/qa/terrain-review/solara-00.jpg"
+      },
+      {
+        "station": 100,
+        "position": [
+          485.399229,
+          12,
+          2
+        ],
+        "drawCalls": 215,
+        "triangles": 671514,
+        "file": "upgrade/qa/terrain-review/solara-01.jpg"
+      },
+      {
+        "station": 200,
+        "position": [
+          881.1856758828,
+          12,
+          175.447739583
+        ],
+        "drawCalls": 328,
+        "triangles": 429354,
+        "file": "upgrade/qa/terrain-review/solara-02.jpg"
+      },
+      {
+        "station": 300,
+        "position": [
+          733.1819398905999,
+          22,
+          539.76295695
+        ],
+        "drawCalls": 459,
+        "triangles": 404494,
+        "file": "upgrade/qa/terrain-review/solara-03.jpg"
+      },
+      {
+        "station": 400,
+        "position": [
+          995.9095397422,
+          16.937499021401187,
+          866.7302794792
+        ],
+        "drawCalls": 230,
+        "triangles": 353038,
+        "file": "upgrade/qa/terrain-review/solara-04.jpg"
+      },
+      {
+        "station": 500,
+        "position": [
+          785.851253938,
+          35.52469711090401,
+          1263.5218415014
+        ],
+        "drawCalls": 353,
+        "triangles": 341090,
+        "file": "upgrade/qa/terrain-review/solara-05.jpg"
+      },
+      {
+        "station": 600,
+        "position": [
+          340.96899899320005,
+          75.69711090400745,
+          1249.1950682302001
+        ],
+        "drawCalls": 1006,
+        "triangles": 615638,
+        "file": "upgrade/qa/terrain-review/solara-06.jpg"
+      },
+      {
+        "station": 700,
+        "position": [
+          -65.9545115812,
+          65.3944002949388,
+          1309.2337132911998
+        ],
+        "drawCalls": 187,
+        "triangles": 310234,
+        "file": "upgrade/qa/terrain-review/solara-07.jpg"
+      },
+      {
+        "station": 800,
+        "position": [
+          -458.9119246922,
+          50.58445940486896,
+          1042.1631563574
+        ],
+        "drawCalls": 900,
+        "triangles": 600870,
+        "file": "upgrade/qa/terrain-review/solara-08.jpg"
+      },
+      {
+        "station": 900,
+        "position": [
+          -226.2050132454,
+          41.894481878353346,
+          711.964522745
+        ],
+        "drawCalls": 532,
+        "triangles": 1017696,
+        "file": "upgrade/qa/terrain-review/solara-09.jpg"
+      },
+      {
+        "station": 1000,
+        "position": [
+          -429.546956875,
+          17.85620094251996,
+          389.469755614
+        ],
+        "drawCalls": 123,
+        "triangles": 416368,
+        "file": "upgrade/qa/terrain-review/solara-10.jpg"
+      },
+      {
+        "station": 1100,
+        "position": [
+          -503.75252859000005,
+          12,
+          23.325244505599997
+        ],
+        "drawCalls": 931,
+        "triangles": 1028944,
+        "file": "upgrade/qa/terrain-review/solara-11.jpg"
+      }
+    ],
+    "audit": {
+      "assets": [],
+      "ground": [
+        {
+          "name": "Original circuit regional ground",
+          "vertices": 4,
+          "normal": 4
+        },
+        {
+          "name": "Circuit terrain",
+          "vertices": 44610,
+          "normal": 44610
+        },
+        {
+          "name": "Paved runoff",
+          "vertices": 23049,
+          "normal": 23049
+        },
+        {
+          "name": "Main racing surface",
+          "vertices": 8565,
+          "normal": 8565
+        },
+        {
+          "name": "Track markings",
+          "vertices": 12078,
+          "normal": 12078
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7200,
+          "normal": 7200
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7227,
+          "normal": 7227
+        },
+        {
+          "name": "Track markings",
+          "vertices": 7191,
+          "normal": 7191
+        },
+        {
+          "name": "Track markings",
+          "vertices": 24180,
+          "normal": 24180
+        },
+        {
+          "name": "Track markings",
+          "vertices": 15630,
+          "normal": 15630
+        },
+        {
+          "name": "Pit service apron",
+          "vertices": 960,
+          "normal": 960
+        },
+        {
+          "name": "Pit working lane divider",
+          "vertices": 960,
+          "normal": 960
+        }
+      ],
+      "mapped": {
+        "surfaceTiles": 0,
+        "surfaceTriangles": 0,
+        "planting": 0,
+        "boundarySegments": 0,
+        "spectatorSections": 0
+      }
+    },
+    "errors": []
+  }
+]

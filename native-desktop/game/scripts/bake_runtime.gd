@@ -10,12 +10,15 @@ func own(node: Node, world: Node) -> void:
 
 func _initialize() -> void:
 	var tracks: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://circuits/physics.json"))
+	var legacy:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/pit-crew-legacy.json"))
 	var ids=OS.get_cmdline_user_args()
 	if ids.is_empty(): ids=tracks.keys()
 	for id in ids:
+		var legacy_ids:=PackedInt32Array(legacy.get(id,[]))
 		var packed: PackedScene=load("res://circuits/"+id+".scn")
 		var world=packed.instantiate()
 		var source: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://circuits/"+id+".json"))
+		source.objects=source.objects.filter(func(object):return int(source.geometry[object.geometry].attributes.position.bytes)>0)
 		var expected:int=source.objects.filter(func(object):return not object.car).size()
 		if world.get_child_count()<expected:
 			push_error("Scene/source mismatch for "+id+". Import the circuit before baking.")
@@ -26,6 +29,7 @@ func _initialize() -> void:
 			var node=world.get_child(index)
 			node.set_meta("source_name",object.name)
 			index+=1
+			if legacy_ids.has(index-1):node.visible=false;node.set_meta("retired_pit_crew",true)
 			if not node is MultiMeshInstance3D: continue
 			var f: PackedFloat32Array=node.get_meta("instance_transforms")
 			var colors: PackedFloat32Array=node.get_meta("instance_colors",PackedFloat32Array())

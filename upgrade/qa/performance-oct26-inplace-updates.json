@@ -1,0 +1,52 @@
+{
+  "fileSHA256": "806ebb5087346135838cb2c01bd5fde31407fab7a741b727eaa8e49ede01a10e",
+  "scope": "Edge headless, High, 1440x810, 22-car grid moving for the recorded sample duration after 3 second warmup, player stationary. One GPU test at a time.",
+  "seconds": 30,
+  "reports": [
+    {
+      "id": "singapore",
+      "readyMs": 17646.5361,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "frames": 1842,
+      "p50Ms": 13.900000000001455,
+      "p95Ms": 27.700000000004366,
+      "p99Ms": 28.200000000004366,
+      "over33Ms": 15,
+      "over50Ms": 2,
+      "drawCalls": 788,
+      "triangles": 2812655,
+      "drivers": 22,
+      "errors": []
+    },
+    {
+      "id": "suzuka",
+      "readyMs": 20127.471799999992,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "frames": 2258,
+      "p50Ms": 13.900000000001455,
+      "p95Ms": 20.80000000000291,
+      "p99Ms": 27.799999999995634,
+      "over33Ms": 6,
+      "over50Ms": 0,
+      "drawCalls": 709,
+      "triangles": 3178585,
+      "drivers": 22,
+      "errors": []
+    },
+    {
+      "id": "interlagos",
+      "readyMs": 22282.489199999996,
+      "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "frames": 1949,
+      "p50Ms": 13.900000000001455,
+      "p95Ms": 20.900000000001455,
+      "p99Ms": 27.799999999995634,
+      "over33Ms": 3,
+      "over50Ms": 1,
+      "drawCalls": 899,
+      "triangles": 6501988,
+      "drivers": 22,
+      "errors": []
+    }
+  ]
+}

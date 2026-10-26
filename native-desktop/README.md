@@ -1,12 +1,14 @@
 # Milano Apex
 
-Version 0.3 is an independent Windows game built with Godot 4.7.2 Forward+ and Vulkan. It uses native scenes and GDScript, with the original MR 26 geometry, sponsor artwork and researched circuit assets. Godot supplies the graphics engine and platform runtime; Milano's gameplay and asset pipeline live here.
+Version 0.4 is an independent Windows game built with Godot 4.7.2 Forward+ and Vulkan. It uses native scenes and GDScript, with the original MR 26 geometry, sponsor artwork and researched circuit assets. Godot supplies the graphics engine and platform runtime; Milano's gameplay and asset pipeline live here.
 
 ## Play
 
-Extract the entire `Milano-Apex-Windows.zip` folder. Run `Milano Apex.exe` and keep its `.pck` alongside it. High is the default graphics setting. No server or account is needed for offline modes. This is a portable, unsigned executable, with no installer or automatic updater.
+Extract the entire `Milano-Apex-Windows.zip` folder into a location you can write to. Run `Milano Apex.exe` and keep its `.pck` alongside it. High is the default graphics setting. No server or account is needed for offline modes. The portable executable is not Authenticode-signed; update manifests are separately signed with Milano's release key. Once a newer signed fix is available on the configured host, the updater prepares it in the background, pauses heavy work during gameplay, and replaces this same installation after the game closes. Settings and records remain in the Godot user-data folder. See [updates](docs/UPDATES.md) for private access, release setup and older-install migration.
 
-The home screen plays a recorded four-shot sequence through Monza, Marina Bay, Spa and Milano Autodromo. Choose RACE, GRAND PRIX or FREE PRACTICE, select the circuit and start. ONLINE opens the private-server lobby. SETTINGS contains graphics, lighting, weather, steering, volume, racing guide and reduced-motion preferences. Preferences stay on this computer; the server password and login cookie are not written to disk.
+The app opens maximized. F11 switches between fullscreen and maximized; SETTINGS → DISPLAY → WINDOW also offers a resizable window. The game fills the available aspect ratio, with the HUD anchored to the screen edges and undistorted home footage.
+
+The home screen plays a recorded four-shot sequence through Monza, Marina Bay, Spa and Milano Autodromo. Choose RACE, GRAND PRIX or FREE PRACTICE, select the circuit and start. ONLINE opens the private-server lobby. SETTINGS contains graphics, lighting, weather, steering, volume, racing guide and reduced-motion preferences. Preferences stay on this computer. The server password is not stored; a private-session cookie is temporarily passed to the update worker and cleared when it finishes.
 
 | Action | Keyboard | Standard controller |
 |---|---|---|

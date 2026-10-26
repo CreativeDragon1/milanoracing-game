@@ -1,5 +1,5 @@
 // Local-network ghost races. Server owns countdown, checkpoints and results.
-const MP={active:false,available:false,inviteBase:location.origin,token:'',me:'',room:null,epoch:-1,startAt:0,clockOffset:0,latency:0,busy:false,nextPoll:0,lastGood:0,lastStamp:0,ghosts:new Map(),finished:false};
+const MP={active:false,available:false,inviteBase:location.origin+location.pathname,token:'',me:'',room:null,epoch:-1,startAt:0,clockOffset:0,latency:0,busy:false,nextPoll:0,lastGood:0,lastStamp:0,ghosts:new Map(),finished:false};
 function mpError(text){$('network-error').textContent=text;$('lobby-note').textContent=text;$('network-results-note').textContent=text}
 function mpRemember(){try{sessionStorage.setItem('mrs:lan',JSON.stringify({token:MP.token,circuit:MP.room?.circuit}))}catch(e){}}
 // Persistent encrypted connection; REST fallback for proxies that block upgrades.
@@ -62,8 +62,8 @@ function mpResults(){
 }
 function mpOpponents(){
  const ids=new Set();for(const p of MP.room.players){if(p.id===MP.me)continue;ids.add(p.id);let g=MP.ghosts.get(p.id);
-  if(!g){const group=car.clone(true);group.traverse(o=>{if(o.isMesh)o.castShadow=false});const marker=new T.Mesh(new T.BoxGeometry(.5,.10,1.3),new T.MeshBasicMaterial({color:p.color}));marker.position.set(-1,1.65,0);group.add(marker);
-   const texture=canvasTex(512,96,(x,w,h)=>{x.fillStyle='#0b1428d9';x.fillRect(0,0,w,h);x.fillStyle=p.color;x.fillRect(0,0,8,h);x.fillStyle='white';x.font='bold 39px Arial';x.textAlign='center';x.fillText(p.name.slice(0,18),w/2,62)}),label=new T.Sprite(new T.SpriteMaterial({map:texture,depthTest:true,transparent:true}));label.position.set(0,2.35,0);label.scale.set(3.6,.675,1);group.add(label);scene.add(group);g={group,target:p,label,texture,marker,samples:[],lastX:p.x,lastZ:p.z,wheelAngle:0};MP.ghosts.set(p.id,g);group.position.set(p.x,roadHeightAt(p.x,p.z),p.z)}
+  if(!g){const group=cloneRaceCar();group.traverse(o=>{if(o.isMesh)o.castShadow=false});const marker=new T.Mesh(new T.BoxGeometry(.5,.10,1.3),new T.MeshBasicMaterial({color:p.color}));marker.position.set(-1,1.65,0);group.add(marker);
+   const texture=canvasTex(512,96,(x,w,h)=>{x.fillStyle='#0b1428d9';x.fillRect(0,0,w,h);x.fillStyle=p.color;x.fillRect(0,0,8,h);x.fillStyle='white';x.font='29px Michroma';x.textAlign='center';x.fillText(p.name.slice(0,18),w/2,62)}),label=new T.Sprite(new T.SpriteMaterial({map:texture,depthTest:true,transparent:true}));label.position.set(0,2.35,0);label.scale.set(3.6,.675,1);group.add(label);scene.add(group);g={group,target:p,label,texture,marker,samples:[],lastX:p.x,lastZ:p.z,wheelAngle:0};MP.ghosts.set(p.id,g);group.position.set(p.x,roadHeightAt(p.x,p.z),p.z)}
   if(!g.samples.length||MP.lastStamp>g.samples.at(-1).time){if(g.samples.length&&Math.hypot(p.x-g.samples.at(-1).x,p.z-g.samples.at(-1).z)>45)g.samples=[];g.samples.push({...p,time:MP.lastStamp});if(g.samples.length>12)g.samples.shift()}g.target=p;g.group.visible=!p.dnf&&MP.room.phase!=='lobby';
  }
  for(const[id,g]of MP.ghosts)if(!ids.has(id)){scene.remove(g.group);g.texture.dispose();g.label.material.dispose();g.marker.geometry.dispose();g.marker.material.dispose();MP.ghosts.delete(id)}

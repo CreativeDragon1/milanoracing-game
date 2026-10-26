@@ -1,0 +1,463 @@
+{
+  "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\outputs\\Milano Racing - Cinematic Reel.mp4",
+  "format": "reel",
+  "seconds": 66.966667,
+  "resolution": [
+    1080,
+    1920
+  ],
+  "fps": 60,
+  "shots": [
+    {
+      "id": "milano",
+      "source": "desktop",
+      "station": 0.35,
+      "angle": 3,
+      "seconds": 4.433333333333334,
+      "cut": 3.9833333333333334,
+      "transition": 0.4,
+      "surfaceAlignment": "road-tangent-frame-v1"
+    },
+    {
+      "id": "singapore",
+      "source": "browser",
+      "station": 0.68,
+      "angle": 1,
+      "seconds": 5.466666666666667,
+      "cut": 9.0,
+      "transition": 0.25
+    },
+    {
+      "id": "monaco",
+      "source": "desktop",
+      "station": 0.72,
+      "angle": 0,
+      "seconds": 4.45,
+      "cut": 13.0,
+      "transition": 0.25
+    },
+    {
+      "id": "monza",
+      "source": "browser",
+      "station": 0.64,
+      "angle": 5,
+      "seconds": 4.816666666666666,
+      "cut": 17.366666666666667,
+      "transition": 0.25
+    },
+    {
+      "id": "bahrain",
+      "source": "desktop",
+      "station": 0.28,
+      "angle": 2,
+      "seconds": 4.85,
+      "cut": 21.766666666666666,
+      "transition": 0.4
+    },
+    {
+      "id": "spa",
+      "source": "browser",
+      "station": 0.045,
+      "angle": 4,
+      "seconds": 4.783333333333333,
+      "cut": 26.1,
+      "transition": 0.25
+    },
+    {
+      "id": "austria",
+      "source": "desktop",
+      "station": 0.42,
+      "angle": 3,
+      "seconds": 4.833333333333333,
+      "cut": 30.483333333333334,
+      "transition": 0.25
+    },
+    {
+      "id": "silverstone",
+      "source": "browser",
+      "station": 0.58,
+      "angle": 0,
+      "seconds": 4.8,
+      "cut": 34.833333333333336,
+      "transition": 0.4
+    },
+    {
+      "id": "abu-dhabi",
+      "source": "desktop",
+      "station": 0.82,
+      "angle": 1,
+      "seconds": 4.816666666666666,
+      "cut": 39.2,
+      "transition": 0.25
+    },
+    {
+      "id": "suzuka",
+      "source": "browser",
+      "station": 0.1,
+      "angle": 4,
+      "seconds": 4.816666666666666,
+      "cut": 43.56666666666667,
+      "transition": 0.25
+    },
+    {
+      "id": "interlagos",
+      "source": "desktop",
+      "station": 0.04,
+      "angle": 2,
+      "seconds": 4.8,
+      "cut": 47.916666666666664,
+      "transition": 0.25
+    },
+    {
+      "id": "zandvoort",
+      "source": "browser",
+      "station": 0.82,
+      "angle": 5,
+      "seconds": 4.833333333333333,
+      "cut": 52.3,
+      "transition": 0.25,
+      "surfaceAlignment": "road-tangent-frame-v1"
+    },
+    {
+      "id": "riviera",
+      "source": "desktop",
+      "station": 0.62,
+      "angle": 1,
+      "seconds": 4.816666666666666,
+      "cut": 56.666666666666664,
+      "transition": 0.25,
+      "surfaceAlignment": "road-tangent-frame-v1"
+    },
+    {
+      "id": "solara",
+      "source": "browser",
+      "station": 0.45,
+      "angle": 0,
+      "seconds": 4.8,
+      "cut": 61.016666666666666,
+      "transition": 0.4,
+      "surfaceAlignment": "road-tangent-frame-v1"
+    }
+  ],
+  "music": "C:\\Users\\Geet\\Downloads\\F1 - Symphonic Version.mp3",
+  "musicStart": 326.633333,
+  "engineAudio": false,
+  "decodePassed": true,
+  "cornerLogo": true,
+  "cornerLogoOnEndCard": false,
+  "drivingCaptions": true,
+  "titles": [
+    {
+      "circuit": "milano",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\milano-title.png",
+      "font": "Michroma",
+      "text": [
+        "MILANO AUTODROMO",
+        "DOWNLOAD FOR WINDOWS",
+        "THE DESKTOP GAME"
+      ],
+      "position": [
+        97,
+        365
+      ],
+      "size": [
+        858,
+        141
+      ],
+      "align": "left",
+      "enter": 0.32,
+      "exit": 3.7833333333333337
+    },
+    {
+      "circuit": "singapore",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\singapore-title.png",
+      "font": "Michroma",
+      "text": [
+        "SINGAPORE",
+        "PLAY IN YOUR BROWSER",
+        "NO INSTALL REQUIRED"
+      ],
+      "position": [
+        94,
+        1373
+      ],
+      "size": [
+        856,
+        148
+      ],
+      "align": "right",
+      "enter": 0.32,
+      "exit": 4.816666666666666
+    },
+    {
+      "circuit": "monaco",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\monaco-title.png",
+      "font": "Michroma",
+      "text": [
+        "MONACO",
+        "RACE 14 CIRCUITS",
+        "REAL VENUES & ORIGINAL TRACKS"
+      ],
+      "position": [
+        130,
+        451
+      ],
+      "size": [
+        847,
+        157
+      ],
+      "align": "left",
+      "enter": 0.32,
+      "exit": 3.8000000000000003
+    },
+    {
+      "circuit": "monza",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\monza-title.png",
+      "font": "Michroma",
+      "text": [
+        "MONZA",
+        "RACE A 22-CAR GRID",
+        "21 AI RIVALS"
+      ],
+      "position": [
+        94,
+        394
+      ],
+      "size": [
+        846,
+        152
+      ],
+      "align": "right",
+      "enter": 0.32,
+      "exit": 4.166666666666666
+    },
+    {
+      "circuit": "bahrain",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\bahrain-title.png",
+      "font": "Michroma",
+      "text": [
+        "BAHRAIN",
+        "CHOOSE YOUR PIT STRATEGY",
+        "TYRE CHOICE & PIT STOPS"
+      ],
+      "position": [
+        97,
+        1325
+      ],
+      "size": [
+        858,
+        138
+      ],
+      "align": "left",
+      "enter": 0.32,
+      "exit": 4.199999999999999
+    },
+    {
+      "circuit": "spa",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\spa-title.png",
+      "font": "Michroma",
+      "text": [
+        "SPA-FRANCORCHAMPS"
+      ],
+      "position": [
+        91,
+        451
+      ],
+      "size": [
+        859,
+        74
+      ],
+      "align": "right",
+      "enter": 0.32,
+      "exit": 4.133333333333333
+    },
+    {
+      "circuit": "austria",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\austria-title.png",
+      "font": "Michroma",
+      "text": [
+        "AUSTRIA",
+        "QUALIFY FOR THE GRID",
+        "Q1 \u00b7 Q2 \u00b7 Q3"
+      ],
+      "position": [
+        140,
+        355
+      ],
+      "size": [
+        855,
+        155
+      ],
+      "align": "left",
+      "enter": 0.32,
+      "exit": 4.183333333333333
+    },
+    {
+      "circuit": "silverstone",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\silverstone-title.png",
+      "font": "Michroma",
+      "text": [
+        "SILVERSTONE",
+        "KEYBOARD OR CONTROLLER",
+        "PLAYSTATION & XBOX SUPPORT"
+      ],
+      "position": [
+        83,
+        1430
+      ],
+      "size": [
+        851,
+        140
+      ],
+      "align": "right",
+      "enter": 0.32,
+      "exit": 4.1499999999999995
+    },
+    {
+      "circuit": "abu-dhabi",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\abu-dhabi-title.png",
+      "font": "Michroma",
+      "text": [
+        "YAS MARINA",
+        "RACE YOUR FRIENDS",
+        "PRIVATE ONLINE ROOMS"
+      ],
+      "position": [
+        108,
+        1344
+      ],
+      "size": [
+        853,
+        152
+      ],
+      "align": "left",
+      "enter": 0.32,
+      "exit": 4.166666666666666
+    },
+    {
+      "circuit": "suzuka",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\suzuka-title.png",
+      "font": "Michroma",
+      "text": [
+        "SUZUKA"
+      ],
+      "position": [
+        92,
+        432
+      ],
+      "size": [
+        360,
+        78
+      ],
+      "align": "left",
+      "enter": 0.32,
+      "exit": 4.166666666666666
+    },
+    {
+      "circuit": "interlagos",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\interlagos-title.png",
+      "font": "Michroma",
+      "text": [
+        "INTERLAGOS",
+        "CHOOSE YOUR DIFFICULTY",
+        "ROOKIE \u00b7 CLUB \u00b7 PRO \u00b7 ELITE"
+      ],
+      "position": [
+        101,
+        346
+      ],
+      "size": [
+        849,
+        142
+      ],
+      "align": "right",
+      "enter": 0.32,
+      "exit": 4.1499999999999995
+    },
+    {
+      "circuit": "zandvoort",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\zandvoort-title.png",
+      "font": "Michroma",
+      "text": [
+        "ZANDVOORT"
+      ],
+      "position": [
+        397,
+        1450
+      ],
+      "size": [
+        532,
+        78
+      ],
+      "align": "right",
+      "enter": 0.32,
+      "exit": 4.183333333333333
+    },
+    {
+      "circuit": "riviera",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\riviera-title.png",
+      "font": "Michroma",
+      "text": [
+        "MILANO RIVIERA",
+        "RACE OUR ORIGINAL TRACKS",
+        "MILANO AUTODROMO \u00b7 RIVIERA \u00b7 SOLARA"
+      ],
+      "position": [
+        108,
+        413
+      ],
+      "size": [
+        859,
+        134
+      ],
+      "align": "left",
+      "enter": 0.32,
+      "exit": 4.166666666666666
+    },
+    {
+      "circuit": "solara",
+      "file": "C:\\Users\\Geet\\Documents\\Codex\\2026-10-09\\usi\\work\\mixed-trailer\\reel\\solara-title.png",
+      "font": "Michroma",
+      "text": [
+        "MILANO SOLARA"
+      ],
+      "position": [
+        119,
+        461
+      ],
+      "size": [
+        677,
+        78
+      ],
+      "align": "left",
+      "enter": 0.32,
+      "exit": 4.1499999999999995
+    }
+  ],
+  "captureResolution": [
+    1440,
+    2560
+  ],
+  "browserSHA256": "1fc87bfbb99357e5c3e9bad33a28e13ec3bf90ce03da3716ab535a8f7e1853c6",
+  "desktopPackSHA256": "0067518e9490fbd4a778976e2e1de051885eb40c34e70a16b012a4482cd8f448",
+  "sha256": "45b9d80db77ba46ff06e616a48c9d03838242170a45c89a7067b354561d87ab8",
+  "typographyOnly": true,
+  "previousEditSHA256": "ac2b21e6957871f5f0484677a6b4c87ccdb6bbc081818fc3f0f83371b69ae6aa",
+  "font": "Michroma",
+  "sourceClips": {
+    "milano": "56aa3f0d440c50806fc06e7f9873d4624a71eb90fa8c2074d738178de3c4f0f1",
+    "singapore": "55ef374372c4fc1ba742770aa311053d48aeb4421ebde3dc302887fa55eac7b2",
+    "monaco": "1ea3678a0a0ded11184a1e6155ed7fa8c5954ec5b24608c7724633c042b328bf",
+    "monza": "1ec191af95a498b7695d92b0701550ba05bd822b4dfd1a8fee128466f8df4b2d",
+    "bahrain": "c45c502d9d4d8f96db83b0b472442d54b9def06ec810b87da96842d7de8c54af",
+    "spa": "1e7f0a3577fbef55d0afc780a9619aecb11a7b7adac0851cb50d9ab9814c6250",
+    "austria": "fa26e75cc3f2a406ca521bd972e0ec5292882d95a18beb15b46e52bcb7c33453",
+    "silverstone": "cb39e255f7fcf811c71fed607733685395a8d808a40fed0ed1b96ca8118001e6",
+    "abu-dhabi": "ebc04e61cbc3b0db01fd30a2a053f36e0d1fcd0c4fe78b705bbd0f949bb6ad39",
+    "suzuka": "f01cd2680694d5b7ba7d75f38c128221f0fe4a5d44489ab36df00572166377ac",
+    "interlagos": "df65a68e9ae4b762e550874a4c4371ee97b3226a6230a2eb6f97f2185a8a38b7",
+    "zandvoort": "cf531e2713696da383de5bb5dc44cf3bdbfde0db344b99ad66e588152dd77180",
+    "riviera": "570c1988eb38d86caa17cb671f4cb2ba24ab16efdaf256d34e44ce0b444d9fc9",
+    "solara": "2b4ee0859004ba6eab75563f4ae99050686fd10e5c5deedba820b700330710f6"
+  }
+}

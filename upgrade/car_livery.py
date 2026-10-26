@@ -16,6 +16,9 @@ def game_car(source):
     assert hashlib.sha256(original).hexdigest()==manifest['sourceBodySHA256']
     designer=(assets/'designer-uv.bin').read_bytes()
     assert len(designer)==body['count']*8
+    assert hashlib.sha256(designer).hexdigest()==manifest['uvSHA256']
+    artwork=(assets/manifest['artworkFile']).read_bytes()
+    assert hashlib.sha256(artwork).hexdigest()==manifest['artworkSHA256']
     for i in range(body['count']):edited[i*32+24:i*32+32]=designer[i*8:i*8+8]
     # The two inward-facing CAD panels have separate UV islands. Identify the same inward-facing panels using the original UV layout.
     # Their new UVs sample plain white from the supplied designer artwork.

@@ -41,7 +41,7 @@ func receive(data: Dictionary) -> void:
 			continue
 		if not ghosts.has(driver.id):
 			var node:=Node3D.new(); node.add_child(vehicle.visual.duplicate()); add_child(node)
-			var label:=Label3D.new(); label.text=driver.name; label.position.y=2.3; label.font_size=42; label.pixel_size=.012
+			var label:=Label3D.new(); label.font=load("res://assets/fonts/Michroma.ttf"); label.text=driver.name; label.position.y=2.3; label.font_size=32; label.pixel_size=.012
 			label.billboard=BaseMaterial3D.BILLBOARD_ENABLED; label.modulate=Color(driver.color); node.add_child(label)
 			ghosts[driver.id]={"node":node,"samples":[],"hint":posmod(int(track.N)-3-int(driver.slot)*3,int(track.N))}
 		var ghost: Dictionary=ghosts[driver.id]

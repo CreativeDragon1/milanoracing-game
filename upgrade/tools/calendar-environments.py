@@ -14,8 +14,9 @@ from shapely.strtree import STRtree
 U=Path(__file__).resolve().parents[1]
 load=lambda p:json.loads((U/p).read_text(encoding='utf-8'))
 tour=load('src/world-tour-data.json');trans=load('src/geographic-transforms.json');geo=load('src/geographic-data.json');mapped=load('src/venue-map-data.json');pits=load('src/pit-lanes.json')
-out={};reports=[]
+out=load('src/calendar-environments-data.json') if sys.argv[1:] else {};reports=[]
 for ident,tr in trans.items():
+ if sys.argv[1:] and ident not in sys.argv[1:]:continue
  d=tour[ident];n=d['N'];q=np.column_stack([d['x'],d['z']]);normal=np.column_stack([-np.array(d['tz']),d['tx']]);tree=cKDTree(q)
  half=[np.array(d.get('widthLeft',[d['width']/2]*n)),np.array(d.get('widthRight',[d['width']/2]*n))];y=np.array(d['elevation']['height']);bank=np.array(d['bank'])
  road=union_all([Polygon([q[i]-normal[i]*(half[0][i]+1.7),q[i]+normal[i]*(half[1][i]+1.7),q[(i+1)%n]+normal[(i+1)%n]*(half[1][(i+1)%n]+1.7),q[(i+1)%n]-normal[(i+1)%n]*(half[0][(i+1)%n]+1.7)]).buffer(0) for i in range(n)])
@@ -26,12 +27,19 @@ for ident,tr in trans.items():
  terrain=np.frombuffer(base64.b64decode(d['elevation']['terrain']),dtype='<f4').reshape(-1,3,3).astype(float)
  extra=[]
  for side,h,run in [(-1,half[0],d['runoffLeft']),(1,half[1],d['runoffRight'])]:
-  for i in range(n):
+  for i in ([] if d['elevation'].get('unifiedGround') else range(n)):
    j=(i+1)%n;v=[]
    for k,a in [(i,h[i]+1.5),(i,h[i]+run[i]),(j,h[j]+run[j]),(j,h[j]+1.5)]:
     o=side*a;v.append([q[k,0]+normal[k,0]*o,y[k]-o*np.tan(bank[k]),q[k,1]+normal[k,1]*o])
    extra.extend([[v[0],v[1],v[2]],[v[0],v[2],v[3]]])
- terrain=np.concatenate([terrain,np.array(extra)]);triPolys=[Polygon(v[:,[0,2]]) for v in terrain];spatial=STRtree(triPolys)
+ if extra:terrain=np.concatenate([terrain,np.array(extra)])
+ # Reuse the continuous base surface's vertex normals. Independent flat normals
+ # on each clipped overlay created large triangular lighting patches in grass.
+ verts=terrain.reshape(-1,3);_,inverse=np.unique(verts,axis=0,return_inverse=True)
+ face=np.cross(terrain[:,1]-terrain[:,0],terrain[:,2]-terrain[:,0]);face/=np.maximum(np.linalg.norm(face,axis=1)[:,None],1e-12)
+ shared=np.zeros((inverse.max()+1,3));np.add.at(shared,inverse,np.repeat(face,3,axis=0));shared/=np.maximum(np.linalg.norm(shared,axis=1)[:,None],1e-12)
+ terrain_normals=shared[inverse].reshape(-1,3,3)
+ triPolys=[Polygon(v[:,[0,2]]) for v in terrain];spatial=STRtree(triPolys)
  root=ET.parse(U/f'research/osm/{ident}-map.osm').getroot()
  def point(e):
   a=(np.array([float(e.get('lon')),float(e.get('lat'))])-tr['origin'])*tr['unit'];return (a@np.array(tr['rotation'])*tr['scale']+tr['translation']).tolist()
@@ -58,7 +66,7 @@ for ident,tr in trans.items():
  for e in root.findall('node'):
   tags={t.get('k'):t.get('v') for t in e.findall('tag')}
   if tags.get('natural')=='tree':trees.append([*nodes[e.get('id')],8+int(e.get('id'))%7])
- chunks={};source=[];occupied=Polygon();priority={'gravel':0,'asphalt':1,'sand':2,'lawn':3,'meadow':4,'scrub':5}
+ chunks={};normal_chunks={};source=[];occupied=Polygon();priority={'gravel':0,'asphalt':1,'sand':2,'lawn':3,'meadow':4,'scrub':5}
  for wid,name,kind,poly in sorted(records,key=lambda r:priority[r[2]]):
   poly=poly.difference(occupied)
   if poly.area<12:continue
@@ -69,13 +77,15 @@ for ident,tr in trans.items():
    a,b,c=tri;den=(b[2]-c[2])*(a[0]-c[0])+(c[0]-b[0])*(a[2]-c[2])
    if abs(den)<1e-8:continue
    for part in constrained_delaunay_triangles(clip).geoms:
-    v=[]
+    v=[];normals=[]
     for x,z in list(part.exterior.coords)[:3]:
      u=((b[2]-c[2])*(x-c[0])+(c[0]-b[0])*(z-c[2]))/den;w=((c[2]-a[2])*(x-c[0])+(a[0]-c[0])*(z-c[2]))/den
      v.append([x,u*a[1]+w*b[1]+(1-u-w)*c[1]+.045,z])
+     normal=terrain_normals[ti,0]*u+terrain_normals[ti,1]*w+terrain_normals[ti,2]*(1-u-w);normals.append(normal/max(np.linalg.norm(normal),1e-12))
     v=np.array(v)
-    if np.cross(v[1]-v[0],v[2]-v[0])[1]<0:v=v[[0,2,1]]
-    key=(kind,int(v[:,0].mean()//240),int(v[:,2].mean()//240));chunks.setdefault(key,[]).extend(v.ravel());count+=1
+    normals=np.array(normals)
+    if np.cross(v[1]-v[0],v[2]-v[0])[1]<0:v=v[[0,2,1]];normals=normals[[0,2,1]]
+    key=(kind,int(v[:,0].mean()//240),int(v[:,2].mean()//240));chunks.setdefault(key,[]).extend(v.ravel());normal_chunks.setdefault(key,[]).extend(normals.ravel());count+=1
   source.append({'id':wid,'name':name,'kind':kind,'area':round(poly.area),'triangles':count})
  # Mapped forest edges get real planting instead of random sparse trees in open fields.
  rng=np.random.default_rng(2917);forest=[]
@@ -98,7 +108,7 @@ for ident,tr in trans.items():
   key=(round(x/6),round(z/6))
   if key in used or not region.contains(Point(x,z)) or safe.contains(Point(x,z)):continue
   used.add(key);clean.append([round(x,2),round(z,2),round(h,2)])
- out[ident]={'tiles':[{'kind':k[0],'tile':list(k[1:]),'positions':base64.b64encode(np.array(v,dtype='<f4').tobytes()).decode()} for k,v in chunks.items()], 'sources':source,'planting':clean,'treeRows':rows,'boundaries':hedges,'bleachers':bleachers,'note':'OSM alignments; existing terrain-conforming surfaces. Plant species and furniture dimensions reconstructed. No surveyed-replica claim.'}
+ out[ident]={'tiles':[{'kind':k[0],'tile':list(k[1:]),'positions':base64.b64encode(np.array(v,dtype='<f4').tobytes()).decode(),'normals':base64.b64encode(np.array(normal_chunks[k],dtype='<f4').tobytes()).decode()} for k,v in chunks.items()], 'sources':source,'planting':clean,'treeRows':rows,'boundaries':hedges,'bleachers':bleachers,'note':'OSM alignments; existing terrain-conforming surfaces and shared terrain normals. Plant species and furniture dimensions reconstructed. No surveyed-replica claim.'}
  reports.append({'id':ident,'mappedSurfaceAreas':len(source),'surfaceTriangles':sum(len(v)//9 for v in chunks.values()),'tiles':len(chunks),'mappedPlanting':len(clean),'boundaries':len(hedges),'bleachers':len(bleachers),'roadOverlapArea':round(occupied.intersection(road).area,8)})
  print(reports[-1],flush=True)
 (U/'src/calendar-environments-data.json').write_text(json.dumps(out,separators=(',',':')),encoding='utf-8')

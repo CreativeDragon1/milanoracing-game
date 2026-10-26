@@ -1,0 +1,102 @@
+[
+  {
+    "name": "front retained axle",
+    "position": [
+      1.537989609763792,
+      0.3732818729053015,
+      0
+    ],
+    "radius": 0.028,
+    "length": 1.5579837011828879
+  },
+  {
+    "name": "front fixed inner hub -1",
+    "position": [
+      1.537989609763792,
+      0.3732818729053015,
+      -0.484191850591444
+    ],
+    "radius": 0.105,
+    "length": 0.026
+  },
+  {
+    "name": "front retained spindle collar -1",
+    "position": [
+      1.537989609763792,
+      0.3732818729053015,
+      -0.634591850591444
+    ],
+    "radius": 0.052,
+    "length": 0.085
+  },
+  {
+    "name": "front fixed inner hub 1",
+    "position": [
+      1.537989609763792,
+      0.3732818729053015,
+      0.484191850591444
+    ],
+    "radius": 0.105,
+    "length": 0.026
+  },
+  {
+    "name": "front retained spindle collar 1",
+    "position": [
+      1.537989609763792,
+      0.3732818729053015,
+      0.634591850591444
+    ],
+    "radius": 0.052,
+    "length": 0.085
+  },
+  {
+    "name": "rear retained axle",
+    "position": [
+      -1.6845472794176066,
+      0.3732818729053015,
+      0
+    ],
+    "radius": 0.028,
+    "length": 1.557828798115612
+  },
+  {
+    "name": "rear fixed inner hub -1",
+    "position": [
+      -1.6845472794176066,
+      0.3732818729053015,
+      -0.3851143990578061
+    ],
+    "radius": 0.105,
+    "length": 0.026
+  },
+  {
+    "name": "rear retained spindle collar -1",
+    "position": [
+      -1.6845472794176066,
+      0.3732818729053015,
+      -0.5850143990578061
+    ],
+    "radius": 0.052,
+    "length": 0.085
+  },
+  {
+    "name": "rear fixed inner hub 1",
+    "position": [
+      -1.6845472794176066,
+      0.3732818729053015,
+      0.3851143990578061
+    ],
+    "radius": 0.105,
+    "length": 0.026
+  },
+  {
+    "name": "rear retained spindle collar 1",
+    "position": [
+      -1.6845472794176066,
+      0.3732818729053015,
+      0.5850143990578061
+    ],
+    "radius": 0.052,
+    "length": 0.085
+  }
+]

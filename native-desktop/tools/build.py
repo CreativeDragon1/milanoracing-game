@@ -27,6 +27,7 @@ subprocess.run([sys.executable, str(N / 'tools/build-icon.py')], check=True)
 run('--editor', '--import', attempts=3)
 subprocess.run([sys.executable, str(N / 'tools/texture-imports.py')], check=True)
 run('--editor', '--import', attempts=3)
+run('--script', 'scripts/bake_pit_crew.gd')
 run('--script', 'scripts/bake_runtime.gd')
 run('--script', 'scripts/bake_car_lods.gd')
 if '--test' in sys.argv:

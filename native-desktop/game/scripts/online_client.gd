@@ -126,7 +126,7 @@ func _process(dt: float) -> void:
 		if token and poll_clock>=.0667 and pending.size()<3:
 			poll_clock=0
 			var fields := {}
-			if car and room.get("phase","")=="race": fields.car={"x":car.position.x,"z":car.position.z,"h":car.heading,"v":clampf(car.speed,0,105)}
+			if car and room.get("phase","")=="race": fields.car={"x":car.position.x,"z":car.position.z,"h":car.heading,"v":clampf(car.speed,-8,105)}
 			command("poll",fields)
 		# Do not accumulate requests forever on a stalled connection.
 		for id in pending.keys():

@@ -39,6 +39,11 @@ async def main():
   await asyncio.sleep(6.1)
   race=await req(a,'poll',token=tokens[0]);check(race['result']['room']['phase']=='race','countdown enters race')
   reject=await req(a,'poll',token=tokens[0],car={'x':1e7,'z':1e7,'h':0,'v':100});check(next(p for p in reject['result']['room']['players'] if p['id']==reject['result']['me'])['warning']=='POSITION REJECTED','teleport protection')
+  me=next(p for p in race['result']['room']['players'] if p['id']==race['result']['me'])
+  reverse=await req(a,'poll',token=tokens[0],car={'x':me['x'],'z':me['z'],'h':me['h'],'v':-4})
+  me=next(p for p in reverse['result']['room']['players'] if p['id']==reverse['result']['me']);check(me['v']==-4 and me['warning']!='POSITION REJECTED','bounded reverse accepted online')
+  reverse=await req(a,'poll',token=tokens[0],car={'x':me['x'],'z':me['z'],'h':me['h'],'v':-9})
+  me=next(p for p in reverse['result']['room']['players'] if p['id']==reverse['result']['me']);check(me['v']==-4 and me['warning']=='POSITION REJECTED','excessive reverse speed rejected')
   await sockets[2].close();replacement=await openws();sockets[2]=replacement
   resumed=await req(replacement,'resume',token=tokens[2]);check(len(resumed['result']['room']['players'])==16,'connection resumes existing driver')
   started=time.perf_counter();count=0

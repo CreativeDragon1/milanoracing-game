@@ -1,0 +1,7 @@
+{
+  "circuit": "spa",
+  "scope": "Four barycentric samples per noninstanced static triangle, road interior, 0.12 to 6 metres clearance. Excludes ground, cars and instanced geometry; not an exhaustive collision proof.",
+  "exportSHA256": "d0fd61c5ba3d51070794a725765cd98d0e29bbb554627457a31abfbb99add2f8",
+  "obstructions": [],
+  "verifiedOverhead": []
+}

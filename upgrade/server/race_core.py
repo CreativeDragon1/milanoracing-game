@@ -118,7 +118,7 @@ def action(data):
    q=data['car'];vals=[q.get(k) for k in ['x','z','h','v']]
    if not all(isinstance(v,(int,float)) and math.isfinite(v) for v in vals):raise ValueError('Invalid car update.')
    x,z,h,v=vals;dt=min(1.5,max(.01,(t-p['sampleAt'])/1000));n=len(track['x'])
-   if not 0<=v<=105 or math.hypot(x-p['x'],z-p['z'])>105*dt+10:
+   if not -8<=v<=105 or math.hypot(x-p['x'],z-p['z'])>105*dt+10:
     p['warning']='POSITION REJECTED';return snapshot(r,pid)
    index,off=project(track,x,z,int(p['index']));delta=(index-p['index']+n/2)%n-n/2
    if abs(delta)*track['length']/n>105*dt+15:

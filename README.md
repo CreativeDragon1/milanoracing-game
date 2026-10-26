@@ -92,7 +92,7 @@ python upgrade/tests/network.py
 
 Browser checks need `npm ci --prefix upgrade` and Microsoft Edge. See [test instructions](upgrade/tests/README.txt). Reports are in `upgrade/qa`.
 
-The packaged release was checked across all 12 circuits, qualifying/race state transitions, pit stops, offline HTML, desktop launch, terrain coverage, camera samples and local multiplayer. The source ZIP rebuilt byte-identical game outputs before this Git update. Hardware controller pairing, the real SSH/Cloudflare route and 24-hour production operation still require testing on the target setup.
+The packaged release was checked across all 14 circuits, qualifying/race state transitions, pit stops, offline HTML, desktop launch, terrain coverage, camera samples and local multiplayer. The source ZIP rebuilt byte-identical game outputs before this Git update. Hardware controller pairing, the real SSH/Cloudflare route and 24-hour production operation still require testing on the target setup.
 
 ## Accuracy and deployment
 
@@ -102,10 +102,12 @@ This commit uploads the game and source to GitHub. It does not deploy the websit
 
 ## Native desktop
 
-`native-desktop` is the independent Godot 4.7.2 Forward+/Vulkan game. Version 0.3 includes 22-car races, staged qualifying, tyre strategy, assisted pit stops, private-server online rooms and a recorded cinematic home screen. It includes fourteen prepared circuits, including the original Riviera and Solara layouts, and the original MR 26 model fitted with the supplied final livery. Native wet-road and facade shaders, rain, spray, local shadows and graphics presets extend the desktop renderer.
+`native-desktop` is the independent Godot 4.7.2 Forward+/Vulkan game. Version 0.4.0 includes 22-car races, staged qualifying, tyre strategy, assisted pit stops, private-server online rooms and a recorded cinematic home screen. It includes fourteen prepared circuits, including the original Riviera and Solara layouts, and the original MR 26 model fitted with the supplied final livery. Native wet-road and facade shaders, rain, spray, local shadows and graphics presets extend the desktop renderer.
 
 The home screen uses a four-shot sequence recorded inside the native game, with smooth transitions and Milano branding. Circuit rendering is suspended during menu playback to reduce GPU work. The new interface separates race selection, setup and online rooms.
 
 See [build and controls](native-desktop/README.md), [measured validation](native-desktop/docs/VALIDATION.md) and [accuracy boundaries](native-desktop/docs/ACCURACY.md). The circuits remain researched reconstructions; the supplied commercial-game reference quality and exact surveyed placement have not been achieved. Native online was verified with two clients on a private local server, not across the public Internet.
 
 Prepared assets and menu footage are included. The pinned bootstrap downloads and verifies the official engine and export templates. Local Windows ZIPs are separate from this source repository. This update does not deploy the private game website or change its access controls.
+
+The latest release adds responsive desktop screen fitting, signed updates to the existing installation, and browser update checks that wait until players return home. See [update setup and validation](native-desktop/docs/UPDATES.md). The update channel must still be staged on the private host before remote installations receive fixes.

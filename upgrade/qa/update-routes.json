@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "Private build/update routes require authentication",
+    "Download login returns to the selected archive",
+    "Authenticated update access works",
+    "Login return rejects external hosts",
+    "Manifest and build responses never cached",
+    "Only signed-release filenames served",
+    "Traversal rejected"
+  ],
+  "scope": "Actual aiohttp application on loopback test servers; no production access changes."
+}

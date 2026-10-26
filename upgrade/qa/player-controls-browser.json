@@ -1,0 +1,220 @@
+{
+  "passed": true,
+  "layouts": [
+    {
+      "standings": {
+        "x": 22,
+        "y": 175,
+        "width": 260,
+        "height": 200,
+        "top": 175,
+        "right": 282,
+        "bottom": 375,
+        "left": 22
+      },
+      "strategy": {
+        "x": 22,
+        "y": 385,
+        "width": 260,
+        "height": 205,
+        "top": 385,
+        "right": 282,
+        "bottom": 590,
+        "left": 22
+      },
+      "skip": {
+        "x": 37,
+        "y": 530,
+        "width": 233,
+        "height": 48,
+        "top": 530,
+        "right": 270,
+        "bottom": 578,
+        "left": 37
+      },
+      "width": 1440,
+      "height": 810
+    },
+    {
+      "standings": {
+        "x": 22,
+        "y": 175,
+        "width": 260,
+        "height": 200,
+        "top": 175,
+        "right": 282,
+        "bottom": 375,
+        "left": 22
+      },
+      "strategy": {
+        "x": 22,
+        "y": 385,
+        "width": 260,
+        "height": 205,
+        "top": 385,
+        "right": 282,
+        "bottom": 590,
+        "left": 22
+      },
+      "skip": {
+        "x": 37,
+        "y": 530,
+        "width": 233,
+        "height": 48,
+        "top": 530,
+        "right": 270,
+        "bottom": 578,
+        "left": 37
+      },
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "standings": {
+        "x": 22,
+        "y": 125,
+        "width": 260,
+        "height": 180,
+        "top": 125,
+        "right": 282,
+        "bottom": 305,
+        "left": 22
+      },
+      "strategy": {
+        "x": 22,
+        "y": 315,
+        "width": 260,
+        "height": 170,
+        "top": 315,
+        "right": 282,
+        "bottom": 485,
+        "left": 22
+      },
+      "skip": {
+        "x": 37,
+        "y": 425,
+        "width": 233,
+        "height": 48,
+        "top": 425,
+        "right": 270,
+        "bottom": 473,
+        "left": 37
+      },
+      "width": 1280,
+      "height": 600
+    },
+    {
+      "standings": {
+        "x": 12,
+        "y": 198,
+        "width": 190,
+        "height": 192,
+        "top": 198,
+        "right": 202,
+        "bottom": 390,
+        "left": 12
+      },
+      "strategy": {
+        "x": 12,
+        "y": 396,
+        "width": 190,
+        "height": 109,
+        "top": 396,
+        "right": 202,
+        "bottom": 505,
+        "left": 12
+      },
+      "skip": {
+        "x": 21,
+        "y": 461,
+        "width": 175,
+        "height": 38,
+        "top": 461,
+        "right": 196,
+        "bottom": 499,
+        "left": 21
+      },
+      "width": 390,
+      "height": 844
+    },
+    {
+      "standings": {
+        "x": 12,
+        "y": 74,
+        "width": 190,
+        "height": 58,
+        "top": 74,
+        "right": 202,
+        "bottom": 132,
+        "left": 12
+      },
+      "strategy": {
+        "x": 12,
+        "y": 138,
+        "width": 190,
+        "height": 85,
+        "top": 138,
+        "right": 202,
+        "bottom": 223,
+        "left": 12
+      },
+      "skip": {
+        "x": 21,
+        "y": 183,
+        "width": 175,
+        "height": 34,
+        "top": 183,
+        "right": 196,
+        "bottom": 217,
+        "left": 21
+      },
+      "width": 844,
+      "height": 390
+    },
+    {
+      "standings": {
+        "x": 12,
+        "y": 74,
+        "width": 190,
+        "height": 58,
+        "top": 74,
+        "right": 202,
+        "bottom": 132,
+        "left": 12
+      },
+      "strategy": {
+        "x": 12,
+        "y": 138,
+        "width": 190,
+        "height": 85,
+        "top": 138,
+        "right": 202,
+        "bottom": 223,
+        "left": 12
+      },
+      "skip": {
+        "x": 21,
+        "y": 183,
+        "width": 175,
+        "height": 34,
+        "top": 183,
+        "right": 196,
+        "bottom": 217,
+        "left": 21
+      },
+      "width": 667,
+      "height": 375
+    }
+  ],
+  "skip": {
+    "elapsed": 23.258333333332654,
+    "rivalMoved": true,
+    "finite": true,
+    "speed": 16.655600737939725,
+    "cover": "1"
+  },
+  "reverse": true,
+  "disconnectPaused": true,
+  "errors": [],
+  "scope": "Rendered UI and software-injected standard gamepad; no physical controller paired."
+}

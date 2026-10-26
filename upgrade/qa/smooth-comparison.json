@@ -1,0 +1,105 @@
+{
+  "browser": [
+    {
+      "before": {
+        "id": "suzuka",
+        "readyMs": 7772.0247,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "frames": 5163,
+        "p50Ms": 7,
+        "p95Ms": 14,
+        "p99Ms": 14.099999999998545,
+        "over33Ms": 3,
+        "over50Ms": 2,
+        "drawCalls": 930,
+        "triangles": 2608423,
+        "drivers": 22,
+        "errors": []
+      },
+      "after": {
+        "id": "suzuka",
+        "readyMs": 6250.725,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "frames": 6090,
+        "p50Ms": 6.900000000001455,
+        "p95Ms": 13.799999999995634,
+        "p99Ms": 14,
+        "over33Ms": 9,
+        "over50Ms": 2,
+        "drawCalls": 924,
+        "triangles": 2438185,
+        "drivers": 22,
+        "errors": []
+      }
+    },
+    {
+      "before": {
+        "id": "singapore",
+        "readyMs": 6408.7489,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "frames": 6211,
+        "p50Ms": 6.900000000001455,
+        "p95Ms": 7.100000000005821,
+        "p99Ms": 13.900000000001455,
+        "over33Ms": 4,
+        "over50Ms": 3,
+        "drawCalls": 949,
+        "triangles": 2711024,
+        "drivers": 22,
+        "errors": []
+      },
+      "after": {
+        "id": "singapore",
+        "readyMs": 5805.3213,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "frames": 6174,
+        "p50Ms": 6.900000000001455,
+        "p95Ms": 7.200000000000728,
+        "p99Ms": 14,
+        "over33Ms": 6,
+        "over50Ms": 2,
+        "drawCalls": 935,
+        "triangles": 2497780,
+        "drivers": 22,
+        "errors": []
+      }
+    },
+    {
+      "before": {
+        "id": "interlagos",
+        "readyMs": 7121.325600000001,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "frames": 5120,
+        "p50Ms": 7,
+        "p95Ms": 14,
+        "p99Ms": 14.10000000000582,
+        "over33Ms": 11,
+        "over50Ms": 7,
+        "drawCalls": 1007,
+        "triangles": 6515029,
+        "drivers": 22,
+        "errors": []
+      },
+      "after": {
+        "id": "interlagos",
+        "readyMs": 7258.8247,
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 6GB Laptop GPU (0x000025AC) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "frames": 5624,
+        "p50Ms": 7,
+        "p95Ms": 13.900000000001455,
+        "p99Ms": 14,
+        "over33Ms": 7,
+        "over50Ms": 2,
+        "drawCalls": 1039,
+        "triangles": 6213540,
+        "drivers": 22,
+        "errors": []
+      }
+    }
+  ],
+  "browserSHA256": "9992618638348148168e40d499ded6addbbfe3a98944d8bb1f12a999f81020b8",
+  "nativePackSHA256": "b82c87c376962e0b4e483abcea82df4d4bddf10a28d9af6d6b88791065b3ceb0",
+  "htmlBytesBefore": 103300431,
+  "htmlBytesAfter": 92186313,
+  "scope": "Before samples retained from the initial comparison; after samples rerun for the corrected barrier build. Same RTX 3050 laptop, High 1440x810. Browser samples 45 seconds; native samples 30 seconds. No simultaneous GPU benchmark or build. Single runs have uncontrolled thermal/background variation and are not minimum-FPS guarantees."
+}

@@ -22,15 +22,19 @@ assert drive['exeSHA256']==report['exeSHA256'] and drive['packSHA256']==report['
 assert drive['inputSmoke']['peakKmh']>50 and drive['inputSmoke']['finitePosition']
 comparison=json.loads((N/'qa/performance-comparison.json').read_text())
 assert comparison['packSHA256']==report['packSHA256'],'Performance comparison must use this resource pack'
-for name in ['race','vehicle','online','ui','learning','traffic']:
+for name in ['race','vehicle','online','ui','learning','traffic','pit-skip','screen-fit','updater']:
     checks=json.loads((N/f'qa/{name}.json').read_text())
     assert checks['passed'] and not checks.get('failures',[]),name
 assert json.loads((N/'qa/car-livery.json').read_text())['passed']
+active_livery=json.loads((N/'game/assets/livery-manifest.json').read_text())
+assert json.loads((N/'qa/car-livery.json').read_text())['artworkSHA256']==active_livery['artworkSHA256']
 assert json.loads((N/'qa/circuit-map.json').read_text())['passed']
 reel=json.loads((N/'qa/home-reel.json').read_text())
 assert reel['decodePassed'] and reel['sha256']==sha(N/'game/assets/home-reel.ogv')
+assert reel['livery']==active_livery['artworkSHA256'],'Menu footage must show the active livery'
 def source_files():
-    evidence={'traffic.json','icon.json','tree-grounding.json','race.json','vehicle.json','online.json','ui.json','home-reel.json','packaged-rendering.json','packaged-modes.json','packaged-input.json','learning.json','performance-comparison.json','car-livery.json','circuit-map.json'}
+    evidence={'pit-skip.json','traffic.json','icon.json','tree-grounding.json','race.json','vehicle.json','online.json','ui.json','home-reel.json','packaged-rendering.json','packaged-modes.json','packaged-input.json','learning.json','performance-comparison.json','car-livery.json','circuit-map.json','mixed-trailer-routes.json','mixed-trailer-reel.json','mixed-trailer-landscape.json','spa-static-clearance.json','structure-grounding.json','structure-clearance-calendar.json','monaco-static-clearance.json','singapore-static-clearance.json','esplanade.json','trailer-motion.json'}
+    evidence.update({'screen-fit.json','updater.json','screen-performance.json'})
     for root in ['game','tools','docs','licenses','qa']:
         for p in (N/root).rglob('*'):
             if not p.is_file():continue
@@ -46,9 +50,11 @@ def source_files():
     for name in ['README.md','.gitignore']:yield N/name,Path('Milano-Apex-Source')/name
 def archive(name,entries):
     path=OUT/name
-    with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
+    pending=path.with_suffix(path.suffix+'.partial')
+    with zipfile.ZipFile(pending,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
         for p,arc in entries:z.write(p,str(arc))
-    with zipfile.ZipFile(path) as z:assert z.testzip() is None
+    with zipfile.ZipFile(pending) as z:assert z.testzip() is None
+    pending.replace(path)
     print(name,round(path.stat().st_size/1024**2,1),'MiB; CRC passed',flush=True)
     return path
 base=Path('Milano Apex')
@@ -71,7 +77,9 @@ for p in [binary,source]:
         shutil.copy2(destination,D/(p.stem+' - previous '+datetime.datetime.now().strftime('%Y%m%d-%H%M%S')+p.suffix))
     shutil.copy2(p,destination);digest=sha(p);assert sha(destination)==digest
     files.append({'name':p.name,'bytes':p.stat().st_size,'sha256':digest,'downloadsPath':str(destination)})
-manifest={'version':'0.3.0','scope':'Native practice, 22-car AI races, qualifying, private-server online client and recorded cinematic home screen. Reconstructed venues; commercial-reference visual parity is not claimed.','publicWebsiteDeployed':False,'exeSHA256':report['exeSHA256'],'packSHA256':report['packSHA256'],'files':files}
+manifest={'version':json.loads((N/'game/assets/update-config.json').read_text())['version'],'scope':'Native practice, 22-car AI races, qualifying, private-server online client and recorded cinematic home screen. Reconstructed venues; commercial-reference visual parity is not claimed.','publicWebsiteDeployed':False,'exeSHA256':report['exeSHA256'],'packSHA256':report['packSHA256'],'files':files}
+manifest['liveryRevision']=active_livery['revision']
+manifest['artworkSHA256']=active_livery['artworkSHA256']
 # Keep a ready-to-launch copy alongside the archives. The older Native folder
 # remains available for rollback and the measured baseline.
 installed=D/'Milano Apex';installed.mkdir(exist_ok=True)

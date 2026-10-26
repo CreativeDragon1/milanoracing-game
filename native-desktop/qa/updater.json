@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    "success",
+    "stale",
+    "bad-signature",
+    "corrupt-download",
+    "unsafe-path",
+    "private",
+    "interrupted",
+    "wait-for-exit",
+    "rollback-locked-file"
+  ],
+  "scope": "Real PowerShell worker against signed loopback fixtures in disposable folders. Preserves original game on failed signatures/downloads/locked replacement; waits for process exit; preserves saves. No public update was published."
+}

@@ -13,6 +13,8 @@
     "nonfinite JSON rejected",
     "countdown enters race",
     "teleport protection",
+    "bounded reverse accepted online",
+    "excessive reverse speed rejected",
     "connection resumes existing driver",
     "sustained sixteen-driver 20 Hz traffic",
     "REST fallback",
@@ -33,10 +35,10 @@
     "authenticated game is not publicly cached",
     "authenticated WebSocket opens"
   ],
-  "updates": 5072,
+  "updates": 5104,
   "durationSeconds": 20,
-  "medianResponseMs": 6.47239999671001,
-  "p95ResponseMs": 10.045399976661429,
+  "medianResponseMs": 3.865200007567182,
+  "p95ResponseMs": 8.86610004818067,
   "platform": "win32",
   "python": "3.13.3"
 }

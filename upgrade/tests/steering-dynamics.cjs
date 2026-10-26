@@ -7,7 +7,7 @@ function simulation(file,speed){
 }
 const reports=[];
 for(const speed of [15,30,50,75])for(const input of ['keyboard','stick']){
- const results={};for(const [label,file]of [['before','work/handling-before-oct25.js'],['after','upgrade/src/handling.js']]){
+ const results={};for(const [label,file]of [['before','upgrade/tests/fixtures/handling-dynamics-before.js'],['after','upgrade/src/handling.js']]){
   const m=simulation(file,speed);if(input==='keyboard')m.keys.add('KeyD');else m.padInput.s=.4;
   for(let i=0;i<10;i++)m.step(1/120);const tapAngle=m.c.st;
   m.keys.clear();m.padInput.s=0;for(let i=0;i<110;i++)m.step(1/120);
@@ -16,7 +16,8 @@ for(const speed of [15,30,50,75])for(const input of ['keyboard','stick']){
   for(let i=0;i<120;i++)b.step(1/120);
   results[label]={tapAngle,tapHeading,lateralDisplacement,speedAfterBraking:b.c.vx};
  }
- assert(Math.abs(results.after.tapAngle)<Math.abs(results.before.tapAngle)*.85,'gentler small input');
+ if(speed>=50)assert(Math.abs(results.after.tapAngle)<Math.abs(results.before.tapAngle)*.85,'gentle high-speed input');
+ assert(Number.isFinite(results.after.tapHeading+results.after.lateralDisplacement),'finite manoeuvre');
  assert(results.after.speedAfterBraking<results.before.speedAfterBraking+.5,'braking authority not lost during cornering');
  reports.push({speedKmh:speed*3.6,input,...results});
 }

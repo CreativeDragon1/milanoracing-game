@@ -10,6 +10,7 @@ if(CIRCUIT.id==='milano'){
  }
  // A low race-control building and timing blade sit beside the paddock.
  const i=35,p=venuePoint(i/N,pitSide,65),g=new T.Group();g.name='Milano race control';g.position.set(p.x,groundHeight(p.x,p.z),p.z);g.rotation.y=p.a;scene.add(g);
+ buildingFoundationSites.push({group:g,rings:[[[-17,-7.5],[17,-7.5],[17,7.5],[-17,7.5]]],floor:()=>0,name:g.name});
  instanceBoxes(g,dark,[[0,4,0,34,8,15],[9,14,0,7,28,7],[0,8.3,0,38,.6,18],[-4,12,0,19,9,1.8]]);
  instanceBoxes(g,venueGlass,[[0,5.7,-7.55,30,3.2,.15],[0,5.7,7.55,30,3.2,.15],[9,22,-3.55,5,7,.13],[9,22,3.55,5,7,.13]]);
  const fins=[];for(let x=-15;x<17;x+=3)fins.push([x,5.7,-7.8,.15,3.6,.45]);instanceBoxes(g,venueWhite,fins);

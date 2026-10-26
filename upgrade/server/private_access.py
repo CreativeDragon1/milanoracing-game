@@ -3,6 +3,7 @@ import asyncio,base64,hashlib,hmac,os,secrets,time,html
 from aiohttp import web
 
 COOKIE='milano_access'
+DOWNLOADS={'/downloads/'+name for name in ('Milano-Apex-Windows.zip','Milano-Racing-Native-Windows.zip','Milano-Racing-Windows.zip','Milano-Racing-Portable.zip')}
 def make_hash(password):
  salt=secrets.token_hex(16);digest=hashlib.pbkdf2_hmac('sha256',password.encode(),bytes.fromhex(salt),600000).hex()
  return 'pbkdf2_sha256$600000$'+salt+'$'+digest
@@ -54,8 +55,9 @@ def gate(origin,limiter,peer):
     except (ValueError,TypeError):accepted=False
    if not accepted:return page('That password did not match.',401)
    payload=str(int(time.time())+43200)+'.'+secrets.token_hex(12)
-   target=data.get('next','/');target=target if isinstance(target,str) and (target=='/' or target.startswith('/?')) and len(target)<1024 else '/';response=web.HTTPSeeOther(target);response.set_cookie(COOKIE,payload+'.'+signature(payload),max_age=43200,httponly=True,secure=bool(origin),samesite='Strict',path='/');response.headers['Cache-Control']='no-store';return response
+   target=data.get('next','/');target=target if isinstance(target,str) and (target=='/' or target.startswith('/?') or target in DOWNLOADS) and len(target)<1024 else '/';response=web.HTTPSeeOther(target);response.set_cookie(COOKIE,payload+'.'+signature(payload),max_age=43200,httponly=True,secure=bool(origin),samesite='Strict',path='/');response.headers['Cache-Control']='no-store';return response
   if not valid(request):
+   if request.path in DOWNLOADS and request.method=='GET':return page(return_to=request.path)
    if request.path in ('/','/Milano Racing - Team Edition.html') and request.method=='GET':return page(return_to=str(request.rel_url))
    if request.path.startswith('/api/'):return web.json_response({'error':'Private test access expired. Reload and enter the password.'},status=401,headers={'Cache-Control':'no-store'})
    raise web.HTTPUnauthorized(headers={'Cache-Control':'no-store'})

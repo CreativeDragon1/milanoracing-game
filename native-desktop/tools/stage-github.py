@@ -48,5 +48,7 @@ See [build and controls](native-desktop/README.md), [measured validation](native
 
 Prepared assets and menu footage are included. The pinned bootstrap downloads and verifies the official engine and export templates. Local Windows ZIPs are separate from this source repository. This update does not deploy the private game website or change its access controls.
 '''
+text=text.replace('Version 0.3 includes',f"Version {manifest['version']} includes")
+text+='\nThe latest release adds responsive desktop screen fitting, signed updates to the existing installation, and browser update checks that wait until players return home. See [update setup and validation](native-desktop/docs/UPDATES.md). The update channel must still be staged on the private host before remote installations receive fixes.\n'
 readme.write_text(text,encoding='utf-8')
 print('Staged verified native source snapshot in',target)

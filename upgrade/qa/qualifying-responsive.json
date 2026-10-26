@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "yields": 5378,
+  "checks": [
+    "Identical full Q2 and Q3 grid, times, progress and wear after Q1 elimination",
+    "UI yields during simulation",
+    "Leaving the session cancels pending work",
+    "All 22 grid entries retained"
+  ],
+  "scope": "Real Singapore session model and actual batching helper; deterministic state equivalence and cancellation."
+}

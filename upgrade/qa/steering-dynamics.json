@@ -12,9 +12,9 @@
         "speedAfterBraking": 3.5183241379473777
       },
       "after": {
-        "tapAngle": 0.019367734327721684,
-        "tapHeading": 0.012067411055842827,
-        "lateralDisplacement": 0.15742814692350432,
+        "tapAngle": 0.08872944692198849,
+        "tapHeading": 0.041901023901718425,
+        "lateralDisplacement": 0.5756533925618093,
         "speedAfterBraking": 0
       }
     },
@@ -28,9 +28,9 @@
         "speedAfterBraking": 3.5183241379473777
       },
       "after": {
-        "tapAngle": 0.048305928717740636,
-        "tapHeading": 0.023109719818021263,
-        "lateralDisplacement": 0.31030633994227097,
+        "tapAngle": 0.060043131363606624,
+        "tapHeading": 0.02980021967113409,
+        "lateralDisplacement": 0.4134437754585913,
         "speedAfterBraking": 0
       }
     },
@@ -44,10 +44,10 @@
         "speedAfterBraking": 11.795343008796882
       },
       "after": {
-        "tapAngle": 0.007188873681324127,
-        "tapHeading": 0.008837728403796135,
-        "lateralDisplacement": 0.21319633023302673,
-        "speedAfterBraking": 6.12809563662646
+        "tapAngle": 0.019724287994096316,
+        "tapHeading": 0.01785621377147651,
+        "lateralDisplacement": 0.44796427890745166,
+        "speedAfterBraking": 5.377709378475904
       }
     },
     {
@@ -60,10 +60,10 @@
         "speedAfterBraking": 11.795343008796882
       },
       "after": {
-        "tapAngle": 0.017679720198959987,
-        "tapHeading": 0.016724532792653915,
-        "lateralDisplacement": 0.4163753406749453,
-        "speedAfterBraking": 6.12809563662646
+        "tapAngle": 0.01994690074178419,
+        "tapHeading": 0.017877107489627474,
+        "lateralDisplacement": 0.45439088264911726,
+        "speedAfterBraking": 5.377709378475904
       }
     },
     {
@@ -76,10 +76,10 @@
         "speedAfterBraking": 20.56372473331383
       },
       "after": {
-        "tapAngle": 0.0043608870722572236,
-        "tapHeading": 0.008727731616854759,
-        "lateralDisplacement": 0.3411111734681412,
-        "speedAfterBraking": 16.61344604228086
+        "tapAngle": 0.00442565435916254,
+        "tapHeading": 0.006526830667647892,
+        "lateralDisplacement": 0.2654864955254585,
+        "speedAfterBraking": 16.52035867932549
       }
     },
     {
@@ -92,10 +92,10 @@
         "speedAfterBraking": 20.56372473331383
       },
       "after": {
-        "tapAngle": 0.010521689375091606,
-        "tapHeading": 0.01617816534608389,
-        "lateralDisplacement": 0.6529298608947746,
-        "speedAfterBraking": 16.61344604228086
+        "tapAngle": 0.0105670432291129,
+        "tapHeading": 0.01334054668524071,
+        "lateralDisplacement": 0.5550717038695102,
+        "speedAfterBraking": 16.52035867932549
       }
     },
     {
@@ -108,10 +108,10 @@
         "speedAfterBraking": 30.328915408541484
       },
       "after": {
-        "tapAngle": 0.0022097615380517366,
-        "tapHeading": 0.006519968283460422,
-        "lateralDisplacement": 0.37761906530928685,
-        "speedAfterBraking": 27.57292916651733
+        "tapAngle": 0.002212546143424568,
+        "tapHeading": 0.004783780136523552,
+        "lateralDisplacement": 0.28878350602548547,
+        "speedAfterBraking": 27.57780503929007
       }
     },
     {
@@ -124,10 +124,10 @@
         "speedAfterBraking": 30.328915408541484
       },
       "after": {
-        "tapAngle": 0.005197392413852275,
-        "tapHeading": 0.011706356374276848,
-        "lateralDisplacement": 0.7002388582498665,
-        "speedAfterBraking": 27.57292916651733
+        "tapAngle": 0.005203942040668113,
+        "tapHeading": 0.009552393097598432,
+        "lateralDisplacement": 0.5898817033639796,
+        "speedAfterBraking": 27.57780503929007
       }
     }
   ]

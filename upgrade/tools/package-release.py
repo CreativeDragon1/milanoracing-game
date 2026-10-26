@@ -9,13 +9,27 @@ def sha(p):
  with p.open('rb') as f:
   for block in iter(lambda:f.read(4*1024*1024),b''):h.update(block)
  return h.hexdigest()
+
+# A build succeeding is insufficient: ship only the artifact exercised by the
+# all-circuit and rendered-equivalence checks, including the shader fallback.
+artifact_sha=sha(U/'qa/standalone.html')
+smoke=json.loads((U/'qa/offline-all.json').read_text())
+assert smoke['fileSHA256']==artifact_sha,'Circuit checks must match this HTML'
+assert {r['id'] for r in smoke['reports']}==set(json.loads((U/'src/world-tour-data.json').read_text()))
+assert not smoke['errors'] and not smoke['externalRequests']
+shaders=json.loads((U/'qa/shader-preparation.json').read_text())
+assert shaders['passed'] and shaders['fileSHA256']==artifact_sha,'Rendered shader check must match this HTML'
+for name in ['qualifying-responsive','qualifying-browser-responsive','hud-timing','resize-render-equivalence','human-handling','player-controls-browser','pit-crew-browser','pit-skip','live-updates','update-routes']:
+ assert json.loads((U/f'qa/{name}.json').read_text())['passed'],name
 def archive(name,entries):
  target=out/name
- with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED,compresslevel=6,allowZip64=True) as z:
+ pending=target.with_suffix(target.suffix+'.partial')
+ with zipfile.ZipFile(pending,'w',zipfile.ZIP_DEFLATED,compresslevel=6,allowZip64=True) as z:
   for p,arc in entries:z.write(p,arc)
- with zipfile.ZipFile(target) as z:
+ with zipfile.ZipFile(pending) as z:
   bad=z.testzip()
   if bad:raise RuntimeError('ZIP CRC failed: '+bad)
+ pending.replace(target)
  print(name,round(target.stat().st_size/1024**2,2),'MiB; ZIP CRC passed',flush=True)
  return target
 def extras(prefix):
@@ -36,14 +50,14 @@ for folder in include:
   rel=p.relative_to(U);parts=rel.parts
   if any(x in parts for x in ['__pycache__','node_modules','deps','experiments','references','steering-before']):continue
   if p.suffix in ['.pyc','.gltf','.blend','.blend1']:continue
-  if p.suffix=='.bin' and rel.as_posix()!='assets/livery/designer-uv.bin':continue
+  if p.suffix=='.bin' and rel.as_posix()!='assets/livery/designer-uv.bin' and not (rel.parent.as_posix()=='research/terrain' and p.name.endswith('-ground-source.bin')):continue
   entries.append((p,str(Path('Milano-Racing-Source/upgrade')/rel)))
 for p in [U/'build-base.py',U/'build-web.py',U/'car_livery.py',U/'package.json',U/'package-lock.json',U/'PROGRESS.txt']:
  entries.append((p,str(Path('Milano-Racing-Source/upgrade')/p.relative_to(U))))
 for folder in ['server','desktop']:
  for p in files(U/folder):
   rel=p.relative_to(U);parts=rel.parts
-  if any(x in parts for x in ['node_modules','__pycache__','public','downloads','.venv','licenses']):continue
+  if any(x in parts for x in ['node_modules','__pycache__','public','downloads','updates','.venv','licenses']):continue
   if p.suffix=='.pyc' or p.name=='milano.env':continue
   entries.append((p,str(Path('Milano-Racing-Source/upgrade')/rel)))
 for p in files(U/'qa'):
@@ -66,7 +80,9 @@ assert a==b,'Extracted source build differs from release HTML'
 assert sha(U/'server/public/index.html')==sha(vroot/'upgrade/server/public/index.html')
 print('Extracted source build matches both release outputs byte-for-byte.',flush=True)
 standalone=out/'Milano Racing.html';shutil.copy2(U/'qa/standalone.html',standalone)
-manifest={'build':'Milano Racing 3.0 performance update','date':datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date().isoformat(),'privateDeploymentDefault':True,'published':False,'sourceRebuild':'Extracted ZIP produces byte-identical standalone HTML and hosted index','files':[]}
+active_livery=json.loads((U/'assets/livery/manifest.json').read_text())
+assert json.loads((U/'qa/livery.json').read_text())['atlasSHA256']==active_livery['artworkSHA256']
+manifest={'build':'Milano Racing 3.1 desktop download and safe hosted updates','liveryRevision':active_livery['revision'],'artworkSHA256':active_livery['artworkSHA256'],'date':datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date().isoformat(),'privateDeploymentDefault':True,'published':False,'sourceRebuild':'Extracted ZIP produces byte-identical standalone HTML and hosted index','files':[]}
 for p in artifacts+[server,source,standalone]:
  dest=downloads/p.name
  if dest.exists() and sha(dest)!=sha(p):

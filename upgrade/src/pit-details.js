@@ -19,6 +19,7 @@ if(!geography||!pitFascias.length){
   instanceBoxes(g,venueMetal,[[0,3.8,-4.8,8.6,.55,.2],[-4.2,2.0,-4.8,.18,3.6,.18],[4.2,2.0,-4.8,.18,3.6,.18],[0,1.7,3.9,8.6,3.2,.2]],true,false);
   instanceBoxes(g,pitOrange,[[0,.34,-4.7,8.8,.04,.24]],false,false);
   addGarageNumbers(g,[{x:0,y:4.3,z:-5.04,side:-1,number:bay+1}]);
+  buildingFoundationSites.push({group:g,rings:[[[-4.9,-5],[4.9,-5],[4.9,5],[-4.9,5]]],floor:()=>0,name:g.name+' '+(bay+1)});
   pitGarageFronts.push({group:g,L:9.8,D:10,side:-1,pitch:0,floor:.32,name:g.name});
   pitFascias.push({group:g,length:9,height:7.5,z:-5.06,side:-1,station:Math.round(PIT.entry)%N,name:'Milano service garage '+(bay+1)});pitFacilityAudit.garages++;
  }
@@ -51,4 +52,5 @@ for(let i=1;i<PIT.x.length-2;i++){
 pitSurfaceMesh(apronVertices,new T.MeshStandardMaterial({map:asphalt,normalMap:asphaltNormal,normalScale:new T.Vector2(.15,.15),color:0xabb0b0,roughness:.94,side:T.DoubleSide}),'Pit service apron',apronUV);
 pitSurfaceMesh(servicePaint,new T.MeshStandardMaterial({color:0xf1eee5,roughness:.86,side:T.DoubleSide}),'Pit working lane divider');
 
+await trimPitGround(true);
 await trimPitGround();

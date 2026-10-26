@@ -1,10 +1,10 @@
 {
-  "font": "Barlow",
-  "body": "DM Sans",
+  "font": "Michroma",
+  "body": "Michroma",
   "brand": "Michroma",
   "slashSeparators": 0,
   "settingsRendersPerSecond": 4,
-  "homeRendersPerSecond": 29,
+  "homeRendersPerSecond": 28.5,
   "reducedMotion": "none",
   "viewports": [
     "1440x900",

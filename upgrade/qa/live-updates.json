@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": [
+    "Hosted download",
+    "Revalidate without cache",
+    "Defer until home",
+    "No race/qualifying/pause reload",
+    "No multiplayer reload",
+    "One safe reload",
+    "No hidden-tab polling",
+    "Invalid build ignored",
+    "Offline HTML makes no update request"
+  ]
+}

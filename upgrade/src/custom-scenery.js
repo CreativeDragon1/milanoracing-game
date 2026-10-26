@@ -4,7 +4,7 @@ const originalSceneryAudit=[];
 if(CIRCUIT.original){
  const white=M(0xe1ddd1,.08,.76),sandstone=M(0xa9754c,.02,.92),dark=M(0x273746,.5,.38),glass=new T.MeshPhysicalMaterial({color:linear(0x779ead),metalness:.45,roughness:.18,clearcoat:1});
  function site(f,side,distance,radius){const p=venuePoint(f,side,distance);if(!clearSite(p.x,p.z,radius))return null;const g=new T.Group();g.position.set(p.x,groundHeight(p.x,p.z),p.z);g.rotation.y=p.a;g.name=CIRCUIT.id+' original venue architecture';scene.add(g);return g}
- function block(g,w,h,d,x,y,z,material=white){return landmarkMesh(g,new T.BoxGeometry(w,h,d),material,x,y,z)}
+ function block(g,w,h,d,x,y,z,material=white){const bottom=y-h/2;if(bottom<=.15&&bottom>=-.2)buildingFoundationSites.push({group:g,rings:[[[x-w/2,z-d/2],[x+w/2,z-d/2],[x+w/2,z+d/2],[x-w/2,z+d/2]]],floor:()=>bottom,name:g.name});return landmarkMesh(g,new T.BoxGeometry(w,h,d),material,x,y,z)}
  if(CIRCUIT.id==='riviera'){
   // Cascading balconies and recessed glazing give the headland hotel real depth.
   const hotel=site(.40,-1,100,42);

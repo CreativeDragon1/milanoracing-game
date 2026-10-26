@@ -1,0 +1,159 @@
+{
+  "music": "C:\\Users\\Geet\\Downloads\\F1 - Symphonic Version.mp3",
+  "musicStart": 326.633333,
+  "duration": 66.966667,
+  "cuts": [
+    3.9833333333333334,
+    9.0,
+    13.0,
+    17.366666666666667,
+    21.766666666666666,
+    26.1,
+    30.483333333333334,
+    34.833333333333336,
+    39.2,
+    43.56666666666667,
+    47.916666666666664,
+    52.3,
+    56.666666666666664,
+    61.016666666666666
+  ],
+  "fps": 60,
+  "shots": [
+    {
+      "id": "milano",
+      "source": "desktop",
+      "station": 0.35,
+      "angle": 3,
+      "seconds": 4.433333333333334,
+      "cut": 3.9833333333333334,
+      "transition": 0.4,
+      "surfaceAlignment": "road-tangent-frame-v1"
+    },
+    {
+      "id": "singapore",
+      "source": "browser",
+      "station": 0.68,
+      "angle": 1,
+      "seconds": 5.466666666666667,
+      "cut": 9.0,
+      "transition": 0.25
+    },
+    {
+      "id": "monaco",
+      "source": "desktop",
+      "station": 0.72,
+      "angle": 0,
+      "seconds": 4.45,
+      "cut": 13.0,
+      "transition": 0.25
+    },
+    {
+      "id": "monza",
+      "source": "browser",
+      "station": 0.64,
+      "angle": 5,
+      "seconds": 4.816666666666666,
+      "cut": 17.366666666666667,
+      "transition": 0.25
+    },
+    {
+      "id": "bahrain",
+      "source": "desktop",
+      "station": 0.28,
+      "angle": 2,
+      "seconds": 4.85,
+      "cut": 21.766666666666666,
+      "transition": 0.4
+    },
+    {
+      "id": "spa",
+      "source": "browser",
+      "station": 0.045,
+      "angle": 4,
+      "seconds": 4.783333333333333,
+      "cut": 26.1,
+      "transition": 0.25
+    },
+    {
+      "id": "austria",
+      "source": "desktop",
+      "station": 0.42,
+      "angle": 3,
+      "seconds": 4.833333333333333,
+      "cut": 30.483333333333334,
+      "transition": 0.25
+    },
+    {
+      "id": "silverstone",
+      "source": "browser",
+      "station": 0.58,
+      "angle": 0,
+      "seconds": 4.8,
+      "cut": 34.833333333333336,
+      "transition": 0.4
+    },
+    {
+      "id": "abu-dhabi",
+      "source": "desktop",
+      "station": 0.82,
+      "angle": 1,
+      "seconds": 4.816666666666666,
+      "cut": 39.2,
+      "transition": 0.25
+    },
+    {
+      "id": "suzuka",
+      "source": "browser",
+      "station": 0.1,
+      "angle": 4,
+      "seconds": 4.816666666666666,
+      "cut": 43.56666666666667,
+      "transition": 0.25
+    },
+    {
+      "id": "interlagos",
+      "source": "desktop",
+      "station": 0.04,
+      "angle": 2,
+      "seconds": 4.8,
+      "cut": 47.916666666666664,
+      "transition": 0.25
+    },
+    {
+      "id": "zandvoort",
+      "source": "browser",
+      "station": 0.82,
+      "angle": 5,
+      "seconds": 4.833333333333333,
+      "cut": 52.3,
+      "transition": 0.25,
+      "surfaceAlignment": "road-tangent-frame-v1"
+    },
+    {
+      "id": "riviera",
+      "source": "desktop",
+      "station": 0.62,
+      "angle": 1,
+      "seconds": 4.816666666666666,
+      "cut": 56.666666666666664,
+      "transition": 0.25,
+      "surfaceAlignment": "road-tangent-frame-v1"
+    },
+    {
+      "id": "solara",
+      "source": "browser",
+      "station": 0.45,
+      "angle": 0,
+      "seconds": 4.8,
+      "cut": 61.016666666666666,
+      "transition": 0.4,
+      "surfaceAlignment": "road-tangent-frame-v1"
+    }
+  ],
+  "editing": {
+    "titles": "Explicit player features: browser and Windows, 14 circuits, 22-car races, tyre and pit strategy, staged qualifying, controllers, online rooms and difficulty choices. Unique shot anchors in both formats.",
+    "endCard": "MILANO RACING / ALWAYS THE FASTEST, with browser and Windows availability; no duplicate corner logo.",
+    "style": "Barlow ExtraBold Italic, white/orange text, letter-shaped shadows, short slide-in and fades. No orange title bars or caption panels."
+  }
+}

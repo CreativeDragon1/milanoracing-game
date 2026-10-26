@@ -33,6 +33,7 @@ var navigation:Array[Button]=[]
 var session_rows:Array[Control]=[]
 var qualifying_row:Control
 var logo:TextureRect
+var screen_mode:OptionButton
 
 func label(text:String,size:int=18) -> Label:
 	var node:=Label.new();node.text=text;node.add_theme_font_size_override("font_size",size);return node
@@ -61,7 +62,7 @@ func configure(main:Node) -> void:
 	menu=panel();menu.position=Vector2(48,48);menu.size=Vector2(1504,804);add_child(menu)
 	var box:=VBoxContainer.new();box.add_theme_constant_override("separation",22);menu.add_child(box)
 	var header:=HBoxContainer.new();box.add_child(header)
-	section_title=label("RACE SETUP",36);section_title.add_theme_font_override("font",load("res://assets/fonts/Barlow-ExtraBoldItalic.ttf"));section_title.size_flags_horizontal=Control.SIZE_EXPAND_FILL;header.add_child(section_title)
+	section_title=label("RACE SETUP",28);section_title.add_theme_font_override("font",load("res://assets/fonts/Michroma.ttf"));section_title.size_flags_horizontal=Control.SIZE_EXPAND_FILL;header.add_child(section_title)
 	header.add_child(button("HOME",func():home.open_home()))
 	var tabs:=HBoxContainer.new();tabs.add_theme_constant_override("separation",10);box.add_child(tabs)
 	for i in 3:
@@ -90,6 +91,7 @@ func configure(main:Node) -> void:
 	var display:=VBoxContainer.new();display.custom_minimum_size.x=650;display.add_theme_constant_override("separation",18);settings.add_child(display)
 	var controls:=VBoxContainer.new();controls.custom_minimum_size.x=650;controls.add_theme_constant_override("separation",18);settings.add_child(controls)
 	display.add_child(label("DISPLAY",22));controls.add_child(label("DRIVING",22))
+	screen_mode=choice(["WINDOWED","MAXIMIZED","FULLSCREEN"]);screen_mode.select(1);screen_mode.item_selected.connect(func(i):DisplayServer.window_set_mode([DisplayServer.WINDOW_MODE_WINDOWED,DisplayServer.WINDOW_MODE_MAXIMIZED,DisplayServer.WINDOW_MODE_FULLSCREEN][i]));row(display,"WINDOW",screen_mode)
 	game.quality_select=choice(["PERFORMANCE","HIGH","ULTRA"]);game.quality_select.select(1);game.quality_select.item_selected.connect(game.apply_quality);row(display,"GRAPHICS",game.quality_select)
 	game.lighting_select=choice(["CIRCUIT","DAYLIGHT","FLOODLIGHTS","GOLDEN HOUR"]);game.lighting_select.item_selected.connect(func(i):game.light_mode=i;game.apply_lighting());row(display,"LIGHTING",game.lighting_select)
 	weather=choice(["DRY","RAIN"]);weather.item_selected.connect(game.apply_weather);row(display,"WEATHER",weather)
@@ -114,14 +116,22 @@ func configure(main:Node) -> void:
 	var overlay:Control=load("res://scripts/race_overlay.gd").new();overlay.game=game;add_child(overlay)
 	circuit_map=load("res://scripts/circuit_map.gd").new();add_child(circuit_map);circuit_map.configure(game)
 	build_online()
+	get_viewport().size_changed.connect(fit_window);fit_window()
 	if not game.qa_mode:load_preferences()
 	AudioServer.set_bus_volume_db(0,linear_to_db(maxf(.0001,volume.value)))
 	home.motion=not reduced_motion.button_pressed;reduced_motion.toggled.connect(func(value):home.motion=not value;home.video.paused=value)
 	section(0);mode.item_selected.emit(0)
 	if not game.qa_mode or game.qa_home:home.open_home()
 	else:home.hide()
+func fit_window() -> void:
+	var area:=get_viewport().get_visible_rect().size
+	var current_mode:=DisplayServer.window_get_mode()
+	screen_mode.select(2 if current_mode in [DisplayServer.WINDOW_MODE_FULLSCREEN,DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN] else 1 if current_mode==DisplayServer.WINDOW_MODE_MAXIMIZED else 0)
+	menu.position=(area-Vector2(1504,804))/2
+	online_panel.position=(area-Vector2(1440,510))/2
+	logo.position=Vector2(area.x-276,30)
 func show_controls() -> void:
-	var dialog:=AcceptDialog.new();dialog.title="CONTROLS";dialog.dialog_text="WASD   Drive\nC   Camera\nP   Pit request\nT   Next tyre\nM   Map\nR   Recover\nEsc   Garage\n\nController\nLeft stick   Steer\nTriggers   Throttle and brake\nX   Pit request\nD-pad up   Map";dialog.theme=RaceTheme.create();add_child(dialog);dialog.popup_centered(Vector2i(470,520));dialog.confirmed.connect(dialog.queue_free)
+	var dialog:=AcceptDialog.new();dialog.title="CONTROLS";dialog.dialog_text="WASD   Drive\nC   Camera\nP   Pit request\nT   Next tyre\nM   Map\nR   Recover\nEsc   Garage\n\nController\nLeft stick   Steer\nTriggers   Throttle and brake\nX   Pit request\nD-pad up   Map\nK or D-pad right   Skip pit drive\n\nReverse: stop, release brake, then press again.";dialog.theme=RaceTheme.create();add_child(dialog);dialog.popup_centered(Vector2i(470,520));dialog.confirmed.connect(dialog.queue_free)
 func _process(_dt:float) -> void:
 	logo.visible=not menu.visible and not home.visible and not game.cinematic_mode
 	game.hud.visible=false

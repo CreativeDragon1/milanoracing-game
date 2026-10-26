@@ -1,0 +1,28 @@
+{
+	"checks": 179,
+	"failures": [],
+	"passed": true,
+	"samples": [
+		{
+			"requested": "(1024, 768)",
+			"viewport": "(1600.0, 1200.0)",
+			"window": "(1024, 768)"
+		},
+		{
+			"requested": "(1280, 800)",
+			"viewport": "(1600.0, 1000.0)",
+			"window": "(1280, 800)"
+		},
+		{
+			"requested": "(1440, 810)",
+			"viewport": "(1600.0, 900.0)",
+			"window": "(1440, 810)"
+		},
+		{
+			"requested": "(1280, 540)",
+			"viewport": "(2133.0, 900.0)",
+			"window": "(1280, 540)"
+		}
+	],
+	"scope": "Actual Vulkan window resizing, home/settings/online controls, edge-anchored HUD, map and fullscreen. Graphics settings unchanged."
+}

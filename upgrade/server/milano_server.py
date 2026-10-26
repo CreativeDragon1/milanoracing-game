@@ -122,10 +122,20 @@ async def pwa(request):
 
 async def download(request):
  name=request.match_info['name']
- if name not in ('Milano-Racing-Native-Windows.zip','Milano-Racing-Windows.zip','Milano-Racing-Portable.zip'):raise web.HTTPNotFound()
+ if name not in ('Milano-Apex-Windows.zip','Milano-Racing-Native-Windows.zip','Milano-Racing-Windows.zip','Milano-Racing-Portable.zip'):raise web.HTTPNotFound()
  path=ROOT/'downloads'/name
  if not path.is_file():raise web.HTTPNotFound(text='This download has not been uploaded to this server yet.')
- return web.FileResponse(path,headers={'Content-Disposition':'attachment; filename="'+name+'"','Cache-Control':'private, max-age=3600'})
+ return web.FileResponse(path,headers={'Content-Disposition':'attachment; filename="'+name+'"','Cache-Control':'no-store'})
+
+async def build_info(request):return web.FileResponse(PUBLIC/'build.json',headers={'Cache-Control':'no-store'})
+async def update_file(request):
+ import re
+ name=request.match_info['name']
+ if name!='windows.json' and not re.fullmatch(r'windows-[0-9]+\.zip',name):raise web.HTTPNotFound()
+ folder=Path(os.getenv('MILANO_UPDATES_DIR',str(ROOT/'updates')))
+ path=folder/name
+ if not path.is_file():raise web.HTTPNotFound()
+ return web.FileResponse(path,headers={'Cache-Control':'no-store','Content-Type':'application/json' if name.endswith('.json') else 'application/zip'})
 
 async def health(request):return web.json_response({'status':'ok'})
 async def favicon(request):return web.Response(status=204)
@@ -153,6 +163,7 @@ def create_app():
  app.router.add_get('/',index)
  app.router.add_get('/Milano Racing - Team Edition.html',index)
  app.router.add_get('/api/ws',websocket);app.router.add_get('/api/info',info);app.router.add_post('/api/race',race)
+ app.router.add_get('/api/build',build_info);app.router.add_get('/updates/{name}',update_file)
  app.router.add_get('/downloads/{name}',download);app.router.add_get('/healthz',health);app.router.add_get('/assets/{name}',asset)
  app.router.add_get('/favicon.ico',favicon);app.router.add_get(r'/{name:sw\.js|manifest\.webmanifest|icon-192\.png|icon-512\.png}',pwa)
  # The gate intercepts these routes before their placeholder handler runs.

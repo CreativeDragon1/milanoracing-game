@@ -1,0 +1,10 @@
+{
+  "scope": "Chromium phone viewport and touch emulation, not a physical Safari test.",
+  "checks": [
+    "Actual game detects touch in embedded phone mode",
+    "Practice and touch controls launch",
+    "Portrait and landscape fill screen without page chrome",
+    "Exit restores page scrolling"
+  ],
+  "passed": true
+}

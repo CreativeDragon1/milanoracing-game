@@ -1,0 +1,174 @@
+{
+	"passed": true,
+	"reports": [
+		{
+			"circuit": "bahrain",
+			"mode": "race",
+			"simulatedSeconds": 46.45,
+			"stops": 1
+		},
+		{
+			"circuit": "bahrain",
+			"mode": "qualifying",
+			"simulatedSeconds": 22.45,
+			"stops": 0
+		},
+		{
+			"circuit": "singapore",
+			"mode": "race",
+			"simulatedSeconds": 50.05,
+			"stops": 1
+		},
+		{
+			"circuit": "singapore",
+			"mode": "qualifying",
+			"simulatedSeconds": 21.85,
+			"stops": 0
+		},
+		{
+			"circuit": "monza",
+			"mode": "race",
+			"simulatedSeconds": 44.95,
+			"stops": 1
+		},
+		{
+			"circuit": "monza",
+			"mode": "qualifying",
+			"simulatedSeconds": 20.75,
+			"stops": 0
+		},
+		{
+			"circuit": "monaco",
+			"mode": "race",
+			"simulatedSeconds": 45.95,
+			"stops": 1
+		},
+		{
+			"circuit": "monaco",
+			"mode": "qualifying",
+			"simulatedSeconds": 23.25,
+			"stops": 0
+		},
+		{
+			"circuit": "austria",
+			"mode": "race",
+			"simulatedSeconds": 56.65,
+			"stops": 1
+		},
+		{
+			"circuit": "austria",
+			"mode": "qualifying",
+			"simulatedSeconds": 24.7,
+			"stops": 0
+		},
+		{
+			"circuit": "silverstone",
+			"mode": "race",
+			"simulatedSeconds": 62.85,
+			"stops": 1
+		},
+		{
+			"circuit": "silverstone",
+			"mode": "qualifying",
+			"simulatedSeconds": 28.9,
+			"stops": 0
+		},
+		{
+			"circuit": "abu-dhabi",
+			"mode": "race",
+			"simulatedSeconds": 63.85,
+			"stops": 1
+		},
+		{
+			"circuit": "abu-dhabi",
+			"mode": "qualifying",
+			"simulatedSeconds": 38.6,
+			"stops": 0
+		},
+		{
+			"circuit": "milano",
+			"mode": "race",
+			"simulatedSeconds": 48.55,
+			"stops": 1
+		},
+		{
+			"circuit": "milano",
+			"mode": "qualifying",
+			"simulatedSeconds": 19.75,
+			"stops": 0
+		},
+		{
+			"circuit": "spa",
+			"mode": "race",
+			"simulatedSeconds": 46.3,
+			"stops": 1
+		},
+		{
+			"circuit": "spa",
+			"mode": "qualifying",
+			"simulatedSeconds": 18.9,
+			"stops": 0
+		},
+		{
+			"circuit": "suzuka",
+			"mode": "race",
+			"simulatedSeconds": 51.0,
+			"stops": 1
+		},
+		{
+			"circuit": "suzuka",
+			"mode": "qualifying",
+			"simulatedSeconds": 21.35,
+			"stops": 0
+		},
+		{
+			"circuit": "interlagos",
+			"mode": "race",
+			"simulatedSeconds": 74.15,
+			"stops": 1
+		},
+		{
+			"circuit": "interlagos",
+			"mode": "qualifying",
+			"simulatedSeconds": 47.35,
+			"stops": 0
+		},
+		{
+			"circuit": "zandvoort",
+			"mode": "race",
+			"simulatedSeconds": 46.9,
+			"stops": 1
+		},
+		{
+			"circuit": "zandvoort",
+			"mode": "qualifying",
+			"simulatedSeconds": 30.4,
+			"stops": 0
+		},
+		{
+			"circuit": "riviera",
+			"mode": "race",
+			"simulatedSeconds": 38.9,
+			"stops": 1
+		},
+		{
+			"circuit": "riviera",
+			"mode": "qualifying",
+			"simulatedSeconds": 15.8,
+			"stops": 0
+		},
+		{
+			"circuit": "solara",
+			"mode": "race",
+			"simulatedSeconds": 45.0,
+			"stops": 1
+		},
+		{
+			"circuit": "solara",
+			"mode": "qualifying",
+			"simulatedSeconds": 18.45,
+			"stops": 0
+		}
+	],
+	"scope": "Twenty Hz hidden simulation completes pit service and advances the full field on all 14 circuits. Not trajectory equivalence to a 120 Hz run."
+}

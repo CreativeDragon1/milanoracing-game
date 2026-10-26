@@ -7,7 +7,7 @@ var distance:Label
 func _ready() -> void:
 	custom_minimum_size=Vector2(570,460);mouse_filter=Control.MOUSE_FILTER_IGNORE
 	circuit_name=Label.new();circuit_name.position=Vector2(32,28);circuit_name.size=Vector2(500,66);circuit_name.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	circuit_name.add_theme_font_override("font",load("res://assets/fonts/Barlow-ExtraBoldItalic.ttf"));circuit_name.add_theme_font_size_override("font_size",32);add_child(circuit_name)
+	circuit_name.add_theme_font_override("font",load("res://assets/fonts/Michroma.ttf"));circuit_name.add_theme_font_size_override("font_size",23);add_child(circuit_name)
 	distance=Label.new();distance.position=Vector2(32,406);distance.add_theme_font_size_override("font_size",18);distance.add_theme_color_override("font_color",Color("a7b3c3"));add_child(distance)
 func _process(_dt:float) -> void:
 	if not is_visible_in_tree() or game.active_id==id:return

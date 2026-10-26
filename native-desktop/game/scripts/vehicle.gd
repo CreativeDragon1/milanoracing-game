@@ -30,6 +30,7 @@ var pit_s := 0.0
 var pit_service := 0.0
 var pit: Dictionary
 var wheel_parts: Array[MeshInstance3D] = []
+var axle_hardware: MultiMeshInstance3D
 var wheel_angle := 0.0
 var pit_entry_pose := Vector3.ZERO
 var pit_entry_heading := 0.0
@@ -38,6 +39,9 @@ var brake_assist := false
 var assist_target := 105.0
 var steering_strength := 1.0
 var controller_device := -1
+var reverse := false
+var reverse_armed := true
+var reverse_hold := 0.0
 
 func configure(track: Dictionary, pit_data: Dictionary) -> void:
 	circuit = track
@@ -65,9 +69,29 @@ func configure(track: Dictionary, pit_data: Dictionary) -> void:
 				rubber.roughness = .95
 				part.material_override = rubber
 				wheel_parts.append(part)
+	# Retained axle shafts and hubs never join the removable tyre list.
+	axle_hardware=MultiMeshInstance3D.new();axle_hardware.name="RetainedAxlesAndHubs"
+	var hardware:Array=JSON.parse_string(FileAccess.get_file_as_string("res://assets/car-hardware.json"))
+	var cylinder:=CylinderMesh.new();cylinder.top_radius=1;cylinder.bottom_radius=1;cylinder.height=1;cylinder.radial_segments=16;cylinder.rings=1
+	var steel:=StandardMaterial3D.new();steel.albedo_color=Color("73808b");steel.metallic=.78;steel.roughness=.32;cylinder.material=steel
+	axle_hardware.multimesh=MultiMesh.new();axle_hardware.multimesh.transform_format=MultiMesh.TRANSFORM_3D;axle_hardware.multimesh.mesh=cylinder;axle_hardware.multimesh.instance_count=hardware.size()
+	for i in hardware.size():
+		var part:Dictionary=hardware[i]
+		var basis:=Basis(Vector3.RIGHT,PI/2)*Basis.from_scale(Vector3(part.radius,part.length,part.radius))
+		axle_hardware.multimesh.set_instance_transform(i,Transform3D(basis,Vector3(part.position[0],part.position[1],part.position[2])))
+	visual.add_child(axle_hardware)
 	reset_at(0)
 
+func duplicate_race_visual() -> Node3D:
+	var copy:Node3D=visual.duplicate()
+	copy.position=Vector3.ZERO
+	for original in wheel_parts:
+		copy.get_node(NodePath(str(original.name))).visible=true
+	return copy
+
 func reset_at(station: int) -> void:
+	if is_instance_valid(visual):visual.position.y=0
+	for wheel in wheel_parts:wheel.visible=true
 	idx = posmod(station,int(circuit.N))
 	position = Vector3(circuit.x[idx],circuit.elevation.height[idx]+.045,circuit.z[idx])
 	heading = atan2(circuit.tz[idx],circuit.tx[idx])
@@ -75,6 +99,10 @@ func reset_at(station: int) -> void:
 	side_speed = 0
 	yaw_rate = 0
 	steering = 0
+	reverse = false
+	reverse_armed = true
+	reverse_hold = 0
+	gear = 1
 	pit_active = false
 	pit_requested = false
 	pit_service = 0
@@ -129,18 +157,20 @@ func _physics_process(dt: float) -> void:
 		var device:int=controller_device if controller_device>=0 else pad[0]
 		var axis := Input.get_joy_axis(device,JOY_AXIS_LEFT_X)
 		if absf(axis)>.12 and steer_target==0:
-			steer_target = signf(axis)*pow((absf(axis)-.12)/.88,1.4)
+			steer_target = signf(axis)*pow((absf(axis)-.12)/.88,lerpf(1.15,1.6,clampf((absf(speed)-12)/38,0,1)))
 			keyboard = false
 		gas_target = maxf(gas_target,Input.get_joy_axis(device,JOY_AXIS_TRIGGER_RIGHT))
 		brake_target = maxf(brake_target,Input.get_joy_axis(device,JOY_AXIS_TRIGGER_LEFT))
-	if brake_assist and speed>assist_target+2:
+	select_drive_direction(gas_target,brake_target,dt)
+	if not reverse and brake_assist and speed>assist_target+2:
 		brake_target=maxf(brake_target,clampf((speed-assist_target-2)/12,0,.75))
 		gas_target=minf(gas_target,1-brake_target)
 	throttle = move_toward(throttle,gas_target,dt*(5 if gas_target>throttle else 12))
 	brake = move_toward(brake,brake_target,dt*14)
 	var releasing:=absf(steer_target)<.015
-	var rate := (11.0 if releasing else 4.8-clampf(speed/90,0,1)*1.3) if keyboard else (17.0 if releasing else 16.0-clampf(speed/75,0,1)*2)
-	steering = move_toward(steering,lerpf(steering,steer_target,1-exp(-rate*dt)),dt*(5.5 if releasing else 2.7 if keyboard else 8.0))
+	var fast:=clampf((absf(speed)-12)/38,0,1)
+	var rate := (18.0 if releasing else lerpf(12,4.2,fast)) if keyboard else (17.0 if releasing else 16.0-clampf(absf(speed)/75,0,1)*2)
+	steering = move_toward(steering,lerpf(steering,steer_target,1-exp(-rate*dt)),dt*(7.0 if releasing else lerpf(5.8,2.7,fast) if keyboard else 8.0))
 	var edge: float = circuit.widthRight[idx] if lateral>=0 else circuit.widthLeft[idx]
 	var off := clampf((absf(lateral)-edge-1.1)/1.8,0,1)
 	var mass := 800.0
@@ -149,39 +179,19 @@ func _physics_process(dt: float) -> void:
 	var load := mass*9.81+downforce
 	var max_lat := minf(60,mu*load/mass)
 	# Full low-speed steering, progressively limited at speed by the tyre envelope.
-	var lock := minf(.50,atan(max_lat*3.0/maxf(speed*speed,12.0)))*.92
+	var lock := minf(.64/(1+pow(speed/40,2)),atan(max_lat*3.0/(speed*speed+9)))
 	var gentle := clampf((1.25-steering_strength)/.65,0,1)
-	var centre_response := (.42 if keyboard else .78)-.12*gentle
+	var centre_response := lerpf(.88 if keyboard else .96,.42 if keyboard else .78,fast)-.12*gentle
 	var steer_command := signf(steering)*(absf(steering)*centre_response+(1-centre_response)*pow(absf(steering),3))
 	var angle := steer_command*lock
-	var front_load := load*.46
-	var rear_load := load-front_load
-	var fy_front := -mu*front_load*tanh((atan2(side_speed+1.6*yaw_rate,maxf(speed,4))-angle)*14)
-	var fy_rear := -mu*rear_load*tanh(atan2(side_speed-1.4*yaw_rate,maxf(speed,4))*14.16)
-	var brake_force := brake*minf(47000,speed*mass/dt)
-	var drive := minf(19000,720000/maxf(speed,12))*clampf((105-speed)/5,0,1)
-	var fx_front := -brake_force*.58
-	var fx_rear := throttle*drive-brake_force*.42
-	# Combined slip preserves braking authority at steering lock while keeping
-	# each axle inside its friction circle.
-	var front_scale := minf(1,mu*front_load/maxf(1,Vector2(fx_front,fy_front).length()))
-	var rear_scale := minf(1,mu*rear_load/maxf(1,Vector2(fx_rear,fy_rear).length()))
-	fx_front*=front_scale; fy_front*=front_scale
-	if brake_force>0:fx_rear*=rear_scale; fy_rear*=rear_scale
-	else:fx_rear=minf(throttle*drive,sqrt(maxf(0,pow(mu*rear_load,2)-fy_rear*fy_rear)))
-	var drag := minf(.6*1.7*speed*speed+mass*9.81*.015+off*(600+50*speed),speed*mass/dt)
-	var slope := float(circuit.elevation.grade[idx])*(cos(heading)*float(circuit.tx[idx])+sin(heading)*float(circuit.tz[idx]))
-	speed = maxf(0,speed+((fx_front*cos(angle)-fy_front*sin(angle)+fx_rear-drag)/mass-9.81*sin(atan(slope))+yaw_rate*side_speed)*dt)
-	side_speed += ((fy_front*cos(angle)+fx_front*sin(angle)+fy_rear)/mass-yaw_rate*speed)*dt
-	yaw_rate += (1.6*(fy_front*cos(angle)+fx_front*sin(angle))-1.4*fy_rear)/1100*dt
-	var target_yaw := clampf(speed/3*tan(angle),-max_lat/maxf(speed,4),max_lat/maxf(speed,4))
-	yaw_rate = lerpf(yaw_rate,target_yaw,1-exp(-6*dt))
-	yaw_rate = clampf(yaw_rate,-absf(target_yaw)-.1,absf(target_yaw)+.1)
-	side_speed *= exp(-5.8*dt)
-	side_speed = clampf(side_speed,-.35-speed*.1,.35+speed*.1)
-	if speed<.15:
-		side_speed = 0
-		yaw_rate = 0
+	if reverse:
+		var target_speed:=0.0 if throttle>.05 else -8.0*brake
+		var acceleration:=10.0 if throttle>.05 else 3.8 if brake>.05 else 2.5
+		speed=move_toward(speed,target_speed,acceleration*dt)
+		side_speed=0
+		yaw_rate=lerpf(yaw_rate,speed/3*tan(angle),1-exp(-14*dt))
+	else:
+		advance_forward_dynamics(dt,angle,mu,load,max_lat,mass,off)
 	heading += yaw_rate*dt
 	last_position = position
 	position.x += (speed*cos(heading)-side_speed*sin(heading))*dt
@@ -207,11 +217,13 @@ func _physics_process(dt: float) -> void:
 		lap_clock = 0
 		lap_distance = 0
 	var tops := [30.0,45.0,60.0,72.0,85.0,100.0]
+	gear=maxi(1,gear)
 	while gear<6 and speed>tops[gear-1]: gear += 1
 	while gear>1 and speed<tops[gear-2]*.87: gear -= 1
-	rpm = clampf(18000*speed/tops[gear-1],4500,18000)
+	rpm = clampf(18000*absf(speed)/(12.0 if reverse else tops[gear-1]),4500,18000)
+	if reverse:gear=-1
 	animate_wheels(dt,angle)
-	if pit_requested and absi(idx-int(pit.entry))<3:
+	if pit_requested and not reverse and absi(idx-int(pit.entry))<3:
 		pit_active = true
 		pit_s = 0
 		pit_service = 0
@@ -219,6 +231,46 @@ func _physics_process(dt: float) -> void:
 		pit_entry_heading = heading
 	if not is_finite(position.x+position.z+speed+heading): reset_at(idx)
 
+func select_drive_direction(gas:float,braking:float,dt:float) -> void:
+	if not reverse:
+		if speed>.35:reverse_armed=false;reverse_hold=0
+		elif braking<.1:reverse_armed=true;reverse_hold=0
+		elif reverse_armed and gas<.1:
+			reverse_hold+=dt
+			if reverse_hold>=.25:reverse=true;speed=0
+	elif gas>.1 and speed>=-.08:
+		reverse=false;speed=0;reverse_armed=false;reverse_hold=0
+
+func advance_forward_dynamics(dt:float,angle:float,mu:float,load:float,max_lat:float,mass:float,off:float) -> void:
+	var front_load := load*.46
+	var rear_load := load-front_load
+	var fy_front := -mu*front_load*tanh((atan2(side_speed+1.6*yaw_rate,maxf(speed,4))-angle)*14)
+	var fy_rear := -mu*rear_load*tanh(atan2(side_speed-1.4*yaw_rate,maxf(speed,4))*14.16)
+	var brake_force := brake*minf(47000,speed*mass/dt)
+	var drive := minf(19000,720000/maxf(speed,12))*clampf((105-speed)/5,0,1)
+	var fx_front := -brake_force*.58
+	var fx_rear := throttle*drive-brake_force*.42
+	# Combined slip preserves braking authority at steering lock while keeping
+	# each axle inside its friction circle.
+	var front_scale := minf(1,mu*front_load/maxf(1,Vector2(fx_front,fy_front).length()))
+	var rear_scale := minf(1,mu*rear_load/maxf(1,Vector2(fx_rear,fy_rear).length()))
+	fx_front*=front_scale; fy_front*=front_scale
+	if brake_force>0:fx_rear*=rear_scale; fy_rear*=rear_scale
+	else:fx_rear=minf(throttle*drive,sqrt(maxf(0,pow(mu*rear_load,2)-fy_rear*fy_rear)))
+	var drag := minf(.6*1.7*speed*speed+mass*9.81*.015+off*(600+50*speed),speed*mass/dt)
+	var slope := float(circuit.elevation.grade[idx])*(cos(heading)*float(circuit.tx[idx])+sin(heading)*float(circuit.tz[idx]))
+	speed = maxf(0,speed+((fx_front*cos(angle)-fy_front*sin(angle)+fx_rear-drag)/mass-9.81*sin(atan(slope))+yaw_rate*side_speed)*dt)
+	side_speed += ((fy_front*cos(angle)+fx_front*sin(angle)+fy_rear)/mass-yaw_rate*speed)*dt
+	yaw_rate += (1.6*(fy_front*cos(angle)+fx_front*sin(angle))-1.4*fy_rear)/1100*dt
+	var target_yaw := clampf(speed/3*tan(angle),-max_lat/maxf(speed,4),max_lat/maxf(speed,4))
+	var low_speed:=1-clampf((speed-12)/16,0,1)
+	yaw_rate = lerpf(yaw_rate,target_yaw,maxf(low_speed*low_speed*(3-2*low_speed),1-exp(-6*dt)))
+	yaw_rate = clampf(yaw_rate,-absf(target_yaw)-.1,absf(target_yaw)+.1)
+	side_speed *= exp(-5.8*dt)
+	side_speed = clampf(side_speed,-.35-speed*.1,.35+speed*.1)
+	if speed<.15:
+		side_speed = 0
+		yaw_rate = 0
 func animate_wheels(dt: float,angle: float) -> void:
 	wheel_angle=fposmod(wheel_angle-speed*dt/.373,TAU)
 	for wheel in wheel_parts:

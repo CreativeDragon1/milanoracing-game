@@ -26,3 +26,4 @@ milano.env
 *.key
 **/credentials.json
 upgrade/server/downloads/
+upgrade/server/updates/

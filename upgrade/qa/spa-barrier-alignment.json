@@ -1,0 +1,27 @@
+{
+  "scope": "Full closed barrier alignment against the main road plus 1.5 metre kerb envelope; 2D geometry check.",
+  "sides": [
+    {
+      "side": "Left",
+      "before": {
+        "lengthInsideRoadAndKerbs": 80.8734977252758,
+        "selfCrossing": true
+      },
+      "after": {
+        "lengthInsideRoadAndKerbs": 0.0,
+        "selfCrossing": false
+      }
+    },
+    {
+      "side": "Right",
+      "before": {
+        "lengthInsideRoadAndKerbs": 87.46091065903045,
+        "selfCrossing": true
+      },
+      "after": {
+        "lengthInsideRoadAndKerbs": 0.0,
+        "selfCrossing": false
+      }
+    }
+  ]
+}

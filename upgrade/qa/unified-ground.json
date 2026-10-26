@@ -1,0 +1,11 @@
+[
+  {
+    "id": "spa",
+    "triangles": 33151,
+    "outside": 25080,
+    "runoff": 8071,
+    "uniqueVertices": 19169,
+    "bridgeSegments": 0,
+    "source": "Preserved road and original mapped landscape; continuous reconstructed ground joins"
+  }
+]

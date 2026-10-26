@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "fileSHA256": "806ebb5087346135838cb2c01bd5fde31407fab7a741b727eaa8e49ede01a10e",
+  "reports": [
+    {
+      "variant": "prepared",
+      "readyMs": 13086.4392,
+      "firstDrawMs": 428.9000000357628,
+      "preparation": {
+        "parallel": true,
+        "programs": 47,
+        "polls": 255,
+        "textures": 53
+      },
+      "unlinked": 0,
+      "shaderDiagnostics": true,
+      "linkFailureRejected": true,
+      "errors": []
+    },
+    {
+      "variant": "reference",
+      "readyMs": 8321.4356,
+      "firstDrawMs": 1711.0999999642372,
+      "unlinked": 0,
+      "shaderDiagnostics": true,
+      "errors": []
+    },
+    {
+      "variant": "fallback",
+      "readyMs": 9403.240600000005,
+      "firstDrawMs": 147.60000002384186,
+      "preparation": {
+        "parallel": false,
+        "programs": 47,
+        "polls": 47,
+        "textures": 53
+      },
+      "unlinked": 0,
+      "shaderDiagnostics": true,
+      "errors": []
+    }
+  ],
+  "differentPixels": 0,
+  "maxDelta": 0,
+  "scope": "Same seeded circuit and fixed camera with preparation enabled versus disabled; fallback tested with the extension withheld."
+}

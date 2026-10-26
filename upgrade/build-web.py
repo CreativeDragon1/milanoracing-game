@@ -9,6 +9,7 @@ def save(data,ext):
  if ext in ['js','json','css','ttf','hdr','wav']:(A/(name+'.gz')).write_bytes(gzip.compress(data,compresslevel=7,mtime=0));used.append(name+'.gz')
  return '/assets/'+name
 html=(U/'qa/standalone.html').read_text(encoding='utf-8')
+build_id=hashlib.sha256(html.encode()).hexdigest()
 html=re.sub(r'data:('+ '|'.join(re.escape(k) for k in extensions)+r');base64,([A-Za-z0-9+/=]+)',lambda m:save(base64.b64decode(m[2]),extensions[m[1]]),html)
 def split_circuits(match):
  name,payload=match.groups()
@@ -22,6 +23,8 @@ def separate_script(match):
 html=re.sub(r'<script>([\s\S]*?)</script>',separate_script,html)
 boot="""(async()=>{const files=MANIFEST;let id='milano';try{id=new URL(location.href).searchParams.get('circuit')||localStorage.getItem('mrs:tour:circuit')||id}catch(e){}if(!files[id])id='bahrain';try{const r=await fetch(files[id]);if(!r.ok)throw Error('Circuit download failed');window.MilanoCircuitData=await r.json();for(const src of SCRIPTS)await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.body.append(s)});}catch(e){document.getElementById('load-progress').textContent='Could not load circuit. Check your connection.';document.getElementById('load-retry').hidden=false;console.error(e)}})();""".replace('MANIFEST',json.dumps(manifest)).replace('SCRIPTS',json.dumps(scripts))
 html=html.replace('</body>','<script src="'+save(boot.encode(),'js')+'"></script></body>')
+html=html.replace('</head>','<script src="'+save(('window.MilanoBuildId='+json.dumps(build_id)+';').encode(),'js')+'"></script></head>')
+(P/'build.json').write_text(json.dumps({'build':build_id}),encoding='utf-8')
 html=re.sub(r'<style>([\s\S]*?)</style>',lambda m:'<link rel="stylesheet" href="'+save(m[1].encode(),'css')+'">',html)
 html=html.replace('</head>','<link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#080c16"><meta name="robots" content="noindex,nofollow"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Milano Racing"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="apple-touch-icon" href="/icon-192.png"></head>')
 (P/'index.html').write_text(html,encoding='utf-8')

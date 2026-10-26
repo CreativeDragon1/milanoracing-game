@@ -54,6 +54,9 @@ func run() -> void:
 	var progress: float=m.drivers[0].progress
 	m.update_player(600,10,0,1.0/120)
 	check(m.drivers[0].progress==progress,"teleport rejected by race timing")
+	var driver:Dictionary=m.drivers[0];driver.progress=-.2;m.clock=10;m.advance(driver,1)
+	var lap_start:float=driver.lap_start;m.clock=11;m.advance(driver,-1);m.clock=12;m.advance(driver,1)
+	check(driver.lap_start==lap_start and not driver.valid,"reverse across the timing line cannot earn a false lap")
 	var report := {"passed":failures.is_empty(),"checks":checks,"failures":failures,"races":reports,"scope":"Deterministic 22-car all-circuit races, qualifying progression, tyre strategy, and timing guards; not human driving or online latency validation."}
 	var file := FileAccess.open("res://../qa/race.json",FileAccess.WRITE); file.store_string(JSON.stringify(report,"\t")); file.close()
 	print("NATIVE_RACE_TEST ",JSON.stringify(report))

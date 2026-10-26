@@ -23,9 +23,14 @@ func run() -> void:
 	while not game.loaded: await process_frame
 	await create_timer(3).timeout
 	check(game.ui.home.video.is_playing(),"home movie plays")
+	var retired:Array=game.world.get_children().filter(func(c):return c.get_meta("retired_pit_crew",false))
+	check(retired.size()==114 and retired.all(func(c):return not c.visible),"legacy static crew is completely replaced")
 	check(game.viewport.disable_3d,"home pauses 3D rendering")
 	check(not game.ui.home.caption.visible,"home has no decorative track caption")
 	await capture("home")
+	var idle_updates:int=game.working_crew.pose_updates
+	await create_timer(.3).timeout
+	check(game.working_crew.pose_updates==idle_updates,"stationary crew avoids identical pose uploads")
 	game.ui.home.choose(1)
 	check(game.menu.visible and not game.ui.home.hero.visible,"race opens setup")
 	await capture("race-setup");visible_bounds(game.ui)
@@ -51,12 +56,42 @@ func run() -> void:
 	game.ui.circuit_map.toggle_view();await capture("map");game.ui.circuit_map.toggle_view()
 	game.request_pit(); check(game.director.model.drivers[0].requested,"pit button requests service")
 	game.cycle_tyre(); check(game.director.next_tyre=="medium","pit compound can be selected")
+	var d:Dictionary=game.director.model.drivers[0]
+	game.director.model.enter_pit(d);d.pit.s=game.director.model.pit.s[game.director.model.pit.box]
+	d.v=0;game.director.apply_player_pose(game.director.model.pit_pose(d),0,true)
+	while d.pit.hold<1.1:await process_frame
+	check(game.vehicle.wheel_parts.all(func(w):return not w.visible),"actual wheels removed during tyre exchange")
+	var copied_car:Node3D=game.vehicle.duplicate_race_visual()
+	check(copied_car.position==Vector3.ZERO and game.vehicle.wheel_parts.all(func(w):return copied_car.get_node(NodePath(str(w.name))).visible),"new opponents cannot inherit a pit lift or removed wheels")
+	copied_car.free()
+	check(game.vehicle.axle_hardware.visible and game.vehicle.axle_hardware.multimesh.instance_count==10 and game.vehicle.axle_hardware.get_parent()==game.vehicle.visual,"axles and hubs remain attached during wheel removal")
+	check(game.working_crew.played_cues>=4,"wheel guns and jack cues play with service")
+	await capture("pit-service")
+	while not d.pit.service:await process_frame
+	await process_frame
+	check(game.vehicle.wheel_parts.all(func(w):return w.visible),"wheels fitted before release")
+	check(game.working_crew.batches.size()==13,"crew uses shared instanced batches")
 	game.set_paused(true)
 	await physics_frame
 	check(game.menu.visible and not game.vehicle.enabled,"garage pauses local race")
 	game.ui.home.open_home(); game.ui.home.choose(2); game.ui.drive.pressed.emit()
 	await process_frame
 	check(game.director.model.phase=="qualifying","new Grand Prix starts qualifying")
+	var pit_clock:float=game.director.model.clock
+	var rival_progress:float=game.director.model.drivers[1].progress
+	await capture("pit-controls")
+	check(game.ui.driving_hud.skip_pit.visible,"pit skip control visible during qualifying exit")
+	var skip_started:=Time.get_ticks_msec()
+	await game.skip_pit_drive()
+	var skip_elapsed:=Time.get_ticks_msec()-skip_started
+	print("PIT_SKIP_WALL_MS ",skip_elapsed)
+	check(skip_elapsed<12000,"pit skip is faster than watching the automated exit")
+	await physics_frame
+	check(game.director.model.drivers[0].pit.is_empty(),"pit skip reaches actual lane exit")
+	check(game.director.model.clock>pit_clock+5 and game.director.model.drivers[1].progress>rival_progress,"pit skip advances race clock and other cars")
+	check(not game.pit_skip_busy and not game.director.pit_skipping,"skip always restores normal simulation")
+	check(game.vehicle.speed>0 and game.vehicle.position.is_finite(),"moving pit handover remains finite")
+	await capture("pit-handover")
 	game.director.model.end_qualifying(); game.set_paused(true); game.ui.drive.pressed.emit()
 	check(game.director.model.phase=="countdown","qualifying results advance to race")
 	game.set_paused(true); game.ui.home.open_home()

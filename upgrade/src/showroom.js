@@ -2,9 +2,12 @@
 // the menu. Geometry and livery are shared with the race car, never resampled.
 const showroom={scene:new T.Scene(),camera:new T.PerspectiveCamera(38,1,.05,60),car:car.clone(true),dirty:true};
 showroom.scene.background=new T.Color(0x080d15);showroom.scene.fog=new T.Fog(0x080d15,12,36);showroom.scene.add(showroom.car);showroom.car.position.set(0,0,0);showroom.car.rotation.set(0,0,0);showroom.car.visible=true;
-showroom.scene.add(new T.HemisphereLight(0xf0f4ff,0x18202c,.7));
-const heroKey=new T.DirectionalLight(0xfff2de,2.1);heroKey.position.set(3.5,7,-4);heroKey.castShadow=true;heroKey.shadow.mapSize.set(2048,2048);Object.assign(heroKey.shadow.camera,{left:-4,right:4,top:4,bottom:-4,near:.1,far:18});heroKey.shadow.bias=-.0002;heroKey.shadow.normalBias=.015;showroom.scene.add(heroKey);
-const heroRim=new T.DirectionalLight(0x839fff,1.7);heroRim.position.set(-4,3,4);showroom.scene.add(heroRim);const heroFill=new T.DirectionalLight(0xffa65e,.65);heroFill.position.set(-1,2,-5);showroom.scene.add(heroFill);
+// Keep the white paint and sponsor ink below the glare of the studio panels.
+// This material copy is confined to the menu; the race car keeps its own finish.
+showroom.car.traverse(o=>{if(o.isMesh&&o.material===bodyPaint){o.material=bodyPaint.clone();o.material.clearcoat=.48;o.material.clearcoatRoughness=.22;o.material.roughness=.38;o.material.envMapIntensity=.4;}});
+showroom.scene.add(new T.HemisphereLight(0xf0f4ff,0x18202c,.35));
+const heroKey=new T.DirectionalLight(0xfff2de,1.25);heroKey.position.set(3.5,7,-4);heroKey.castShadow=true;heroKey.shadow.mapSize.set(2048,2048);Object.assign(heroKey.shadow.camera,{left:-4,right:4,top:4,bottom:-4,near:.1,far:18});heroKey.shadow.bias=-.0002;heroKey.shadow.normalBias=.015;showroom.scene.add(heroKey);
+const heroRim=new T.DirectionalLight(0x839fff,.85);heroRim.position.set(-4,3,4);showroom.scene.add(heroRim);const heroFill=new T.DirectionalLight(0xffa65e,.3);heroFill.position.set(-1,2,-5);showroom.scene.add(heroFill);
 const heroFloor=new T.Mesh(new T.PlaneGeometry(80,80),new T.MeshStandardMaterial({color:0x05070b,roughness:.92,metalness:0,envMapIntensity:.04,normalMap:barrierNormal,normalScale:new T.Vector2(.035,.035)}));heroFloor.rotation.x=-Math.PI/2;heroFloor.position.y=-.025;heroFloor.receiveShadow=true;showroom.scene.add(heroFloor);
 const garageMetal=new T.MeshStandardMaterial({color:0x0b1018,metalness:.35,roughness:.68,envMapIntensity:.12}),garageTrim=new T.MeshStandardMaterial({color:0x151d28,metalness:.5,roughness:.5,envMapIntensity:.15});
 const garagePanels=[],garageFrames=[];for(let x=-12;x<12;x+=2.4){garagePanels.push([x,3.2,7,2.32,6.4,.25]);garageFrames.push([x,3.2,6.8,.045,6.4,.08]);}garagePanels.push([-8,3,0,.3,6,14]);for(const z of[-5,0,5])garageFrames.push([-7.8,3,z,.20,6,.22],[-.5,5.9,z,14.6,.25,.22]);

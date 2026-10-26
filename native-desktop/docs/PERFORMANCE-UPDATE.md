@@ -52,3 +52,78 @@ The supplied Livery_FINAL artwork now uses the exact Designer_Livery_UV layout r
 Short steering corrections use a progressive centre response. Full input retains the available steering angle; braking while turning uses a combined grip budget. AI drivers commit to an available passing lane until the move is clear, and preparation/cooldown laps yield to approaching qualifying push laps. Difficulty and space constraints remain enforced.
 
 Pit garage volumes are clipped to the safe parts of mapped footprints, with separate overhead roofs. Bridge supports check both road and pit routes. Grandstands use final visible terrain heights for footing and seating clearance. A solid-geometry corridor audit covers all fourteen venues; it is a sampled check, not a proof that every mesh or camera view is defect-free.
+
+
+## 25 October timing and typography pass
+
+The interface uses regular Michroma throughout, including the driving HUD and map. Race and qualifying clocks use one rounded simulation time. Speed profiles reuse buffers and propagate squared-speed braking envelopes with equivalent results. Circuit asset requests are bounded, scenery and light creation yield between batches, and completed resources are collected without waiting on an unfinished background request. Day/night sky resources are reused; incremental filtering retains 512-pixel radiance maps and full-quality importance sampling. The garage allows reflections to finish before the driving session starts after a circuit change.
+
+The current private website also provides a Windows ZIP download. Public builds exclude the page, game endpoints and ZIP; the preview remains loopback-only. Current benchmark evidence is in `qa/performance-comparison.json`; earlier tables remain historical.
+
+## Measured packaged build for this pass
+
+High, 1440 x 810, 22 moving cars, 30 seconds per sample, one GPU test at a time. Same restored instance counts. These are single sequential samples with uncontrolled background variation.
+
+| Circuit | Median before / after (ms) | p95 before / after (ms) |
+|---|---:|---:|
+| singapore | 9.408 / 8.514 | 15.471 / 13.822 |
+| suzuka | 10.483 / 8.857 | 18.204 / 17.509 |
+| interlagos | 10.95 / 8.775 | 19.179 / 11.375 |
+
+Loading duration and maximum loading gaps did not improve uniformly. The packaged build passed all fourteen circuit smoke runs, full Monaco and Spa race runs, a wet Singapore run, keyboard input and 63 UI checks. Physical controllers, WAN multiplayer and every possible camera/terrain viewpoint remain outside these checks.
+
+Resource pack: 86323637ca14507cb16317ccc93a758c93d9dca2cd97c320f6209954a371b5ef
+
+## Human handling and working pit-stop release
+
+Steering, reverse, pit skipping and the responsive standings/strategy layout are covered in DRIVING-UPDATE.md. The crew exchanges only wheel assemblies: ten fixed axle/hub pieces remain attached in one shared draw batch per car. New opponent models cannot inherit removed wheels or a pit jack lift. The browser practice-mode idle-pose error is repaired and finite geometry is checked during service.
+
+Idle crew poses no longer interpolate or upload unchanged geometry. Active service retains the articulated animation and synchronized pneumatic gun, jack and tyre effects. The native qualifying pit-exit skip completed in about 3.2 seconds in the UI test; this is a local observation, not a cross-device timing guarantee.
+
+The final checks cover all 14 circuit loads, browser offline shader linking, packaged 22-car desktop grids, full Monaco and Spa desktop races, wet Singapore, home playback, keyboard input, synthetic controller inputs, pit service and pit exits. Physical-controller feel and pairing were not tested. Graphics presets, supplied livery and circuit detail are retained; no public deployment was performed.
+
+The following are single 30-second High-preset samples at 1440 x 810 on this laptop, with one GPU test at a time. Background and thermal variation are uncontrolled. They are not minimum-FPS guarantees or evidence that all stutters are eliminated.
+
+| Circuit | Median ms | p95 ms | p99 ms | Frames above 50 ms |
+|---|---:|---:|---:|---:|
+| bahrain | 9.14 | 13.25 | 14.16 | 0 |
+| singapore | 10.61 | 16.95 | 19.81 | 0 |
+| monza | 18.02 | 27.65 | 32.50 | 0 |
+| monaco | 10.84 | 14.59 | 15.33 | 0 |
+| austria | 8.97 | 12.30 | 14.95 | 0 |
+| silverstone | 10.12 | 13.37 | 16.00 | 0 |
+| abu-dhabi | 10.83 | 19.06 | 22.68 | 1 |
+| milano | 10.72 | 16.98 | 19.65 | 0 |
+| spa | 10.98 | 19.36 | 23.70 | 0 |
+| suzuka | 9.01 | 16.47 | 21.16 | 1 |
+| interlagos | 10.22 | 16.50 | 18.19 | 0 |
+| zandvoort | 8.84 | 15.06 | 18.53 | 3 |
+| riviera | 7.87 | 10.29 | 12.11 | 0 |
+| solara | 9.05 | 13.77 | 16.37 | 0 |
+
+Tested artifact SHA-256: `9f4d5d54fc3fddd7887ad1a6c787522733cca6f437f3f92428b877f18f19ee80`
+
+## October 26 update and screen-fitting build
+
+Fresh 30-second samples, High preset at 1440×810, one renderer at a time. Background load and temperatures were not controlled. The update retains existing graphics settings and scenery detail; these samples are regression evidence, not an FPS improvement claim or a no-stutter guarantee. Wider or larger windows may require more GPU work.
+
+| Circuit | Median ms | p95 ms | p99 ms | Frames above 50 ms |
+|---|---:|---:|---:|---:|
+| bahrain | 22.19 | 31.64 | 37.09 | 3 |
+| singapore | 18.05 | 29.82 | 35.66 | 4 |
+| monza | 29.27 | 56.18 | 69.09 | 86 |
+| monaco | 25.79 | 34.44 | 40.56 | 3 |
+| austria | 13.64 | 19.08 | 25.91 | 2 |
+| silverstone | 22.53 | 37.53 | 43.80 | 6 |
+| abu-dhabi | 27.56 | 33.96 | 39.92 | 2 |
+| milano | 26.14 | 34.21 | 41.18 | 1 |
+| spa | 20.97 | 28.21 | 34.04 | 4 |
+| suzuka | 24.05 | 35.92 | 42.88 | 1 |
+| interlagos | 26.46 | 34.19 | 38.94 | 3 |
+| zandvoort | 11.08 | 20.93 | 22.99 | 0 |
+| riviera | 28.25 | 37.20 | 46.08 | 7 |
+| solara | 17.40 | 33.64 | 37.34 | 1 |
+
+Tested artifact SHA-256: `c00b053e8861154e0e735d3763425f25954be316984fead8516fac6e6c9c3c61`
+
+Consecutive previous/current/previous Singapore comparison: median 10.85 / 17.70 / 17.48 ms; p95 22.69 / 24.50 / 30.88 ms. All three retained 183,054 static instances. The repeat of the previous build demonstrates substantial run-to-run variation; these samples do not establish a stable FPS improvement or regression. Raw records are in qa/screen-performance.json.

@@ -2,7 +2,7 @@
 const padInput={t:0,b:0,s:0};let activePad=null,padPrevious=[],padWasConnected=false,padSignature='',padError='',controllerReturn='menu',lastRumble=0,navHeld=0,navNext=0;
 function gamepads(){try{if(!navigator.getGamepads){padError='This browser does not expose the Gamepad API. Try Edge or Chrome.';return []}return Array.from(navigator.getGamepads()).filter(p=>p&&p.connected)}catch(e){padError='Controller access is blocked here. Open the game directly in Edge or Chrome, or on localhost.';return []}}
 const padButton=(p,i)=>p.buttons[i]?clamp(p.buttons[i].value||Number(p.buttons[i].pressed),0,1):0;
-function readPad(p,dz){if(!p||p.mapping!=='standard')return {t:0,b:0,s:0};const raw=clamp(p.axes[0]||0,-1,1),v=Math.abs(raw)<=dz?0:Math.sign(raw)*(Math.abs(raw)-dz)/(1-dz);return {t:padButton(p,7),b:padButton(p,6),s:Math.sign(v)*Math.pow(Math.abs(v),1.6)}}
+function readPad(p,dz,speed=0){if(!p||p.mapping!=='standard')return {t:0,b:0,s:0};const raw=clamp(p.axes[0]||0,-1,1),v=Math.abs(raw)<=dz?0:Math.sign(raw)*(Math.abs(raw)-dz)/(1-dz);return {t:padButton(p,7),b:padButton(p,6),s:Math.sign(v)*Math.pow(Math.abs(v),1.15+.45*clamp((Math.abs(speed)-12)/38,0,1))}}
 function cycleCamera(){camMode=(camMode+1)%4;S.cam=camMode;saveS();snap=true;msg(['CHASE','NOSE','WIDE CHASE','AERIAL'][camMode],900)}
 function resetCar(){if(typeof GP!=='undefined'&&GP.weekend){if(GP.weekend.player.pit)return;GP.weekend.resetPenalty()}placeCar(c.idx);invalid('RESET · LAP INVALID');rumble(.2,.45,120)}
 function toggleFullscreen(){if(document.fullscreenElement){document.exitFullscreen?.().catch(()=>{})}else document.documentElement.requestFullscreen?.().catch(()=>{})}
@@ -26,11 +26,11 @@ function pollController(now){const pads=gamepads();let p=pads.find(q=>q.index===
  const signature=pads.map(q=>q.index+':'+q.id+':'+q.mapping).join('|')+'@'+activePad;
  if(signature!==padSignature||padError){padSignature=signature;$('padselect').replaceChildren(...pads.map(q=>{const o=document.createElement('option');o.value=q.index;o.textContent=q.id;o.selected=q.index===activePad;return o}));$('padselect').hidden=pads.length<2;
  $('connection').classList.toggle('connected',!!p&&p.mapping==='standard');$('padbadge').textContent=p?(p.mapping==='standard'?'Controller connected':'Controller needs mapping'):'Controller setup';$('padname').textContent=p?p.id:'Waiting for a controller…';$('paddetail').textContent=padError||(p?(p.mapping==='standard'?'Connected. Move the stick or press a trigger to test.':'Unrecognized layout. Try USB or a browser that provides standard mapping. Keyboard controls remain available.'):'Pair in Bluetooth settings or connect USB, then press a button.');}
- const input=readPad(p,S.dz);Object.assign(padInput,document.hasFocus()&&!document.hidden?input:{t:0,b:0,s:0});
+ const input=readPad(p,S.dz,c.vx);Object.assign(padInput,document.hasFocus()&&!document.hidden?input:{t:0,b:0,s:0});
  $('test-brake').style.width=input.b*100+'%';$('test-throttle').style.width=input.t*100+'%';$('test-steer').style.left=(50+input.s*49)+'%';
  if(!p||p.mapping!=='standard'){padPrevious=[];return}const rising=i=>padButton(p,i)>.5&&!padPrevious[i];
  if(document.hasFocus()&&!document.hidden){const oldState=state;if(rising(9)){audioInit();if(state==='race'||state==='count')pause();else if(state==='pause'){resume()} }
- if(oldState===state){if(state==='race'){if(rising(3))cycleCamera();if(rising(2))resetCar();if(typeof GP!=='undefined'&&GP.weekend){if(rising(5))gpPitRequest();if(rising(4))gpCycleTyre()}}else if(state!=='count')padActionMenu(rising,p,now)}}
+ if(oldState===state){if(state==='race'){if(rising(3))cycleCamera();if(rising(2))resetCar();if(typeof GP!=='undefined'&&GP.weekend){if(rising(5))gpPitRequest();if(rising(4))gpCycleTyre();if(rising(15))gpSkipPit()}}else if(state!=='count')padActionMenu(rising,p,now)}}
  padPrevious=p.buttons.map(b=>b.value>.5||b.pressed);
 }
 addEventListener('gamepadconnected',()=>{padSignature=''});addEventListener('gamepaddisconnected',()=>{padSignature=''});

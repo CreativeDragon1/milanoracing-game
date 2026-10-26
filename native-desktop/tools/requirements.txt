@@ -1,2 +1,4 @@
 # Icon preparation and the optional capture/asset tools.
 Pillow==12.3.0
+# Local release signing only; private keys never enter a distribution archive.
+cryptography==50.0.0

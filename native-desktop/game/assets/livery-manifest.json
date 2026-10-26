@@ -1,0 +1,21 @@
+{
+  "revision": "designer-two-colour-1",
+  "vertices": 48537,
+  "uvLayer": "Designer_Livery_UV",
+  "sourceBodySHA256": "96c1b17a459f19faaa011a1ef7bc5d36066f332072f2c10c1dca21431a1c1461",
+  "artworkSHA256": "5705c700e844368f973411f2cdf84e1a21ad64d4c25c021e1e62f21a98435111",
+  "uvSHA256": "6d5980de65efde96d0fd0c3d71685c7a2c358015153deab8d280705ad9af507e",
+  "geometryAndNormalsPreserved": true,
+  "innerNeutralUV": [
+    0.6837158203125,
+    0.7801513671875
+  ],
+  "artworkFile": "2colour_livery.png",
+  "sourceArtworkFile": "2colour_livery.psd",
+  "sourceArtworkSHA256": "ec857f8f9b1ec4d5e38538e9f3ddc80f125ee32c27a9d7600c3b0669bd711665",
+  "artworkResolution": [
+    4096,
+    4096
+  ],
+  "conversion": "Lossless PNG from supplied PSD composite; no artwork edits; existing matching Designer_Livery_UV retained"
+}

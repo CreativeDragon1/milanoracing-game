@@ -1,0 +1,30 @@
+{
+  "actors": 10,
+  "drawCalls": 13,
+  "frames": [
+    {
+      "phase": 0,
+      "name": "ready"
+    },
+    {
+      "phase": 0.16,
+      "name": "guns"
+    },
+    {
+      "phase": 0.4,
+      "name": "tyres-off"
+    },
+    {
+      "phase": 0.61,
+      "name": "fitting"
+    },
+    {
+      "phase": 0.78,
+      "name": "tighten"
+    },
+    {
+      "phase": 1,
+      "name": "release"
+    }
+  ]
+}

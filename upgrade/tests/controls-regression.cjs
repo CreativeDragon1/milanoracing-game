@@ -3,7 +3,7 @@ function filter(file){const ctx={Math,clamp:(v,a,b)=>Math.max(a,Math.min(b,v))};
 const current=filter('upgrade/src/handling.js'),before=filter('upgrade/tests/fixtures/steering-before.js');const result=[];
 for(const keyboard of [true,false])for(const speed of [0,30,70,95]){
  let x=0,old=0;for(let i=0;i<10;i++){x=current(x,1,speed,1/120,keyboard);old=before(old,1,speed,1/120,keyboard)}
- if(keyboard)assert(x<old*.8,'short keyboard taps must be gentler');const pulse=x;
+ if(keyboard&&speed>=50)assert(x<old*.8,'high-speed keyboard taps stay gentle');if(keyboard&&speed<=12)assert(x>.35,'hairpins respond promptly');const pulse=x;
  for(let i=0;i<240;i++)x=current(x,1,speed,1/120,keyboard);assert(x>.995&&x<=1,'full steering remains available');
  for(let i=0;i<120;i++)x=current(x,0,speed,1/120,keyboard);assert(Math.abs(x)<.001,'release returns to centre');
  for(let i=0;i<120;i++){x=current(x,-1,speed,1/120,keyboard);assert(x>=-1&&x<=1&&Number.isFinite(x))}assert(x<-.95);

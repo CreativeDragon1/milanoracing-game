@@ -1,6 +1,7 @@
 from pathlib import Path
-import re, base64, json, subprocess
+import re, base64, json, subprocess, gzip
 from car_livery import game_car
+from tools.async_compile_patch import patch as patch_async_compile
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC=ROOT/'upgrade/src'
@@ -26,7 +27,8 @@ def lazy_records(filename, previews=False):
         if previews:
             meta[ident]={k:record[k] for k in ['id','name','theme','length','officialTurns','N','version','subtitle'] if k in record}
             meta[ident]['preview']=[[record['x'][i],record['z'][i]] for i in range(0,record['N'],6)]
-        payload[ident]={'keys':list(record) if isinstance(record,dict) else [],'array':isinstance(record,list),'json':json.dumps(record,separators=(',',':'))}
+        packed=gzip.compress(json.dumps(record,separators=(',',':')).encode(),compresslevel=6,mtime=0)
+        payload[ident]={'keys':list(record) if isinstance(record,dict) else [],'array':isinstance(record,list),'gz':base64.b64encode(packed).decode()}
     return 'lazyCircuitRecords(/*CIRCUIT_DATA:'+filename+'*/'+json.dumps(payload,separators=(',',':'))+'/*END_CIRCUIT_DATA*/,'+json.dumps(meta,separators=(',',':'))+')'
 js=(SRC/'device.js').read_text(encoding='utf-8')+'\n'+(SRC/'lazy-circuit-data.js').read_text(encoding='utf-8')+'\n'+js
 replace('__PIT_LANES__',lazy_records('pit-lanes.json'))
@@ -37,13 +39,13 @@ replace("'mrs-team2:pb:milano01:autodromo-math-1'", "'mrs-team2:pb:'+CIRCUIT.id+
 vehicle=(SRC/'vehicle-model.js').read_text(encoding='utf-8').replace('__VEHICLE_DATA__',(SRC/'vehicle-model.json').read_text(encoding='utf-8'))
 vehicle=(SRC/'track-limits.js').read_text(encoding='utf-8').replace('__TRACK_LIMIT_RULES__',(SRC/'track-limits.json').read_text())+'\n'+vehicle
 replace('// ---- renderer & world ----',vehicle+'\n// ---- renderer & world ----')
-replace('function placeCar(i,back){','function placeCar(i,back){c.limitState=TrackLimits.fresh();')
+replace('function placeCar(i,back){','function placeCar(i,back){c.limitState=TrackLimits.fresh();c.reverse=false;c.reverseArmed=true;c.reverseHold=0;')
 replace("steer:[.6,1.4,1]", "steer:[.6,1.2,.85]")
 replace("function newSession(m){mode=m;", "function newSession(m){$('pause-note').textContent='';mode=m;")
 section('// ---- renderer & world ----','// ---- state ----','world.js')
-replace('// ---- state ----',(SRC/'pit-surface.js').read_text(encoding='utf-8')+'\n'+(SRC/'pit-world.js').read_text(encoding='utf-8')+'\n// ---- state ----')
+replace('// ---- state ----',(SRC/'pit-surface.js').read_text(encoding='utf-8')+'\n'+(SRC/'pit-world.js').read_text(encoding='utf-8').replace('/* __PIT_CREW__ */',(SRC/'pit-crew.js').read_text(encoding='utf-8'))+'\n// ---- state ----')
 helpers=(SRC/'circuit-scenery.js').read_text(encoding='utf-8').split('const mainGrandstand=')[0]
-replace('// __CIRCUIT_SCENERY__', (SRC/'venue-map.js').read_text(encoding='utf-8')+'\n'+helpers+(SRC/'tour-scenery.js').read_text(encoding='utf-8')+'\n'+(SRC/'venue-details.js').read_text(encoding='utf-8')+'\n'+(SRC/'landmark-architecture.js').read_text(encoding='utf-8')+'\n'+(SRC/'venue-buildings.js').read_text(encoding='utf-8')+'\n'+(SRC/'geographic-world.js').read_text(encoding='utf-8')+'\n'+(SRC/'landmark-solids.js').read_text(encoding='utf-8')+'\n'+(SRC/'geographic-landmarks.js').read_text(encoding='utf-8')+'\nbuildLandmarkArchitecture();\n'+(SRC/'venue-context.js').read_text(encoding='utf-8')+'\n'+(SRC/'palm-geometry.js').read_text(encoding='utf-8')+'\n'+(SRC/'calendar-landscape.js').read_text(encoding='utf-8')+'\n'+(SRC/'milano-campus.js').read_text(encoding='utf-8')+'\n'+(SRC/'custom-scenery.js').read_text(encoding='utf-8')+'\n'+(SRC/'venue-life.js').read_text(encoding='utf-8')+'\n'+(SRC/'vegetation.js').read_text(encoding='utf-8'))
+replace('// __CIRCUIT_SCENERY__', (SRC/'venue-map.js').read_text(encoding='utf-8')+'\n'+helpers+(SRC/'tour-scenery.js').read_text(encoding='utf-8')+'\n'+(SRC/'venue-details.js').read_text(encoding='utf-8')+'\n'+(SRC/'landmark-architecture.js').read_text(encoding='utf-8')+'\n'+(SRC/'venue-buildings.js').read_text(encoding='utf-8')+'\n'+(SRC/'geographic-world.js').read_text(encoding='utf-8')+'\n'+(SRC/'landmark-solids.js').read_text(encoding='utf-8')+'\n'+(SRC/'geographic-landmarks.js').read_text(encoding='utf-8')+'\nbuildLandmarkArchitecture();\n'+(SRC/'venue-context.js').read_text(encoding='utf-8')+'\n'+(SRC/'palm-geometry.js').read_text(encoding='utf-8')+'\n'+(SRC/'calendar-landscape.js').read_text(encoding='utf-8')+'\n'+(SRC/'coastal-dunes.js').read_text(encoding='utf-8')+'\n'+(SRC/'milano-campus.js').read_text(encoding='utf-8')+'\n'+(SRC/'custom-scenery.js').read_text(encoding='utf-8')+'\n'+(SRC/'venue-life.js').read_text(encoding='utf-8')+'\n'+(SRC/'vegetation.js').read_text(encoding='utf-8'))
 replace('// __SUNSET_LANDSCAPE__', '')
 replace("inp.t=rp(inp.t,(k('KeyW')||k('ArrowUp'))?1:0,5,12);inp.b=rp(inp.b,(k('KeyS')||k('ArrowDown')||k('Space'))?1:0,6,14);", "inp.t=rp(inp.t,Math.max((k('KeyW')||k('ArrowUp'))?1:0,padInput.t),5,12);inp.b=rp(inp.b,Math.max((k('KeyS')||k('ArrowDown')||k('Space'))?1:0,padInput.b),6,14);")
 replace("inp.s=rp(inp.s,((k('KeyD')||k('ArrowRight'))?1:0)-((k('KeyA')||k('ArrowLeft'))?1:0),3.5,6);", "const ks=((k('KeyD')||k('ArrowRight'))?1:0)-((k('KeyA')||k('ArrowLeft'))?1:0);inp.s=rp(inp.s,ks||padInput.s,4.5,7);")
@@ -71,7 +73,7 @@ js=js[:js.index('// ---- loop ----')]+(SRC/'postfx.js').read_text(encoding='utf-
 replace('__OPTIMIZED_LINE__','CIRCUIT.line')
 replace("$('lowq').checked=!!S.q}", "$('lowq').checked=!!S.q;$('race-line').value=Math.round(S.line);if($('line-pause'))$('line-pause').textContent='Racing line: '+['Off','Corners','Full'][Math.round(S.line)]}")
 section('// ---- audio (single context, lifetime-scoped) ----','// ---- minimap, HUD ----','audio-v10.js')
-replace('// RB1 V10 samples:',(SRC/'audio-drive.js').read_text(encoding='utf-8')+'\n// RB1 V10 samples:')
+replace('// RB1 V10 samples:',(SRC/'audio-drive.js').read_text(encoding='utf-8')+'\n'+(SRC/'pit-audio.js').read_text(encoding='utf-8').replace('__PIT_SOUND_URLS__',(ROOT/'upgrade/assets/pit-audio/bank.json').read_text())+'\n// RB1 V10 samples:')
 replace('__V10_BANK_META__',(V/'work/audio-assets/v10-bank.json').read_text())
 replace('__V10_AUDIO__','data:audio/wav;base64,'+base64.b64encode((V/'work/audio-assets/v10-bank.wav').read_bytes()).decode())
 section("const mb=document.createElement('canvas');", 'function hud(){', 'minimap.js')
@@ -82,11 +84,16 @@ replace("function hud(){const R=race,v=c.vx*3.6,mx=$('map').getContext('2d');", 
 replace("R.started&&rf!==undefined","R.started&&Number.isFinite(rf)")
 replace("Math.round(c.rpm/10)*10+' RPM'", "Math.round(driveSound.state.rpm/10)*10+' RPM'")
 replace("'#53D8C8'","'#738bff'")
+section('function hud(){', '// Quality presets share the same scene and physics.', 'hud.js')
+fmt_a=js.index('const fmt=ms=>')
+fmt_b=js.index('function finish(){',fmt_a)
+js=js[:fmt_a]+(SRC/'time-format.js').read_text(encoding='utf-8')+'\n'+js[fmt_b:]
 replace('function timing(pi){',"function timing(pi){if(typeof MP!=='undefined'&&MP.active)return;")
 replace("function newSession(m){", "function newSession(m){if(typeof MP!=='undefined'&&MP.active&&m!=='mp')return;")
 js+='\n'+(SRC/'tour-ui.js').read_text(encoding='utf-8')+'\n'+(SRC/'multiplayer.js').read_text(encoding='utf-8')
+js+='\n'+(SRC/'updates.js').read_text(encoding='utf-8')
 js+='\n'+(SRC/'adaptive-pace.js').read_text(encoding='utf-8')+'\n'+(SRC/'race-weekend-core.js').read_text(encoding='utf-8')+'\n'+(SRC/'race-weekend.js').read_text(encoding='utf-8')+'\n'+(SRC/'adaptive-rivals.js').read_text(encoding='utf-8')
-js+='\n'+(SRC/'venue-finishing.js').read_text(encoding='utf-8')+'\n'+(SRC/'pit-details.js').read_text(encoding='utf-8')+'\n'+(SRC/'grandstand-foundations.js').read_text(encoding='utf-8')+'\n'+(SRC/'sponsors.js').read_text(encoding='utf-8')+'\n'+(SRC/'render-batches.js').read_text(encoding='utf-8')+'\n'+(SRC/'grand-prix.js').read_text(encoding='utf-8')+'\n'+(SRC/'interface-v2.js').read_text(encoding='utf-8')
+js+='\n'+(SRC/'venue-finishing.js').read_text(encoding='utf-8')+'\n'+(SRC/'pit-details.js').read_text(encoding='utf-8')+'\n'+(SRC/'grandstand-foundations.js').read_text(encoding='utf-8')+'\n'+(SRC/'building-foundations.js').read_text(encoding='utf-8')+'\n'+(SRC/'sponsors.js').read_text(encoding='utf-8')+'\n'+(SRC/'render-batches.js').read_text(encoding='utf-8')+'\n'+(SRC/'grand-prix.js').read_text(encoding='utf-8')+'\n'+(SRC/'interface-v2.js').read_text(encoding='utf-8')
 partners=json.loads((ROOT/'upgrade/assets/sponsors/manifest.json').read_text(encoding='utf-8'))
 for partner in partners:
     path=ROOT/'upgrade/assets/sponsors'/partner['file']
@@ -103,16 +110,19 @@ js=js.replace('__CALENDAR_ENVIRONMENTS__',lazy_records('calendar-environments-da
 js=js.replace('__VENUE_CONTEXT__',lazy_records('venue-context-data.json'))
 js=js.replace('__GEO_LANDMARKS__',(SRC/'geographic-landmarks-data.json').read_text(encoding='utf-8'))
 js=js.replace('__VENUE_MAP_DATA__',lazy_records('venue-map-data.json'))
+js=js.replace('__BUILDING_SITE_PLANS__',(SRC/'building-site-plans.json').read_text(encoding='utf-8'))
 js=js.replace('__STEM_CAR__',game_car(V/'work/stem-car.json'))
-for marker,file,mime in [('__CAR_ATLAS__','../upgrade/assets/livery/Livery_FINAL.png','image/png'),('__TYRE_ATLAS__','model-sources/car-livery.png','image/png'),('__ASPHALT_COLOR__','../upgrade/assets/asphalt-fine-color.webp','image/jpeg'),('__ASPHALT_NORMAL__','../upgrade/assets/asphalt-fine-normal.webp','image/jpeg'),('__ASPHALT_ROUGH__','../upgrade/assets/asphalt-fine-rough.webp','image/jpeg'),('__SUNSET_HDR__','graphics-assets/kloppenheim_06_puresky_4k.hdr','application/octet-stream')]:
+js=js.replace('__CAR_HARDWARE__',(ROOT/'upgrade/assets/car-hardware.json').read_text(encoding='utf-8'))
+for marker,file,mime in [('__CAR_ATLAS__','../upgrade/assets/livery/'+json.loads((SRC.parent/'assets/livery/manifest.json').read_text()).get('artworkFile','Livery_FINAL.png'),'image/png'),('__TYRE_ATLAS__','model-sources/car-livery.png','image/png'),('__ASPHALT_COLOR__','../upgrade/assets/asphalt-fine-color.webp','image/jpeg'),('__ASPHALT_NORMAL__','../upgrade/assets/asphalt-fine-normal.webp','image/jpeg'),('__ASPHALT_ROUGH__','../upgrade/assets/asphalt-fine-rough.webp','image/jpeg'),('__SUNSET_HDR__','graphics-assets/kloppenheim_06_puresky_4k.hdr','application/octet-stream')]:
     mime='image/webp' if file.endswith('.webp') else mime
     js=js.replace(marker,'data:'+mime+';base64,'+base64.b64encode(((ROOT/file[3:]) if file.startswith('../') else (V/'work'/file)).read_bytes()).decode())
-for marker,name in [('__PALM_BARK_COLOR__','palm-bark-color.webp'),('__PALM_BARK_NORMAL__','palm-bark-normal.webp'),('__PALM_BARK_ROUGH__','palm-bark-rough.webp'),('__GRAVEL_COLOR__','gravel-color.jpg'),('__GRAVEL_NORMAL__','gravel-normal.jpg'),('__GRAVEL_ROUGH__','gravel-rough.jpg'),('__CONCRETE_COLOR__','concrete-color.jpg'),('__CONCRETE_NORMAL__','concrete-normal.jpg'),('__GRASS_COLOR__','lawn-color.webp'),('__GRASS_NORMAL__','lawn-normal.webp'),('__SAND_COLOR__','sand-fine-color.webp'),('__SAND_NORMAL__','sand-fine-normal.webp')]:
-    js=js.replace(marker,'data:'+('image/webp' if name.endswith('.webp') else 'image/jpeg')+';base64,'+base64.b64encode((ROOT/'upgrade/assets'/name).read_bytes()).decode())
+for marker,name in [('__ZANDVOORT_DUNE_COVER__','zandvoort-dune-cover.png'),('__PALM_BARK_COLOR__','palm-bark-color.webp'),('__PALM_BARK_NORMAL__','palm-bark-normal.webp'),('__PALM_BARK_ROUGH__','palm-bark-rough.webp'),('__GRAVEL_COLOR__','gravel-color.jpg'),('__GRAVEL_NORMAL__','gravel-normal.jpg'),('__GRAVEL_ROUGH__','gravel-rough.jpg'),('__CONCRETE_COLOR__','concrete-color.jpg'),('__CONCRETE_NORMAL__','concrete-normal.jpg'),('__GRASS_COLOR__','lawn-color.webp'),('__GRASS_NORMAL__','lawn-normal.webp'),('__SAND_COLOR__','sand-fine-color.webp'),('__SAND_NORMAL__','sand-fine-normal.webp')]:
+    js=js.replace(marker,'data:'+('image/webp' if name.endswith('.webp') else 'image/png' if name.endswith('.png') else 'image/jpeg')+';base64,'+base64.b64encode((ROOT/'upgrade/assets'/name).read_bytes()).decode())
 logo='data:image/png;base64,'+base64.b64encode((V/'team-logo.png').read_bytes()).decode()
 js=js.replace('__LOGO_DATA__',logo)
-skin='\n'.join((SRC/name).read_text(encoding='utf-8') for name in ['interface.css','tour.css','home.css','interface-v2.css','mobile.css'])
-for marker,name in [('__FONT_HUD__','Oxanium[wght].ttf'),('__FONT_DM__','DM-Sans.ttf'),('__FONT_MICHROMA__','Michroma.ttf'),('__FONT_BARLOW__','Barlow-Bold.ttf'),('__FONT_BARLOW_ITALIC__','Barlow-ExtraBoldItalic.ttf')]:
+skin='\n'.join((SRC/name).read_text(encoding='utf-8') for name in ['interface.css','tour.css','home.css','interface-v2.css','mobile.css','typography.css'])
+skin=re.sub(r"@font-face\{[^{}]*__FONT_(?:HUD|DM|BARLOW|BARLOW_ITALIC)__[^{}]*\}","",skin)
+for marker,name in [('__FONT_MICHROMA__','Michroma.ttf')]:
     skin=skin.replace(marker,'data:font/ttf;base64,'+base64.b64encode((ROOT/'upgrade/assets/fonts'/name).read_bytes()).decode())
 ui=(SRC/'ui.html').read_text(encoding='utf-8').replace('__LOGO_DATA__',logo).replace('/* __UI_SKIN__ */',skin)
 ui=ui.replace('<!-- GAME -->',(SRC/'tour-ui.html').read_text(encoding='utf-8')+'\n'+(SRC/'weekend-ui.html').read_text(encoding='utf-8')+'\n<!-- GAME -->')
@@ -125,11 +135,14 @@ asset_credits=(ROOT/'upgrade/licenses/Surface-refresh-credits.txt').read_text(en
 ui=ui.replace('<!-- GAME -->','<!-- Asset credits and circuit data license\n'+asset_credits.replace('--','—')+'\n-->\n<!-- GAME -->')
 font_license='\n'.join((ROOT/'upgrade/assets/fonts'/name).read_text(encoding='utf-8') for name in ['oxanium-OFL.txt','dmsans-OFL.txt','michroma-OFL.txt','barlow-OFL.txt']).replace('--','—')
 ui=ui.replace('<!-- GAME -->','<!-- Interface font licenses\n'+font_license+'\n-->\n<!-- GAME -->')
-three=(V/'work'/'three.min.js').read_text(encoding='utf-8')
+three=patch_async_compile((V/'work'/'three.min.js').read_text(encoding='utf-8'))
 license_text=(V/'work'/'THREE-LICENSE.txt').read_text(encoding='utf-8')
 three='/* Three.js r128 — '+license_text.replace('*/','* /')+' */\n'+three
+three+='\n/* fflate 0.8.2 — '+(ROOT/'upgrade/licenses/fflate-LICENSE.txt').read_text().replace('*/','* /')+' */\n'+(V/'fflate-0.8.2.js').read_text()
 for addon in ['RGBELoader','DecalGeometry','Pass','CopyShader','ShaderPass','EffectComposer','SimplexNoise','SSAOShader','SSAOPass','FXAAShader']:
     three+='\n'+(V/('work/graphics-assets/'+addon+'.js')).read_text(encoding='utf-8')
+(ROOT/'upgrade/qa/runtime-libraries.js').write_text(three,encoding='utf-8')
+subprocess.run(['node','--check',str(ROOT/'upgrade/qa/runtime-libraries.js')],check=True)
 (ROOT/'upgrade/qa/game.js').write_text(js,encoding='utf-8')
 subprocess.run(['node',str(ROOT/'upgrade/tools/stage-startup.cjs'),str(ROOT/'upgrade/qa/game.js')],check=True)
 js=(ROOT/'upgrade/qa/game.js').read_text(encoding='utf-8')
