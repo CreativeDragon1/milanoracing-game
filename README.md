@@ -20,6 +20,8 @@ Download [Milano Racing.html](Milano%20Racing.html) using GitHub's **Download ra
 
 ## Guides
 
+For hosting, start with [Ubuntu, SSH, Cloudflare Tunnel and multiplayer setup](HOSTING-UBUNTU.md). It covers the private `game.milanoracing.team` deployment, desktop downloads, updates and recovery.
+
 Open these HTML guides locally after cloning/downloading the repository:
 
 - [Start Here](upgrade/docs/Start%20Here.html)
