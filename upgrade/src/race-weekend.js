@@ -48,7 +48,7 @@ function drawRaceInstances(){if(!GP.drawRoot)return;GP.drawRoot.visible=!!GP.wee
 
 function startWeekend(m,existing=false){if(!existing){GP.weekend=new RaceWeekend.Weekend(gpConfig());learning.rows=[];learning.lap=-1;learning.clean=true;GP.pitChoice='hard'}const w=GP.weekend;baseNewSession(m);makeRaceModels();mode=m;for(const m of GP.models)m.visible=true;if(m==='qual'){w.startQual(existing?w.stage+1:0);state='race';show('none');const pose=w.pitPose(w.player);gpPlace(pose);race.cd=0}else{w.startRace();const p=w.player;gpPlace(gpTrackPose(p));race.cd=7.2+((Date.now()%1300)/1000);state='count';show('count')}race.started=true;race.lapNo=1;race.valid=true;acc=0;$('gp-timing').hidden=false;$('gp-race-strip').hidden=false;document.body.classList.add('weekend-driving');$('hud').hidden=false;gpHud(true)}
 
-function gpPlace(p){Object.assign(c,{x:p.x,z:p.z,h:p.h,vx:0,vy:0,r:0,st:0,reverse:false,reverseArmed:true,reverseHold:0,limitState:TrackLimits.fresh()});const pr=prog(c.x,c.z,-1);c.idx=pr.i;c.d=pr.d;snap=true}
+function gpPlace(p){Object.assign(c,{x:p.x,z:p.z,h:p.h,vx:0,vy:0,r:0,st:0,cornerBrake:0,reverse:false,reverseArmed:true,reverseHold:0,limitState:TrackLimits.fresh()});const pr=prog(c.x,c.z,-1);c.idx=pr.i;c.d=pr.d;snap=true}
 
 function gpTrackPose(d){
 
@@ -104,7 +104,7 @@ async function gpSkipPit(){
 
 addEventListener('keydown',e=>{if(e.repeat||!GP.weekend||state!=='race')return;if(e.code==='KeyP'){e.preventDefault();gpPitRequest()}if(e.code==='KeyT'){e.preventDefault();gpCycleTyre()}if(e.code==='KeyK'){e.preventDefault();gpSkipPit()}});
 
-function gpStepBefore(dt){const w=GP.weekend;if(!w)return false;const p=w.player;if(p.pit||p.finished||w.phase==='qualifying'&&p.stageDone){const wasPit=!!p.pit;w.update(dt);if(p.pit||wasPit){c.reverse=false;c.reverseArmed=false;c.reverseHold=0;const pose=p.pit?w.pitPose(p):p.lastPitPose;c.x=pose.x;c.z=pose.z;c.h=pose.h;c.vx=p.v;c.vy=0;c.r=(pose.curvature||0)*p.v;c.st=Math.atan(VEH.wheelbase*(pose.curvature||0));inp.s=clamp(c.st/Math.max(.01,vehicleEnvelope(p.v).steer),-1,1);c.idx=Math.round(RaceWeekend.mod(p.progress,LEN)/LEN*N)%N;c.d=prog(c.x,c.z,c.idx).d;inp.t=p.v>0?.35:0;inp.b=p.v===0?1:0;}else{c.vx=0;inp.t=inp.b=0}race.t=w.clock;gpEvents();return true}return false}
+function gpStepBefore(dt){const w=GP.weekend;if(!w)return false;const p=w.player;if(p.pit||p.finished||w.phase==='qualifying'&&p.stageDone){const wasPit=!!p.pit;w.update(dt);if(p.pit||wasPit){c.cornerBrake=0;c.reverse=false;c.reverseArmed=false;c.reverseHold=0;const pose=p.pit?w.pitPose(p):p.lastPitPose;c.x=pose.x;c.z=pose.z;c.h=pose.h;c.vx=p.v;c.vy=0;c.r=(pose.curvature||0)*p.v;c.st=Math.atan(VEH.wheelbase*(pose.curvature||0));inp.s=clamp(c.st/Math.max(.01,vehicleEnvelope(p.v).steer),-1,1);c.idx=Math.round(RaceWeekend.mod(p.progress,LEN)/LEN*N)%N;c.d=prog(c.x,c.z,c.idx).d;inp.t=p.v>0?.35:0;inp.b=p.v===0?1:0;}else{c.vx=0;inp.t=inp.b=0}race.t=w.clock;gpEvents();return true}return false}
 
 function gpStepAfter(dt){const w=GP.weekend;if(!w)return;const pr=prog(c.x,c.z,c.idx),valid=!c.limitState?.violation;w.updatePlayer(pr.s/LEN*N,c.vx,dt,valid);w.player.offset=pr.d-RaceWeekend.interp(CIRCUIT.line.offset,pr.s/LEN*N);w.update(dt);race.t=w.clock;race.lapNo=Math.max(1,w.player.laps+1);race.lapStart=w.player.lapStart;race.valid=w.player.valid;race.best=w.player.best*1000;race.dist=Math.max(0,w.player.progress);if(w.phase==='race')gpContact();learningObserve(dt);gpEvents()}
 

@@ -2,6 +2,8 @@
 
 Milano Racing, featuring the MR 26. Open **Milano Racing.html** for the browser game; the independent native desktop source is under **native-desktop**.
 
+The browser now includes default-on corner assistance for beginners, more direct controller steering and quicker keyboard corrections. Braking takes priority over a held accelerator. Turn assistance off in Garage → Controls for manual speed control. See [browser handling and validation](upgrade/docs/BROWSER-HANDLING.md).
+
 The latest update adds Riviera and Solara, progressive steering, steadier cameras, local adaptive rivals and less repeated rendering and race-model work. Pit routes now keep their working areas clear of the racing surface, use smooth joins and transfer steering continuously out of assist. Reversed procedural grandstands, garage floors and service aprons are corrected. See upgrade/docs/PERFORMANCE-RESULTS.md for measured gains and remaining limits. Milano Autodromo is now a 6.54 km, 17-corner ridge circuit. All six partners share balanced trackside wall allocations, rotating gantries and pit facades. Track limits allow kerb use and brief excursions, with gradual grip loss outside the kerbs and warnings before race penalties.
 
 Menus use Barlow headings, DM Sans controls and Milano’s colours, with visual race setup and tabbed settings. Embedded fonts also work offline. The environment guide lists references, inspection frames and the details that remain approximate; these are mapped game reconstructions, not survey-exact replicas.

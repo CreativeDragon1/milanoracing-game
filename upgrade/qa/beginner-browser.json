@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "fileSHA256": "1e648709a6f5f76ef326d7d85dbc16b073853fd9af6888496f5ed5047155cc31",
+  "profileMs": 20,
+  "hairpin": 1011,
+  "speedLimit": 10.240771919488907,
+  "heading": -2.4180602281383337,
+  "profileFinite": true,
+  "lineHidden": true,
+  "keyboard": {
+    "heading": -1.843235513232301,
+    "speed": 10.73817181041062,
+    "steering": 0.9965125169284503,
+    "finite": true
+  },
+  "controller": {
+    "headingChange": 0.06290837364352535,
+    "steering": 0.42742991329340047
+  },
+  "setup": {
+    "key": "0.9:1:1:0.85",
+    "newKey": "1:1:1:0.85",
+    "resetBrake": 0
+  },
+  "errors": [],
+  "scope": "Rendered browser settings, real keyboard events and software gamepad mapping; not physical hardware or human playtesting."
+}

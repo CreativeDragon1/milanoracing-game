@@ -17,7 +17,7 @@ def section(start,end,filename):
     a=js.index(start); b=js.index(end,a)
     js=js[:a]+(SRC/filename).read_text(encoding='utf-8')+'\n'+js[b:]
 
-replace("q:[0,1,0],cam:[0,1,0]", "q:[0,1,0],cam:[0,3,0],dz:[.04,.3,.12],vib:[0,1,1],line:[0,2,2]")
+replace("q:[0,1,0],cam:[0,1,0]", "q:[0,1,0],cam:[0,3,0],dz:[.04,.3,.12],vib:[0,1,1],line:[0,2,2],cornerAssist:[0,1,1]")
 replace("mrs1:","mrs-team2:")
 replace("mrs-team2:pb:milano01", "mrs-team2:pb:milano01:autodromo-math-1")
 section('// ---- track:', '// ---- renderer & world ----', 'tour-track.js')
@@ -39,9 +39,9 @@ replace("'mrs-team2:pb:milano01:autodromo-math-1'", "'mrs-team2:pb:'+CIRCUIT.id+
 vehicle=(SRC/'vehicle-model.js').read_text(encoding='utf-8').replace('__VEHICLE_DATA__',(SRC/'vehicle-model.json').read_text(encoding='utf-8'))
 vehicle=(SRC/'track-limits.js').read_text(encoding='utf-8').replace('__TRACK_LIMIT_RULES__',(SRC/'track-limits.json').read_text())+'\n'+vehicle
 replace('// ---- renderer & world ----',vehicle+'\n// ---- renderer & world ----')
-replace('function placeCar(i,back){','function placeCar(i,back){c.limitState=TrackLimits.fresh();c.reverse=false;c.reverseArmed=true;c.reverseHold=0;')
+replace('function placeCar(i,back){','function placeCar(i,back){c.limitState=TrackLimits.fresh();c.reverse=false;c.reverseArmed=true;c.reverseHold=0;c.cornerBrake=0;')
 replace("steer:[.6,1.4,1]", "steer:[.6,1.2,.85]")
-replace("function newSession(m){mode=m;", "function newSession(m){$('pause-note').textContent='';mode=m;")
+replace("function newSession(m){mode=m;", "function newSession(m){refreshGuideSpeeds();$('pause-note').textContent='';mode=m;")
 section('// ---- renderer & world ----','// ---- state ----','world.js')
 replace('// ---- state ----',(SRC/'pit-surface.js').read_text(encoding='utf-8')+'\n'+(SRC/'pit-world.js').read_text(encoding='utf-8').replace('/* __PIT_CREW__ */',(SRC/'pit-crew.js').read_text(encoding='utf-8'))+'\n// ---- state ----')
 helpers=(SRC/'circuit-scenery.js').read_text(encoding='utf-8').split('const mainGrandstand=')[0]
@@ -62,7 +62,7 @@ replace("function show(id){document.querySelectorAll('.ov').forEach(o=>o.classLi
 replace("if(b.dataset.ov){if(b.dataset.ov==='menu'){state='menu';$('hud').hidden=true}show(b.dataset.ov)}", "if(b.dataset.ov){if(b.dataset.ov==='menu'){state='menu';$('hud').hidden=true}show(b.dataset.ov)}")
 replace("$('tomenu').onclick=()=>{if(race&&race.laps.length&&!confirm('Leave session? Unsaved progress will be lost.'))return;state='menu';$('hud').hidden=true;show('menu')};", "$('tomenu').onclick=()=>{state='menu';$('hud').hidden=true;show('menu')};")
 replace("function pause(){if(state!=='race')return;state='pause';keys.clear();show('pause')}","let pausedFrom='race';function pause(){if(state!=='race'&&state!=='count')return;pausedFrom=state;state='pause';keys.clear();inp.t=inp.b=inp.s=0;show('pause')}")
-replace("function resume(){if(state!=='pause')return;state='race';show('none')}","function resume(){if(state!=='pause')return;state=pausedFrom;acc=0;show(state==='count'?'count':'none');audioInit()}")
+replace("function resume(){if(state!=='pause')return;state='race';show('none')}","function resume(){if(state!=='pause')return;refreshGuideSpeeds();state=pausedFrom;acc=0;show(state==='count'?'count':'none');audioInit()}")
 replace("const GK=['KeyW'", (SRC/'controller.js').read_text(encoding='utf-8')+'\n'+(SRC/'touch-controls.js').read_text(encoding='utf-8')+"\nconst GK=['KeyW'")
 replace("if(state==='race'){if(GK.includes(e.code))keys.add(e.code);if(e.code==='KeyC')camMode=S.cam=1-camMode,saveS(),snap=true;", "if(e.code==='KeyF'&&!e.repeat)toggleFullscreen();if(state==='race'){if(GK.includes(e.code))keys.add(e.code);if(e.code==='KeyC'&&!e.repeat)cycleCamera();")
 replace("if(e.code==='KeyR'){placeCar(c.idx);invalid('RESET · LAP INVALID')}","if(e.code==='KeyR'&&!e.repeat)resetCar()")

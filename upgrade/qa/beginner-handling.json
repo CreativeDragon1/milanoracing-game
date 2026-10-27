@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "scope": "Deterministic driver inputs, real keyboard/gamepad mappings and vehicle equations. Synthetic corner envelope; physical controllers and human play are separate.",
+  "halfStick": [
+    {
+      "kmh": 54,
+      "before": {
+        "steering": 0.36952144591612585,
+        "yaw": 0.382969897985645,
+        "radius": 39.167569249952514
+      },
+      "after": {
+        "steering": 0.43181818181817505,
+        "yaw": 0.45106653408275194,
+        "radius": 33.254517607923724
+      }
+    },
+    {
+      "kmh": 108,
+      "before": {
+        "steering": 0.31831534563157243,
+        "yaw": 0.21699441382394788,
+        "radius": 138.25240692297098
+      },
+      "after": {
+        "steering": 0.43181818181816156,
+        "yaw": 0.30033830143750195,
+        "radius": 99.8873598752198
+      }
+    },
+    {
+      "kmh": 180,
+      "before": {
+        "steering": 0.2609044455746406,
+        "yaw": 0.15492924658362783,
+        "radius": 322.7279619733448
+      },
+      "after": {
+        "steering": 0.43181818181809506,
+        "yaw": 0.26851314212200633,
+        "radius": 186.210624943196
+      }
+    },
+    {
+      "kmh": 270,
+      "before": {
+        "steering": 0.2609044455745077,
+        "yaw": 0.11379166962088029,
+        "radius": 659.0992139396276
+      },
+      "after": {
+        "steering": 0.4318181818178833,
+        "yaw": 0.197269083509478,
+        "radius": 380.19135419360606
+      }
+    }
+  ],
+  "braking": [
+    {
+      "steer": 0,
+      "before": 27.869271092675053,
+      "after": 16.419267074686864
+    },
+    {
+      "steer": 0.6,
+      "before": 27.928572157336593,
+      "after": 16.761924772280576
+    },
+    {
+      "steer": 1,
+      "before": 28.158109962145055,
+      "after": 17.098342373284982
+    }
+  ],
+  "counter": [
+    {
+      "kmh": 72,
+      "steerAfter150ms": -0.03460479838405995
+    },
+    {
+      "kmh": 252,
+      "steerAfter150ms": -0.03096816680470715
+    }
+  ],
+  "corner": {
+    "beforeKmh": 207.42727431022266,
+    "afterKmh": 63.04846221672976,
+    "beforeHeading": 1.4159926513510108,
+    "afterHeading": 1.7666916389561307
+  }
+}

@@ -2,7 +2,7 @@
 const padInput={t:0,b:0,s:0};let activePad=null,padPrevious=[],padWasConnected=false,padSignature='',padError='',controllerReturn='menu',lastRumble=0,navHeld=0,navNext=0;
 function gamepads(){try{if(!navigator.getGamepads){padError='This browser does not expose the Gamepad API. Try Edge or Chrome.';return []}return Array.from(navigator.getGamepads()).filter(p=>p&&p.connected)}catch(e){padError='Controller access is blocked here. Open the game directly in Edge or Chrome, or on localhost.';return []}}
 const padButton=(p,i)=>p.buttons[i]?clamp(p.buttons[i].value||Number(p.buttons[i].pressed),0,1):0;
-function readPad(p,dz,speed=0){if(!p||p.mapping!=='standard')return {t:0,b:0,s:0};const raw=clamp(p.axes[0]||0,-1,1),v=Math.abs(raw)<=dz?0:Math.sign(raw)*(Math.abs(raw)-dz)/(1-dz);return {t:padButton(p,7),b:padButton(p,6),s:Math.sign(v)*Math.pow(Math.abs(v),1.15+.45*clamp((Math.abs(speed)-12)/38,0,1))}}
+function readPad(p,dz,speed=0){if(!p||p.mapping!=='standard')return {t:0,b:0,s:0};const raw=clamp(p.axes[0]||0,-1,1),v=Math.abs(raw)<=dz?0:Math.sign(raw)*(Math.abs(raw)-dz)/(1-dz);return {t:padButton(p,7),b:padButton(p,6),s:v}}
 function cycleCamera(){camMode=(camMode+1)%4;S.cam=camMode;saveS();snap=true;msg(['CHASE','NOSE','WIDE CHASE','AERIAL'][camMode],900)}
 function resetCar(){if(typeof GP!=='undefined'&&GP.weekend){if(GP.weekend.player.pit)return;GP.weekend.resetPenalty()}placeCar(c.idx);invalid('RESET · LAP INVALID');rumble(.2,.45,120)}
 function toggleFullscreen(){if(document.fullscreenElement){document.exitFullscreen?.().catch(()=>{})}else document.documentElement.requestFullscreen?.().catch(()=>{})}

@@ -30,25 +30,25 @@
       "keyboard": false,
       "speedKmh": 0,
       "previous83msPulse": 0.7364028618842732,
-      "current83msPulse": 0.6424959754476589
+      "current83msPulse": 0.5833333333333334
     },
     {
       "keyboard": false,
       "speedKmh": 108,
       "previous83msPulse": 0.7182307109050416,
-      "current83msPulse": 0.6352739150867435
+      "current83msPulse": 0.5560606060606061
     },
     {
       "keyboard": false,
       "speedKmh": 252,
       "previous83msPulse": 0.692037660482276,
-      "current83msPulse": 0.6254150758126233
+      "current83msPulse": 0.49999999999999994
     },
     {
       "keyboard": false,
       "speedKmh": 342,
       "previous83msPulse": 0.6885967760854024,
-      "current83msPulse": 0.6237465488361664
+      "current83msPulse": 0.49999999999999994
     }
   ]
 }

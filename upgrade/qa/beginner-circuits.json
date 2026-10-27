@@ -1,0 +1,160 @@
+{
+  "passed": true,
+  "scope": "Software gamepad centre-road follower updated at 10 Hz, full throttle held, real circuit surfaces and grip. Not human or physical-controller validation.",
+  "reports": [
+    {
+      "id": "bahrain",
+      "laps": 1,
+      "seconds": 115.1500000000377,
+      "maxError": 1.0588129011166314,
+      "maxSpeedKmh": 284.94585277661054,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 3171,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "singapore",
+      "laps": 1,
+      "seconds": 123.46666666671099,
+      "maxError": 0.9138969473451903,
+      "maxSpeedKmh": 280.5945492362311,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 3947,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "monza",
+      "laps": 1,
+      "seconds": 104.93333333336291,
+      "maxError": 0.8816161980443826,
+      "maxSpeedKmh": 286.16598587170967,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 2030,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "monaco",
+      "laps": 1,
+      "seconds": 113.05000000003604,
+      "maxError": 0.900055724823765,
+      "maxSpeedKmh": 273.86785474950403,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 4308,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "austria",
+      "laps": 1,
+      "seconds": 83.30000000001236,
+      "maxError": 1.0677810096847156,
+      "maxSpeedKmh": 282.13972694207814,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 1760,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "silverstone",
+      "laps": 1,
+      "seconds": 115.20833333337109,
+      "maxError": 1.3169034945350817,
+      "maxSpeedKmh": 283.59172478442076,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 2857,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "abu-dhabi",
+      "laps": 1,
+      "seconds": 114.05833333337017,
+      "maxError": 1.575044990300611,
+      "maxSpeedKmh": 285.6855117415202,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 3066,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "milano",
+      "laps": 1,
+      "seconds": 103.93333333336211,
+      "maxError": 1.4702303437806867,
+      "maxSpeedKmh": 288.5363041454651,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 1051,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "spa",
+      "laps": 1,
+      "seconds": 130.6833333333788,
+      "maxError": 1.5672898093159162,
+      "maxSpeedKmh": 282.5927359640487,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 2794,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "suzuka",
+      "laps": 1,
+      "seconds": 118.45000000004033,
+      "maxError": 1.171904229252119,
+      "maxSpeedKmh": 285.5618403066556,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 3003,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "interlagos",
+      "laps": 1,
+      "seconds": 94.65833333335473,
+      "maxError": 1.3487862789722185,
+      "maxSpeedKmh": 284.703900365518,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 2620,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "zandvoort",
+      "laps": 1,
+      "seconds": 95.15833333335513,
+      "maxError": 1.09674760286457,
+      "maxSpeedKmh": 275.0708089245411,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 2548,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "riviera",
+      "laps": 1,
+      "seconds": 80.86666666667709,
+      "maxError": 1.9883365934125237,
+      "maxSpeedKmh": 286.011406397819,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 933,
+      "peakBrakeChange": 0.03750000000000003
+    },
+    {
+      "id": "solara",
+      "laps": 1,
+      "seconds": 96.55833333335625,
+      "maxError": 1.6113124266829468,
+      "maxSpeedKmh": 286.4714704956434,
+      "barrierContacts": 0,
+      "invalidations": 0,
+      "assistedTicks": 969,
+      "peakBrakeChange": 0.03750000000000003
+    }
+  ]
+}

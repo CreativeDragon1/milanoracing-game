@@ -207,10 +207,10 @@
     }
   ],
   "skip": {
-    "elapsed": 23.258333333332654,
+    "elapsed": 23.24999999999932,
     "rivalMoved": true,
     "finite": true,
-    "speed": 16.655600737939725,
+    "speed": 16.666666666666668,
     "cover": "1"
   },
   "reverse": true,

@@ -2,10 +2,11 @@
 function smoothDriverSteering(current,target,speed,dt,keyboard){
  // Digital keys need a progressive build-up; sticks already carry fine positioning.
  // Preserve full lock when held, and centre promptly when the driver releases input.
- if(!keyboard)return current+clamp((target-current)*(1-Math.exp(-(Math.abs(target)<.03?17:16-clamp(speed/75,0,1)*2)*dt)),-8*dt,8*dt);
+ if(!keyboard){const fast=clamp((Math.abs(speed)-12)/55,0,1),release=Math.abs(target)<.03,reversing=current*target<-.015,rate=release?18:reversing?18:16-2*fast,slew=release?7:reversing?7:7-fast;return clamp(current+clamp((target-current)*(1-Math.exp(-rate*dt)),-slew*dt,slew*dt),-1,1)}
  const fast=clamp((Math.abs(speed)-12)/38,0,1),release=Math.abs(target)<.015;
- const rate=release?18:12*(1-fast)+4.2*fast;
- const slew=release?7:5.8*(1-fast)+2.7*fast;
+ const reversing=current*target<-.015;
+ const rate=release?18:reversing?18:12*(1-fast)+4.2*fast;
+ const slew=release?7:reversing?7:5.8*(1-fast)+2.7*fast;
  const change=(target-current)*(1-Math.exp(-rate*dt));
  const next=current+clamp(change,-slew*dt,slew*dt);
  return Math.abs(next)<.0001?0:clamp(next,-1,1);
@@ -19,6 +20,27 @@ function driverSteeringCommand(input,keyboard,sensitivity,speed=50){
 // Driver rack is independent of the racing-line planner. Sensitivity shapes
 // small inputs, while a deliberate held input retains the full turning circle.
 function playerSteeringLock(e,speed){return Math.min(.64/(1+(speed/40)**2),Math.atan(e.maxLat*VEH.wheelbase/(speed*speed+9)))}
+// Solve once when setup changes. Beginners do not always take the optimized
+// racing line, so reserve grip for a tighter, centre-road approach and corrections.
+function buildCornerAssistProfile(){
+ const curvature=cx.map((_,i)=>{const a=(i+N-1)%N,b=(i+1)%N,abx=cx[i]-cx[a],abz=cz[i]-cz[a],bcx=cx[b]-cx[i],bcz=cz[b]-cz[i];return 2*(abx*bcz-abz*bcx)/Math.max(.001,Math.hypot(abx,abz)*Math.hypot(bcx,bcz)*Math.hypot(cx[b]-cx[a],cz[b]-cz[a]))});
+ const solved=solveSpeedProfile(cx,cz,curvature,S,cy,CIRCUIT.bank);
+ return {speed:solved.speed.map(v=>v*.90),ds:solved.ds};
+}
+// Use the cached envelope for entry braking, never for steering. Include the
+// planned deceleration; chasing only a target speed reacts too late at a hairpin.
+function cornerDriveDemand(index,speed,envelope,roadMu,along){
+ if(S.cornerAssist===0||speed<6||along<.25||typeof racingGuide==='undefined'||!racingGuide.speed.length)return 1;
+ const profile=racingGuide.assist||racingGuide,ahead=(index+Math.round(Math.min(36,speed*.45)/(LEN/N)))%N,next=(ahead+1)%N;
+ const grip=clamp(roadMu,.25,1),target=profile.speed[ahead]*Math.sqrt(grip);
+ const feed=Math.min(0,(profile.speed[next]**2-profile.speed[ahead]**2)*grip/(2*(profile.ds?.[ahead]||LEN/N)))*Math.min(1,speed*speed/Math.max(1,target*target));
+ const deceleration=(speed*speed-target*target)/(2*Math.max(10,speed*.30))-feed;
+ const coast=envelope.drag/VEH.mass*envelope.cosSlope+envelope.slopeGravity;
+ const force=(coast-deceleration)*VEH.mass;
+ // A signed demand crosses smoothly from braking through coasting to drive.
+ // Keeping any fixed fraction of throttle during braking causes a speed error.
+ return force<0?clamp(force/Math.max(1,envelope.brake),-.82,0):clamp(force/Math.max(1,envelope.drive),0,1);
+}
 function selectDriveDirection(car,gas,brake,dt){
  if(car.reverse===undefined){car.reverse=false;car.reverseArmed=Math.abs(car.vx)<.35;car.reverseHold=0}
  if(!car.reverse){
@@ -42,13 +64,20 @@ function step(dt){
  inp.t=rp(inp.t,Math.max((k('KeyW')||k('ArrowUp'))?1:0,padInput.t,touchInput.t),5,12);
  inp.b=rp(inp.b,Math.max((k('KeyS')||k('ArrowDown')||k('Space'))?1:0,padInput.b,touchInput.b),12,15);
  const reversing=selectDriveDirection(c,inp.t,Math.max((k('KeyS')||k('ArrowDown')||k('Space'))?1:0,padInput.b,touchInput.b),dt);
- if(!reversing&&typeof GP!=='undefined'&&GP.weekend?.difficulty.brakeAssist){const demand=guideDemand(c.idx,c.vx);if(demand.brake>.03){inp.b=Math.max(inp.b,demand.brake);inp.t=Math.min(inp.t,1-demand.brake)}}
  const ks=((k('KeyD')||k('ArrowRight'))?1:0)-((k('KeyA')||k('ArrowLeft'))?1:0),target=ks||touchInput.s||padInput.s;
  const keyboard=ks!==0||(Math.abs(padInput.s)<.015&&Math.abs(touchInput.s)<.015);
  inp.s=smoothDriverSteering(inp.s,target,c.vx,dt,keyboard);
  const along=Math.cos(c.h)*tx[c.idx]+Math.sin(c.h)*tz[c.idx],ia=(c.idx+N-1)%N,ib=(c.idx+1)%N,centreK=(tx[c.idx]*(tz[ib]-tz[ia])-tz[c.idx]*(tx[ib]-tx[ia]))/(2*LEN/N),metric=Math.max(.25,1-centreK*c.d),grade=(CIRCUIT.elevation?.grade[c.idx]||0)*along/metric,verticalCurvature=(CIRCUIT.elevation?.verticalCurvature[c.idx]||0)*along*along/(metric*metric);
  const bank=(CIRCUIT.bank?.[c.idx]||0)*along;
  const m=VEH.mass,g=VEH.gravity,a=VEH.frontCG,b=VEH.rearCG,L=VEH.wheelbase,Iz=VEH.yawInertia,v=c.vx,e=vehicleEnvelope(v,S,mu,grade,verticalCurvature,bank),maxLat=e.maxLat;
+ if(!reversing){
+  const assisted=ad<edge+2?cornerDriveDemand(c.idx,v,e,mu,along):1;
+  c.cornerBrake=(c.cornerBrake||0)+clamp(Math.max(0,-assisted)-(c.cornerBrake||0),-3.5*dt,4.5*dt);
+  inp.b=Math.max(inp.b,c.cornerBrake);
+  // Braking must win over a held accelerator, including assisted braking.
+  // Previously the remaining engine force cancelled much of a beginner's stop.
+  inp.t=Math.min(inp.t,Math.max(0,assisted),Math.max(0,1-inp.b*20));
+ }else c.cornerBrake=0;
  c.st=driverSteeringCommand(inp.s,keyboard,S.steer,v)*playerSteeringLock(e,v);
  if(reversing){
   const targetSpeed=inp.t>.05?0:-8*inp.b,rate=inp.t>.05?10:inp.b>.05?3.8:2.5;
