@@ -1,3 +1,5 @@
+27 October 2026: Restored Team Edition steering/pedal response. Removed stacked input/grip curves; default handling aid now aligns travel with the filtered, grip-limited steering request. Reverse, brake priority and phone/controller layouts retained. Current evidence and historical-test scope: docs/BROWSER-HANDLING.md.
+
 PHONE LANDSCAPE AND PLAYER HANDLING - 27 OCTOBER 2026
 Phones use a landscape canvas and interface even in a portrait-locked browser viewport, with matching transformed touch coordinates. Tablet thumb zones remain raised and spacious. Immediate tap/drag steering, independent pedals and pedal sliding replace the old drag-only touch response. Assisted partial inputs build cornering authority earlier; the player retains control of braking and throttle. Exact-artifact browser checks and automated turn-in comparisons are documented in docs/BROWSER-HANDLING.md. Physical iPhone/iPad and controller playtesting remains distinct from emulated checks. No public deployment.
 

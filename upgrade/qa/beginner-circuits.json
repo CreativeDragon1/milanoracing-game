@@ -1,146 +1,147 @@
 {
   "passed": true,
-  "scope": "Software gamepad driver supplies steering and pedals at 10 Hz with 100 ms control delay, real circuit surfaces and grip. No game-controlled braking. Not human or physical-controller validation.",
+  "lookaheadSeconds": 0.7,
+  "scope": "Software gamepad driver supplies steering and pedals at 10 Hz with 100 ms control delay, real circuit surfaces and grip. Preview includes the restored input filter; speed plan unchanged. No game-controlled braking. Not human or physical-controller validation.",
   "reports": [
     {
       "id": "bahrain",
       "laps": 1,
-      "seconds": 117.47500000003956,
-      "maxError": 1.6120238525672452,
-      "maxSpeedKmh": 284.9374223991272,
+      "seconds": 117.76666666670646,
+      "maxError": 1.628569050452155,
+      "maxSpeedKmh": 284.9585019064073,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 3156
+      "driverBrakingTicks": 3108
     },
     {
       "id": "singapore",
       "laps": 1,
-      "seconds": 126.9083333333804,
-      "maxError": 2.1175729507337375,
-      "maxSpeedKmh": 280.94503723312874,
+      "seconds": 127.25000000004734,
+      "maxError": 1.9533051299494448,
+      "maxSpeedKmh": 280.78785847591126,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 3864
+      "driverBrakingTicks": 3816
     },
     {
       "id": "monza",
       "laps": 1,
-      "seconds": 106.10833333336384,
-      "maxError": 1.3078810720252096,
-      "maxSpeedKmh": 286.1451873434499,
+      "seconds": 106.20000000003058,
+      "maxError": 1.584477995423443,
+      "maxSpeedKmh": 286.1410590097369,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 1968
+      "driverBrakingTicks": 1992
     },
     {
       "id": "monaco",
       "laps": 1,
-      "seconds": 120.15833333337503,
-      "maxError": 1.629815274636507,
-      "maxSpeedKmh": 275.0460572875627,
+      "seconds": 123.72500000004453,
+      "maxError": 1.629560566512131,
+      "maxSpeedKmh": 274.6592174267052,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 4740
+      "driverBrakingTicks": 4656
     },
     {
       "id": "austria",
       "laps": 1,
-      "seconds": 85.04166666668041,
-      "maxError": 1.6892862861729818,
-      "maxSpeedKmh": 283.1200169097763,
+      "seconds": 85.55000000001415,
+      "maxError": 1.8455970969492292,
+      "maxSpeedKmh": 283.0318254112201,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 1824
+      "driverBrakingTicks": 1788
     },
     {
       "id": "silverstone",
       "laps": 1,
-      "seconds": 116.50833333337212,
-      "maxError": 1.9757469985839629,
-      "maxSpeedKmh": 283.45292018227025,
+      "seconds": 116.05833333337176,
+      "maxError": 1.9717893886726328,
+      "maxSpeedKmh": 283.45929480039734,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 2616
+      "driverBrakingTicks": 2688
     },
     {
       "id": "abu-dhabi",
       "laps": 1,
-      "seconds": 116.17500000003852,
-      "maxError": 2.035403932788296,
-      "maxSpeedKmh": 285.72630424767937,
+      "seconds": 116.2750000000386,
+      "maxError": 1.9550632590395867,
+      "maxSpeedKmh": 285.7323624209405,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 3024
+      "driverBrakingTicks": 3036
     },
     {
       "id": "milano",
       "laps": 1,
-      "seconds": 104.19166666669565,
-      "maxError": 2.105191178005076,
-      "maxSpeedKmh": 289.6456578022336,
+      "seconds": 104.04166666669553,
+      "maxError": 2.3213879594303264,
+      "maxSpeedKmh": 289.7450882351477,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 936
+      "driverBrakingTicks": 960
     },
     {
       "id": "spa",
       "laps": 1,
-      "seconds": 132.25833333337738,
-      "maxError": 1.757453631518293,
-      "maxSpeedKmh": 282.3013969661877,
+      "seconds": 131.95000000004433,
+      "maxError": 1.9271226592313524,
+      "maxSpeedKmh": 282.3980233864576,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 2808
+      "driverBrakingTicks": 2748
     },
     {
       "id": "suzuka",
       "laps": 1,
-      "seconds": 120.37500000004187,
-      "maxError": 1.8724514366839018,
-      "maxSpeedKmh": 286.96792600608075,
+      "seconds": 120.2166666667084,
+      "maxError": 1.91074610946837,
+      "maxSpeedKmh": 287.06452487032465,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 2952
+      "driverBrakingTicks": 2988
     },
     {
       "id": "interlagos",
       "laps": 1,
-      "seconds": 95.98333333335579,
-      "maxError": 2.232605316787677,
-      "maxSpeedKmh": 284.93616761255805,
+      "seconds": 95.93333333335575,
+      "maxError": 2.0718260796977024,
+      "maxSpeedKmh": 284.9385518270285,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 2604
+      "driverBrakingTicks": 2652
     },
     {
       "id": "zandvoort",
       "laps": 1,
-      "seconds": 96.40833333335613,
-      "maxError": 1.7126573803497358,
-      "maxSpeedKmh": 276.7515222391269,
+      "seconds": 96.24166666668933,
+      "maxError": 1.7805156069981376,
+      "maxSpeedKmh": 277.5512479060045,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 2616
+      "driverBrakingTicks": 2676
     },
     {
       "id": "riviera",
       "laps": 1,
-      "seconds": 81.20000000001069,
-      "maxError": 1.7446381746624064,
-      "maxSpeedKmh": 286.0496730691592,
+      "seconds": 80.90000000001045,
+      "maxError": 3.347109275189575,
+      "maxSpeedKmh": 286.06569056157855,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 852
+      "driverBrakingTicks": 828
     },
     {
       "id": "solara",
       "laps": 1,
-      "seconds": 96.87500000002316,
-      "maxError": 1.7402404135525733,
-      "maxSpeedKmh": 286.5001738179633,
+      "seconds": 96.4666666666895,
+      "maxError": 2.496794939707025,
+      "maxSpeedKmh": 286.4924941685318,
       "barrierContacts": 0,
       "invalidations": 0,
-      "driverBrakingTicks": 888
+      "driverBrakingTicks": 900
     }
   ]
 }

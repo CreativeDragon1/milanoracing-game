@@ -11,7 +11,7 @@
       "surface": {
         "trimmedMeshes": 18,
         "removedTriangles": 13309,
-        "elapsedMs": 9.599999964237213
+        "elapsedMs": 12.300000011920929
       },
       "sponsors": [
         "STEM Racing",
@@ -35,7 +35,7 @@
       "surface": {
         "trimmedMeshes": 11,
         "removedTriangles": 7145,
-        "elapsedMs": 9.900000035762787
+        "elapsedMs": 14.5
       },
       "sponsors": [
         "STEM Racing",
@@ -59,7 +59,7 @@
       "surface": {
         "trimmedMeshes": 12,
         "removedTriangles": 11314,
-        "elapsedMs": 13.100000023841858
+        "elapsedMs": 13.599999964237213
       },
       "sponsors": [
         "STEM Racing",
@@ -83,7 +83,7 @@
       "surface": {
         "trimmedMeshes": 17,
         "removedTriangles": 5398,
-        "elapsedMs": 15.600000023841858
+        "elapsedMs": 18.19999998807907
       },
       "sponsors": [
         "STEM Racing",
@@ -107,7 +107,7 @@
       "surface": {
         "trimmedMeshes": 13,
         "removedTriangles": 17213,
-        "elapsedMs": 12.299999952316284
+        "elapsedMs": 14.800000011920929
       },
       "sponsors": [
         "STEM Racing",
@@ -131,7 +131,7 @@
       "surface": {
         "trimmedMeshes": 11,
         "removedTriangles": 11715,
-        "elapsedMs": 10.300000011920929
+        "elapsedMs": 29.69999998807907
       },
       "sponsors": [
         "STEM Racing",
@@ -155,7 +155,7 @@
       "surface": {
         "trimmedMeshes": 18,
         "removedTriangles": 14224,
-        "elapsedMs": 10.100000023841858
+        "elapsedMs": 15.099999964237213
       },
       "sponsors": [
         "STEM Racing",
@@ -179,7 +179,7 @@
       "surface": {
         "trimmedMeshes": 7,
         "removedTriangles": 10410,
-        "elapsedMs": 9.699999988079071
+        "elapsedMs": 23.399999976158142
       },
       "sponsors": [
         "STEM Racing",
@@ -203,7 +203,7 @@
       "surface": {
         "trimmedMeshes": 8,
         "removedTriangles": 14447,
-        "elapsedMs": 39.30000001192093
+        "elapsedMs": 43.19999998807907
       },
       "sponsors": [
         "STEM Racing",
@@ -227,7 +227,7 @@
       "surface": {
         "trimmedMeshes": 12,
         "removedTriangles": 11585,
-        "elapsedMs": 9.699999988079071
+        "elapsedMs": 11.299999952316284
       },
       "sponsors": [
         "STEM Racing",
@@ -251,7 +251,7 @@
       "surface": {
         "trimmedMeshes": 12,
         "removedTriangles": 11576,
-        "elapsedMs": 6.900000035762787
+        "elapsedMs": 14.399999976158142
       },
       "sponsors": [
         "STEM Racing",
@@ -275,7 +275,7 @@
       "surface": {
         "trimmedMeshes": 13,
         "removedTriangles": 15971,
-        "elapsedMs": 32.30000001192093
+        "elapsedMs": 7.5
       },
       "sponsors": [
         "STEM Racing",
@@ -299,7 +299,7 @@
       "surface": {
         "trimmedMeshes": 5,
         "removedTriangles": 2130,
-        "elapsedMs": 8.399999976158142
+        "elapsedMs": 13.100000023841858
       },
       "sponsors": [
         "STEM Racing",
@@ -324,7 +324,7 @@
     "surface": {
       "trimmedMeshes": 10,
       "removedTriangles": 11993,
-      "elapsedMs": 10.300000011920929
+      "elapsedMs": 9.699999988079071
     },
     "sponsors": [
       "STEM Racing",

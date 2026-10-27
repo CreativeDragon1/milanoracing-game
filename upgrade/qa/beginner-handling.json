@@ -88,5 +88,6 @@
     "beforeHeading": 1.4159926513510108,
     "afterHeading": 1.9838169090791071,
     "automaticBrake": 0
-  }
+  },
+  "releaseStatus": "Historical comparison for superseded tuning; not a current release check. See classic-handling.json and docs/BROWSER-HANDLING.md."
 }

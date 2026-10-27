@@ -130,5 +130,6 @@
         "speedAfterBraking": 27.57780503929007
       }
     }
-  ]
+  ],
+  "releaseStatus": "Historical comparison for superseded tuning; not a current release check. See classic-handling.json and docs/BROWSER-HANDLING.md."
 }

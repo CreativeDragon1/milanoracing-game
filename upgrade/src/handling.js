@@ -1,43 +1,15 @@
 // Event handling: assisted vehicle dynamics. The visual racing line never drives the car.
-function smoothDriverSteering(current,target,speed,dt,keyboard,assisted=false){
- // Digital keys need a progressive build-up; sticks already carry fine positioning.
- // Preserve full lock when held, and centre promptly when the driver releases input.
- if(!keyboard){const fast=clamp((Math.abs(speed)-12)/55,0,1),release=Math.abs(target)<.03,reversing=current*target<-.015,rate=release?18:reversing?18:16-2*fast,slew=release?7:reversing?7:7-fast;return clamp(current+clamp((target-current)*(1-Math.exp(-rate*dt)),-slew*dt,slew*dt),-1,1)}
- const fast=clamp((Math.abs(speed)-12)/38,0,1),release=Math.abs(target)<.015;
- const reversing=current*target<-.015;
- // Keep short taps gentle, then give a held key authority to finish a late turn.
- const commitment=assisted&&!release&&!reversing?clamp((Math.abs(current)-.28)/.40,0,1)*fast:0;
- const rate=release?18:reversing?18:12*(1-fast)+4.2*fast+5.8*commitment;
- const slew=release?7:reversing?7:5.8*(1-fast)+2.7*fast+3*commitment;
- const change=(target-current)*(1-Math.exp(-rate*dt));
- const next=current+clamp(change,-slew*dt,slew*dt);
+function smoothDriverSteering(current,target,speed,dt){
+ // Restored from the preserved Team Edition: one time-based filter, with the
+ // same response in both directions and a slightly quicker return to centre.
+ const rate=Math.abs(target)<.03?9:7.8-clamp(Math.abs(speed)/45,0,1)*1.8;
+ const next=current+(clamp(target,-1,1)-current)*(1-Math.exp(-rate*dt));
  return Math.abs(next)<.0001?0:clamp(next,-1,1);
 }
-function driverSteeringCommand(input,keyboard,sensitivity,speed=50,assisted=false){
- // Sensitivity changes the centre response even when the tyre-based lock is
- // limiting the rack. Retain full lock for hairpins and deliberate long holds.
- const magnitude=Math.abs(input),gentle=clamp((1.25-sensitivity)/.65,0,1),fast=clamp((Math.abs(speed)-12)/38,0,1),linear=(keyboard?.88:.96)*(1-fast)+(keyboard?.42:.78)*fast;
- const base=magnitude*(linear-.12*gentle)+(1-linear+.12*gentle)*magnitude*magnitude*magnitude;
- // Keep the fine-control centre, but let a deliberate partial stick/thumb turn
- // use the rack. Previously players needed near-full input for ordinary bends.
- const u=clamp((magnitude-.08)/.40,0,1),commit=u*u*(3-2*u);
- const help=assisted?1.15*(1-.4*fast)*(1-.15*gentle)*magnitude*(1-magnitude)*commit:0;
- return Math.sign(input)*clamp(base+help,0,1);
-}
-// Driver rack is independent of the racing-line planner. Sensitivity shapes
-// small inputs, while a deliberate held input retains the full turning circle.
-function playerSteeringLock(e,speed){return Math.min(.64/(1+(speed/40)**2),Math.atan(e.maxLat*VEH.wheelbase/(speed*speed+9)))}
-// Input-led handling support: no track lookup, target speed or automatic pedal.
-// Reserve additional grip for committed turns, tapering at very high speed.
-// Road surface and tyre condition still scale the underlying tyre forces.
-function driverGripSupport(input,speed,enabled){
- return enabled?clamp((Math.abs(input)-.12)/.65,0,1)*clamp((speed-6)/10,0,1)*(1-.65*clamp((speed-45)/35,0,1)):0;
-}
-function driverHandlingEnvelope(e,command,speed,enabled){
- const support=driverGripSupport(command,speed,enabled),reserve=1+.55*support;
- e.mu*=reserve;e.maxLat=Math.min(VEH.maxLateralAcceleration*1.12,e.maxLat*reserve);
- return support;
-}
+// The Team Edition maps filtered input directly to the available steering rack.
+// Do not stack another response curve or input-dependent grip boost here.
+function driverSteeringCommand(input){return clamp(input,-1,1)}
+function playerSteeringLock(e){return e.steer}
 function selectDriveDirection(car,gas,brake,dt){
  if(car.reverse===undefined){car.reverse=false;car.reverseArmed=Math.abs(car.vx)<.35;car.reverseHold=0}
  if(!car.reverse){
@@ -58,18 +30,16 @@ function step(dt){
  if(ad>edge+1.1){const blend=clamp((ad-edge-1.1)/1.8,0,1);mu=.98-.26*blend;dr=blend}else if(ad>edge){mu=.98;kerb=1}
  if(typeof GP!=='undefined'&&GP.weekend)mu*=GP.weekend.grip(GP.weekend.player);
  const k=n=>keys.has(n),rp=(v,t,u,d)=>t>v?Math.min(t,v+u*dt):Math.max(t,v-d*dt);
- inp.t=rp(inp.t,Math.max((k('KeyW')||k('ArrowUp'))?1:0,padInput.t,touchInput.t),5,12);
- inp.b=rp(inp.b,Math.max((k('KeyS')||k('ArrowDown')||k('Space'))?1:0,padInput.b,touchInput.b),12,15);
+ inp.t=rp(inp.t,Math.max((k('KeyW')||k('ArrowUp'))?1:0,padInput.t,touchInput.t),2.5,9);
+ inp.b=rp(inp.b,Math.max((k('KeyS')||k('ArrowDown')||k('Space'))?1:0,padInput.b,touchInput.b),5,10);
  const reversing=selectDriveDirection(c,inp.t,Math.max((k('KeyS')||k('ArrowDown')||k('Space'))?1:0,padInput.b,touchInput.b),dt);
  const ks=((k('KeyD')||k('ArrowRight'))?1:0)-((k('KeyA')||k('ArrowLeft'))?1:0),target=ks||touchInput.s||padInput.s;
- const keyboard=ks!==0||(Math.abs(padInput.s)<.015&&Math.abs(touchInput.s)<.015);
- const assisted=S.cornerAssist===1&&!reversing;
- inp.s=smoothDriverSteering(inp.s,target,c.vx,dt,keyboard,assisted);
+ const assisted=S.cornerAssist!==0&&!reversing;
+ inp.s=smoothDriverSteering(inp.s,target,c.vx,dt);
  const along=Math.cos(c.h)*tx[c.idx]+Math.sin(c.h)*tz[c.idx],ia=(c.idx+N-1)%N,ib=(c.idx+1)%N,centreK=(tx[c.idx]*(tz[ib]-tz[ia])-tz[c.idx]*(tx[ib]-tx[ia]))/(2*LEN/N),metric=Math.max(.25,1-centreK*c.d),grade=(CIRCUIT.elevation?.grade[c.idx]||0)*along/metric,verticalCurvature=(CIRCUIT.elevation?.verticalCurvature[c.idx]||0)*along*along/(metric*metric);
  const bank=(CIRCUIT.bank?.[c.idx]||0)*along;
  const m=VEH.mass,g=VEH.gravity,a=VEH.frontCG,b=VEH.rearCG,L=VEH.wheelbase,Iz=VEH.yawInertia,v=c.vx,e=vehicleEnvelope(v,S,mu,grade,verticalCurvature,bank);
- const command=driverSteeringCommand(inp.s,keyboard,S.steer,v,assisted);
- const support=driverHandlingEnvelope(e,command,v,assisted),maxLat=e.maxLat;
+ const command=driverSteeringCommand(inp.s),maxLat=e.maxLat;
  c.cornerBrake=0;
  // Only the driver's brake suppresses throttle. Assistance never presses it.
  if(!reversing)inp.t=Math.min(inp.t,Math.max(0,1-inp.b*20));
@@ -95,10 +65,16 @@ function step(dt){
  // All targets come from driver input, never from track direction or position.
  const targetYaw=clamp(c.vx/L*Math.tan(c.st),-maxLat/Math.max(c.vx,4),maxLat/Math.max(c.vx,4));
  const lowSpeed=1-clamp((c.vx-12)/16,0,1),kinematic=lowSpeed*lowSpeed*(3-2*lowSpeed);
- c.r+=(targetYaw-c.r)*Math.max(kinematic,1-Math.exp(-(6+4*support)*dt));
+ // With assistance, honour the already-filtered steering request within the
+ // surface's lateral limit. Blending this target against tyre-model yaw again
+ // caused persistent understeer, particularly at higher speeds.
+ c.r+=(targetYaw-c.r)*(assisted?1:Math.max(kinematic,1-Math.exp(-6*dt)));
  const yawLimit=Math.abs(targetYaw)+.10;
  c.r=clamp(c.r,-yawLimit,yawLimit);
- c.vy*=Math.exp(-(c.vx<5?12:5.8+2*support)*dt);
+ // Assisted steering keeps travel aligned with the nose; otherwise the tyre
+ // solver's sideways velocity defeats the corrected yaw and still runs wide.
+ // Grip still limits the target turn. The aid never changes either pedal.
+ c.vy=assisted?0:c.vy*Math.exp(-(c.vx<5?12:5.8)*dt);
  const slipLimit=.35+c.vx*.10;c.vy=clamp(c.vy,-slipLimit,slipLimit);
  if(c.vx<.15){c.vy=0;c.r=0}
  }

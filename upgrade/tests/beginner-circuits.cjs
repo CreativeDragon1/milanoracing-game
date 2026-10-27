@@ -14,10 +14,13 @@ for(const id of Object.keys(tour)){
  // The speed plan belongs to this test driver; the game no longer controls speed.
  for(let tick=0;tick<120*300&&progress<n;tick++){
   if(tick%12===0){
-   const look=5+m.c.vx*.4,j=wrap(m.c.idx+Math.max(1,Math.round(look/(d.length/n)))),dx=d.x[j]-m.c.x,dz=d.z[j]-m.c.z;
+   // Include the restored steering filter's settling time in the test driver's
+   // preview. The 100 ms input delay and speed plan are unchanged. The former
+   // short preview relied on the removed extra grip to recover overshoots.
+   const look=5+m.c.vx*.7,j=wrap(m.c.idx+Math.max(1,Math.round(look/(d.length/n)))),dx=d.x[j]-m.c.x,dz=d.z[j]-m.c.z;
    const angle=Math.atan2(Math.sin(Math.atan2(dz,dx)-m.c.h),Math.cos(Math.atan2(dz,dx)-m.c.h));
    const desired=Math.atan(3*2*Math.sin(angle)/Math.max(2,Math.hypot(dx,dz)));
-   let lo=-1,hi=1;for(let k=0;k<20;k++){const mid=(lo+hi)/2,e=m.envelope(m.c.vx),command=m.driverSteeringCommand(mid,false,.85,m.c.vx,true);m.driverHandlingEnvelope(e,command,m.c.vx,true);if(command*m.playerSteeringLock(e,m.c.vx)<desired)lo=mid;else hi=mid}
+   let lo=-1,hi=1;for(let k=0;k<20;k++){const mid=(lo+hi)/2,e=m.envelope(m.c.vx),command=m.driverSteeringCommand(mid,false,.85,m.c.vx,true);if(command*m.playerSteeringLock(e,m.c.vx)<desired)lo=mid;else hi=mid}
    const s=(lo+hi)/2,raw=Math.abs(s)<.001?0:Math.sign(s)*(.12+.88*Math.abs(s));
    const ahead=wrap(m.c.idx+Math.round(m.c.vx*.45/(d.length/n))),next=wrap(ahead+1),target=m.reference.speed[ahead]*.90;
    const feed=Math.min(0,(m.reference.speed[next]**2-m.reference.speed[ahead]**2)*.81/(2*m.reference.ds[ahead]));
@@ -32,6 +35,6 @@ for(const id of Object.keys(tour)){
  }
  const report={id,laps:progress/n,seconds:m.race.t,maxError,maxSpeedKmh:maxSpeed,barrierContacts:m.contacts,invalidations:m.invalidations,driverBrakingTicks};reports.push(report);console.log(JSON.stringify(report));
 }
-const passed=reports.every(r=>r.laps>=.99&&r.barrierContacts===0);
-fs.writeFileSync('upgrade/qa/beginner-circuits.json',JSON.stringify({passed,scope:'Software gamepad driver supplies steering and pedals at 10 Hz with 100 ms control delay, real circuit surfaces and grip. No game-controlled braking. Not human or physical-controller validation.',reports},null,2));
+const passed=reports.every(r=>r.laps>=.99&&r.barrierContacts===0&&r.invalidations===0);
+fs.writeFileSync('upgrade/qa/beginner-circuits.json',JSON.stringify({passed,lookaheadSeconds:.7,scope:'Software gamepad driver supplies steering and pedals at 10 Hz with 100 ms control delay, real circuit surfaces and grip. Preview includes the restored input filter; speed plan unchanged. No game-controlled braking. Not human or physical-controller validation.',reports},null,2));
 assert(passed,'Delayed-input gamepad laps must complete without barrier contact');

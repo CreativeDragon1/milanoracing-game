@@ -27,7 +27,8 @@ const {chromium}=require('playwright'),fs=require('fs'),assert=require('assert')
  results.keyboard=await p.evaluate(()=>({heading:c.h,speed:c.vx,steering:inp.s,brake:inp.b,throttle:inp.t,finite:Number.isFinite(c.x+c.z+c.h+c.vx)}));
  assert(Math.abs(results.keyboard.heading-results.heading)>.15,'keyboard actually turns through a tight bend');assert(results.keyboard.finite);
  assert.equal(results.keyboard.brake,0);assert.equal(results.keyboard.throttle,1);
- await p.keyboard.up('KeyD');await p.keyboard.up('KeyW');await p.evaluate(()=>{for(let i=0;i<90;i++)step(1/120)});assert(Math.abs(await p.evaluate(()=>inp.s))<.001);
+ // The preserved release filter (9/s) settles below 0.001 within one second.
+ await p.keyboard.up('KeyD');await p.keyboard.up('KeyW');await p.evaluate(()=>{for(let i=0;i<120;i++)step(1/120)});assert(Math.abs(await p.evaluate(()=>inp.s))<.001);
  results.controller=await p.evaluate(()=>{
   placeCar(0);c.vx=30;const initial=c.h;
   const pad={mapping:'standard',axes:[.5],buttons:Array.from({length:16},(_,i)=>({value:i===7?1:0,pressed:false}))};

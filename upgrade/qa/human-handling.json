@@ -142,5 +142,6 @@
         "heading": 0.0540018658596211
       }
     }
-  ]
+  ],
+  "releaseStatus": "Historical comparison for superseded tuning; not a current release check. See classic-handling.json and docs/BROWSER-HANDLING.md."
 }

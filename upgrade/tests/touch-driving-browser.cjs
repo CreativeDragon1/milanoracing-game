@@ -23,7 +23,10 @@ const overlaps=(a,b)=>Math.min(a.right,b.right)>Math.max(a.left,b.left)+1&&Math.
  await page.evaluate(()=>{const id=[...touchPointers].find(([,key])=>key==='b')[0],el=touchCaptures.get(id);el.dispatchEvent(new PointerEvent('pointercancel',{pointerId:id,bubbles:true}));});assert(await page.evaluate(()=>touchInput.s)>.9);assert.equal(await page.evaluate(()=>touchInput.b),0);
  await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});assert.deepEqual(await page.evaluate(()=>({...touchInput})),{s:0,t:0,b:0});
  // Standard Xbox/PlayStation-style mapping shares the same handling on mobile.
- const controller=await page.evaluate(()=>{placeCar(0);c.vx=20;const start=c.h;padInput.s=readPad({mapping:'standard',axes:[.65],buttons:[]},.12).s;for(let i=0;i<60;i++)step(1/120);const out={heading:c.h-start,brake:inp.b};padInput.s=0;return out});assert(controller.heading>.25&&controller.brake===0);
+ const controller=await page.evaluate(()=>{const request=readPad({mapping:'standard',axes:[.65],buttons:[]},.12).s,out={};for(const type of ['controller','touch']){placeCar(0);c.vx=20;Object.assign(padInput,{s:0,t:0,b:0});Object.assign(touchInput,{s:0,t:0,b:0});const start=c.h;(type==='controller'?padInput:touchInput).s=request;for(let i=0;i<60;i++)step(1/120);out[type]={heading:c.h-start,steering:inp.s,brake:inp.b};}Object.assign(touchInput,{s:0,t:0,b:0});return out});
+ // Matching normalized requests must share the restored response. The former
+ // >0.25-radian gate required the now-removed steering/grip boost.
+ assert(controller.controller.heading>0&&controller.controller.brake===0);assert.deepEqual(controller.controller,controller.touch);
  await page.evaluate(()=>{newSession('qual');state='race';show('none');$('hud').hidden=false;gpHud(true);touchTestFrame(performance.now()+16)});
  const hud=await page.evaluate(()=>Object.fromEntries(['gp-timing','gp-race-strip','touch-steering','touch-throttle','touch-brake'].map(id=>[id,$(id).getBoundingClientRect().toJSON()])));
  assert(!overlaps(hud['gp-timing'],hud['gp-race-strip']));for(const panel of['gp-timing','gp-race-strip'])for(const control of['touch-steering','touch-throttle','touch-brake'])assert(!overlaps(hud[panel],hud[control]),name+' HUD covers '+control);

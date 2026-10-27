@@ -193,5 +193,6 @@
       "heading": 0.022947432519006196
     }
   ],
-  "scope": "Fixed-speed delayed input comparisons with the previously shipped handling, actual controller mapping and touch mapping. No optimized path follower; not physical device feel."
+  "scope": "Fixed-speed delayed input comparisons with the previously shipped handling, actual controller mapping and touch mapping. No optimized path follower; not physical device feel.",
+  "releaseStatus": "Historical comparison for superseded tuning; not a current release check. See classic-handling.json and docs/BROWSER-HANDLING.md."
 }

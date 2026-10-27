@@ -1,17 +1,14 @@
 # Browser handling — 27 October 2026
 
-Handling assist is on by default in Garage → Controls. It responds to the player's steering. It never selects a racing line, presses the brake, limits speed to a circuit schedule or releases the accelerator. This replaces the automatic corner-braking system from the previous build.
+The preserved Team Edition is the reference for steering and pedal response. The later stacked response curves and steering-dependent grip boosts have been removed. The current circuits, vehicle power, reverse gear and device layouts remain.
 
 ## Driving behaviour
 
-- Short keyboard taps remain progressive. Continuing to hold a turn builds more steering authority, helping a late input become an effective turn.
-- Committed turns receive up to 55% additional tyre-grip reserve and stronger yaw/slip stabilization. The reserve blends with steering input and tapers at very high speeds. Wet tyres and off-track surfaces retain their grip penalties.
-- Controller input uses one response curve after its deadzone, retaining proportional steering and full lock. Deliberate partial-stick inputs now build more cornering authority without requiring nearly full lock for ordinary bends. Small centre movements stay fine, and high-speed support tapers. Direction changes and release remain bounded and smooth.
-- The player owns both pedals. Pressing the brake still takes priority over a held accelerator, and the existing reverse sequence remains available.
-- Racing-line colours and braking cues are recommendations only. They do not command the vehicle. Switching the line off does not change handling support.
-- Assistance can be disabled for the unassisted vehicle model. The saved setting from the previous Corner assist control is preserved under the new Handling assist label.
-
-The extra grip is a game assistance choice, not a claim about a real car's tyre performance. Players still need to slow for sufficiently tight corners; the game does not guarantee recovery from every speed or input.
+- One time-based steering filter is shared by keyboard, controller and touch. Its response is the original Team Edition formula: 7.8 to 6 per second as speed rises, with return to centre at 9 per second. Filtered input maps directly to the available steering rack.
+- Throttle and brake use the original progressive pedal ramps. Controller axes retain the current linear deadzone mapping; touch retains the current thumb pad. This restores the common response, not every old input-mapping or vehicle parameter.
+- Handling assist is on by default. It makes the actual direction of travel follow the filtered steering request, bounded by available grip. The former tyre/stability blend reduced yaw after steering, then residual sideways velocity made the trajectory run wide even when the nose had turned. Assisted travel now removes that conflicting slip. With the aid off, the dynamic tyre/slip model remains.
+- This is a beginner handling aid, not a claim of real-car tyre fidelity. Wet tyres, off-track grip and cornering limits remain; excessive speed can still exceed what a corner allows.
+- Both pedals remain under player control. Braking takes priority over held throttle. Reverse still requires stopping, releasing the brake, then holding it again. The racing line does not steer, brake or impose a speed schedule.
 
 ## Phone and tablet controls
 
@@ -23,17 +20,13 @@ Steering responds immediately when a player taps the left or right side of the p
 
 ## Verification
 
-- `turn-in.cjs`: compares the released previous input-led handling with this update at fixed speeds and identical delayed inputs. Tests keyboard, software controller mapping and touch travel, progressive centre response, brief high-speed taps, release and left/right symmetry. These are vehicle-model regressions, not physical-device playtests.
-- `touch-driving-browser.cjs`: six phone/tablet viewports, including two portrait-locked phones; trusted multi-touch tap/drag, simultaneous steering and pedals, pedal sliding, pointer cancellation, pause/resume, rotation, HUD fit and software controller input. All use the exact packaged HTML hash.
-- `webkit-mobile.cjs`: desktop WebKit compatibility with landscape and portrait-locked phone layouts and iPad dimensions, including transformed touch input, menus and pause. It is not a physical iOS performance measurement.
-- `input-assist.cjs`: delayed steering inputs, short high-speed taps, release, countersteering, wet grip and independence from the racing-line target. Compares pedal behaviour with the previous scheduled-braking build. No automatic brake application is permitted.
-- `beginner-handling.cjs`: input mappings and vehicle equations; partial-stick response, conflicting pedals, held steering, reverse and absence of automatic steering/braking.
-- `beginner-circuits.cjs`: a software driver supplies both pedals and steering at 10 Hz, with a 100 ms control delay, on all 14 circuits. Its speed planner exists only in the test. This replaces the previous held-throttle test, which depended on automatic game braking.
-- `physics.cjs`: two laps per circuit using the unassisted vehicle, including force constraints and track-limit/barrier checks.
-- `beginner-browser.cjs`: rendered control, saved On/Off selection, keyboard events, software controller input, guide cues and reset.
-- `player-controls-browser.cjs` and `pit-skip.cjs`: pit handover, responsive HUD, reverse, reset, disconnect and race-time/service accounting.
+- `classic-handling.cjs` replays the preserved Team Edition input and rack requests at identical vehicle states. It checks release, left/right symmetry, proportional steering, keyboard/controller/touch requests, brake priority, reverse, variable timesteps, wet grip, guide independence and agreement between steering and actual travel. The report identifies the tested handling source by SHA256.
+- `physics.cjs` runs two laps per circuit with the current default aid, checks the speed planner's force constraints and rejects barrier contacts and lap invalidations.
+- `beginner-circuits.cjs` uses a software gamepad driver at 10 Hz with a 100 ms input delay. Its preview now includes the restored filter's settling time (0.7 seconds rather than 0.4); its speed schedule is unchanged. The earlier preview relied on the removed extra grip to recover overshoots. This is a test-driver adjustment, not automatic steering or braking in the game.
+- `beginner-browser.cjs`, `touch-driving-browser.cjs` and `webkit-mobile.cjs` check rendered keyboard/gamepad input, saved assistance, multi-touch steering/pedals and phone/tablet layout. `player-controls-browser.cjs` and `pit-skip.cjs` check reverse, pit handover, reset and pause behaviour.
+- The older `human-handling`, `beginner-handling`, `turn-in` and `input-assist` comparative reports refer to superseded tuning. They are historical, not current release evidence. The release gate instead requires the preserved-response replay and fresh all-circuit driving checks.
 
-All circuit driving checks are automated regression tests. They do not establish human enjoyment, physical controller feel or real iPhone/iPad ergonomics. No physical PlayStation/Xbox controller was paired for these checks.
+These are software and browser-emulation tests. They do not establish human enjoyment, physical controller feel or real iPhone/iPad ergonomics. No physical controller was paired for these checks.
 
 ## Interlagos pit exit
 

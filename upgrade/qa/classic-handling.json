@@ -1,0 +1,295 @@
+{
+  "passed": true,
+  "sourceSHA256": "cc24dd7d2ab67eddc7cd466d159e40f9a7d635156e4726f1c548632ca4162af1",
+  "reference": "Preserved Milano Racing - Team Edition.html; original input and rack requests replayed at matching vehicle states.",
+  "scope": "Restores steering and pedal response; retains current vehicle power, circuits, reverse, combined braking and device mappings. Assisted travel follows the nose within grip limits. Software checks do not establish human or physical-device feel.",
+  "rows": [
+    {
+      "type": "keyboard",
+      "speedKmh": 0,
+      "sign": -1,
+      "peakSteeringRadians": 0.5947562076875069
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 0,
+      "sign": 1,
+      "peakSteeringRadians": 0.5947562076875069
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 28.8,
+      "sign": -1,
+      "peakSteeringRadians": 0.561081405602879
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 28.8,
+      "sign": 1,
+      "peakSteeringRadians": 0.561081405602879
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 72,
+      "sign": -1,
+      "peakSteeringRadians": 0.14559871714861208
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 72,
+      "sign": 1,
+      "peakSteeringRadians": 0.14559871714861208
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 144,
+      "sign": -1,
+      "peakSteeringRadians": 0.06132825558656892
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 144,
+      "sign": 1,
+      "peakSteeringRadians": 0.06132825558656892
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 252,
+      "sign": -1,
+      "peakSteeringRadians": 0.029211146783857948
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 252,
+      "sign": 1,
+      "peakSteeringRadians": 0.029211146783857948
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 342,
+      "sign": -1,
+      "peakSteeringRadians": 0.01588661817445547
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 342,
+      "sign": 1,
+      "peakSteeringRadians": 0.01588661817445547
+    },
+    {
+      "type": "controller",
+      "speedKmh": 0,
+      "sign": -1,
+      "peakSteeringRadians": 0.5947562076875069
+    },
+    {
+      "type": "controller",
+      "speedKmh": 0,
+      "sign": 1,
+      "peakSteeringRadians": 0.5947562076875069
+    },
+    {
+      "type": "controller",
+      "speedKmh": 28.8,
+      "sign": -1,
+      "peakSteeringRadians": 0.561081405602879
+    },
+    {
+      "type": "controller",
+      "speedKmh": 28.8,
+      "sign": 1,
+      "peakSteeringRadians": 0.561081405602879
+    },
+    {
+      "type": "controller",
+      "speedKmh": 72,
+      "sign": -1,
+      "peakSteeringRadians": 0.14559871714861208
+    },
+    {
+      "type": "controller",
+      "speedKmh": 72,
+      "sign": 1,
+      "peakSteeringRadians": 0.14559871714861208
+    },
+    {
+      "type": "controller",
+      "speedKmh": 144,
+      "sign": -1,
+      "peakSteeringRadians": 0.06132825558656892
+    },
+    {
+      "type": "controller",
+      "speedKmh": 144,
+      "sign": 1,
+      "peakSteeringRadians": 0.06132825558656892
+    },
+    {
+      "type": "controller",
+      "speedKmh": 252,
+      "sign": -1,
+      "peakSteeringRadians": 0.029211146783857948
+    },
+    {
+      "type": "controller",
+      "speedKmh": 252,
+      "sign": 1,
+      "peakSteeringRadians": 0.029211146783857948
+    },
+    {
+      "type": "controller",
+      "speedKmh": 342,
+      "sign": -1,
+      "peakSteeringRadians": 0.01588661817445547
+    },
+    {
+      "type": "controller",
+      "speedKmh": 342,
+      "sign": 1,
+      "peakSteeringRadians": 0.01588661817445547
+    },
+    {
+      "type": "touch",
+      "speedKmh": 0,
+      "sign": -1,
+      "peakSteeringRadians": 0.5947562076875069
+    },
+    {
+      "type": "touch",
+      "speedKmh": 0,
+      "sign": 1,
+      "peakSteeringRadians": 0.5947562076875069
+    },
+    {
+      "type": "touch",
+      "speedKmh": 28.8,
+      "sign": -1,
+      "peakSteeringRadians": 0.561081405602879
+    },
+    {
+      "type": "touch",
+      "speedKmh": 28.8,
+      "sign": 1,
+      "peakSteeringRadians": 0.561081405602879
+    },
+    {
+      "type": "touch",
+      "speedKmh": 72,
+      "sign": -1,
+      "peakSteeringRadians": 0.14559871714861208
+    },
+    {
+      "type": "touch",
+      "speedKmh": 72,
+      "sign": 1,
+      "peakSteeringRadians": 0.14559871714861208
+    },
+    {
+      "type": "touch",
+      "speedKmh": 144,
+      "sign": -1,
+      "peakSteeringRadians": 0.06132825558656892
+    },
+    {
+      "type": "touch",
+      "speedKmh": 144,
+      "sign": 1,
+      "peakSteeringRadians": 0.06132825558656892
+    },
+    {
+      "type": "touch",
+      "speedKmh": 252,
+      "sign": -1,
+      "peakSteeringRadians": 0.029211146783857948
+    },
+    {
+      "type": "touch",
+      "speedKmh": 252,
+      "sign": 1,
+      "peakSteeringRadians": 0.029211146783857948
+    },
+    {
+      "type": "touch",
+      "speedKmh": 342,
+      "sign": -1,
+      "peakSteeringRadians": 0.01588661817445547
+    },
+    {
+      "type": "touch",
+      "speedKmh": 342,
+      "sign": 1,
+      "peakSteeringRadians": 0.01588661817445547
+    }
+  ],
+  "safety": [
+    "keyboard",
+    "controller",
+    "touch"
+  ],
+  "trajectories": [
+    {
+      "speed": 8,
+      "sign": -1,
+      "radius": 7.85304480613944,
+      "steering": -0.3649086999653747
+    },
+    {
+      "speed": 8,
+      "sign": 1,
+      "radius": 7.85304480613944,
+      "steering": 0.3649086999653747
+    },
+    {
+      "speed": 20,
+      "sign": -1,
+      "radius": 31.575687548222525,
+      "steering": -0.09472546589544205
+    },
+    {
+      "speed": 20,
+      "sign": 1,
+      "radius": 31.575687548222525,
+      "steering": 0.09472546589544205
+    },
+    {
+      "speed": 40,
+      "sign": -1,
+      "radius": 75.06469841700145,
+      "steering": -0.03994426606776246
+    },
+    {
+      "speed": 40,
+      "sign": 1,
+      "radius": 75.06469841700145,
+      "steering": 0.03994426606776246
+    },
+    {
+      "speed": 70,
+      "sign": -1,
+      "radius": 157.5910906584335,
+      "steering": -0.01903431008539538
+    },
+    {
+      "speed": 70,
+      "sign": 1,
+      "radius": 157.5910906584335,
+      "steering": 0.01903431008539538
+    },
+    {
+      "speed": 95,
+      "sign": -1,
+      "radius": 289.7915717570481,
+      "steering": -0.010351898156492925
+    },
+    {
+      "speed": 95,
+      "sign": 1,
+      "radius": 289.7915717570481,
+      "steering": 0.010351898156492925
+    }
+  ],
+  "wet": [
+    0.8182900941771234,
+    0.4500946569882926
+  ]
+}

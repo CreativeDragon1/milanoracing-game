@@ -26,13 +26,19 @@ assert clearance['passed'] and clearance['fileSHA256']==artifact_sha,'Pit cleara
 surfaces=json.loads((U/'qa/pit-surfaces.json').read_text())
 assert surfaces['passed'] and surfaces['fileSHA256']==artifact_sha,'Pit surface checks must match this HTML'
 assert {r['id'] for r in surfaces['reports']}==set(json.loads((U/'src/world-tour-data.json').read_text())),'Pit surface checks must cover every circuit'
-for name in ['beginner-handling','beginner-circuits','input-assist']:
+classic=json.loads((U/'qa/classic-handling.json').read_text())
+assert classic['passed'] and classic['sourceSHA256']==sha(U/'src/handling.js'),'Classic control replay must match this source'
+# Old comparative gates required the added response curves/grip boosts. The
+# requested rollback is now checked against the preserved original response.
+for name in ['beginner-circuits']:
  assert json.loads((U/f'qa/{name}.json').read_text())['passed'],name
-assert json.loads((U/'qa/turn-in.json').read_text())['passed'],'Turn-in regressions'
+driving=json.loads((U/'qa/driving.json').read_text())
+assert {r['id'] for r in driving}==set(json.loads((U/'src/world-tour-data.json').read_text()))
+assert all(r['simulatedLaps']>=1.99 and r['barrierContacts']==0 and r['invalidations']==0 for r in driving),'All circuit driving checks'
 for name in ['touch-driving-browser','webkit-mobile']:
  report=json.loads((U/f'qa/{name}.json').read_text())
  assert report['passed'] and report['fileSHA256']==artifact_sha,name+' must match this HTML'
-for name in ['qualifying-responsive','qualifying-browser-responsive','hud-timing','resize-render-equivalence','human-handling','player-controls-browser','pit-crew-browser','pit-skip','live-updates','update-routes']:
+for name in ['qualifying-responsive','qualifying-browser-responsive','hud-timing','resize-render-equivalence','player-controls-browser','pit-crew-browser','pit-skip','live-updates','update-routes']:
  assert json.loads((U/f'qa/{name}.json').read_text())['passed'],name
 def archive(name,entries):
  target=out/name
@@ -95,7 +101,7 @@ print('Extracted source build matches both release outputs byte-for-byte.',flush
 standalone=out/'Milano Racing.html';shutil.copy2(U/'qa/standalone.html',standalone)
 active_livery=json.loads((U/'assets/livery/manifest.json').read_text())
 assert json.loads((U/'qa/livery.json').read_text())['atlasSHA256']==active_livery['artworkSHA256']
-manifest={'build':'Milano Racing 3.4 touch handling and phone landscape','liveryRevision':active_livery['revision'],'artworkSHA256':active_livery['artworkSHA256'],'date':datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date().isoformat(),'privateDeploymentDefault':True,'published':False,'sourceRebuild':'Extracted ZIP produces byte-identical standalone HTML and hosted index','files':[]}
+manifest={'build':'Milano Racing 3.5 restored Team Edition controls','liveryRevision':active_livery['revision'],'artworkSHA256':active_livery['artworkSHA256'],'date':datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date().isoformat(),'privateDeploymentDefault':True,'published':False,'sourceRebuild':'Extracted ZIP produces byte-identical standalone HTML and hosted index','files':[]}
 for p in artifacts+[server,source,standalone]:
  dest=downloads/p.name
  if dest.exists() and sha(dest)!=sha(p):
