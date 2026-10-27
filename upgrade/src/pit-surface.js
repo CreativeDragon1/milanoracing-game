@@ -1,8 +1,22 @@
 // Shared pit cross-sections. Consecutive quads use identical edge vertices.
 const pitSections=PIT.x.map((x,i)=>{const h=PIT.heading[i],normal=[-Math.sin(h),Math.cos(h)],s=PIT.s[i],end=Math.min(s,PIT.length-s),blend=clamp(end/55,0,1);return{normal,point:(offset)=>{const xx=x+normal[0]*offset,zz=PIT.z[i]+normal[1]*offset,road=roadHeightAt(xx,zz);return[xx,PIT.y[i]+(road-PIT.y[i])*(1-blend)**2+.026,zz]}}});
+// A rear camera must follow the floor beneath itself, not the car's floor on
+// a different part of a ramp. Pit samples are approximately one metre apart.
+function pitCameraSurface(x,z,s){
+ const hint=Math.round(s/PIT.length*(PIT.x.length-1));let best=Infinity,result=null;
+ for(let i=Math.max(0,hint-32);i<Math.min(PIT.x.length-1,hint+33);i++){
+  const dx=PIT.x[i+1]-PIT.x[i],dz=PIT.z[i+1]-PIT.z[i],length=dx*dx+dz*dz;if(length<1e-8)continue;
+  const t=clamp(((x-PIT.x[i])*dx+(z-PIT.z[i])*dz)/length,0,1),px=PIT.x[i]+dx*t,pz=PIT.z[i]+dz*t,d=(x-px)**2+(z-pz)**2;
+  if(d<best){best=d;result={y:PIT.y[i]+(PIT.y[i+1]-PIT.y[i])*t,s:PIT.s[i]+(PIT.s[i+1]-PIT.s[i])*t,x:px,z:pz,nx:-dz/Math.sqrt(length),nz:dx/Math.sqrt(length),offset:((z-pz)*dx-(x-px)*dz)/Math.sqrt(length)}}
+ }
+ return result;
+}
+function pitCameraTunnelWeight(s){if(!PIT.tunnel)return 0;const a=PIT.s[PIT.tunnel.start],b=PIT.s[PIT.tunnel.end],distance=Math.max(a-s,s-b,0),t=clamp(1-distance/28,0,1);return t*t*(3-2*t)}
 const pitCutCells=new Map(),pitCutQuads=[];
 for(let i=0;i<PIT.x.length-1;i++){
- const a=pitSections[i],b=pitSections[i+1],w=PIT.width/2-.012,v=[a.point(-w),b.point(-w),b.point(w),a.point(w)],q={v,index:i};
+ // Clip to the same edge used by the pit asphalt. An inset left a thin second
+ // road/ground layer at the joins, only millimetres away, which fought for depth.
+ const a=pitSections[i],b=pitSections[i+1],w=PIT.width/2,v=[a.point(-w),b.point(-w),b.point(w),a.point(w)],q={v,index:i};
  const cross=(v[1][0]-v[0][0])*(v[2][2]-v[0][2])-(v[1][2]-v[0][2])*(v[2][0]-v[0][0]);if(cross<0)v.reverse();pitCutQuads.push(q);
  for(let x=Math.floor(Math.min(...v.map(p=>p[0]))/24);x<=Math.floor(Math.max(...v.map(p=>p[0]))/24);x++)for(let z=Math.floor(Math.min(...v.map(p=>p[2]))/24);z<=Math.floor(Math.max(...v.map(p=>p[2]))/24);z++){const key=x+':'+z;if(!pitCutCells.has(key))pitCutCells.set(key,[]);pitCutCells.get(key).push(q)}
 }

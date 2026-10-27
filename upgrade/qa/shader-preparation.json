@@ -1,15 +1,15 @@
 {
   "passed": true,
-  "fileSHA256": "1e648709a6f5f76ef326d7d85dbc16b073853fd9af6888496f5ed5047155cc31",
+  "fileSHA256": "bb0438ce965156e8061612a16648f35629348ae69c05461ba1d8a5c1c6b48b1f",
   "reports": [
     {
       "variant": "prepared",
-      "readyMs": 6829.5229,
-      "firstDrawMs": 282.89999997615814,
+      "readyMs": 7620.4526,
+      "firstDrawMs": 236.5999999642372,
       "preparation": {
         "parallel": true,
         "programs": 47,
-        "polls": 151,
+        "polls": 228,
         "textures": 53
       },
       "unlinked": 0,
@@ -19,16 +19,16 @@
     },
     {
       "variant": "reference",
-      "readyMs": 4400.906200000001,
-      "firstDrawMs": 1003.1000000238419,
+      "readyMs": 4622.053900000001,
+      "firstDrawMs": 1015,
       "unlinked": 0,
       "shaderDiagnostics": true,
       "errors": []
     },
     {
       "variant": "fallback",
-      "readyMs": 5538.446699999999,
-      "firstDrawMs": 103.79999995231628,
+      "readyMs": 5832.831400000001,
+      "firstDrawMs": 118.69999998807907,
       "preparation": {
         "parallel": false,
         "programs": 47,

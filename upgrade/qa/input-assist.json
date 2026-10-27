@@ -1,0 +1,180 @@
+{
+  "passed": true,
+  "scope": "Fixed-speed delayed input responses and pedal/guide independence in the real vehicle equations. Software tests do not establish human enjoyment or hardware feel.",
+  "responses": [
+    {
+      "type": "keyboard",
+      "speedKmh": 54,
+      "manual": {
+        "angle": 0.32468245990676853,
+        "yaw": 1.156934116219133,
+        "steering": 0.9853294951893888
+      },
+      "assisted": {
+        "angle": 0.386774243744099,
+        "yaw": 1.3889816771018473,
+        "steering": 0.9872675870561919
+      }
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 90,
+      "manual": {
+        "angle": 0.19545525542928857,
+        "yaw": 0.8161119571338299,
+        "steering": 0.9679938656278484
+      },
+      "assisted": {
+        "angle": 0.24772826944878382,
+        "yaw": 1.0253642472070175,
+        "steering": 0.9821941829343283
+      }
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 144,
+      "manual": {
+        "angle": 0.12188826564497658,
+        "yaw": 0.6098139140066551,
+        "steering": 0.8995758709305035
+      },
+      "assisted": {
+        "angle": 0.17970897061353489,
+        "yaw": 0.8885868192149422,
+        "steering": 0.9675993278706989
+      }
+    },
+    {
+      "type": "keyboard",
+      "speedKmh": 252,
+      "manual": {
+        "angle": 0.06591633228245526,
+        "yaw": 0.36554917917088725,
+        "steering": 0.7911809314412549
+      },
+      "assisted": {
+        "angle": 0.10257425277236672,
+        "yaw": 0.597137963360118,
+        "steering": 0.944994525758666
+      }
+    },
+    {
+      "type": "controller",
+      "speedKmh": 54,
+      "manual": {
+        "angle": 0.25269542897581176,
+        "yaw": 0.7647786161298957,
+        "steering": 0.698618193307199
+      },
+      "assisted": {
+        "angle": 0.2911349604033733,
+        "yaw": 0.8958116523556368,
+        "steering": 0.698618193307199
+      }
+    },
+    {
+      "type": "controller",
+      "speedKmh": 90,
+      "manual": {
+        "angle": 0.17180938383957428,
+        "yaw": 0.5602774288357617,
+        "steering": 0.6983968396244724
+      },
+      "assisted": {
+        "angle": 0.20233442313530595,
+        "yaw": 0.6692836918429932,
+        "steering": 0.6983968396244724
+      }
+    },
+    {
+      "type": "controller",
+      "speedKmh": 144,
+      "manual": {
+        "angle": 0.14394190753173108,
+        "yaw": 0.4847453075424059,
+        "steering": 0.6979978077231885
+      },
+      "assisted": {
+        "angle": 0.17185689722326786,
+        "yaw": 0.5832881353081819,
+        "steering": 0.6979978077231885
+      }
+    },
+    {
+      "type": "controller",
+      "speedKmh": 252,
+      "manual": {
+        "angle": 0.11271984131431675,
+        "yaw": 0.380434502332692,
+        "steering": 0.6970180396610662
+      },
+      "assisted": {
+        "angle": 0.1226617365424572,
+        "yaw": 0.41400363538587015,
+        "steering": 0.6970180396610662
+      }
+    }
+  ],
+  "pedalOwnership": [
+    {
+      "steer": 0,
+      "scheduled": {
+        "speed": 17.32627707361924,
+        "brake": 0.08092877464948832,
+        "throttle": 0
+      },
+      "inputLed": {
+        "speed": 48.39339347256821,
+        "brake": 0,
+        "throttle": 1
+      }
+    },
+    {
+      "steer": 0.4,
+      "scheduled": {
+        "speed": 17.269934213230606,
+        "brake": 0.07932797981680378,
+        "throttle": 0
+      },
+      "inputLed": {
+        "speed": 48.67665740055401,
+        "brake": 0,
+        "throttle": 1
+      }
+    },
+    {
+      "steer": 1,
+      "scheduled": {
+        "speed": 16.84818921658481,
+        "brake": 0.06754343965032776,
+        "throttle": 0
+      },
+      "inputLed": {
+        "speed": 46.679960383697534,
+        "brake": 0,
+        "throttle": 1
+      }
+    }
+  ],
+  "wetHeadings": [
+    0.6057134456009857,
+    0.3299293698026175
+  ],
+  "pulses": [
+    {
+      "speed": 50,
+      "held": 0.22499999999999998,
+      "heading": 0.006560898833712263
+    },
+    {
+      "speed": 75,
+      "held": 0.22499999999999998,
+      "heading": 0.0047841733908593476
+    },
+    {
+      "speed": 95,
+      "held": 0.22499999999999998,
+      "heading": 0.0037303180677470764
+    }
+  ]
+}

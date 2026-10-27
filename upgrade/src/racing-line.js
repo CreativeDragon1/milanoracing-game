@@ -8,7 +8,6 @@ function refreshGuideSpeeds(){
  racingGuide.limitSpeed=solved.speed;
  // Race envelope: no compounded safe-driving speed reductions.
  racingGuide.speed=solved.speed.map(v=>v*VEH.driverSpeedFactor);
- racingGuide.assist=buildCornerAssistProfile();
  racingGuide.corner=racingGuide.curvature.map((_,i)=>{for(let j=-8;j<=24;j++)if(Math.abs(racingGuide.curvature[wrapLine(i+j)])>.0025)return true;return false});
 }
 refreshGuideSpeeds();
@@ -22,13 +21,6 @@ const guideOutline=new T.InstancedMesh(arrowGeometry,new T.MeshBasicMaterial({co
 guideArrows.frustumCulled=guideOutline.frustumCulled=false;guideArrows.renderOrder=3;guideOutline.renderOrder=2;scene.add(guideOutline,guideArrows);
 const guideDummy=new T.Object3D(),guideColours=[new T.Color(0x57efa5).convertSRGBToLinear(),new T.Color(0xffc34a).convertSRGBToLinear(),new T.Color(0xff5049).convertSRGBToLinear()];
 function guideDemand(i,v){
- if(S.cornerAssist!==0&&racingGuide.assist){
-  const grip=typeof GP!=='undefined'&&GP.weekend?GP.weekend.grip(GP.weekend.player):1;
-  const e=vehicleEnvelope(v,S,grip,racingGuide.report.vertical.grade[i],racingGuide.report.vertical.curvature[i],bankAt(i));
-  const drive=cornerDriveDemand(i,v,e,grip,1),brake=Math.max(0,-drive),throttle=Math.max(0,drive);
-  const ahead=wrapLine(i+Math.round(Math.min(36,v*.45)/(LEN/N)));
-  return {level:brake>.045?2:throttle<.85?1:0,brake,throttle,target:racingGuide.assist.speed[ahead]*Math.sqrt(clamp(grip,.25,1))};
- }
  const solved=racingGuide.report,j=wrapLine(i+1),v0=racingGuide.speed[i],v1=racingGuide.speed[j],ds=solved.ds[i];
  const feed=(v1*v1-v0*v0)/(2*ds)*Math.min(1,v*v/Math.max(1,v0*v0)),correction=(v0*v0-v*v)/(2*Math.max(10,v*.22));
  const e=vehicleEnvelope(v,S,1,solved.vertical.grade[i],solved.vertical.curvature[i],bankAt(i)),limit=planningLimits(v,racingGuide.curvature[i],S,solved.vertical.grade[i],solved.vertical.curvature[i],bankAt(i));
@@ -49,7 +41,7 @@ function updateRacingLine(){
  for(let n=0;n<52;n++){
   const i=wrapLine(c.idx+n),a=wrapLine(i-1),b=wrapLine(i+1),active=mode===2||racingGuide.corner[i];
   guideDummy.position.set(racingGuide.x[i],surfaceHeight(i,racingGuide.offset[i])+.084,racingGuide.z[i]);guideDummy.rotation.set(-bankAt(i),-Math.atan2(racingGuide.z[b]-racingGuide.z[a],racingGuide.x[b]-racingGuide.x[a]),Math.atan(racingGuide.report.vertical.grade[i]),'YXZ');
-  const fade=n>44?(52-n)/8:1;guideDummy.scale.set(active?fade:0,1,active?fade:0);guideDummy.updateMatrix();guideArrows.setMatrixAt(n,guideDummy.matrix);guideArrows.setColorAt(n,guideColours[guideDemand(i,n<3?c.vx:(S.cornerAssist!==0?racingGuide.assist.speed[i]:racingGuide.speed[i])).level]);
+  const fade=n>44?(52-n)/8:1;guideDummy.scale.set(active?fade:0,1,active?fade:0);guideDummy.updateMatrix();guideArrows.setMatrixAt(n,guideDummy.matrix);guideArrows.setColorAt(n,guideColours[guideDemand(i,n<3?c.vx:racingGuide.speed[i]).level]);
   guideDummy.position.y=surfaceHeight(i,racingGuide.offset[i])+.079;guideDummy.scale.x*=1.13;guideDummy.scale.z*=1.35;guideDummy.updateMatrix();guideOutline.setMatrixAt(n,guideDummy.matrix);
  }
  guideArrows.instanceMatrix.needsUpdate=guideOutline.instanceMatrix.needsUpdate=true;guideArrows.instanceColor.needsUpdate=true;

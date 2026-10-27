@@ -213,7 +213,7 @@ h1,h2,h3{letter-spacing:0!important;line-height:1.35}
 <div class="ov" id="settings"><div class="pn settings-shell">
  <header class="screen-heading"><div><div class="eyebrow">MILANO RACING</div><h2>Garage</h2></div><button class="close-screen" data-ov="menu" aria-label="Back to home">×</button></header>
  <div class="settings-layout"><nav class="settings-tabs" aria-label="Settings"><button data-settings-tab="driver" aria-pressed="true"><span>01</span>Controls</button><button data-settings-tab="display" aria-pressed="false"><span>02</span>Display</button><button data-settings-tab="audio" aria-pressed="false"><span>03</span>Audio</button></nav>
- <div class="settings-content"><section data-settings-panel="driver"><div class="section-index">DRIVER</div><h3>Input control</h3><label class="control-row" for="menu-steering"><span>Steering response</span><output id="menu-steering-value">0.85</output><input id="menu-steering" type="range" min=".5" max="1.5" step=".05"></label><label class="control-row">Corner assist<select id="menu-corner-assist"><option value="1">On</option><option value="0">Off</option></select></label><label class="control-row">Racing line<select id="menu-racing-line"><option value="2">Full circuit</option><option value="1">Corners only</option><option value="0">Off</option></select></label><div class="settings-links"><button id="connect-menu">Controller <span>↗</span></button><button data-ov="setup" data-setup-from="settings">Car setup <span>↗</span></button><button data-ov="help">Quick controls <span>↗</span></button></div><p class="settings-caption">Keyboard + PlayStation + Xbox</p></section>
+ <div class="settings-content"><section data-settings-panel="driver"><div class="section-index">DRIVER</div><h3>Input control</h3><label class="control-row" for="menu-steering"><span>Steering response</span><output id="menu-steering-value">0.85</output><input id="menu-steering" type="range" min=".5" max="1.5" step=".05"></label><label class="control-row">Handling assist<select id="menu-corner-assist"><option value="1">On</option><option value="0">Off</option></select></label><label class="control-row">Racing line<select id="menu-racing-line"><option value="2">Full circuit</option><option value="1">Corners only</option><option value="0">Off</option></select></label><div class="settings-links"><button id="connect-menu">Controller <span>↗</span></button><button data-ov="setup" data-setup-from="settings">Car setup <span>↗</span></button><button data-ov="help">Quick controls <span>↗</span></button></div><p class="settings-caption">Keyboard + PlayStation + Xbox</p></section>
  <section data-settings-panel="display" hidden><div class="section-index">DISPLAY</div><h3>Graphics</h3><div id="graphics-settings"></div><div class="quality-specs" id="quality-specs"></div><button id="fullscreen-menu" class="outline-action">Fullscreen <span>F</span></button></section>
  <section data-settings-panel="audio" hidden><div class="section-index">AUDIO</div><h3>Engine audio</h3><label class="control-row" for="menu-volume"><span>V10 engine</span><output id="menu-volume-value">70%</output><input id="menu-volume" type="range" min="0" max="1" step=".05"></label><button id="menu-mute" class="outline-action">Mute</button></section></div></div>
  <footer class="screen-footer"><span>MR 26 · ALWAYS THE FASTEST</span><button class="text-action" data-ov="about">Credits &amp; info ↗</button><button class="p" data-ov="menu">Done ↗</button></footer>
@@ -4422,6 +4422,7 @@ try{Object.defineProperty(window,"trackBounds",{configurable:true,get:()=>trackB
 try{Object.defineProperty(window,"circuitCentre",{configurable:true,get:()=>circuitCentre,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"circuitRadius",{configurable:true,get:()=>circuitRadius,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"pitGateCache",{configurable:true,get:()=>pitGateCache,set:()=>{}})}catch{}
+try{Object.defineProperty(window,"pitGateCells",{configurable:true,get:()=>pitGateCells,set:value=>{pitGateCells=value}})}catch{}
 try{Object.defineProperty(window,"pitOpening",{configurable:true,get:()=>pitOpening,set:value=>{pitOpening=value}})}catch{}
 try{Object.defineProperty(window,"trackBarrier",{configurable:true,get:()=>trackBarrier,set:value=>{trackBarrier=value}})}catch{}
 try{Object.defineProperty(window,"prog",{configurable:true,get:()=>prog,set:value=>{prog=value}})}catch{}
@@ -4693,6 +4694,8 @@ try{Object.defineProperty(window,"rainLight",{configurable:true,get:()=>rainLigh
 try{Object.defineProperty(window,"shadowMap",{configurable:true,get:()=>shadowMap,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"contactShadow",{configurable:true,get:()=>contactShadow,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"pitSections",{configurable:true,get:()=>pitSections,set:()=>{}})}catch{}
+try{Object.defineProperty(window,"pitCameraSurface",{configurable:true,get:()=>pitCameraSurface,set:value=>{pitCameraSurface=value}})}catch{}
+try{Object.defineProperty(window,"pitCameraTunnelWeight",{configurable:true,get:()=>pitCameraTunnelWeight,set:value=>{pitCameraTunnelWeight=value}})}catch{}
 try{Object.defineProperty(window,"pitCutCells",{configurable:true,get:()=>pitCutCells,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"pitCutQuads",{configurable:true,get:()=>pitCutQuads,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"pitSurfaceAudit",{configurable:true,get:()=>pitSurfaceAudit,set:()=>{}})}catch{}
@@ -4764,8 +4767,7 @@ try{Object.defineProperty(window,"invalid",{configurable:true,get:()=>invalid,se
 try{Object.defineProperty(window,"smoothDriverSteering",{configurable:true,get:()=>smoothDriverSteering,set:value=>{smoothDriverSteering=value}})}catch{}
 try{Object.defineProperty(window,"driverSteeringCommand",{configurable:true,get:()=>driverSteeringCommand,set:value=>{driverSteeringCommand=value}})}catch{}
 try{Object.defineProperty(window,"playerSteeringLock",{configurable:true,get:()=>playerSteeringLock,set:value=>{playerSteeringLock=value}})}catch{}
-try{Object.defineProperty(window,"buildCornerAssistProfile",{configurable:true,get:()=>buildCornerAssistProfile,set:value=>{buildCornerAssistProfile=value}})}catch{}
-try{Object.defineProperty(window,"cornerDriveDemand",{configurable:true,get:()=>cornerDriveDemand,set:value=>{cornerDriveDemand=value}})}catch{}
+try{Object.defineProperty(window,"driverGripSupport",{configurable:true,get:()=>driverGripSupport,set:value=>{driverGripSupport=value}})}catch{}
 try{Object.defineProperty(window,"selectDriveDirection",{configurable:true,get:()=>selectDriveDirection,set:value=>{selectDriveDirection=value}})}catch{}
 try{Object.defineProperty(window,"combinedAxleForces",{configurable:true,get:()=>combinedAxleForces,set:value=>{combinedAxleForces=value}})}catch{}
 try{Object.defineProperty(window,"step",{configurable:true,get:()=>step,set:value=>{step=value}})}catch{}
@@ -5135,8 +5137,31 @@ const trackBounds={x:Math.min(...cx),X:Math.max(...cx),z:Math.min(...cz),Z:Math.
 await MilanoBoot.checkpoint("Prepare circuitCentre, circuitRadius");
 const circuitCentre={x:(trackBounds.x+trackBounds.X)/2,z:(trackBounds.z+trackBounds.Z)/2},circuitRadius=Math.hypot(trackBounds.X-trackBounds.x,trackBounds.Z-trackBounds.z)/2;
 await MilanoBoot.checkpoint("Prepare pitGateCache");
-const pitGateCache=new Map();
-function pitOpening(i,side){const key=i+':'+side;if(pitGateCache.has(key))return pitGateCache.get(key);const off=trackBarrier(i,side),x=cx[i]+nx[i]*off,z=cz[i]+nz[i]*off;let hit=false;for(let k=0;k<PIT.x.length;k+=2)if((PIT.x[k]-x)**2+(PIT.z[k]-z)**2<36){hit=true;break}pitGateCache.set(key,hit);return hit}
+const pitGateCache=new Map();await MilanoBoot.checkpoint("Prepare pitGateCells");
+let pitGateCells=null;
+function pitOpening(i,side){
+ const key=i+':'+side;if(pitGateCache.has(key))return pitGateCache.get(key);
+ const radius=PIT.width/2+1,cell=24;
+ if(!pitGateCells){pitGateCells=new Map();for(let k=0;k<PIT.x.length-1;k++)for(let x=Math.floor((Math.min(PIT.x[k],PIT.x[k+1])-radius)/cell);x<=Math.floor((Math.max(PIT.x[k],PIT.x[k+1])+radius)/cell);x++)for(let z=Math.floor((Math.min(PIT.z[k],PIT.z[k+1])-radius)/cell);z<=Math.floor((Math.max(PIT.z[k],PIT.z[k+1])+radius)/cell);z++){const key=x+':'+z;if(!pitGateCells.has(key))pitGateCells.set(key,[]);pitGateCells.get(key).push(k)}}
+ const j=(i+1)%N,oi=trackBarrier(i,side),oj=trackBarrier(j,side),ax=cx[i]+nx[i]*oi,az=cz[i]+nz[i]*oi,bx=cx[j]+nx[j]*oj,bz=cz[j]+nz[j]*oj,dx=bx-ax,dz=bz-az,len=dx*dx+dz*dz,candidates=new Set();
+ for(let x=Math.floor(Math.min(ax,bx)/cell);x<=Math.floor(Math.max(ax,bx)/cell);x++)for(let z=Math.floor(Math.min(az,bz)/cell);z<=Math.floor(Math.max(az,bz)/cell);z++)for(const k of pitGateCells.get(x+':'+z)||[])candidates.add(k);
+ let hit=false;
+ for(const k of candidates){
+  const px=PIT.x[k],pz=PIT.z[k],qx=PIT.x[k+1],qz=PIT.z[k+1],ux=qx-px,uz=qz-pz,ul=ux*ux+uz*uz,det=dx*uz-dz*ux;
+  let best=Infinity,t=0,u=0;
+  const check=(a,b)=>{const ex=ax+dx*a-px-ux*b,ez=az+dz*a-pz-uz*b,d=ex*ex+ez*ez;if(d<best){best=d;t=a;u=b}};
+  // Test the complete barrier span, including crossings between its endpoints.
+  // Testing only its first vertex allowed long diagonal panels across the pits.
+  if(Math.abs(det)>1e-8){const a=((px-ax)*uz-(pz-az)*ux)/det,b=((px-ax)*dz-(pz-az)*dx)/det;if(a>=0&&a<=1&&b>=0&&b<=1)check(a,b)}
+  check(clamp(((px-ax)*dx+(pz-az)*dz)/Math.max(1e-8,len),0,1),0);check(clamp(((qx-ax)*dx+(qz-az)*dz)/Math.max(1e-8,len),0,1),1);
+  check(0,clamp(((ax-px)*ux+(az-pz)*uz)/Math.max(1e-8,ul),0,1));check(1,clamp(((bx-px)*ux+(bz-pz)*uz)/Math.max(1e-8,ul),0,1));
+  if(best>=radius*radius)continue;
+  const ay=typeof unifiedGround!=='undefined'&&unifiedGround&&!bridgeSegments.has(i)?groundHeight(ax,az):surfaceHeight(i,oi),by=typeof unifiedGround!=='undefined'&&unifiedGround&&!bridgeSegments.has(j)?groundHeight(bx,bz):surfaceHeight(j,oj),wallY=ay+(by-ay)*t,pitY=PIT.y[k]+(PIT.y[k+1]-PIT.y[k])*u;
+  // Keep genuinely separate road decks, such as the road over Yas's pit tunnel.
+  if(wallY<pitY+4&&wallY+4.5>pitY-.3){hit=true;break}
+ }
+ pitGateCache.set(key,hit);return hit;
+}
 function trackBarrier(i,side){return side*(trackHalf(i,side)+(side>0?CIRCUIT.runoffRight[i]:CIRCUIT.runoffLeft[i]))}
 function prog(px,pz,hint){let bi=0,bd=Infinity,bt=0,bx=0,bz=0;
  const test=i=>{const j=(i+1)%N,dx=cx[j]-cx[i],dz=cz[j]-cz[i],u=clamp(((px-cx[i])*dx+(pz-cz[i])*dz)/(dx*dx+dz*dz),0,1),qx=cx[i]+dx*u,qz=cz[i]+dz*u,dd=(px-qx)**2+(pz-qz)**2;if(dd<bd){bd=dd;bi=i;bt=u;bx=qx;bz=qz}};
@@ -6981,11 +7006,25 @@ scene.add(contactShadow);
 // Shared pit cross-sections. Consecutive quads use identical edge vertices.
 await MilanoBoot.checkpoint("Prepare pitSections");
 const pitSections=PIT.x.map((x,i)=>{const h=PIT.heading[i],normal=[-Math.sin(h),Math.cos(h)],s=PIT.s[i],end=Math.min(s,PIT.length-s),blend=clamp(end/55,0,1);return{normal,point:(offset)=>{const xx=x+normal[0]*offset,zz=PIT.z[i]+normal[1]*offset,road=roadHeightAt(xx,zz);return[xx,PIT.y[i]+(road-PIT.y[i])*(1-blend)**2+.026,zz]}}});
+// A rear camera must follow the floor beneath itself, not the car's floor on
+// a different part of a ramp. Pit samples are approximately one metre apart.
+function pitCameraSurface(x,z,s){
+ const hint=Math.round(s/PIT.length*(PIT.x.length-1));let best=Infinity,result=null;
+ for(let i=Math.max(0,hint-32);i<Math.min(PIT.x.length-1,hint+33);i++){
+  const dx=PIT.x[i+1]-PIT.x[i],dz=PIT.z[i+1]-PIT.z[i],length=dx*dx+dz*dz;if(length<1e-8)continue;
+  const t=clamp(((x-PIT.x[i])*dx+(z-PIT.z[i])*dz)/length,0,1),px=PIT.x[i]+dx*t,pz=PIT.z[i]+dz*t,d=(x-px)**2+(z-pz)**2;
+  if(d<best){best=d;result={y:PIT.y[i]+(PIT.y[i+1]-PIT.y[i])*t,s:PIT.s[i]+(PIT.s[i+1]-PIT.s[i])*t,x:px,z:pz,nx:-dz/Math.sqrt(length),nz:dx/Math.sqrt(length),offset:((z-pz)*dx-(x-px)*dz)/Math.sqrt(length)}}
+ }
+ return result;
+}
+function pitCameraTunnelWeight(s){if(!PIT.tunnel)return 0;const a=PIT.s[PIT.tunnel.start],b=PIT.s[PIT.tunnel.end],distance=Math.max(a-s,s-b,0),t=clamp(1-distance/28,0,1);return t*t*(3-2*t)}
 await MilanoBoot.checkpoint("Prepare pitCutCells, pitCutQuads");
 const pitCutCells=new Map(),pitCutQuads=[];
 await MilanoBoot.checkpoint("For scene");
 for(let i=0;i<PIT.x.length-1;i++){if(MilanoBoot.shouldYield())await MilanoBoot.checkpoint();
- const a=pitSections[i],b=pitSections[i+1],w=PIT.width/2-.012,v=[a.point(-w),b.point(-w),b.point(w),a.point(w)],q={v,index:i};
+ // Clip to the same edge used by the pit asphalt. An inset left a thin second
+ // road/ground layer at the joins, only millimetres away, which fought for depth.
+ const a=pitSections[i],b=pitSections[i+1],w=PIT.width/2,v=[a.point(-w),b.point(-w),b.point(w),a.point(w)],q={v,index:i};
  const cross=(v[1][0]-v[0][0])*(v[2][2]-v[0][2])-(v[1][2]-v[0][2])*(v[2][0]-v[0][0]);if(cross<0)v.reverse();pitCutQuads.push(q);
  for(let x=Math.floor(Math.min(...v.map(p=>p[0]))/24);x<=Math.floor(Math.max(...v.map(p=>p[0]))/24);x++)for(let z=Math.floor(Math.min(...v.map(p=>p[2]))/24);z<=Math.floor(Math.max(...v.map(p=>p[2]))/24);z++){const key=x+':'+z;if(!pitCutCells.has(key))pitCutCells.set(key,[]);pitCutCells.get(key).push(q)}
 }
@@ -7212,14 +7251,16 @@ function newSession(m){if(typeof MP!=='undefined'&&MP.active&&m!=='mp')return;re
  placeCar(N-4);gph=[];keys.clear();show('count');state='count';$('hud').hidden=false;acc=0}
 function invalid(why){if(race.started&&race.valid){race.valid=false;msg(why,2200)}}
 // Event handling: assisted vehicle dynamics. The visual racing line never drives the car.
-function smoothDriverSteering(current,target,speed,dt,keyboard){
+function smoothDriverSteering(current,target,speed,dt,keyboard,assisted=false){
  // Digital keys need a progressive build-up; sticks already carry fine positioning.
  // Preserve full lock when held, and centre promptly when the driver releases input.
  if(!keyboard){const fast=clamp((Math.abs(speed)-12)/55,0,1),release=Math.abs(target)<.03,reversing=current*target<-.015,rate=release?18:reversing?18:16-2*fast,slew=release?7:reversing?7:7-fast;return clamp(current+clamp((target-current)*(1-Math.exp(-rate*dt)),-slew*dt,slew*dt),-1,1)}
  const fast=clamp((Math.abs(speed)-12)/38,0,1),release=Math.abs(target)<.015;
  const reversing=current*target<-.015;
- const rate=release?18:reversing?18:12*(1-fast)+4.2*fast;
- const slew=release?7:reversing?7:5.8*(1-fast)+2.7*fast;
+ // Keep short taps gentle, then give a held key authority to finish a late turn.
+ const commitment=assisted&&!release&&!reversing?clamp((Math.abs(current)-.28)/.40,0,1)*fast:0;
+ const rate=release?18:reversing?18:12*(1-fast)+4.2*fast+5.8*commitment;
+ const slew=release?7:reversing?7:5.8*(1-fast)+2.7*fast+3*commitment;
  const change=(target-current)*(1-Math.exp(-rate*dt));
  const next=current+clamp(change,-slew*dt,slew*dt);
  return Math.abs(next)<.0001?0:clamp(next,-1,1);
@@ -7233,26 +7274,11 @@ function driverSteeringCommand(input,keyboard,sensitivity,speed=50){
 // Driver rack is independent of the racing-line planner. Sensitivity shapes
 // small inputs, while a deliberate held input retains the full turning circle.
 function playerSteeringLock(e,speed){return Math.min(.64/(1+(speed/40)**2),Math.atan(e.maxLat*VEH.wheelbase/(speed*speed+9)))}
-// Solve once when setup changes. Beginners do not always take the optimized
-// racing line, so reserve grip for a tighter, centre-road approach and corrections.
-function buildCornerAssistProfile(){
- const curvature=cx.map((_,i)=>{const a=(i+N-1)%N,b=(i+1)%N,abx=cx[i]-cx[a],abz=cz[i]-cz[a],bcx=cx[b]-cx[i],bcz=cz[b]-cz[i];return 2*(abx*bcz-abz*bcx)/Math.max(.001,Math.hypot(abx,abz)*Math.hypot(bcx,bcz)*Math.hypot(cx[b]-cx[a],cz[b]-cz[a]))});
- const solved=solveSpeedProfile(cx,cz,curvature,S,cy,CIRCUIT.bank);
- return {speed:solved.speed.map(v=>v*.90),ds:solved.ds};
-}
-// Use the cached envelope for entry braking, never for steering. Include the
-// planned deceleration; chasing only a target speed reacts too late at a hairpin.
-function cornerDriveDemand(index,speed,envelope,roadMu,along){
- if(S.cornerAssist===0||speed<6||along<.25||typeof racingGuide==='undefined'||!racingGuide.speed.length)return 1;
- const profile=racingGuide.assist||racingGuide,ahead=(index+Math.round(Math.min(36,speed*.45)/(LEN/N)))%N,next=(ahead+1)%N;
- const grip=clamp(roadMu,.25,1),target=profile.speed[ahead]*Math.sqrt(grip);
- const feed=Math.min(0,(profile.speed[next]**2-profile.speed[ahead]**2)*grip/(2*(profile.ds?.[ahead]||LEN/N)))*Math.min(1,speed*speed/Math.max(1,target*target));
- const deceleration=(speed*speed-target*target)/(2*Math.max(10,speed*.30))-feed;
- const coast=envelope.drag/VEH.mass*envelope.cosSlope+envelope.slopeGravity;
- const force=(coast-deceleration)*VEH.mass;
- // A signed demand crosses smoothly from braking through coasting to drive.
- // Keeping any fixed fraction of throttle during braking causes a speed error.
- return force<0?clamp(force/Math.max(1,envelope.brake),-.82,0):clamp(force/Math.max(1,envelope.drive),0,1);
+// Input-led handling support: no track lookup, target speed or automatic pedal.
+// Reserve additional grip for committed turns, tapering at very high speed.
+// Road surface and tyre condition still scale the underlying tyre forces.
+function driverGripSupport(input,speed,enabled){
+ return enabled?clamp((Math.abs(input)-.12)/.65,0,1)*clamp((speed-6)/10,0,1)*(1-.65*clamp((speed-45)/35,0,1)):0;
 }
 function selectDriveDirection(car,gas,brake,dt){
  if(car.reverse===undefined){car.reverse=false;car.reverseArmed=Math.abs(car.vx)<.35;car.reverseHold=0}
@@ -7279,18 +7305,16 @@ function step(dt){
  const reversing=selectDriveDirection(c,inp.t,Math.max((k('KeyS')||k('ArrowDown')||k('Space'))?1:0,padInput.b,touchInput.b),dt);
  const ks=((k('KeyD')||k('ArrowRight'))?1:0)-((k('KeyA')||k('ArrowLeft'))?1:0),target=ks||touchInput.s||padInput.s;
  const keyboard=ks!==0||(Math.abs(padInput.s)<.015&&Math.abs(touchInput.s)<.015);
- inp.s=smoothDriverSteering(inp.s,target,c.vx,dt,keyboard);
+ const assisted=S.cornerAssist===1&&!reversing;
+ inp.s=smoothDriverSteering(inp.s,target,c.vx,dt,keyboard,assisted);
  const along=Math.cos(c.h)*tx[c.idx]+Math.sin(c.h)*tz[c.idx],ia=(c.idx+N-1)%N,ib=(c.idx+1)%N,centreK=(tx[c.idx]*(tz[ib]-tz[ia])-tz[c.idx]*(tx[ib]-tx[ia]))/(2*LEN/N),metric=Math.max(.25,1-centreK*c.d),grade=(CIRCUIT.elevation?.grade[c.idx]||0)*along/metric,verticalCurvature=(CIRCUIT.elevation?.verticalCurvature[c.idx]||0)*along*along/(metric*metric);
  const bank=(CIRCUIT.bank?.[c.idx]||0)*along;
- const m=VEH.mass,g=VEH.gravity,a=VEH.frontCG,b=VEH.rearCG,L=VEH.wheelbase,Iz=VEH.yawInertia,v=c.vx,e=vehicleEnvelope(v,S,mu,grade,verticalCurvature,bank),maxLat=e.maxLat;
- if(!reversing){
-  const assisted=ad<edge+2?cornerDriveDemand(c.idx,v,e,mu,along):1;
-  c.cornerBrake=(c.cornerBrake||0)+clamp(Math.max(0,-assisted)-(c.cornerBrake||0),-3.5*dt,4.5*dt);
-  inp.b=Math.max(inp.b,c.cornerBrake);
-  // Braking must win over a held accelerator, including assisted braking.
-  // Previously the remaining engine force cancelled much of a beginner's stop.
-  inp.t=Math.min(inp.t,Math.max(0,assisted),Math.max(0,1-inp.b*20));
- }else c.cornerBrake=0;
+ const m=VEH.mass,g=VEH.gravity,a=VEH.frontCG,b=VEH.rearCG,L=VEH.wheelbase,Iz=VEH.yawInertia,v=c.vx,e=vehicleEnvelope(v,S,mu,grade,verticalCurvature,bank);
+ const support=driverGripSupport(inp.s,v,assisted),gripReserve=1+.22*support;
+ e.mu*=gripReserve;const maxLat=e.maxLat=Math.min(VEH.maxLateralAcceleration*1.08,e.maxLat*gripReserve);
+ c.cornerBrake=0;
+ // Only the driver's brake suppresses throttle. Assistance never presses it.
+ if(!reversing)inp.t=Math.min(inp.t,Math.max(0,1-inp.b*20));
  c.st=driverSteeringCommand(inp.s,keyboard,S.steer,v)*playerSteeringLock(e,v);
  if(reversing){
   const targetSpeed=inp.t>.05?0:-8*inp.b,rate=inp.t>.05?10:inp.b>.05?3.8:2.5;
@@ -7313,10 +7337,10 @@ function step(dt){
  // All targets come from driver input, never from track direction or position.
  const targetYaw=clamp(c.vx/L*Math.tan(c.st),-maxLat/Math.max(c.vx,4),maxLat/Math.max(c.vx,4));
  const lowSpeed=1-clamp((c.vx-12)/16,0,1),kinematic=lowSpeed*lowSpeed*(3-2*lowSpeed);
- c.r+=(targetYaw-c.r)*Math.max(kinematic,1-Math.exp(-6*dt));
+ c.r+=(targetYaw-c.r)*Math.max(kinematic,1-Math.exp(-(6+4*support)*dt));
  const yawLimit=Math.abs(targetYaw)+.10;
  c.r=clamp(c.r,-yawLimit,yawLimit);
- c.vy*=Math.exp(-(c.vx<5?12:5.8)*dt);
+ c.vy*=Math.exp(-(c.vx<5?12:5.8+2*support)*dt);
  const slipLimit=.35+c.vx*.10;c.vy=clamp(c.vy,-slipLimit,slipLimit);
  if(c.vx<.15){c.vy=0;c.r=0}
  }
@@ -7763,7 +7787,6 @@ function refreshGuideSpeeds(){
  racingGuide.limitSpeed=solved.speed;
  // Race envelope: no compounded safe-driving speed reductions.
  racingGuide.speed=solved.speed.map(v=>v*VEH.driverSpeedFactor);
- racingGuide.assist=buildCornerAssistProfile();
  racingGuide.corner=racingGuide.curvature.map((_,i)=>{for(let j=-8;j<=24;j++)if(Math.abs(racingGuide.curvature[wrapLine(i+j)])>.0025)return true;return false});
 }
 await MilanoBoot.checkpoint("Build refreshGuideSpeeds");
@@ -7788,13 +7811,6 @@ scene.add(guideOutline,guideArrows);
 await MilanoBoot.checkpoint("Prepare guideDummy, guideColours");
 const guideDummy=new T.Object3D(),guideColours=[new T.Color(0x57efa5).convertSRGBToLinear(),new T.Color(0xffc34a).convertSRGBToLinear(),new T.Color(0xff5049).convertSRGBToLinear()];
 function guideDemand(i,v){
- if(S.cornerAssist!==0&&racingGuide.assist){
-  const grip=typeof GP!=='undefined'&&GP.weekend?GP.weekend.grip(GP.weekend.player):1;
-  const e=vehicleEnvelope(v,S,grip,racingGuide.report.vertical.grade[i],racingGuide.report.vertical.curvature[i],bankAt(i));
-  const drive=cornerDriveDemand(i,v,e,grip,1),brake=Math.max(0,-drive),throttle=Math.max(0,drive);
-  const ahead=wrapLine(i+Math.round(Math.min(36,v*.45)/(LEN/N)));
-  return {level:brake>.045?2:throttle<.85?1:0,brake,throttle,target:racingGuide.assist.speed[ahead]*Math.sqrt(clamp(grip,.25,1))};
- }
  const solved=racingGuide.report,j=wrapLine(i+1),v0=racingGuide.speed[i],v1=racingGuide.speed[j],ds=solved.ds[i];
  const feed=(v1*v1-v0*v0)/(2*ds)*Math.min(1,v*v/Math.max(1,v0*v0)),correction=(v0*v0-v*v)/(2*Math.max(10,v*.22));
  const e=vehicleEnvelope(v,S,1,solved.vertical.grade[i],solved.vertical.curvature[i],bankAt(i)),limit=planningLimits(v,racingGuide.curvature[i],S,solved.vertical.grade[i],solved.vertical.curvature[i],bankAt(i));
@@ -7820,7 +7836,7 @@ function updateRacingLine(){
  for(let n=0;n<52;n++){
   const i=wrapLine(c.idx+n),a=wrapLine(i-1),b=wrapLine(i+1),active=mode===2||racingGuide.corner[i];
   guideDummy.position.set(racingGuide.x[i],surfaceHeight(i,racingGuide.offset[i])+.084,racingGuide.z[i]);guideDummy.rotation.set(-bankAt(i),-Math.atan2(racingGuide.z[b]-racingGuide.z[a],racingGuide.x[b]-racingGuide.x[a]),Math.atan(racingGuide.report.vertical.grade[i]),'YXZ');
-  const fade=n>44?(52-n)/8:1;guideDummy.scale.set(active?fade:0,1,active?fade:0);guideDummy.updateMatrix();guideArrows.setMatrixAt(n,guideDummy.matrix);guideArrows.setColorAt(n,guideColours[guideDemand(i,n<3?c.vx:(S.cornerAssist!==0?racingGuide.assist.speed[i]:racingGuide.speed[i])).level]);
+  const fade=n>44?(52-n)/8:1;guideDummy.scale.set(active?fade:0,1,active?fade:0);guideDummy.updateMatrix();guideArrows.setMatrixAt(n,guideDummy.matrix);guideArrows.setColorAt(n,guideColours[guideDemand(i,n<3?c.vx:racingGuide.speed[i]).level]);
   guideDummy.position.y=surfaceHeight(i,racingGuide.offset[i])+.079;guideDummy.scale.x*=1.13;guideDummy.scale.z*=1.35;guideDummy.updateMatrix();guideOutline.setMatrixAt(n,guideDummy.matrix);
  }
  guideArrows.instanceMatrix.needsUpdate=guideOutline.instanceMatrix.needsUpdate=true;guideArrows.instanceColor.needsUpdate=true;
@@ -7971,11 +7987,14 @@ function frame(now){requestAnimationFrame(frame);if(!window.MilanoReady)return;c
   const inPit=typeof GP!=='undefined'&&GP.weekend?.player.pit;if(inPit){const dist=camMode===1?2.35:camMode===2?-10:camMode===3?-14:-6.4;cp.set(view.x+co*dist,camMode===1?1:camMode===3?20:camMode===2?4.4:2.8,view.z+si*dist);lk.set(view.x+co*12,.7,view.z+si*12)}
   const cameraRoad=prog(cp.x,cp.z,view.idx),limit=Math.abs(trackBarrier(cameraRoad.i,cameraRoad.d>0?1:-1))-.8;
   if(!inPit&&camMode!==3&&Math.abs(cameraRoad.d)>limit){const move=Math.sign(cameraRoad.d)*limit-cameraRoad.d;cp.x+=nx[cameraRoad.i]*move;cp.z+=nz[cameraRoad.i]*move;}
-  const cameraBase=inPit?baseY:roadHeightAt(cp.x,cp.z,view.idx);cp.y+=cameraBase;lk.y+=inPit?baseY:roadHeightAt(lk.x,lk.z,view.idx);
+  const pitCamera=inPit?pitCameraSurface(cp.x,cp.z,GP.weekend.player.pit.s):null;
+  const cameraBase=inPit?pitCamera.y:roadHeightAt(cp.x,cp.z,view.idx);cp.y+=cameraBase;lk.y+=inPit?pitCameraSurface(lk.x,lk.z,GP.weekend.player.pit.s).y:roadHeightAt(lk.x,lk.z,view.idx);
+  if(inPit&&PIT.tunnel){const blend=pitCameraTunnelWeight(pitCamera.s),height=PIT.tunnel.clearance-.75;cp.y-=(Math.max(0,cp.y-cameraBase-height))*blend;if(blend>0){const offset=clamp(pitCamera.offset,-PIT.width/2+.7,PIT.width/2-.7);cp.x+=(pitCamera.x+pitCamera.nx*offset-cp.x)*blend;cp.z+=(pitCamera.z+pitCamera.nz*offset-cp.z)*blend;}}
   if(!inPit&&camMode!==1)cp.y=Math.max(cp.y,groundHeight(cp.x,cp.z)+1.0,cameraBase+1.25);
   if(!inPit&&camMode!==3){for(let j=0;j<5&&buildingAt(cp.x,cp.z,.65);j++){cp.x+=(view.x-cp.x)*.22;cp.z+=(view.z-cp.z)*.22;cp.y=Math.max(cp.y,roadHeightAt(cp.x,cp.z,view.idx)+1.3)}}
   if(CIRCUIT.features?.tunnel&&camMode!==3){const [a,b]=CIRCUIT.features.tunnel;if(cameraRoad.i>=a&&cameraRoad.i<=b)cp.y=Math.min(cp.y,cameraBase+4.5)}
   if(snap||camMode===1){cam.position.copy(cp);lookSmooth.copy(lk)}else{cam.position.lerp(cp,1-Math.exp(-dt*(camMode===3?4.5:10)));lookSmooth.lerp(lk,1-Math.exp(-dt*6.5))}snap=false;
+  if(inPit&&PIT.tunnel){const p=pitCameraSurface(cam.position.x,cam.position.z,GP.weekend.player.pit.s);if(p.s>=PIT.s[PIT.tunnel.start]&&p.s<=PIT.s[PIT.tunnel.end]){cam.position.y=clamp(cam.position.y,p.y+1,p.y+PIT.tunnel.clearance-.65);const offset=clamp(p.offset,-PIT.width/2+.6,PIT.width/2-.6);cam.position.x=p.x+p.nx*offset;cam.position.z=p.z+p.nz*offset;}}
   cam.fov=camMode===3?51:camMode===2?55+v*.045:camMode===1?76:61+v*.055;
  }
 

@@ -1,55 +1,55 @@
 {
-  "fileSHA256": "1e648709a6f5f76ef326d7d85dbc16b073853fd9af6888496f5ed5047155cc31",
+  "fileSHA256": "bb0438ce965156e8061612a16648f35629348ae69c05461ba1d8a5c1c6b48b1f",
   "reports": [
     {
       "id": "bahrain",
-      "speed": 8.016378725538605,
+      "speed": 8.105498652007302,
       "assets": [],
       "terrain": true,
       "shaders": {
         "parallel": true,
         "programs": 43,
-        "polls": 223,
+        "polls": 201,
         "textures": 108
       },
       "unlinkedPrograms": 0
     },
     {
       "id": "singapore",
-      "speed": 8.105497321139937,
+      "speed": 8.194687588932315,
       "assets": [],
       "terrain": true,
       "shaders": {
         "parallel": true,
         "programs": 47,
-        "polls": 34,
+        "polls": 37,
         "textures": 53
       },
       "unlinkedPrograms": 0
     },
     {
       "id": "monza",
-      "speed": 7.9702539977295235,
+      "speed": 8.147561530839159,
       "assets": [],
       "terrain": true,
       "shaders": {
         "parallel": true,
         "programs": 44,
-        "polls": 2,
-        "textures": 125
+        "polls": 143,
+        "textures": 124
       },
       "unlinkedPrograms": 0
     },
     {
       "id": "monaco",
-      "speed": 7.924514339077755,
+      "speed": 8.102673763375858,
       "assets": [],
       "terrain": true,
       "shaders": {
         "parallel": true,
         "programs": 46,
-        "polls": 206,
-        "textures": 52
+        "polls": 239,
+        "textures": 51
       },
       "unlinkedPrograms": 0
     },
@@ -61,7 +61,7 @@
       "shaders": {
         "parallel": true,
         "programs": 42,
-        "polls": 5,
+        "polls": 124,
         "textures": 117
       },
       "unlinkedPrograms": 0
@@ -74,20 +74,20 @@
       "shaders": {
         "parallel": true,
         "programs": 44,
-        "polls": 100,
+        "polls": 176,
         "textures": 167
       },
       "unlinkedPrograms": 0
     },
     {
       "id": "abu-dhabi",
-      "speed": 8.027169182474003,
+      "speed": 5.553820481170498,
       "assets": [],
       "terrain": true,
       "shaders": {
         "parallel": true,
         "programs": 45,
-        "polls": 183,
+        "polls": 35,
         "textures": 99
       },
       "unlinkedPrograms": 0
@@ -100,7 +100,7 @@
       "shaders": {
         "parallel": true,
         "programs": 36,
-        "polls": 27,
+        "polls": 28,
         "textures": 66
       },
       "unlinkedPrograms": 0
@@ -113,33 +113,33 @@
       "shaders": {
         "parallel": true,
         "programs": 44,
-        "polls": 26,
+        "polls": 5,
         "textures": 97
       },
       "unlinkedPrograms": 0
     },
     {
       "id": "suzuka",
-      "speed": 8.336882174085114,
+      "speed": 8.156098925172108,
       "assets": [],
       "terrain": true,
       "shaders": {
         "parallel": true,
         "programs": 44,
-        "polls": 2,
+        "polls": 5,
         "textures": 116
       },
       "unlinkedPrograms": 0
     },
     {
       "id": "interlagos",
-      "speed": 6.163828634377161,
+      "speed": 7.69371084819056,
       "assets": [],
       "terrain": true,
       "shaders": {
         "parallel": true,
         "programs": 40,
-        "polls": 4,
+        "polls": 5,
         "textures": 75
       },
       "unlinkedPrograms": 0
@@ -152,20 +152,20 @@
       "shaders": {
         "parallel": true,
         "programs": 42,
-        "polls": 22,
+        "polls": 21,
         "textures": 62
       },
       "unlinkedPrograms": 0
     },
     {
       "id": "riviera",
-      "speed": 8.105497321139937,
+      "speed": 7.927326981012981,
       "assets": [],
       "terrain": true,
       "shaders": {
         "parallel": true,
         "programs": 37,
-        "polls": 2,
+        "polls": 5,
         "textures": 61
       },
       "unlinkedPrograms": 0

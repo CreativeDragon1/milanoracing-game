@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "scope": "Deterministic driver inputs, real keyboard/gamepad mappings and vehicle equations. Synthetic corner envelope; physical controllers and human play are separate.",
+  "scope": "Deterministic driver inputs, real keyboard/gamepad mappings and vehicle equations. Guide independence, pedal ownership and held steering; physical controllers and human play are separate.",
   "halfStick": [
     {
       "kmh": 54,
@@ -11,8 +11,8 @@
       },
       "after": {
         "steering": 0.43181818181817505,
-        "yaw": 0.45106653408275194,
-        "radius": 33.254517607923724
+        "yaw": 0.49239649820031406,
+        "radius": 30.463254825784283
       }
     },
     {
@@ -24,8 +24,8 @@
       },
       "after": {
         "steering": 0.43181818181816156,
-        "yaw": 0.30033830143750195,
-        "radius": 99.8873598752198
+        "yaw": 0.3325617307351475,
+        "radius": 90.20881607057798
       }
     },
     {
@@ -37,8 +37,8 @@
       },
       "after": {
         "steering": 0.43181818181809506,
-        "yaw": 0.26851314212200633,
-        "radius": 186.210624943196
+        "yaw": 0.2955198588680138,
+        "radius": 169.19336721235777
       }
     },
     {
@@ -50,8 +50,8 @@
       },
       "after": {
         "steering": 0.4318181818178833,
-        "yaw": 0.197269083509478,
-        "radius": 380.19135419360606
+        "yaw": 0.2072312305986834,
+        "radius": 361.9145617353512
       }
     }
   ],
@@ -64,28 +64,29 @@
     {
       "steer": 0.6,
       "before": 27.928572157336593,
-      "after": 16.761924772280576
+      "after": 14.251909045864718
     },
     {
       "steer": 1,
       "before": 28.158109962145055,
-      "after": 17.098342373284982
+      "after": 13.528735985021145
     }
   ],
   "counter": [
     {
       "kmh": 72,
-      "steerAfter150ms": -0.03460479838405995
+      "steerAfter150ms": -0.03457579839479675
     },
     {
       "kmh": 252,
-      "steerAfter150ms": -0.03096816680470715
+      "steerAfter150ms": -0.014303011605671153
     }
   ],
   "corner": {
     "beforeKmh": 207.42727431022266,
-    "afterKmh": 63.04846221672976,
+    "afterKmh": 210.13603152769969,
     "beforeHeading": 1.4159926513510108,
-    "afterHeading": 1.7666916389561307
+    "afterHeading": 1.7156211068274407,
+    "automaticBrake": 0
   }
 }

@@ -22,8 +22,30 @@ function groundHeight(x,z){return localTerrainHeight(x,z)??(geography?regionalGr
 function trackHalf(i,side=1){const f=(i%N+N)%N,k=Math.floor(f),a=side>0?CIRCUIT.widthRight:CIRCUIT.widthLeft;return a?a[k]+(a[(k+1)%N]-a[k])*(f-k):W}
 const trackBounds={x:Math.min(...cx),X:Math.max(...cx),z:Math.min(...cz),Z:Math.max(...cz)};
 const circuitCentre={x:(trackBounds.x+trackBounds.X)/2,z:(trackBounds.z+trackBounds.Z)/2},circuitRadius=Math.hypot(trackBounds.X-trackBounds.x,trackBounds.Z-trackBounds.z)/2;
-const pitGateCache=new Map();
-function pitOpening(i,side){const key=i+':'+side;if(pitGateCache.has(key))return pitGateCache.get(key);const off=trackBarrier(i,side),x=cx[i]+nx[i]*off,z=cz[i]+nz[i]*off;let hit=false;for(let k=0;k<PIT.x.length;k+=2)if((PIT.x[k]-x)**2+(PIT.z[k]-z)**2<36){hit=true;break}pitGateCache.set(key,hit);return hit}
+const pitGateCache=new Map();let pitGateCells=null;
+function pitOpening(i,side){
+ const key=i+':'+side;if(pitGateCache.has(key))return pitGateCache.get(key);
+ const radius=PIT.width/2+1,cell=24;
+ if(!pitGateCells){pitGateCells=new Map();for(let k=0;k<PIT.x.length-1;k++)for(let x=Math.floor((Math.min(PIT.x[k],PIT.x[k+1])-radius)/cell);x<=Math.floor((Math.max(PIT.x[k],PIT.x[k+1])+radius)/cell);x++)for(let z=Math.floor((Math.min(PIT.z[k],PIT.z[k+1])-radius)/cell);z<=Math.floor((Math.max(PIT.z[k],PIT.z[k+1])+radius)/cell);z++){const key=x+':'+z;if(!pitGateCells.has(key))pitGateCells.set(key,[]);pitGateCells.get(key).push(k)}}
+ const j=(i+1)%N,oi=trackBarrier(i,side),oj=trackBarrier(j,side),ax=cx[i]+nx[i]*oi,az=cz[i]+nz[i]*oi,bx=cx[j]+nx[j]*oj,bz=cz[j]+nz[j]*oj,dx=bx-ax,dz=bz-az,len=dx*dx+dz*dz,candidates=new Set();
+ for(let x=Math.floor(Math.min(ax,bx)/cell);x<=Math.floor(Math.max(ax,bx)/cell);x++)for(let z=Math.floor(Math.min(az,bz)/cell);z<=Math.floor(Math.max(az,bz)/cell);z++)for(const k of pitGateCells.get(x+':'+z)||[])candidates.add(k);
+ let hit=false;
+ for(const k of candidates){
+  const px=PIT.x[k],pz=PIT.z[k],qx=PIT.x[k+1],qz=PIT.z[k+1],ux=qx-px,uz=qz-pz,ul=ux*ux+uz*uz,det=dx*uz-dz*ux;
+  let best=Infinity,t=0,u=0;
+  const check=(a,b)=>{const ex=ax+dx*a-px-ux*b,ez=az+dz*a-pz-uz*b,d=ex*ex+ez*ez;if(d<best){best=d;t=a;u=b}};
+  // Test the complete barrier span, including crossings between its endpoints.
+  // Testing only its first vertex allowed long diagonal panels across the pits.
+  if(Math.abs(det)>1e-8){const a=((px-ax)*uz-(pz-az)*ux)/det,b=((px-ax)*dz-(pz-az)*dx)/det;if(a>=0&&a<=1&&b>=0&&b<=1)check(a,b)}
+  check(clamp(((px-ax)*dx+(pz-az)*dz)/Math.max(1e-8,len),0,1),0);check(clamp(((qx-ax)*dx+(qz-az)*dz)/Math.max(1e-8,len),0,1),1);
+  check(0,clamp(((ax-px)*ux+(az-pz)*uz)/Math.max(1e-8,ul),0,1));check(1,clamp(((bx-px)*ux+(bz-pz)*uz)/Math.max(1e-8,ul),0,1));
+  if(best>=radius*radius)continue;
+  const ay=typeof unifiedGround!=='undefined'&&unifiedGround&&!bridgeSegments.has(i)?groundHeight(ax,az):surfaceHeight(i,oi),by=typeof unifiedGround!=='undefined'&&unifiedGround&&!bridgeSegments.has(j)?groundHeight(bx,bz):surfaceHeight(j,oj),wallY=ay+(by-ay)*t,pitY=PIT.y[k]+(PIT.y[k+1]-PIT.y[k])*u;
+  // Keep genuinely separate road decks, such as the road over Yas's pit tunnel.
+  if(wallY<pitY+4&&wallY+4.5>pitY-.3){hit=true;break}
+ }
+ pitGateCache.set(key,hit);return hit;
+}
 function trackBarrier(i,side){return side*(trackHalf(i,side)+(side>0?CIRCUIT.runoffRight[i]:CIRCUIT.runoffLeft[i]))}
 function prog(px,pz,hint){let bi=0,bd=Infinity,bt=0,bx=0,bz=0;
  const test=i=>{const j=(i+1)%N,dx=cx[j]-cx[i],dz=cz[j]-cz[i],u=clamp(((px-cx[i])*dx+(pz-cz[i])*dz)/(dx*dx+dz*dz),0,1),qx=cx[i]+dx*u,qz=cz[i]+dz*u,dd=(px-qx)**2+(pz-qz)**2;if(dd<bd){bd=dd;bi=i;bt=u;bx=qx;bz=qz}};
