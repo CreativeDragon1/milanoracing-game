@@ -10,6 +10,14 @@ The preserved Team Edition is the reference for steering and pedal response. The
 - This is a beginner handling aid, not a claim of real-car tyre fidelity. Wet tyres, off-track grip and cornering limits remain; excessive speed can still exceed what a corner allows.
 - Both pedals remain under player control. Braking takes priority over held throttle. Reverse still requires stopping, releasing the brake, then holding it again. The racing line does not steer, brake or impose a speed schedule.
 
+## Steady driving camera
+
+Chase now stays on the car's centreline at a fixed distance, height and field of view. Wide Chase, Nose and Aerial also use fixed framing. There is no corner look-ahead pan, sideways orbit or speed-dependent zoom. Both camera endpoints use the same interpolated car pose, so separate position/aim filters cannot swing the car across the screen. The horizon stays level through banking.
+
+Clearance checks retract the rear camera along the same viewing axis when necessary, then ease it back out. Road decks take precedence over the surrounding terrain height field; nearby hills and upper levels no longer lift a camera that is over the road. Floor clearance remains, and the higher camera modes lower progressively before pit tunnels. These safety adjustments are distinct from the removed cinematic movement.
+
+`driving-camera.cjs` checks all four views at 30, 60, 120 and 144 Hz, speed independence, heading wrap, obstacles, terrain clearance and resets. `driving-camera-browser.cjs` samples Chase and Wide Chase around all 14 rendered circuits and records framing, clearance and camera-update cost. `pit-exit-clearance.cjs` checks the actual pit/tunnel camera positions and moving transitions. These checks do not establish physical-device comfort or whole-game frame rates.
+
 ## Phone and tablet controls
 
 Phones render the game in landscape. If the browser viewport remains portrait because of rotation lock, the page rotates its game canvas, menus and HUD together. Touch coordinates rotate with the game. This works within the page and does not change the operating system's rotation-lock setting or depend on fullscreen permission. The native [Screen Orientation lock API](https://developer.mozilla.org/en-US/docs/Web/API/ScreenOrientation/lock) has limited browser support and may require fullscreen, so it is not the fallback used here.

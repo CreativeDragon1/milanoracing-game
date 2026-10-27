@@ -1,0 +1,135 @@
+{
+  "passed": true,
+  "sourceSHA256": "c1130665a6dc341dd39e030df35b408a0ba5eccec3eaead99bb66e30dad9d9fb",
+  "reports": [
+    {
+      "hz": 30,
+      "mode": 0,
+      "maxCentre": 3.9968028886505635e-15,
+      "maxYawError": 6.432490598706546e-16,
+      "maxDistanceError": 4.440892098500626e-15,
+      "maxStep": 0.7177407177036504
+    },
+    {
+      "hz": 30,
+      "mode": 1,
+      "maxCentre": 3.4416913763379853e-15,
+      "maxYawError": 4.440892098500626e-16,
+      "maxDistanceError": 3.552713678800501e-15,
+      "maxStep": 0.7021284262541273
+    },
+    {
+      "hz": 30,
+      "mode": 2,
+      "maxCentre": 3.552713678800501e-15,
+      "maxYawError": 4.440892098500626e-16,
+      "maxDistanceError": 5.329070518200751e-15,
+      "maxStep": 0.7416198794631743
+    },
+    {
+      "hz": 30,
+      "mode": 3,
+      "maxCentre": 4.440892098500626e-15,
+      "maxYawError": 6.432490598706546e-16,
+      "maxDistanceError": 7.105427357601002e-15,
+      "maxStep": 0.7724532598147055
+    },
+    {
+      "hz": 60,
+      "mode": 0,
+      "maxCentre": 3.9968028886505635e-15,
+      "maxYawError": 6.432490598706546e-16,
+      "maxDistanceError": 4.440892098500626e-15,
+      "maxStep": 0.3588764647188232
+    },
+    {
+      "hz": 60,
+      "mode": 1,
+      "maxCentre": 3.4416913763379853e-15,
+      "maxYawError": 4.440892098500626e-16,
+      "maxDistanceError": 3.9968028886505635e-15,
+      "maxStep": 0.3510701861792808
+    },
+    {
+      "hz": 60,
+      "mode": 2,
+      "maxCentre": 4.440892098500626e-15,
+      "maxYawError": 4.440892098500626e-16,
+      "maxDistanceError": 5.329070518200751e-15,
+      "maxStep": 0.37081624874016517
+    },
+    {
+      "hz": 60,
+      "mode": 3,
+      "maxCentre": 4.440892098500626e-15,
+      "maxYawError": 6.432490598706546e-16,
+      "maxDistanceError": 7.105427357601002e-15,
+      "maxStep": 0.3862332012175084
+    },
+    {
+      "hz": 120,
+      "mode": 0,
+      "maxCentre": 3.9968028886505635e-15,
+      "maxYawError": 6.432490598706546e-16,
+      "maxDistanceError": 4.440892098500626e-15,
+      "maxStep": 0.17943899559767057
+    },
+    {
+      "hz": 120,
+      "mode": 1,
+      "maxCentre": 3.774758283725532e-15,
+      "maxYawError": 4.440892098500626e-16,
+      "maxDistanceError": 3.9968028886505635e-15,
+      "maxStep": 0.17553583972594938
+    },
+    {
+      "hz": 120,
+      "mode": 2,
+      "maxCentre": 4.440892098500626e-15,
+      "maxYawError": 4.440892098500626e-16,
+      "maxDistanceError": 5.329070518200751e-15,
+      "maxStep": 0.18540891300120654
+    },
+    {
+      "hz": 120,
+      "mode": 3,
+      "maxCentre": 5.329070518200751e-15,
+      "maxYawError": 6.432490598706546e-16,
+      "maxDistanceError": 7.105427357601002e-15,
+      "maxStep": 0.19311742202778215
+    },
+    {
+      "hz": 144,
+      "mode": 0,
+      "maxCentre": 4.440892098500626e-15,
+      "maxYawError": 6.432490598706546e-16,
+      "maxDistanceError": 4.440892098500626e-15,
+      "maxStep": 0.14953256111249996
+    },
+    {
+      "hz": 144,
+      "mode": 1,
+      "maxCentre": 3.552713678800501e-15,
+      "maxYawError": 6.432490598706546e-16,
+      "maxDistanceError": 3.9968028886505635e-15,
+      "maxStep": 0.1462799298102775
+    },
+    {
+      "hz": 144,
+      "mode": 2,
+      "maxCentre": 3.9968028886505635e-15,
+      "maxYawError": 6.432490598706546e-16,
+      "maxDistanceError": 5.329070518200751e-15,
+      "maxStep": 0.1545074944373724
+    },
+    {
+      "hz": 144,
+      "mode": 3,
+      "maxCentre": 4.440892098500626e-15,
+      "maxYawError": 6.432490598706546e-16,
+      "maxDistanceError": 7.105427357601002e-15,
+      "maxStep": 0.16093125474244727
+    }
+  ],
+  "scope": "Deterministic camera framing, speed independence, heading wrap, collision retraction, slope clearance and resets. No physical-device comfort claim."
+}

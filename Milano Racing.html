@@ -4998,6 +4998,10 @@ try{Object.defineProperty(window,"garageLogo",{configurable:true,get:()=>garageL
 try{Object.defineProperty(window,"garageSeams",{configurable:true,get:()=>garageSeams,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"floorSeams",{configurable:true,get:()=>floorSeams,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"drawShowroom",{configurable:true,get:()=>drawShowroom,set:value=>{drawShowroom=value}})}catch{}
+try{Object.defineProperty(window,"drivingViews",{configurable:true,get:()=>drivingViews,set:()=>{}})}catch{}
+try{Object.defineProperty(window,"drivingRig",{configurable:true,get:()=>drivingRig,set:()=>{}})}catch{}
+try{Object.defineProperty(window,"drivingCameraClear",{configurable:true,get:()=>drivingCameraClear,set:value=>{drivingCameraClear=value}})}catch{}
+try{Object.defineProperty(window,"updateDrivingCamera",{configurable:true,get:()=>updateDrivingCamera,set:value=>{updateDrivingCamera=value}})}catch{}
 try{Object.defineProperty(window,"resizeDirty",{configurable:true,get:()=>resizeDirty,set:value=>{resizeDirty=value}})}catch{}
 try{Object.defineProperty(window,"resizeTimer",{configurable:true,get:()=>resizeTimer,set:value=>{resizeTimer=value}})}catch{}
 try{Object.defineProperty(window,"renderWidth",{configurable:true,get:()=>renderWidth,set:value=>{renderWidth=value}})}catch{}
@@ -5013,7 +5017,6 @@ try{Object.defineProperty(window,"cp",{configurable:true,get:()=>cp,set:()=>{}})
 try{Object.defineProperty(window,"lk",{configurable:true,get:()=>lk,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"lookSmooth",{configurable:true,get:()=>lookSmooth,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"sunFollow",{configurable:true,get:()=>sunFollow,set:()=>{}})}catch{}
-try{Object.defineProperty(window,"roadAhead",{configurable:true,get:()=>roadAhead,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"lastProjectionFov",{configurable:true,get:()=>lastProjectionFov,set:value=>{lastProjectionFov=value}})}catch{}
 try{Object.defineProperty(window,"last",{configurable:true,get:()=>last,set:value=>{last=value}})}catch{}
 try{Object.defineProperty(window,"shadowGroundRotation",{configurable:true,get:()=>shadowGroundRotation,set:()=>{}})}catch{}
@@ -8026,6 +8029,85 @@ function drawShowroom(now){
  const exposure=ren.toneMappingExposure,shadows=ren.shadowMap.enabled;ren.toneMappingExposure=1.02;ren.shadowMap.enabled=true;ren.shadowMap.needsUpdate=showroom.dirty;ren.render(showroom.scene,camera);ren.toneMappingExposure=exposure;ren.shadowMap.enabled=shadows;showroom.dirty=false;
 }
 
+// A car-centred driving view. Heading comes only from the interpolated car;
+// road curvature, steering input and speed never pan or zoom the camera.
+await MilanoBoot.checkpoint("Prepare drivingViews");
+const drivingViews=Object.freeze([
+ Object.freeze({distance:6.8,height:2.45,look:14,aim:.85,fov:63}),
+ Object.freeze({distance:-2.35,height:1,look:40,aim:.95,fov:76}),
+ Object.freeze({distance:10.5,height:4.4,look:14,aim:.85,fov:58}),
+ Object.freeze({distance:14,height:24,look:12,aim:.2,fov:51})
+]);
+await MilanoBoot.checkpoint("Prepare drivingRig");
+const drivingRig={mode:-1,distance:0,lift:0,x:NaN,z:NaN};
+function drivingCameraClear(view,co,si,distance,inPit,baseY,height){
+ const x=view.x-co*distance,z=view.z-si*distance;
+ if(inPit){
+  const p=pitCameraSurface(x,z,GP.weekend.player.pit.s);
+  return Math.abs(p.offset)<=PIT.width/2-.65;
+ }
+ const p=prog(x,z,view.idx),edge=Math.abs(trackBarrier(p.i,p.d>=0?1:-1))-.4;
+ if(Math.abs(p.d)>edge||buildingAt(x,z,.65))return false;
+ // Beside the road, a steep bank is an obstruction to the boom, not a reason
+ // to lift the whole view away from the car.
+ return Math.abs(p.d)<=trackHalf(p.i,p.d>=0?1:-1)+.4||groundHeight(x,z)+1<=baseY+height;
+}
+function updateDrivingCamera(view,baseY,dt){
+ const mode=drivingViews[camMode]?camMode:0,style=drivingViews[mode],co=Math.cos(view.h),si=Math.sin(view.h);
+ const inPit=typeof GP!=='undefined'&&!!GP.weekend?.player.pit;
+ const tunnel=inPit&&PIT.tunnel?pitCameraTunnelWeight(GP.weekend.player.pit.s):0;
+ const reset=snap||drivingRig.mode!==mode||!Number.isFinite(drivingRig.x)||Math.hypot(view.x-drivingRig.x,view.z-drivingRig.z)>35;
+ let distance=style.distance,height=style.height;
+ // High viewpoints lower gradually before a pit tunnel. The normal chase
+ // view already fits, so it keeps the same framing through pit handovers.
+ if(tunnel&&mode!==1){distance+=(Math.min(distance,6.8)-distance)*tunnel;height+=(Math.min(height,2.6)-height)*tunnel;}
+ const framingDistance=distance;
+ if(mode!==1&&(mode!==3||tunnel)){
+  // Sweep the boom through the local road corridor, not the whole render scene.
+  // Pull in along the car axis instead of pushing the camera sideways.
+  const steps=Math.ceil(distance/1.5);let safe=0;
+  for(let i=1;i<=steps;i++){
+   const candidate=distance*i/steps;
+   if(!drivingCameraClear(view,co,si,candidate,inPit,baseY,height)){
+    let lo=safe,hi=candidate;
+    for(let j=0;j<5;j++){const mid=(lo+hi)/2;if(drivingCameraClear(view,co,si,mid,inPit,baseY,height))lo=mid;else hi=mid;}
+    distance=lo;break;
+   }
+   safe=candidate;
+  }
+ }
+ // Safety retracts immediately; recovery eases out without a lateral orbit.
+ const ease=1-Math.exp(-6*Math.max(0,dt));
+ drivingRig.distance=reset?distance:Math.min(distance,drivingRig.distance+(distance-drivingRig.distance)*ease);
+ cp.set(view.x-co*drivingRig.distance,baseY+height,view.z-si*drivingRig.distance);
+ const floor=inPit?pitCameraSurface(cp.x,cp.z,GP.weekend.player.pit.s).y:roadHeightAt(cp.x,cp.z,view.idx);
+ // On a road deck, use that deck rather than the background terrain field.
+ // The latter may describe the hill/other level above a tunnel or underpass.
+ const road=inPit?null:prog(cp.x,cp.z,view.idx);
+ const onRoad=road&&Math.abs(road.d)<=trackHalf(road.i,road.d>=0?1:-1)+.4;
+ const minimum=mode===1?floor+1:inPit||onRoad&&mode!==3?floor+1.25:Math.max(floor+1.25,groundHeight(cp.x,cp.z)+1);
+ const lift=Math.max(0,minimum-cp.y);
+ drivingRig.lift=reset?lift:Math.max(lift,drivingRig.lift+(lift-drivingRig.lift)*ease);
+ cp.y+=drivingRig.lift;
+ lk.set(view.x+co*style.look,baseY+style.aim+drivingRig.lift,view.z+si*style.look);
+ // Preserve the viewing pitch while retracting the boom for a wall/building.
+ // Tunnel lowering is intentionally shared with the look target's framing.
+ const pitch=(height-style.aim)/(framingDistance+style.look);
+ lk.y=cp.y-(drivingRig.distance+style.look)*pitch;
+ if(inPit&&PIT.tunnel){
+  const p=pitCameraSurface(cp.x,cp.z,GP.weekend.player.pit.s),weight=pitCameraTunnelWeight(p.s);
+  if(weight){const ceiling=p.y+PIT.tunnel.clearance-.75,drop=Math.max(0,cp.y-ceiling)*weight;cp.y-=drop;lk.y-=drop;}
+ }
+ if(!inPit&&CIRCUIT.features?.tunnel&&mode!==3){
+  const p=prog(cp.x,cp.z,view.idx),[a,b]=CIRCUIT.features.tunnel;
+  if(p.i>=a&&p.i<=b){const drop=Math.max(0,cp.y-floor-4.5);cp.y-=drop;lk.y-=drop;}
+ }
+ // Both endpoints use the SAME car pose. Separate position/aim filters used
+ // to make the car drift across the image during otherwise steady turns.
+ cam.position.copy(cp);lookSmooth.copy(lk);cam.up.set(0,1,0);cam.fov=style.fov;
+ drivingRig.mode=mode;drivingRig.x=view.x;drivingRig.z=view.z;snap=false;
+}
+
 // ---- render and simulation loop ----
 await MilanoBoot.checkpoint("Prepare resizeDirty, resizeTimer, renderWidth, renderHeight, renderRatio, renderQuality, resizeHero, resizePreset, resizeDpr");
 let resizeDirty=true,resizeTimer,renderWidth=0,renderHeight=0,renderRatio=-1,renderQuality=-1,resizeHero=false,resizePreset='',resizeDpr=0;
@@ -8045,8 +8127,8 @@ addEventListener('resize',requestResize);await MilanoBoot.checkpoint("Build addE
 window.visualViewport?.addEventListener('resize',requestResize);await MilanoBoot.checkpoint("Build resize");
 resize();
 
-await MilanoBoot.checkpoint("Prepare cp, lk, lookSmooth, sunFollow, roadAhead");
-const cp=new T.Vector3(),lk=new T.Vector3(),lookSmooth=new T.Vector3(),sunFollow=new T.Vector3(),roadAhead=new T.Vector3();await MilanoBoot.checkpoint("Prepare lastProjectionFov");
+await MilanoBoot.checkpoint("Prepare cp, lk, lookSmooth, sunFollow");
+const cp=new T.Vector3(),lk=new T.Vector3(),lookSmooth=new T.Vector3(),sunFollow=new T.Vector3();await MilanoBoot.checkpoint("Prepare lastProjectionFov");
 let lastProjectionFov=-1;await MilanoBoot.checkpoint("Prepare last");
 let last=performance.now();await MilanoBoot.checkpoint("Build placeCar");
 placeCar(0);await MilanoBoot.checkpoint("Build scene");
@@ -8082,36 +8164,14 @@ function frame(now){requestAnimationFrame(frame);if(!window.MilanoReady)return;c
  const showroom=state==='menu',baseY=showroom?groundHeight(0,0):typeof GP!=='undefined'&&GP.weekend?.player.pit?GP.weekend.pitPose(GP.weekend.player).y:roadHeightAt(view.x,view.z,view.idx),pitch=showroom?0:typeof GP!=='undefined'&&GP.weekend?.player.pit?GP.weekend.pitPose(GP.weekend.player).pitch:roadPitchAt(view.x,view.z,view.h,view.idx);if(showroom){car.position.set(0,baseY,0);car.rotation.set(0,0,0,'YXZ')}else{car.position.set(view.x,baseY,view.z);car.rotation.set(typeof GP!=='undefined'&&GP.weekend?.player.pit?0:-bankAt(surfaceStation),-view.h,pitch,'YXZ')}
  const spin=showroom?0:view.vx/.37;for(const w of wheels){w.sp.rotation.z=(w.sp.rotation.z-spin*dt)%(Math.PI*2);if(w.front)w.pv.rotation.y=showroom?-.1:-view.st}
  rainLight.material.emissiveIntensity=showroom?.5:inp.b>.1?3:.6;
- const co=Math.cos(view.h),si=Math.sin(view.h),v=view.vx;
  if(showroom){const t=reducedMotion?0:Math.sin(now*.00008)*.16;cp.set(5.9+Math.sin(t)*1.4,1.6,-5.6+Math.cos(t)*.25);lk.set(.7,.55,1.25);cp.y+=baseY;lk.y+=baseY;cam.fov=46;cam.position.copy(cp);lookSmooth.copy(lk);snap=true}
- else{
-  const station=surfaceStation,ahead=(station+(8+v*.22)/(LEN/N))%N,ai=Math.floor(ahead),aj=(ai+1)%N,u=ahead-ai;roadAhead.set(cx[ai]+(cx[aj]-cx[ai])*u,sampleHeight(ahead)+.6,cz[ai]+(cz[aj]-cz[ai])*u);const headingAhead=Math.atan2(tz[ai]+(tz[aj]-tz[ai])*u,tx[ai]+(tx[aj]-tx[ai])*u);
-  const turn=Math.atan2(Math.sin(headingAhead-view.h),Math.cos(headingAhead-view.h)),lookDistance=10+v*.17;
-  const fx=view.x+co*lookDistance,fz=view.z+si*lookDistance,blend=clamp(Math.abs(turn)*1.8,.10,.55);
-  lk.set(fx*(1-blend)+roadAhead.x*blend,.65,fz*(1-blend)+roadAhead.z*blend);
-  if(camMode===0){const distance=6.4+v*.010,side=clamp(turn*1.0,-.65,.65);cp.set(view.x-co*distance-si*side,2.05+v*.0045,view.z-si*distance+co*side)}
-  else if(camMode===1){cp.set(view.x+co*2.35,1.0,view.z+si*2.35);lk.set(view.x+co*40,.95,view.z+si*40)}
-  else if(camMode===2){cp.set(view.x-co*(10+v*.012),4.4+v*.005,view.z-si*(10+v*.012))}
-  else{const side=clamp(turn*8,-5,5);cp.set(view.x-co*14-si*side,24,view.z-si*14+co*side);lk.set(view.x+co*12,.2,view.z+si*12)}
-  const inPit=typeof GP!=='undefined'&&GP.weekend?.player.pit;if(inPit){const dist=camMode===1?2.35:camMode===2?-10:camMode===3?-14:-6.4;cp.set(view.x+co*dist,camMode===1?1:camMode===3?20:camMode===2?4.4:2.8,view.z+si*dist);lk.set(view.x+co*12,.7,view.z+si*12)}
-  const cameraRoad=prog(cp.x,cp.z,view.idx),limit=Math.abs(trackBarrier(cameraRoad.i,cameraRoad.d>0?1:-1))-.8;
-  if(!inPit&&camMode!==3&&Math.abs(cameraRoad.d)>limit){const move=Math.sign(cameraRoad.d)*limit-cameraRoad.d;cp.x+=nx[cameraRoad.i]*move;cp.z+=nz[cameraRoad.i]*move;}
-  const pitCamera=inPit?pitCameraSurface(cp.x,cp.z,GP.weekend.player.pit.s):null;
-  const cameraBase=inPit?pitCamera.y:roadHeightAt(cp.x,cp.z,view.idx);cp.y+=cameraBase;lk.y+=inPit?pitCameraSurface(lk.x,lk.z,GP.weekend.player.pit.s).y:roadHeightAt(lk.x,lk.z,view.idx);
-  if(inPit&&PIT.tunnel){const blend=pitCameraTunnelWeight(pitCamera.s),height=PIT.tunnel.clearance-.75;cp.y-=(Math.max(0,cp.y-cameraBase-height))*blend;if(blend>0){const offset=clamp(pitCamera.offset,-PIT.width/2+.7,PIT.width/2-.7);cp.x+=(pitCamera.x+pitCamera.nx*offset-cp.x)*blend;cp.z+=(pitCamera.z+pitCamera.nz*offset-cp.z)*blend;}}
-  if(!inPit&&camMode!==1)cp.y=Math.max(cp.y,groundHeight(cp.x,cp.z)+1.0,cameraBase+1.25);
-  if(!inPit&&camMode!==3){for(let j=0;j<5&&buildingAt(cp.x,cp.z,.65);j++){cp.x+=(view.x-cp.x)*.22;cp.z+=(view.z-cp.z)*.22;cp.y=Math.max(cp.y,roadHeightAt(cp.x,cp.z,view.idx)+1.3)}}
-  if(CIRCUIT.features?.tunnel&&camMode!==3){const [a,b]=CIRCUIT.features.tunnel;if(cameraRoad.i>=a&&cameraRoad.i<=b)cp.y=Math.min(cp.y,cameraBase+4.5)}
-  if(snap||camMode===1){cam.position.copy(cp);lookSmooth.copy(lk)}else{cam.position.lerp(cp,1-Math.exp(-dt*(camMode===3?4.5:10)));lookSmooth.lerp(lk,1-Math.exp(-dt*6.5))}snap=false;
-  if(inPit&&PIT.tunnel){const p=pitCameraSurface(cam.position.x,cam.position.z,GP.weekend.player.pit.s);if(p.s>=PIT.s[PIT.tunnel.start]&&p.s<=PIT.s[PIT.tunnel.end]){cam.position.y=clamp(cam.position.y,p.y+1,p.y+PIT.tunnel.clearance-.65);const offset=clamp(p.offset,-PIT.width/2+.6,PIT.width/2-.6);cam.position.x=p.x+p.nx*offset;cam.position.z=p.z+p.nz*offset;}}
-  cam.fov=camMode===3?51:camMode===2?55+v*.045:camMode===1?76:61+v*.055;
- }
+ else updateDrivingCamera(view,baseY,dt);
 
  cam.lookAt(lookSmooth);if(Math.abs(cam.fov-lastProjectionFov)>.015){cam.updateProjectionMatrix();lastProjectionFov=cam.fov;}updateVegetation(now);
  const px=car.position.x,pz=car.position.z;sun.position.copy(sunDirection).multiplyScalar(230).add(sunFollow.set(px,baseY,pz));sun.target.position.set(px,baseY,pz);sun.target.updateMatrixWorld();contactShadow.position.set(px,baseY+.049,pz);contactShadow.quaternion.copy(car.quaternion).multiply(shadowGroundRotation);
  windTime.value=reducedMotion?0:now*.001;sky.position.copy(cam.position);waterNormals.offset.set(windTime.value*.004,windTime.value*.002);
  if(msgT&&now>msgT){$('msg').textContent='';msgT=0}
- if((state==='race'||state==='count')&&now-lastHudPaint>=80){lastHudPaint=now;hud();hudText('camera-label',['CHASE','NOSE','WIDE CHASE','AERIAL'][camMode]);hudText('drivekeys',activePad!==null?'Y or △ · Camera   X or □ · Reset   Menu · Pause':'C · Camera   R · Reset   Esc · Pause')}
+ if((state==='race'||state==='count')&&now-lastHudPaint>=80){lastHudPaint=now;hud();hudText('camera-label',['CHASE','NOSE','WIDE CHASE','AERIAL'][camMode]);hudText('drivekeys',activePad!==null?'Y or â–³ Â· Camera   X or â–¡ Â· Reset   Menu Â· Pause':'C Â· Camera   R Â· Reset   Esc Â· Pause')}
  if(typeof GP!=='undefined')gpRender();nightLight.position.set(view.x,baseY+14,view.z);updateRacingLine();if(typeof MP!=='undefined')mpHud();audioUpd(dt);renderGame()}
 await MilanoBoot.checkpoint("If ren");
 if(ren)show('menu');await MilanoBoot.checkpoint("Build requestAnimationFrame");

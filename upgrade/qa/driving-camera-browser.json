@@ -1,0 +1,1151 @@
+{
+  "passed": true,
+  "fileSHA256": "9b89cd1b2a0ed4478fc69e64d002f8796bfec3c43ba6addd528237ea85bee3b6",
+  "reports": [
+    {
+      "id": "bahrain",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 5.773159728050814e-14,
+          "maxYawError": 4.440892098500626e-15,
+          "minHeight": 2.1003241106482484,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.40000003576278687,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 5.773159728050814e-14,
+          "maxYawError": 4.440892098500626e-15,
+          "minHeight": 2.094119984396823,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.19999998807907104,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 5.773159728050814e-14,
+          "maxYawError": 4.440892098500626e-15,
+          "minHeight": 2.101951098173016,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.800000011920929,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 5.417888360170764e-14,
+          "maxYawError": 3.552713678800501e-15,
+          "minHeight": 3.860999100635338,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 1.300000011920929,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 5.595524044110789e-14,
+          "maxYawError": 3.552713678800501e-15,
+          "minHeight": 3.8514711469395415,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.19999998807907104,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 5.417888360170764e-14,
+          "maxYawError": 3.552713678800501e-15,
+          "minHeight": 3.8637763138759897,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.19999998807907104,
+          "p95CostMs": 0.10000002384185791
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "singapore",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 9.947598300641403e-14,
+          "maxYawError": 8.382183835919932e-15,
+          "minHeight": 2.274215696210616,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 1.100000023841858,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 9.14823772291129e-14,
+          "maxYawError": 8.1601392309949e-15,
+          "minHeight": 2.2761824621995927,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.19999998807907104,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 9.14823772291129e-14,
+          "maxYawError": 8.1601392309949e-15,
+          "minHeight": 2.2750606428063955,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.800000011920929,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.0835776720341528e-13,
+          "maxYawError": 7.271960811294775e-15,
+          "minHeight": 4.128077091148804,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.699999988079071,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.0524914273446484e-13,
+          "maxYawError": 6.8833827526759706e-15,
+          "minHeight": 4.133757206810307,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.19999998807907104,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.0524914273446484e-13,
+          "maxYawError": 6.8833827526759706e-15,
+          "minHeight": 4.131778694666438,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.3999999761581421,
+          "p95CostMs": 0.10000002384185791
+        }
+      ],
+      "shot": {
+        "station": 648,
+        "carScreen": [
+          3.015231377131016e-14,
+          -0.3119051701160294,
+          0.898954177668722
+        ],
+        "camera": [
+          -166.42716552077678,
+          6.49217,
+          -1339.2907109393288
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "monza",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.1590728377086634e-13,
+          "maxYawError": 9.325873406851315e-15,
+          "minHeight": 2.281674801448485,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.5999999642372131,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.1035616864774056e-13,
+          "maxYawError": 9.325873406851315e-15,
+          "minHeight": 2.2814324833673885,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 1.600000023841858,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.1035616864774056e-13,
+          "maxYawError": 9.325873406851315e-15,
+          "minHeight": 2.281852873174472,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.1901590823981678e-13,
+          "maxYawError": 7.549516567451064e-15,
+          "minHeight": 4.139845492153806,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.800000011920929,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.163513729807164e-13,
+          "maxYawError": 6.217248937900877e-15,
+          "minHeight": 4.139507329765576,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.056932319443149e-13,
+          "maxYawError": 6.217248937900877e-15,
+          "minHeight": 4.140119408187008,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "monaco",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 6.927791673660977e-14,
+          "maxYawError": 5.329070518200751e-15,
+          "minHeight": 1.8294399188300048,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.8999999761581421,
+          "p95CostMs": 0.20000004768371582
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 6.927791673660977e-14,
+          "maxYawError": 5.329070518200751e-15,
+          "minHeight": 1.870282637119388,
+          "minBoom": 5.949999999999999,
+          "maxLift": 0,
+          "maxCostMs": 0.3999999761581421,
+          "p95CostMs": 0.19999998807907104
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 6.927791673660977e-14,
+          "maxYawError": 5.329070518200751e-15,
+          "minHeight": 1.7914535582950037,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.40000003576278687,
+          "p95CostMs": 0.19999998807907104
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 7.194245199571014e-14,
+          "maxYawError": 3.885780586188048e-15,
+          "minHeight": 3.4601515483144425,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.699999988079071,
+          "p95CostMs": 0.20000004768371582
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 7.194245199571014e-14,
+          "maxYawError": 3.552713678800501e-15,
+          "minHeight": 3.5635529723828867,
+          "minBoom": 5.953125,
+          "maxLift": 0,
+          "maxCostMs": 0.6000000238418579,
+          "p95CostMs": 0.20000004768371582
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 7.194245199571014e-14,
+          "maxYawError": 4.440892098500626e-15,
+          "minHeight": 3.3542266939016905,
+          "minBoom": 7.640625,
+          "maxLift": 0,
+          "maxCostMs": 0.5,
+          "p95CostMs": 0.20000004768371582
+        }
+      ],
+      "shot": {
+        "station": 480,
+        "carScreen": [
+          1.5076156885654708e-14,
+          -0.31190517011602054,
+          0.8989541776687244
+        ],
+        "camera": [
+          515.4032276445181,
+          22.84789,
+          767.3787782356388
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "austria",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 6.616929226765933e-14,
+          "maxYawError": 4.884981308350689e-15,
+          "minHeight": 1.8331374505769915,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.5,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 6.616929226765933e-14,
+          "maxYawError": 4.6629367034256575e-15,
+          "minHeight": 1.8350551759130873,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 6.616929226765933e-14,
+          "maxYawError": 4.6629367034256575e-15,
+          "minHeight": 1.8428570286553807,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 6.927791673660977e-14,
+          "maxYawError": 4.218847493575595e-15,
+          "minHeight": 3.4475903477840113,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 1.399999976158142,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 6.927791673660977e-14,
+          "maxYawError": 3.9968028886505635e-15,
+          "minHeight": 3.455586186365281,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 6.927791673660977e-14,
+          "maxYawError": 3.9968028886505635e-15,
+          "minHeight": 3.467612342956741,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "silverstone",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 8.970602038971265e-14,
+          "maxYawError": 7.993605777301127e-15,
+          "minHeight": 2.203777402280039,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 1.300000011920929,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 8.393286066166183e-14,
+          "maxYawError": 7.549516567451064e-15,
+          "minHeight": 2.2032671908659243,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 8.970602038971265e-14,
+          "maxYawError": 7.549516567451064e-15,
+          "minHeight": 2.2141758983538553,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.19999998807907104,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.0380585280245214e-13,
+          "maxYawError": 5.218048215738236e-15,
+          "minHeight": 4.019859682173938,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.0380585280245214e-13,
+          "maxYawError": 5.329070518200751e-15,
+          "minHeight": 4.022153020389709,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 1.199999988079071,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.0380585280245214e-13,
+          "maxYawError": 5.218048215738236e-15,
+          "minHeight": 4.038844541851781,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.19999998807907104,
+          "p95CostMs": 0.10000002384185791
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "abu-dhabi",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 5.995204332975845e-14,
+          "maxYawError": 4.794775687599895e-15,
+          "minHeight": 2.1979612288453723,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.3999999761581421,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 5.995204332975845e-14,
+          "maxYawError": 4.794775687599895e-15,
+          "minHeight": 2.196303734628284,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 5.995204332975845e-14,
+          "maxYawError": 4.794775687599895e-15,
+          "minHeight": 2.2022197002480564,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 1.100000023841858,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 5.417888360170764e-14,
+          "maxYawError": 3.552713678800501e-15,
+          "minHeight": 4.011327639992103,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.20000004768371582,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 5.417888360170764e-14,
+          "maxYawError": 3.552713678800501e-15,
+          "minHeight": 4.006822455258565,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 5.417888360170764e-14,
+          "maxYawError": 3.552713678800501e-15,
+          "minHeight": 4.017247543423206,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.19999998807907104,
+          "p95CostMs": 0.10000002384185791
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "milano",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.0325074129013956e-13,
+          "maxYawError": 9.325873406851315e-15,
+          "minHeight": 1.7646729536237373,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.5,
+          "p95CostMs": 0.09999996423721313
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.0325074129013956e-13,
+          "maxYawError": 8.881784197001252e-15,
+          "minHeight": 1.81147144024564,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.0325074129013956e-13,
+          "maxYawError": 8.881784197001252e-15,
+          "minHeight": 1.6775075069129954,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.09999996423721313
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.1457501614131615e-13,
+          "maxYawError": 6.661338147750939e-15,
+          "minHeight": 3.31496892648871,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.09999996423721313
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.1457501614131615e-13,
+          "maxYawError": 6.661338147750939e-15,
+          "minHeight": 3.4136238157168677,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.09999996423721313
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.1457501614131615e-13,
+          "maxYawError": 6.661338147750939e-15,
+          "minHeight": 3.1544822958594523,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.09999996423721313
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "spa",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.3233858453531866e-13,
+          "maxYawError": 1.1102230246251565e-14,
+          "minHeight": 1.9227957181732904,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.5,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.1368683772161603e-13,
+          "maxYawError": 9.769962616701378e-15,
+          "minHeight": 1.9204078784636565,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.1368683772161603e-13,
+          "maxYawError": 9.769962616701378e-15,
+          "minHeight": 1.870147321080708,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.305622276959184e-13,
+          "maxYawError": 8.881784197001252e-15,
+          "minHeight": 3.5841373082488346,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 1.9000000357627869,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.305622276959184e-13,
+          "maxYawError": 6.8833827526759706e-15,
+          "minHeight": 3.5817494685393,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.305622276959184e-13,
+          "maxYawError": 6.8833827526759706e-15,
+          "minHeight": 3.544139688646851,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        }
+      ],
+      "shot": {
+        "station": 41,
+        "carScreen": [
+          3.769039221413754e-15,
+          -0.31190517011603186,
+          0.8989541776687223
+        ],
+        "camera": [
+          231.9249908659164,
+          60.612610000000004,
+          11.281057945637613
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "suzuka",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 8.43769498715119e-14,
+          "maxYawError": 6.8833827526759706e-15,
+          "minHeight": 1.9354927196794307,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 1.4000000357627869,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 8.43769498715119e-14,
+          "maxYawError": 5.551115123125783e-15,
+          "minHeight": 1.9357860769446305,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 1.699999988079071,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 8.43769498715119e-14,
+          "maxYawError": 5.551115123125783e-15,
+          "minHeight": 1.934779165881551,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.20000004768371582,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.1723955140041653e-13,
+          "maxYawError": 5.329070518200751e-15,
+          "minHeight": 3.6048075708809932,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.20000004768371582,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.1723955140041653e-13,
+          "maxYawError": 4.440892098500626e-15,
+          "minHeight": 3.6039841947890707,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.20000004768371582,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.1723955140041653e-13,
+          "maxYawError": 4.440892098500626e-15,
+          "minHeight": 3.6052107504400794,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.19999998807907104,
+          "p95CostMs": 0.10000002384185791
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "interlagos",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 5.639932965095795e-14,
+          "maxYawError": 4.218847493575595e-15,
+          "minHeight": 1.5203105466629268,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 2.699999988079071,
+          "p95CostMs": 0.40000003576278687
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 5.639932965095795e-14,
+          "maxYawError": 3.774758283725532e-15,
+          "minHeight": 1.4810665818990003,
+          "minBoom": 6.7575,
+          "maxLift": 0,
+          "maxCostMs": 0.800000011920929,
+          "p95CostMs": 0.40000003576278687
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 5.639932965095795e-14,
+          "maxYawError": 4.218847493575595e-15,
+          "minHeight": 1.5659848344261391,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 1.199999988079071,
+          "p95CostMs": 0.40000003576278687
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 6.017408793468348e-14,
+          "maxYawError": 3.9968028886505635e-15,
+          "minHeight": 2.9641773887713967,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 1.0999999642372131,
+          "p95CostMs": 0.5
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 5.695444116327053e-14,
+          "maxYawError": 3.3306690738754696e-15,
+          "minHeight": 2.8848889241653026,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.800000011920929,
+          "p95CostMs": 0.5
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 5.695444116327053e-14,
+          "maxYawError": 3.552713678800501e-15,
+          "minHeight": 3.048668293523626,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.9000000357627869,
+          "p95CostMs": 0.5
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "zandvoort",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 5.81756864903582e-14,
+          "maxYawError": 4.884981308350689e-15,
+          "minHeight": 1.8888693685098907,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.800000011920929,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 5.040412531798211e-14,
+          "maxYawError": 3.552713678800501e-15,
+          "minHeight": 2.042920844293385,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.3999999761581421,
+          "p95CostMs": 0.19999998807907104
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 5.040412531798211e-14,
+          "maxYawError": 3.552713678800501e-15,
+          "minHeight": 2.0607544638700688,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 1,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 5.728750807065808e-14,
+          "maxYawError": 3.1086244689504383e-15,
+          "minHeight": 3.320115782366715,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.5,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 5.728750807065808e-14,
+          "maxYawError": 2.7200464103316335e-15,
+          "minHeight": 3.4540060540614297,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 1,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 5.728750807065808e-14,
+          "maxYawError": 2.7217811338076103e-15,
+          "minHeight": 3.6927397199816507,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.19999998807907104,
+          "p95CostMs": 0.10000002384185791
+        }
+      ],
+      "shot": {
+        "station": 895,
+        "carScreen": [
+          -1.1778247566917982e-15,
+          -0.3119051701160293,
+          0.8989541776687224
+        ],
+        "camera": [
+          -63.300192793614805,
+          5.67258,
+          225.0610462776859
+        ]
+      },
+      "errors": []
+    },
+    {
+      "id": "riviera",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.0969003483296547e-13,
+          "maxYawError": 9.325873406851315e-15,
+          "minHeight": 1.9881212118201432,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.5,
+          "p95CostMs": 0.09999996423721313
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.0635936575909e-13,
+          "maxYawError": 9.325873406851315e-15,
+          "minHeight": 1.9868099228193543,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.09999996423721313
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.0635936575909e-13,
+          "maxYawError": 9.325873406851315e-15,
+          "minHeight": 1.988466768362521,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.09999996423721313
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.1304845948245656e-13,
+          "maxYawError": 7.549516567451064e-15,
+          "minHeight": 3.68680703659178,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.0391687510491465e-13,
+          "maxYawError": 7.105427357601002e-15,
+          "minHeight": 3.6875952900031947,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.0391687510491465e-13,
+          "maxYawError": 7.105427357601002e-15,
+          "minHeight": 3.687595155612385,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.09999996423721313
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "solara",
+      "records": [
+        {
+          "mode": 0,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 1.092459456231154e-13,
+          "maxYawError": 9.769962616701378e-15,
+          "minHeight": 2.1657632995576677,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.40000003576278687,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 0,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 1.0724754417879012e-13,
+          "maxYawError": 8.43769498715119e-15,
+          "minHeight": 2.0428711988064023,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.30000001192092896,
+          "p95CostMs": 0.09999996423721313
+        },
+        {
+          "mode": 0,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 1.0724754417879012e-13,
+          "maxYawError": 8.43769498715119e-15,
+          "minHeight": 2.0758866841756074,
+          "minBoom": 6.8,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 0,
+          "samples": 400,
+          "maxSide": 9.325873406851315e-14,
+          "maxYawError": 7.549516567451064e-15,
+          "minHeight": 3.953105604812123,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": -1,
+          "samples": 200,
+          "maxSide": 9.325873406851315e-14,
+          "maxYawError": 5.773159728050814e-15,
+          "minHeight": 3.802255686758649,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.19999998807907104,
+          "p95CostMs": 0.10000002384185791
+        },
+        {
+          "mode": 2,
+          "side": 1,
+          "samples": 200,
+          "maxSide": 9.325873406851315e-14,
+          "maxYawError": 5.773159728050814e-15,
+          "minHeight": 3.849218448349035,
+          "minBoom": 10.5,
+          "maxLift": 0,
+          "maxCostMs": 0.10000002384185791,
+          "p95CostMs": 0.10000002384185791
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "scope": "Actual circuit camera sweep with fixed zoom and car-relative heading, clearance checks and sampled rendered hairpins. Timing is diagnostic, not a real-time FPS benchmark."
+}

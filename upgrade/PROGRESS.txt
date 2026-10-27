@@ -1,3 +1,5 @@
+27 October 2026: Steady driving camera with fixed framing, shared car-pose anchoring, level horizon and road-deck-aware clearance. Camera and pit validation: docs/BROWSER-HANDLING.md.
+
 27 October 2026: Restored Team Edition steering/pedal response. Removed stacked input/grip curves; default handling aid now aligns travel with the filtered, grip-limited steering request. Reverse, brake priority and phone/controller layouts retained. Current evidence and historical-test scope: docs/BROWSER-HANDLING.md.
 
 PHONE LANDSCAPE AND PLAYER HANDLING - 27 OCTOBER 2026
