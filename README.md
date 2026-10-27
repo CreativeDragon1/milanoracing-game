@@ -14,6 +14,8 @@ Menus use Michroma and Milano’s colours, with visual race setup and tabbed set
 
 Download [Milano Racing.html](Milano%20Racing.html) using GitHub's **Download raw file** button, then open the saved file in Edge or Chrome. All game assets are embedded; solo play works offline. Pair PS/Xbox controllers in the operating system, return to the game and press a controller button.
 
+The compiled Windows app is available in the [Milano Apex 0.4.0 release](https://github.com/CreativeDragon1/milanoracing-game/releases/tag/desktop-v0.4.0). Extract the whole ZIP and run `Milano Apex.exe` alongside its `.pck` file. To serve the download directly from the game website, follow [the Ubuntu installation steps](HOSTING-UBUNTU.md#10-add-the-desktop-download-and-automatic-update-files). The archive is a release asset, so a Git pull alone does not install it on the server.
+
 ## Included
 
 - MR 26 and 14 circuits: Milano Autodromo, Bahrain, Singapore, Monza, Monaco, Austria, Silverstone, Abu Dhabi, Spa, Suzuka, Interlagos, Zandvoort, Milano Riviera and Milano Solara.

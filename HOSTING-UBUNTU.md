@@ -309,7 +309,36 @@ These details come from [`race_core.py`](upgrade/server/race_core.py), the [brow
 
 ## 10. Add the desktop download and automatic-update files
 
-The repository includes desktop source, but not the large compiled Windows ZIP. The private download button returns 404 until you upload that archive.
+The repository includes desktop source. The compiled Windows ZIP is published separately as a GitHub release asset because it is too large for ordinary Git. Pulling `main` does not install that ZIP. The game's existing download button serves `/downloads/Milano-Apex-Windows.zip` from this Ubuntu host and returns 404 until the archive is installed.
+
+### Install the published Windows package on Ubuntu
+
+Release: [Milano Apex 0.4.0](https://github.com/CreativeDragon1/milanoracing-game/releases/tag/desktop-v0.4.0). The ZIP is **393,638,455 bytes**. GitHub is the distribution source for the server administrator; players download from **game.milanoracing.team**, without being sent to GitHub.
+
+Run the following on the Ubuntu server. It verifies the package before installing it and replaces the served file atomically. It does not change access settings, restart the game, or interrupt multiplayer rooms. These paths match the installation in this guide; use the actual service directory if yours differs.
+
+```bash
+(
+set -eu
+milano_release_dir=$(mktemp -d "$HOME/milano-desktop-release.XXXXXX")
+cd "$milano_release_dir"
+curl --fail --location --retry 3 --output Milano-Apex-Windows.zip https://github.com/CreativeDragon1/milanoracing-game/releases/download/desktop-v0.4.0/Milano-Apex-Windows.zip
+printf '%s  %s\n' 'd2884f0aa461aabd6f27a0f488050eafe4713b9e089a4ee6b7f38aea52258292' 'Milano-Apex-Windows.zip' | sha256sum --check -
+sudo install -d -o root -g root -m 0755 /opt/milano/downloads
+if sudo test -f /opt/milano/downloads/Milano-Apex-Windows.zip; then
+  sudo cp -p /opt/milano/downloads/Milano-Apex-Windows.zip "/opt/milano/downloads/Milano-Apex-Windows.zip.previous-$(date +%Y%m%d-%H%M%S)"
+fi
+sudo install -o root -g root -m 0644 Milano-Apex-Windows.zip /opt/milano/downloads/Milano-Apex-Windows.zip.pending
+sudo mv -f /opt/milano/downloads/Milano-Apex-Windows.zip.pending /opt/milano/downloads/Milano-Apex-Windows.zip
+curl --fail --head https://game.milanoracing.team/downloads/Milano-Apex-Windows.zip
+)
+```
+
+The last request must return **200** and `Content-Length: 393638455`, with an attachment filename of `Milano-Apex-Windows.zip`. Test the download in a browser without a saved login if the game is public. The direct public link is [Download Milano Apex for Windows](https://game.milanoracing.team/downloads/Milano-Apex-Windows.zip). Extract the entire ZIP and run `Milano Apex.exe` beside `Milano Apex.pck`.
+
+This installs the full desktop download only. It does **not** publish the signed automatic-update feed described below. The native package remains version 0.4.0; the separate steady-camera browser update does not change its executable.
+
+### Alternatively, copy the validated local archive
 
 **Windows PowerShell, using your tested local release:**
 
