@@ -1,3 +1,6 @@
+PHONE LANDSCAPE AND PLAYER HANDLING - 27 OCTOBER 2026
+Phones use a landscape canvas and interface even in a portrait-locked browser viewport, with matching transformed touch coordinates. Tablet thumb zones remain raised and spacious. Immediate tap/drag steering, independent pedals and pedal sliding replace the old drag-only touch response. Assisted partial inputs build cornering authority earlier; the player retains control of braking and throttle. Exact-artifact browser checks and automated turn-in comparisons are documented in docs/BROWSER-HANDLING.md. Physical iPhone/iPad and controller playtesting remains distinct from emulated checks. No public deployment.
+
 MICHROMA AND TIMING UPDATE - 25 OCTOBER 2026
 Michroma throughout both game interfaces and both cinematic edits. Phone circuit card refitted. Active-session lap and qualifying clocks, cached HUD writes, equivalent speed-profile calculations and private website Windows download. Measurements are recorded against the release hashes; no public deployment.
 

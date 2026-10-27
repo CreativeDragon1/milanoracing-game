@@ -1,12 +1,16 @@
 process.env.PLAYWRIGHT_BROWSERS_PATH=require('path').resolve('work/playwright-browsers');
 const {webkit}=require('playwright'),fs=require('fs'),assert=require('assert');
-fs.copyFileSync('upgrade/server/public/index.html','upgrade/qa/mobile.html');
-(async()=>{const browser=await webkit.launch({headless:true}),reports=[];let passed=false;try{for(const id of['singapore','milano']){
- const context=await browser.newContext({viewport:{width:844,height:390},deviceScaleFactor:2,isMobile:true,hasTouch:true,userAgent:"Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1"}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('http://127.0.0.1:8878/mobile.html?circuit='+id,{timeout:180000});await page.waitForFunction(()=>window.MilanoReady===true,null,{timeout:180000});
- const stats=await page.evaluate(()=>({id:CIRCUIT.id,mobile:device.mobile,webgl2:ren.capabilities.isWebGL2,assets:sceneAssetErrors,renderer:ren.getContext().getParameter(ren.getContext().RENDERER)}));assert.equal(stats.id,id);assert(stats.mobile);assert.equal(stats.assets.length,0);
+(async()=>{const browser=await webkit.launch({headless:true}),reports=[];let passed=false;try{for(const [id,width,height] of[['singapore',844,390],['milano',844,390],['singapore',390,844],['milano',1194,834]]){
+ const tablet=Math.min(width,height)>=600,context=await browser.newContext({viewport:{width,height},deviceScaleFactor:2,isMobile:true,hasTouch:true,userAgent:`Mozilla/5.0 (${tablet?'iPad':'iPhone'}; CPU ${tablet?'OS':'iPhone OS'} 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1`}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:5183/play/?circuit='+id,{timeout:180000});await page.waitForFunction(()=>window.MilanoReady===true,null,{timeout:180000});
+ const stats=await page.evaluate(()=>({id:CIRCUIT.id,mobile:device.mobile,rotated:device.rotated,viewport:viewportSize(),webgl2:ren.capabilities.isWebGL2,assets:sceneAssetErrors,renderer:ren.getContext().getParameter(ren.getContext().RENDERER)}));assert.equal(stats.id,id);assert(stats.mobile);assert.equal(stats.assets.length,0);assert.equal(stats.rotated,!tablet&&height>width);if(!tablet)assert(stats.viewport.w>stats.viewport.h);
  await page.locator('#menu .home-drive').tap();await page.locator('[data-go="pr"]').tap();await page.locator('#go').tap();await page.waitForFunction(()=>state==='race',null,{timeout:60000});
  assert.equal(await page.evaluate(()=>state),'race');
- await page.locator('#touch-camera').tap();await page.locator('#touch-pause').tap();assert.equal(await page.evaluate(()=>state),'pause');
- await page.screenshot({path:`upgrade/qa/webkit-${id}.png`});assert.equal(errors.length,0,errors.join('\n'));reports.push(stats);await context.close();console.log('WebKit',id,'passed');
-}passed=true;}finally{await browser.close();fs.writeFileSync('upgrade/qa/webkit-mobile.json',JSON.stringify({passed,reports,scope:'Desktop WebKit compatibility and touch taps; not a physical iOS device.'},null,2));}})().catch(e=>{console.error(e);process.exit(1)});
+ const pad=await page.locator('#touch-steering').boundingBox();assert(pad.x>=0&&pad.y>=0&&pad.x+pad.width<=width+1&&pad.y+pad.height<=height+1);
+ await page.evaluate(()=>document.addEventListener('pointerdown',()=>{window.webkitSteeringSample=touchInput.s},{once:true}));
+ await page.touchscreen.tap(stats.rotated?pad.x+pad.width/2:pad.x+22,stats.rotated?pad.y+22:pad.y+pad.height/2);assert(await page.evaluate(()=>window.webkitSteeringSample)<-.9,'Left tap uses the transformed steering axis');assert.equal(await page.evaluate(()=>touchInput.s),0);
+ await page.locator('#touch-camera').tap();await page.locator('#touch-pause').tap();await page.waitForFunction(()=>state==='pause');
+ await page.waitForFunction(()=>getComputedStyle(document.querySelector('#pause .pn')).opacity==='1');
+ const resume=await page.locator('#resume').boundingBox();assert(resume&&resume.x>=0&&resume.y>=0&&resume.x+resume.width<=width+1&&resume.y+resume.height<=height+1,'Resume is visible inside the viewport');
+ await page.screenshot({path:`upgrade/qa/webkit-${id}-${width}x${height}.png`});await page.locator('#resume').tap();await page.waitForFunction(()=>state==='race');assert.equal(errors.length,0,errors.join('\n'));reports.push(stats);await context.close();console.log('WebKit',id,width,height,'passed');
+}passed=true;}finally{await browser.close();fs.writeFileSync('upgrade/qa/webkit-mobile.json',JSON.stringify({passed,fileSHA256:require('crypto').createHash('sha256').update(fs.readFileSync('upgrade/qa/standalone.html')).digest('hex'),reports,scope:'Desktop WebKit compatibility and touch taps; not a physical iOS device.'},null,2));}})().catch(e=>{console.error(e);process.exit(1)});

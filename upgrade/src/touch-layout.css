@@ -1,0 +1,104 @@
+/* Thumb controls have their own reach zones on phones and tablets. */
+.touch-device{--drive-bottom:calc(var(--safe-b) + 20px);--drive-inset:12px;--drive-height:112px}
+#touch-controls button,#touch-steering{font-family:var(--ui);box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+#touch-steering{left:calc(var(--safe-l) + var(--drive-inset));bottom:var(--drive-bottom);width:176px;height:var(--drive-height);padding:15px;border-radius:38px;background:linear-gradient(145deg,#172232dc,#0a111bdc);border-color:#ffffff36}
+#touch-steering span{font-family:var(--ui);font-size:28px;color:#ffffffad;pointer-events:none}
+#touch-steering i{height:50px;width:50px;left:calc(50% - 25px);border-width:2px;box-shadow:0 0 16px #ff7a0020;pointer-events:none}
+#touch-steering.pressed{background:linear-gradient(145deg,#242d3dda,#101722da)}
+.touch-pedals{right:calc(var(--safe-r) + var(--drive-inset));bottom:var(--drive-bottom);align-items:flex-end;gap:12px}
+.touch-pedals button{margin:0;padding:0;text-align:center;letter-spacing:.02em;border-radius:24px;font-size:11px}
+.touch-pedals #touch-throttle{width:88px;height:112px;border-radius:30px;background:#783700d9;border-color:#ff9b41}
+.touch-pedals #touch-brake{width:72px;height:88px;background:#111a29df;border-color:#b6c2d0}
+#touch-controls .touch-pedals .pressed{background:#ff7a00e6;color:#070b11;box-shadow:inset 0 0 0 2px #ffffff60}
+.touch-actions button{margin:0;text-align:center;font-size:10px}
+.touch-device #bc{bottom:var(--drive-bottom);width:120px;padding:14px 8px 8px;gap:6px;pointer-events:none}
+.touch-device #line-cue{bottom:calc(var(--drive-bottom) + 118px);pointer-events:none}
+.touch-device #gp-hud-stack{bottom:calc(var(--drive-bottom) + var(--drive-height) + 14px)}
+.touch-device[data-touch-layout="tablet"]{--drive-bottom:calc(var(--safe-b) + clamp(44px,9vh,92px));--drive-inset:24px;--drive-height:140px}
+.touch-device[data-touch-layout="tablet"] #touch-steering{width:224px;border-radius:46px;padding:20px}
+.touch-device[data-touch-layout="tablet"] .touch-pedals{gap:16px}
+.touch-device[data-touch-layout="tablet"] #touch-throttle{width:104px;height:140px;border-radius:36px}
+.touch-device[data-touch-layout="tablet"] #touch-brake{width:88px;height:108px;border-radius:28px}
+.touch-device[data-touch-layout="tablet"] #touch-controls button{font-size:12px}
+.touch-device[data-touch-layout="tablet"] #line-cue{bottom:calc(var(--drive-bottom) + 154px)}
+@media(max-width:600px) and (orientation:portrait){
+ .touch-device{--drive-bottom:calc(var(--safe-b) + 24px);--drive-inset:0px;--drive-height:104px}
+ #touch-steering{width:clamp(132px,40vw,168px);padding:12px;border-radius:32px}
+ .touch-pedals{gap:8px}.touch-pedals #touch-throttle{width:68px;height:104px}.touch-pedals #touch-brake{width:58px;height:84px;font-size:9px}
+ .touch-device #bc{bottom:calc(var(--drive-bottom) + 120px)}
+ .touch-device #line-cue{bottom:calc(var(--drive-bottom) + 198px)}
+ .touch-device #gp-hud-stack{bottom:calc(var(--drive-bottom) + 224px);width:176px}
+}
+/* Portrait-locked phones still get a full landscape game coordinate space. */
+.touch-device[data-game-rotated="true"]{--safe-l:max(12px,env(safe-area-inset-top));--safe-r:max(12px,env(safe-area-inset-bottom));--safe-t:max(8px,env(safe-area-inset-right));--safe-b:max(12px,env(safe-area-inset-left))}
+.touch-device[data-game-rotated="true"] body{position:fixed;inset:auto;top:0;left:0;width:var(--game-w);height:var(--game-h);transform-origin:0 0;transform:translateX(var(--physical-w)) rotate(90deg);overflow:hidden}
+.touch-device[data-game-rotated="true"] .ov{width:var(--game-w);height:var(--game-h)}
+.touch-device[data-game-rotated="true"] #menu .menu-shell{min-height:var(--game-h);height:var(--game-h);padding:10px 20px}
+.touch-device[data-game-rotated="true"] #menu .menu-main{width:330px;max-width:55%;padding:6px 0}
+.touch-device[data-game-rotated="true"] #menu .brand{padding:0 0 6px}.touch-device[data-game-rotated="true"] #menu .brand img{width:52px}
+.touch-device[data-game-rotated="true"] #menu .home-tagline,.touch-device[data-game-rotated="true"] #menu .menu-foot{display:none}
+.touch-device[data-game-rotated="true"] #menu .home-drive{min-height:44px;padding:7px 14px}
+.touch-device[data-game-rotated="true"] #menu .home-circuit{margin-top:8px;padding-top:7px}
+/* Phone HUD: lap, clock, position, map and the two pit actions. */
+.touch-device[data-touch-layout="phone"]{--drive-bottom:calc(var(--safe-b) + 12px);--drive-inset:8px;--drive-height:96px}
+.touch-device[data-touch-layout="phone"] #touch-steering{width:164px;height:96px;border-radius:32px;padding:12px}
+.touch-device[data-touch-layout="phone"] .touch-pedals{gap:10px}
+.touch-device[data-touch-layout="phone"] #touch-throttle{width:78px;height:96px;border-radius:28px}
+.touch-device[data-touch-layout="phone"] #touch-brake{width:64px;height:80px;font-size:9px}
+.touch-device[data-touch-layout="phone"] .touch-actions{gap:6px}
+.touch-device[data-touch-layout="phone"] .touch-actions button{width:52px;min-width:52px;height:44px;padding:4px;font-size:8px}
+.touch-device[data-touch-layout="phone"] #tl{left:var(--safe-l);top:var(--safe-t);width:130px;min-width:0;padding:6px 8px;clip-path:none}
+.touch-device[data-touch-layout="phone"] #session-type{font-size:8px;letter-spacing:.04em;margin-bottom:4px}
+.touch-device[data-touch-layout="phone"] #lap{font-size:14px}.touch-device[data-touch-layout="phone"] #val{display:none}
+.touch-device[data-touch-layout="phone"] #tc{top:var(--safe-t);left:50%;right:auto;transform:translateX(-50%);width:164px;min-width:0;padding:5px 8px}
+.touch-device[data-touch-layout="phone"] .hud-kicker{font-size:7px}.touch-device[data-touch-layout="phone"] #cur{font-size:17px}
+.touch-device[data-touch-layout="phone"] #dl{font-size:9px;margin-top:3px}
+.touch-device[data-touch-layout="phone"] #bst,.touch-device[data-touch-layout="phone"] #sec,.touch-device #rpm{display:none}
+.touch-device[data-touch-layout="phone"] #map{top:calc(var(--safe-t) + 52px);right:var(--safe-r);width:100px;height:88px}
+.touch-device[data-touch-layout="phone"] #gp-hud-stack{top:calc(var(--safe-t) + 60px);left:var(--safe-l);bottom:auto;width:164px;gap:0}
+.touch-device[data-touch-layout="phone"] #gp-hud-stack #gp-timing{display:none}
+.touch-device[data-touch-layout="phone"] #gp-hud-stack #gp-race-strip{padding:5px;gap:5px}
+.touch-device[data-touch-layout="phone"] #gp-hud-stack button{height:44px;min-height:44px;font-size:8px;padding:4px}
+.touch-device[data-touch-layout="phone"] #gp-tyre{display:none}
+.touch-device[data-touch-layout="phone"] #bc{left:50%;right:auto;bottom:var(--drive-bottom);transform:translateX(-50%);width:112px;padding:13px 8px 7px;clip-path:none}
+.touch-device[data-touch-layout="phone"] #spd{min-width:56px;font-size:27px}.touch-device[data-touch-layout="phone"] #gr{font-size:25px}
+.touch-device[data-touch-layout="phone"] #bc small{font-size:7px}
+.touch-device[data-touch-layout="phone"] #line-cue{bottom:calc(var(--drive-bottom) + 70px);font-size:9px;padding:4px 8px}
+.touch-device #touch-controls .touch-actions button{width:52px;min-width:52px;min-height:44px;font-size:8px;letter-spacing:0;padding:3px}
+.touch-device[data-touch-layout="tablet"] #touch-controls .touch-actions button{width:64px;min-width:64px;font-size:9px}
+/* Use the game's landscape size rather than portrait browser media queries. */
+.touch-device[data-touch-layout="phone"] .ov{height:var(--game-h)}
+.touch-device[data-touch-layout="phone"] .ov>.pn{max-height:100%;margin:auto;overflow:auto;padding:16px 22px}
+.touch-device[data-touch-layout="phone"] #menu .menu-shell{height:var(--game-h);min-height:0;padding:10px 20px}
+.touch-device[data-touch-layout="phone"] #menu .brand{padding:0 0 6px;flex-shrink:0}
+.touch-device[data-touch-layout="phone"] #menu .brand img{width:52px}
+.touch-device[data-touch-layout="phone"] #menu .menu-main{width:330px;max-width:55%;padding:6px 0;margin:0}
+.touch-device[data-touch-layout="phone"] #menu h1,.touch-device[data-touch-layout="phone"] #menu .home-tagline,.touch-device[data-touch-layout="phone"] #menu .menu-foot,.touch-device[data-touch-layout="phone"] #menu .home-online small{display:none}
+.touch-device[data-touch-layout="phone"] #menu .home-drive{min-height:44px;padding:7px 14px;font-size:16px}
+.touch-device[data-touch-layout="phone"] #menu .home-online{min-height:44px;margin-top:6px;padding:8px 14px;font-size:12px}
+.touch-device[data-touch-layout="phone"] #menu .home-circuit{min-height:44px;margin-top:6px;padding:6px 0}
+.touch-device[data-touch-layout="phone"] #menu .home-circuit small{font-size:7px;margin-bottom:3px}
+.touch-device[data-touch-layout="phone"] #menu .home-circuit strong{font-size:11px}
+.touch-device[data-touch-layout="phone"] #menu .team-partners{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-top:8px}
+.touch-device[data-touch-layout="phone"] #menu .team-partners img{width:100%;height:28px}
+.touch-device[data-touch-layout="phone"] .settings-shell{height:100%;display:flex;flex-direction:column}
+.touch-device[data-touch-layout="phone"] .screen-heading{padding-bottom:8px;flex-shrink:0}
+.touch-device[data-touch-layout="phone"] .screen-heading h2{font-size:20px;margin:4px 0 0}
+.touch-device[data-touch-layout="phone"] .settings-layout{min-height:0;flex:1;overflow:auto;grid-template-columns:104px minmax(0,1fr);gap:16px;padding:12px 0}
+.touch-device[data-touch-layout="phone"] .settings-tabs{display:block;border:0;border-right:1px solid var(--line);padding:0 8px 0 0}
+.touch-device[data-touch-layout="phone"] .settings-tabs button{font-size:10px;padding:10px 6px;gap:0}
+.touch-device[data-touch-layout="phone"] .settings-tabs button span,.touch-device[data-touch-layout="phone"] .settings-content h3,.touch-device[data-touch-layout="phone"] .settings-content .section-index{display:none}
+.touch-device[data-touch-layout="phone"] .control-row{padding:9px 0 12px;gap:6px 12px}
+.touch-device[data-touch-layout="phone"] .control-row>span{font-size:12px}
+.touch-device[data-touch-layout="phone"] .settings-links button{flex:1 1 130px;white-space:normal}
+.touch-device[data-touch-layout="phone"] .screen-footer{padding:8px 0 0;flex-shrink:0;gap:8px}
+.touch-device[data-touch-layout="phone"] #pause .pn{width:min(560px,100%);display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.touch-device[data-touch-layout="phone"] #pause .pn>.eyebrow,.touch-device[data-touch-layout="phone"] #pause h2,.touch-device[data-touch-layout="phone"] #pause-note{grid-column:1/-1;margin:0}
+.touch-device[data-touch-layout="phone"] #pause .pn>button{margin:0;padding:10px;font-size:11px}
+.touch-device[data-touch-layout="phone"] #pause-note:empty{display:none}
+@media(max-height:380px) and (orientation:landscape){
+ .touch-device{--drive-bottom:calc(var(--safe-b) + 8px);--drive-inset:4px;--drive-height:92px}
+ #touch-steering{width:152px;border-radius:30px;padding:12px}
+ .touch-pedals{gap:8px}.touch-pedals #touch-throttle{width:72px;height:92px}.touch-pedals #touch-brake{width:62px;height:76px;font-size:9px}
+ .touch-device #line-cue{bottom:calc(var(--drive-bottom) + 98px)}
+}

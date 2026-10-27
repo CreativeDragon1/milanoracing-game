@@ -1,0 +1,197 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "type": "keyboard",
+      "kmh": 54,
+      "before": {
+        "radius": 10.58843577700459,
+        "headingAtHalfSecond": 0.5268925142658634
+      },
+      "after": {
+        "radius": 8.492598741555533,
+        "headingAtHalfSecond": 0.7258437015364935
+      }
+    },
+    {
+      "type": "keyboard",
+      "kmh": 72,
+      "before": {
+        "radius": 16.5490814099373,
+        "headingAtHalfSecond": 0.43093902021394476
+      },
+      "after": {
+        "radius": 13.047682185426323,
+        "headingAtHalfSecond": 0.6034687348574781
+      }
+    },
+    {
+      "type": "keyboard",
+      "kmh": 90,
+      "before": {
+        "radius": 23.293029257794295,
+        "headingAtHalfSecond": 0.35225745367548533
+      },
+      "after": {
+        "radius": 18.41220222106084,
+        "headingAtHalfSecond": 0.4956417342515986
+      }
+    },
+    {
+      "type": "keyboard",
+      "kmh": 144,
+      "before": {
+        "radius": 41.05103893944309,
+        "headingAtHalfSecond": 0.2719374963710848
+      },
+      "after": {
+        "radius": 32.350585655221266,
+        "headingAtHalfSecond": 0.38225364753083374
+      }
+    },
+    {
+      "type": "controller",
+      "kmh": 54,
+      "before": {
+        "radius": 20.306721157262288,
+        "headingAtHalfSecond": 0.31731049732847266
+      },
+      "after": {
+        "radius": 10.828868416691197,
+        "headingAtHalfSecond": 0.6013687004284793
+      }
+    },
+    {
+      "type": "controller",
+      "kmh": 72,
+      "before": {
+        "radius": 32.075216001791055,
+        "headingAtHalfSecond": 0.2639162260573154
+      },
+      "after": {
+        "radius": 16.97723921177525,
+        "headingAtHalfSecond": 0.5018647663097936
+      }
+    },
+    {
+      "type": "controller",
+      "kmh": 90,
+      "before": {
+        "radius": 45.51497916496029,
+        "headingAtHalfSecond": 0.22342835761162724
+      },
+      "after": {
+        "radius": 24.700027586484442,
+        "headingAtHalfSecond": 0.41531135739611325
+      }
+    },
+    {
+      "type": "controller",
+      "kmh": 144,
+      "before": {
+        "radius": 84.4676349542517,
+        "headingAtHalfSecond": 0.18886398008417749
+      },
+      "after": {
+        "radius": 49.37752229272038,
+        "headingAtHalfSecond": 0.3269856592205874
+      }
+    },
+    {
+      "type": "touch",
+      "kmh": 54,
+      "before": {
+        "radius": 38.73131422870016,
+        "headingAtHalfSecond": 0.169090053013318
+      },
+      "after": {
+        "radius": 10.04817361121332,
+        "headingAtHalfSecond": 0.6524350161538421
+      }
+    },
+    {
+      "type": "touch",
+      "kmh": 72,
+      "before": {
+        "radius": 61.93335409911705,
+        "headingAtHalfSecond": 0.13911836515987316
+      },
+      "after": {
+        "radius": 15.726856579488926,
+        "headingAtHalfSecond": 0.546944331631287
+      }
+    },
+    {
+      "type": "touch",
+      "kmh": 90,
+      "before": {
+        "radius": 88.43400045968671,
+        "headingAtHalfSecond": 0.11721023518490788
+      },
+      "after": {
+        "radius": 22.593915173740548,
+        "headingAtHalfSecond": 0.45756157952348064
+      }
+    },
+    {
+      "type": "touch",
+      "kmh": 144,
+      "before": {
+        "radius": 168.4655575174362,
+        "headingAtHalfSecond": 0.09658483933821996
+      },
+      "after": {
+        "radius": 43.328465403486575,
+        "headingAtHalfSecond": 0.37150689540483406
+      }
+    }
+  ],
+  "taps": [
+    {
+      "type": "keyboard",
+      "kmh": 108,
+      "heading": 0.02611205343785324
+    },
+    {
+      "type": "keyboard",
+      "kmh": 198,
+      "heading": 0.00738722915442556
+    },
+    {
+      "type": "keyboard",
+      "kmh": 288,
+      "heading": 0.0049864509555966685
+    },
+    {
+      "type": "controller",
+      "kmh": 108,
+      "heading": 0.012504700535206406
+    },
+    {
+      "type": "controller",
+      "kmh": 198,
+      "heading": 0.00907451973302005
+    },
+    {
+      "type": "controller",
+      "kmh": 288,
+      "heading": 0.005971665869533789
+    },
+    {
+      "type": "touch",
+      "kmh": 108,
+      "heading": 0.05741608983979161
+    },
+    {
+      "type": "touch",
+      "kmh": 198,
+      "heading": 0.03693785648782841
+    },
+    {
+      "type": "touch",
+      "kmh": 288,
+      "heading": 0.022947432519006196
+    }
+  ],
+  "scope": "Fixed-speed delayed input comparisons with the previously shipped handling, actual controller mapping and touch mapping. No optimized path follower; not physical device feel."
+}

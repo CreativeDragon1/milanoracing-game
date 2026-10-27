@@ -1,0 +1,35 @@
+const {chromium}=require('playwright'),fs=require('fs'),assert=require('assert');
+const specs=[['iphone-small-portrait',320,568],['iphone-portrait',390,844],['iphone-landscape',844,390],['iphone-small-landscape',667,375],['ipad-landscape',1194,834],['ipad-portrait',834,1194]];
+const overlaps=(a,b)=>Math.min(a.right,b.right)>Math.max(a.left,b.left)+1&&Math.min(a.bottom,b.bottom)>Math.max(a.top,b.top)+1;
+(async()=>{const browser=await chromium.launch({channel:'msedge',headless:true}),reports=[];let passed=false;try{for(const [name,width,height]of specs){
+ const tablet=name.startsWith('ipad'),context=await browser.newContext({viewport:{width,height},deviceScaleFactor:tablet?2:3,isMobile:true,hasTouch:true,userAgent:tablet?'Mozilla/5.0 (iPad; CPU OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1':'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'}),page=await context.newPage(),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));await page.goto('http://127.0.0.1:5183/play/?circuit=singapore');await page.waitForFunction(()=>window.MilanoReady,null,{timeout:180000});
+ await page.evaluate(async()=>{window.touchTestFrame=frame;frame=()=>{};await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));newSession('pr');state='race';show('none');$('hud').hidden=false;touchTestFrame(performance.now()+16)});
+ const geometry=await page.evaluate(()=>({layout:device.touchLayout,mobile:device.mobile,rotated:device.rotated,viewport:viewportSize(),pixels:ren.domElement.width*ren.domElement.height,boxes:Object.fromEntries(['touch-steering','touch-throttle','touch-brake','touch-camera','touch-reset','touch-pause','bc','tl','tc','map'].map(id=>[id,$(id).getBoundingClientRect().toJSON()]))}));
+ assert(geometry.mobile);assert.equal(geometry.layout,tablet?'tablet':'phone');assert(geometry.pixels<=1805000);const boxes=geometry.boxes;
+ assert(await page.evaluate(()=>[...document.querySelectorAll('.touch-actions button')].every(el=>el.scrollWidth<=el.clientWidth)),'Action labels fit their buttons');
+ if(!tablet){assert(geometry.viewport.w>geometry.viewport.h,'phone always renders landscape');assert.equal(geometry.rotated,height>width);}
+ for(const[id,r]of Object.entries(boxes)){assert(r.left>=0&&r.top>=0&&r.right<=width+1&&r.bottom<=height+1,id+' fits '+name+' '+JSON.stringify(r));if(id.startsWith('touch-'))assert(r.width>=44&&r.height>=44);}
+ const ids=Object.keys(boxes);for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++)assert(!overlaps(boxes[ids[i]],boxes[ids[j]]),`${name}: ${ids[i]} overlaps ${ids[j]}`);
+ if(tablet)assert(height-boxes['touch-steering'].bottom>=60,'tablet thumb zone raised above bezel');
+ const cdp=await context.newCDPSession(page),s=boxes['touch-steering'],t=boxes['touch-throttle'],b=boxes['touch-brake'],points=[{x:geometry.rotated?s.left+s.width/2:s.left+22,y:geometry.rotated?s.top+22:s.top+s.height/2,id:1},{x:t.left+t.width/2,y:t.top+t.height/2,id:2}];
+ // A stationary left tap must immediately request steering, with a second thumb on GO.
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:points});
+ const tapped=await page.evaluate(()=>{const h=c.h;for(let i=0;i<36;i++)step(1/120);return{touch:{...touchInput},input:{...inp},heading:c.h-h,speed:c.vx}});assert(tapped.touch.s<-.9&&tapped.touch.t===1);assert(tapped.input.s<-.9&&tapped.heading<0&&tapped.speed>0);
+ // Cross centre without lifting; then slide the pedal thumb from GO onto BRAKE.
+ if(geometry.rotated)points[0].y=s.bottom-22;else points[0].x=s.right-22;await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:points});await page.waitForFunction(()=>touchInput.s>.9,null,{timeout:3000});
+ points[1].x=b.left+b.width/2;points[1].y=b.top+b.height/2;await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:points});await page.waitForFunction(()=>touchInput.t===0&&touchInput.b===1,null,{timeout:3000});assert.deepEqual(await page.evaluate(()=>[touchInput.t,touchInput.b]),[0,1]);
+ // Losing just the pedal pointer must not release the steering finger.
+ await page.evaluate(()=>{const id=[...touchPointers].find(([,key])=>key==='b')[0],el=touchCaptures.get(id);el.dispatchEvent(new PointerEvent('pointercancel',{pointerId:id,bubbles:true}));});assert(await page.evaluate(()=>touchInput.s)>.9);assert.equal(await page.evaluate(()=>touchInput.b),0);
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});assert.deepEqual(await page.evaluate(()=>({...touchInput})),{s:0,t:0,b:0});
+ // Standard Xbox/PlayStation-style mapping shares the same handling on mobile.
+ const controller=await page.evaluate(()=>{placeCar(0);c.vx=20;const start=c.h;padInput.s=readPad({mapping:'standard',axes:[.65],buttons:[]},.12).s;for(let i=0;i<60;i++)step(1/120);const out={heading:c.h-start,brake:inp.b};padInput.s=0;return out});assert(controller.heading>.25&&controller.brake===0);
+ await page.evaluate(()=>{newSession('qual');state='race';show('none');$('hud').hidden=false;gpHud(true);touchTestFrame(performance.now()+16)});
+ const hud=await page.evaluate(()=>Object.fromEntries(['gp-timing','gp-race-strip','touch-steering','touch-throttle','touch-brake'].map(id=>[id,$(id).getBoundingClientRect().toJSON()])));
+ assert(!overlaps(hud['gp-timing'],hud['gp-race-strip']));for(const panel of['gp-timing','gp-race-strip'])for(const control of['touch-steering','touch-throttle','touch-brake'])assert(!overlaps(hud[panel],hud[control]),name+' HUD covers '+control);
+ await page.screenshot({path:`upgrade/qa/touch-driving-${name}.png`});
+ await page.locator('#touch-pause').tap();await page.waitForFunction(()=>state==='pause',null,{timeout:3000});assert(await page.locator('#touch-controls').isHidden());
+ await page.locator('#resume').tap();await page.waitForFunction(()=>state==='race',null,{timeout:3000});await page.evaluate(()=>dispatchEvent(new Event('orientationchange')));assert.equal(await page.evaluate(()=>state),'pause');assert.deepEqual(await page.evaluate(()=>({...touchInput})),{s:0,t:0,b:0});
+ await page.setViewportSize({width:height,height:width});await page.evaluate(()=>resize(true));assert(await page.evaluate(()=>Math.abs(cam.aspect-viewportSize().w/viewportSize().h)<.001));
+ assert.deepEqual(errors,[]);reports.push({name,width,height,geometry,tapped,controller,hud,errors});console.log(name,'tap, drag, multi-touch, pedal slide, cancellation, controller and layout passed');await context.close();
+}passed=true;}finally{await browser.close();fs.writeFileSync('upgrade/qa/touch-driving-browser.json',JSON.stringify({passed,fileSHA256:require('crypto').createHash('sha256').update(fs.readFileSync('upgrade/qa/standalone.html')).digest('hex'),reports,scope:'Chromium iPhone/iPad emulation with trusted multi-touch dispatch, synthetic cancellation and software controller input. Physical iOS ergonomics and frame rates require device playtesting.'},null,2));}})().catch(e=>{console.error(e);process.exit(1)});

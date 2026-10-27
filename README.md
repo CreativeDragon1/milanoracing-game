@@ -2,11 +2,13 @@
 
 Milano Racing, featuring the MR 26. Open **Milano Racing.html** for the browser game; the independent native desktop source is under **native-desktop**.
 
-The browser's Handling assist responds to steering input with progressive keyboard response, proportional controller steering and extra grip for committed turns. The player controls both pedals; the assist never brakes or lifts the throttle automatically. Interlagos pit-exit wall crossings and overlapping asphalt edges are corrected, and pit cameras follow slopes with tunnel clearance. See [browser handling and validation](upgrade/docs/BROWSER-HANDLING.md).
+The browser's Handling assist gives deliberate keyboard, controller and touch inputs more cornering authority while preserving gentle short inputs. The player controls both pedals; the assist never brakes or lifts the throttle automatically. Phones use a landscape game view, including an in-page rotation when the browser stays portrait-locked. The phone HUD and menus are simplified; iPad has larger, raised thumb controls. Touch steering responds on contact, and the pedal finger can slide between accelerator and brake. See [browser handling and validation](upgrade/docs/BROWSER-HANDLING.md).
+
+Interlagos pit-exit wall crossings and overlapping asphalt edges are corrected, and pit cameras follow slopes with tunnel clearance. The release checks cover all fourteen pit surfaces.
 
 The latest update adds Riviera and Solara, progressive steering, steadier cameras, local adaptive rivals and less repeated rendering and race-model work. Pit routes now keep their working areas clear of the racing surface, use smooth joins and transfer steering continuously out of assist. Reversed procedural grandstands, garage floors and service aprons are corrected. See upgrade/docs/PERFORMANCE-RESULTS.md for measured gains and remaining limits. Milano Autodromo is now a 6.54 km, 17-corner ridge circuit. All six partners share balanced trackside wall allocations, rotating gantries and pit facades. Track limits allow kerb use and brief excursions, with gradual grip loss outside the kerbs and warnings before race penalties.
 
-Menus use Barlow headings, DM Sans controls and Milano’s colours, with visual race setup and tabbed settings. Embedded fonts also work offline. The environment guide lists references, inspection frames and the details that remain approximate; these are mapped game reconstructions, not survey-exact replicas.
+Menus use Michroma and Milano’s colours, with visual race setup and tabbed settings. Embedded fonts also work offline. The environment guide lists references, inspection frames and the details that remain approximate; these are mapped game reconstructions, not survey-exact replicas.
 
 ## Play
 

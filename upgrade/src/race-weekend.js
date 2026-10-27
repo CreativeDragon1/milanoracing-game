@@ -148,7 +148,7 @@ function gpTimingHud(){const w=GP.weekend;if(!w)return;const p=w.player,qual=w.p
 
  const cls=qual&&!p.valid?'bad':'';if(hudNode('val').className!==cls)hudNode('val').className=cls;
 
- hudText('dl','POSITION '+(GP.position||1)+' OF 22');hudStyle('dl','color','var(--tx2)');
+ hudText('dl',(device.mobile?'P ':'POSITION ')+(GP.position||1)+(device.mobile?' / 22':' OF 22'));hudStyle('dl','color','var(--tx2)');
 
 }
 
@@ -160,7 +160,7 @@ function gpHud(force=false){const w=GP.weekend;if(!w)return;const now=performanc
 
  if(GP.lastTimingHTML!==timingHTML){$('gp-timing').innerHTML=timingHTML;GP.lastTimingHTML=timingHTML}
 
- hudText('gp-tyre',RaceWeekend.TYRES[p.tyre].name+' · '+Math.round((1-p.wear)*100)+'%');hudText('gp-pit-call',p.pit?'PIT ASSIST':p.requested?'BOX THIS LAP':'P or RB · BOX');hudText('gp-next-tyre','T or LB · '+RaceWeekend.TYRES[GP.pitChoice].name);hudText('gp-strategy-status',qual?'FINISH YOUR LAP AFTER THE FLAG':w.cfg.twoCompounds?(p.used.size>=2?'COMPOUND RULE MET':'USE TWO COMPOUNDS'):'OPEN STRATEGY');$('gp-pit-call').classList.toggle('called',p.requested);}
+ hudText('gp-tyre',RaceWeekend.TYRES[p.tyre].name+' · '+Math.round((1-p.wear)*100)+'%');hudText('gp-pit-call',device.mobile?(p.pit?'PIT':p.requested?'BOXING':'BOX'):(p.pit?'PIT ASSIST':p.requested?'BOX THIS LAP':'P or RB · BOX'));hudText('gp-next-tyre',(device.mobile?'':'T or LB · ')+RaceWeekend.TYRES[GP.pitChoice].name);hudText('gp-strategy-status',qual?'FINISH YOUR LAP AFTER THE FLAG':w.cfg.twoCompounds?(p.used.size>=2?'COMPOUND RULE MET':'USE TWO COMPOUNDS'):'OPEN STRATEGY');$('gp-pit-call').classList.toggle('called',p.requested);}
 
 // Finishing Q2/Q3 after elimination must leave input and paint time available.
 async function gpSimulateRemainingQualifying(w,current,yieldFrame,now,onStage){

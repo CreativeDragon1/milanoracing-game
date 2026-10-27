@@ -1,7 +1,7 @@
 {
   "htmlBytes": 47940,
   "assets": 84,
-  "bytes": 114485868,
+  "bytes": 114503995,
   "circuits": [
     "bahrain",
     "singapore",
@@ -50,5 +50,5 @@
     "riviera": 440067,
     "solara": 470765
   },
-  "gameScriptBytes": 8894136
+  "gameScriptBytes": 8898516
 }

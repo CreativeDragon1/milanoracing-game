@@ -186,6 +186,111 @@ h1,h2,h3{letter-spacing:0!important;line-height:1.35}
 .touch-device #gp-hud-stack button{min-width:0;min-height:38px;padding:5px;font-size:8px}
 @media(max-width:600px) and (orientation:portrait){.touch-device #gp-hud-stack{top:calc(var(--safe-t) + 190px);bottom:calc(var(--safe-b) + 222px)}}
 @media(max-height:500px) and (orientation:landscape){.touch-device #gp-hud-stack{top:calc(var(--safe-t) + 66px);bottom:calc(var(--safe-b) + 108px)}.touch-device #gp-hud-stack .gp-row:not(.you){display:none}.touch-device #gp-hud-stack .gp-table-head{padding:4px}.touch-device #gp-hud-stack #gp-timing{min-height:43px}.touch-device #gp-hud-stack .gp-row{padding:4px}.touch-device #gp-hud-stack #gp-tyre{display:none}.touch-device #gp-hud-stack button{min-height:34px}}
+
+/* Thumb controls have their own reach zones on phones and tablets. */
+.touch-device{--drive-bottom:calc(var(--safe-b) + 20px);--drive-inset:12px;--drive-height:112px}
+#touch-controls button,#touch-steering{font-family:var(--ui);box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+#touch-steering{left:calc(var(--safe-l) + var(--drive-inset));bottom:var(--drive-bottom);width:176px;height:var(--drive-height);padding:15px;border-radius:38px;background:linear-gradient(145deg,#172232dc,#0a111bdc);border-color:#ffffff36}
+#touch-steering span{font-family:var(--ui);font-size:28px;color:#ffffffad;pointer-events:none}
+#touch-steering i{height:50px;width:50px;left:calc(50% - 25px);border-width:2px;box-shadow:0 0 16px #ff7a0020;pointer-events:none}
+#touch-steering.pressed{background:linear-gradient(145deg,#242d3dda,#101722da)}
+.touch-pedals{right:calc(var(--safe-r) + var(--drive-inset));bottom:var(--drive-bottom);align-items:flex-end;gap:12px}
+.touch-pedals button{margin:0;padding:0;text-align:center;letter-spacing:.02em;border-radius:24px;font-size:11px}
+.touch-pedals #touch-throttle{width:88px;height:112px;border-radius:30px;background:#783700d9;border-color:#ff9b41}
+.touch-pedals #touch-brake{width:72px;height:88px;background:#111a29df;border-color:#b6c2d0}
+#touch-controls .touch-pedals .pressed{background:#ff7a00e6;color:#070b11;box-shadow:inset 0 0 0 2px #ffffff60}
+.touch-actions button{margin:0;text-align:center;font-size:10px}
+.touch-device #bc{bottom:var(--drive-bottom);width:120px;padding:14px 8px 8px;gap:6px;pointer-events:none}
+.touch-device #line-cue{bottom:calc(var(--drive-bottom) + 118px);pointer-events:none}
+.touch-device #gp-hud-stack{bottom:calc(var(--drive-bottom) + var(--drive-height) + 14px)}
+.touch-device[data-touch-layout="tablet"]{--drive-bottom:calc(var(--safe-b) + clamp(44px,9vh,92px));--drive-inset:24px;--drive-height:140px}
+.touch-device[data-touch-layout="tablet"] #touch-steering{width:224px;border-radius:46px;padding:20px}
+.touch-device[data-touch-layout="tablet"] .touch-pedals{gap:16px}
+.touch-device[data-touch-layout="tablet"] #touch-throttle{width:104px;height:140px;border-radius:36px}
+.touch-device[data-touch-layout="tablet"] #touch-brake{width:88px;height:108px;border-radius:28px}
+.touch-device[data-touch-layout="tablet"] #touch-controls button{font-size:12px}
+.touch-device[data-touch-layout="tablet"] #line-cue{bottom:calc(var(--drive-bottom) + 154px)}
+@media(max-width:600px) and (orientation:portrait){
+ .touch-device{--drive-bottom:calc(var(--safe-b) + 24px);--drive-inset:0px;--drive-height:104px}
+ #touch-steering{width:clamp(132px,40vw,168px);padding:12px;border-radius:32px}
+ .touch-pedals{gap:8px}.touch-pedals #touch-throttle{width:68px;height:104px}.touch-pedals #touch-brake{width:58px;height:84px;font-size:9px}
+ .touch-device #bc{bottom:calc(var(--drive-bottom) + 120px)}
+ .touch-device #line-cue{bottom:calc(var(--drive-bottom) + 198px)}
+ .touch-device #gp-hud-stack{bottom:calc(var(--drive-bottom) + 224px);width:176px}
+}
+/* Portrait-locked phones still get a full landscape game coordinate space. */
+.touch-device[data-game-rotated="true"]{--safe-l:max(12px,env(safe-area-inset-top));--safe-r:max(12px,env(safe-area-inset-bottom));--safe-t:max(8px,env(safe-area-inset-right));--safe-b:max(12px,env(safe-area-inset-left))}
+.touch-device[data-game-rotated="true"] body{position:fixed;inset:auto;top:0;left:0;width:var(--game-w);height:var(--game-h);transform-origin:0 0;transform:translateX(var(--physical-w)) rotate(90deg);overflow:hidden}
+.touch-device[data-game-rotated="true"] .ov{width:var(--game-w);height:var(--game-h)}
+.touch-device[data-game-rotated="true"] #menu .menu-shell{min-height:var(--game-h);height:var(--game-h);padding:10px 20px}
+.touch-device[data-game-rotated="true"] #menu .menu-main{width:330px;max-width:55%;padding:6px 0}
+.touch-device[data-game-rotated="true"] #menu .brand{padding:0 0 6px}.touch-device[data-game-rotated="true"] #menu .brand img{width:52px}
+.touch-device[data-game-rotated="true"] #menu .home-tagline,.touch-device[data-game-rotated="true"] #menu .menu-foot{display:none}
+.touch-device[data-game-rotated="true"] #menu .home-drive{min-height:44px;padding:7px 14px}
+.touch-device[data-game-rotated="true"] #menu .home-circuit{margin-top:8px;padding-top:7px}
+/* Phone HUD: lap, clock, position, map and the two pit actions. */
+.touch-device[data-touch-layout="phone"]{--drive-bottom:calc(var(--safe-b) + 12px);--drive-inset:8px;--drive-height:96px}
+.touch-device[data-touch-layout="phone"] #touch-steering{width:164px;height:96px;border-radius:32px;padding:12px}
+.touch-device[data-touch-layout="phone"] .touch-pedals{gap:10px}
+.touch-device[data-touch-layout="phone"] #touch-throttle{width:78px;height:96px;border-radius:28px}
+.touch-device[data-touch-layout="phone"] #touch-brake{width:64px;height:80px;font-size:9px}
+.touch-device[data-touch-layout="phone"] .touch-actions{gap:6px}
+.touch-device[data-touch-layout="phone"] .touch-actions button{width:52px;min-width:52px;height:44px;padding:4px;font-size:8px}
+.touch-device[data-touch-layout="phone"] #tl{left:var(--safe-l);top:var(--safe-t);width:130px;min-width:0;padding:6px 8px;clip-path:none}
+.touch-device[data-touch-layout="phone"] #session-type{font-size:8px;letter-spacing:.04em;margin-bottom:4px}
+.touch-device[data-touch-layout="phone"] #lap{font-size:14px}.touch-device[data-touch-layout="phone"] #val{display:none}
+.touch-device[data-touch-layout="phone"] #tc{top:var(--safe-t);left:50%;right:auto;transform:translateX(-50%);width:164px;min-width:0;padding:5px 8px}
+.touch-device[data-touch-layout="phone"] .hud-kicker{font-size:7px}.touch-device[data-touch-layout="phone"] #cur{font-size:17px}
+.touch-device[data-touch-layout="phone"] #dl{font-size:9px;margin-top:3px}
+.touch-device[data-touch-layout="phone"] #bst,.touch-device[data-touch-layout="phone"] #sec,.touch-device #rpm{display:none}
+.touch-device[data-touch-layout="phone"] #map{top:calc(var(--safe-t) + 52px);right:var(--safe-r);width:100px;height:88px}
+.touch-device[data-touch-layout="phone"] #gp-hud-stack{top:calc(var(--safe-t) + 60px);left:var(--safe-l);bottom:auto;width:164px;gap:0}
+.touch-device[data-touch-layout="phone"] #gp-hud-stack #gp-timing{display:none}
+.touch-device[data-touch-layout="phone"] #gp-hud-stack #gp-race-strip{padding:5px;gap:5px}
+.touch-device[data-touch-layout="phone"] #gp-hud-stack button{height:44px;min-height:44px;font-size:8px;padding:4px}
+.touch-device[data-touch-layout="phone"] #gp-tyre{display:none}
+.touch-device[data-touch-layout="phone"] #bc{left:50%;right:auto;bottom:var(--drive-bottom);transform:translateX(-50%);width:112px;padding:13px 8px 7px;clip-path:none}
+.touch-device[data-touch-layout="phone"] #spd{min-width:56px;font-size:27px}.touch-device[data-touch-layout="phone"] #gr{font-size:25px}
+.touch-device[data-touch-layout="phone"] #bc small{font-size:7px}
+.touch-device[data-touch-layout="phone"] #line-cue{bottom:calc(var(--drive-bottom) + 70px);font-size:9px;padding:4px 8px}
+.touch-device #touch-controls .touch-actions button{width:52px;min-width:52px;min-height:44px;font-size:8px;letter-spacing:0;padding:3px}
+.touch-device[data-touch-layout="tablet"] #touch-controls .touch-actions button{width:64px;min-width:64px;font-size:9px}
+/* Use the game's landscape size rather than portrait browser media queries. */
+.touch-device[data-touch-layout="phone"] .ov{height:var(--game-h)}
+.touch-device[data-touch-layout="phone"] .ov>.pn{max-height:100%;margin:auto;overflow:auto;padding:16px 22px}
+.touch-device[data-touch-layout="phone"] #menu .menu-shell{height:var(--game-h);min-height:0;padding:10px 20px}
+.touch-device[data-touch-layout="phone"] #menu .brand{padding:0 0 6px;flex-shrink:0}
+.touch-device[data-touch-layout="phone"] #menu .brand img{width:52px}
+.touch-device[data-touch-layout="phone"] #menu .menu-main{width:330px;max-width:55%;padding:6px 0;margin:0}
+.touch-device[data-touch-layout="phone"] #menu h1,.touch-device[data-touch-layout="phone"] #menu .home-tagline,.touch-device[data-touch-layout="phone"] #menu .menu-foot,.touch-device[data-touch-layout="phone"] #menu .home-online small{display:none}
+.touch-device[data-touch-layout="phone"] #menu .home-drive{min-height:44px;padding:7px 14px;font-size:16px}
+.touch-device[data-touch-layout="phone"] #menu .home-online{min-height:44px;margin-top:6px;padding:8px 14px;font-size:12px}
+.touch-device[data-touch-layout="phone"] #menu .home-circuit{min-height:44px;margin-top:6px;padding:6px 0}
+.touch-device[data-touch-layout="phone"] #menu .home-circuit small{font-size:7px;margin-bottom:3px}
+.touch-device[data-touch-layout="phone"] #menu .home-circuit strong{font-size:11px}
+.touch-device[data-touch-layout="phone"] #menu .team-partners{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-top:8px}
+.touch-device[data-touch-layout="phone"] #menu .team-partners img{width:100%;height:28px}
+.touch-device[data-touch-layout="phone"] .settings-shell{height:100%;display:flex;flex-direction:column}
+.touch-device[data-touch-layout="phone"] .screen-heading{padding-bottom:8px;flex-shrink:0}
+.touch-device[data-touch-layout="phone"] .screen-heading h2{font-size:20px;margin:4px 0 0}
+.touch-device[data-touch-layout="phone"] .settings-layout{min-height:0;flex:1;overflow:auto;grid-template-columns:104px minmax(0,1fr);gap:16px;padding:12px 0}
+.touch-device[data-touch-layout="phone"] .settings-tabs{display:block;border:0;border-right:1px solid var(--line);padding:0 8px 0 0}
+.touch-device[data-touch-layout="phone"] .settings-tabs button{font-size:10px;padding:10px 6px;gap:0}
+.touch-device[data-touch-layout="phone"] .settings-tabs button span,.touch-device[data-touch-layout="phone"] .settings-content h3,.touch-device[data-touch-layout="phone"] .settings-content .section-index{display:none}
+.touch-device[data-touch-layout="phone"] .control-row{padding:9px 0 12px;gap:6px 12px}
+.touch-device[data-touch-layout="phone"] .control-row>span{font-size:12px}
+.touch-device[data-touch-layout="phone"] .settings-links button{flex:1 1 130px;white-space:normal}
+.touch-device[data-touch-layout="phone"] .screen-footer{padding:8px 0 0;flex-shrink:0;gap:8px}
+.touch-device[data-touch-layout="phone"] #pause .pn{width:min(560px,100%);display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.touch-device[data-touch-layout="phone"] #pause .pn>.eyebrow,.touch-device[data-touch-layout="phone"] #pause h2,.touch-device[data-touch-layout="phone"] #pause-note{grid-column:1/-1;margin:0}
+.touch-device[data-touch-layout="phone"] #pause .pn>button{margin:0;padding:10px;font-size:11px}
+.touch-device[data-touch-layout="phone"] #pause-note:empty{display:none}
+@media(max-height:380px) and (orientation:landscape){
+ .touch-device{--drive-bottom:calc(var(--safe-b) + 8px);--drive-inset:4px;--drive-height:92px}
+ #touch-steering{width:152px;border-radius:30px;padding:12px}
+ .touch-pedals{gap:8px}.touch-pedals #touch-throttle{width:72px;height:92px}.touch-pedals #touch-brake{width:62px;height:76px;font-size:9px}
+ .touch-device #line-cue{bottom:calc(var(--drive-bottom) + 98px)}
+}
 </style></head><body data-screen="menu"><div id="scene-loading" role="status" aria-live="polite"><strong>MILANO RACING</strong><span id="load-progress">Preparing circuit</span><button id="load-retry" hidden onclick="location.reload()">Reload circuit</button></div>
 <div id="pit-transition" aria-hidden="true"></div><canvas id="c" aria-label="Milano Racing 3D game"></canvas><div id="vignette"></div>
 <button id="connection" title="Controller connection and Bluetooth instructions"><i class="status-dot"></i><span id="padbadge">Controller setup</span></button>
@@ -4371,6 +4476,8 @@ SOFTWARE. */
 await document.fonts.load("12px Michroma");
 try{Object.defineProperty(window,"device",{configurable:true,get:()=>device,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"touchInput",{configurable:true,get:()=>touchInput,set:()=>{}})}catch{}
+try{Object.defineProperty(window,"physicalViewportSize",{configurable:true,get:()=>physicalViewportSize,set:value=>{physicalViewportSize=value}})}catch{}
+try{Object.defineProperty(window,"updateTouchLayout",{configurable:true,get:()=>updateTouchLayout,set:value=>{updateTouchLayout=value}})}catch{}
 try{Object.defineProperty(window,"viewportSize",{configurable:true,get:()=>viewportSize,set:value=>{viewportSize=value}})}catch{}
 try{Object.defineProperty(window,"renderPixelRatio",{configurable:true,get:()=>renderPixelRatio,set:value=>{renderPixelRatio=value}})}catch{}
 try{Object.defineProperty(window,"lazyCircuitRecords",{configurable:true,get:()=>lazyCircuitRecords,set:value=>{lazyCircuitRecords=value}})}catch{}
@@ -4768,6 +4875,7 @@ try{Object.defineProperty(window,"smoothDriverSteering",{configurable:true,get:(
 try{Object.defineProperty(window,"driverSteeringCommand",{configurable:true,get:()=>driverSteeringCommand,set:value=>{driverSteeringCommand=value}})}catch{}
 try{Object.defineProperty(window,"playerSteeringLock",{configurable:true,get:()=>playerSteeringLock,set:value=>{playerSteeringLock=value}})}catch{}
 try{Object.defineProperty(window,"driverGripSupport",{configurable:true,get:()=>driverGripSupport,set:value=>{driverGripSupport=value}})}catch{}
+try{Object.defineProperty(window,"driverHandlingEnvelope",{configurable:true,get:()=>driverHandlingEnvelope,set:value=>{driverHandlingEnvelope=value}})}catch{}
 try{Object.defineProperty(window,"selectDriveDirection",{configurable:true,get:()=>selectDriveDirection,set:value=>{selectDriveDirection=value}})}catch{}
 try{Object.defineProperty(window,"combinedAxleForces",{configurable:true,get:()=>combinedAxleForces,set:value=>{combinedAxleForces=value}})}catch{}
 try{Object.defineProperty(window,"step",{configurable:true,get:()=>step,set:value=>{step=value}})}catch{}
@@ -4805,11 +4913,16 @@ try{Object.defineProperty(window,"padActionMenu",{configurable:true,get:()=>padA
 try{Object.defineProperty(window,"pollController",{configurable:true,get:()=>pollController,set:value=>{pollController=value}})}catch{}
 try{Object.defineProperty(window,"touchUI",{configurable:true,get:()=>touchUI,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"touchPointers",{configurable:true,get:()=>touchPointers,set:()=>{}})}catch{}
-try{Object.defineProperty(window,"steeringOrigin",{configurable:true,get:()=>steeringOrigin,set:value=>{steeringOrigin=value}})}catch{}
+try{Object.defineProperty(window,"touchCaptures",{configurable:true,get:()=>touchCaptures,set:()=>{}})}catch{}
+try{Object.defineProperty(window,"touchPedalRects",{configurable:true,get:()=>touchPedalRects,set:value=>{touchPedalRects=value}})}catch{}
 try{Object.defineProperty(window,"releaseTouch",{configurable:true,get:()=>releaseTouch,set:value=>{releaseTouch=value}})}catch{}
+try{Object.defineProperty(window,"touchSteeringValue",{configurable:true,get:()=>touchSteeringValue,set:value=>{touchSteeringValue=value}})}catch{}
+try{Object.defineProperty(window,"setTouchSteering",{configurable:true,get:()=>setTouchSteering,set:value=>{setTouchSteering=value}})}catch{}
+try{Object.defineProperty(window,"syncTouchPedals",{configurable:true,get:()=>syncTouchPedals,set:value=>{syncTouchPedals=value}})}catch{}
 try{Object.defineProperty(window,"touchActive",{configurable:true,get:()=>touchActive,set:value=>{touchActive=value}})}catch{}
 try{Object.defineProperty(window,"touchAudio",{configurable:true,get:()=>touchAudio,set:value=>{touchAudio=value}})}catch{}
 try{Object.defineProperty(window,"touchObserver",{configurable:true,get:()=>touchObserver,set:()=>{}})}catch{}
+try{Object.defineProperty(window,"touchViewportWidth",{configurable:true,get:()=>touchViewportWidth,set:value=>{touchViewportWidth=value}})}catch{}
 try{Object.defineProperty(window,"renderContextLost",{configurable:true,get:()=>renderContextLost,set:value=>{renderContextLost=value}})}catch{}
 try{Object.defineProperty(window,"GK",{configurable:true,get:()=>GK,set:()=>{}})}catch{}
 try{Object.defineProperty(window,"createDriveSoundModel",{configurable:true,get:()=>createDriveSoundModel,set:value=>{createDriveSoundModel=value}})}catch{}
@@ -5044,7 +5157,14 @@ await MilanoBoot.checkpoint("Build scene");
 device.mobile=device.touch||device.apple;
 await MilanoBoot.checkpoint("If scene");
 if(device.mobile)document.documentElement.classList.add('touch-device');
-function viewportSize(){return{w:Math.max(1,Math.round(document.documentElement.clientWidth||innerWidth)),h:Math.max(1,Math.round(window.visualViewport?.height||innerHeight))};}
+function physicalViewportSize(){return{w:Math.max(1,Math.round(document.documentElement.clientWidth||innerWidth)),h:Math.max(1,Math.round(window.visualViewport?.height||innerHeight))};}
+function updateTouchLayout(){const size=physicalViewportSize(),layout=Math.min(size.w,size.h)>=600?'tablet':'phone';device.touchLayout=layout;device.rotated=device.mobile&&layout==='phone'&&size.h>size.w;const root=document.documentElement;root.dataset.touchLayout=layout;root.dataset.gameRotated=String(device.rotated);root.style.setProperty('--game-w',(device.rotated?size.h:size.w)+'px');root.style.setProperty('--game-h',(device.rotated?size.w:size.h)+'px');root.style.setProperty('--physical-w',size.w+'px');}
+await MilanoBoot.checkpoint("Build updateTouchLayout");
+updateTouchLayout();await MilanoBoot.checkpoint("Build addEventListener");
+addEventListener('resize',updateTouchLayout);
+await MilanoBoot.checkpoint("Build addEventListener");
+window.visualViewport?.addEventListener('resize',updateTouchLayout);
+function viewportSize(){const size=physicalViewportSize();return device.mobile&&Math.min(size.w,size.h)<600&&size.h>size.w?{w:size.h,h:size.w}:size;}
 function renderPixelRatio(size=viewportSize()){const {w,h}=size,hero=typeof state!=='undefined'&&state==='menu',pixels=hero?3200000:1800000,cap=device.mobile||hero?Math.sqrt(pixels/(w*h)):1.75;return Math.min(devicePixelRatio||1,hero?2:S.q?1:graphicsPreset==='ultra'&&!device.mobile?1.75:1.5,cap);}
 
 // Keep heavy unselected venue data as strings. Only the selected circuit is decoded.
@@ -7265,11 +7385,16 @@ function smoothDriverSteering(current,target,speed,dt,keyboard,assisted=false){
  const next=current+clamp(change,-slew*dt,slew*dt);
  return Math.abs(next)<.0001?0:clamp(next,-1,1);
 }
-function driverSteeringCommand(input,keyboard,sensitivity,speed=50){
+function driverSteeringCommand(input,keyboard,sensitivity,speed=50,assisted=false){
  // Sensitivity changes the centre response even when the tyre-based lock is
  // limiting the rack. Retain full lock for hairpins and deliberate long holds.
  const magnitude=Math.abs(input),gentle=clamp((1.25-sensitivity)/.65,0,1),fast=clamp((Math.abs(speed)-12)/38,0,1),linear=(keyboard?.88:.96)*(1-fast)+(keyboard?.42:.78)*fast;
- return Math.sign(input)*(magnitude*(linear-.12*gentle)+(1-linear+.12*gentle)*magnitude*magnitude*magnitude);
+ const base=magnitude*(linear-.12*gentle)+(1-linear+.12*gentle)*magnitude*magnitude*magnitude;
+ // Keep the fine-control centre, but let a deliberate partial stick/thumb turn
+ // use the rack. Previously players needed near-full input for ordinary bends.
+ const u=clamp((magnitude-.08)/.40,0,1),commit=u*u*(3-2*u);
+ const help=assisted?1.15*(1-.4*fast)*(1-.15*gentle)*magnitude*(1-magnitude)*commit:0;
+ return Math.sign(input)*clamp(base+help,0,1);
 }
 // Driver rack is independent of the racing-line planner. Sensitivity shapes
 // small inputs, while a deliberate held input retains the full turning circle.
@@ -7279,6 +7404,11 @@ function playerSteeringLock(e,speed){return Math.min(.64/(1+(speed/40)**2),Math.
 // Road surface and tyre condition still scale the underlying tyre forces.
 function driverGripSupport(input,speed,enabled){
  return enabled?clamp((Math.abs(input)-.12)/.65,0,1)*clamp((speed-6)/10,0,1)*(1-.65*clamp((speed-45)/35,0,1)):0;
+}
+function driverHandlingEnvelope(e,command,speed,enabled){
+ const support=driverGripSupport(command,speed,enabled),reserve=1+.55*support;
+ e.mu*=reserve;e.maxLat=Math.min(VEH.maxLateralAcceleration*1.12,e.maxLat*reserve);
+ return support;
 }
 function selectDriveDirection(car,gas,brake,dt){
  if(car.reverse===undefined){car.reverse=false;car.reverseArmed=Math.abs(car.vx)<.35;car.reverseHold=0}
@@ -7310,12 +7440,12 @@ function step(dt){
  const along=Math.cos(c.h)*tx[c.idx]+Math.sin(c.h)*tz[c.idx],ia=(c.idx+N-1)%N,ib=(c.idx+1)%N,centreK=(tx[c.idx]*(tz[ib]-tz[ia])-tz[c.idx]*(tx[ib]-tx[ia]))/(2*LEN/N),metric=Math.max(.25,1-centreK*c.d),grade=(CIRCUIT.elevation?.grade[c.idx]||0)*along/metric,verticalCurvature=(CIRCUIT.elevation?.verticalCurvature[c.idx]||0)*along*along/(metric*metric);
  const bank=(CIRCUIT.bank?.[c.idx]||0)*along;
  const m=VEH.mass,g=VEH.gravity,a=VEH.frontCG,b=VEH.rearCG,L=VEH.wheelbase,Iz=VEH.yawInertia,v=c.vx,e=vehicleEnvelope(v,S,mu,grade,verticalCurvature,bank);
- const support=driverGripSupport(inp.s,v,assisted),gripReserve=1+.22*support;
- e.mu*=gripReserve;const maxLat=e.maxLat=Math.min(VEH.maxLateralAcceleration*1.08,e.maxLat*gripReserve);
+ const command=driverSteeringCommand(inp.s,keyboard,S.steer,v,assisted);
+ const support=driverHandlingEnvelope(e,command,v,assisted),maxLat=e.maxLat;
  c.cornerBrake=0;
  // Only the driver's brake suppresses throttle. Assistance never presses it.
  if(!reversing)inp.t=Math.min(inp.t,Math.max(0,1-inp.b*20));
- c.st=driverSteeringCommand(inp.s,keyboard,S.steer,v)*playerSteeringLock(e,v);
+ c.st=command*playerSteeringLock(e,v);
  if(reversing){
   const targetSpeed=inp.t>.05?0:-8*inp.b,rate=inp.t>.05?10:inp.b>.05?3.8:2.5;
   c.vx+=clamp(targetSpeed-c.vx,-rate*dt,rate*dt);c.vy=0;
@@ -7476,27 +7606,32 @@ await MilanoBoot.checkpoint("Build scene");
 touchUI.innerHTML='<div class="touch-actions"><button id="touch-camera" aria-label="Change camera">CAM</button><button id="touch-reset" aria-label="Reset car">RESET</button><button id="touch-pause" aria-label="Pause race">Ⅱ</button></div><div id="touch-steering" role="slider" aria-label="Steering" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0"><span aria-hidden="true">‹</span><i></i><span aria-hidden="true">›</span></div><div class="touch-pedals"><button id="touch-brake" aria-label="Brake">BRAKE</button><button id="touch-throttle" aria-label="Accelerate">GO</button></div>';
 await MilanoBoot.checkpoint("Build append");
 document.body.append(touchUI);
-await MilanoBoot.checkpoint("Prepare touchPointers");
-const touchPointers=new Map();await MilanoBoot.checkpoint("Prepare steeringOrigin");
-let steeringOrigin=0;
-function releaseTouch(){touchPointers.clear();Object.assign(touchInput,{s:0,t:0,b:0});touchUI.querySelectorAll('.pressed').forEach(e=>e.classList.remove('pressed'));$('touch-steering').style.setProperty('--steer','0px');$('touch-steering').setAttribute('aria-valuenow','0');}
+await MilanoBoot.checkpoint("Prepare touchPointers, touchCaptures");
+const touchPointers=new Map(),touchCaptures=new Map();await MilanoBoot.checkpoint("Prepare touchPedalRects");
+let touchPedalRects=null;
+function releaseTouch(){touchPointers.clear();Object.assign(touchInput,{s:0,t:0,b:0});for(const [id,el] of touchCaptures)if(el.hasPointerCapture(id))el.releasePointerCapture(id);touchCaptures.clear();touchUI.querySelectorAll('.pressed').forEach(e=>e.classList.remove('pressed'));$('touch-steering').style.setProperty('--steer','0px');$('touch-steering').setAttribute('aria-valuenow','0');}
+function touchSteeringValue(x,rect){const range=Math.min(device.touchLayout==='tablet'?66:52,rect.width*.34),raw=clamp((x-rect.left-rect.width/2)/range,-1,1);return{value:Math.sign(raw)*Math.max(0,(Math.abs(raw)-.035)/.965),travel:raw*range};}
+function setTouchSteering(e,el){const r=el.getBoundingClientRect(),v=touchSteeringValue(device.rotated?e.clientY:e.clientX,device.rotated?{left:r.top,width:r.height}:r);touchInput.s=v.value;el.style.setProperty('--steer',v.travel+'px');el.setAttribute('aria-valuenow',String(Math.round(v.value*100)));}
+function syncTouchPedals(){for(const [id,key]of[['touch-throttle','t'],['touch-brake','b']]){touchInput[key]=[...touchPointers.values()].includes(key)?1:0;$(id).classList.toggle('pressed',!!touchInput[key]);}}
 function touchActive(){return !document.hidden&&(state==='race'||state==='count')&&document.body.dataset.screen==='none'||!document.hidden&&state==='count';}
 function touchAudio(){audioInit();if(typeof AC!=='undefined'&&AC?.state!=='running')AC?.resume().catch(()=>{});}
 await MilanoBoot.checkpoint("ForOf scene");
 for(const [id,key]of[['touch-throttle','t'],['touch-brake','b'],['touch-steering','s']]){if(MilanoBoot.shouldYield())await MilanoBoot.checkpoint();
  const el=$(id);
- el.addEventListener('pointerdown',e=>{if(!touchActive()||[...touchPointers.values()].includes(key))return;e.preventDefault();touchAudio();el.setPointerCapture(e.pointerId);touchPointers.set(e.pointerId,key);el.classList.add('pressed');if(key==='s')steeringOrigin=e.clientX;else touchInput[key]=1;});
- el.addEventListener('pointermove',e=>{if(touchPointers.get(e.pointerId)!==key||key!=='s')return;e.preventDefault();const range=Math.min(76,el.clientWidth*.37),v=clamp((e.clientX-steeringOrigin)/range,-1,1);touchInput.s=Math.sign(v)*Math.pow(Math.max(0,(Math.abs(v)-.025)/.975),1.35);el.style.setProperty('--steer',(v*range)+'px');el.setAttribute('aria-valuenow',String(Math.round(touchInput.s*100)));});
- const up=e=>{if(touchPointers.get(e.pointerId)!==key)return;touchPointers.delete(e.pointerId);touchInput[key]=0;el.classList.remove('pressed');if(key==='s'){el.style.setProperty('--steer','0px');el.setAttribute('aria-valuenow','0');}};
+ el.addEventListener('pointerdown',e=>{if(!touchActive()||e.button>0||[...touchPointers.values()].includes(key))return;e.preventDefault();touchAudio();el.setPointerCapture(e.pointerId);touchCaptures.set(e.pointerId,el);touchPointers.set(e.pointerId,key);el.classList.add('pressed');if(key==='s')setTouchSteering(e,el);else{touchPedalRects=[['t',$('touch-throttle').getBoundingClientRect()],['b',$('touch-brake').getBoundingClientRect()]];syncTouchPedals();}});
+ el.addEventListener('pointermove',e=>{const held=touchPointers.get(e.pointerId);if(!held)return;e.preventDefault();if(held==='s')setTouchSteering(e,el);else{for(const [pedal,r] of touchPedalRects||[])if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom)touchPointers.set(e.pointerId,pedal);syncTouchPedals();}});
+ const up=e=>{const held=touchPointers.get(e.pointerId);if(!held)return;touchPointers.delete(e.pointerId);touchCaptures.delete(e.pointerId);if(held==='s'){touchInput.s=0;el.classList.remove('pressed');el.style.setProperty('--steer','0px');el.setAttribute('aria-valuenow','0');}else syncTouchPedals();};
  for(const event of['pointerup','pointercancel','lostpointercapture'])el.addEventListener(event,up);
 }
-await MilanoBoot.checkpoint("Build scene");
-$('touch-pause').onclick=()=>{releaseTouch();pause();};await MilanoBoot.checkpoint("Build scene");
-$('touch-camera').onclick=()=>cycleCamera();await MilanoBoot.checkpoint("Build scene");
-$('touch-reset').onclick=()=>{releaseTouch();resetCar();};
+await MilanoBoot.checkpoint("ForOf scene");
+for(const [id,action]of[['touch-pause',()=>{releaseTouch();pause()}],['touch-camera',()=>cycleCamera()],['touch-reset',()=>{releaseTouch();resetCar()}]]){if(MilanoBoot.shouldYield())await MilanoBoot.checkpoint();const el=$(id);el.addEventListener('pointerup',e=>{if(e.button>0)return;e.preventDefault();action()});el.onclick=e=>{if(e.detail===0)action()};}
 await MilanoBoot.checkpoint("Prepare touchObserver");
 const touchObserver=new MutationObserver(()=>{const active=touchActive();touchUI.hidden=!device.mobile||!active;if(!active)releaseTouch();});await MilanoBoot.checkpoint("Build observe");
 touchObserver.observe(document.body,{attributes:true,attributeFilter:['data-screen']});
+await MilanoBoot.checkpoint("Prepare touchViewportWidth");
+let touchViewportWidth=viewportSize().w;
+await MilanoBoot.checkpoint("Build addEventListener");
+addEventListener('resize',()=>{const width=viewportSize().w;if(width!==touchViewportWidth)releaseTouch();touchViewportWidth=width;if(touchPointers.size)touchPedalRects=[['t',$('touch-throttle').getBoundingClientRect()],['b',$('touch-brake').getBoundingClientRect()]];});
 await MilanoBoot.checkpoint("Build addEventListener");
 addEventListener('blur',releaseTouch);await MilanoBoot.checkpoint("Build addEventListener");
 addEventListener('pagehide',releaseTouch);await MilanoBoot.checkpoint("Build addEventListener");
@@ -8489,7 +8624,7 @@ function gpTimingHud(){const w=GP.weekend;if(!w)return;const p=w.player,qual=w.p
 
  const cls=qual&&!p.valid?'bad':'';if(hudNode('val').className!==cls)hudNode('val').className=cls;
 
- hudText('dl','POSITION '+(GP.position||1)+' OF 22');hudStyle('dl','color','var(--tx2)');
+ hudText('dl',(device.mobile?'P ':'POSITION ')+(GP.position||1)+(device.mobile?' / 22':' OF 22'));hudStyle('dl','color','var(--tx2)');
 
 }
 
@@ -8501,7 +8636,7 @@ function gpHud(force=false){const w=GP.weekend;if(!w)return;const now=performanc
 
  if(GP.lastTimingHTML!==timingHTML){$('gp-timing').innerHTML=timingHTML;GP.lastTimingHTML=timingHTML}
 
- hudText('gp-tyre',RaceWeekend.TYRES[p.tyre].name+' · '+Math.round((1-p.wear)*100)+'%');hudText('gp-pit-call',p.pit?'PIT ASSIST':p.requested?'BOX THIS LAP':'P or RB · BOX');hudText('gp-next-tyre','T or LB · '+RaceWeekend.TYRES[GP.pitChoice].name);hudText('gp-strategy-status',qual?'FINISH YOUR LAP AFTER THE FLAG':w.cfg.twoCompounds?(p.used.size>=2?'COMPOUND RULE MET':'USE TWO COMPOUNDS'):'OPEN STRATEGY');$('gp-pit-call').classList.toggle('called',p.requested);}
+ hudText('gp-tyre',RaceWeekend.TYRES[p.tyre].name+' · '+Math.round((1-p.wear)*100)+'%');hudText('gp-pit-call',device.mobile?(p.pit?'PIT':p.requested?'BOXING':'BOX'):(p.pit?'PIT ASSIST':p.requested?'BOX THIS LAP':'P or RB · BOX'));hudText('gp-next-tyre',(device.mobile?'':'T or LB · ')+RaceWeekend.TYRES[GP.pitChoice].name);hudText('gp-strategy-status',qual?'FINISH YOUR LAP AFTER THE FLAG':w.cfg.twoCompounds?(p.used.size>=2?'COMPOUND RULE MET':'USE TWO COMPOUNDS'):'OPEN STRATEGY');$('gp-pit-call').classList.toggle('called',p.requested);}
 
 // Finishing Q2/Q3 after elimination must leave input and paint time available.
 async function gpSimulateRemainingQualifying(w,current,yieldFrame,now,onStage){

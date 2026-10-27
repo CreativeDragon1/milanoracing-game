@@ -13,11 +13,16 @@ function smoothDriverSteering(current,target,speed,dt,keyboard,assisted=false){
  const next=current+clamp(change,-slew*dt,slew*dt);
  return Math.abs(next)<.0001?0:clamp(next,-1,1);
 }
-function driverSteeringCommand(input,keyboard,sensitivity,speed=50){
+function driverSteeringCommand(input,keyboard,sensitivity,speed=50,assisted=false){
  // Sensitivity changes the centre response even when the tyre-based lock is
  // limiting the rack. Retain full lock for hairpins and deliberate long holds.
  const magnitude=Math.abs(input),gentle=clamp((1.25-sensitivity)/.65,0,1),fast=clamp((Math.abs(speed)-12)/38,0,1),linear=(keyboard?.88:.96)*(1-fast)+(keyboard?.42:.78)*fast;
- return Math.sign(input)*(magnitude*(linear-.12*gentle)+(1-linear+.12*gentle)*magnitude*magnitude*magnitude);
+ const base=magnitude*(linear-.12*gentle)+(1-linear+.12*gentle)*magnitude*magnitude*magnitude;
+ // Keep the fine-control centre, but let a deliberate partial stick/thumb turn
+ // use the rack. Previously players needed near-full input for ordinary bends.
+ const u=clamp((magnitude-.08)/.40,0,1),commit=u*u*(3-2*u);
+ const help=assisted?1.15*(1-.4*fast)*(1-.15*gentle)*magnitude*(1-magnitude)*commit:0;
+ return Math.sign(input)*clamp(base+help,0,1);
 }
 // Driver rack is independent of the racing-line planner. Sensitivity shapes
 // small inputs, while a deliberate held input retains the full turning circle.
@@ -27,6 +32,11 @@ function playerSteeringLock(e,speed){return Math.min(.64/(1+(speed/40)**2),Math.
 // Road surface and tyre condition still scale the underlying tyre forces.
 function driverGripSupport(input,speed,enabled){
  return enabled?clamp((Math.abs(input)-.12)/.65,0,1)*clamp((speed-6)/10,0,1)*(1-.65*clamp((speed-45)/35,0,1)):0;
+}
+function driverHandlingEnvelope(e,command,speed,enabled){
+ const support=driverGripSupport(command,speed,enabled),reserve=1+.55*support;
+ e.mu*=reserve;e.maxLat=Math.min(VEH.maxLateralAcceleration*1.12,e.maxLat*reserve);
+ return support;
 }
 function selectDriveDirection(car,gas,brake,dt){
  if(car.reverse===undefined){car.reverse=false;car.reverseArmed=Math.abs(car.vx)<.35;car.reverseHold=0}
@@ -58,12 +68,12 @@ function step(dt){
  const along=Math.cos(c.h)*tx[c.idx]+Math.sin(c.h)*tz[c.idx],ia=(c.idx+N-1)%N,ib=(c.idx+1)%N,centreK=(tx[c.idx]*(tz[ib]-tz[ia])-tz[c.idx]*(tx[ib]-tx[ia]))/(2*LEN/N),metric=Math.max(.25,1-centreK*c.d),grade=(CIRCUIT.elevation?.grade[c.idx]||0)*along/metric,verticalCurvature=(CIRCUIT.elevation?.verticalCurvature[c.idx]||0)*along*along/(metric*metric);
  const bank=(CIRCUIT.bank?.[c.idx]||0)*along;
  const m=VEH.mass,g=VEH.gravity,a=VEH.frontCG,b=VEH.rearCG,L=VEH.wheelbase,Iz=VEH.yawInertia,v=c.vx,e=vehicleEnvelope(v,S,mu,grade,verticalCurvature,bank);
- const support=driverGripSupport(inp.s,v,assisted),gripReserve=1+.22*support;
- e.mu*=gripReserve;const maxLat=e.maxLat=Math.min(VEH.maxLateralAcceleration*1.08,e.maxLat*gripReserve);
+ const command=driverSteeringCommand(inp.s,keyboard,S.steer,v,assisted);
+ const support=driverHandlingEnvelope(e,command,v,assisted),maxLat=e.maxLat;
  c.cornerBrake=0;
  // Only the driver's brake suppresses throttle. Assistance never presses it.
  if(!reversing)inp.t=Math.min(inp.t,Math.max(0,1-inp.b*20));
- c.st=driverSteeringCommand(inp.s,keyboard,S.steer,v)*playerSteeringLock(e,v);
+ c.st=command*playerSteeringLock(e,v);
  if(reversing){
   const targetSpeed=inp.t>.05?0:-8*inp.b,rate=inp.t>.05?10:inp.b>.05?3.8:2.5;
   c.vx+=clamp(targetSpeed-c.vx,-rate*dt,rate*dt);c.vy=0;

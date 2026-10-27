@@ -1,21 +1,21 @@
 {
   "passed": true,
-  "fileSHA256": "bb0438ce965156e8061612a16648f35629348ae69c05461ba1d8a5c1c6b48b1f",
+  "fileSHA256": "169cdaba43ea02bb4fe70e7673b93f5be9a0aae6fccc7f1cc2385d2ba46d2d65",
   "hairpin": 480,
   "heading": 2.2398047686511027,
   "profileFinite": true,
   "lineHidden": true,
   "keyboard": {
-    "heading": 2.8572095697263555,
-    "speed": 11.366883798588608,
+    "heading": 3.044497403515673,
+    "speed": 9.591900383764568,
     "steering": 0.9965125169284503,
     "brake": 0,
     "throttle": 1,
     "finite": true
   },
   "controller": {
-    "headingChange": 0.06894302207008862,
-    "steering": 0.42742697194639223
+    "headingChange": 0.12329109839637056,
+    "steering": 0.4274237463040059
   },
   "setup": {
     "key": "0.9:1:1:0.85",

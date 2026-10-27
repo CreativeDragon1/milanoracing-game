@@ -7,7 +7,7 @@ function fixture(){
  const p={id:0,name:'YOU',progress:40,lapStart:8,best:90,outlap:false,valid:true,tyre:'soft',wear:0,used:new Set(),pit:null};
  const weekend={player:p,clock:54,duration:300,stage:0,phase:'qualifying',cfg:{qualifying:'full'},standings:()=>[p]};
  const c={console,$:get,document:{querySelectorAll:()=>[]},performance:{now:()=>c.now},now:140,GP:{weekend,lastHUD:0,pitChoice:'hard'},MP:{active:false},race:{started:true,t:54,lapStart:8,lapNo:1,valid:true,best:90000,pbOld:Infinity,laps:[],ref:null,last:null},c:{vx:30,gear:3,idx:0},driveSound:{state:{rpm:9000}},inp:{t:.5,b:0,s:0},mode:'qual',LEN:5000,PIT:{speedLimitKmh:80},RaceWeekend:{TYRES:{soft:{name:'SOFT',letter:'S',colour:'#f00'},hard:{name:'HARD',letter:'H'}}},clamp:(n,a,b)=>Math.max(a,Math.min(b,n)),drawCircuitMap(){},gph:[],nodes,get,writes:()=>writes,kicker};
- vm.createContext(c);return c;
+ c.device={mobile:false};vm.createContext(c);return c;
 }
 function install(c,before){
  vm.runInContext(before?extract(old,'const fmt=ms=>','function finish(){'):fs.readFileSync('upgrade/src/time-format.js','utf8'),c);
@@ -29,5 +29,6 @@ after.GP.weekend.player.outlap=true;vm.runInContext('hud()',after);assert.equal(
 after.GP.weekend=null;after.MP.active=true;after.get('session-type').textContent='ONLINE RACE';after.get('cur').textContent='2:31.100';vm.runInContext('base()',after);assert.equal(after.get('session-type').textContent,'ONLINE RACE');assert.equal(after.get('cur').textContent,'2:31.100');
 after.MP.active=false;after.mode='pr';vm.runInContext('base()',after);assert.equal(after.get('session-type').textContent,'PRACTICE');assert.equal(after.kicker.textContent,'CURRENT LAP');
 const writes=after.writes();for(let i=0;i<100;i++)vm.runInContext('base()',after);assert.equal(after.writes(),writes,'Unchanged telemetry must not rewrite text nodes');
+const phone=fixture();phone.device.mobile=true;install(phone,false);vm.runInContext('hud();gpHud(true)',phone);assert.match(phone.get('dl').textContent,/^P \d+ \/ 22$/);assert.equal(phone.get('gp-pit-call').textContent,'BOX');assert.equal(phone.get('gp-next-tyre').textContent,'HARD');
 const report={passed:true,baselineFlickerReproduced:true,checks:['120 alternating HUD updates retain Q1/countdown/push status','Minute rounding and nonnegative clock','Pit-to-track timer reads session clock','Out lap display','Online timing ownership','Return to practice','No unchanged text writes'],scope:'Actual generated baseline HUD and updated source functions with controlled DOM and simulation clocks; browser integration still requires rendered verification.'};
 fs.writeFileSync('upgrade/qa/hud-timing.json',JSON.stringify(report,null,2));console.log(report);

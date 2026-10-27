@@ -28,6 +28,10 @@ assert surfaces['passed'] and surfaces['fileSHA256']==artifact_sha,'Pit surface 
 assert {r['id'] for r in surfaces['reports']}==set(json.loads((U/'src/world-tour-data.json').read_text())),'Pit surface checks must cover every circuit'
 for name in ['beginner-handling','beginner-circuits','input-assist']:
  assert json.loads((U/f'qa/{name}.json').read_text())['passed'],name
+assert json.loads((U/'qa/turn-in.json').read_text())['passed'],'Turn-in regressions'
+for name in ['touch-driving-browser','webkit-mobile']:
+ report=json.loads((U/f'qa/{name}.json').read_text())
+ assert report['passed'] and report['fileSHA256']==artifact_sha,name+' must match this HTML'
 for name in ['qualifying-responsive','qualifying-browser-responsive','hud-timing','resize-render-equivalence','human-handling','player-controls-browser','pit-crew-browser','pit-skip','live-updates','update-routes']:
  assert json.loads((U/f'qa/{name}.json').read_text())['passed'],name
 def archive(name,entries):
@@ -91,7 +95,7 @@ print('Extracted source build matches both release outputs byte-for-byte.',flush
 standalone=out/'Milano Racing.html';shutil.copy2(U/'qa/standalone.html',standalone)
 active_livery=json.loads((U/'assets/livery/manifest.json').read_text())
 assert json.loads((U/'qa/livery.json').read_text())['atlasSHA256']==active_livery['artworkSHA256']
-manifest={'build':'Milano Racing 3.3 input-led handling and pit clearance','liveryRevision':active_livery['revision'],'artworkSHA256':active_livery['artworkSHA256'],'date':datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date().isoformat(),'privateDeploymentDefault':True,'published':False,'sourceRebuild':'Extracted ZIP produces byte-identical standalone HTML and hosted index','files':[]}
+manifest={'build':'Milano Racing 3.4 touch handling and phone landscape','liveryRevision':active_livery['revision'],'artworkSHA256':active_livery['artworkSHA256'],'date':datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date().isoformat(),'privateDeploymentDefault':True,'published':False,'sourceRebuild':'Extracted ZIP produces byte-identical standalone HTML and hosted index','files':[]}
 for p in artifacts+[server,source,standalone]:
  dest=downloads/p.name
  if dest.exists() and sha(dest)!=sha(p):

@@ -17,7 +17,7 @@ for(const id of Object.keys(tour)){
    const look=5+m.c.vx*.4,j=wrap(m.c.idx+Math.max(1,Math.round(look/(d.length/n)))),dx=d.x[j]-m.c.x,dz=d.z[j]-m.c.z;
    const angle=Math.atan2(Math.sin(Math.atan2(dz,dx)-m.c.h),Math.cos(Math.atan2(dz,dx)-m.c.h));
    const desired=Math.atan(3*2*Math.sin(angle)/Math.max(2,Math.hypot(dx,dz)));
-   let lo=-1,hi=1;for(let k=0;k<20;k++){const mid=(lo+hi)/2,e=m.envelope(m.c.vx);e.maxLat=Math.min(48*1.08,e.maxLat*(1+.22*m.driverGripSupport(mid,m.c.vx,true)));if(m.driverSteeringCommand(mid,false,.85,m.c.vx)*m.playerSteeringLock(e,m.c.vx)<desired)lo=mid;else hi=mid}
+   let lo=-1,hi=1;for(let k=0;k<20;k++){const mid=(lo+hi)/2,e=m.envelope(m.c.vx),command=m.driverSteeringCommand(mid,false,.85,m.c.vx,true);m.driverHandlingEnvelope(e,command,m.c.vx,true);if(command*m.playerSteeringLock(e,m.c.vx)<desired)lo=mid;else hi=mid}
    const s=(lo+hi)/2,raw=Math.abs(s)<.001?0:Math.sign(s)*(.12+.88*Math.abs(s));
    const ahead=wrap(m.c.idx+Math.round(m.c.vx*.45/(d.length/n))),next=wrap(ahead+1),target=m.reference.speed[ahead]*.90;
    const feed=Math.min(0,(m.reference.speed[next]**2-m.reference.speed[ahead]**2)*.81/(2*m.reference.ds[ahead]));

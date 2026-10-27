@@ -120,7 +120,7 @@ for marker,name in [('__ZANDVOORT_DUNE_COVER__','zandvoort-dune-cover.png'),('__
     js=js.replace(marker,'data:'+('image/webp' if name.endswith('.webp') else 'image/png' if name.endswith('.png') else 'image/jpeg')+';base64,'+base64.b64encode((ROOT/'upgrade/assets'/name).read_bytes()).decode())
 logo='data:image/png;base64,'+base64.b64encode((V/'team-logo.png').read_bytes()).decode()
 js=js.replace('__LOGO_DATA__',logo)
-skin='\n'.join((SRC/name).read_text(encoding='utf-8') for name in ['interface.css','tour.css','home.css','interface-v2.css','mobile.css','typography.css'])
+skin='\n'.join((SRC/name).read_text(encoding='utf-8') for name in ['interface.css','tour.css','home.css','interface-v2.css','mobile.css','typography.css','touch-layout.css'])
 skin=re.sub(r"@font-face\{[^{}]*__FONT_(?:HUD|DM|BARLOW|BARLOW_ITALIC)__[^{}]*\}","",skin)
 for marker,name in [('__FONT_MICHROMA__','Michroma.ttf')]:
     skin=skin.replace(marker,'data:font/ttf;base64,'+base64.b64encode((ROOT/'upgrade/assets/fonts'/name).read_bytes()).decode())
